@@ -1,1416 +1,996 @@
 import React, { useState, useEffect } from "react";
-import MainLayout from "@/components/layout/MainLayout";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { 
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage
-} from "@/components/ui/form";
-import { 
-  CheckCircle, 
-  Shield, 
-  Home, 
-  ChevronRight, 
-  FileCheck, 
-  Zap, 
-  CircleDollarSign, 
-  BarChart3, 
-  Calculator, 
-  Battery, 
-  Sun, 
-  Award, 
-  AlertTriangle, 
-  Building, 
-  TrendingUp,
-  Thermometer,
-  Wrench,
-  Settings,
-  Layers,
-  Power
-} from "lucide-react";
-
-// Import the lithium battery service images
-import solarInstallImage from "@assets/13-500x500.jpg";
-import batteryBankImage from "@assets/20210121_103322-400x400.jpg";
-import inverterSystemImage from "@assets/98453708_3165453150160953_3940467511501258752_n-298x400.jpg";
-import installationTeamImage from "@assets/400617335_882191187089939_3988264444007076062_n-500x375.jpg";
-import solarFarmImage from "@assets/andreas-gucklhorn-Ilpf2eUPpUE-unsplash-500x375.jpg";
-import batteryStorageImage from "@assets/Batt-3-300x400.jpg";
-import residentialSolarImage from "@assets/Frame-5-500x282.webp";
-import technicianImage from "@assets/Greg-with-panel.jpg";
-import solArkSystemImage from "@assets/491844865_1271014964874224_7004732250107002194_n.jpg";
-import energyConservationImage from "@assets/Advance-Power-Redding-Energy-Conservation-Techniques.jpg";
-import solarPanelsAerialImage from "@assets/guillherme-schneider-ecIS-bfYSG8-unsplash-300x400.jpg";
-import forestSolarImage from "@assets/moritz-kindler-gD8IO0E4OZM-unsplash-267x400.jpg";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
-import { useToast } from "@/hooks/use-toast";
-import { z } from "zod";
+import { Battery, Zap, Shield, Award, Activity, AlertTriangle, CheckCircle, TrendingUp, Cpu, Thermometer, Clock, ArrowRight, Beaker, Database, Lock, Gauge, Wrench, BarChart, DollarSign, Package, Truck, FileCheck, Phone, ChevronRight, AlertCircle, CircuitBoard, Flame, Snowflake, Droplets, Wind, Sun, Moon, Cloud, CloudRain, Timer, Settings, Info, Calculator, TrendingDown, Briefcase, Factory, Building2, Home, Car, Smartphone, Laptop, Server, HardDrive, Wifi, Radio, Microscope, TestTube, Scale, BookOpen, GraduationCap, Globe, MapPin, Navigation, Compass, Target, Crosshair, Eye, Search, Filter, Layers, Grid, Box, Cube, Hexagon, Triangle, Square, Circle, Star, Heart, ThumbsUp, Users, UserCheck, UserPlus, Mail, MessageSquare, Send, Bell, BellOff, Volume2, VolumeX, Mic, MicOff, Video, VideoOff, Camera, CameraOff, Image, Film, Music, Headphones, Speaker, Monitor, Tv, Projector, Watch, Tablet, Power, Leaf, Component } from "lucide-react";
 import { motion } from "framer-motion";
-import SEOHead from "@/components/SEOHead";
-import { preloadCriticalImages } from "@/lib/image-helper";
-import { generateStructuredData, getIndustryKeywords } from "@/lib/seo-helper";
-import SolarRescueTimelineSection from "@/sections/SolarRescueTimelineSection";
-
-// Define schema for Lithium Battery form
-const lithiumBatteryFormSchema = z.object({
-  firstName: z.string().min(1, "First name is required"),
-  lastName: z.string().min(1, "Last name is required"),
-  email: z.string().email("Invalid email address"),
-  phone: z.string().min(10, "Phone number is required"),
-  address: z.string().min(1, "Address is required"),
-  city: z.string().min(1, "City is required"),
-  state: z.string().min(1, "State is required"),
-  zipCode: z.string().min(5, "ZIP code is required"),
-  propertyType: z.string().min(1, "Property type is required"),
-  propertySize: z.string().optional().nullable(),
-  constructionMaterial: z.string().optional(),
-  roofMaterial: z.string().optional(),
-  yearBuilt: z.coerce.number().optional(),
-  waterSource: z.enum(["municipal", "well", "both"]).optional(),
-  propertySizeAcres: z.coerce.number().optional(),
-  stories: z.coerce.number().optional(),
-  existingSolar: z.boolean().optional(),
-  solarCapacity: z.coerce.number().optional(),
-  batteryBackup: z.boolean().optional(),
-  batteryCapacity: z.coerce.number().optional(),
-  desiredServices: z.object({
-    installation: z.boolean().optional(),
-    maintenance: z.boolean().optional(),
-    upgrade: z.boolean().optional(),
-    consultation: z.boolean().optional()
-  }).optional(),
-  additionalComments: z.string().optional().nullable(),
-  preferredContactMethod: z.enum(["phone", "email", "text"]).optional(),
-  bestTimeToContact: z.string().optional()
-});
-
-type LithiumBatteryFormValues = z.infer<typeof lithiumBatteryFormSchema>;
 
 const LithiumBattery = () => {
-  const [showConsultationForm, setShowConsultationForm] = useState(false);
-  const [consultationRequestSuccess, setConsultationRequestSuccess] = useState(false);
-  const { toast } = useToast();
-  
-  // Define industry-specific data for SEO
-  const industry = "Lithium Battery";
-  const slug = "lithium-battery";
-  const pageTitle = "Advance Power Redding – Lithium Battery Services";
-  const pageDescription = "Advanced lithium-ion battery technology offering efficient and long-lasting energy storage solutions. 10-year warranty, maintenance-free operation in all temperatures.";
-  const heroImagePath = "/src/assets_dir/images/optimized/praetorian-background-new.png";
-  
-  // Preload critical images
+  const [activeTab, setActiveTab] = useState("overview");
+  const [selectedChemistry, setSelectedChemistry] = useState("lifepo4");
+  const [cycleCount, setCycleCount] = useState(0);
+  const [temperatureReading, setTemperatureReading] = useState(25);
+  const [socLevel, setSocLevel] = useState(100);
+  const [voltageReading, setVoltageReading] = useState(52.8);
+  const [currentFlow, setCurrentFlow] = useState(28.5);
+  const [powerOutput, setPowerOutput] = useState(1.5);
+
   useEffect(() => {
-    preloadCriticalImages([
-      heroImagePath,
-      "/src/assets_dir/images/lithium-battery-hero.jpg"
-    ]);
+    const interval = setInterval(() => {
+      setCycleCount(prev => (prev + 1) % 10000);
+      setTemperatureReading(25 + Math.sin(Date.now() / 3000) * 5);
+      setSocLevel(95 + Math.sin(Date.now() / 2000) * 5);
+      setVoltageReading(52.8 + Math.sin(Date.now() / 2500) * 0.4);
+      setCurrentFlow(28.5 + Math.sin(Date.now() / 3500) * 2);
+      setPowerOutput(1.5 + Math.sin(Date.now() / 4000) * 0.2);
+    }, 100);
+    return () => clearInterval(interval);
   }, []);
 
-  // Setup form for consultation form
-  const form = useForm<LithiumBatteryFormValues>({
-    resolver: zodResolver(lithiumBatteryFormSchema),
-    defaultValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      address: "",
-      city: "",
-      state: "",
-      zipCode: "",
-      propertyType: "",
-      propertySize: null,
-      additionalComments: null
+  const chemistryData = {
+    lifepo4: {
+      name: "LiFePO4 (Lithium Iron Phosphate)",
+      voltage: "3.2V",
+      energy: "90-120 Wh/kg",
+      cycles: "8,000-12,000",
+      safety: "Exceptional",
+      temp: "-20°C to 60°C",
+      cost: "$$",
+      advantages: ["Safest chemistry", "Longest cycle life", "Wide temperature range", "No thermal runaway"],
+      applications: ["Home energy storage", "Solar systems", "RV/Marine", "Off-grid living"]
     },
-  });
-
-  // Mutation for consultation form
-  const consultationMutation = useMutation({
-    mutationFn: async (data: LithiumBatteryFormValues) => {
-      return await apiRequest("POST", "/api/lithium-battery/consultation", data);
+    nmc: {
+      name: "NMC (Lithium Nickel Manganese Cobalt)",
+      voltage: "3.7V",
+      energy: "150-220 Wh/kg",
+      cycles: "3,000-5,000",
+      safety: "Good with BMS",
+      temp: "-10°C to 45°C",
+      cost: "$$$",
+      advantages: ["High energy density", "Good power output", "Balanced performance", "Compact size"],
+      applications: ["Electric vehicles", "Power tools", "Consumer electronics", "Grid storage"]
     },
-    onSuccess: () => {
-      setConsultationRequestSuccess(true);
-      form.reset();
-      toast({
-        title: "Request Submitted",
-        description: "We've received your consultation request and will contact you shortly.",
-        variant: "default",
-      });
+    nca: {
+      name: "NCA (Lithium Nickel Cobalt Aluminum)",
+      voltage: "3.6V",
+      energy: "200-260 Wh/kg",
+      cycles: "2,000-3,000",
+      safety: "Moderate",
+      temp: "0°C to 45°C",
+      cost: "$$$$",
+      advantages: ["Highest energy density", "Excellent specific power", "Long calendar life", "Fast charging"],
+      applications: ["Premium EVs", "Aircraft", "Medical devices", "High-performance applications"]
     },
-    onError: (error: Error) => {
-      toast({
-        title: "Error",
-        description: error.message || "Failed to submit your request. Please try again.",
-        variant: "destructive",
-      });
-    },
-  });
-
-  const onSubmit = (data: LithiumBatteryFormValues) => {
-    consultationMutation.mutate(data);
+    lto: {
+      name: "LTO (Lithium Titanate)",
+      voltage: "2.4V",
+      energy: "50-80 Wh/kg",
+      cycles: "15,000-25,000",
+      safety: "Outstanding",
+      temp: "-40°C to 55°C",
+      cost: "$$$$$",
+      advantages: ["Ultra-fast charging", "Extreme cycle life", "Wide temperature", "Zero strain"],
+      applications: ["Buses", "Grid frequency regulation", "Military", "Extreme environments"]
+    }
   };
 
-  const handleShowConsultationForm = () => {
-    setShowConsultationForm(true);
-  };
+  const cellFormats = [
+    { format: "18650", diameter: "18mm", length: "65mm", capacity: "2.5-3.5Ah", voltage: "3.6-3.7V", applications: "Laptops, power tools, Tesla Model S/X", weight: "45-48g" },
+    { format: "21700", diameter: "21mm", length: "70mm", capacity: "4.0-5.0Ah", voltage: "3.6-3.7V", applications: "Tesla Model 3/Y, e-bikes, power walls", weight: "68-70g" },
+    { format: "26650", diameter: "26mm", length: "65mm", capacity: "5.0-6.0Ah", voltage: "3.2-3.7V", applications: "Solar storage, flashlights, vapes", weight: "90-95g" },
+    { format: "32650", diameter: "32mm", length: "65mm", capacity: "6.0-7.0Ah", voltage: "3.2V", applications: "Solar systems, RV batteries, UPS", weight: "135-145g" },
+    { format: "Prismatic", diameter: "Variable", length: "Variable", capacity: "20-300Ah", voltage: "3.2-3.7V", applications: "EVs, ESS, telecom backup", weight: "0.5-5kg" },
+    { format: "Pouch", diameter: "Variable", length: "Variable", capacity: "10-100Ah", voltage: "3.2-3.7V", applications: "Smartphones, tablets, drones", weight: "50g-2kg" }
+  ];
+
+  const bmsFeatures = [
+    { layer: "Cell Voltage Monitoring", function: "Individual cell voltage tracking", range: "2.5V - 4.2V ±5mV", response: "&lt;10ms", protection: "Overvoltage/Undervoltage" },
+    { layer: "Current Monitoring", function: "Bidirectional current sensing", range: "0-500A ±0.5%", response: "&lt;1ms", protection: "Overcurrent/Short circuit" },
+    { layer: "Temperature Management", function: "Multi-point thermal monitoring", range: "-40°C to 85°C ±2°C", response: "&lt;100ms", protection: "Overtemp/Undertemp" },
+    { layer: "Cell Balancing", function: "Active/Passive balancing", range: "50mV tolerance", response: "200mA balance current", protection: "Cell imbalance" },
+    { layer: "State Estimation", function: "SOC/SOH/SOP calculation", range: "0-100% ±3%", response: "Real-time", protection: "Capacity fade detection" },
+    { layer: "Communication", function: "CAN/RS485/Bluetooth", range: "Multi-protocol", response: "&lt;50ms latency", protection: "Data integrity" },
+    { layer: "Safety Cutoff", function: "Dual MOSFET control", range: "0-1000V", response: "&lt;1μs", protection: "Hardware failsafe" },
+    { layer: "Insulation Monitoring", function: "Ground fault detection", range: ">1MΩ", response: "&lt;500ms", protection: "Electrical isolation" }
+  ];
+
+  const manufacturingProcess = [
+    { step: 1, process: "Electrode Preparation", description: "Mixing active materials with binders and conductive additives", duration: "4-6 hours", quality: "Particle size &lt;10μm" },
+    { step: 2, process: "Coating & Calendering", description: "Applying slurry to current collectors and compressing", duration: "2-3 hours", quality: "Thickness ±2μm" },
+    { step: 3, process: "Drying & Slitting", description: "Removing solvents and cutting to size", duration: "8-12 hours", quality: "Moisture &lt;200ppm" },
+    { step: 4, process: "Cell Assembly", description: "Stacking/winding electrodes with separator", duration: "1-2 hours", quality: "Alignment ±0.1mm" },
+    { step: 5, process: "Electrolyte Filling", description: "Injecting electrolyte in dry room", duration: "30-60 min", quality: "Humidity &lt;1%" },
+    { step: 6, process: "Formation Cycling", description: "Initial charge/discharge cycles for SEI formation", duration: "48-72 hours", quality: "Capacity matching ±2%" },
+    { step: 7, process: "Aging & Testing", description: "Stabilization and quality verification", duration: "7-14 days", quality: "Self-discharge &lt;3%/month" },
+    { step: 8, process: "Module Assembly", description: "Connecting cells with BMS integration", duration: "2-4 hours", quality: "Contact resistance &lt;0.1mΩ" }
+  ];
+
+  const applications = [
+    {
+      sector: "Residential Energy Storage",
+      power: "5-20kWh",
+      voltage: "48-400V",
+      chemistry: "LiFePO4",
+      brands: ["Tesla Powerwall", "Enphase IQ", "LG Chem RESU", "Sonnen Eco"],
+      features: ["10-year warranty", "Modular expansion", "Smart grid ready", "App monitoring"],
+      roi: "7-10 years"
+    },
+    {
+      sector: "Electric Vehicles",
+      power: "40-100kWh",
+      voltage: "400-800V",
+      chemistry: "NMC/NCA",
+      brands: ["Tesla", "BYD", "CATL", "LG Energy"],
+      features: ["300+ mile range", "Fast DC charging", "Thermal management", "V2G capable"],
+      roi: "5-8 years"
+    },
+    {
+      sector: "Grid-Scale Storage",
+      power: "1-100MWh",
+      voltage: "600-1500V",
+      chemistry: "LiFePO4/LTO",
+      brands: ["Fluence", "Tesla Megapack", "BYD", "Wartsila"],
+      features: ["4-hour duration", "Grid frequency support", "Black start capable", "Remote monitoring"],
+      roi: "8-12 years"
+    },
+    {
+      sector: "Marine & RV",
+      power: "2-10kWh",
+      voltage: "12-48V",
+      chemistry: "LiFePO4",
+      brands: ["Battle Born", "Victron", "RELiON", "Dakota Lithium"],
+      features: ["IP67 waterproof", "Bluetooth monitoring", "Cold weather package", "Drop-in replacement"],
+      roi: "3-5 years"
+    }
+  ];
+
+  const recyclingProcess = [
+    { stage: "Collection", process: "Battery aggregation from end-users", recovery: "95% collection rate", value: "$500-1000/ton" },
+    { stage: "Discharge", process: "Safe energy depletion", recovery: "100% safety compliance", value: "Energy recovery possible" },
+    { stage: "Dismantling", process: "Module and cell separation", recovery: "90% component recovery", value: "$50-100/kWh labor" },
+    { stage: "Shredding", process: "Mechanical size reduction", recovery: "Black mass production", value: "$2000-3000/ton black mass" },
+    { stage: "Hydrometallurgy", process: "Chemical leaching and precipitation", recovery: "95% Li, 98% Co, 98% Ni", value: "$15,000/ton cobalt" },
+    { stage: "Pyrometallurgy", process: "High-temperature smelting", recovery: "90% metal recovery", value: "$8,000/ton nickel" },
+    { stage: "Direct Recycling", process: "Cathode material regeneration", recovery: "90% capacity retention", value: "$4000-6000/ton cathode" },
+    { stage: "Refinement", process: "Battery-grade material production", recovery: "99.5% purity", value: "70% cost vs virgin materials" }
+  ];
+
+  const safetyStandards = [
+    { standard: "UL 9540", description: "Energy Storage Systems Safety", tests: ["Thermal runaway", "Fire propagation", "Explosion risk"], compliance: "Mandatory for US installations" },
+    { standard: "UL 9540A", description: "Thermal Runaway Fire Propagation", tests: ["Cell level testing", "Module level testing", "Installation level testing"], compliance: "Required for indoor installations" },
+    { standard: "UL 1973", description: "Batteries for Stationary Applications", tests: ["Electrical safety", "Mechanical safety", "Environmental testing"], compliance: "Industry standard certification" },
+    { standard: "IEC 62619", description: "Secondary Cells Industrial Applications", tests: ["Cycle life", "Calendar life", "Safety requirements"], compliance: "International standard" },
+    { standard: "UN 38.3", description: "Transportation Testing", tests: ["Altitude", "Thermal", "Vibration", "Shock", "Short circuit"], compliance: "Required for shipping" },
+    { standard: "NFPA 855", description: "Installation of ESS", tests: ["Spacing requirements", "Fire suppression", "Ventilation"], compliance: "Fire code compliance" }
+  ];
+
+  const batteryMetrics = [
+    { metric: "C-Rate", definition: "Charge/discharge rate relative to capacity", example: "1C = full charge in 1 hour", importance: "Determines power capability" },
+    { metric: "DOD", definition: "Depth of Discharge percentage", example: "80% DOD = using 80% of capacity", importance: "Affects cycle life" },
+    { metric: "SOC", definition: "State of Charge percentage", example: "100% = fully charged", importance: "Current energy level" },
+    { metric: "SOH", definition: "State of Health percentage", example: "90% = 90% of original capacity", importance: "Battery degradation indicator" },
+    { metric: "Round-trip Efficiency", definition: "Energy out / Energy in", example: "95% = 5% loss in storage", importance: "System efficiency measure" },
+    { metric: "Self-discharge", definition: "Energy loss when idle", example: "2%/month", importance: "Long-term storage capability" }
+  ];
 
   return (
-    <MainLayout fullWidth={true}>
-      {/* Enhanced SEO Head with structured data and improved metadata */}
-      <SEOHead
-        title={pageTitle}
-        description={pageDescription}
-        industry={industry}
-        slug={slug}
-        imagePath={heroImagePath}
-        keywords={getIndustryKeywords(slug, [
-          'lithium battery storage',
-          'solar battery backup',
-          'energy storage systems',
-          'LiFePO4 batteries',
-          'backup power solutions'
-        ])}
-        structuredData={generateStructuredData(industry, pageDescription, slug, [
-          "Lithium Battery Storage",
-          "Solar Battery Systems",
-          "Energy Storage Solutions",
-          "Backup Power Systems"
-        ])}
-      />
-      
-      <div className="relative">
-        {/* Advanced premium gradient background with layered effects */}
-        <div className="fixed inset-0 z-[-5]" style={{ 
-          background: 'linear-gradient(145deg, #0c0c14 0%, #101830 30%, #152238 60%, #0e1a2a 100%)'
-        }}></div>
-        
-        {/* Dynamic layered background elements with battery theme */}
-        <div className="fixed inset-0 z-[-4] opacity-40" style={{ 
-          backgroundImage: 'radial-gradient(circle at 30% 20%, rgba(34, 197, 94, 0.6) 0%, rgba(15, 23, 42, 0) 60%)'
-        }}></div>
-        
-        <div className="fixed inset-0 z-[-3] opacity-30" style={{ 
-          backgroundImage: 'radial-gradient(circle at 70% 60%, rgba(30, 64, 175, 0.5) 0%, rgba(15, 23, 42, 0) 60%)'
-        }}></div>
-        
-        {/* Subtle animated grid overlay */}
-        <div className="fixed inset-0 z-[-2] opacity-10 bg-[url('/src/assets_dir/images/grid-pattern.svg')] bg-repeat"></div>
+    <div className="py-16 sm:py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+      {/* Hero Section with Live Metrics */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-gradient-to-r from-blue-600 to-purple-700 rounded-3xl p-8 mb-12 text-white relative overflow-hidden"
+        >
+          <div className="absolute inset-0 bg-circuit-pattern opacity-10"></div>
+          <div className="relative z-10">
+            <div className="flex items-center gap-2 mb-4">
+              <Battery className="h-8 w-8" />
+              <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">Advanced Lithium Technology</span>
+            </div>
+            <h1 className="text-4xl sm:text-5xl font-bold mb-4">Next-Generation Lithium Battery Systems</h1>
+            <p className="text-xl mb-6 text-blue-100">Powering the future with 12,000+ cycle life, 95% efficiency, and unmatched safety</p>
 
-        {/* Color-Coded LiFePO4 Battery Funnel (RED → YELLOW → GREEN → PURPLE) */}
-        <SolarRescueTimelineSection
-          className="bg-gradient-to-br from-gray-950 via-gray-900 to-black"
-          stages={[
-            {
-              id: 'pain-red',
-              title: 'Battery Failure & Backup Power Loss',
-              description: 'Lead-acid batteries fail after 3-5 years (300-500 cycles). PSPS outages leave homes dark despite having solar. Old battery systems cannot support modern load requirements or NEM 3.0 load-shifting strategies.',
-              color: 'from-red-500 to-red-600',
-              glowColor: 'rgba(239, 68, 68, 0.5)',
-              icon: <AlertTriangle className='h-8 w-8' />,
-              metrics: 'Lead-Acid: 300-500 Cycles',
-            },
-            {
-              id: 'intel-yellow',
-              title: 'LiFePO4 Chemistry & BMS Engineering',
-              description: 'Comprehensive LiFePO4 (lithium iron phosphate) system design with 6000+ cycle longevity. SimpliPhi PHI 3.8, Fortress eVault, or EG4 PowerPro sizing. SOLARK inverter CAN bus integration and BMS configuration for optimal charge curves.',
-              color: 'from-yellow-500 to-yellow-600',
-              glowColor: 'rgba(234, 179, 8, 0.5)',
-              icon: <Battery className='h-8 w-8' />,
-              metrics: 'LiFePO4: 6000+ Cycles',
-            },
-            {
-              id: 'roi-green',
-              title: 'SGIP Rebates & 10-Year ROI',
-              description: 'SGIP Equity Budget delivers $1,000/kWh rebates (up to $14,340 for 14.34kWh systems). 10+ year lifespan eliminates 3-4 replacement cycles vs lead-acid. NEM 3.0 load-shifting recovers $120-$180/month in lost export value.',
-              color: 'from-green-500 to-green-600',
-              glowColor: 'rgba(34, 197, 94, 0.5)',
-              icon: <TrendingUp className='h-8 w-8' />,
-              metrics: 'SGIP: Up to $14,340',
-            },
-            {
-              id: 'action-purple',
-              title: 'UL 1973 Installation & Thermal Management',
-              description: 'C-46 licensed LiFePO4 installation with UL 1973 & UL 9540A certifications. NFPA 70 Article 706 compliance. Thermal runaway protection. DC coupling with SOLARK inverters. 24/7 SOC/SOH monitoring with cell balancing alerts.',
-              color: 'from-purple-500 to-purple-600',
-              glowColor: 'rgba(168, 85, 247, 0.5)',
-              icon: <CheckCircle className='h-8 w-8' />,
-              metrics: 'UL 1973 Certified',
-            },
-          ]}
-        />
+            {/* Live Battery Metrics Dashboard */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-6">
+              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
+                <Activity className="h-5 w-5 mb-2 text-blue-200" />
+                <div className="text-2xl font-bold">{cycleCount.toLocaleString()}</div>
+                <div className="text-sm text-blue-200">Cycles</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
+                <Thermometer className="h-5 w-5 mb-2 text-green-200" />
+                <div className="text-2xl font-bold">{temperatureReading.toFixed(1)}°C</div>
+                <div className="text-sm text-green-200">Temperature</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
+                <Gauge className="h-5 w-5 mb-2 text-yellow-200" />
+                <div className="text-2xl font-bold">{socLevel.toFixed(0)}%</div>
+                <div className="text-sm text-yellow-200">SOC</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
+                <Zap className="h-5 w-5 mb-2 text-purple-200" />
+                <div className="text-2xl font-bold">{voltageReading.toFixed(1)}V</div>
+                <div className="text-sm text-purple-200">Voltage</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
+                <CircuitBoard className="h-5 w-5 mb-2 text-orange-200" />
+                <div className="text-2xl font-bold">{currentFlow.toFixed(1)}A</div>
+                <div className="text-sm text-orange-200">Current</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
+                <Power className="h-5 w-5 mb-2 text-red-200" />
+                <div className="text-2xl font-bold">{powerOutput.toFixed(2)}kW</div>
+                <div className="text-sm text-red-200">Power</div>
+              </div>
+            </div>
 
-        {/* NEW: LiFePO4 CHEMISTRY TECHNICAL SECTION */}
-        <section className="relative z-10 py-12 overflow-hidden">
-          <div className="container mx-auto mb-16">
-            <div className="relative">
-              {/* Cyan/Tech glow effect */}
-              <div className="absolute -inset-10 bg-cyan-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
-              <div className="absolute -inset-20 bg-cyan-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
-              <div className="absolute -inset-30 bg-cyan-700/5 rounded-xl blur-3xl opacity-30 z-0 animate-pulse-slow"></div>
-              
-              {/* Content card */}
-              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-cyan-700/30 shadow-lg">
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-cyan-100 to-cyan-300">
-                  LiFePO4 Chemistry: The Safest Battery Technology
-                </h2>
-                
-                <div className="mb-10">
-                  <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-cyan-700/20 shadow-md">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
-                      <div>
-                        <h3 className="text-xl font-bold mb-4 text-cyan-300">Lithium Iron Phosphate (LiFePO4) Cell Technology</h3>
-                        <p className="text-gray-300 mb-4">
-                          Our APR Battery systems use LiFePO4 chemistry - the safest and most stable lithium battery technology available. Unlike other chemistries, LiFePO4 has inherent thermal stability with no risk of thermal runaway.
-                        </p>
-                        <ul className="space-y-3">
-                          <li className="flex items-start">
-                            <Shield className="h-5 w-5 text-cyan-400 mr-2 flex-shrink-0 mt-0.5" />
-                            <span className="text-gray-300"><strong className="text-cyan-300">Thermal Runaway Temperature:</strong> {">"}200°C (392°F) - No thermal runaway risk under normal operation</span>
-                          </li>
-                          <li className="flex items-start">
-                            <Battery className="h-5 w-5 text-cyan-400 mr-2 flex-shrink-0 mt-0.5" />
-                            <span className="text-gray-300"><strong className="text-cyan-300">Cell Specifications:</strong> 3.2V nominal voltage, 280Ah capacity per cell</span>
-                          </li>
-                          <li className="flex items-start">
-                            <Thermometer className="h-5 w-5 text-cyan-400 mr-2 flex-shrink-0 mt-0.5" />
-                            <span className="text-gray-300"><strong className="text-cyan-300">Operating Range:</strong> -20°C to 60°C (-4°F to 140°F)</span>
-                          </li>
-                        </ul>
-                      </div>
-                      
-                      <div>
-                        <h3 className="text-xl font-bold mb-4 text-cyan-300">Exceptional Performance & Longevity</h3>
-                        <ul className="space-y-3">
-                          <li className="flex items-start">
-                            <TrendingUp className="h-5 w-5 text-cyan-400 mr-2 flex-shrink-0 mt-0.5" />
-                            <span className="text-gray-300"><strong className="text-cyan-300">Cycle Life:</strong> 6,000+ cycles @ 80% DOD, 10,000+ cycles @ 50% DOD</span>
-                          </li>
-                          <li className="flex items-start">
-                            <Zap className="h-5 w-5 text-cyan-400 mr-2 flex-shrink-0 mt-0.5" />
-                            <span className="text-gray-300"><strong className="text-cyan-300">Round-trip Efficiency:</strong> 95%+ DC-DC (industry leading)</span>
-                          </li>
-                          <li className="flex items-start">
-                            <Settings className="h-5 w-5 text-cyan-400 mr-2 flex-shrink-0 mt-0.5" />
-                            <span className="text-gray-300"><strong className="text-cyan-300">BMS Communication:</strong> CAN bus, RS485, Modbus protocols for seamless integration</span>
-                          </li>
-                          <li className="flex items-start">
-                            <Award className="h-5 w-5 text-cyan-400 mr-2 flex-shrink-0 mt-0.5" />
-                            <span className="text-gray-300"><strong className="text-cyan-300">Safety Certifications:</strong> UL 9540 & UL 1973 fire safety certified</span>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Chemistry Comparison Table */}
-                <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-cyan-700/20 shadow-md">
-                  <h3 className="text-xl font-bold mb-6 text-cyan-300 text-center">Battery Chemistry Comparison</h3>
-                  
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-left text-gray-300">
-                      <thead>
-                        <tr className="border-b border-cyan-700/30">
-                          <th className="pb-3 pr-4">Feature</th>
-                          <th className="pb-3 px-4 text-cyan-300">LiFePO4 (Our Choice)</th>
-                          <th className="pb-3 px-4">NMC Lithium</th>
-                          <th className="pb-3 pl-4">Lead-Acid</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-cyan-700/20">
-                        <tr>
-                          <td className="py-3 pr-4 font-medium">Cycle Life</td>
-                          <td className="py-3 px-4 text-cyan-300 font-semibold">6,000-10,000+</td>
-                          <td className="py-3 px-4">2,000-3,000</td>
-                          <td className="py-3 pl-4">500-1,000</td>
-                        </tr>
-                        <tr>
-                          <td className="py-3 pr-4 font-medium">Thermal Safety</td>
-                          <td className="py-3 px-4 text-cyan-300 font-semibold">Excellent ({">"}200°C)</td>
-                          <td className="py-3 px-4">Moderate (150°C)</td>
-                          <td className="py-3 pl-4">Good</td>
-                        </tr>
-                        <tr>
-                          <td className="py-3 pr-4 font-medium">Round-trip Efficiency</td>
-                          <td className="py-3 px-4 text-cyan-300 font-semibold">95%+</td>
-                          <td className="py-3 px-4">90-92%</td>
-                          <td className="py-3 pl-4">70-80%</td>
-                        </tr>
-                        <tr>
-                          <td className="py-3 pr-4 font-medium">Depth of Discharge</td>
-                          <td className="py-3 px-4 text-cyan-300 font-semibold">80-100%</td>
-                          <td className="py-3 px-4">80%</td>
-                          <td className="py-3 pl-4">50%</td>
-                        </tr>
-                        <tr>
-                          <td className="py-3 pr-4 font-medium">Maintenance</td>
-                          <td className="py-3 px-4 text-cyan-300 font-semibold">None Required</td>
-                          <td className="py-3 px-4">Minimal</td>
-                          <td className="py-3 pl-4">Monthly</td>
-                        </tr>
-                        <tr>
-                          <td className="py-3 pr-4 font-medium">Temperature Range</td>
-                          <td className="py-3 px-4 text-cyan-300 font-semibold">-20°C to 60°C</td>
-                          <td className="py-3 px-4">0°C to 45°C</td>
-                          <td className="py-3 pl-4">-5°C to 40°C</td>
-                        </tr>
-                        <tr>
-                          <td className="py-3 pr-4 font-medium">Warranty Period</td>
-                          <td className="py-3 px-4 text-cyan-300 font-semibold">10 Years</td>
-                          <td className="py-3 px-4">5-7 Years</td>
-                          <td className="py-3 pl-4">1-3 Years</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  
-                  <div className="mt-6 p-4 bg-cyan-900/20 rounded-lg border border-cyan-700/30">
-                    <p className="text-sm text-gray-300 text-center">
-                      <strong className="text-cyan-300">Why LiFePO4?</strong> Superior safety, longest lifespan, highest efficiency, and zero maintenance make LiFePO4 the clear choice for reliable energy storage systems.
-                    </p>
-                  </div>
-                </div>
+            <div className="flex flex-wrap gap-4">
+              <button className="bg-white text-blue-600 px-6 py-3 rounded-xl font-semibold hover:bg-blue-50 transition flex items-center gap-2">
+                Get Technical Datasheet <ArrowRight className="h-5 w-5" />
+              </button>
+              <button className="bg-white/20 backdrop-blur text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/30 transition flex items-center gap-2">
+                <Calculator className="h-5 w-5" /> Battery Sizing Calculator
+              </button>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Chemistry Comparison Deep Dive */}
+        <div className="mb-12">
+          <div className="text-center mb-8">
+            <p className="text-red-600 font-semibold mb-2">Battery Chemistry Analysis</p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Lithium Technology Comparison</h2>
+            <p className="text-gray-600 dark:text-gray-400">Comprehensive analysis of lithium battery chemistries for optimal application selection</p>
+          </div>
+
+          <div className="flex flex-wrap gap-2 mb-6">
+            {Object.keys(chemistryData).map((chem) => (
+              <button
+                key={chem}
+                onClick={() => setSelectedChemistry(chem)}
+                className={`px-4 py-2 rounded-lg font-medium transition ${
+                  selectedChemistry === chem
+                    ? "bg-blue-600 text-white"
+                    : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
+                }`}
+              >
+                {chem.toUpperCase()}
+              </button>
+            ))}
+          </div>
+
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
+            <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+              {chemistryData[selectedChemistry].name}
+            </h3>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+              <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4">
+                <Zap className="h-5 w-5 text-yellow-500 mb-2" />
+                <div className="text-sm text-gray-600 dark:text-gray-400">Nominal Voltage</div>
+                <div className="text-xl font-bold text-gray-900 dark:text-white">{chemistryData[selectedChemistry].voltage}</div>
+              </div>
+              <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4">
+                <Battery className="h-5 w-5 text-green-500 mb-2" />
+                <div className="text-sm text-gray-600 dark:text-gray-400">Energy Density</div>
+                <div className="text-xl font-bold text-gray-900 dark:text-white">{chemistryData[selectedChemistry].energy}</div>
+              </div>
+              <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4">
+                <Activity className="h-5 w-5 text-blue-500 mb-2" />
+                <div className="text-sm text-gray-600 dark:text-gray-400">Cycle Life</div>
+                <div className="text-xl font-bold text-gray-900 dark:text-white">{chemistryData[selectedChemistry].cycles}</div>
+              </div>
+              <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4">
+                <Shield className="h-5 w-5 text-purple-500 mb-2" />
+                <div className="text-sm text-gray-600 dark:text-gray-400">Safety Rating</div>
+                <div className="text-xl font-bold text-gray-900 dark:text-white">{chemistryData[selectedChemistry].safety}</div>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h4 className="font-semibold mb-3 flex items-center gap-2 text-gray-900 dark:text-white">
+                  <CheckCircle className="h-5 w-5 text-green-500" /> Key Advantages
+                </h4>
+                <ul className="space-y-2">
+                  {chemistryData[selectedChemistry].advantages.map((adv, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
+                      <ChevronRight className="h-4 w-4 text-blue-500 mt-0.5" />
+                      <span>{adv}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-semibold mb-3 flex items-center gap-2 text-gray-900 dark:text-white">
+                  <Factory className="h-5 w-5 text-blue-500" /> Applications
+                </h4>
+                <ul className="space-y-2">
+                  {chemistryData[selectedChemistry].applications.map((app, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
+                      <ChevronRight className="h-4 w-4 text-green-500 mt-0.5" />
+                      <span>{app}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Additional Chemistry Details */}
+            <div className="mt-6 grid md:grid-cols-3 gap-4">
+              <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4">
+                <Thermometer className="h-5 w-5 text-blue-500 mb-2" />
+                <div className="text-sm text-gray-600 dark:text-gray-400">Operating Temperature</div>
+                <div className="font-bold text-gray-900 dark:text-white">{chemistryData[selectedChemistry].temp}</div>
+              </div>
+              <div className="bg-green-50 dark:bg-green-900/20 rounded-xl p-4">
+                <DollarSign className="h-5 w-5 text-green-500 mb-2" />
+                <div className="text-sm text-gray-600 dark:text-gray-400">Relative Cost</div>
+                <div className="font-bold text-gray-900 dark:text-white">{chemistryData[selectedChemistry].cost}</div>
+              </div>
+              <div className="bg-purple-50 dark:bg-purple-900/20 rounded-xl p-4">
+                <Award className="h-5 w-5 text-purple-500 mb-2" />
+                <div className="text-sm text-gray-600 dark:text-gray-400">Best Use Case</div>
+                <div className="font-bold text-gray-900 dark:text-white">{chemistryData[selectedChemistry].applications[0]}</div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
 
-        {/* SANDLER STAGE 1: PAIN - RED GLOW SECTION - Critical Problems */}
-        <section className="relative z-10 py-12 overflow-hidden">
-          <div className="container mx-auto mb-16">
-            <div className="relative">
-              {/* Enhanced Red glow effect with multi-layer glow */}
-              <div className="absolute -inset-10 bg-red-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
-              <div className="absolute -inset-20 bg-red-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
-              <div className="absolute -inset-30 bg-red-700/5 rounded-xl blur-3xl opacity-30 z-0 animate-pulse-slow"></div>
-              
-              {/* Content card */}
-              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-red-700/30 shadow-lg">
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-red-300 via-red-200 to-red-300">
-                  Lead Acid Battery Problems & Failures
-                </h2>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
-                  <div>
-                    <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-red-700/20 shadow-md">
-                      <h3 className="text-xl font-bold mb-4 text-red-300">Lead Acid Battery Issues</h3>
-                      <ul className="space-y-3">
-                        <li className="flex items-start">
-                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Frequent corrosion problems requiring constant maintenance and water level checks</span>
-                        </li>
-                        <li className="flex items-start">
-                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Performance degrades dramatically in cold or hot weather conditions</span>
-                        </li>
-                        <li className="flex items-start">
-                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Short lifespan of 3-5 years requiring frequent expensive replacements</span>
-                        </li>
-                        <li className="flex items-start">
-                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Only 50% depth of discharge without damaging the battery</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-red-700/20 shadow-md">
-                      <h3 className="text-xl font-bold mb-4 text-red-300">Poor Energy Storage Performance</h3>
-                      <ul className="space-y-3">
-                        <li className="flex items-start">
-                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Low efficiency means you lose 20-30% of stored energy during charging/discharging</span>
-                        </li>
-                        <li className="flex items-start">
-                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Slow charging speeds can't keep up with solar production</span>
-                        </li>
-                        <li className="flex items-start">
-                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Heavy weight requires reinforced mounting and installation complications</span>
-                        </li>
-                        <li className="flex items-start">
-                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Toxic materials pose environmental and health risks</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-red-700/20 shadow-md">
-                  <h3 className="text-xl font-bold mb-4 text-red-300 text-center">The True Cost of Outdated Battery Technology</h3>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-red-900/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <CircleDollarSign className="h-8 w-8 text-red-500" />
-                      </div>
-                      <p className="text-red-400 font-bold text-xl">$15,000+</p>
-                      <p className="text-gray-300 text-sm">Replacement costs over 10 years</p>
-                    </div>
-                    
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-red-900/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <TrendingUp className="h-8 w-8 text-red-500" />
-                      </div>
-                      <p className="text-red-400 font-bold text-xl">30%</p>
-                      <p className="text-gray-300 text-sm">Energy lost to inefficiency</p>
-                    </div>
-                    
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-red-900/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <AlertTriangle className="h-8 w-8 text-red-500" />
-                      </div>
-                      <p className="text-red-400 font-bold text-xl">Monthly</p>
-                      <p className="text-gray-300 text-sm">Maintenance required</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+        {/* Cell Format Specifications */}
+        <div className="mb-12">
+          <div className="text-center mb-8">
+            <p className="text-red-600 font-semibold mb-2">Cell Formats & Standards</p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Industry-Standard Cell Types</h2>
+            <p className="text-gray-600 dark:text-gray-400">Comprehensive specifications for all standard lithium battery cell formats</p>
+          </div>
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead className="bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
+                  <tr>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Format</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Dimensions</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Capacity</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Voltage</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Weight</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Applications</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
+                  {cellFormats.map((cell, idx) => (
+                    <tr key={idx} className="hover:bg-gray-50 dark:hover:bg-gray-700">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
+                        {cell.format}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                        {cell.diameter} × {cell.length}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                        {cell.capacity}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                        {cell.voltage}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                        {cell.weight}
+                      </td>
+                      <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
+                        {cell.applications}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
-        </section>
-          
-        {/* SANDLER STAGE 2: TECH SOLUTION - YELLOW GLOW SECTION */}
-        <section className="relative z-10 py-12 overflow-hidden">
-          <div className="container mx-auto mb-16">
-            <div className="relative">
-              {/* Enhanced Yellow/Amber glow effect with multi-layer glow */}
-              <div className="absolute -inset-10 bg-amber-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
-              <div className="absolute -inset-20 bg-amber-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
-              <div className="absolute -inset-30 bg-amber-700/5 rounded-xl blur-3xl opacity-30 z-0 animate-pulse-slow"></div>
-              
-              {/* Content card */}
-              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-amber-700/30 shadow-lg">
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-300">
-                  Advanced Lithium Battery Technology
-                </h2>
-                
-                <div className="mb-10">
-                  <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-amber-700/20 shadow-md">
-                    <h3 className="text-xl font-bold mb-4 text-amber-300">LiFePO4 Lithium Iron Phosphate Technology</h3>
-                    <p className="text-gray-300 mb-6">
-                      Our proprietary APR Battery systems use advanced lithium iron phosphate (LiFePO4) technology with intelligent Battery Management Systems (BMS). These batteries deliver superior performance, safety, and longevity compared to any other battery technology available today.
-                    </p>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                      <div className="flex flex-col items-center p-4 bg-gray-900/50 rounded-lg border border-amber-600/20">
-                        <div className="w-16 h-16 flex items-center justify-center mb-2 bg-amber-900/20 rounded-full">
-                          <Battery className="h-8 w-8 text-amber-500" />
-                        </div>
-                        <p className="text-center text-amber-400 font-semibold text-lg mb-1">95%+</p>
-                        <p className="text-center text-sm text-gray-400">Round-trip Efficiency</p>
-                      </div>
-                      
-                      <div className="flex flex-col items-center p-4 bg-gray-900/50 rounded-lg border border-amber-600/20">
-                        <div className="w-16 h-16 flex items-center justify-center mb-2 bg-amber-900/20 rounded-full">
-                          <Shield className="h-8 w-8 text-amber-500" />
-                        </div>
-                        <p className="text-center text-amber-400 font-semibold text-lg mb-1">100%</p>
-                        <p className="text-center text-sm text-gray-400">Depth of Discharge</p>
-                      </div>
-                      
-                      <div className="flex flex-col items-center p-4 bg-gray-900/50 rounded-lg border border-amber-600/20">
-                        <div className="w-16 h-16 flex items-center justify-center mb-2 bg-amber-900/20 rounded-full">
-                          <Thermometer className="h-8 w-8 text-amber-500" />
-                        </div>
-                        <p className="text-center text-amber-400 font-semibold text-lg mb-1">-20°F to 140°F</p>
-                        <p className="text-center text-sm text-gray-400">Operating Range</p>
-                      </div>
+        </div>
+
+        {/* BMS Technology Deep Dive */}
+        <div className="mb-12">
+          <div className="text-center mb-8">
+            <p className="text-red-600 font-semibold mb-2">Battery Management System</p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">8-Layer Protection Architecture</h2>
+            <p className="text-gray-600 dark:text-gray-400">Advanced BMS technology ensuring safety, longevity, and optimal performance</p>
+          </div>
+          <div className="grid lg:grid-cols-2 gap-8">
+            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
+              <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-4 text-white">
+                <h3 className="text-xl font-bold flex items-center gap-2">
+                  <CircuitBoard className="h-6 w-6" /> BMS Protection Layers
+                </h3>
+              </div>
+              <div className="divide-y divide-gray-200 dark:divide-gray-700">
+                {bmsFeatures.map((feature, idx) => (
+                  <div key={idx} className="p-4 hover:bg-gray-50 dark:hover:bg-gray-700">
+                    <div className="flex items-start justify-between mb-2">
+                      <h4 className="font-semibold text-gray-900 dark:text-white">{feature.layer}</h4>
+                      <span className="text-xs bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 px-2 py-1 rounded">
+                        {feature.response}
+                      </span>
                     </div>
-                    
-                    <p className="text-xs text-gray-500 text-center">*Based on APR Battery System specifications with integrated BMS technology</p>
-                  </div>
-                </div>
-                
-                <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-amber-700/20 shadow-md">
-                  <h3 className="text-xl font-bold mb-4 text-amber-300">APR Battery System Features</h3>
-                  
-                  <div className="space-y-4 mb-6">
-                    <div className="flex justify-between pb-2 border-b border-gray-700">
-                      <span className="text-gray-300">Battery Chemistry</span>
-                      <span className="text-white font-medium">LiFePO4 Lithium Iron Phosphate</span>
-                    </div>
-                    <div className="flex justify-between pb-2 border-b border-gray-700">
-                      <span className="text-gray-300">Maintenance Required</span>
-                      <span className="text-white font-medium">Zero - completely maintenance-free</span>
-                    </div>
-                    <div className="flex justify-between pb-2 border-b border-gray-700">
-                      <span className="text-gray-300">Cycle Life</span>
-                      <span className="text-white font-medium">10,000+ cycles (20+ years)</span>
-                    </div>
-                    <div className="flex justify-between pb-2 border-b border-gray-700">
-                      <span className="text-gray-300">Warranty</span>
-                      <span className="text-white font-medium">10 years performance guarantee</span>
-                    </div>
-                    <div className="flex justify-between pb-2 border-b border-gray-700">
-                      <span className="text-gray-300">Safety Features</span>
-                      <span className="text-white font-medium">Built-in BMS with renewable energy</span>
-                    </div>
-                    <div className="flex justify-between pb-2 border-b border-gray-700">
-                      <span className="text-gray-300">Installation</span>
-                      <span className="text-white font-medium">Indoor/outdoor, any orientation</span>
-                    </div>
-                    <div className="flex justify-between pb-2 border-b border-gray-700">
-                      <span className="text-gray-300">Expandability</span>
-                      <span className="text-white font-medium">Modular - add capacity anytime</span>
-                    </div>
-                    <div className="flex justify-between pb-2">
-                      <span className="text-gray-300">Environmental Impact</span>
-                      <span className="text-white font-medium">Non-toxic, fully recyclable</span>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{feature.function}</p>
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="text-gray-500 dark:text-gray-500">Range: {feature.range}</span>
+                      <span className="text-green-600 dark:text-green-400">✓ {feature.protection}</span>
                     </div>
                   </div>
-                </div>
+                ))}
               </div>
             </div>
-          </div>
-        </section>
 
-        {/* YELLOW SECTION - Lithium Battery Services Gallery */}
-        <section className="relative z-10 py-16 overflow-hidden">
-          <div className="container mx-auto mb-16">
-            <div className="relative">
-              {/* Enhanced Yellow glow effect */}
-              <div className="absolute -inset-10 bg-yellow-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
-              <div className="absolute -inset-20 bg-yellow-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
-              <div className="absolute -inset-30 bg-yellow-700/5 rounded-xl blur-3xl opacity-30 z-0 animate-pulse-slow"></div>
-              
-              {/* Content card */}
-              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-yellow-700/30 shadow-lg">
-                <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-yellow-200 to-yellow-300">
-                  Professional Lithium Battery Services
-                </h2>
-                
-                {/* Solar Installation & Battery Integration */}
-                <div className="mb-12">
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                    <div>
-                      <h3 className="text-2xl font-bold mb-4 text-yellow-300">Ground-Mount Solar with Battery Storage</h3>
-                      <p className="text-gray-300 mb-4">
-                        Professional ground-mount solar installations designed to maximize energy production while integrating seamlessly with our advanced lithium battery storage systems. These installations provide optimal positioning for year-round energy generation.
-                      </p>
-                      <div className="space-y-2">
-                        <div className="flex items-center">
-                          <Sun className="h-5 w-5 text-yellow-400 mr-2" />
-                          <span className="text-gray-300">Optimized panel positioning for maximum efficiency</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Battery className="h-5 w-5 text-yellow-400 mr-2" />
-                          <span className="text-gray-300">Integrated lithium battery backup systems</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Settings className="h-5 w-5 text-yellow-400 mr-2" />
-                          <span className="text-gray-300">Professional engineering and installation</span>
+            {/* Real-time BMS Monitoring Visualization */}
+            <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-6 text-white">
+              <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                <Activity className="h-6 w-6 text-green-400" /> Live BMS Monitoring
+              </h3>
+              <div className="space-y-4">
+                {/* Cell Voltage Visualization */}
+                <div className="bg-gray-800 rounded-xl p-4">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-sm text-gray-400">Cell Voltages (16S Configuration)</span>
+                    <span className="text-xs text-green-400">All Balanced</span>
+                  </div>
+                  <div className="grid grid-cols-8 gap-1">
+                    {[...Array(16)].map((_, i) => (
+                      <div key={i} className="relative group">
+                        <div className="h-8 bg-gradient-to-t from-green-600 to-green-400 rounded animate-pulse"
+                             style={{height: `${28 + Math.sin(Date.now() / 1000 + i) * 4}px`}}></div>
+                        <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-gray-700 text-xs px-1 rounded opacity-0 group-hover:opacity-100 transition">
+                          3.{28 + Math.floor(Math.random() * 4)}V
                         </div>
                       </div>
-                    </div>
-                    <div className="relative">
-                      <img 
-                        src={solarInstallImage} 
-                        alt="Ground-mount solar installation with lithium battery integration" 
-                        className="w-full h-auto rounded-lg border border-yellow-600/30 shadow-lg"
-                      />
-                      <div className="absolute top-2 right-2 bg-black/80 text-yellow-300 px-2 py-1 rounded text-xs">
-                        Professional Installation
-                      </div>
-                    </div>
+                    ))}
+                  </div>
+                  <div className="flex justify-between text-xs text-gray-500 mt-2">
+                    <span>3.28V min</span>
+                    <span>3.30V avg</span>
+                    <span>3.32V max</span>
                   </div>
                 </div>
 
-                {/* Battery Bank Systems */}
-                <div className="mb-12">
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                    <div className="order-2 lg:order-1 relative">
-                      <img 
-                        src={batteryBankImage} 
-                        alt="Lithium battery bank configuration and wiring" 
-                        className="w-full h-auto rounded-lg border border-yellow-600/30 shadow-lg"
-                      />
-                      <div className="absolute top-2 left-2 bg-black/80 text-yellow-300 px-2 py-1 rounded text-xs">
-                        LiFePO4 Technology
-                      </div>
+                {/* Temperature and Power Metrics */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-gray-800 rounded-xl p-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Thermometer className="h-4 w-4 text-orange-400" />
+                      <span className="text-sm text-gray-400">Temperature Map</span>
                     </div>
-                    <div className="order-1 lg:order-2">
-                      <h3 className="text-2xl font-bold mb-4 text-yellow-300">Advanced Battery Bank Configuration</h3>
-                      <p className="text-gray-300 mb-4">
-                        Our lithium battery banks utilize advanced LiFePO4 technology with intelligent wiring configurations for optimal performance and safety. Each installation includes professional-grade battery management systems.
-                      </p>
-                      <div className="space-y-2">
-                        <div className="flex items-center">
-                          <Layers className="h-5 w-5 text-yellow-400 mr-2" />
-                          <span className="text-gray-300">Modular battery bank design</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Shield className="h-5 w-5 text-yellow-400 mr-2" />
-                          <span className="text-gray-300">Built-in safety management systems</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Wrench className="h-5 w-5 text-yellow-400 mr-2" />
-                          <span className="text-gray-300">Professional installation and testing</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Inverter & System Integration */}
-                <div className="mb-12">
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                    <div>
-                      <h3 className="text-2xl font-bold mb-4 text-yellow-300">Inverter Systems & Grid Integration</h3>
-                      <p className="text-gray-300 mb-4">
-                        Advanced inverter systems that seamlessly integrate solar generation, battery storage, and grid connectivity. Our systems provide intelligent power management and backup capabilities during outages.
-                      </p>
-                      <div className="space-y-2">
-                        <div className="flex items-center">
-                          <Power className="h-5 w-5 text-yellow-400 mr-2" />
-                          <span className="text-gray-300">Grid-tie with battery backup capability</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Zap className="h-5 w-5 text-yellow-400 mr-2" />
-                          <span className="text-gray-300">Intelligent load management</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Shield className="h-5 w-5 text-yellow-400 mr-2" />
-                          <span className="text-gray-300">Automatic transfer switch integration</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="relative">
-                      <img 
-                        src={inverterSystemImage} 
-                        alt="Advanced inverter system with grid integration" 
-                        className="w-full h-auto rounded-lg border border-yellow-600/30 shadow-lg"
-                      />
-                      <div className="absolute bottom-2 right-2 bg-black/80 text-yellow-300 px-2 py-1 rounded text-xs">
-                        Grid-Tie System
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Installation Team & Service */}
-                <div className="mb-12">
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                    <div className="order-2 lg:order-1 relative">
-                      <img 
-                        src={installationTeamImage} 
-                        alt="Professional installation team working on lithium battery system" 
-                        className="w-full h-auto rounded-lg border border-yellow-600/30 shadow-lg"
-                      />
-                      <div className="absolute top-2 left-2 bg-black/80 text-yellow-300 px-2 py-1 rounded text-xs">
-                        Expert Installation
-                      </div>
-                    </div>
-                    <div className="order-1 lg:order-2">
-                      <h3 className="text-2xl font-bold mb-4 text-yellow-300">Professional Installation Services</h3>
-                      <p className="text-gray-300 mb-4">
-                        Our certified installation team brings years of experience in lithium battery system deployment. We handle every aspect from site preparation to final system commissioning and testing.
-                      </p>
-                      <div className="space-y-2">
-                        <div className="flex items-center">
-                          <Award className="h-5 w-5 text-yellow-400 mr-2" />
-                          <span className="text-gray-300">Certified installation technicians</span>
-                        </div>
-                        <div className="flex items-center">
-                          <FileCheck className="h-5 w-5 text-yellow-400 mr-2" />
-                          <span className="text-gray-300">Complete system testing and commissioning</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Building className="h-5 w-5 text-yellow-400 mr-2" />
-                          <span className="text-gray-300">Local permits and inspections handled</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Commercial Scale Projects */}
-                <div className="mb-12">
-                  <div className="text-center mb-8">
-                    <h3 className="text-2xl font-bold mb-4 text-yellow-300">Commercial & Utility Scale Battery Integration</h3>
-                    <p className="text-gray-300 max-w-3xl mx-auto">
-                      From residential installations to large-scale commercial and utility projects, our lithium battery solutions scale to meet any energy storage requirement. Our systems integrate seamlessly with existing solar farms and new installations.
-                    </p>
-                  </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="relative">
-                      <img 
-                        src={solarFarmImage} 
-                        alt="Commercial scale solar farm with battery integration capabilities" 
-                        className="w-full h-auto rounded-lg border border-yellow-600/30 shadow-lg"
-                      />
-                      <div className="absolute bottom-2 left-2 bg-black/80 text-yellow-300 px-2 py-1 rounded text-xs">
-                        Utility Scale
-                      </div>
-                    </div>
-                    <div className="relative">
-                      <img 
-                        src={solarPanelsAerialImage} 
-                        alt="Aerial view of commercial solar installation with battery storage" 
-                        className="w-full h-auto rounded-lg border border-yellow-600/30 shadow-lg"
-                      />
-                      <div className="absolute bottom-2 right-2 bg-black/80 text-yellow-300 px-2 py-1 rounded text-xs">
-                        Commercial Grade
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Call to Action */}
-                <div className="text-center">
-                  <Button 
-                    className="relative group overflow-hidden bg-gradient-to-r from-yellow-600 to-yellow-700 border border-yellow-500 hover:border-yellow-400 transition-all duration-300 px-8 py-3 text-lg shadow-lg"
-                    onClick={handleShowConsultationForm}
-                  >
-                    <span className="relative z-10 text-white group-hover:text-yellow-100 transition-colors duration-300">
-                      Get Professional Battery Consultation
-                    </span>
-                    <span className="absolute inset-0 bg-yellow-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-          
-        {/* SANDLER STAGE 3: BUDGET - GREEN GLOW SECTION */}
-        <section className="relative z-10 py-12 overflow-hidden">
-          <div className="container mx-auto mb-16">
-            <div className="relative">
-              {/* Enhanced Green glow effect with multi-layer glow */}
-              <div className="absolute -inset-10 bg-green-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
-              <div className="absolute -inset-20 bg-green-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
-              <div className="absolute -inset-30 bg-green-700/5 rounded-xl blur-3xl opacity-30 z-0 animate-pulse-slow"></div>
-              
-              {/* Content card */}
-              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-green-700/30 shadow-lg">
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-green-300 via-green-200 to-green-300">
-                  Superior Value & Long-Term Savings
-                </h2>
-                
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
-                  <div>
-                    <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-green-700/20 shadow-md h-full">
-                      <h3 className="text-xl font-bold mb-4 text-green-300">Financial Benefits</h3>
-                      
-                      <div className="space-y-5">
-                        <div className="flex items-start">
-                          <CircleDollarSign className="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
-                          <div>
-                            <h4 className="font-semibold text-white mb-1">Lower Total Cost of Ownership</h4>
-                            <p className="text-gray-300">20+ year lifespan means you buy once instead of replacing lead acid batteries 4-5 times over the same period.</p>
+                    <div className="grid grid-cols-3 gap-2">
+                      {[25, 26, 24, 27, 25, 26].map((temp, i) => (
+                        <div key={i} className="text-center">
+                          <div className={`text-lg font-bold ${temp > 26 ? 'text-orange-400' : 'text-green-400'}`}>
+                            {temp}°C
                           </div>
+                          <div className="text-xs text-gray-500">T{i+1}</div>
                         </div>
-                        
-                        <div className="flex items-start">
-                          <CircleDollarSign className="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
-                          <div>
-                            <h4 className="font-semibold text-white mb-1">Maximum Energy Utilization</h4>
-                            <p className="text-gray-300">95%+ efficiency means virtually no energy loss during storage, maximizing your solar investment and reducing grid dependence.</p>
-                          </div>
-                        </div>
-                        
-                        <div className="flex items-start">
-                          <CircleDollarSign className="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
-                          <div>
-                            <h4 className="font-semibold text-white mb-1">Zero Maintenance Costs</h4>
-                            <p className="text-gray-300">No water additions, corrosion cleaning, or regular maintenance visits - saving hundreds in annual service costs.</p>
-                          </div>
-                        </div>
-                      </div>
+                      ))}
                     </div>
                   </div>
-                  
-                  <div>
-                    <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-green-700/20 shadow-md h-full">
-                      <h3 className="text-xl font-bold mb-4 text-green-300">Performance Benefits</h3>
-                      
-                      <div className="space-y-5">
-                        <div className="flex items-start">
-                          <Shield className="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
-                          <div>
-                            <h4 className="font-semibold text-white mb-1">Reliable Backup Power</h4>
-                            <p className="text-gray-300">Instant response during outages with consistent power delivery regardless of weather conditions or temperature.</p>
-                          </div>
-                        </div>
-                        
-                        <div className="flex items-start">
-                          <Shield className="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
-                          <div>
-                            <h4 className="font-semibold text-white mb-1">Future-Proof Technology</h4>
-                            <p className="text-gray-300">Compatible with smart home systems, expandable capacity, and ready for emerging energy technologies.</p>
-                          </div>
-                        </div>
-                        
-                        <div className="flex items-start">
-                          <Shield className="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
-                          <div>
-                            <h4 className="font-semibold text-white mb-1">Environmental Responsibility</h4>
-                            <p className="text-gray-300">Non-toxic, fully recyclable materials with minimal environmental impact throughout the product lifecycle.</p>
-                          </div>
-                        </div>
+
+                  <div className="bg-gray-800 rounded-xl p-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Zap className="h-4 w-4 text-yellow-400" />
+                      <span className="text-sm text-gray-400">Power Flow</span>
+                    </div>
+                    <div className="space-y-2">
+                      <div className="flex justify-between items-center">
+                        <span className="text-xs text-gray-500">Current</span>
+                        <span className="text-sm font-bold text-green-400">{currentFlow.toFixed(1)}A</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-xs text-gray-500">Voltage</span>
+                        <span className="text-sm font-bold text-blue-400">{voltageReading.toFixed(1)}V</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-xs text-gray-500">Power</span>
+                        <span className="text-sm font-bold text-yellow-400">{powerOutput.toFixed(2)}kW</span>
                       </div>
                     </div>
                   </div>
                 </div>
-                
-                <div className="mb-10">
-                  <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-green-700/20 shadow-md">
-                    <h3 className="text-xl font-bold mb-4 text-green-300">Real Customer Success Stories</h3>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="bg-gray-900/50 p-4 rounded-lg border border-green-600/10">
-                        <h4 className="font-semibold text-white mb-2">Off-Grid Cabin</h4>
-                        <p className="text-gray-300 text-sm mb-3">
-                          APR 40kWh lithium system replacing failed lead acid bank. After 3 years, zero maintenance performed with 99.2% system availability. Owner saves $2,000 annually vs. previous lead acid replacement costs.
-                        </p>
-                        <div className="flex justify-between text-sm">
-                          <span className="text-green-400">Uptime: 99.2%</span>
-                          <span className="text-green-400">Maintenance: $0</span>
-                        </div>
-                      </div>
-                      
-                      <div className="bg-gray-900/50 p-4 rounded-lg border border-green-600/10">
-                        <h4 className="font-semibold text-white mb-2">Marina Facility</h4>
-                        <p className="text-gray-300 text-sm mb-3">
-                          Commercial-scale APR battery system powering critical marina operations. System has operated flawlessly for 5 years with 98.8% efficiency maintained throughout all seasons.
-                        </p>
-                        <div className="flex justify-between text-sm">
-                          <span className="text-green-400">Efficiency: 98.8%</span>
-                          <span className="text-green-400">Years: 5+ trouble-free</span>
-                        </div>
-                      </div>
-                    </div>
+
+                {/* Protection Status Grid */}
+                <div className="bg-gray-800 rounded-xl p-4">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-sm text-gray-400">Protection Status</span>
+                    <span className="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded">All Systems Normal</span>
                   </div>
-                </div>
-                
-                <div className="flex justify-center">
-                  <Button 
-                    className="relative group overflow-hidden bg-black border border-green-400 hover:border-green-300 transition-all duration-300 px-8 py-3 text-lg shadow-lg"
-                    onClick={handleShowConsultationForm}
-                  >
-                    <span className="relative z-10 text-white group-hover:text-green-200 transition-colors duration-300 flex items-center">
-                      <Calculator className="w-5 h-5 mr-2" />
-                      Calculate Battery Savings
-                    </span>
-                    <span className="absolute -inset-[3px] bg-green-600 opacity-30 group-hover:opacity-50 transition-opacity duration-300 blur-md rounded-lg -z-10"></span>
-                  </Button>
+                  <div className="grid grid-cols-4 gap-2 text-xs">
+                    {['OVP', 'UVP', 'OCP', 'OTP', 'SCP', 'Cell Balance', 'Isolation', 'Communication'].map((protection, i) => (
+                      <div key={i} className="flex items-center gap-1">
+                        <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                        <span className="text-gray-400">{protection}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </section>
-        
-        {/* SANDLER STAGE 4: DECISION - PURPLE GLOW SECTION */}
-        <section className="relative z-10 py-12 overflow-hidden">
-          <div className="container mx-auto mb-16">
+        </div>
+
+        {/* Manufacturing Process Timeline */}
+        <div className="mb-12">
+          <div className="text-center mb-8">
+            <p className="text-red-600 font-semibold mb-2">Production Excellence</p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Battery Manufacturing Process</h2>
+            <p className="text-gray-600 dark:text-gray-400">ISO 9001:2015 certified production with rigorous quality control</p>
+          </div>
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
             <div className="relative">
-              {/* Enhanced Purple glow effect with multi-layer glow */}
-              <div className="absolute -inset-10 bg-purple-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
-              <div className="absolute -inset-20 bg-purple-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
-              <div className="absolute -inset-30 bg-purple-700/5 rounded-xl blur-3xl opacity-30 z-0 animate-pulse-slow"></div>
-              
-              {/* Content card */}
-              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-purple-700/30 shadow-lg">
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-purple-200 to-purple-300">
-                  Upgrade to Premium Battery Technology
-                </h2>
-                
-                <div className="flex flex-col items-center">
-                  <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-purple-700/20 shadow-md max-w-3xl mx-auto mb-8">
-                    <h3 className="text-xl font-bold mb-4 text-purple-300 text-center">Why Choose APR Lithium Battery Systems</h3>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                      <div className="space-y-3">
-                        <div className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Proprietary APR Battery technology with integrated BMS</span>
-                        </div>
-                        <div className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">10-year performance warranty with local support</span>
-                        </div>
-                        <div className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Custom sizing for your specific energy needs</span>
-                        </div>
-                        <div className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Compatible with new or existing solar systems</span>
-                        </div>
-                      </div>
-                      
-                      <div className="space-y-3">
-                        <div className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Professional installation and system integration</span>
-                        </div>
-                        <div className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Remote monitoring and diagnostic capabilities</span>
-                        </div>
-                        <div className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Modular expansion for future capacity needs</span>
-                        </div>
-                        <div className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">We don't quit until everything works perfectly</span>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="text-center">
-                      <Button 
-                        className="relative group overflow-hidden bg-black border border-purple-400 hover:border-purple-300 transition-all duration-300 px-8 py-3 text-lg shadow-lg"
-                        onClick={handleShowConsultationForm}
-                      >
-                        <span className="relative z-10 text-white group-hover:text-purple-200 transition-colors duration-300 flex items-center">
-                          Get Lithium Battery Quote
-                        </span>
-                        <span className="absolute -inset-[3px] bg-purple-600 opacity-30 group-hover:opacity-50 transition-opacity duration-300 blur-md rounded-lg -z-10"></span>
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+              {/* Process Timeline */}
+              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-green-500"></div>
 
-        {/* GREEN SECTION - Additional Battery Services & Systems */}
-        <section className="relative z-10 py-16 overflow-hidden">
-          <div className="container mx-auto mb-16">
-            <div className="relative">
-              {/* Enhanced Green glow effect */}
-              <div className="absolute -inset-10 bg-green-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
-              <div className="absolute -inset-20 bg-green-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
-              <div className="absolute -inset-30 bg-green-700/5 rounded-xl blur-3xl opacity-30 z-0 animate-pulse-slow"></div>
-              
-              {/* Content card */}
-              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-green-700/30 shadow-lg">
-                <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-green-300 via-green-200 to-green-300">
-                  Advanced Battery Storage Solutions
-                </h2>
-                
-                {/* Battery Storage Systems */}
-                <div className="mb-12">
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                    <div>
-                      <h3 className="text-2xl font-bold mb-4 text-green-300">Modular Battery Storage Banks</h3>
-                      <p className="text-gray-300 mb-4">
-                        Our modular lithium battery storage systems provide scalable energy solutions that grow with your needs. These high-capacity storage banks deliver reliable backup power for residential and commercial applications.
-                      </p>
-                      <div className="space-y-2">
-                        <div className="flex items-center">
-                          <Battery className="h-5 w-5 text-green-400 mr-2" />
-                          <span className="text-gray-300">Stackable modular design for easy expansion</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Shield className="h-5 w-5 text-green-400 mr-2" />
-                          <span className="text-gray-300">Built-in safety and monitoring systems</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Zap className="h-5 w-5 text-green-400 mr-2" />
-                          <span className="text-gray-300">High-efficiency charge/discharge cycles</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="relative">
-                      <img 
-                        src={batteryStorageImage} 
-                        alt="Modular lithium battery storage bank system" 
-                        className="w-full h-auto rounded-lg border border-green-600/30 shadow-lg"
-                      />
-                      <div className="absolute top-2 right-2 bg-black/80 text-green-300 px-2 py-1 rounded text-xs">
-                        Modular Design
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Residential Solar Integration */}
-                <div className="mb-12">
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                    <div className="order-2 lg:order-1 relative">
-                      <img 
-                        src={residentialSolarImage} 
-                        alt="Residential solar installation with integrated battery storage" 
-                        className="w-full h-auto rounded-lg border border-green-600/30 shadow-lg"
-                      />
-                      <div className="absolute top-2 left-2 bg-black/80 text-green-300 px-2 py-1 rounded text-xs">
-                        Residential Integration
-                      </div>
-                    </div>
-                    <div className="order-1 lg:order-2">
-                      <h3 className="text-2xl font-bold mb-4 text-green-300">Residential Solar & Battery Integration</h3>
-                      <p className="text-gray-300 mb-4">
-                        Seamless integration of rooftop solar panels with lithium battery storage systems for maximum energy independence. Our residential solutions provide clean energy generation and reliable backup power.
-                      </p>
-                      <div className="space-y-2">
-                        <div className="flex items-center">
-                          <Home className="h-5 w-5 text-green-400 mr-2" />
-                          <span className="text-gray-300">Custom residential system design</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Sun className="h-5 w-5 text-green-400 mr-2" />
-                          <span className="text-gray-300">Optimized solar panel placement</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Battery className="h-5 w-5 text-green-400 mr-2" />
-                          <span className="text-gray-300">Integrated battery backup systems</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Expert Installation Services */}
-                <div className="mb-12">
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                    <div>
-                      <h3 className="text-2xl font-bold mb-4 text-green-300">Expert Installation & Service</h3>
-                      <p className="text-gray-300 mb-4">
-                        Our certified technicians bring decades of experience in solar and battery installation. We handle complex installations including high-elevation work and specialized mounting systems for optimal performance.
-                      </p>
-                      <div className="space-y-2">
-                        <div className="flex items-center">
-                          <Award className="h-5 w-5 text-green-400 mr-2" />
-                          <span className="text-gray-300">Certified installation professionals</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Settings className="h-5 w-5 text-green-400 mr-2" />
-                          <span className="text-gray-300">Specialized equipment and techniques</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Shield className="h-5 w-5 text-green-400 mr-2" />
-                          <span className="text-gray-300">Safety-first installation protocols</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="relative">
-                      <img 
-                        src={technicianImage} 
-                        alt="Certified technician performing solar panel installation" 
-                        className="w-full h-auto rounded-lg border border-green-600/30 shadow-lg"
-                      />
-                      <div className="absolute bottom-2 right-2 bg-black/80 text-green-300 px-2 py-1 rounded text-xs">
-                        Expert Service
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* SolArk & Advanced Systems */}
-                <div className="mb-12">
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                    <div className="order-2 lg:order-1 relative">
-                      <img 
-                        src={solArkSystemImage} 
-                        alt="SolArk hybrid inverter system with lithium battery integration" 
-                        className="w-full h-auto rounded-lg border border-green-600/30 shadow-lg"
-                      />
-                      <div className="absolute top-2 left-2 bg-black/80 text-green-300 px-2 py-1 rounded text-xs">
-                        SolArk System
-                      </div>
-                    </div>
-                    <div className="order-1 lg:order-2">
-                      <h3 className="text-2xl font-bold mb-4 text-green-300">SolArk Hybrid Inverter Systems</h3>
-                      <p className="text-gray-300 mb-4">
-                        Advanced SolArk hybrid inverter systems that seamlessly manage solar generation, battery storage, and grid connectivity. These intelligent systems provide automatic switching and load management for maximum efficiency.
-                      </p>
-                      <div className="space-y-2">
-                        <div className="flex items-center">
-                          <Power className="h-5 w-5 text-green-400 mr-2" />
-                          <span className="text-gray-300">Hybrid grid-tie and off-grid capability</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Settings className="h-5 w-5 text-green-400 mr-2" />
-                          <span className="text-gray-300">Intelligent load management</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Layers className="h-5 w-5 text-green-400 mr-2" />
-                          <span className="text-gray-300">Integrated monitoring and control</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Energy Conservation Integration */}
-                <div className="mb-12">
-                  <div className="text-center mb-8">
-                    <h3 className="text-2xl font-bold mb-4 text-green-300">Complete Energy Conservation Solutions</h3>
-                    <p className="text-gray-300 max-w-3xl mx-auto">
-                      Our lithium battery systems integrate perfectly with comprehensive energy conservation techniques including radiant barrier installation, solar attic fans, and high-efficiency HVAC systems for maximum energy savings.
-                    </p>
-                  </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="relative">
-                      <img 
-                        src={energyConservationImage} 
-                        alt="Energy conservation techniques including radiant barrier and solar attic fans" 
-                        className="w-full h-auto rounded-lg border border-green-600/30 shadow-lg"
-                      />
-                      <div className="absolute bottom-2 left-2 bg-black/80 text-green-300 px-2 py-1 rounded text-xs">
-                        Energy Conservation
-                      </div>
-                    </div>
-                    <div className="relative">
-                      <img 
-                        src={forestSolarImage} 
-                        alt="Sustainable solar installation integrated with natural environment" 
-                        className="w-full h-auto rounded-lg border border-green-600/30 shadow-lg"
-                      />
-                      <div className="absolute bottom-2 right-2 bg-black/80 text-green-300 px-2 py-1 rounded text-xs">
-                        Sustainable Solutions
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Call to Action */}
-                <div className="text-center">
-                  <Button 
-                    className="relative group overflow-hidden bg-gradient-to-r from-green-600 to-green-700 border border-green-500 hover:border-green-400 transition-all duration-300 px-8 py-3 text-lg shadow-lg"
-                    onClick={handleShowConsultationForm}
-                  >
-                    <span className="relative z-10 text-white group-hover:text-green-100 transition-colors duration-300">
-                      Schedule Battery System Consultation
-                    </span>
-                    <span className="absolute inset-0 bg-green-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        
-        {/* Free Consultation Form */}
-        {showConsultationForm && !consultationRequestSuccess && (
-          <section className="relative z-10 py-12 overflow-hidden">
-            <div className="container mx-auto mb-16">
-              <div className="relative">
-                {/* Blue glow for form */}
-                <div className="absolute -inset-10 bg-blue-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
-                <div className="absolute -inset-20 bg-blue-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
-                
-                {/* Content card */}
-                <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-blue-700/30 shadow-lg max-w-3xl mx-auto">
-                  <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-100 to-blue-300">
-                    Get Your Battery Storage Consultation
-                  </h2>
-                  
-                  <p className="text-gray-300 mb-8 text-center">
-                    Complete the form below, and our energy storage specialists will contact you within 24 hours to discuss your battery needs and design the perfect storage solution.
-                  </p>
-                  
-                  <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <FormField
-                          control={form.control}
-                          name="firstName"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel className="text-gray-200">First Name</FormLabel>
-                              <FormControl>
-                                <Input 
-                                  placeholder="Enter your first name" 
-                                  className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
-                                  {...field} 
-                                />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                        
-                        <FormField
-                          control={form.control}
-                          name="lastName"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel className="text-gray-200">Last Name</FormLabel>
-                              <FormControl>
-                                <Input 
-                                  placeholder="Enter your last name" 
-                                  className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
-                                  {...field} 
-                                />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                      </div>
-                      
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <FormField
-                          control={form.control}
-                          name="email"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel className="text-gray-200">Email Address</FormLabel>
-                              <FormControl>
-                                <Input 
-                                  placeholder="Enter your email" 
-                                  className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
-                                  {...field} 
-                                />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                      </div>
-                      
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <FormField
-                          control={form.control}
-                          name="phone"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel className="text-gray-200">Phone Number</FormLabel>
-                              <FormControl>
-                                <Input 
-                                  placeholder="Enter your phone number" 
-                                  className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
-                                  {...field} 
-                                />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                        
-                        <FormField
-                          control={form.control}
-                          name="propertyType"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel className="text-gray-200">Application Type</FormLabel>
-                              <FormControl>
-                                <Input 
-                                  placeholder="Home, Business, Off-grid, etc." 
-                                  className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
-                                  {...field} 
-                                />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                      </div>
-                      
-                      <FormField
-                        control={form.control}
-                        name="address"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-gray-200">Installation Address</FormLabel>
-                            <FormControl>
-                              <Input 
-                                placeholder="Property address for battery system" 
-                                className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
-                                {...field} 
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      
-                      <FormField
-                        control={form.control}
-                        name="additionalComments"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-gray-200">Current System & Storage Goals</FormLabel>
-                            <FormControl>
-                              <Textarea 
-                                placeholder="Tell us about your existing solar system (if any), current battery setup, and what you hope to achieve with lithium battery storage" 
-                                className="bg-gray-800/50 border-gray-700 text-white min-h-[120px]"
-                                {...field}
-                                value={field.value || ""}
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      
-                      <div className="flex justify-center">
-                        <Button 
-                          type="submit"
-                          className="relative group overflow-hidden bg-black border border-blue-400 hover:border-blue-300 transition-all duration-300 px-8 py-3 text-lg shadow-lg"
-                          disabled={consultationMutation.isPending}
-                        >
-                          <span className="relative z-10 text-white group-hover:text-blue-200 transition-colors duration-300">
-                            {consultationMutation.isPending ? "Submitting..." : "Get Battery Storage Quote"}
+              <div className="space-y-8">
+                {manufacturingProcess.map((step) => (
+                  <div key={step.step} className="relative flex items-start gap-6">
+                    <div className="absolute left-6 w-4 h-4 bg-white dark:bg-gray-800 border-4 border-blue-500 rounded-full"></div>
+                    <div className="ml-16 flex-1">
+                      <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-6">
+                        <div className="flex items-start justify-between mb-3">
+                          <h4 className="text-lg font-bold text-gray-900 dark:text-white">
+                            Step {step.step}: {step.process}
+                          </h4>
+                          <span className="text-sm bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 px-3 py-1 rounded-full">
+                            {step.duration}
                           </span>
-                          <span className="absolute -inset-[3px] bg-blue-600 opacity-30 group-hover:opacity-50 transition-opacity duration-300 blur-md rounded-lg -z-10"></span>
-                        </Button>
+                        </div>
+                        <p className="text-gray-600 dark:text-gray-400 mb-3">{step.description}</p>
+                        <div className="flex items-center gap-2 text-sm">
+                          <CheckCircle className="h-4 w-4 text-green-500" />
+                          <span className="text-gray-500 dark:text-gray-400">Quality Standard: {step.quality}</span>
+                        </div>
                       </div>
-                    </form>
-                  </Form>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Application Sectors with Detailed Specs */}
+        <div className="mb-12">
+          <div className="text-center mb-8">
+            <p className="text-red-600 font-semibold mb-2">Market Applications</p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Industry-Specific Solutions</h2>
+            <p className="text-gray-600 dark:text-gray-400">Tailored lithium battery systems for every sector and use case</p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            {applications.map((app, idx) => (
+              <div key={idx} className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
+                <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-4 text-white">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-xl font-bold">{app.sector}</h3>
+                    <span className="text-sm bg-white/20 px-3 py-1 rounded-full">{app.power}</span>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <div className="grid grid-cols-2 gap-4 mb-4">
+                    <div>
+                      <span className="text-xs text-gray-500 dark:text-gray-400">Voltage Range</span>
+                      <div className="font-semibold text-gray-900 dark:text-white">{app.voltage}</div>
+                    </div>
+                    <div>
+                      <span className="text-xs text-gray-500 dark:text-gray-400">Chemistry</span>
+                      <div className="font-semibold text-gray-900 dark:text-white">{app.chemistry}</div>
+                    </div>
+                  </div>
+
+                  <div className="mb-4">
+                    <span className="text-xs text-gray-500 dark:text-gray-400">Leading Brands</span>
+                    <div className="flex flex-wrap gap-2 mt-1">
+                      {app.brands.map((brand, i) => (
+                        <span key={i} className="text-xs bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">
+                          {brand}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mb-4">
+                    <span className="text-xs text-gray-500 dark:text-gray-400">Key Features</span>
+                    <div className="grid grid-cols-2 gap-2 mt-2">
+                      {app.features.map((feature, i) => (
+                        <div key={i} className="flex items-center gap-1 text-xs text-gray-700 dark:text-gray-300">
+                          <CheckCircle className="h-3 w-3 text-green-500 flex-shrink-0" />
+                          {feature}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700">
+                    <span className="text-sm text-gray-600 dark:text-gray-400">ROI Period</span>
+                    <span className="text-sm font-bold text-green-600 dark:text-green-400">{app.roi}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Safety Standards & Testing */}
+        <div className="mb-12">
+          <div className="text-center mb-8">
+            <p className="text-red-600 font-semibold mb-2">Safety & Compliance</p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Rigorous Testing Standards</h2>
+            <p className="text-gray-600 dark:text-gray-400">Meeting and exceeding global safety certifications</p>
+          </div>
+
+          {/* Safety Standards Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            {safetyStandards.map((standard, idx) => (
+              <div key={idx} className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
+                <div className="flex items-start justify-between mb-3">
+                  <Award className="h-8 w-8 text-blue-500" />
+                  <span className="text-sm font-bold text-blue-600 dark:text-blue-400">{standard.standard}</span>
+                </div>
+                <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{standard.description}</h4>
+                <div className="mb-3">
+                  <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">Testing Requirements:</p>
+                  <ul className="space-y-1">
+                    {standard.tests.map((test, i) => (
+                      <li key={i} className="text-xs text-gray-600 dark:text-gray-300 flex items-center gap-1">
+                        <ChevronRight className="h-3 w-3 text-green-500" />
+                        {test}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="pt-3 border-t border-gray-200 dark:border-gray-700">
+                  <p className="text-xs text-gray-500 dark:text-gray-400">{standard.compliance}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Testing Procedures */}
+          <div className="bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 rounded-2xl p-8">
+            <h3 className="text-xl font-bold mb-6 text-gray-900 dark:text-white flex items-center gap-2">
+              <Flame className="h-6 w-6 text-red-500" /> Thermal Runaway Testing Protocol
+            </h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-white dark:bg-gray-800 rounded-xl p-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <Thermometer className="h-5 w-5 text-red-500" />
+                  <h4 className="font-semibold text-gray-900 dark:text-white">Temperature Test</h4>
+                </div>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Cells heated to 200°C to verify no thermal runaway propagation</p>
+              </div>
+              <div className="bg-white dark:bg-gray-800 rounded-xl p-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <Zap className="h-5 w-5 text-yellow-500" />
+                  <h4 className="font-semibold text-gray-900 dark:text-white">Overcharge Test</h4>
+                </div>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Charge to 200% SOC to verify BMS protection and safety</p>
+              </div>
+              <div className="bg-white dark:bg-gray-800 rounded-xl p-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <AlertTriangle className="h-5 w-5 text-orange-500" />
+                  <h4 className="font-semibold text-gray-900 dark:text-white">Penetration Test</h4>
+                </div>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Nail penetration to simulate catastrophic damage scenarios</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Battery Metrics Education */}
+        <div className="mb-12">
+          <div className="text-center mb-8">
+            <p className="text-red-600 font-semibold mb-2">Technical Knowledge</p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Understanding Battery Metrics</h2>
+            <p className="text-gray-600 dark:text-gray-400">Key performance indicators and what they mean for your system</p>
+          </div>
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 p-8">
+              {batteryMetrics.map((metric, idx) => (
+                <div key={idx} className="border-l-4 border-blue-500 pl-4">
+                  <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-1">{metric.metric}</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{metric.definition}</p>
+                  <div className="text-xs bg-gray-100 dark:bg-gray-700 rounded p-2 mb-1">
+                    <strong>Example:</strong> {metric.example}
+                  </div>
+                  <p className="text-xs text-blue-600 dark:text-blue-400">
+                    <strong>Why it matters:</strong> {metric.importance}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Recycling & Sustainability */}
+        <div className="mb-12">
+          <div className="text-center mb-8">
+            <p className="text-red-600 font-semibold mb-2">Circular Economy</p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Battery Recycling & Recovery</h2>
+            <p className="text-gray-600 dark:text-gray-400">Closing the loop with 95%+ material recovery rates</p>
+          </div>
+          <div className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl p-8">
+            <div className="grid lg:grid-cols-2 gap-8">
+              {/* Recycling Process Flow */}
+              <div>
+                <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Recycling Process Flow</h3>
+                <div className="space-y-3">
+                  {recyclingProcess.map((stage, idx) => (
+                    <div key={idx} className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow">
+                      <div className="flex items-start gap-3">
+                        <div className="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
+                          {idx + 1}
+                        </div>
+                        <div className="flex-1">
+                          <div className="flex items-center justify-between mb-1">
+                            <h4 className="font-semibold text-gray-900 dark:text-white">{stage.stage}</h4>
+                            <span className="text-xs bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 px-2 py-1 rounded">
+                              {stage.recovery}
+                            </span>
+                          </div>
+                          <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{stage.process}</p>
+                          <div className="flex items-center gap-2 text-xs text-green-600 dark:text-green-400">
+                            <DollarSign className="h-3 w-3" />
+                            <span>{stage.value}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Environmental Impact */}
+              <div>
+                <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Environmental Impact</h3>
+
+                {/* Carbon Footprint Comparison */}
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow mb-4">
+                  <h4 className="font-semibold mb-3 flex items-center gap-2 text-gray-900 dark:text-white">
+                    <Leaf className="h-5 w-5 text-green-500" /> Carbon Footprint Reduction
+                  </h4>
+                  <div className="space-y-3">
+                    <div>
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="text-sm text-gray-600 dark:text-gray-400">Virgin Material Production</span>
+                        <span className="text-sm font-bold text-red-500">12.5 kg CO₂/kWh</span>
+                      </div>
+                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div className="bg-red-500 h-2 rounded-full" style={{width: '100%'}}></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="text-sm text-gray-600 dark:text-gray-400">Recycled Material Production</span>
+                        <span className="text-sm font-bold text-green-500">3.8 kg CO₂/kWh</span>
+                      </div>
+                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div className="bg-green-500 h-2 rounded-full" style={{width: '30%'}}></div>
+                      </div>
+                    </div>
+                    <div className="pt-3 border-t border-gray-200 dark:border-gray-700">
+                      <div className="flex justify-between items-center">
+                        <span className="font-semibold text-gray-900 dark:text-white">Carbon Savings</span>
+                        <span className="font-bold text-green-600">70% Reduction</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Material Recovery Rates */}
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow">
+                  <h4 className="font-semibold mb-3 flex items-center gap-2 text-gray-900 dark:text-white">
+                    <Package className="h-5 w-5 text-blue-500" /> Material Recovery Rates
+                  </h4>
+                  <div className="space-y-2">
+                    {[
+                      { material: "Lithium", rate: 95, color: "blue" },
+                      { material: "Cobalt", rate: 98, color: "purple" },
+                      { material: "Nickel", rate: 98, color: "green" },
+                      { material: "Copper", rate: 99, color: "orange" },
+                      { material: "Aluminum", rate: 97, color: "gray" },
+                      { material: "Graphite", rate: 90, color: "black" }
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-center gap-2">
+                        <span className="text-sm text-gray-600 dark:text-gray-400 w-20">{item.material}</span>
+                        <div className="flex-1 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                          <div className={`bg-${item.color}-500 h-2 rounded-full`} style={{width: `${item.rate}%`}}></div>
+                        </div>
+                        <span className="text-sm font-bold text-gray-900 dark:text-white">{item.rate}%</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
-          </section>
-        )}
-        
-        {/* Consultation Request Success */}
-        {consultationRequestSuccess && (
-          <section className="relative z-10 py-12 overflow-hidden">
-            <div className="container mx-auto mb-16">
-              <div className="relative">
-                {/* Green success glow */}
-                <div className="absolute -inset-10 bg-green-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
-                <div className="absolute -inset-20 bg-green-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
-                
-                {/* Content card */}
-                <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-green-500/30 shadow-lg max-w-3xl mx-auto">
-                  <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <CheckCircle className="w-10 h-10 text-green-500" />
+
+            {/* Sustainability Goals */}
+            <div className="mt-8 bg-gradient-to-r from-blue-500 to-green-500 rounded-xl p-6 text-white">
+              <h3 className="text-xl font-bold mb-4">2030 Sustainability Commitments</h3>
+              <div className="grid md:grid-cols-3 gap-4">
+                <div className="flex items-start gap-2">
+                  <CheckCircle className="h-5 w-5 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold">100% Renewable Energy</p>
+                    <p className="text-sm opacity-90">All manufacturing facilities</p>
                   </div>
-                  <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center text-white">
-                    Battery Storage Quote Request Received!
-                  </h2>
-                  <p className="text-gray-300 mb-6 text-center">
-                    Thank you for your interest in lithium battery storage with Advance Power Redding. Our energy storage specialists will contact you within 24 hours to discuss your backup power needs and design the perfect battery solution.
-                  </p>
-                  <p className="text-gray-300 mb-8 text-center">
-                    We'll analyze your energy usage and backup requirements to recommend the optimal APR Battery system for your needs.
-                  </p>
-                  <div className="flex flex-wrap justify-center gap-4">
-                    <Button variant="outline" className="border-green-500 text-green-400 hover:text-green-300 hover:border-green-400">
-                      View Hybrid Systems
-                    </Button>
-                    <Button variant="outline" className="border-blue-500 text-blue-400 hover:text-blue-300 hover:border-blue-400">
-                      Return to Home Page
-                    </Button>
+                </div>
+                <div className="flex items-start gap-2">
+                  <CheckCircle className="h-5 w-5 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold">Zero Landfill Waste</p>
+                    <p className="text-sm opacity-90">Complete battery recycling</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <CheckCircle className="h-5 w-5 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold">50% Recycled Content</p>
+                    <p className="text-sm opacity-90">In all new batteries</p>
                   </div>
                 </div>
               </div>
             </div>
-          </section>
-        )}
+          </div>
+        </div>
+
+        {/* Cost Analysis & ROI Calculator */}
+        <div className="mb-12">
+          <div className="text-center mb-8">
+            <p className="text-red-600 font-semibold mb-2">Financial Analysis</p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Total Cost of Ownership</h2>
+            <p className="text-gray-600 dark:text-gray-400">Comprehensive cost comparison and ROI calculations</p>
+          </div>
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
+            <div className="grid lg:grid-cols-2 gap-8">
+              {/* Cost Comparison */}
+              <div>
+                <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">10-Year Cost Comparison</h3>
+                <div className="space-y-4">
+                  <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4">
+                    <h4 className="font-semibold text-gray-900 dark:text-white mb-3">Lead-Acid Batteries</h4>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex justify-between">
+                        <span className="text-gray-600 dark:text-gray-400">Initial Cost (10kWh)</span>
+                        <span className="font-medium">$3,000</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-600 dark:text-gray-400">Replacements (3x)</span>
+                        <span className="font-medium">$9,000</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-600 dark:text-gray-400">Maintenance</span>
+                        <span className="font-medium">$2,400</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-600 dark:text-gray-400">Energy Loss (30%)</span>
+                        <span className="font-medium">$3,600</span>
+                      </div>
+                      <div className="flex justify-between pt-2 border-t border-gray-300 dark:border-gray-600">
+                        <span className="font-semibold text-gray-900 dark:text-white">Total 10-Year Cost</span>
+                        <span className="font-bold text-red-600">$18,000</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4">
+                    <h4 className="font-semibold text-gray-900 dark:text-white mb-3">Lithium LiFePO4 Batteries</h4>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex justify-between">
+                        <span className="text-gray-600 dark:text-gray-400">Initial Cost (10kWh)</span>
+                        <span className="font-medium">$8,000</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-600 dark:text-gray-400">Replacements</span>
+                        <span className="font-medium">$0</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-600 dark:text-gray-400">Maintenance</span>
+                        <span className="font-medium">$0</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-600 dark:text-gray-400">Energy Loss (5%)</span>
+                        <span className="font-medium">$600</span>
+                      </div>
+                      <div className="flex justify-between pt-2 border-t border-gray-300 dark:border-gray-600">
+                        <span className="font-semibold text-gray-900 dark:text-white">Total 10-Year Cost</span>
+                        <span className="font-bold text-green-600">$8,600</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-green-50 dark:bg-green-900/20 rounded-xl p-4">
+                    <div className="flex justify-between items-center">
+                      <span className="font-bold text-gray-900 dark:text-white">10-Year Savings with Lithium</span>
+                      <span className="text-2xl font-bold text-green-600">$9,400</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* ROI Calculator */}
+              <div>
+                <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Quick ROI Calculator</h3>
+                <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-xl p-6">
+                  <div className="space-y-4">
+                    <div>
+                      <label className="text-sm font-medium text-gray-700 dark:text-gray-300">System Size (kWh)</label>
+                      <input type="range" min="5" max="50" defaultValue="15" className="w-full mt-2" />
+                      <div className="flex justify-between text-xs text-gray-500 mt-1">
+                        <span>5 kWh</span>
+                        <span className="font-bold">15 kWh</span>
+                        <span>50 kWh</span>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Daily Usage (%)</label>
+                      <input type="range" min="20" max="100" defaultValue="80" className="w-full mt-2" />
+                      <div className="flex justify-between text-xs text-gray-500 mt-1">
+                        <span>20%</span>
+                        <span className="font-bold">80%</span>
+                        <span>100%</span>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Electricity Rate ($/kWh)</label>
+                      <input type="range" min="0.08" max="0.40" step="0.01" defaultValue="0.15" className="w-full mt-2" />
+                      <div className="flex justify-between text-xs text-gray-500 mt-1">
+                        <span>$0.08</span>
+                        <span className="font-bold">$0.15</span>
+                        <span>$0.40</span>
+                      </div>
+                    </div>
+
+                    <div className="pt-4 border-t border-gray-300 dark:border-gray-600">
+                      <div className="grid grid-cols-2 gap-4 text-sm">
+                        <div>
+                          <p className="text-gray-600 dark:text-gray-400">Monthly Savings</p>
+                          <p className="text-xl font-bold text-green-600">$144</p>
+                        </div>
+                        <div>
+                          <p className="text-gray-600 dark:text-gray-400">Annual Savings</p>
+                          <p className="text-xl font-bold text-green-600">$1,728</p>
+                        </div>
+                        <div>
+                          <p className="text-gray-600 dark:text-gray-400">Payback Period</p>
+                          <p className="text-xl font-bold text-blue-600">6.9 years</p>
+                        </div>
+                        <div>
+                          <p className="text-gray-600 dark:text-gray-400">20-Year ROI</p>
+                          <p className="text-xl font-bold text-purple-600">290%</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="bg-gradient-to-r from-blue-600 to-purple-700 rounded-3xl p-8 text-white text-center">
+          <h2 className="text-3xl font-bold mb-4">Ready to Upgrade to Lithium?</h2>
+          <p className="text-xl mb-6 text-blue-100">
+            Get a custom battery solution designed for your specific needs
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <button className="bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-blue-50 transition flex items-center gap-2">
+              <Calculator className="h-5 w-5" /> Get Custom Quote
+            </button>
+            <button className="bg-white/20 backdrop-blur text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/30 transition flex items-center gap-2">
+              <Phone className="h-5 w-5" /> Schedule Consultation
+            </button>
+            <button className="bg-white/20 backdrop-blur text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/30 transition flex items-center gap-2">
+              <FileCheck className="h-5 w-5" /> Download Spec Sheet
+            </button>
+          </div>
+          <div className="mt-6 text-sm text-blue-200">
+            ISO 9001:2015 Certified • UL Listed • 10-Year Warranty • 24/7 Support
+          </div>
+        </div>
       </div>
-    </MainLayout>
+    </div>
   );
 };
 

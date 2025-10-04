@@ -200,7 +200,7 @@ const CommercialSolar = () => {
     {
       icon: Network,
       title: "CPUC Rule 21 Fast Track",
-      description: "Systems <1MW qualify for expedited interconnection review. Our team handles all PG&E/REU utility applications and NEM 3.0 enrollment.",
+      description: "Systems &lt;1MW qualify for expedited interconnection review. Our team handles all PG&E/REU utility applications and NEM 3.0 enrollment.",
       highlight: false
     },
     {
@@ -227,7 +227,7 @@ const CommercialSolar = () => {
     {
       icon: Building2,
       title: "PG&E B-10 (Secondary)",
-      description: "Facilities <500kW with demand charges $12-18/kW. Battery storage reduces peak demand and on-peak energy consumption ($0.30-0.35/kWh)."
+      description: "Facilities &lt;500kW with demand charges $12-18/kW. Battery storage reduces peak demand and on-peak energy consumption ($0.30-0.35/kWh)."
     },
     {
       icon: Factory,

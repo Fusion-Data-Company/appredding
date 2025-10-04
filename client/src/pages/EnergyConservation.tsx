@@ -1,1145 +1,779 @@
 import React, { useState, useEffect } from "react";
-import MainLayout from "@/components/layout/MainLayout";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { 
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage
-} from "@/components/ui/form";
-import { 
-  CheckCircle, 
-  Shield, 
-  Home, 
-  ChevronRight, 
-  FileCheck, 
-  Zap, 
-  CircleDollarSign, 
-  BarChart3, 
-  Calculator, 
-  Leaf, 
-  Lightbulb, 
-  Award, 
-  AlertTriangle, 
-  Building, 
-  TrendingUp,
-  ThermometerSun,
-  Droplets,
-  Wind,
-  Eye
-} from "lucide-react";
-import { insertServiceConsultationSchema, type ServiceConsultationFormValues } from "@shared/schema";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
-import { useToast } from "@/hooks/use-toast";
-import { z } from "zod";
+import { Leaf, Lightbulb, ThermometerSun, Wind, Droplets, Home, Shield, AlertTriangle, CheckCircle, TrendingUp, CircleDollarSign, BarChart, DollarSign, Calculator, Zap, Eye, FileCheck, ChevronRight, ArrowRight, Building2, Factory, Gauge, Timer, Settings, Info, Target, Activity, Battery, Power, Sun, Cloud, Snowflake, Flame, Award, Package, Wrench, Component, Cpu, Lock, Database, Globe, MapPin, Users, Phone, Mail, MessageSquare, Calendar, Clock, Star, Heart, Bell, Search, Filter, Layers, Grid, Box, Hexagon } from "lucide-react";
 import { motion } from "framer-motion";
-import SEOHead from "@/components/SEOHead";
-import { preloadCriticalImages } from "@/lib/image-helper";
-import { generateStructuredData, getIndustryKeywords } from "@/lib/seo-helper";
-import SolarRescueTimelineSection from '@/sections/SolarRescueTimelineSection';
-import { Battery } from "lucide-react";
-
-type EnergyConservationFormValues = ServiceConsultationFormValues;
 
 const EnergyConservation = () => {
-  const [showConsultationForm, setShowConsultationForm] = useState(false);
-  const [consultationRequestSuccess, setConsultationRequestSuccess] = useState(false);
-  const { toast } = useToast();
-  
-  // Define industry-specific data for SEO
-  const industry = "Energy Conservation";
-  const slug = "energy-conservation";
-  const pageTitle = "Advance Power Redding – Energy Conservation Services";
-  const pageDescription = "Help reduce energy costs and boost efficiency with customized solar solutions and system upgrades. Comprehensive energy audits, LED lighting, HVAC optimization and more.";
-  const heroImagePath = "/src/assets_dir/images/optimized/praetorian-background-new.png";
-  
-  // Preload critical images
+  const [activeTab, setActiveTab] = useState("overview");
+  const [selectedService, setSelectedService] = useState("audit");
+  const [energyUsage, setEnergyUsage] = useState(3500);
+  const [efficiency, setEfficiency] = useState(65);
+  const [savings, setSavings] = useState(0);
+  const [temperature, setTemperature] = useState(72);
+
   useEffect(() => {
-    preloadCriticalImages([
-      heroImagePath,
-      "/src/assets_dir/images/energy-conservation-hero.jpg"
-    ]);
+    const interval = setInterval(() => {
+      setEnergyUsage(3500 + Math.sin(Date.now() / 2000) * 200);
+      setEfficiency(65 + Math.sin(Date.now() / 3000) * 5);
+      setSavings(prev => (prev + 0.5) % 1000);
+      setTemperature(72 + Math.sin(Date.now() / 4000) * 2);
+    }, 100);
+    return () => clearInterval(interval);
   }, []);
 
-  // Setup form for consultation form
-  const form = useForm<EnergyConservationFormValues>({
-    resolver: zodResolver(insertServiceConsultationSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      phone: "",
-      address: "",
-      propertyType: "",
-      message: ""
+  const conservationServices = {
+    audit: {
+      name: "Comprehensive Energy Audit",
+      description: "Professional home energy assessment using advanced diagnostic tools",
+      savings: "20-40%",
+      roi: "Immediate insights",
+      features: ["Blower door testing", "Infrared thermography", "Duct leakage testing", "Combustion safety testing"],
+      price: "$399-599"
     },
-  });
-
-  // Mutation for consultation form
-  const consultationMutation = useMutation({
-    mutationFn: async (data: EnergyConservationFormValues) => {
-      return await apiRequest("/api/energy-conservation/consultation", { method: "POST", data });
+    lighting: {
+      name: "LED Lighting Retrofit",
+      description: "Complete conversion to high-efficiency LED lighting systems",
+      savings: "75-90%",
+      roi: "1-2 years",
+      features: ["Smart controls", "Occupancy sensors", "Daylight harvesting", "Color tuning"],
+      price: "$500-5,000"
     },
-    onSuccess: () => {
-      setConsultationRequestSuccess(true);
-      form.reset();
-      toast({
-        title: "Request Submitted",
-        description: "We've received your consultation request and will contact you shortly.",
-        variant: "default",
-      });
+    hvac: {
+      name: "HVAC Optimization",
+      description: "Heat pump upgrades and smart thermostat installation",
+      savings: "20-40%",
+      roi: "3-5 years",
+      features: ["Variable speed systems", "Zoning controls", "Air quality monitoring", "Predictive maintenance"],
+      price: "$3,000-12,000"
     },
-    onError: (error: Error) => {
-      toast({
-        title: "Error",
-        description: error.message || "Failed to submit your request. Please try again.",
-        variant: "destructive",
-      });
+    insulation: {
+      name: "Building Envelope Upgrade",
+      description: "Comprehensive insulation and air sealing improvements",
+      savings: "15-30%",
+      roi: "2-4 years",
+      features: ["Attic insulation", "Wall insulation", "Air sealing", "Window upgrades"],
+      price: "$2,000-8,000"
     },
-  });
-
-  const onSubmit = (data: EnergyConservationFormValues) => {
-    consultationMutation.mutate(data);
+    water: {
+      name: "Water Heating Efficiency",
+      description: "Heat pump water heater installation and optimization",
+      savings: "50-65%",
+      roi: "4-6 years",
+      features: ["Heat pump technology", "Demand controls", "Pipe insulation", "Low-flow fixtures"],
+      price: "$2,500-4,500"
+    },
+    solar: {
+      name: "Solar Integration",
+      description: "Combining efficiency with renewable energy generation",
+      savings: "80-100%",
+      roi: "5-7 years",
+      features: ["Right-sized systems", "Net metering", "Battery storage", "Smart inverters"],
+      price: "$15,000-30,000"
+    }
   };
 
-  const handleShowConsultationForm = () => {
-    setShowConsultationForm(true);
-  };
+  const efficiencyMetrics = [
+    { metric: "SEER2", definition: "Seasonal Energy Efficiency Ratio", standard: "14+ minimum", premium: "20+ high-efficiency" },
+    { metric: "HSPF2", definition: "Heating Seasonal Performance Factor", standard: "7.5+ minimum", premium: "10+ high-efficiency" },
+    { metric: "AFUE", definition: "Annual Fuel Utilization Efficiency", standard: "80% minimum", premium: "95%+ condensing" },
+    { metric: "COP", definition: "Coefficient of Performance", standard: "2.5+ good", premium: "4.0+ excellent" },
+    { metric: "EER", definition: "Energy Efficiency Ratio", standard: "11+ standard", premium: "13+ high-efficiency" },
+    { metric: "R-Value", definition: "Thermal Resistance", standard: "R-30 attic min", premium: "R-49+ recommended" }
+  ];
+
+  const rebatePrograms = [
+    { program: "PG&E Home Energy Savings", type: "Whole House", amount: "Up to $6,500", requirements: "15% energy reduction" },
+    { program: "TECH Clean California", type: "Heat Pumps", amount: "$3,000-$4,500", requirements: "Qualified heat pump installation" },
+    { program: "Energy Upgrade California", type: "Multiple Measures", amount: "$1,000-$6,500", requirements: "3+ qualifying measures" },
+    { program: "Federal Tax Credits", type: "Efficiency Upgrades", amount: "30% of cost", requirements: "Energy Star certified" },
+    { program: "PACE Financing", type: "All Measures", amount: "100% financing", requirements: "Property tax assessment" },
+    { program: "Low-Income Weatherization", type: "Comprehensive", amount: "Free upgrades", requirements: "Income qualification" }
+  ];
+
+  const buildingScience = [
+    { concept: "Stack Effect", description: "Warm air rises creating pressure differentials", impact: "30% of air leakage", solution: "Air sealing at attic and basement" },
+    { concept: "Thermal Bridging", description: "Heat transfer through structural members", impact: "15-20% heat loss", solution: "Continuous insulation installation" },
+    { concept: "Vapor Drive", description: "Moisture movement through materials", impact: "Mold and degradation", solution: "Proper vapor barriers" },
+    { concept: "Pressure Balance", description: "Indoor/outdoor pressure differentials", impact: "Drafts and infiltration", solution: "Balanced ventilation systems" },
+    { concept: "Heat Island Effect", description: "Surface temperature elevation", impact: "25% cooling increase", solution: "Cool roofs and shade structures" },
+    { concept: "Thermal Mass", description: "Material heat storage capacity", impact: "Temperature stability", solution: "Strategic mass placement" }
+  ];
+
+  const smartHomeIntegration = [
+    { system: "Smart Thermostats", savings: "10-23%", features: ["Learning algorithms", "Geofencing", "Remote control", "Energy reports"] },
+    { system: "Smart Lighting", savings: "15-30%", features: ["Dimming controls", "Scene settings", "Circadian rhythm", "Voice activation"] },
+    { system: "Energy Monitoring", savings: "5-15%", features: ["Real-time usage", "Appliance detection", "Cost tracking", "Anomaly alerts"] },
+    { system: "Smart Plugs", savings: "5-10%", features: ["Schedule control", "Phantom load elimination", "Remote shutoff", "Usage tracking"] },
+    { system: "HVAC Zoning", savings: "20-35%", features: ["Room-by-room control", "Occupancy detection", "Schedule optimization", "Maintenance alerts"] },
+    { system: "Water Leak Detection", savings: "10-20%", features: ["Instant alerts", "Auto shutoff", "Usage patterns", "Freeze protection"] }
+  ];
 
   return (
-    <MainLayout fullWidth={true}>
-      {/* Enhanced SEO Head with structured data and improved metadata */}
-      <SEOHead
-        title={pageTitle}
-        description={pageDescription}
-        industry={industry}
-        slug={slug}
-        imagePath={heroImagePath}
-        keywords={getIndustryKeywords(slug, [
-          'energy efficiency services',
-          'energy conservation consulting',
-          'LED lighting upgrades',
-          'HVAC optimization',
-          'energy audits'
-        ])}
-        structuredData={generateStructuredData(industry, pageDescription, slug, [
-          "Energy Efficiency Services",
-          "Energy Conservation Consulting",
-          "LED Lighting Upgrades",
-          "HVAC Optimization"
-        ])}
-      />
-      
-      <div className="relative">
-        {/* Advanced premium gradient background with layered effects */}
-        <div className="fixed inset-0 z-[-5]" style={{ 
-          background: 'linear-gradient(145deg, #0c0c14 0%, #101830 30%, #152238 60%, #0e1a2a 100%)'
-        }}></div>
-        
-        {/* Dynamic layered background elements with conservation theme */}
-        <div className="fixed inset-0 z-[-4] opacity-40" style={{ 
-          backgroundImage: 'radial-gradient(circle at 30% 20%, rgba(34, 197, 94, 0.6) 0%, rgba(15, 23, 42, 0) 60%)'
-        }}></div>
-        
-        <div className="fixed inset-0 z-[-3] opacity-30" style={{ 
-          backgroundImage: 'radial-gradient(circle at 70% 60%, rgba(30, 64, 175, 0.5) 0%, rgba(15, 23, 42, 0) 60%)'
-        }}></div>
-        
-        {/* Subtle animated grid overlay */}
-        <div className="fixed inset-0 z-[-2] opacity-10 bg-[url('/src/assets_dir/images/grid-pattern.svg')] bg-repeat"></div>
+    <div className="py-16 sm:py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+      {/* Hero Section with Live Metrics */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-gradient-to-r from-green-600 to-blue-700 rounded-3xl p-8 mb-12 text-white relative overflow-hidden"
+        >
+          <div className="absolute inset-0 bg-circuit-pattern opacity-10"></div>
+          <div className="relative z-10">
+            <div className="flex items-center gap-2 mb-4">
+              <Leaf className="h-8 w-8" />
+              <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">Energy Efficiency Solutions</span>
+            </div>
+            <h1 className="text-4xl sm:text-5xl font-bold mb-4">Comprehensive Energy Conservation</h1>
+            <p className="text-xl mb-6 text-green-100">Reduce energy consumption by 30-50% with professional efficiency upgrades</p>
 
-        {/* SANDLER STAGE 0: INTRO - BLUE GLOW SECTION */}
-        <section className="relative z-10 py-16 md:py-24 overflow-hidden">
-          <div className="container mx-auto">
-            <div className="flex flex-col lg:flex-row items-center gap-8">
-              {/* Left column with text content */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7 }}
-                className="lg:w-1/2 relative"
+            {/* Live Energy Metrics */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
+              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
+                <Activity className="h-5 w-5 mb-2 text-green-200" />
+                <div className="text-2xl font-bold">{energyUsage.toFixed(0)}</div>
+                <div className="text-sm text-green-200">kWh Usage</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
+                <Gauge className="h-5 w-5 mb-2 text-blue-200" />
+                <div className="text-2xl font-bold">{efficiency.toFixed(0)}%</div>
+                <div className="text-sm text-blue-200">Efficiency</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
+                <DollarSign className="h-5 w-5 mb-2 text-yellow-200" />
+                <div className="text-2xl font-bold">${savings.toFixed(0)}</div>
+                <div className="text-sm text-yellow-200">Monthly Savings</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
+                <ThermometerSun className="h-5 w-5 mb-2 text-orange-200" />
+                <div className="text-2xl font-bold">{temperature.toFixed(0)}°F</div>
+                <div className="text-sm text-orange-200">Set Point</div>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap gap-4">
+              <button className="bg-white text-green-600 px-6 py-3 rounded-xl font-semibold hover:bg-green-50 transition flex items-center gap-2">
+                Schedule Energy Audit <ArrowRight className="h-5 w-5" />
+              </button>
+              <button className="bg-white/20 backdrop-blur text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/30 transition flex items-center gap-2">
+                <Calculator className="h-5 w-5" /> Calculate Savings
+              </button>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Conservation Services Selector */}
+        <div className="mb-12">
+          <div className="text-center mb-8">
+            <p className="text-red-600 font-semibold mb-2">Energy Efficiency Services</p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Professional Conservation Solutions</h2>
+            <p className="text-gray-600 dark:text-gray-400">Comprehensive energy reduction strategies tailored to your property</p>
+          </div>
+
+          <div className="flex flex-wrap gap-2 mb-6">
+            {Object.keys(conservationServices).map((service) => (
+              <button
+                key={service}
+                onClick={() => setSelectedService(service)}
+                className={`px-4 py-2 rounded-lg font-medium transition ${
+                  selectedService === service
+                    ? "bg-green-600 text-white"
+                    : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
+                }`}
               >
-                <div className="relative">
-                  {/* Blue glow effect with multi-layered design */}
-                  <div className="absolute -inset-10 bg-blue-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
-                  <div className="absolute -inset-20 bg-blue-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
-                  <div className="absolute -inset-30 bg-blue-700/5 rounded-xl blur-3xl opacity-30 z-0 animate-pulse-slow"></div>
-                  
-                  {/* Content card with premium effects */}
-                  <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-blue-700/30 shadow-lg">
-                    {/* Premium corner accents */}
-                    <div className="absolute bottom-1 left-1 w-12 h-12 border-b border-l border-blue-500/30 rounded-bl-md"></div>
-                    <div className="absolute bottom-1 right-1 w-12 h-12 border-b border-r border-blue-500/30 rounded-br-md"></div>
-                    <div className="absolute top-1 left-1 w-12 h-12 border-t border-l border-blue-500/30 rounded-tl-md"></div>
-                    <div className="absolute top-1 right-1 w-12 h-12 border-t border-r border-blue-500/30 rounded-tr-md"></div>
-                  
-                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-100 to-blue-300">
-                      Energy Conservation Services
-                    </h1>
-                    
-                    <div className="mb-6 space-y-6 text-gray-300">
-                      <p className="text-lg">
-                        Advance Power Redding helps reduce energy costs and boost efficiency with customized solar solutions and comprehensive system upgrades. Our energy conservation services include home energy audits, LED lighting upgrades, HVAC optimizations, and other measures to dramatically cut usage.
-                      </p>
-                      <p className="text-lg">
-                        We position ourselves not just as a solar installer but a comprehensive energy solutions provider dedicated to maximizing your energy savings and efficiency.
-                      </p>
+                {conservationServices[service].name.split(' ')[0]}
+              </button>
+            ))}
+          </div>
+
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
+            <div className="flex items-start justify-between mb-4">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                {conservationServices[selectedService].name}
+              </h3>
+              <span className="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-3 py-1 rounded-full text-sm font-medium">
+                {conservationServices[selectedService].savings} Savings
+              </span>
+            </div>
+
+            <p className="text-gray-600 dark:text-gray-400 mb-6">
+              {conservationServices[selectedService].description}
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <h4 className="font-semibold mb-3 flex items-center gap-2 text-gray-900 dark:text-white">
+                  <CheckCircle className="h-5 w-5 text-green-500" /> Key Features
+                </h4>
+                <ul className="space-y-2">
+                  {conservationServices[selectedService].features.map((feature, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
+                      <ChevronRight className="h-4 w-4 text-green-500 mt-0.5" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="space-y-4">
+                <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-sm text-gray-600 dark:text-gray-400">ROI Period</span>
+                    <span className="font-bold text-gray-900 dark:text-white">{conservationServices[selectedService].roi}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-gray-600 dark:text-gray-400">Investment Range</span>
+                    <span className="font-bold text-green-600 dark:text-green-400">{conservationServices[selectedService].price}</span>
+                  </div>
+                </div>
+
+                <button className="w-full bg-green-600 text-white px-4 py-3 rounded-xl font-semibold hover:bg-green-700 transition">
+                  Get Free Quote
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Energy Audit Process */}
+        <div className="mb-12">
+          <div className="text-center mb-8">
+            <p className="text-red-600 font-semibold mb-2">Diagnostic Assessment</p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Professional Energy Audit Process</h2>
+            <p className="text-gray-600 dark:text-gray-400">Comprehensive analysis using advanced building science techniques</p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* Audit Steps */}
+            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
+              <h3 className="text-xl font-bold mb-6 text-gray-900 dark:text-white flex items-center gap-2">
+                <Eye className="h-6 w-6 text-blue-500" /> Audit Methodology
+              </h3>
+
+              <div className="space-y-4">
+                {[
+                  { step: "Visual Inspection", desc: "Comprehensive walkthrough of all spaces", time: "30 min" },
+                  { step: "Blower Door Test", desc: "Measure air infiltration at 50 Pascal pressure", time: "45 min" },
+                  { step: "Duct Blaster Test", desc: "Quantify HVAC duct leakage", time: "30 min" },
+                  { step: "Infrared Imaging", desc: "Thermal camera scan of building envelope", time: "60 min" },
+                  { step: "Combustion Safety", desc: "Test gas appliances for CO and efficiency", time: "20 min" },
+                  { step: "Report Generation", desc: "Detailed findings and recommendations", time: "24-48 hrs" }
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-4">
+                    <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center text-sm font-bold text-blue-600 dark:text-blue-300">
+                      {idx + 1}
                     </div>
-                    
-                    <div className="flex flex-wrap gap-4 mb-6">
-                      <div className="flex items-center space-x-2">
-                        <Leaf className="h-5 w-5 text-blue-400" />
-                        <span className="text-gray-200">Energy Audits</span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Lightbulb className="h-5 w-5 text-blue-400" />
-                        <span className="text-gray-200">LED Upgrades</span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <ThermometerSun className="h-5 w-5 text-blue-400" />
-                        <span className="text-gray-200">HVAC Optimization</span>
-                      </div>
-                    </div>
-                    
-                    <div className="flex flex-wrap gap-4">
-                      <Button 
-                        className="relative group overflow-hidden bg-gradient-to-r from-gray-800 to-gray-950 border border-gray-700 hover:border-blue-500 transition-all duration-300 px-6 py-2 shadow-lg"
-                        onClick={handleShowConsultationForm}
-                      >
-                        <span className="relative z-10 text-white group-hover:text-blue-200 transition-colors duration-300">
-                          Get Energy Audit
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between">
+                        <h4 className="font-semibold text-gray-900 dark:text-white">{item.step}</h4>
+                        <span className="text-xs bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded text-gray-600 dark:text-gray-400">
+                          {item.time}
                         </span>
-                        <span className="absolute inset-0 bg-blue-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
-                      </Button>
-                      <Button 
-                        variant="outline" 
-                        className="border-gray-600 text-blue-400 hover:text-blue-300 hover:border-blue-500"
-                      >
-                        Learn More
-                      </Button>
+                      </div>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{item.desc}</p>
                     </div>
                   </div>
-                </div>
-              </motion.div>
-              
-              {/* Right column with image */}
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.7, delay: 0.2 }}
-                className="lg:w-1/2"
-              >
-                <div className="relative">
-                  {/* Premium image container with decorative elements */}
-                  <div className="relative rounded-2xl overflow-hidden border border-blue-700/30 shadow-lg">
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-black/80 mix-blend-overlay z-10"></div>
-                    
-                    {/* Hero Image */}
-                    <img 
-                      src="/src/assets_dir/images/energy-conservation-hero.jpg" 
-                      alt="Energy conservation and efficiency services by Advance Power Redding" 
-                      className="w-full h-auto max-h-[500px] object-cover object-center"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.src = "/src/assets_dir/images/optimized/praetorian-background-new.png";
-                      }}
-                    />
-                    
-                    {/* Premium overlay elements */}
-                    <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-blue-400/40 rounded-tl-xl"></div>
-                    <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-blue-400/40 rounded-br-xl"></div>
-                    
-                    {/* Image caption */}
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 z-20">
-                      <p className="text-sm text-gray-300 text-center">Comprehensive energy efficiency upgrades reducing consumption and costs</p>
-                    </div>
-                  </div>
-                  
-                  {/* Stats overlay */}
-                  <div className="absolute -bottom-6 -right-6 bg-gradient-to-br from-gray-900 to-gray-950 border border-blue-700/30 rounded-lg p-4 shadow-lg z-30">
-                    <p className="text-blue-400 font-semibold">Efficiency Gain</p>
-                    <p className="text-3xl font-bold text-white">30-50%<sup className="text-blue-300 text-xs">*</sup></p>
-                    <p className="text-xs text-gray-400">*Energy savings</p>
-                  </div>
-                </div>
-              </motion.div>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
 
-        {/* Color-Coded Energy Conservation Funnel (RED → YELLOW → GREEN → PURPLE) */}
-        <SolarRescueTimelineSection
-          className="bg-gradient-to-br from-gray-950 via-gray-900 to-black"
-          stages={[
-            {
-              id: 'pain-red',
-              title: 'Energy Waste & High Utility Bills',
-              description: 'Homes lose 25-40% of energy through poor insulation, inefficient HVAC, and phantom loads. Rising PG&E rates compound waste. Solar systems underperform without addressing consumption inefficiencies first.',
-              color: 'from-red-500 to-red-600',
-              glowColor: 'rgba(239, 68, 68, 0.5)',
-              icon: <AlertTriangle className='h-8 w-8' />,
-              metrics: 'Energy Loss: 25-40%',
-            },
-            {
-              id: 'intel-yellow',
-              title: 'Energy Audit & Efficiency Assessment',
-              description: 'Comprehensive home energy audit using thermal imaging and blower door testing. HVAC system efficiency analysis. Insulation R-value assessment. Phantom load identification. Smart thermostat compatibility review.',
-              color: 'from-yellow-500 to-yellow-600',
-              glowColor: 'rgba(234, 179, 8, 0.5)',
-              icon: <Eye className='h-8 w-8' />,
-              metrics: 'Thermal Imaging Analysis',
-            },
-            {
-              id: 'roi-green',
-              title: 'Conservation ROI & Solar Optimization',
-              description: 'Energy efficiency upgrades reduce consumption by 20-35% before solar installation. Right-size solar systems save $3,000-$8,000 vs oversizing. LED lighting, insulation, and HVAC upgrades deliver 2-4 year payback independently.',
-              color: 'from-green-500 to-green-600',
-              glowColor: 'rgba(34, 197, 94, 0.5)',
-              icon: <TrendingUp className='h-8 w-8' />,
-              metrics: 'Reduction: 20-35%',
-            },
-            {
-              id: 'action-purple',
-              title: 'Implementation & Smart Home Integration',
-              description: 'Energy efficiency upgrades installed per California Title 24 standards. Smart thermostat programming for TOU rate optimization. LED retrofit with utility rebates. HVAC tune-up or replacement. Integration with solar + battery systems.',
-              color: 'from-purple-500 to-purple-600',
-              glowColor: 'rgba(168, 85, 247, 0.5)',
-              icon: <CheckCircle className='h-8 w-8' />,
-              metrics: 'Title 24 Compliant',
-            },
-          ]}
-        />
+            {/* Diagnostic Equipment */}
+            <div className="bg-gradient-to-br from-blue-50 to-green-50 dark:from-blue-900/20 dark:to-green-900/20 rounded-2xl p-8">
+              <h3 className="text-xl font-bold mb-6 text-gray-900 dark:text-white flex items-center gap-2">
+                <Cpu className="h-6 w-6 text-green-500" /> Diagnostic Equipment
+              </h3>
 
-        {/* SANDLER STAGE 1: PAIN - RED GLOW SECTION - Critical Problems */}
-        <section className="relative z-10 py-12 overflow-hidden">
-          <div className="container mx-auto mb-16">
-            <div className="relative">
-              {/* Enhanced Red glow effect with multi-layer glow */}
-              <div className="absolute -inset-10 bg-red-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
-              <div className="absolute -inset-20 bg-red-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
-              <div className="absolute -inset-30 bg-red-700/5 rounded-xl blur-3xl opacity-30 z-0 animate-pulse-slow"></div>
-              
-              {/* Content card */}
-              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-red-700/30 shadow-lg">
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-red-300 via-red-200 to-red-300">
-                  Energy Waste Is Draining Your Budget
-                </h2>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
-                  <div>
-                    <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-red-700/20 shadow-md">
-                      <h3 className="text-xl font-bold mb-4 text-red-300">Inefficient Energy Systems</h3>
-                      <ul className="space-y-3">
-                        <li className="flex items-start">
-                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Outdated HVAC systems waste 20-40% of energy through poor efficiency</span>
-                        </li>
-                        <li className="flex items-start">
-                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Old incandescent and CFL lighting consumes 5x more energy than LED alternatives</span>
-                        </li>
-                        <li className="flex items-start">
-                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Poor insulation allows 30-50% of heating and cooling energy to escape</span>
-                        </li>
-                        <li className="flex items-start">
-                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Phantom loads from electronics can add $200+ annually to electric bills</span>
-                        </li>
-                      </ul>
-                    </div>
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { tool: "Blower Door", spec: "Minneapolis BD3", measure: "CFM50, ACH50" },
+                  { tool: "Duct Blaster", spec: "DG-1000", measure: "CFM25, Leakage %" },
+                  { tool: "Thermal Camera", spec: "FLIR E8-XT", measure: "320x240 resolution" },
+                  { tool: "Combustion Analyzer", spec: "Testo 330-2", measure: "CO, CO2, O2, Efficiency" },
+                  { tool: "Moisture Meter", spec: "Protimeter MMS2", measure: "WME, %MC" },
+                  { tool: "Data Logger", spec: "HOBO MX2301A", measure: "Temp, RH, Dew Point" }
+                ].map((item, idx) => (
+                  <div key={idx} className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow">
+                    <h4 className="font-semibold text-gray-900 dark:text-white text-sm">{item.tool}</h4>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">{item.spec}</p>
+                    <p className="text-xs text-green-600 dark:text-green-400 mt-1">Measures: {item.measure}</p>
                   </div>
-                  
-                  <div>
-                    <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-red-700/20 shadow-md">
-                      <h3 className="text-xl font-bold mb-4 text-red-300">Hidden Energy Drains</h3>
-                      <ul className="space-y-3">
-                        <li className="flex items-start">
-                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Inefficient water heating accounts for 18% of home energy consumption</span>
-                        </li>
-                        <li className="flex items-start">
-                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Air leaks and drafts force HVAC systems to work overtime year-round</span>
-                        </li>
-                        <li className="flex items-start">
-                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Outdated appliances use 40-60% more energy than Energy Star certified models</span>
-                        </li>
-                        <li className="flex items-start">
-                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Poor energy habits waste thousands of dollars annually without awareness</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-red-700/20 shadow-md">
-                  <h3 className="text-xl font-bold mb-4 text-red-300 text-center">The Real Cost of Energy Inefficiency</h3>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-red-900/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <CircleDollarSign className="h-8 w-8 text-red-500" />
-                      </div>
-                      <p className="text-red-400 font-bold text-xl">$2,000+</p>
-                      <p className="text-gray-300 text-sm">Annual waste typical home</p>
-                    </div>
-                    
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-red-900/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <TrendingUp className="h-8 w-8 text-red-500" />
-                      </div>
-                      <p className="text-red-400 font-bold text-xl">40%</p>
-                      <p className="text-gray-300 text-sm">Energy lost to inefficiency</p>
-                    </div>
-                    
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-red-900/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <AlertTriangle className="h-8 w-8 text-red-500" />
-                      </div>
-                      <p className="text-red-400 font-bold text-xl">10+ Years</p>
-                      <p className="text-gray-300 text-sm">Until typical upgrades</p>
-                    </div>
-                  </div>
-                </div>
+                ))}
+              </div>
+
+              <div className="mt-6 bg-blue-100 dark:bg-blue-900/30 rounded-xl p-4">
+                <p className="text-sm text-gray-700 dark:text-gray-300">
+                  <strong>BPI Certified:</strong> Our auditors are Building Performance Institute certified professionals using calibrated equipment meeting RESNET standards.
+                </p>
               </div>
             </div>
           </div>
-        </section>
-          
-        {/* SANDLER STAGE 2: TECH SOLUTION - YELLOW GLOW SECTION */}
-        <section className="relative z-10 py-12 overflow-hidden">
-          <div className="container mx-auto mb-16">
-            <div className="relative">
-              {/* Enhanced Yellow/Amber glow effect with multi-layer glow */}
-              <div className="absolute -inset-10 bg-amber-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
-              <div className="absolute -inset-20 bg-amber-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
-              <div className="absolute -inset-30 bg-amber-700/5 rounded-xl blur-3xl opacity-30 z-0 animate-pulse-slow"></div>
-              
-              {/* Content card */}
-              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-amber-700/30 shadow-lg">
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-300">
-                  Comprehensive Energy Conservation Solutions
-                </h2>
-                
-                <div className="mb-10">
-                  <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-amber-700/20 shadow-md">
-                    <h3 className="text-xl font-bold mb-4 text-amber-300">Complete Energy Efficiency Services</h3>
-                    <p className="text-gray-300 mb-6">
-                      Our comprehensive energy conservation program combines advanced diagnostics with proven efficiency upgrades. We start with detailed energy audits to identify waste, then implement targeted solutions that deliver immediate and long-term savings while improving comfort and performance.
-                    </p>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                      <div className="flex flex-col items-center p-4 bg-gray-900/50 rounded-lg border border-amber-600/20">
-                        <div className="w-16 h-16 flex items-center justify-center mb-2 bg-amber-900/20 rounded-full">
-                          <Leaf className="h-8 w-8 text-amber-500" />
-                        </div>
-                        <p className="text-center text-amber-400 font-semibold text-lg mb-1">30-50%</p>
-                        <p className="text-center text-sm text-gray-400">Energy Reduction</p>
-                      </div>
-                      
-                      <div className="flex flex-col items-center p-4 bg-gray-900/50 rounded-lg border border-amber-600/20">
-                        <div className="w-16 h-16 flex items-center justify-center mb-2 bg-amber-900/20 rounded-full">
-                          <Lightbulb className="h-8 w-8 text-amber-500" />
-                        </div>
-                        <p className="text-center text-amber-400 font-semibold text-lg mb-1">80%</p>
-                        <p className="text-center text-sm text-gray-400">LED Efficiency Gain</p>
-                      </div>
-                      
-                      <div className="flex flex-col items-center p-4 bg-gray-900/50 rounded-lg border border-amber-600/20">
-                        <div className="w-16 h-16 flex items-center justify-center mb-2 bg-amber-900/20 rounded-full">
-                          <ThermometerSun className="h-8 w-8 text-amber-500" />
-                        </div>
-                        <p className="text-center text-amber-400 font-semibold text-lg mb-1">25%</p>
-                        <p className="text-center text-sm text-gray-400">HVAC Optimization</p>
-                      </div>
+        </div>
+
+        {/* Building Science Principles */}
+        <div className="mb-12">
+          <div className="text-center mb-8">
+            <p className="text-red-600 font-semibold mb-2">Technical Foundation</p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Building Science Principles</h2>
+            <p className="text-gray-600 dark:text-gray-400">Understanding the physics of energy efficiency</p>
+          </div>
+
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 p-8">
+              {buildingScience.map((concept, idx) => (
+                <div key={idx} className="border-l-4 border-green-500 pl-4">
+                  <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-1">{concept.concept}</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{concept.description}</p>
+                  <div className="text-xs space-y-1">
+                    <div className="flex items-center gap-1">
+                      <AlertTriangle className="h-3 w-3 text-orange-500" />
+                      <span className="text-gray-500">Impact: {concept.impact}</span>
                     </div>
-                    
-                    <p className="text-xs text-gray-500 text-center">*Based on comprehensive energy efficiency upgrade programs and industry standards</p>
-                  </div>
-                </div>
-                
-                <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-amber-700/20 shadow-md">
-                  <h3 className="text-xl font-bold mb-4 text-amber-300">Energy Conservation Services</h3>
-                  
-                  <div className="space-y-4 mb-6">
-                    <div className="flex justify-between pb-2 border-b border-gray-700">
-                      <span className="text-gray-300">Energy Audits</span>
-                      <span className="text-white font-medium">Comprehensive home energy assessment</span>
-                    </div>
-                    <div className="flex justify-between pb-2 border-b border-gray-700">
-                      <span className="text-gray-300">LED Lighting</span>
-                      <span className="text-white font-medium">Complete LED conversion & smart controls</span>
-                    </div>
-                    <div className="flex justify-between pb-2 border-b border-gray-700">
-                      <span className="text-gray-300">HVAC Optimization</span>
-                      <span className="text-white font-medium">System tuning & efficiency upgrades</span>
-                    </div>
-                    <div className="flex justify-between pb-2 border-b border-gray-700">
-                      <span className="text-gray-300">Insulation Upgrades</span>
-                      <span className="text-white font-medium">Attic, wall & air sealing improvements</span>
-                    </div>
-                    <div className="flex justify-between pb-2 border-b border-gray-700">
-                      <span className="text-gray-300">Smart Controls</span>
-                      <span className="text-white font-medium">Programmable thermostats & automation</span>
-                    </div>
-                    <div className="flex justify-between pb-2 border-b border-gray-700">
-                      <span className="text-gray-300">Water Heating</span>
-                      <span className="text-white font-medium">Efficient water heater upgrades</span>
-                    </div>
-                    <div className="flex justify-between pb-2 border-b border-gray-700">
-                      <span className="text-gray-300">Appliance Consulting</span>
-                      <span className="text-white font-medium">Energy Star appliance recommendations</span>
-                    </div>
-                    <div className="flex justify-between pb-2">
-                      <span className="text-gray-300">Monitoring</span>
-                      <span className="text-white font-medium">Energy usage tracking & optimization</span>
+                    <div className="flex items-center gap-1">
+                      <CheckCircle className="h-3 w-3 text-green-500" />
+                      <span className="text-gray-500">Solution: {concept.solution}</span>
                     </div>
                   </div>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
-        </section>
+        </div>
 
-        {/* TECHNICAL SPECIFICATIONS & METHODOLOGIES SECTION */}
-        <section className="relative z-10 py-12 overflow-hidden">
-          <div className="container mx-auto mb-16">
-            <div className="relative">
-              {/* Cyan/Teal technical glow effect */}
-              <div className="absolute -inset-10 bg-cyan-500/15 rounded-xl blur-xl opacity-70 z-0"></div>
-              <div className="absolute -inset-20 bg-teal-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
-              
-              {/* Content card */}
-              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-cyan-700/30 shadow-lg">
-                <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-teal-200 to-cyan-300">
-                  Technical Specifications & Methodologies
-                </h2>
-                
-                {/* Title 24 Compliance */}
-                <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-cyan-700/20 shadow-md mb-6">
-                  <div className="flex items-center mb-4">
-                    <FileCheck className="h-6 w-6 text-cyan-500 mr-3" />
-                    <h3 className="text-xl font-bold text-cyan-300">Title 24 2022 Energy Code Compliance</h3>
-                  </div>
-                  <p className="text-gray-300 mb-4">
-                    California's Title 24, Part 6 (Energy Efficiency Standards) sets minimum efficiency requirements for residential and commercial buildings. Our conservation strategies ensure full compliance while exceeding baseline requirements.
-                  </p>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="bg-gray-900/50 p-4 rounded-lg border border-cyan-600/10">
-                      <h4 className="font-semibold text-white mb-2">Mandatory Measures</h4>
-                      <ul className="space-y-2 text-sm text-gray-300">
-                        <li>• High-efficacy lighting (LED) requirements</li>
-                        <li>• Minimum R-value insulation standards</li>
-                        <li>• Air leakage testing and verification</li>
-                        <li>• HVAC system efficiency minimums (14 SEER2+)</li>
-                      </ul>
-                    </div>
-                    <div className="bg-gray-900/50 p-4 rounded-lg border border-cyan-600/10">
-                      <h4 className="font-semibold text-white mb-2">Performance Compliance</h4>
-                      <ul className="space-y-2 text-sm text-gray-300">
-                        <li>• Time-dependent valuation (TDV) methodology</li>
-                        <li>• Energy budget calculations</li>
-                        <li>• CF-1R compliance documentation</li>
-                        <li>• Third-party verification protocols</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                {/* LED Lighting Specifications */}
-                <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-cyan-700/20 shadow-md mb-6">
-                  <div className="flex items-center mb-4">
-                    <Lightbulb className="h-6 w-6 text-cyan-500 mr-3" />
-                    <h3 className="text-xl font-bold text-cyan-300">LED Lighting Upgrades (80-90% Energy Reduction)</h3>
-                  </div>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-                    <div className="bg-gray-900/50 p-4 rounded-lg border border-cyan-600/10 text-center">
-                      <p className="text-cyan-400 font-bold text-2xl">80-90%</p>
-                      <p className="text-sm text-gray-400">Energy reduction vs incandescent</p>
-                    </div>
-                    <div className="bg-gray-900/50 p-4 rounded-lg border border-cyan-600/10 text-center">
-                      <p className="text-cyan-400 font-bold text-2xl">25,000+</p>
-                      <p className="text-sm text-gray-400">Hour lifespan (10+ years)</p>
-                    </div>
-                    <div className="bg-gray-900/50 p-4 rounded-lg border border-cyan-600/10 text-center">
-                      <p className="text-cyan-400 font-bold text-2xl">90+ CRI</p>
-                      <p className="text-sm text-gray-400">Color rendering index</p>
-                    </div>
-                  </div>
-                  <p className="text-gray-300 text-sm">
-                    LED technology delivers 80-140 lumens per watt compared to 10-17 lm/W for incandescent bulbs. Smart controls including occupancy sensors, daylight harvesting, and dimming systems maximize savings while maintaining optimal lighting conditions.
-                  </p>
-                </div>
-
-                {/* HVAC Optimization */}
-                <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-cyan-700/20 shadow-md mb-6">
-                  <div className="flex items-center mb-4">
-                    <Wind className="h-6 w-6 text-cyan-500 mr-3" />
-                    <h3 className="text-xl font-bold text-cyan-300">HVAC Optimization & Heat Pump Technology</h3>
-                  </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                    <div className="bg-gray-900/50 p-4 rounded-lg border border-cyan-600/10">
-                      <h4 className="font-semibold text-white mb-2">Heat Pump Retrofits</h4>
-                      <ul className="space-y-2 text-sm text-gray-300">
-                        <li>• Air-source heat pumps: 300-400% efficiency (HSPF2 9.5+)</li>
-                        <li>• Mini-split ductless systems: 20+ SEER2</li>
-                        <li>• Variable-speed compressor technology</li>
-                        <li>• Cold climate performance down to -15°F</li>
-                      </ul>
-                    </div>
-                    <div className="bg-gray-900/50 p-4 rounded-lg border border-cyan-600/10">
-                      <h4 className="font-semibold text-white mb-2">Smart Thermostats</h4>
-                      <ul className="space-y-2 text-sm text-gray-300">
-                        <li>• Wi-Fi connected learning algorithms</li>
-                        <li>• Occupancy detection and geofencing</li>
-                        <li>• Energy usage reports and optimization</li>
-                        <li>• 10-23% HVAC energy savings typical</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Building Envelope */}
-                <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-cyan-700/20 shadow-md mb-6">
-                  <div className="flex items-center mb-4">
-                    <Home className="h-6 w-6 text-cyan-500 mr-3" />
-                    <h3 className="text-xl font-bold text-cyan-300">Building Envelope Improvements</h3>
-                  </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                    <div>
-                      <h4 className="font-semibold text-white mb-3">Insulation R-Values (Climate Zone 1)</h4>
-                      <div className="space-y-2 text-sm text-gray-300">
-                        <div className="flex justify-between p-2 bg-gray-900/50 rounded border border-cyan-600/10">
-                          <span>Attic/Ceiling:</span>
-                          <span className="text-cyan-400 font-semibold">R-38 to R-49</span>
-                        </div>
-                        <div className="flex justify-between p-2 bg-gray-900/50 rounded border border-cyan-600/10">
-                          <span>Walls:</span>
-                          <span className="text-cyan-400 font-semibold">R-13 to R-21</span>
-                        </div>
-                        <div className="flex justify-between p-2 bg-gray-900/50 rounded border border-cyan-600/10">
-                          <span>Floors:</span>
-                          <span className="text-cyan-400 font-semibold">R-19 to R-30</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-white mb-3">Air Sealing Standards</h4>
-                      <ul className="space-y-2 text-sm text-gray-300">
-                        <li>• Target: ≤ 5 ACH50 (air changes per hour at 50 Pa)</li>
-                        <li>• Focus areas: penetrations, rim joists, attic hatches</li>
-                        <li>• Weatherstripping and caulking protocols</li>
-                        <li>• Typical reduction: 15-30% HVAC energy use</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Water Heating */}
-                <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-cyan-700/20 shadow-md mb-6">
-                  <div className="flex items-center mb-4">
-                    <Droplets className="h-6 w-6 text-cyan-500 mr-3" />
-                    <h3 className="text-xl font-bold text-cyan-300">Water Heating Efficiency (300% Efficiency)</h3>
-                  </div>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-                    <div className="bg-gray-900/50 p-4 rounded-lg border border-cyan-600/10 text-center">
-                      <p className="text-cyan-400 font-bold text-2xl">3.0+ COP</p>
-                      <p className="text-sm text-gray-400">Coefficient of Performance</p>
-                    </div>
-                    <div className="bg-gray-900/50 p-4 rounded-lg border border-cyan-600/10 text-center">
-                      <p className="text-cyan-400 font-bold text-2xl">2.5+ UEF</p>
-                      <p className="text-sm text-gray-400">Uniform Energy Factor</p>
-                    </div>
-                    <div className="bg-gray-900/50 p-4 rounded-lg border border-cyan-600/10 text-center">
-                      <p className="text-cyan-400 font-bold text-2xl">50-65%</p>
-                      <p className="text-sm text-gray-400">Energy cost savings</p>
-                    </div>
-                  </div>
-                  <p className="text-gray-300 text-sm">
-                    Heat pump water heaters (HPWH) achieve 300%+ efficiency by moving heat rather than generating it directly. Typical 50-gallon units draw ambient air heat using refrigerant cycles, delivering 3 units of thermal energy for every 1 unit of electricity consumed.
-                  </p>
-                </div>
-
-                {/* Energy Audit Methodology */}
-                <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-cyan-700/20 shadow-md mb-6">
-                  <div className="flex items-center mb-4">
-                    <Eye className="h-6 w-6 text-cyan-500 mr-3" />
-                    <h3 className="text-xl font-bold text-cyan-300">Energy Audit Methodology</h3>
-                  </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="bg-gray-900/50 p-4 rounded-lg border border-cyan-600/10">
-                      <h4 className="font-semibold text-white mb-2">Blower Door Testing</h4>
-                      <ul className="space-y-2 text-sm text-gray-300">
-                        <li>• Depressurizes building to -50 Pa (standard)</li>
-                        <li>• Measures CFM50 (cubic feet per minute at 50 Pa)</li>
-                        <li>• Calculates ACH50 and ELA (effective leakage area)</li>
-                        <li>• Identifies specific infiltration points</li>
-                      </ul>
-                    </div>
-                    <div className="bg-gray-900/50 p-4 rounded-lg border border-cyan-600/10">
-                      <h4 className="font-semibold text-white mb-2">Infrared Thermography</h4>
-                      <ul className="space-y-2 text-sm text-gray-300">
-                        <li>• High-resolution thermal imaging cameras</li>
-                        <li>• Detects missing/inadequate insulation</li>
-                        <li>• Visualizes air leakage paths</li>
-                        <li>• Identifies thermal bridging and moisture intrusion</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Utility Rebates & Home Energy Score */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-cyan-700/20 shadow-md">
-                    <div className="flex items-center mb-4">
-                      <CircleDollarSign className="h-6 w-6 text-cyan-500 mr-3" />
-                      <h3 className="text-xl font-bold text-cyan-300">Utility Rebate Programs</h3>
-                    </div>
-                    <h4 className="font-semibold text-white mb-2">PG&E Energy Upgrade California</h4>
-                    <ul className="space-y-2 text-sm text-gray-300 mb-4">
-                      <li>• Whole-house approach rebates up to $6,500</li>
-                      <li>• HVAC rebates: $500-$3,000 per system</li>
-                      <li>• Insulation rebates: $0.20-$0.40 per sq ft</li>
-                      <li>• Heat pump water heater: $1,000-$1,500</li>
-                      <li>• Smart thermostat: $50-$125</li>
-                    </ul>
-                    <p className="text-xs text-gray-500">Programs and incentives subject to availability and eligibility requirements</p>
-                  </div>
-
-                  <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-cyan-700/20 shadow-md">
-                    <div className="flex items-center mb-4">
-                      <Award className="h-6 w-6 text-cyan-500 mr-3" />
-                      <h3 className="text-xl font-bold text-cyan-300">Home Energy Score</h3>
-                    </div>
-                    <p className="text-gray-300 text-sm mb-4">
-                      DOE's standardized assessment tool provides a 1-10 score based on energy efficiency. We help homeowners achieve scores of 7-10 through comprehensive upgrades.
-                    </p>
-                    <div className="space-y-2 text-sm text-gray-300">
-                      <div className="flex justify-between p-2 bg-gray-900/50 rounded border border-cyan-600/10">
-                        <span>Score 1-3:</span>
-                        <span className="text-red-400">Below Average</span>
-                      </div>
-                      <div className="flex justify-between p-2 bg-gray-900/50 rounded border border-cyan-600/10">
-                        <span>Score 4-6:</span>
-                        <span className="text-yellow-400">Average</span>
-                      </div>
-                      <div className="flex justify-between p-2 bg-gray-900/50 rounded border border-cyan-600/10">
-                        <span>Score 7-10:</span>
-                        <span className="text-green-400">High Efficiency</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+        {/* HVAC & Heat Pump Technology */}
+        <div className="mb-12">
+          <div className="text-center mb-8">
+            <p className="text-red-600 font-semibold mb-2">Climate Control Efficiency</p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Advanced HVAC Solutions</h2>
+            <p className="text-gray-600 dark:text-gray-400">High-efficiency heating and cooling with heat pump technology</p>
           </div>
-        </section>
-          
-        {/* SANDLER STAGE 3: BUDGET - GREEN GLOW SECTION */}
-        <section className="relative z-10 py-12 overflow-hidden">
-          <div className="container mx-auto mb-16">
-            <div className="relative">
-              {/* Enhanced Green glow effect with multi-layer glow */}
-              <div className="absolute -inset-10 bg-green-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
-              <div className="absolute -inset-20 bg-green-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
-              <div className="absolute -inset-30 bg-green-700/5 rounded-xl blur-3xl opacity-30 z-0 animate-pulse-slow"></div>
-              
-              {/* Content card */}
-              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-green-700/30 shadow-lg">
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-green-300 via-green-200 to-green-300">
-                  Immediate Savings & Long-Term Benefits
-                </h2>
-                
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
-                  <div>
-                    <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-green-700/20 shadow-md h-full">
-                      <h3 className="text-xl font-bold mb-4 text-green-300">Financial Benefits</h3>
-                      
-                      <div className="space-y-5">
-                        <div className="flex items-start">
-                          <CircleDollarSign className="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
-                          <div>
-                            <h4 className="font-semibold text-white mb-1">Immediate Bill Reduction</h4>
-                            <p className="text-gray-300">Most efficiency upgrades show immediate results, reducing monthly electric bills by 30-50% right away.</p>
-                          </div>
-                        </div>
-                        
-                        <div className="flex items-start">
-                          <CircleDollarSign className="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
-                          <div>
-                            <h4 className="font-semibold text-white mb-1">Fast Payback Period</h4>
-                            <p className="text-gray-300">Energy conservation upgrades typically pay for themselves in 2-4 years through reduced utility costs.</p>
-                          </div>
-                        </div>
-                        
-                        <div className="flex items-start">
-                          <CircleDollarSign className="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
-                          <div>
-                            <h4 className="font-semibold text-white mb-1">Rebates & Incentives</h4>
-                            <p className="text-gray-300">Utility rebates and tax credits can cover 30-70% of efficiency upgrade costs, accelerating your return on investment.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-green-700/20 shadow-md h-full">
-                      <h3 className="text-xl font-bold mb-4 text-green-300">Comfort & Performance Benefits</h3>
-                      
-                      <div className="space-y-5">
-                        <div className="flex items-start">
-                          <Shield className="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
-                          <div>
-                            <h4 className="font-semibold text-white mb-1">Improved Comfort</h4>
-                            <p className="text-gray-300">Better insulation and HVAC efficiency eliminate hot/cold spots and maintain consistent temperatures year-round.</p>
-                          </div>
-                        </div>
-                        
-                        <div className="flex items-start">
-                          <Shield className="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
-                          <div>
-                            <h4 className="font-semibold text-white mb-1">Enhanced Home Value</h4>
-                            <p className="text-gray-300">Energy efficient homes sell faster and for higher prices, with efficiency upgrades adding significant resale value.</p>
-                          </div>
-                        </div>
-                        
-                        <div className="flex items-start">
-                          <Shield className="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
-                          <div>
-                            <h4 className="font-semibold text-white mb-1">Environmental Impact</h4>
-                            <p className="text-gray-300">Reduce your carbon footprint by 20-40% while contributing to cleaner air and a healthier environment.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="mb-10">
-                  <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-green-700/20 shadow-md">
-                    <h3 className="text-xl font-bold mb-4 text-green-300">Real Energy Conservation Success Stories</h3>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="bg-gray-900/50 p-4 rounded-lg border border-green-600/10">
-                        <h4 className="font-semibold text-white mb-2">Redding Family Home</h4>
-                        <p className="text-gray-300 text-sm mb-3">
-                          Complete efficiency upgrade including LED conversion, HVAC optimization, and smart controls. Family reduced electric bills from $380 to $180 monthly while improving comfort.
-                        </p>
-                        <div className="flex justify-between text-sm">
-                          <span className="text-green-400">Monthly Savings: $200</span>
-                          <span className="text-green-400">Payback: 2.8 years</span>
-                        </div>
-                      </div>
-                      
-                      <div className="bg-gray-900/50 p-4 rounded-lg border border-green-600/10">
-                        <h4 className="font-semibold text-white mb-2">Anderson Office Building</h4>
-                        <p className="text-gray-300 text-sm mb-3">
-                          LED lighting retrofit and HVAC controls upgrade reduced energy consumption by 45% while improving workspace lighting quality and employee comfort.
-                        </p>
-                        <div className="flex justify-between text-sm">
-                          <span className="text-green-400">Energy Reduction: 45%</span>
-                          <span className="text-green-400">Annual Savings: $8,400</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="flex justify-center">
-                  <Button 
-                    className="relative group overflow-hidden bg-black border border-green-400 hover:border-green-300 transition-all duration-300 px-8 py-3 text-lg shadow-lg"
-                    onClick={handleShowConsultationForm}
-                  >
-                    <span className="relative z-10 text-white group-hover:text-green-200 transition-colors duration-300 flex items-center">
-                      <Calculator className="w-5 h-5 mr-2" />
-                      Calculate Efficiency Savings
+
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* Heat Pump Specifications */}
+            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
+              <h3 className="text-xl font-bold mb-6 text-gray-900 dark:text-white flex items-center gap-2">
+                <Wind className="h-6 w-6 text-blue-500" /> Heat Pump Technology
+              </h3>
+
+              <div className="space-y-4 mb-6">
+                <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="font-semibold text-gray-900 dark:text-white">Air-Source Heat Pumps</span>
+                    <span className="text-sm bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 px-2 py-1 rounded">
+                      300-400% Efficient
                     </span>
-                    <span className="absolute -inset-[3px] bg-green-600 opacity-30 group-hover:opacity-50 transition-opacity duration-300 blur-md rounded-lg -z-10"></span>
-                  </Button>
+                  </div>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                    Modern heat pumps achieve 3-4 COP (Coefficient of Performance), delivering 3-4 units of heat for every unit of electricity consumed.
+                  </p>
+                  <div className="grid grid-cols-2 gap-2 text-xs">
+                    <div className="bg-white dark:bg-gray-800 rounded p-2">
+                      <span className="text-gray-500">Heating:</span>
+                      <strong className="text-gray-900 dark:text-white"> HSPF2 10+</strong>
+                    </div>
+                    <div className="bg-white dark:bg-gray-800 rounded p-2">
+                      <span className="text-gray-500">Cooling:</span>
+                      <strong className="text-gray-900 dark:text-white"> SEER2 20+</strong>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-green-50 dark:bg-green-900/20 rounded-xl p-4">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="font-semibold text-gray-900 dark:text-white">Ground-Source (Geothermal)</span>
+                    <span className="text-sm bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-300 px-2 py-1 rounded">
+                      400-600% Efficient
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                    Geothermal systems use stable ground temperatures for exceptional efficiency year-round.
+                  </p>
+                  <div className="grid grid-cols-2 gap-2 text-xs">
+                    <div className="bg-white dark:bg-gray-800 rounded p-2">
+                      <span className="text-gray-500">COP:</span>
+                      <strong className="text-gray-900 dark:text-white"> 4.0-6.0</strong>
+                    </div>
+                    <div className="bg-white dark:bg-gray-800 rounded p-2">
+                      <span className="text-gray-500">EER:</span>
+                      <strong className="text-gray-900 dark:text-white"> 20-30</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4">
+                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Cold Climate Performance</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                  Modern inverter-driven heat pumps maintain efficiency down to -15°F (-26°C)
+                </p>
+                <div className="flex items-center gap-4 text-xs">
+                  <div className="flex items-center gap-1">
+                    <Snowflake className="h-4 w-4 text-blue-500" />
+                    <span>-15°F operation</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Flame className="h-4 w-4 text-orange-500" />
+                    <span>No backup heat needed</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-        
-        {/* SANDLER STAGE 4: DECISION - PURPLE GLOW SECTION */}
-        <section className="relative z-10 py-12 overflow-hidden">
-          <div className="container mx-auto mb-16">
-            <div className="relative">
-              {/* Enhanced Purple glow effect with multi-layer glow */}
-              <div className="absolute -inset-10 bg-purple-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
-              <div className="absolute -inset-20 bg-purple-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
-              <div className="absolute -inset-30 bg-purple-700/5 rounded-xl blur-3xl opacity-30 z-0 animate-pulse-slow"></div>
-              
-              {/* Content card */}
-              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-purple-700/30 shadow-lg">
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-purple-200 to-purple-300">
-                  Start Saving Energy Today
-                </h2>
-                
-                <div className="flex flex-col items-center">
-                  <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-purple-700/20 shadow-md max-w-3xl mx-auto mb-8">
-                    <h3 className="text-xl font-bold mb-4 text-purple-300 text-center">Why Choose Advance Power Redding for Energy Conservation</h3>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                      <div className="space-y-3">
-                        <div className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Comprehensive energy solutions provider since 1999</span>
-                        </div>
-                        <div className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Certified energy auditors and efficiency specialists</span>
-                        </div>
-                        <div className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Custom solutions designed for your specific needs</span>
-                        </div>
-                        <div className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Professional installation and project management</span>
-                        </div>
-                      </div>
-                      
-                      <div className="space-y-3">
-                        <div className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Help securing rebates and incentive programs</span>
-                        </div>
-                        <div className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Ongoing monitoring and optimization services</span>
-                        </div>
-                        <div className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Integration with solar and battery systems</span>
-                        </div>
-                        <div className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">We don't quit until everything works perfectly</span>
-                        </div>
-                      </div>
+
+            {/* Smart Controls */}
+            <div className="bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 rounded-2xl p-8">
+              <h3 className="text-xl font-bold mb-6 text-gray-900 dark:text-white flex items-center gap-2">
+                <Settings className="h-6 w-6 text-purple-500" /> Smart HVAC Controls
+              </h3>
+
+              <div className="space-y-4">
+                {[
+                  { feature: "Learning Thermostats", savings: "10-23%", desc: "AI-driven temperature optimization" },
+                  { feature: "Zoning Systems", savings: "20-35%", desc: "Room-by-room climate control" },
+                  { feature: "Variable Speed", savings: "15-25%", desc: "Inverter-driven compressor modulation" },
+                  { feature: "Demand Response", savings: "5-15%", desc: "Grid-interactive load management" },
+                  { feature: "Predictive Maintenance", savings: "10-20%", desc: "AI-based fault detection" }
+                ].map((item, idx) => (
+                  <div key={idx} className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow">
+                    <div className="flex items-center justify-between mb-2">
+                      <h4 className="font-semibold text-gray-900 dark:text-white">{item.feature}</h4>
+                      <span className="text-sm font-bold text-green-600 dark:text-green-400">{item.savings}</span>
                     </div>
-                    
-                    <div className="text-center">
-                      <Button 
-                        className="relative group overflow-hidden bg-black border border-purple-400 hover:border-purple-300 transition-all duration-300 px-8 py-3 text-lg shadow-lg"
-                        onClick={handleShowConsultationForm}
-                      >
-                        <span className="relative z-10 text-white group-hover:text-purple-200 transition-colors duration-300 flex items-center">
-                          Get Energy Conservation Quote
+                    <p className="text-sm text-gray-600 dark:text-gray-400">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Insulation & Building Envelope */}
+        <div className="mb-12">
+          <div className="text-center mb-8">
+            <p className="text-red-600 font-semibold mb-2">Building Envelope</p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Insulation & Air Sealing</h2>
+            <p className="text-gray-600 dark:text-gray-400">Creating an efficient thermal boundary for your building</p>
+          </div>
+
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              {/* R-Value Requirements */}
+              <div>
+                <h3 className="text-lg font-bold mb-4 text-gray-900 dark:text-white flex items-center gap-2">
+                  <Home className="h-5 w-5 text-green-500" /> Insulation R-Values (Climate Zone 3)
+                </h3>
+                <div className="space-y-3">
+                  {[
+                    { area: "Attic/Ceiling", current: "R-19 to R-30", recommended: "R-38 to R-49", savings: "15-20%" },
+                    { area: "Walls (2x4)", current: "R-11 to R-13", recommended: "R-13 to R-15", savings: "10-15%" },
+                    { area: "Walls (2x6)", current: "R-19", recommended: "R-19 to R-21", savings: "5-10%" },
+                    { area: "Floors", current: "R-13 to R-19", recommended: "R-25 to R-30", savings: "5-10%" },
+                    { area: "Basement Walls", current: "Uninsulated", recommended: "R-15 to R-19", savings: "10-15%" },
+                    { area: "Crawl Space", current: "R-0 to R-19", recommended: "R-25 to R-30", savings: "10-20%" }
+                  ].map((item, idx) => (
+                    <div key={idx} className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
+                      <div className="flex justify-between items-start mb-1">
+                        <span className="font-medium text-gray-900 dark:text-white">{item.area}</span>
+                        <span className="text-xs bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-300 px-2 py-1 rounded">
+                          {item.savings}
                         </span>
-                        <span className="absolute -inset-[3px] bg-purple-600 opacity-30 group-hover:opacity-50 transition-opacity duration-300 blur-md rounded-lg -z-10"></span>
-                      </Button>
+                      </div>
+                      <div className="grid grid-cols-2 gap-2 text-xs">
+                        <div>
+                          <span className="text-gray-500">Current:</span>
+                          <span className="text-gray-700 dark:text-gray-300"> {item.current}</span>
+                        </div>
+                        <div>
+                          <span className="text-gray-500">Target:</span>
+                          <span className="text-green-600 dark:text-green-400 font-medium"> {item.recommended}</span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Air Sealing Priority Areas */}
+              <div>
+                <h3 className="text-lg font-bold mb-4 text-gray-900 dark:text-white flex items-center gap-2">
+                  <Shield className="h-5 w-5 text-blue-500" /> Air Sealing Priority Areas
+                </h3>
+                <div className="space-y-3">
+                  {[
+                    { area: "Attic Penetrations", leakage: "High", method: "Foam, caulk, weather stripping" },
+                    { area: "Rim Joists", leakage: "High", method: "Spray foam or rigid foam + caulk" },
+                    { area: "Windows & Doors", leakage: "Medium", method: "Weather stripping, caulking" },
+                    { area: "Electrical Outlets", leakage: "Medium", method: "Foam gaskets, caulk" },
+                    { area: "Plumbing Penetrations", leakage: "Medium", method: "Expanding foam, caulk" },
+                    { area: "HVAC Registers", leakage: "Low", method: "Mastic seal, foam tape" }
+                  ].map((item, idx) => (
+                    <div key={idx} className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
+                      <div className="flex justify-between items-start mb-1">
+                        <span className="font-medium text-gray-900 dark:text-white">{item.area}</span>
+                        <span className={`text-xs px-2 py-1 rounded ${
+                          item.leakage === "High" ? "bg-red-100 text-red-600 dark:bg-red-900 dark:text-red-300" :
+                          item.leakage === "Medium" ? "bg-yellow-100 text-yellow-600 dark:bg-yellow-900 dark:text-yellow-300" :
+                          "bg-green-100 text-green-600 dark:bg-green-900 dark:text-green-300"
+                        }`}>
+                          {item.leakage} Priority
+                        </span>
+                      </div>
+                      <p className="text-xs text-gray-600 dark:text-gray-400">{item.method}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Air Leakage Standards */}
+            <div className="bg-gradient-to-r from-blue-50 to-green-50 dark:from-blue-900/20 dark:to-green-900/20 rounded-xl p-6">
+              <h3 className="font-bold mb-4 text-gray-900 dark:text-white">Air Leakage Standards (ACH50)</h3>
+              <div className="grid grid-cols-4 gap-4 text-center">
+                <div>
+                  <div className="text-2xl font-bold text-red-600">10-15</div>
+                  <div className="text-xs text-gray-600 dark:text-gray-400">Old/Leaky</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-yellow-600">7-10</div>
+                  <div className="text-xs text-gray-600 dark:text-gray-400">Average</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-green-600">3-7</div>
+                  <div className="text-xs text-gray-600 dark:text-gray-400">Efficient</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-blue-600">&lt;3</div>
+                  <div className="text-xs text-gray-600 dark:text-gray-400">Passive House</div>
+                </div>
+              </div>
+              <p className="text-xs text-gray-500 mt-4">ACH50 = Air Changes per Hour at 50 Pascal pressure difference</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Smart Home Energy Management */}
+        <div className="mb-12">
+          <div className="text-center mb-8">
+            <p className="text-red-600 font-semibold mb-2">Automation & Control</p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Smart Home Energy Management</h2>
+            <p className="text-gray-600 dark:text-gray-400">Intelligent systems that optimize energy use automatically</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {smartHomeIntegration.map((system, idx) => (
+              <div key={idx} className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
+                <div className="flex items-start justify-between mb-3">
+                  <Component className="h-8 w-8 text-blue-500" />
+                  <span className="text-sm font-bold text-green-600 dark:text-green-400">{system.savings} Savings</span>
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-3">{system.system}</h3>
+                <ul className="space-y-2">
+                  {system.features.map((feature, i) => (
+                    <li key={i} className="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-2">
+                      <CheckCircle className="h-3 w-3 text-green-500 flex-shrink-0" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Efficiency Metrics & Standards */}
+        <div className="mb-12">
+          <div className="text-center mb-8">
+            <p className="text-red-600 font-semibold mb-2">Performance Standards</p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Energy Efficiency Metrics</h2>
+            <p className="text-gray-600 dark:text-gray-400">Understanding efficiency ratings and certifications</p>
+          </div>
+
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead className="bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
+                  <tr>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Metric</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Definition</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Standard Efficiency</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">High Efficiency</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
+                  {efficiencyMetrics.map((metric, idx) => (
+                    <tr key={idx} className="hover:bg-gray-50 dark:hover:bg-gray-700">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
+                        {metric.metric}
+                      </td>
+                      <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
+                        {metric.definition}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                        {metric.standard}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-green-600 dark:text-green-400">
+                        {metric.premium}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        {/* Rebate Programs */}
+        <div className="mb-12">
+          <div className="text-center mb-8">
+            <p className="text-red-600 font-semibold mb-2">Financial Incentives</p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Rebates & Financing Programs</h2>
+            <p className="text-gray-600 dark:text-gray-400">Take advantage of available incentives to reduce upgrade costs</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {rebatePrograms.map((program, idx) => (
+              <div key={idx} className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
+                <div className="flex items-start justify-between mb-3">
+                  <DollarSign className="h-8 w-8 text-green-500" />
+                  <span className="text-sm bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded">
+                    {program.type}
+                  </span>
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{program.program}</h3>
+                <div className="text-2xl font-bold text-green-600 dark:text-green-400 mb-2">{program.amount}</div>
+                <p className="text-sm text-gray-600 dark:text-gray-400">{program.requirements}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 bg-blue-50 dark:bg-blue-900/20 rounded-2xl p-6">
+            <div className="flex items-start gap-4">
+              <Info className="h-6 w-6 text-blue-500 flex-shrink-0" />
+              <div>
+                <h3 className="font-bold text-gray-900 dark:text-white mb-2">Incentive Stacking</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  Many programs can be combined. For example, federal tax credits can be used alongside utility rebates and PACE financing,
+                  potentially covering 50-80% of project costs. Our team handles all paperwork and applications to maximize your savings.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ROI Calculator Section */}
+        <div className="mb-12">
+          <div className="text-center mb-8">
+            <p className="text-red-600 font-semibold mb-2">Investment Analysis</p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Energy Savings Calculator</h2>
+            <p className="text-gray-600 dark:text-gray-400">Calculate your potential savings and payback period</p>
+          </div>
+
+          <div className="bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-2xl p-8">
+            <div className="grid lg:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-xl font-bold mb-6 text-gray-900 dark:text-white">Typical Project ROI</h3>
+                <div className="space-y-4">
+                  {[
+                    { upgrade: "LED Lighting", cost: "$1,500", savings: "$600/yr", payback: "2.5 years", roi: "40%" },
+                    { upgrade: "Smart Thermostat", cost: "$300", savings: "$180/yr", payback: "1.7 years", roi: "60%" },
+                    { upgrade: "Attic Insulation", cost: "$2,500", savings: "$500/yr", payback: "5 years", roi: "20%" },
+                    { upgrade: "Heat Pump HVAC", cost: "$8,000", savings: "$1,200/yr", payback: "6.7 years", roi: "15%" },
+                    { upgrade: "Full Envelope", cost: "$12,000", savings: "$2,400/yr", payback: "5 years", roi: "20%" }
+                  ].map((item, idx) => (
+                    <div key={idx} className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow">
+                      <div className="flex justify-between items-start mb-2">
+                        <h4 className="font-semibold text-gray-900 dark:text-white">{item.upgrade}</h4>
+                        <span className="text-sm font-bold text-green-600">{item.roi} ROI</span>
+                      </div>
+                      <div className="grid grid-cols-3 gap-2 text-sm">
+                        <div>
+                          <span className="text-gray-500">Cost:</span>
+                          <div className="font-medium">{item.cost}</div>
+                        </div>
+                        <div>
+                          <span className="text-gray-500">Savings:</span>
+                          <div className="font-medium text-green-600">{item.savings}</div>
+                        </div>
+                        <div>
+                          <span className="text-gray-500">Payback:</span>
+                          <div className="font-medium">{item.payback}</div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-bold mb-6 text-gray-900 dark:text-white">Quick Calculator</h3>
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-xl">
+                  <div className="space-y-4">
+                    <div>
+                      <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Monthly Energy Bill</label>
+                      <input type="range" min="100" max="500" defaultValue="250" className="w-full mt-2" />
+                      <div className="flex justify-between text-xs text-gray-500 mt-1">
+                        <span>$100</span>
+                        <span className="font-bold">$250</span>
+                        <span>$500</span>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Efficiency Improvement</label>
+                      <input type="range" min="20" max="50" defaultValue="35" className="w-full mt-2" />
+                      <div className="flex justify-between text-xs text-gray-500 mt-1">
+                        <span>20%</span>
+                        <span className="font-bold">35%</span>
+                        <span>50%</span>
+                      </div>
+                    </div>
+
+                    <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
+                      <div className="grid grid-cols-2 gap-4 text-sm">
+                        <div>
+                          <p className="text-gray-600 dark:text-gray-400">Monthly Savings</p>
+                          <p className="text-2xl font-bold text-green-600">$87</p>
+                        </div>
+                        <div>
+                          <p className="text-gray-600 dark:text-gray-400">Annual Savings</p>
+                          <p className="text-2xl font-bold text-green-600">$1,044</p>
+                        </div>
+                        <div>
+                          <p className="text-gray-600 dark:text-gray-400">10-Year Savings</p>
+                          <p className="text-2xl font-bold text-blue-600">$12,528</p>
+                        </div>
+                        <div>
+                          <p className="text-gray-600 dark:text-gray-400">CO₂ Reduction</p>
+                          <p className="text-2xl font-bold text-green-600">3.2 tons/yr</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </section>
-        
-        {/* Free Consultation Form */}
-        {showConsultationForm && !consultationRequestSuccess && (
-          <section className="relative z-10 py-12 overflow-hidden">
-            <div className="container mx-auto mb-16">
-              <div className="relative">
-                {/* Blue glow for form */}
-                <div className="absolute -inset-10 bg-blue-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
-                <div className="absolute -inset-20 bg-blue-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
-                
-                {/* Content card */}
-                <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-blue-700/30 shadow-lg max-w-3xl mx-auto">
-                  <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-100 to-blue-300">
-                    Get Your Energy Conservation Consultation
-                  </h2>
-                  
-                  <p className="text-gray-300 mb-8 text-center">
-                    Complete the form below, and our energy efficiency specialists will contact you within 24 hours to discuss your conservation goals and schedule your energy audit.
-                  </p>
-                  
-                  <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <FormField
-                          control={form.control}
-                          name="name"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel className="text-gray-200">Full Name</FormLabel>
-                              <FormControl>
-                                <Input 
-                                  placeholder="Enter your name" 
-                                  className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
-                                  {...field} 
-                                />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                        
-                        <FormField
-                          control={form.control}
-                          name="email"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel className="text-gray-200">Email Address</FormLabel>
-                              <FormControl>
-                                <Input 
-                                  placeholder="Enter your email" 
-                                  className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
-                                  {...field} 
-                                />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                      </div>
-                      
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <FormField
-                          control={form.control}
-                          name="phone"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel className="text-gray-200">Phone Number</FormLabel>
-                              <FormControl>
-                                <Input 
-                                  placeholder="Enter your phone number" 
-                                  className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
-                                  {...field} 
-                                />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                        
-                        <FormField
-                          control={form.control}
-                          name="propertyType"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel className="text-gray-200">Property Type</FormLabel>
-                              <FormControl>
-                                <Input 
-                                  placeholder="Home, Business, etc." 
-                                  className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
-                                  {...field} 
-                                />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                      </div>
-                      
-                      <FormField
-                        control={form.control}
-                        name="address"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-gray-200">Property Address</FormLabel>
-                            <FormControl>
-                              <Input 
-                                placeholder="Property address for energy audit" 
-                                className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
-                                {...field} 
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      
-                      <FormField
-                        control={form.control}
-                        name="message"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-gray-200">Current Energy Bills & Efficiency Goals</FormLabel>
-                            <FormControl>
-                              <Textarea 
-                                placeholder="Tell us about your current electric bills, energy usage concerns, and what you hope to achieve with energy conservation services" 
-                                className="bg-gray-800/50 border-gray-700 text-white min-h-[120px]"
-                                {...field} 
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      
-                      <div className="flex justify-center">
-                        <Button 
-                          type="submit"
-                          className="relative group overflow-hidden bg-black border border-blue-400 hover:border-blue-300 transition-all duration-300 px-8 py-3 text-lg shadow-lg"
-                          disabled={consultationMutation.isPending}
-                        >
-                          <span className="relative z-10 text-white group-hover:text-blue-200 transition-colors duration-300">
-                            {consultationMutation.isPending ? "Submitting..." : "Get Energy Audit Quote"}
-                          </span>
-                          <span className="absolute -inset-[3px] bg-blue-600 opacity-30 group-hover:opacity-50 transition-opacity duration-300 blur-md rounded-lg -z-10"></span>
-                        </Button>
-                      </div>
-                    </form>
-                  </Form>
-                </div>
-              </div>
-            </div>
-          </section>
-        )}
-        
-        {/* Consultation Request Success */}
-        {consultationRequestSuccess && (
-          <section className="relative z-10 py-12 overflow-hidden">
-            <div className="container mx-auto mb-16">
-              <div className="relative">
-                {/* Green success glow */}
-                <div className="absolute -inset-10 bg-green-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
-                <div className="absolute -inset-20 bg-green-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
-                
-                {/* Content card */}
-                <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-green-500/30 shadow-lg max-w-3xl mx-auto">
-                  <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <CheckCircle className="w-10 h-10 text-green-500" />
-                  </div>
-                  <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center text-white">
-                    Energy Conservation Quote Request Received!
-                  </h2>
-                  <p className="text-gray-300 mb-6 text-center">
-                    Thank you for your interest in energy conservation with Advance Power Redding. Our efficiency specialists will contact you within 24 hours to discuss your energy savings goals and schedule your comprehensive energy audit.
-                  </p>
-                  <p className="text-gray-300 mb-8 text-center">
-                    We'll identify the most cost-effective improvements to reduce your energy consumption and costs.
-                  </p>
-                  <div className="flex flex-wrap justify-center gap-4">
-                    <Button variant="outline" className="border-green-500 text-green-400 hover:text-green-300 hover:border-green-400">
-                      View Solar Solutions
-                    </Button>
-                    <Button variant="outline" className="border-blue-500 text-blue-400 hover:text-blue-300 hover:border-blue-400">
-                      Return to Home Page
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        )}
+        </div>
+
+        {/* CTA Section */}
+        <div className="bg-gradient-to-r from-green-600 to-blue-700 rounded-3xl p-8 text-white text-center">
+          <h2 className="text-3xl font-bold mb-4">Start Saving Energy Today</h2>
+          <p className="text-xl mb-6 text-green-100">
+            Get a professional energy audit and custom efficiency plan for your property
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <button className="bg-white text-green-600 px-8 py-4 rounded-xl font-semibold hover:bg-green-50 transition flex items-center gap-2">
+              <Calendar className="h-5 w-5" /> Schedule Energy Audit
+            </button>
+            <button className="bg-white/20 backdrop-blur text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/30 transition flex items-center gap-2">
+              <Phone className="h-5 w-5" /> Call (530) 221-3331
+            </button>
+            <button className="bg-white/20 backdrop-blur text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/30 transition flex items-center gap-2">
+              <Calculator className="h-5 w-5" /> Get Free Quote
+            </button>
+          </div>
+          <div className="mt-6 text-sm text-green-200">
+            BPI Certified • Title 24 Compliant • 25+ Years Experience • Licensed & Insured
+          </div>
+        </div>
       </div>
-    </MainLayout>
+    </div>
   );
 };
 
