@@ -2,6 +2,20 @@ import React, { useState, useEffect } from "react";
 import { Battery, Zap, Shield, Award, Activity, AlertTriangle, CheckCircle, TrendingUp, Cpu, Thermometer, Clock, ArrowRight, Beaker, Database, Lock, Gauge, Wrench, BarChart, DollarSign, Package, Truck, FileCheck, Phone, ChevronRight, AlertCircle, CircuitBoard, Flame, Snowflake, Droplets, Wind, Sun, Moon, Cloud, CloudRain, Timer, Settings, Info, Calculator, TrendingDown, Briefcase, Factory, Building2, Home, Car, Smartphone, Laptop, Server, HardDrive, Wifi, Radio, Microscope, TestTube, Scale, BookOpen, GraduationCap, Globe, MapPin, Navigation, Compass, Target, Crosshair, Eye, Search, Filter, Layers, Grid, Box, Cube, Hexagon, Triangle, Square, Circle, Star, Heart, ThumbsUp, Users, UserCheck, UserPlus, Mail, MessageSquare, Send, Bell, BellOff, Volume2, VolumeX, Mic, MicOff, Video, VideoOff, Camera, CameraOff, Image, Film, Music, Headphones, Speaker, Monitor, Tv, Projector, Watch, Tablet, Power, Leaf, Component } from "lucide-react";
 import { motion } from "framer-motion";
 
+// Import the lithium battery service images
+import solarInstallImage from "@assets/13-500x500.jpg";
+import batteryBankImage from "@assets/20210121_103322-400x400.jpg";
+import inverterSystemImage from "@assets/98453708_3165453150160953_3940467511501258752_n-298x400.jpg";
+import installationTeamImage from "@assets/400617335_882191187089939_3988264444007076062_n-500x375.jpg";
+import solarFarmImage from "@assets/andreas-gucklhorn-Ilpf2eUPpUE-unsplash-500x375.jpg";
+import batteryStorageImage from "@assets/Batt-3-300x400.jpg";
+import residentialSolarImage from "@assets/Frame-5-500x282.webp";
+import technicianImage from "@assets/Greg-with-panel.jpg";
+import solArkSystemImage from "@assets/491844865_1271014964874224_7004732250107002194_n.jpg";
+import energyConservationImage from "@assets/Advance-Power-Redding-Energy-Conservation-Techniques.jpg";
+import solarPanelsAerialImage from "@assets/guillherme-schneider-ecIS-bfYSG8-unsplash-300x400.jpg";
+import forestSolarImage from "@assets/moritz-kindler-gD8IO0E4OZM-unsplash-267x400.jpg";
+
 const LithiumBattery = () => {
   const [activeTab, setActiveTab] = useState("overview");
   const [selectedChemistry, setSelectedChemistry] = useState("lifepo4");
@@ -11,6 +25,42 @@ const LithiumBattery = () => {
   const [voltageReading, setVoltageReading] = useState(52.8);
   const [currentFlow, setCurrentFlow] = useState(28.5);
   const [powerOutput, setPowerOutput] = useState(1.5);
+
+  // Add custom styles for Phase 4 animations
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes aurora {
+        0%, 100% { transform: rotate(0deg) scale(1); opacity: 0.3; }
+        33% { transform: rotate(120deg) scale(1.2); opacity: 0.5; }
+        66% { transform: rotate(240deg) scale(0.9); opacity: 0.2; }
+      }
+      @keyframes aurora-reverse {
+        0%, 100% { transform: rotate(0deg) scale(1); opacity: 0.2; }
+        33% { transform: rotate(-120deg) scale(0.9); opacity: 0.4; }
+        66% { transform: rotate(-240deg) scale(1.1); opacity: 0.3; }
+      }
+      @keyframes holographic {
+        0% { transform: translateX(0) translateY(0); }
+        100% { transform: translateX(100px) translateY(100px); }
+      }
+      @keyframes gradient-x {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+      }
+      @keyframes gradient-shift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+      }
+      .animate-aurora { animation: aurora 15s ease-in-out infinite; }
+      .animate-aurora-reverse { animation: aurora-reverse 20s ease-in-out infinite; }
+      .animate-holographic { animation: holographic 10s linear infinite; }
+      .animate-gradient-x { animation: gradient-x 3s ease infinite; }
+      .animate-gradient-shift { animation: gradient-shift 5s ease infinite; }
+    `;
+    document.head.appendChild(style);
+    return () => document.head.removeChild(style);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -171,91 +221,392 @@ const LithiumBattery = () => {
   ];
 
   return (
-    <div className="py-16 sm:py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
-      {/* Hero Section with Live Metrics */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="bg-gradient-to-r from-blue-600 to-purple-700 rounded-3xl p-8 mb-12 text-white relative overflow-hidden"
-        >
-          <div className="absolute inset-0 bg-circuit-pattern opacity-10"></div>
-          <div className="relative z-10">
-            <div className="flex items-center gap-2 mb-4">
-              <Battery className="h-8 w-8" />
-              <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">Advanced Lithium Technology</span>
+    <div className="relative min-h-screen overflow-hidden">
+      {/* PHASE 1: Enhanced Background Layers */}
+      <div className="fixed inset-0 -z-50 bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900" />
+      <div className="fixed inset-0 -z-40 opacity-30">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-blue-600/30 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-purple-600/30 via-transparent to-transparent" />
+      </div>
+      <div className="fixed inset-0 -z-30 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20xmlns%3D%22http://www.w3.org/2000/svg%22%3E%3Cdefs%3E%3Cpattern%20id%3D%22grid%22%20width%3D%2260%22%20height%3D%2260%22%20patternUnits%3D%22userSpaceOnUse%22%3E%3Cpath%20d%3D%22M%2060%200%20L%200%200%200%2060%22%20fill%3D%22none%22%20stroke%3D%22rgba(255,255,255,0.03)%22%20stroke-width%3D%221%22/%3E%3C/pattern%3E%3C/defs%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url(%23grid)%22/%3E%3C/svg%3E')]" />
+
+      <div className="relative py-16 sm:py-24">
+        {/* Hero Section with Enhanced Glassmorphism */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
+            className="relative"
+          >
+            {/* Multi-layer glass effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-700/20 rounded-[2rem] blur-3xl" />
+            <div className="relative bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-pink-600/10 backdrop-blur-2xl rounded-[2rem] p-[2px] overflow-hidden shadow-2xl shadow-purple-500/20">
+              <div className="bg-slate-900/80 backdrop-blur-xl rounded-[2rem] p-8 md:p-12">
+                {/* Animated circuit pattern overlay */}
+                <div className="absolute inset-0 opacity-20">
+                  <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20width%3D%22100%22%20height%3D%22100%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cg%20stroke%3D%22rgba(147,51,234,0.3)%22%20stroke-width%3D%220.5%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M0%200h50v50M50%2050h50v50M25%2025h50M0%2075h75%22%3E%3C/path%3E%3C/g%3E%3C/svg%3E')]" />
+                </div>
+
+                <div className="relative z-10">
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.2 }}
+                    className="flex items-center gap-3 mb-6"
+                  >
+                    <div className="p-3 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl backdrop-blur-xl border border-white/10">
+                      <Battery className="h-10 w-10 text-blue-400" />
+                    </div>
+                    <span className="text-sm font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent px-4 py-2 rounded-full border border-white/10 backdrop-blur">
+                      ADVANCED LITHIUM TECHNOLOGY
+                    </span>
+                  </motion.div>
+
+                  <motion.h1
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 leading-tight"
+                  >
+                    <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                      Next-Generation
+                    </span>
+                    <br />
+                    <span className="text-white">Lithium Battery Systems</span>
+                  </motion.h1>
+
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                    className="text-xl md:text-2xl mb-8 text-blue-100/80 max-w-3xl"
+                  >
+                    Powering the future with <span className="text-blue-300 font-bold">12,000+ cycle life</span>,
+                    <span className="text-purple-300 font-bold"> 95% efficiency</span>, and
+                    <span className="text-pink-300 font-bold"> unmatched safety</span>
+                  </motion.p>
+
+                  {/* Enhanced Live Battery Metrics Dashboard */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5, staggerChildren: 0.1 }}
+                    className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-8"
+                  >
+                    {[
+                      { icon: Activity, value: cycleCount.toLocaleString(), label: "Cycles", color: "blue" },
+                      { icon: Thermometer, value: `${temperatureReading.toFixed(1)}°C`, label: "Temperature", color: "green" },
+                      { icon: Gauge, value: `${socLevel.toFixed(0)}%`, label: "SOC", color: "yellow" },
+                      { icon: Zap, value: `${voltageReading.toFixed(1)}V`, label: "Voltage", color: "purple" },
+                      { icon: CircuitBoard, value: `${currentFlow.toFixed(1)}A`, label: "Current", color: "orange" },
+                      { icon: Power, value: `${powerOutput.toFixed(2)}kW`, label: "Power", color: "red" }
+                    ].map((metric, idx) => {
+                      const Icon = metric.icon;
+                      return (
+                        <motion.div
+                          key={idx}
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: 0.5 + idx * 0.05 }}
+                          whileHover={{ scale: 1.05, y: -5 }}
+                          className="relative group"
+                        >
+                          <div className="absolute inset-0 bg-gradient-to-r from-white/5 to-white/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all" />
+                          <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-4 border border-white/10 hover:border-white/20 transition-all">
+                            <Icon className={`h-5 w-5 mb-2 text-${metric.color}-400`} />
+                            <div className="text-2xl font-bold text-white">{metric.value}</div>
+                            <div className={`text-sm text-${metric.color}-300/80`}>{metric.label}</div>
+                          </div>
+                        </motion.div>
+                      );
+                    })}
+                  </motion.div>
+
+                  {/* Enhanced CTA Buttons */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.8 }}
+                    className="flex flex-wrap gap-4"
+                  >
+                    <motion.button
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="relative group px-8 py-4 rounded-2xl font-bold overflow-hidden"
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-100 group-hover:opacity-90 transition-opacity" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <span className="relative text-white flex items-center gap-2">
+                        Get Technical Datasheet
+                        <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                      </span>
+                    </motion.button>
+
+                    <motion.button
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="relative group px-8 py-4 rounded-2xl font-bold overflow-hidden"
+                    >
+                      <div className="absolute inset-0 bg-white/10 backdrop-blur-xl" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                      <span className="relative text-white flex items-center gap-2 border border-white/20 rounded-2xl px-8 py-4">
+                        <Calculator className="h-5 w-5" />
+                        Battery Sizing Calculator
+                      </span>
+                    </motion.button>
+                  </motion.div>
+                </div>
+              </div>
             </div>
-            <h1 className="text-4xl sm:text-5xl font-bold mb-4">Next-Generation Lithium Battery Systems</h1>
-            <p className="text-xl mb-6 text-blue-100">Powering the future with 12,000+ cycle life, 95% efficiency, and unmatched safety</p>
+          </motion.div>
 
-            {/* Live Battery Metrics Dashboard */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-6">
-              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <Activity className="h-5 w-5 mb-2 text-blue-200" />
-                <div className="text-2xl font-bold">{cycleCount.toLocaleString()}</div>
-                <div className="text-sm text-blue-200">Cycles</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <Thermometer className="h-5 w-5 mb-2 text-green-200" />
-                <div className="text-2xl font-bold">{temperatureReading.toFixed(1)}°C</div>
-                <div className="text-sm text-green-200">Temperature</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <Gauge className="h-5 w-5 mb-2 text-yellow-200" />
-                <div className="text-2xl font-bold">{socLevel.toFixed(0)}%</div>
-                <div className="text-sm text-yellow-200">SOC</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <Zap className="h-5 w-5 mb-2 text-purple-200" />
-                <div className="text-2xl font-bold">{voltageReading.toFixed(1)}V</div>
-                <div className="text-sm text-purple-200">Voltage</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <CircuitBoard className="h-5 w-5 mb-2 text-orange-200" />
-                <div className="text-2xl font-bold">{currentFlow.toFixed(1)}A</div>
-                <div className="text-sm text-orange-200">Current</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <Power className="h-5 w-5 mb-2 text-red-200" />
-                <div className="text-2xl font-bold">{powerOutput.toFixed(2)}kW</div>
-                <div className="text-sm text-red-200">Power</div>
-              </div>
-            </div>
-
-            <div className="flex flex-wrap gap-4">
-              <button className="bg-white text-blue-600 px-6 py-3 rounded-xl font-semibold hover:bg-blue-50 transition flex items-center gap-2">
-                Get Technical Datasheet <ArrowRight className="h-5 w-5" />
-              </button>
-              <button className="bg-white/20 backdrop-blur text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/30 transition flex items-center gap-2">
-                <Calculator className="h-5 w-5" /> Battery Sizing Calculator
-              </button>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Chemistry Comparison Deep Dive */}
-        <div className="mb-12">
-          <div className="text-center mb-8">
-            <p className="text-red-600 font-semibold mb-2">Battery Chemistry Analysis</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Lithium Technology Comparison</h2>
-            <p className="text-gray-600 dark:text-gray-400">Comprehensive analysis of lithium battery chemistries for optimal application selection</p>
-          </div>
-
-          <div className="flex flex-wrap gap-2 mb-6">
-            {Object.keys(chemistryData).map((chem) => (
-              <button
-                key={chem}
-                onClick={() => setSelectedChemistry(chem)}
-                className={`px-4 py-2 rounded-lg font-medium transition ${
-                  selectedChemistry === chem
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
-                }`}
+          {/* PHASE 2: Enhanced Photo Gallery with Advanced Animations */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="mb-20"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <motion.p
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                className="text-transparent bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text font-bold mb-2 text-lg"
               >
-                {chem.toUpperCase()}
-              </button>
+                OUR WORK
+              </motion.p>
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                className="text-5xl font-black mb-4"
+              >
+                <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  Professional Installations
+                </span>
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+                className="text-gray-400 text-lg"
+              >
+                Real projects completed by North State Solar
+              </motion.p>
+            </motion.div>
+
+            <div className="grid lg:grid-cols-2 gap-8">
+              {/* Enhanced Photo Card with Multi-layer Effects */}
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -10 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="relative group"
+              >
+                {/* Glow effect */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 rounded-3xl opacity-0 group-hover:opacity-30 blur-xl transition-all duration-500" />
+
+                {/* Glass container */}
+                <div className="relative bg-gradient-to-br from-slate-900/90 to-slate-800/90 backdrop-blur-xl rounded-3xl p-1 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 via-transparent to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                  {/* Image with overlay effects */}
+                  <div className="relative overflow-hidden rounded-2xl">
+                    <img
+                      src={solarInstallImage}
+                      alt="Ground-mount solar installation with lithium battery integration"
+                      className="w-full h-auto transform group-hover:scale-110 transition-transform duration-700"
+                    />
+
+                    {/* Animated gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
+
+                    {/* Badge */}
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.3 }}
+                      className="absolute top-4 right-4"
+                    >
+                      <div className="bg-gradient-to-r from-yellow-500/90 to-orange-500/90 backdrop-blur-xl text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg">
+                        PROFESSIONAL INSTALLATION
+                      </div>
+                    </motion.div>
+
+                    {/* Content overlay */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6">
+                      <motion.h3
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        className="text-white font-bold text-2xl mb-2"
+                      >
+                        Solar + Battery Integration
+                      </motion.h3>
+                      <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1 }}
+                        className="text-gray-200 text-sm"
+                      >
+                        Complete energy independence solution with LiFePO4 storage
+                      </motion.p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+            {/* Battery Bank Configuration */}
+            <div className="relative group">
+              <img
+                src={batteryBankImage}
+                alt="Lithium battery bank configuration and wiring"
+                className="w-full h-auto rounded-lg border border-yellow-600/30 shadow-lg hover:shadow-2xl transition-shadow"
+              />
+              <div className="absolute top-2 left-2 bg-black/80 text-yellow-300 px-3 py-1 rounded text-xs font-semibold">
+                LiFePO4 Technology
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 rounded-b-lg">
+                <h3 className="text-white font-bold">Battery Bank Systems</h3>
+                <p className="text-gray-200 text-sm">Scalable 48V configurations with BMS integration</p>
+              </div>
+            </div>
+
+            {/* Inverter System Integration */}
+            <div className="relative group">
+              <img
+                src={inverterSystemImage}
+                alt="Advanced inverter system with grid integration"
+                className="w-full h-auto rounded-lg border border-yellow-600/30 shadow-lg hover:shadow-2xl transition-shadow"
+              />
+              <div className="absolute bottom-2 right-2 bg-black/80 text-yellow-300 px-3 py-1 rounded text-xs font-semibold">
+                Grid-Tie System
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 rounded-b-lg">
+                <h3 className="text-white font-bold">Smart Inverter Technology</h3>
+                <p className="text-gray-200 text-sm">Sol-Ark hybrid inverters with automatic transfer</p>
+              </div>
+            </div>
+
+            {/* Installation Team */}
+            <div className="relative group">
+              <img
+                src={installationTeamImage}
+                alt="Professional installation team working on lithium battery system"
+                className="w-full h-auto rounded-lg border border-yellow-600/30 shadow-lg hover:shadow-2xl transition-shadow"
+              />
+              <div className="absolute top-2 left-2 bg-black/80 text-yellow-300 px-3 py-1 rounded text-xs font-semibold">
+                Expert Team
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 rounded-b-lg">
+                <h3 className="text-white font-bold">Certified Installers</h3>
+                <p className="text-gray-200 text-sm">NABCEP certified technicians with 20+ years experience</p>
+              </div>
+            </div>
+          </div>
+        </div>
+          </motion.div>
+        </div>
+
+        {/* PHASE 3: Chemistry Comparison with 3D Effects and Particle Animation */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="mb-20 relative"
+        >
+          {/* Floating particles background */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            {[...Array(20)].map((_, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 100 }}
+                animate={{
+                  opacity: [0, 1, 0],
+                  y: [-100, -500],
+                  x: [0, (i % 2 ? 50 : -50), 0]
+                }}
+                transition={{
+                  duration: 10 + i,
+                  repeat: Infinity,
+                  delay: i * 0.5,
+                  ease: "easeInOut"
+                }}
+                className="absolute w-1 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full blur-sm"
+                style={{ left: `${(i * 5) % 100}%` }}
+              />
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-center mb-12"
+          >
+            <span className="inline-block px-4 py-2 bg-gradient-to-r from-red-500/10 to-orange-500/10 backdrop-blur-xl rounded-full text-transparent bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text font-bold mb-4">
+              BATTERY CHEMISTRY ANALYSIS
+            </span>
+            <h2 className="text-5xl font-black mb-4">
+              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                Lithium Technology
+              </span>
+              <br />
+              <span className="text-white">Comparison Matrix</span>
+            </h2>
+            <p className="text-gray-400 text-lg max-w-3xl mx-auto">
+              Comprehensive analysis of lithium battery chemistries for optimal application selection
+            </p>
+          </motion.div>
+
+          {/* 3D Tab Selector with Perspective */}
+          <motion.div
+            initial={{ opacity: 0, rotateX: -20 }}
+            whileInView={{ opacity: 1, rotateX: 0 }}
+            style={{ perspective: "1000px" }}
+            className="flex flex-wrap gap-3 mb-8 justify-center"
+          >
+            {Object.keys(chemistryData).map((chem, idx) => (
+              <motion.button
+                key={chem}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ delay: idx * 0.1 }}
+                whileHover={{
+                  scale: 1.1,
+                  rotateY: 10,
+                  z: 50
+                }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setSelectedChemistry(chem)}
+                className="relative group"
+                style={{ transformStyle: "preserve-3d" }}
+              >
+                <div className={`
+                  relative px-6 py-3 rounded-2xl font-bold transition-all duration-300
+                  ${selectedChemistry === chem
+                    ? "bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white shadow-2xl shadow-purple-500/30"
+                    : "bg-slate-800/50 backdrop-blur-xl text-gray-300 hover:text-white border border-slate-700/50"
+                  }
+                `}>
+                  {selectedChemistry === chem && (
+                    <motion.div
+                      layoutId="activeTab"
+                      className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-2xl"
+                      transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                    />
+                  )}
+                  <span className="relative z-10">{chem.toUpperCase()}</span>
+                </div>
+              </motion.button>
+            ))}
+          </motion.div>
 
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
             <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
@@ -330,6 +681,47 @@ const LithiumBattery = () => {
                 <Award className="h-5 w-5 text-purple-500 mb-2" />
                 <div className="text-sm text-gray-600 dark:text-gray-400">Best Use Case</div>
                 <div className="font-bold text-gray-900 dark:text-white">{chemistryData[selectedChemistry].applications[0]}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Additional Installation Gallery */}
+        <div className="mb-12">
+          <div className="grid lg:grid-cols-3 gap-6">
+            <div className="relative group">
+              <img
+                src={solarFarmImage}
+                alt="Large scale solar farm with battery storage"
+                className="w-full h-auto rounded-lg border border-blue-600/30 shadow-lg hover:shadow-2xl transition-shadow"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 rounded-b-lg">
+                <h3 className="text-white font-bold">Utility Scale Storage</h3>
+                <p className="text-gray-200 text-sm">Megawatt-hour grid stabilization systems</p>
+              </div>
+            </div>
+
+            <div className="relative group">
+              <img
+                src={batteryStorageImage}
+                alt="Commercial battery storage system"
+                className="w-full h-auto rounded-lg border border-blue-600/30 shadow-lg hover:shadow-2xl transition-shadow"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 rounded-b-lg">
+                <h3 className="text-white font-bold">Commercial Storage</h3>
+                <p className="text-gray-200 text-sm">Demand charge reduction systems</p>
+              </div>
+            </div>
+
+            <div className="relative group">
+              <img
+                src={residentialSolarImage}
+                alt="Residential solar and battery system"
+                className="w-full h-auto rounded-lg border border-blue-600/30 shadow-lg hover:shadow-2xl transition-shadow"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 rounded-b-lg">
+                <h3 className="text-white font-bold">Residential Solutions</h3>
+                <p className="text-gray-200 text-sm">Whole-home backup power systems</p>
               </div>
             </div>
           </div>
@@ -432,11 +824,11 @@ const LithiumBattery = () => {
                   <div className="grid grid-cols-8 gap-1">
                     {[...Array(16)].map((_, i) => (
                       <div key={i} className="relative group">
-                        <div className="h-8 bg-gradient-to-t from-green-600 to-green-400 rounded animate-pulse"
-                             style={{height: `${28 + Math.sin(Date.now() / 1000 + i) * 4}px`}}></div>
-                        <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-gray-700 text-xs px-1 rounded opacity-0 group-hover:opacity-100 transition">
+                        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 bg-gray-700 text-xs px-1 rounded opacity-0 group-hover:opacity-100 transition z-10">
                           3.{28 + Math.floor(Math.random() * 4)}V
                         </div>
+                        <div className="h-8 bg-gradient-to-t from-green-600 to-green-400 rounded animate-pulse mt-6"
+                             style={{height: `${28 + Math.sin(Date.now() / 1000 + i) * 4}px`}}></div>
                       </div>
                     ))}
                   </div>
@@ -502,6 +894,76 @@ const LithiumBattery = () => {
                       </div>
                     ))}
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Professional Team and Equipment Gallery */}
+        <div className="mb-12">
+          <div className="grid lg:grid-cols-2 gap-8">
+            <div className="space-y-6">
+              <div className="relative group">
+                <img
+                  src={technicianImage}
+                  alt="Greg with solar panel - Lead technician"
+                  className="w-full h-auto rounded-lg border border-yellow-600/30 shadow-lg hover:shadow-2xl transition-shadow"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 rounded-b-lg">
+                  <h3 className="text-white font-bold">Expert Installation Team</h3>
+                  <p className="text-gray-200 text-sm">NABCEP certified with 20+ years experience</p>
+                </div>
+              </div>
+
+              <div className="relative group">
+                <img
+                  src={solArkSystemImage}
+                  alt="Sol-Ark hybrid inverter system installation"
+                  className="w-full h-auto rounded-lg border border-yellow-600/30 shadow-lg hover:shadow-2xl transition-shadow"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 rounded-b-lg">
+                  <h3 className="text-white font-bold">Sol-Ark Hybrid Systems</h3>
+                  <p className="text-gray-200 text-sm">Advanced grid-interactive battery inverters</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <div className="relative group">
+                <img
+                  src={energyConservationImage}
+                  alt="Energy conservation and monitoring systems"
+                  className="w-full h-auto rounded-lg border border-green-600/30 shadow-lg hover:shadow-2xl transition-shadow"
+                />
+              </div>
+
+              <div className="relative group">
+                <img
+                  src={solarPanelsAerialImage}
+                  alt="Aerial view of solar panel installation"
+                  className="w-full h-auto rounded-lg border border-blue-600/30 shadow-lg hover:shadow-2xl transition-shadow"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 rounded-b-lg">
+                  <h3 className="text-white font-bold">Large Scale Projects</h3>
+                  <p className="text-gray-200 text-sm">Commercial and industrial installations</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Final aesthetic image */}
+          <div className="mt-6">
+            <div className="relative group">
+              <img
+                src={forestSolarImage}
+                alt="Solar panels in forest setting - sustainable energy"
+                className="w-full h-auto rounded-lg border border-green-600/30 shadow-lg hover:shadow-2xl transition-shadow max-h-96 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-lg flex items-end p-8">
+                <div>
+                  <h3 className="text-white font-bold text-2xl mb-2">Sustainable Energy Solutions</h3>
+                  <p className="text-gray-200">Harmonizing technology with nature for a cleaner future</p>
                 </div>
               </div>
             </div>
@@ -675,39 +1137,232 @@ const LithiumBattery = () => {
           </div>
         </div>
 
-        {/* Battery Metrics Education */}
-        <div className="mb-12">
-          <div className="text-center mb-8">
-            <p className="text-red-600 font-semibold mb-2">Technical Knowledge</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Understanding Battery Metrics</h2>
-            <p className="text-gray-600 dark:text-gray-400">Key performance indicators and what they mean for your system</p>
+        {/* Battery Metrics Education - Phase 4 Ultra Premium */}
+        <div className="mb-12 relative">
+          {/* Quantum Particle Field */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            {[...Array(20)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute w-1 h-1 bg-blue-500 rounded-full"
+                initial={{
+                  x: Math.random() * 1000,
+                  y: Math.random() * 600,
+                  scale: 0
+                }}
+                animate={{
+                  x: [null, Math.random() * 1000],
+                  y: [null, Math.random() * 600],
+                  scale: [0, Math.random() * 2 + 0.5, 0]
+                }}
+                transition={{
+                  duration: Math.random() * 10 + 10,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
+                style={{
+                  boxShadow: '0 0 20px rgba(59,130,246,0.8)',
+                  filter: 'blur(1px)'
+                }}
+              />
+            ))}
           </div>
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 p-8">
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-center mb-8 relative z-10"
+          >
+            <motion.p
+              animate={{
+                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+              }}
+              transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+              className="text-red-600 font-semibold mb-2 bg-gradient-to-r from-red-400 via-orange-500 to-yellow-500 bg-clip-text text-transparent"
+              style={{ backgroundSize: "200% 100%" }}
+            >
+              Technical Knowledge
+            </motion.p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3 relative">
+              <span className="relative z-10">Understanding Battery Metrics</span>
+              <motion.div
+                className="absolute inset-0 opacity-30"
+                animate={{
+                  background: [
+                    "radial-gradient(circle at 20% 50%, rgba(59,130,246,0.3) 0%, transparent 50%)",
+                    "radial-gradient(circle at 80% 50%, rgba(168,85,247,0.3) 0%, transparent 50%)",
+                    "radial-gradient(circle at 20% 50%, rgba(59,130,246,0.3) 0%, transparent 50%)"
+                  ]
+                }}
+                transition={{ duration: 4, repeat: Infinity }}
+              />
+            </h2>
+            <p className="text-gray-600 dark:text-gray-400">Key performance indicators and what they mean for your system</p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            className="relative rounded-2xl overflow-hidden"
+            style={{
+              background: `linear-gradient(135deg,
+                rgba(255,255,255,0.95) 0%,
+                rgba(219,234,254,0.9) 33%,
+                rgba(221,214,254,0.9) 66%,
+                rgba(254,226,226,0.9) 100%)`,
+              boxShadow: `
+                0 25px 50px -12px rgba(0,0,0,0.15),
+                0 0 150px rgba(59,130,246,0.15),
+                inset 0 0 100px rgba(168,85,247,0.05)
+              `
+            }}
+          >
+            {/* Iridescent Overlay */}
+            <motion.div
+              className="absolute inset-0 opacity-20 pointer-events-none"
+              animate={{
+                background: [
+                  "conic-gradient(from 0deg, transparent, rgba(255,0,255,0.2), transparent, rgba(0,255,255,0.2), transparent)",
+                  "conic-gradient(from 180deg, transparent, rgba(0,255,255,0.2), transparent, rgba(255,0,255,0.2), transparent)",
+                  "conic-gradient(from 360deg, transparent, rgba(255,0,255,0.2), transparent, rgba(0,255,255,0.2), transparent)"
+                ]
+              }}
+              transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+            />
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 p-8 relative z-10">
               {batteryMetrics.map((metric, idx) => (
-                <div key={idx} className="border-l-4 border-blue-500 pl-4">
-                  <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-1">{metric.metric}</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{metric.definition}</p>
-                  <div className="text-xs bg-gray-100 dark:bg-gray-700 rounded p-2 mb-1">
-                    <strong>Example:</strong> {metric.example}
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: idx * 0.1 }}
+                  whileHover={{
+                    scale: 1.05,
+                    rotateY: 5,
+                    rotateX: -5,
+                    boxShadow: "0 20px 40px rgba(0,0,0,0.2)"
+                  }}
+                  className="relative group"
+                  style={{ perspective: "1000px" }}
+                >
+                  <div
+                    className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    style={{
+                      background: `linear-gradient(45deg,
+                        rgba(59,130,246,0.1) 0%,
+                        rgba(168,85,247,0.1) 50%,
+                        rgba(236,72,153,0.1) 100%)`,
+                      filter: "blur(20px)"
+                    }}
+                  />
+                  <div className="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-xl p-4 border border-white/50 dark:border-gray-700/50">
+                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 rounded-l-xl"></div>
+                    <div className="pl-3">
+                      <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-1 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                        {metric.metric}
+                      </h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{metric.definition}</p>
+                      <motion.div
+                        whileHover={{ scale: 1.02 }}
+                        className="text-xs bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 rounded-lg p-2 mb-1 border border-blue-200/50 dark:border-purple-400/30"
+                      >
+                        <strong className="text-blue-700 dark:text-blue-300">Example:</strong> {metric.example}
+                      </motion.div>
+                      <p className="text-xs bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-medium">
+                        <strong>Why it matters:</strong> {metric.importance}
+                      </p>
+                    </div>
                   </div>
-                  <p className="text-xs text-blue-600 dark:text-blue-400">
-                    <strong>Why it matters:</strong> {metric.importance}
-                  </p>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
 
-        {/* Recycling & Sustainability */}
-        <div className="mb-12">
-          <div className="text-center mb-8">
-            <p className="text-red-600 font-semibold mb-2">Circular Economy</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Battery Recycling & Recovery</h2>
+        {/* Recycling & Sustainability - Phase 4 Ultra Premium */}
+        <div className="mb-12 relative">
+          {/* Aurora Wave Effect */}
+          <motion.div
+            className="absolute inset-0 opacity-10 pointer-events-none"
+            animate={{
+              background: [
+                "radial-gradient(ellipse at top left, rgba(34,197,94,0.3) 0%, transparent 50%)",
+                "radial-gradient(ellipse at bottom right, rgba(59,130,246,0.3) 0%, transparent 50%)",
+                "radial-gradient(ellipse at top right, rgba(168,85,247,0.3) 0%, transparent 50%)",
+                "radial-gradient(ellipse at bottom left, rgba(34,197,94,0.3) 0%, transparent 50%)",
+                "radial-gradient(ellipse at top left, rgba(34,197,94,0.3) 0%, transparent 50%)"
+              ]
+            }}
+            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+            style={{ filter: "blur(40px)" }}
+          />
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-center mb-8 relative z-10"
+          >
+            <motion.p
+              className="text-red-600 font-semibold mb-2 relative inline-block"
+              whileHover={{ scale: 1.05 }}
+            >
+              <span className="bg-gradient-to-r from-emerald-500 via-green-500 to-teal-500 bg-clip-text text-transparent animate-gradient-x">
+                Circular Economy
+              </span>
+              <motion.div
+                className="absolute -inset-2 bg-gradient-to-r from-emerald-400/20 to-teal-400/20 rounded-lg blur-xl"
+                animate={{ opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+            </motion.p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
+              <motion.span
+                className="inline-block"
+                animate={{
+                  textShadow: [
+                    "0 0 20px rgba(34,197,94,0)",
+                    "0 0 40px rgba(34,197,94,0.3)",
+                    "0 0 20px rgba(34,197,94,0)"
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                Battery Recycling & Recovery
+              </motion.span>
+            </h2>
             <p className="text-gray-600 dark:text-gray-400">Closing the loop with 95%+ material recovery rates</p>
-          </div>
-          <div className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl p-8">
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            className="relative rounded-2xl overflow-hidden p-8"
+            style={{
+              background: `linear-gradient(145deg,
+                rgba(240,253,244,0.95) 0%,
+                rgba(219,234,254,0.95) 25%,
+                rgba(237,233,254,0.95) 50%,
+                rgba(219,234,254,0.95) 75%,
+                rgba(240,253,244,0.95) 100%)`,
+              boxShadow: `
+                0 30px 60px -15px rgba(0,0,0,0.12),
+                0 0 120px rgba(34,197,94,0.1),
+                0 0 80px rgba(59,130,246,0.1),
+                inset 0 0 60px rgba(255,255,255,0.5)
+              `
+            }}
+          >
+            {/* Holographic Mesh */}
+            <div
+              className="absolute inset-0 opacity-10 pointer-events-none"
+              style={{
+                backgroundImage: `
+                  repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(34,197,94,0.1) 35px, rgba(34,197,94,0.1) 70px),
+                  repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(59,130,246,0.1) 35px, rgba(59,130,246,0.1) 70px)
+                `
+              }}
+            />
             <div className="grid lg:grid-cols-2 gap-8">
               {/* Recycling Process Flow */}
               <div>
@@ -832,14 +1487,113 @@ const LithiumBattery = () => {
           </div>
         </div>
 
-        {/* Cost Analysis & ROI Calculator */}
-        <div className="mb-12">
-          <div className="text-center mb-8">
-            <p className="text-red-600 font-semibold mb-2">Financial Analysis</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Total Cost of Ownership</h2>
-            <p className="text-gray-600 dark:text-gray-400">Comprehensive cost comparison and ROI calculations</p>
+        {/* Cost Analysis & ROI Calculator - Phase 4 Ultra Premium */}
+        <div className="mb-12 relative">
+          {/* Floating Currency Particles */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            {[...Array(15)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute text-2xl opacity-20"
+                initial={{
+                  x: Math.random() * window.innerWidth,
+                  y: -50,
+                  rotate: Math.random() * 360
+                }}
+                animate={{
+                  y: window.innerHeight + 50,
+                  rotate: 360,
+                  opacity: [0, 0.3, 0.3, 0]
+                }}
+                transition={{
+                  duration: Math.random() * 10 + 15,
+                  repeat: Infinity,
+                  delay: Math.random() * 10,
+                  ease: "linear"
+                }}
+              >
+                {["💰", "$", "€", "£", "¥"][Math.floor(Math.random() * 5)]}
+              </motion.div>
+            ))}
           </div>
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-center mb-8 relative z-10"
+          >
+            <motion.p
+              animate={{
+                background: [
+                  "linear-gradient(90deg, #ef4444 0%, #f59e0b 50%, #10b981 100%)",
+                  "linear-gradient(90deg, #10b981 0%, #ef4444 50%, #f59e0b 100%)",
+                  "linear-gradient(90deg, #f59e0b 0%, #10b981 50%, #ef4444 100%)",
+                  "linear-gradient(90deg, #ef4444 0%, #f59e0b 50%, #10b981 100%)"
+                ]
+              }}
+              transition={{ duration: 5, repeat: Infinity }}
+              className="text-red-600 font-semibold mb-2 bg-clip-text text-transparent inline-block"
+              style={{ WebkitBackgroundClip: "text" }}
+            >
+              Financial Analysis
+            </motion.p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
+              <motion.span
+                className="relative inline-block"
+                whileHover={{ scale: 1.05 }}
+              >
+                Total Cost of Ownership
+                <motion.div
+                  className="absolute -inset-4 bg-gradient-to-r from-green-400/20 via-blue-400/20 to-purple-400/20 rounded-xl blur-2xl"
+                  animate={{
+                    opacity: [0.3, 0.6, 0.3],
+                    scale: [1, 1.1, 1]
+                  }}
+                  transition={{ duration: 4, repeat: Infinity }}
+                />
+              </motion.span>
+            </h2>
+            <p className="text-gray-600 dark:text-gray-400">Comprehensive cost comparison and ROI calculations</p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, rotateX: -10 }}
+            whileInView={{ opacity: 1, rotateX: 0 }}
+            transition={{ type: "spring", stiffness: 100 }}
+            className="relative rounded-2xl overflow-hidden p-8"
+            style={{
+              perspective: "1000px",
+              background: `linear-gradient(135deg,
+                rgba(255,255,255,0.98) 0%,
+                rgba(239,246,255,0.95) 20%,
+                rgba(254,240,138,0.92) 40%,
+                rgba(220,252,231,0.92) 60%,
+                rgba(233,213,255,0.95) 80%,
+                rgba(255,255,255,0.98) 100%)`,
+              boxShadow: `
+                0 50px 100px -20px rgba(0,0,0,0.15),
+                0 30px 60px -30px rgba(0,0,0,0.2),
+                0 0 200px rgba(16,185,129,0.1),
+                inset 0 0 150px rgba(255,255,255,0.6)
+              `,
+              transform: "translateZ(0)"
+            }}
+          >
+            {/* Animated Grid Pattern */}
+            <motion.div
+              className="absolute inset-0 opacity-5 pointer-events-none"
+              animate={{
+                backgroundPosition: ["0px 0px", "50px 50px"]
+              }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              style={{
+                backgroundImage: `
+                  linear-gradient(rgba(16,185,129,0.2) 1px, transparent 1px),
+                  linear-gradient(90deg, rgba(16,185,129,0.2) 1px, transparent 1px)
+                `,
+                backgroundSize: "50px 50px"
+              }}
+            />
             <div className="grid lg:grid-cols-2 gap-8">
               {/* Cost Comparison */}
               <div>
@@ -968,27 +1722,167 @@ const LithiumBattery = () => {
           </div>
         </div>
 
-        {/* CTA Section */}
-        <div className="bg-gradient-to-r from-blue-600 to-purple-700 rounded-3xl p-8 text-white text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Upgrade to Lithium?</h2>
-          <p className="text-xl mb-6 text-blue-100">
+        {/* CTA Section - Phase 4 Ultra Premium */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ type: "spring", stiffness: 80 }}
+          className="relative overflow-hidden rounded-3xl p-8 text-white text-center"
+          style={{
+            background: `
+              radial-gradient(ellipse at top left, rgba(59,130,246,0.8) 0%, transparent 40%),
+              radial-gradient(ellipse at bottom right, rgba(168,85,247,0.8) 0%, transparent 40%),
+              radial-gradient(ellipse at center, rgba(236,72,153,0.6) 0%, transparent 60%),
+              linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%)
+            `,
+            boxShadow: `
+              0 30px 60px rgba(0,0,0,0.3),
+              0 0 120px rgba(59,130,246,0.4),
+              0 0 80px rgba(168,85,247,0.3),
+              inset 0 0 120px rgba(255,255,255,0.1)
+            `
+          }}
+        >
+          {/* Animated Particles Background */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            {[...Array(30)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute w-1 h-1 bg-white rounded-full"
+                initial={{
+                  x: Math.random() * 1000 - 500,
+                  y: Math.random() * 600 - 300,
+                  opacity: 0
+                }}
+                animate={{
+                  x: Math.random() * 1000 - 500,
+                  y: Math.random() * 600 - 300,
+                  opacity: [0, Math.random() * 0.5 + 0.3, 0]
+                }}
+                transition={{
+                  duration: Math.random() * 20 + 10,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
+                style={{
+                  filter: `blur(${Math.random() * 2}px)`,
+                  boxShadow: '0 0 10px rgba(255,255,255,0.8)'
+                }}
+              />
+            ))}
+          </div>
+
+          {/* Holographic Overlay */}
+          <motion.div
+            className="absolute inset-0 opacity-20 pointer-events-none"
+            animate={{
+              background: [
+                "conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(255,255,255,0.3) 60deg, transparent 120deg)",
+                "conic-gradient(from 120deg at 50% 50%, transparent 0deg, rgba(255,255,255,0.3) 60deg, transparent 120deg)",
+                "conic-gradient(from 240deg at 50% 50%, transparent 0deg, rgba(255,255,255,0.3) 60deg, transparent 120deg)",
+                "conic-gradient(from 360deg at 50% 50%, transparent 0deg, rgba(255,255,255,0.3) 60deg, transparent 120deg)"
+              ]
+            }}
+            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+          />
+
+          <motion.h2
+            className="text-3xl md:text-4xl font-bold mb-4 relative z-10"
+            animate={{
+              textShadow: [
+                "0 0 30px rgba(255,255,255,0.5)",
+                "0 0 60px rgba(255,255,255,0.8)",
+                "0 0 30px rgba(255,255,255,0.5)"
+              ]
+            }}
+            transition={{ duration: 2, repeat: Infinity }}
+          >
+            Ready to Upgrade to Lithium?
+          </motion.h2>
+          <motion.p
+            className="text-xl mb-8 text-blue-100 relative z-10"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
             Get a custom battery solution designed for your specific needs
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <button className="bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-blue-50 transition flex items-center gap-2">
-              <Calculator className="h-5 w-5" /> Get Custom Quote
-            </button>
-            <button className="bg-white/20 backdrop-blur text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/30 transition flex items-center gap-2">
+          </motion.p>
+
+          <motion.div
+            className="flex flex-wrap gap-4 justify-center relative z-10"
+            initial={{ scale: 0.9, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.3, type: "spring" }}
+          >
+            <motion.button
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 20px 40px rgba(255,255,255,0.3)"
+              }}
+              whileTap={{ scale: 0.98 }}
+              className="relative bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold overflow-hidden group"
+              style={{
+                background: `linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%)`,
+                boxShadow: "0 10px 30px rgba(0,0,0,0.2)"
+              }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+              <span className="relative flex items-center gap-2">
+                <Calculator className="h-5 w-5" /> Get Custom Quote
+              </span>
+            </motion.button>
+
+            <motion.button
+              whileHover={{
+                scale: 1.05,
+                backgroundColor: "rgba(255,255,255,0.35)"
+              }}
+              whileTap={{ scale: 0.98 }}
+              className="bg-white/25 backdrop-blur-md text-white px-8 py-4 rounded-xl font-semibold border border-white/30 flex items-center gap-2"
+              style={{
+                boxShadow: "0 10px 30px rgba(0,0,0,0.2), inset 0 0 20px rgba(255,255,255,0.1)"
+              }}
+            >
               <Phone className="h-5 w-5" /> Schedule Consultation
-            </button>
-            <button className="bg-white/20 backdrop-blur text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/30 transition flex items-center gap-2">
+            </motion.button>
+
+            <motion.button
+              whileHover={{
+                scale: 1.05,
+                backgroundColor: "rgba(255,255,255,0.35)"
+              }}
+              whileTap={{ scale: 0.98 }}
+              className="bg-white/25 backdrop-blur-md text-white px-8 py-4 rounded-xl font-semibold border border-white/30 flex items-center gap-2"
+              style={{
+                boxShadow: "0 10px 30px rgba(0,0,0,0.2), inset 0 0 20px rgba(255,255,255,0.1)"
+              }}
+            >
               <FileCheck className="h-5 w-5" /> Download Spec Sheet
-            </button>
-          </div>
-          <div className="mt-6 text-sm text-blue-200">
-            ISO 9001:2015 Certified • UL Listed • 10-Year Warranty • 24/7 Support
-          </div>
-        </div>
+            </motion.button>
+          </motion.div>
+
+          <motion.div
+            className="mt-8 text-sm text-blue-100 relative z-10"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+          >
+            <div className="flex flex-wrap justify-center gap-3">
+              {["ISO 9001:2015 Certified", "UL Listed", "10-Year Warranty", "24/7 Support"].map((item, i) => (
+                <motion.span
+                  key={i}
+                  className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full border border-white/20"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.6 + i * 0.1 }}
+                  whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.2)" }}
+                >
+                  {item}
+                </motion.span>
+              ))}
+            </div>
+          </motion.div>
+        </motion.div>
       </div>
     </div>
   );
