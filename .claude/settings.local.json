@@ -9,7 +9,9 @@
       "Bash(grep:*)",
       "Bash(find:*)",
       "Bash(npm run build:*)",
-      "Bash(cp:*)"
+      "Bash(cp:*)",
+      "Bash(xargs ls:*)",
+      "Bash(awk:*)"
     ],
     "deny": [],
     "ask": []

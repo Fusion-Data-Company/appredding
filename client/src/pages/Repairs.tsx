@@ -71,8 +71,6 @@ const Repairs = () => {
       
       {/* Hero Section */}
       <section className="relative min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-red-900/20 to-orange-900/20"></div>
-        
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

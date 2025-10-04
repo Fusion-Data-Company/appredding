@@ -34,6 +34,7 @@ import SEOHead from "@/components/SEOHead";
 import { preloadCriticalImages } from "@/lib/image-helper";
 import { generateStructuredData, getIndustryKeywords } from "@/lib/seo-helper";
 import SolarRescueTimelineSection from "@/sections/SolarRescueTimelineSection";
+import { AlertTriangle, TrendingUp } from "lucide-react";
 
 type HybridSolarFormValues = z.infer<typeof insertFirePreventionHomeownerSchema>;
 
@@ -268,8 +269,48 @@ const HybridSolar = () => {
           </div>
         </section>
 
-        {/* Solar Rescue Timeline Section - Complete Magic MCP Funnel */}
-        <SolarRescueTimelineSection className="bg-gradient-to-br from-gray-950 via-gray-900 to-black" />
+        {/* Color-Coded Hybrid Solar Funnel (RED → YELLOW → GREEN → PURPLE) */}
+        <SolarRescueTimelineSection
+          className="bg-gradient-to-br from-gray-950 via-gray-900 to-black"
+          stages={[
+            {
+              id: 'pain-red',
+              title: 'Grid Instability & Backup Power Failure',
+              description: 'PSPS (Public Safety Power Shutoffs) leave homes dark for 48+ hours. Aging grid infrastructure fails during wildfire season. Solar-only systems without batteries provide zero backup during outages.',
+              color: 'from-red-500 to-red-600',
+              glowColor: 'rgba(239, 68, 68, 0.5)',
+              icon: <AlertTriangle className='h-8 w-8' />,
+              metrics: 'PSPS: 48+ Hour Outages',
+            },
+            {
+              id: 'intel-yellow',
+              title: 'Hybrid System Engineering & AC/DC Coupling',
+              description: 'SOLARK 12K/15K hybrid inverter analysis for seamless grid-tie to off-grid transition. AC-coupled vs DC-coupled battery architecture evaluation. Load prioritization for critical circuits during outages.',
+              color: 'from-yellow-500 to-yellow-600',
+              glowColor: 'rgba(234, 179, 8, 0.5)',
+              icon: <Zap className='h-8 w-8' />,
+              metrics: 'SOLARK Hybrid: Grid + Off-Grid',
+            },
+            {
+              id: 'roi-green',
+              title: 'Load Shifting ROI & Resilience Value',
+              description: 'NEM 3.0 load-shifting reduces bills by $120-$180/month. SGIP Equity Resiliency rebates ($1,000/kWh) for Tier 2/3 wildfire zones. Whole-home backup eliminates generator fuel costs ($400-$800/year).',
+              color: 'from-green-500 to-green-600',
+              glowColor: 'rgba(34, 197, 94, 0.5)',
+              icon: <TrendingUp className='h-8 w-8' />,
+              metrics: 'SGIP Resiliency: $1K/kWh',
+            },
+            {
+              id: 'action-purple',
+              title: 'Hybrid Installation & Backup Activation',
+              description: 'SOLARK hybrid inverter deployment with automatic transfer switch (ATS) configuration. Critical load panel installation. Backup testing and automatic islanding verification. 24/7 monitoring with grid status alerts.',
+              color: 'from-purple-500 to-purple-600',
+              glowColor: 'rgba(168, 85, 247, 0.5)',
+              icon: <CheckCircle className='h-8 w-8' />,
+              metrics: 'Auto Backup: <5sec Switch',
+            },
+          ]}
+        />
 
         {/* Hybrid System Features Section */}
         <section className="relative z-10 py-20 overflow-hidden">

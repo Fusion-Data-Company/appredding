@@ -31,7 +31,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import SEOHead from "@/components/SEOHead";
-import { SolarFunnel } from "@/sections/SolarFunnelDynamicSection";
+import SolarRescueTimelineSection from "@/sections/SolarRescueTimelineSection";
 
 const Maintenance = () => {
   const [formData, setFormData] = useState({
@@ -228,8 +228,6 @@ const Maintenance = () => {
       
       {/* Hero Section */}
       <section className="relative min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-indigo-900/20"></div>
-        
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -306,11 +304,47 @@ const Maintenance = () => {
         </div>
       </section>
 
-      {/* Solar Funnel Section */}
-      <SolarFunnel 
-        stages={maintenanceFunnelStages}
-        autoProgress={true}
-        progressInterval={5000}
+      {/* Color-Coded Solar Maintenance Funnel (RED → YELLOW → GREEN → PURPLE) */}
+      <SolarRescueTimelineSection
+        className="bg-gradient-to-br from-gray-950 via-gray-900 to-black"
+        stages={[
+          {
+            id: 'pain-red',
+            title: 'System Degradation & Performance Loss',
+            description: 'Solar panels lose 0.5-1% efficiency annually from soiling, micro-cracks, and hot spots. Inverters fail after 10-12 years without maintenance. Undetected issues compound into costly repairs or full system replacement.',
+            color: 'from-red-500 to-red-600',
+            glowColor: 'rgba(239, 68, 68, 0.5)',
+            icon: <AlertTriangle className='h-8 w-8' />,
+            metrics: 'Annual Loss: 0.5-1%',
+          },
+          {
+            id: 'intel-yellow',
+            title: 'IV Curve Analysis & Diagnostic Testing',
+            description: 'Comprehensive system inspection with IV curve tracing to detect underperforming strings. Infrared thermography identifies hot spots and bypass diode failures. Inverter efficiency testing. DC/AC voltage verification. Connection torque checks.',
+            color: 'from-yellow-500 to-yellow-600',
+            glowColor: 'rgba(234, 179, 8, 0.5)',
+            icon: <Activity className='h-8 w-8' />,
+            metrics: 'IV Curve Diagnostics',
+          },
+          {
+            id: 'roi-green',
+            title: 'Preventive Maintenance ROI & Warranty Protection',
+            description: 'Annual maintenance preserves 95%+ system efficiency vs 85% without service. Prevents warranty voids from neglect. Early detection saves $2,000-$8,000 vs emergency repairs. Extends system lifespan from 20 to 25-30 years.',
+            color: 'from-green-500 to-green-600',
+            glowColor: 'rgba(34, 197, 94, 0.5)',
+            icon: <TrendingUp className='h-8 w-8' />,
+            metrics: 'Efficiency: 95%+ Maintained',
+          },
+          {
+            id: 'action-purple',
+            title: 'Professional Cleaning & System Optimization',
+            description: 'Panel cleaning with deionized water and soft-bristle brushes. Electrical connection re-torquing. Firmware updates for inverters and optimizers. Performance report with baseline comparison. Scheduled recurring maintenance enrollment.',
+            color: 'from-purple-500 to-purple-600',
+            glowColor: 'rgba(168, 85, 247, 0.5)',
+            icon: <CheckCircle className='h-8 w-8' />,
+            metrics: 'Annual Service Plans',
+          },
+        ]}
       />
 
       {/* Technical Services Section */}

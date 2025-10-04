@@ -1,19 +1,22 @@
 import React from "react";
 import MainLayout from "@/components/layout/MainLayout";
 import { motion } from "framer-motion";
-import { 
-  Battery, 
-  Zap, 
-  Shield, 
-  CheckCircle, 
+import {
+  Battery,
+  Zap,
+  Shield,
+  CheckCircle,
   ArrowRight,
   Calculator,
   Phone,
   Clock,
-  Home
+  Home,
+  AlertTriangle,
+  TrendingUp
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SEOHead from "@/components/SEOHead";
+import SolarRescueTimelineSection from "@/sections/SolarRescueTimelineSection";
 
 const BatteryStorage = () => {
   const benefits = [
@@ -67,8 +70,6 @@ const BatteryStorage = () => {
       
       {/* Hero Section */}
       <section className="relative min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-green-900/20 to-emerald-900/20"></div>
-        
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -133,6 +134,49 @@ const BatteryStorage = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Color-Coded Battery Storage Funnel (RED → YELLOW → GREEN → PURPLE) */}
+      <SolarRescueTimelineSection
+        className="bg-gradient-to-br from-gray-950 via-gray-900 to-black"
+        stages={[
+          {
+            id: 'pain-red',
+            title: 'TOU Rate Shock & Peak Demand Penalties',
+            description: 'PG&E TOU rates hit $0.42-$0.51/kWh during 4-9pm peak hours. Solar-only systems export at $0.03-$0.05/kWh under NEM 3.0, losing 80% of export value. No backup power during PSPS events leaves homes vulnerable.',
+            color: 'from-red-500 to-red-600',
+            glowColor: 'rgba(239, 68, 68, 0.5)',
+            icon: <AlertTriangle className='h-8 w-8' />,
+            metrics: 'Peak TOU: $0.42-$0.51/kWh',
+          },
+          {
+            id: 'intel-yellow',
+            title: 'Battery Sizing & SOLARK Integration Analysis',
+            description: 'Comprehensive load profiling to determine optimal battery capacity (10-30kWh typical). SOLARK 12K/15K hybrid inverter compatibility assessment. AC vs DC coupling architecture evaluation. Critical load prioritization for backup scenarios.',
+            color: 'from-yellow-500 to-yellow-600',
+            glowColor: 'rgba(234, 179, 8, 0.5)',
+            icon: <Battery className='h-8 w-8' />,
+            metrics: 'Typical Range: 10-30kWh',
+          },
+          {
+            id: 'roi-green',
+            title: 'SGIP Incentives & Load-Shifting Economics',
+            description: 'SGIP Equity Budget: $1,000/kWh (up to $30,000 for 30kWh). General Market: $200-$300/kWh. Load-shifting strategy recovers $120-$180/month in lost NEM 3.0 export value. 6-8 year payback with incentives.',
+            color: 'from-green-500 to-green-600',
+            glowColor: 'rgba(34, 197, 94, 0.5)',
+            icon: <TrendingUp className='h-8 w-8' />,
+            metrics: 'Monthly Savings: $120-$180',
+          },
+          {
+            id: 'action-purple',
+            title: 'ESS Installation & Smart Load Management',
+            description: 'C-46 licensed Energy Storage System (ESS) installation with UL 9540 compliance. SOLARK inverter integration with automated TOU load-shifting. Backup power testing. SGIP documentation & PTO coordination. 24/7 monitoring activation.',
+            color: 'from-purple-500 to-purple-600',
+            glowColor: 'rgba(168, 85, 247, 0.5)',
+            icon: <CheckCircle className='h-8 w-8' />,
+            metrics: 'UL 9540 ESS Certified',
+          },
+        ]}
+      />
 
       {/* Benefits Section */}
       <section className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">

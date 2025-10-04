@@ -43,7 +43,8 @@ import { motion } from "framer-motion";
 import SEOHead from "@/components/SEOHead";
 import { preloadCriticalImages } from "@/lib/image-helper";
 import { generateStructuredData, getIndustryKeywords } from "@/lib/seo-helper";
-import { SandlerSolarFunnel } from '@/sections/SandlerSolarFunnel';
+import SolarRescueTimelineSection from '@/sections/SolarRescueTimelineSection';
+import { Battery } from "lucide-react";
 
 type EnergyConservationFormValues = ServiceConsultationFormValues;
 
@@ -272,8 +273,48 @@ const EnergyConservation = () => {
           </div>
         </section>
 
-        {/* INTERACTIVE ENERGY CONSERVATION FUNNEL - SolarRescueFunnelSection Component */}
-        <SandlerSolarFunnel />
+        {/* Color-Coded Energy Conservation Funnel (RED → YELLOW → GREEN → PURPLE) */}
+        <SolarRescueTimelineSection
+          className="bg-gradient-to-br from-gray-950 via-gray-900 to-black"
+          stages={[
+            {
+              id: 'pain-red',
+              title: 'Energy Waste & High Utility Bills',
+              description: 'Homes lose 25-40% of energy through poor insulation, inefficient HVAC, and phantom loads. Rising PG&E rates compound waste. Solar systems underperform without addressing consumption inefficiencies first.',
+              color: 'from-red-500 to-red-600',
+              glowColor: 'rgba(239, 68, 68, 0.5)',
+              icon: <AlertTriangle className='h-8 w-8' />,
+              metrics: 'Energy Loss: 25-40%',
+            },
+            {
+              id: 'intel-yellow',
+              title: 'Energy Audit & Efficiency Assessment',
+              description: 'Comprehensive home energy audit using thermal imaging and blower door testing. HVAC system efficiency analysis. Insulation R-value assessment. Phantom load identification. Smart thermostat compatibility review.',
+              color: 'from-yellow-500 to-yellow-600',
+              glowColor: 'rgba(234, 179, 8, 0.5)',
+              icon: <Eye className='h-8 w-8' />,
+              metrics: 'Thermal Imaging Analysis',
+            },
+            {
+              id: 'roi-green',
+              title: 'Conservation ROI & Solar Optimization',
+              description: 'Energy efficiency upgrades reduce consumption by 20-35% before solar installation. Right-size solar systems save $3,000-$8,000 vs oversizing. LED lighting, insulation, and HVAC upgrades deliver 2-4 year payback independently.',
+              color: 'from-green-500 to-green-600',
+              glowColor: 'rgba(34, 197, 94, 0.5)',
+              icon: <TrendingUp className='h-8 w-8' />,
+              metrics: 'Reduction: 20-35%',
+            },
+            {
+              id: 'action-purple',
+              title: 'Implementation & Smart Home Integration',
+              description: 'Energy efficiency upgrades installed per California Title 24 standards. Smart thermostat programming for TOU rate optimization. LED retrofit with utility rebates. HVAC tune-up or replacement. Integration with solar + battery systems.',
+              color: 'from-purple-500 to-purple-600',
+              glowColor: 'rgba(168, 85, 247, 0.5)',
+              icon: <CheckCircle className='h-8 w-8' />,
+              metrics: 'Title 24 Compliant',
+            },
+          ]}
+        />
 
         {/* SANDLER STAGE 1: PAIN - RED GLOW SECTION - Critical Problems */}
         <section className="relative z-10 py-12 overflow-hidden">

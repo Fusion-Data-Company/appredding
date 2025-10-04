@@ -57,7 +57,7 @@ import { motion } from "framer-motion";
 import SEOHead from "@/components/SEOHead";
 import { preloadCriticalImages } from "@/lib/image-helper";
 import { generateStructuredData, getIndustryKeywords } from "@/lib/seo-helper";
-import { SandlerSolarFunnel } from "@/sections/SandlerSolarFunnel";
+import SolarRescueTimelineSection from "@/sections/SolarRescueTimelineSection";
 
 // Define schema for Lithium Battery form
 const lithiumBatteryFormSchema = z.object({
@@ -205,35 +205,47 @@ const LithiumBattery = () => {
         {/* Subtle animated grid overlay */}
         <div className="fixed inset-0 z-[-2] opacity-10 bg-[url('/src/assets_dir/images/grid-pattern.svg')] bg-repeat"></div>
 
-        {/* SANDLER SOLAR FUNNEL - AUTO-ROTATING CARD FUNNEL */}
-        <SandlerSolarFunnel 
-          title="Your Path to Advanced Battery Storage"
-          subtitle="Join thousands of homeowners and businesses who have upgraded to efficient, long-lasting lithium battery systems"
-          steps={[
+        {/* Color-Coded LiFePO4 Battery Funnel (RED → YELLOW → GREEN → PURPLE) */}
+        <SolarRescueTimelineSection
+          className="bg-gradient-to-br from-gray-950 via-gray-900 to-black"
+          stages={[
             {
-              step: "Step 1",
-              title: "Free Battery Assessment",
-              description: "Get a personalized energy storage analysis for your property with zero obligation. Our experts evaluate your energy needs, backup requirements, and solar integration potential.",
-              icon: <Battery className="w-6 h-6" />,
-              benefit: "Know your storage potential in minutes"
+              id: 'pain-red',
+              title: 'Battery Failure & Backup Power Loss',
+              description: 'Lead-acid batteries fail after 3-5 years (300-500 cycles). PSPS outages leave homes dark despite having solar. Old battery systems cannot support modern load requirements or NEM 3.0 load-shifting strategies.',
+              color: 'from-red-500 to-red-600',
+              glowColor: 'rgba(239, 68, 68, 0.5)',
+              icon: <AlertTriangle className='h-8 w-8' />,
+              metrics: 'Lead-Acid: 300-500 Cycles',
             },
             {
-              step: "Step 2",
-              title: "Custom Battery Design",
-              description: "Receive a tailored lithium battery solution designed specifically for your energy independence goals and budget. Our LiFePO4 systems integrate seamlessly with solar.",
-              icon: <Shield className="w-6 h-6" />,
-              benefit: "Optimized for maximum reliability"
+              id: 'intel-yellow',
+              title: 'LiFePO4 Chemistry & BMS Engineering',
+              description: 'Comprehensive LiFePO4 (lithium iron phosphate) system design with 6000+ cycle longevity. SimpliPhi PHI 3.8, Fortress eVault, or EG4 PowerPro sizing. SOLARK inverter CAN bus integration and BMS configuration for optimal charge curves.',
+              color: 'from-yellow-500 to-yellow-600',
+              glowColor: 'rgba(234, 179, 8, 0.5)',
+              icon: <Battery className='h-8 w-8' />,
+              metrics: 'LiFePO4: 6000+ Cycles',
             },
             {
-              step: "Step 3",
-              title: "Energy Independence",
-              description: "Begin storing clean energy and enjoy reliable backup power. Our lithium batteries deliver 10+ year lifespan with zero maintenance required.",
-              icon: <Zap className="w-6 h-6" />,
-              benefit: "Maintenance-free operation from day one"
-            }
+              id: 'roi-green',
+              title: 'SGIP Rebates & 10-Year ROI',
+              description: 'SGIP Equity Budget delivers $1,000/kWh rebates (up to $14,340 for 14.34kWh systems). 10+ year lifespan eliminates 3-4 replacement cycles vs lead-acid. NEM 3.0 load-shifting recovers $120-$180/month in lost export value.',
+              color: 'from-green-500 to-green-600',
+              glowColor: 'rgba(34, 197, 94, 0.5)',
+              icon: <TrendingUp className='h-8 w-8' />,
+              metrics: 'SGIP: Up to $14,340',
+            },
+            {
+              id: 'action-purple',
+              title: 'UL 1973 Installation & Thermal Management',
+              description: 'C-46 licensed LiFePO4 installation with UL 1973 & UL 9540A certifications. NFPA 70 Article 706 compliance. Thermal runaway protection. DC coupling with SOLARK inverters. 24/7 SOC/SOH monitoring with cell balancing alerts.',
+              color: 'from-purple-500 to-purple-600',
+              glowColor: 'rgba(168, 85, 247, 0.5)',
+              icon: <CheckCircle className='h-8 w-8' />,
+              metrics: 'UL 1973 Certified',
+            },
           ]}
-          ctaText="Get Your Free Battery Assessment"
-          onCtaClick={handleShowConsultationForm}
         />
 
         {/* NEW: LiFePO4 CHEMISTRY TECHNICAL SECTION */}
