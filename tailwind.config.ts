@@ -13,6 +13,7 @@ export default {
     'gradient-bright-white',
     'gradient-bright-yellow',
     'hero-section',
+    'preserve-text-color',
   ],
   theme: {
     fontFamily: {
