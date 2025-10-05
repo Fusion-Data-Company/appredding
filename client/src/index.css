@@ -1252,7 +1252,7 @@ input:not(.preserve-text-color) {
 button *,
 .button-primary *,
 [role="button"] * {
-  color: inherit !important;
+  /* color: inherit !important; */
 }
 
 /* Universal dark background text fix with enhanced outlines */

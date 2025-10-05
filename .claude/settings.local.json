@@ -19,7 +19,10 @@
       "Bash(xargs:*)",
       "Bash(npm run dev:*)",
       "Bash(sed:*)",
-      "Read(//home/runner/**)"
+      "Read(//home/runner/**)",
+      "Bash(curl:*)",
+      "Bash(cat:*)",
+      "Bash(lsof:*)"
     ],
     "deny": [],
     "ask": []
