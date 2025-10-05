@@ -169,7 +169,7 @@ body {
 
 /* BRIGHT HERO GRADIENTS - LIGHT LETTERS WITH COLORED GLOW */
 .gradient-bright-fire {
-  background: linear-gradient(to right, #fef3c7, #fed7aa, #fef3c7);
+  background: linear-gradient(to right, #fffbeb, #fef3c7, #fffbeb);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -177,7 +177,7 @@ body {
 }
 
 .gradient-bright-electric {
-  background: linear-gradient(to right, #cffafe, #dbeafe, #cffafe);
+  background: linear-gradient(to right, #f0fdff, #e0f2fe, #f0fdff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -185,7 +185,7 @@ body {
 }
 
 .gradient-bright-sunset {
-  background: linear-gradient(to right, #fef3c7, #fed7aa, #fecaca);
+  background: linear-gradient(to right, #fffbeb, #fef3c7, #fff5f5);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -193,7 +193,7 @@ body {
 }
 
 .gradient-bright-ocean {
-  background: linear-gradient(to right, #cffafe, #dbeafe, #e0f2fe);
+  background: linear-gradient(to right, #f0fdff, #e0f2fe, #f0f9ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -201,7 +201,7 @@ body {
 }
 
 .gradient-bright-emerald {
-  background: linear-gradient(to right, #d1fae5, #a7f3d0, #ecfccb);
+  background: linear-gradient(to right, #f0fdf4, #d1fae5, #f7fee7);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -209,7 +209,7 @@ body {
 }
 
 .gradient-bright-purple {
-  background: linear-gradient(to right, #f3e8ff, #e9d5ff, #fae8ff);
+  background: linear-gradient(to right, #faf5ff, #f3e8ff, #fdf4ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -222,7 +222,7 @@ body {
 }
 
 .gradient-bright-yellow {
-  background: linear-gradient(to right, #fef9c3, #fef3c7, #fefce8);
+  background: linear-gradient(to right, #fefce8, #fffbeb, #fefce8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
