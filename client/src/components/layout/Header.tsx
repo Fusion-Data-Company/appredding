@@ -112,15 +112,13 @@ const SolarCompanyHeader: React.FC = () => {
             index !== items.length - 1 && "mb-1"
           )}
           style={{
-            background: 'transparent'
+            borderLeft: '3px solid transparent'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.background = 'linear-gradient(90deg, rgba(249,115,22,0.03) 0%, rgba(59,130,246,0.03) 100%)';
             e.currentTarget.style.borderLeft = '3px solid rgba(249,115,22,0.6)';
             e.currentTarget.style.paddingLeft = '13px';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.background = 'transparent';
             e.currentTarget.style.borderLeft = '3px solid transparent';
             e.currentTarget.style.paddingLeft = '16px';
           }}
