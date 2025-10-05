@@ -9,9 +9,6 @@ import { errorHandler } from "@/utils/error-handler";
 import { usePerformance } from "@/hooks/use-performance";
 import { initializeCriticalPerformance, monitorPerformanceBudget } from "@/utils/performance-critical";
 import { SuspenseFallback } from "@/components/ui/enhanced-loading";
-import { TwentyFirstToolbar } from "@21st-extension/toolbar-react";
-import { ReactPlugin } from "@21st-extension/react";
-import { setupStagewiseToolbar } from "@/utils/toolbar-setup";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import CRM from "@/pages/CRM";
@@ -246,11 +243,6 @@ function App() {
     document.body.style.backgroundColor = '#000';
     document.body.classList.add('dark');
 
-    // Initialize 21st extension toolbar in development
-    if (import.meta.env.DEV) {
-      setupStagewiseToolbar();
-    }
-
     // Defer expensive operations to not block initial render
     setTimeout(() => {
       preloadCriticalImages();
@@ -291,20 +283,6 @@ function App() {
             <Router />
           </SmoothScrollWrapper>
         </AuthProvider>
-        {import.meta.env.DEV && (
-          <TwentyFirstToolbar 
-            config={{
-              plugins: [ReactPlugin],
-              theme: 'dark',
-              position: 'bottom-right',
-              autoConnect: false, // Disable auto-connect in Replit
-              development: true,
-              standalone: true, // Run in standalone mode
-              hideConnectionError: true, // Hide connection errors in Replit
-              showToolbar: true
-            }}
-          />
-        )}
       </TooltipProvider>
     </QueryClientProvider>
   );
