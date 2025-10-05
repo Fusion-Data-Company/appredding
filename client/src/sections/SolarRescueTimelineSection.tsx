@@ -162,9 +162,9 @@ const SolarRescueTimelineSection: React.FC<SalesFunnelProps> = ({
                       <div className='flex-1'>
                         <h3 className='text-2xl font-bold text-foreground'>{stage.title}</h3>
                         {stage.metrics && (
-                          <p className={cn('text-sm font-semibold', `bg-gradient-to-r ${stage.color} bg-clip-text text-transparent`)}>
+                          <div className={cn('text-sm font-semibold', `bg-gradient-to-r ${stage.color} bg-clip-text text-transparent`)}>
                             {stage.metrics}
-                          </p>
+                          </div>
                         )}
                       </div>
                     </div>
