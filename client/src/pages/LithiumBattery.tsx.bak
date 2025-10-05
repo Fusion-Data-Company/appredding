@@ -1262,6 +1262,7 @@ const LithiumBattery = () => {
                 </ScaleReveal>
               </div>
             </div>
+          </div>
         </section>
       </div>
     </>
