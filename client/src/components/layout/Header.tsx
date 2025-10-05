@@ -236,6 +236,26 @@ const SolarCompanyHeader: React.FC = () => {
               Home
             </Link>
 
+            {/* Products Link */}
+            <Link href="/shop/products" className={cn(
+              "px-4 py-2 font-medium rounded-lg transition-all duration-200",
+              isActive("/shop/products") 
+                ? "text-orange-600 bg-orange-50" 
+                : "text-gray-700 hover:text-orange-600 hover:bg-orange-50/50"
+            )}>
+              Products
+            </Link>
+
+            {/* Comparison Link */}
+            <Link href="/comparison" className={cn(
+              "px-4 py-2 font-medium rounded-lg transition-all duration-200",
+              isActive("/comparison") 
+                ? "text-orange-600 bg-orange-50" 
+                : "text-gray-700 hover:text-orange-600 hover:bg-orange-50/50"
+            )}>
+              Comparison
+            </Link>
+
             {/* Services Dropdown */}
             <div 
               className="relative" 
@@ -261,26 +281,6 @@ const SolarCompanyHeader: React.FC = () => {
               </button>
               {activeDropdown === 'services' && <DropdownMenu items={servicesItems} dropdownKey="services" />}
             </div>
-
-            {/* Products Link */}
-            <Link href="/shop/products" className={cn(
-              "px-4 py-2 font-medium rounded-lg transition-all duration-200",
-              isActive("/shop/products") 
-                ? "text-orange-600 bg-orange-50" 
-                : "text-gray-700 hover:text-orange-600 hover:bg-orange-50/50"
-            )}>
-              Products
-            </Link>
-
-            {/* Comparison Link */}
-            <Link href="/comparison" className={cn(
-              "px-4 py-2 font-medium rounded-lg transition-all duration-200",
-              isActive("/comparison") 
-                ? "text-orange-600 bg-orange-50" 
-                : "text-gray-700 hover:text-orange-600 hover:bg-orange-50/50"
-            )}>
-              Comparison
-            </Link>
 
             {/* Company Dropdown */}
             <div 
@@ -357,22 +357,6 @@ const SolarCompanyHeader: React.FC = () => {
                 Home
               </Link>
 
-              {/* Mobile Services */}
-              <div className="px-4 py-2">
-                <div className="font-semibold text-gray-900 mb-2">Services</div>
-                {servicesItems.map((item) => (
-                  <Link 
-                    key={item.href} 
-                    href={item.href}
-                    className="flex items-center py-2 text-gray-600 hover:text-orange-600 transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    <span className="mr-2">{item.icon}</span>
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-
               {/* Mobile Products Link */}
               <Link 
                 href="/shop/products"
@@ -390,6 +374,22 @@ const SolarCompanyHeader: React.FC = () => {
               >
                 Comparison
               </Link>
+
+              {/* Mobile Services */}
+              <div className="px-4 py-2">
+                <div className="font-semibold text-gray-900 mb-2">Services</div>
+                {servicesItems.map((item) => (
+                  <Link 
+                    key={item.href} 
+                    href={item.href}
+                    className="flex items-center py-2 text-gray-600 hover:text-orange-600 transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <span className="mr-2">{item.icon}</span>
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
 
               {/* Mobile Company */}
               <div className="px-4 py-2">
