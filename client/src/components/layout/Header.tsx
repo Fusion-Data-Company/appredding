@@ -70,15 +70,6 @@ const SolarCompanyHeader: React.FC = () => {
     { label: "Lithium Battery", href: "/services/lithium-battery", icon: <Battery className="w-4 h-4" />, description: "Advanced lithium battery systems" },
   ];
 
-  // Products dropdown items
-  const productsItems = [
-    { label: "Browse Products", href: "/shop/products", icon: <FolderOpen className="w-4 h-4" />, description: "View all products" },
-    { label: "Solar Panels", href: "/shop/products#solar-panels", icon: <Sun className="w-4 h-4" />, description: "High-efficiency solar panels" },
-    { label: "Inverters", href: "/shop/products#inverters", icon: <Zap className="w-4 h-4" />, description: "Power conversion systems" },
-    { label: "Batteries", href: "/shop/products#batteries", icon: <Battery className="w-4 h-4" />, description: "Energy storage solutions" },
-    { label: "Compare Products", href: "/shop/product-comparison", icon: <Settings className="w-4 h-4" />, description: "Compare product features" },
-  ];
-
   // Company dropdown items
   const companyItems = [
     { label: "About", href: "/about", icon: <Info className="w-4 h-4" />, description: "Learn about our company" },
@@ -259,25 +250,25 @@ const SolarCompanyHeader: React.FC = () => {
               {activeDropdown === 'services' && <DropdownMenu items={servicesItems} dropdownKey="services" />}
             </div>
 
-            {/* Products Dropdown */}
-            <div className="relative" ref={el => dropdownRefs.current['products'] = el}>
-              <button 
-                onClick={() => setActiveDropdown(activeDropdown === 'products' ? null : 'products')}
-                className={cn(
-                  "flex items-center px-4 py-2 font-medium rounded-lg transition-all duration-200",
-                  activeDropdown === 'products' 
-                    ? "text-orange-600 bg-orange-50" 
-                    : "text-gray-700 hover:text-orange-600 hover:bg-orange-50/50"
-                )}
-              >
-                Products
-                <ChevronDown className={cn(
-                  "ml-1 w-4 h-4 transition-transform",
-                  activeDropdown === 'products' ? "rotate-180" : ""
-                )} />
-              </button>
-              {activeDropdown === 'products' && <DropdownMenu items={productsItems} dropdownKey="products" />}
-            </div>
+            {/* Products Link */}
+            <Link href="/shop/products" className={cn(
+              "px-4 py-2 font-medium rounded-lg transition-all duration-200",
+              isActive("/shop/products") 
+                ? "text-orange-600 bg-orange-50" 
+                : "text-gray-700 hover:text-orange-600 hover:bg-orange-50/50"
+            )}>
+              Products
+            </Link>
+
+            {/* Comparison Link */}
+            <Link href="/comparison" className={cn(
+              "px-4 py-2 font-medium rounded-lg transition-all duration-200",
+              isActive("/comparison") 
+                ? "text-orange-600 bg-orange-50" 
+                : "text-gray-700 hover:text-orange-600 hover:bg-orange-50/50"
+            )}>
+              Comparison
+            </Link>
 
             {/* Company Dropdown */}
             <div className="relative" ref={el => dropdownRefs.current['company'] = el}>
@@ -364,21 +355,23 @@ const SolarCompanyHeader: React.FC = () => {
                 ))}
               </div>
 
-              {/* Mobile Products */}
-              <div className="px-4 py-2">
-                <div className="font-semibold text-gray-900 mb-2">Products</div>
-                {productsItems.map((item) => (
-                  <Link 
-                    key={item.href} 
-                    href={item.href}
-                    className="flex items-center py-2 text-gray-600 hover:text-orange-600 transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    <span className="mr-2">{item.icon}</span>
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
+              {/* Mobile Products Link */}
+              <Link 
+                href="/shop/products"
+                className="px-4 py-3 font-medium text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Products
+              </Link>
+
+              {/* Mobile Comparison Link */}
+              <Link 
+                href="/comparison"
+                className="px-4 py-3 font-medium text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Comparison
+              </Link>
 
               {/* Mobile Company */}
               <div className="px-4 py-2">
