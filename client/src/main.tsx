@@ -20,10 +20,9 @@ if (typeof window !== 'undefined') {
 createRoot(document.getElementById("root")!).render(
   <ThemeProvider 
     attribute="class" 
-    defaultTheme="dark" 
+    defaultTheme="light" 
     enableSystem={false}
-    disableTransitionOnChange 
-    forcedTheme="dark" // Force dark theme, no switching allowed
+    disableTransitionOnChange
   >
     <App />
   </ThemeProvider>

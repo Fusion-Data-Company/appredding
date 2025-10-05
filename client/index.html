@@ -85,30 +85,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com https://*.elevenlabs.io https://*.elevenlabs.ai https://replit.com; connect-src 'self' https://unpkg.com https://*.elevenlabs.io https://*.elevenlabs.ai wss://*">
     
-    <!-- Theme script to avoid theme flashing on load -->
+    <!-- Theme script disabled - using component-level dark backgrounds instead of global dark class -->
     <script>
-      // Check for saved theme preference or use dark mode by default
-      (function() {
-        function getThemePreference() {
-          if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-            return localStorage.getItem('theme');
-          }
-          return 'dark'; // Always use dark by default
-        }
-        
-        const theme = getThemePreference();
-        
-        if (theme === 'dark') {
-          document.documentElement.classList.add('dark');
-        } else {
-          document.documentElement.classList.remove('dark');
-        }
-
-        // Also save dark theme to localStorage if no preference is set
-        if (typeof localStorage !== 'undefined' && !localStorage.getItem('theme')) {
-          localStorage.setItem('theme', 'dark');
-        }
-      })();
+      // Global dark class removed to allow bright gradient text in hero sections
+      // Components use bg-black for dark backgrounds where needed
     </script>
   </head>
   <body>
@@ -121,7 +101,7 @@
     <!-- Critical CSS inlined -->
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { font-family: system-ui, -apple-system, sans-serif; background: #0f172a; color: white; }
+      body { font-family: system-ui, -apple-system, sans-serif; background: white; color: #1f2937; }
       .loading { opacity: 0; }
       .hero { min-height: 50vh; display: flex; align-items: center; justify-content: center; }
       .container { max-width: 1200px; margin: 0 auto; padding: 1rem; }

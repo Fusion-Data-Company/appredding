@@ -158,7 +158,7 @@ const HybridSolar = () => {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* PSPS/Grid Failure Alert */}
-        <div className="bg-orange-900/20 border border-orange-500/50 backdrop-blur-sm rounded-xl p-4 mb-8">
+        <div className="alert-elite">
           <div className="flex items-center gap-3">
             <WifiOff className="h-6 w-6 text-orange-400 animate-pulse" />
             <div className="flex-1">
@@ -185,22 +185,22 @@ const HybridSolar = () => {
 
             {/* Live System Status Bar */}
             <div className="flex flex-wrap justify-center gap-4 mb-8 text-sm">
-              <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-700">
+              <div className="status-badge-elite">
                 <Activity className="h-4 w-4 text-green-400" />
                 <span className="text-gray-400">Grid Status:</span>
                 <span className="text-green-400 font-mono">Connected</span>
               </div>
-              <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-700">
+              <div className="status-badge-elite">
                 <Battery className="h-4 w-4 text-yellow-400" />
                 <span className="text-gray-400">Battery SOC:</span>
                 <span className="text-yellow-400 font-mono">85%</span>
               </div>
-              <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-700">
+              <div className="status-badge-elite">
                 <Sun className="h-4 w-4 text-orange-400" />
                 <span className="text-gray-400">Solar Production:</span>
                 <span className="text-orange-400 font-mono">8.5kW</span>
               </div>
-              <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-700">
+              <div className="status-badge-elite">
                 <Timer className="h-4 w-4 text-blue-400" />
                 <span className="text-gray-400">Transfer Time:</span>
                 <span className="text-blue-400 font-mono">&lt;10ms</span>
@@ -228,124 +228,124 @@ const HybridSolar = () => {
 
           {/* Enhanced Technical Specifications Grid */}
           <div className="grid lg:grid-cols-4 gap-4 mb-12">
-            <div className="bg-gradient-to-br from-green-500/10 to-green-600/5 backdrop-blur-sm rounded-2xl p-6 border border-green-500/30 hover:border-green-400 transition-all group">
+            <div className="spec-card-elite group border-green-500/30 hover:border-green-400">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-green-500/20 rounded-lg group-hover:bg-green-500/30 transition-colors">
+                <div className="icon-container-elite bg-green-500/20 group-hover:bg-green-500/30">
                   <Cpu className="h-6 w-6 text-green-400" />
                 </div>
                 <h3 className="text-lg font-bold text-white">Sol-Ark Hybrid</h3>
               </div>
               <div className="space-y-3">
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Model:</span>
                   <span className="text-green-300 font-mono">12K/15K</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Grid-Tie:</span>
                   <span className="text-green-300 font-mono">12/15kW</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Off-Grid:</span>
                   <span className="text-green-300 font-mono">9/12kW</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Surge:</span>
                   <span className="text-green-300 font-mono">20/23kW</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Transfer:</span>
                   <span className="text-green-300 font-mono">&lt;4ms UPS</span>
                 </div>
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-blue-500/10 to-blue-600/5 backdrop-blur-sm rounded-2xl p-6 border border-blue-500/30 hover:border-blue-400 transition-all group">
+            <div className="spec-card-elite group border-blue-500/30 hover:border-blue-400">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-blue-500/20 rounded-lg group-hover:bg-blue-500/30 transition-colors">
+                <div className="icon-container-elite bg-blue-500/20 group-hover:bg-blue-500/30">
                   <ToggleRight className="h-6 w-6 text-blue-400" />
                 </div>
                 <h3 className="text-lg font-bold text-white">Auto Transfer</h3>
               </div>
               <div className="space-y-3">
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Detection:</span>
                   <span className="text-blue-300 font-mono">&lt;100ms</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Switch:</span>
                   <span className="text-blue-300 font-mono">&lt;10ms</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Mode:</span>
                   <span className="text-blue-300 font-mono">Seamless</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Priority:</span>
                   <span className="text-blue-300 font-mono">Critical</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Gen Start:</span>
                   <span className="text-blue-300 font-mono">Auto AGS</span>
                 </div>
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-orange-500/10 to-orange-600/5 backdrop-blur-sm rounded-2xl p-6 border border-orange-500/30 hover:border-orange-400 transition-all group">
+            <div className="spec-card-elite group border-orange-500/30 hover:border-orange-400">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-orange-500/20 rounded-lg group-hover:bg-orange-500/30 transition-colors">
+                <div className="icon-container-elite bg-orange-500/20 group-hover:bg-orange-500/30">
                   <HardDrive className="h-6 w-6 text-orange-400" />
                 </div>
                 <h3 className="text-lg font-bold text-white">Battery Backup</h3>
               </div>
               <div className="space-y-3">
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Capacity:</span>
                   <span className="text-orange-300 font-mono">15-30kWh</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Chemistry:</span>
                   <span className="text-orange-300 font-mono">LiFePO4</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Runtime:</span>
                   <span className="text-orange-300 font-mono">8-24hrs</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Cycles:</span>
                   <span className="text-orange-300 font-mono">6000+</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Warranty:</span>
                   <span className="text-orange-300 font-mono">10 years</span>
                 </div>
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-purple-500/10 to-purple-600/5 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/30 hover:border-purple-400 transition-all group">
+            <div className="spec-card-elite group border-purple-500/30 hover:border-purple-400">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-purple-500/20 rounded-lg group-hover:bg-purple-500/30 transition-colors">
+                <div className="icon-container-elite bg-purple-500/20 group-hover:bg-purple-500/30">
                   <Monitor className="h-6 w-6 text-purple-400" />
                 </div>
                 <h3 className="text-lg font-bold text-white">Smart Control</h3>
               </div>
               <div className="space-y-3">
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Monitor:</span>
                   <span className="text-purple-300 font-mono">24/7 App</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Loads:</span>
                   <span className="text-purple-300 font-mono">Priority</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">TOU:</span>
                   <span className="text-purple-300 font-mono">Optimized</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Remote:</span>
                   <span className="text-purple-300 font-mono">Full Control</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Updates:</span>
                   <span className="text-purple-300 font-mono">OTA</span>
                 </div>
@@ -354,13 +354,13 @@ const HybridSolar = () => {
           </div>
 
           {/* Critical Application Matrix */}
-          <div className="bg-gradient-to-r from-green-900/20 to-blue-900/20 border border-green-500/30 rounded-2xl p-6">
+          <div className="matrix-elite">
             <h3 className="text-xl font-bold text-white mb-4 flex items-center">
               <MapPin className="mr-3 h-6 w-6 text-green-400" />
               Perfect for California's Challenging Grid Conditions
             </h3>
             <div className="grid md:grid-cols-4 gap-4 text-sm">
-              <div className="bg-black/30 rounded-lg p-4">
+              <div className="category-card-elite">
                 <div className="flex items-center gap-2 mb-2">
                   <CloudOff className="h-5 w-5 text-red-400" />
                   <h4 className="text-red-300 font-semibold">PSPS Zones</h4>
@@ -371,7 +371,7 @@ const HybridSolar = () => {
                   <li>• Automatic backup</li>
                 </ul>
               </div>
-              <div className="bg-black/30 rounded-lg p-4">
+              <div className="category-card-elite">
                 <div className="flex items-center gap-2 mb-2">
                   <Home className="h-5 w-5 text-blue-400" />
                   <h4 className="text-blue-300 font-semibold">Rural Properties</h4>
@@ -382,7 +382,7 @@ const HybridSolar = () => {
                   <li>• Well pump backup</li>
                 </ul>
               </div>
-              <div className="bg-black/30 rounded-lg p-4">
+              <div className="category-card-elite">
                 <div className="flex items-center gap-2 mb-2">
                   <Shield className="h-5 w-5 text-green-400" />
                   <h4 className="text-green-300 font-semibold">Medical Needs</h4>
@@ -393,7 +393,7 @@ const HybridSolar = () => {
                   <li>• Life support</li>
                 </ul>
               </div>
-              <div className="bg-black/30 rounded-lg p-4">
+              <div className="category-card-elite">
                 <div className="flex items-center gap-2 mb-2">
                   <Layers className="h-5 w-5 text-purple-400" />
                   <h4 className="text-purple-300 font-semibold">Home Office</h4>

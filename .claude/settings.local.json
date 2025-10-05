@@ -22,7 +22,8 @@
       "Read(//home/runner/**)",
       "Bash(curl:*)",
       "Bash(cat:*)",
-      "Bash(lsof:*)"
+      "Bash(lsof:*)",
+      "Bash(pkill:*)"
     ],
     "deny": [],
     "ask": []

@@ -1,319 +1,291 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { Zap, Sun, Battery, ArrowRight, Menu, X } from 'lucide-react';
+import React, { useEffect, useRef, useState } from "react";
+import { motion, useMotionTemplate, useMotionValue, animate } from "framer-motion";
+import { Zap, Sun, Battery } from "lucide-react";
 
-// Animated Wave Background Component
-const SolarWaveBackground: React.FC = () => {
+// ============================================================================
+// SOLAR WAVE BACKGROUND COMPONENT
+// ============================================================================
+
+interface SolarWaveBackgroundProps {
+  className?: string;
+}
+
+const SolarWaveBackground: React.FC<SolarWaveBackgroundProps> = ({ className = "" }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     let animationFrameId: number;
     let time = 0;
 
-    const resize = () => {
+    const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
 
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-      resize();
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    const waveData = Array.from({ length: 12 }).map(() => ({
+      amplitude: Math.random() * 0.3 + 0.2,
+      frequency: Math.random() * 3 + 2,
+      speed: Math.random() * 0.02 + 0.01,
+      offset: Math.random() * Math.PI * 2,
+    }));
+
+    const draw = () => {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.95)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      waveData.forEach((wave, index) => {
+        ctx.beginPath();
+
+        for (let x = 0; x < canvas.width; x++) {
+          const normalizedX = x / canvas.width;
+          const y =
+            canvas.height / 2 +
+            Math.sin(normalizedX * wave.frequency * Math.PI * 2 + time * wave.speed + wave.offset) *
+              wave.amplitude *
+              canvas.height *
+              0.3;
+
+          if (x === 0) {
+            ctx.moveTo(x, y);
+          } else {
+            ctx.lineTo(x, y);
+          }
+        }
+
+        const hue = 30 + index * 5;
+        const saturation = 100;
+        const lightness = 50 + index * 2;
+        const alpha = 0.15 + (index / waveData.length) * 0.3;
+
+        ctx.strokeStyle = `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha})`;
+        ctx.lineWidth = 2 + index * 0.3;
+        ctx.shadowColor = `hsla(${hue}, ${saturation}%, ${lightness}%, 0.5)`;
+        ctx.shadowBlur = 15;
+        ctx.stroke();
+        ctx.shadowBlur = 0;
+      });
+
+      time += 0.5;
+      animationFrameId = requestAnimationFrame(draw);
     };
 
-    resize();
-    window.addEventListener('resize', handleResize, { passive: true });
+    draw();
 
-    const drawWave = (
-      offset: number,
-      amplitude: number,
-      frequency: number,
-      color: string,
-      opacity: number
-    ) => {
-      ctx.beginPath();
-      ctx.moveTo(0, canvas.height);
-
-      for (let x = 0; x < canvas.width; x++) {
-        const y =
-          canvas.height / 2 +
-          Math.sin((x * frequency + offset) * 0.01) * amplitude +
-          Math.sin((x * frequency * 0.5 + offset * 1.5) * 0.01) * (amplitude * 0.5);
-        ctx.lineTo(x, y);
-      }
-
-      ctx.lineTo(canvas.width, canvas.height);
-      ctx.closePath();
-
-      const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-      gradient.addColorStop(0, `${color}00`);
-      gradient.addColorStop(0.5, `${color}${Math.floor(opacity * 255).toString(16).padStart(2, '0')}`);
-      gradient.addColorStop(1, `${color}${Math.floor(opacity * 0.3 * 255).toString(16).padStart(2, '0')}`);
-
-      ctx.fillStyle = gradient;
-      ctx.fill();
+    return () => {
+      window.removeEventListener("resize", resizeCanvas);
+      cancelAnimationFrame(animationFrameId);
     };
+  }, []);
+
+  return <canvas ref={canvasRef} className={`fixed inset-0 ${className}`} />;
+};
+
+// ============================================================================
+// SPARKLES COMPONENT
+// ============================================================================
+
+interface SparklesProps {
+  className?: string;
+  particleColor?: string;
+  particleDensity?: number;
+}
+
+const Sparkles: React.FC<SparklesProps> = ({
+  className = "",
+  particleColor = "#FFA500",
+  particleDensity = 50,
+}) => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let animationFrameId: number;
+
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    const particles: Array<{
+      x: number;
+      y: number;
+      size: number;
+      speedX: number;
+      speedY: number;
+      opacity: number;
+      fadeSpeed: number;
+    }> = [];
+
+    for (let i = 0; i < particleDensity; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 2 + 0.5,
+        speedX: (Math.random() - 0.5) * 0.5,
+        speedY: (Math.random() - 0.5) * 0.5,
+        opacity: Math.random(),
+        fadeSpeed: (Math.random() - 0.5) * 0.02,
+      });
+    }
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      if (isMobile) {
-        drawWave(time * 0.5, 80, 1, '#FFA500', 0.15);
-        drawWave(time * 0.9, 100, 0.8, '#FF6B35', 0.1);
-        drawWave(time * 1.3, 90, 0.9, '#00D9FF', 0.06);
-      } else {
-        drawWave(time * 0.5, 80, 1, '#FFA500', 0.15);
-        drawWave(time * 0.7, 60, 1.5, '#FFD700', 0.12);
-        drawWave(time * 0.9, 100, 0.8, '#FF6B35', 0.1);
-        drawWave(time * 1.1, 70, 1.2, '#4ECDC4', 0.08);
-        drawWave(time * 1.3, 90, 0.9, '#00D9FF', 0.06);
-      }
+      particles.forEach((particle) => {
+        particle.x += particle.speedX;
+        particle.y += particle.speedY;
+        particle.opacity += particle.fadeSpeed;
 
-      time += 0.5;
+        if (particle.opacity <= 0 || particle.opacity >= 1) {
+          particle.fadeSpeed *= -1;
+        }
+
+        if (particle.x < 0 || particle.x > canvas.width) particle.speedX *= -1;
+        if (particle.y < 0 || particle.y > canvas.height) particle.speedY *= -1;
+
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+        ctx.fillStyle = particleColor;
+        ctx.globalAlpha = Math.max(0, Math.min(1, particle.opacity));
+        ctx.fill();
+        ctx.globalAlpha = 1;
+      });
+
       animationFrameId = requestAnimationFrame(animate);
     };
 
     animate();
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", resizeCanvas);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [isMobile]);
+  }, [particleColor, particleDensity]);
 
-  return (
-    <canvas
-      ref={canvasRef}
-      className="absolute inset-0 w-full h-full"
-      style={{ background: 'linear-gradient(to bottom, #000000, #0a0a0a, #1a1a1a)' }}
-    />
-  );
+  return <canvas ref={canvasRef} className={`absolute inset-0 pointer-events-none ${className}`} />;
 };
 
-// Floating Energy Particles
-const EnergyParticles: React.FC = () => {
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {[...Array(20)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute w-1 h-1 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full"
-          style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            filter: 'blur(1px)',
-          }}
-          animate={{
-            y: [0, -30, 0],
-            opacity: [0, 1, 0],
-            scale: [0, 1.5, 0],
-          }}
-          transition={{
-            duration: 3 + Math.random() * 2,
-            repeat: Infinity,
-            delay: Math.random() * 2,
-          }}
-        />
-      ))}
-    </div>
-  );
-};
+// ============================================================================
+// MAIN HERO COMPONENT
+// ============================================================================
 
-// Navigation Component
-const Navigation: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const HybridSolarWaveHero: React.FC = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const color = useMotionValue("#FF6B00");
+
+  useEffect(() => {
+    animate(color, ["#FF6B00", "#FFD700", "#FF8C00", "#FFA500", "#FF6B00"], {
+      ease: "easeInOut",
+      duration: 8,
+      repeat: Infinity,
+      repeatType: "loop",
+    });
+  }, [color]);
+
+  const backgroundGradient = useMotionTemplate`radial-gradient(circle at 50% 50%, ${color}15, transparent 70%)`;
+  const borderGlow = useMotionTemplate`0 0 20px ${color}40`;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="relative">
-              <Sun className="w-8 h-8 text-orange-500" />
-              <Zap className="w-4 h-4 text-yellow-400 absolute -bottom-1 -right-1" />
-            </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-500 bg-clip-text text-transparent">
-              SolarWave
-            </span>
-          </div>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full px-2 py-2">
-            <a href="#" className="px-4 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-full transition-all">
-              Solutions
-            </a>
-            <a href="#" className="px-4 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-full transition-all">
-              Technology
-            </a>
-            <a href="#" className="px-4 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-full transition-all">
-              About
-            </a>
-            <a href="#" className="px-4 py-2 text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 rounded-full transition-all">
-              Contact
-            </a>
-          </div>
-
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-white"
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
-        </div>
-
-        {/* Mobile Menu */}
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="md:hidden bg-black/90 backdrop-blur-xl border border-white/10 rounded-2xl p-6 mt-2"
-          >
-            <div className="flex flex-col space-y-4">
-              <a href="#" className="text-white/90 hover:text-white font-medium">Solutions</a>
-              <a href="#" className="text-white/90 hover:text-white font-medium">Technology</a>
-              <a href="#" className="text-white/90 hover:text-white font-medium">About</a>
-              <a href="#" className="text-white/90 hover:text-white font-medium">Contact</a>
-            </div>
-          </motion.div>
-        )}
-      </div>
-    </nav>
-  );
-};
-
-// Main Hybrid Solar Hero Component
-interface HybridSolarWaveHeroProps {
-  tagline?: string;
-  title?: string;
-  subtitle?: string;
-  stats?: Array<{
-    value: string;
-    label: string;
-  }>;
-}
-
-const HybridSolarWaveHero: React.FC<HybridSolarWaveHeroProps> = ({
-  tagline = "Next-Gen Energy Solutions",
-  title = "Hybrid Solar",
-  subtitle = "Revolutionary hybrid solar systems with seamless grid-tie to off-grid transition. Sol-Ark inverters provide <10ms transfer time for uninterrupted power during PSPS events and grid outages.",
-  stats = [
-    { value: "<10ms", label: "Transfer Time" },
-    { value: "UL 1741-SA", label: "Certified" },
-    { value: "25+", label: "Years Experience" },
-  ]
-}) => {
-  const { scrollYProgress } = useScroll();
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
-
-  return (
-    <div className="hero-section relative min-h-screen w-full overflow-hidden bg-black" style={{ position: 'relative' }}>
-      {/* Animated Background */}
+    <div className="relative min-h-screen w-full overflow-hidden bg-black">
+      {/* Background Layers */}
       <SolarWaveBackground />
-      <EnergyParticles />
+      <Sparkles particleColor="#FFA500" particleDensity={60} />
 
-      {/* Gradient Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/80 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-r from-orange-500/5 via-transparent to-blue-500/5 pointer-events-none" />
+      <motion.div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: backgroundGradient,
+        }}
+      />
 
-      {/* Navigation */}
-      <Navigation />
 
       {/* Hero Content */}
-      <motion.div
-        style={{ opacity, scale }}
-        className="relative z-10 flex min-h-screen items-center justify-center px-6"
-      >
-        <div className="max-w-6xl mx-auto text-center">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="badge-elite-metallic badge-solar"
-          >
-            <Battery className="w-4 h-4 text-orange-400" />
-            <span>{tagline}</span>
-          </motion.div>
-
-          {/* Main Heading */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
-          >
-            <span
-              className="gradient-bright-emerald font-extrabold"
-              style={{
-                background: 'linear-gradient(to right, #34d399, #10b981, #84cc16)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                filter: 'drop-shadow(0 0 20px rgba(52, 211, 153, 0.9)) drop-shadow(0 0 40px rgba(16, 185, 129, 0.7)) drop-shadow(0 0 60px rgba(132, 204, 22, 0.5))'
-              }}
+      <div className="relative z-10 flex min-h-[calc(100vh-5rem)] items-center">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full">
+          <div className="mx-auto max-w-5xl">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-center mb-8"
             >
-              Hybrid Solar
-            </span>
-            <br />
-            <span
-              className="gradient-bright-fire font-extrabold tracking-wide"
-              style={{
-                background: 'linear-gradient(to right, #fbbf24, #fb923c, #f97316)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                filter: 'drop-shadow(0 0 20px rgba(251, 191, 36, 0.9)) drop-shadow(0 0 40px rgba(251, 146, 60, 0.7)) drop-shadow(0 0 60px rgba(249, 115, 22, 0.5))'
-              }}
-            >
-              Advance Power Redding
-            </span>
-          </motion.h1>
-
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed"
-          >
-            {subtitle}
-          </motion.p>
-
-
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto"
-          >
-            {stats.map((stat, index) => (
-              <div key={index} className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
-                <div className="text-4xl font-bold bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-gray-400 text-sm">{stat.label}</div>
+              <div className="badge-elite-metallic badge-solar">
+                <Battery className="w-4 h-4 text-orange-400" />
+                <span>Next-Gen Energy Solutions</span>
               </div>
-            ))}
-          </motion.div>
-        </div>
-      </motion.div>
+            </motion.div>
 
-      {/* Ambient Glow Effects */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-5xl md:text-7xl lg:text-8xl font-bold text-center mb-6 leading-tight"
+            >
+              <span className="bg-gradient-to-r from-white via-yellow-300 to-white bg-clip-text text-transparent">
+                Hybrid Solar
+              </span>
+              <br />
+              <span className="text-white">Advance Power Redding</span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-xl md:text-2xl text-white/80 text-center mb-12 max-w-3xl mx-auto leading-relaxed"
+            >
+              Revolutionary hybrid solar systems with seamless grid-tie to off-grid transition. Sol-Ark inverters provide &lt;10ms transfer time for uninterrupted power during PSPS events and grid outages.
+            </motion.p>
+
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto"
+            >
+              {[
+                { icon: Sun, title: "<10ms", value: "Transfer Time" },
+                { icon: Zap, title: "UL 1741-SA", value: "Certified" },
+                { icon: Battery, title: "25+", value: "Years Experience" },
+              ].map((stat, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  className="rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 p-6 text-center transition-all hover:bg-white/10 hover:border-orange-500/30"
+                >
+                  <stat.icon className="h-8 w-8 text-orange-400 mx-auto mb-3" />
+                  <div className="text-2xl font-bold text-white mb-1">{stat.title}</div>
+                  <div className="text-sm text-white/60">{stat.value}</div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Gradient Overlay */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent pointer-events-none z-10" />
     </div>
   );
 };
