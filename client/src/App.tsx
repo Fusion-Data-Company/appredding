@@ -28,7 +28,6 @@ import Maintenance from "@/pages/Maintenance";
 import Repairs from "@/pages/Repairs";
 import BookAppointment from "@/pages/BookAppointment";
 import Portfolio from "@/pages/Portfolio"; 
-import ProductComparison from "@/pages/ProductComparison";
 const Products = lazy(() => import('./pages/Products'));
 const ROICalculator = lazy(() => import('./pages/ROICalculator'));
 import Technology from "@/pages/Technology";
@@ -109,9 +108,6 @@ function Router() {
       <Route path="/checkout">
         {() => <Redirect to="/shop/checkout" replace />}
       </Route>
-      <Route path="/product-comparison">
-        {() => <Redirect to="/shop/product-comparison" replace />}
-      </Route>
       <Route path="/technology">
         {() => <Redirect to="/resources/technology" replace />}
       </Route>
@@ -165,7 +161,6 @@ function Router() {
       <Route path="/shop/cart" component={Cart} />
       <Route path="/shop/checkout" component={Checkout} />
       <Route path="/shop/order/confirmation/:orderNumber" component={OrderConfirmation} />
-      <Route path="/shop/product-comparison" component={ProductComparison} />
       
       {/* Resources Pages */}
       <Route path="/resources/technology">
@@ -212,7 +207,6 @@ function Router() {
       </Route>
       <Route path="/cart" component={Cart} />
       <Route path="/checkout" component={Checkout} />
-      <Route path="/product-comparison" component={ProductComparison} />
       <Route path="/book-appointment" component={BookAppointment} />
       <Route path="/technical-data" component={TechnicalData} />
       <Route path="/technology">

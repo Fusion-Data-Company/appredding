@@ -15,9 +15,6 @@ import {
   Leaf,
   Wrench,
   Settings,
-  ShoppingBag,
-  GitCompare,
-  ShoppingCart,
   ChevronDown,
   ChevronUp
 } from "lucide-react";
@@ -37,10 +34,9 @@ const ProfessionalHeader = () => {
   
   // State for mobile menu accordion sections
   const [servicesExpanded, setServicesExpanded] = useState(false);
-  const [shopExpanded, setShopExpanded] = useState(false);
   
   // State for tracking open desktop dropdown
-  const [openDropdown, setOpenDropdown] = useState<'services' | 'shop' | null>(null);
+  const [openDropdown, setOpenDropdown] = useState<'services' | null>(null);
 
   // Handle scroll effect
   useEffect(() => {
@@ -81,7 +77,6 @@ const ProfessionalHeader = () => {
   const handleLinkClick = () => {
     setMobileMenuOpen(false);
     setServicesExpanded(false);
-    setShopExpanded(false);
   };
   
   // Handle dropdown blur with delay to allow clicking menu items
@@ -104,13 +99,6 @@ const ProfessionalHeader = () => {
     { label: "Energy Conservation", href: "/services/energy-conservation", description: "Energy efficiency services", icon: Leaf },
     { label: "Maintenance", href: "/services/maintenance", description: "Solar system maintenance", icon: Wrench },
     { label: "Repairs", href: "/services/repairs", description: "Expert repair services", icon: Settings },
-  ];
-
-  // Shop dropdown menu items
-  const shopDropdown = [
-    { label: "Browse Products", href: "/shop/products", description: "Explore our product catalog", icon: ShoppingBag },
-    { label: "Product Comparison", href: "/shop/product-comparison", description: "Compare solar products", icon: GitCompare },
-    { label: "View Cart", href: "/shop/cart", description: "Review your shopping cart", icon: ShoppingCart },
   ];
 
   return (
@@ -278,77 +266,22 @@ const ProfessionalHeader = () => {
               </div>
             </div>
 
-            {/* Shop Dropdown */}
-            <div 
-              className="dropdown-parent" 
-              data-testid="dropdown-shop"
-              data-open={openDropdown === 'shop'}
-              onMouseEnter={() => setOpenDropdown('shop')}
-              onMouseLeave={() => setOpenDropdown(null)}
-              onBlur={handleDropdownBlur}
-            >
-              <button 
-                className="dropdown-trigger"
-                aria-haspopup="true"
-                aria-expanded={openDropdown === 'shop'}
-                tabIndex={0}
-                data-testid="dropdown-trigger-shop"
-                onFocus={() => setOpenDropdown('shop')}
-                style={{ 
-                  color: '#ffffff !important', 
-                  fontSize: '16px', 
-                  fontWeight: '500', 
-                  textShadow: '0 2px 4px rgba(0,0,0,0.8)',
-                  display: 'block'
-                }}
-              >Shop</button>
-              
-              <div className="dropdown-menu" style={{
-                position: 'absolute',
-                top: '100%',
-                left: '50%',
-                transform: 'translateX(-50%)',
-                marginTop: '12px',
-                backgroundColor: '#1f2937',
-                borderRadius: '8px',
-                border: '1px solid rgba(249, 115, 22, 0.3)',
-                boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.3)',
-                minWidth: '280px',
-                padding: '8px 0',
-                zIndex: 100
-              }}>
-                {shopDropdown.map((item) => {
-                  const Icon = item.icon;
-                  const testId = `nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`;
-                  return (
-                    <a
-                      key={item.href}
-                      href={item.href}
-                      data-testid={testId}
-                      className="dropdown-item"
-                      style={{
-                        display: 'flex',
-                        alignItems: 'flex-start',
-                        gap: '12px',
-                        padding: '12px 16px',
-                        textDecoration: 'none',
-                        borderLeft: '3px solid transparent'
-                      }}
-                    >
-                      <Icon size={20} style={{ color: '#f97316', marginTop: '2px', flexShrink: 0 }} />
-                      <div>
-                        <div style={{ color: '#ffffff', fontSize: '14px', fontWeight: '600', marginBottom: '2px' }}>
-                          {item.label}
-                        </div>
-                        <div style={{ color: '#9ca3af', fontSize: '12px' }}>
-                          {item.description}
-                        </div>
-                      </div>
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
+            {/* Products Link */}
+            <a 
+              href="/shop/products" 
+              data-testid="nav-products" 
+              style={{ 
+                color: location === '/shop/products' ? '#f97316' : '#ffffff', 
+                fontSize: '16px', 
+                fontWeight: '500', 
+                textDecoration: 'none',
+                textShadow: '0 2px 4px rgba(0,0,0,0.8)',
+                display: 'block',
+                transition: 'color 200ms ease-in-out'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#f97316'}
+              onMouseLeave={(e) => e.currentTarget.style.color = location === '/shop/products' ? '#f97316' : '#ffffff'}
+            >Products</a>
             
             <a href="/resources/technical-data" data-testid="nav-technical-data" style={{ 
               color: '#ffffff !important', 
@@ -510,63 +443,25 @@ const ProfessionalHeader = () => {
                 </div>
               </div>
 
-              {/* Shop Accordion */}
-              <div style={{ borderBottom: '1px solid rgba(249, 115, 22, 0.1)' }}>
-                <button
-                  onClick={() => setShopExpanded(!shopExpanded)}
-                  data-testid="mobile-accordion-shop"
-                  style={{
-                    width: '100%',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    padding: '12px 0',
-                    minHeight: '44px',
-                    background: 'none',
-                    border: 'none',
-                    color: '#f97316',
-                    fontSize: '16px',
-                    fontWeight: '700',
-                    cursor: 'pointer',
-                    textAlign: 'left'
-                  }}
-                >
-                  Shop
-                  {shopExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-                </button>
-                <div style={{
-                  maxHeight: shopExpanded ? '300px' : '0',
-                  overflow: 'hidden',
-                  transition: 'max-height 300ms ease-in-out'
-                }}>
-                  {shopDropdown.map((item) => {
-                    const testId = `nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`;
-                    return (
-                      <a
-                        key={item.href}
-                        href={item.href}
-                        onClick={handleLinkClick}
-                        data-testid={testId}
-                        style={{
-                          display: 'block',
-                          padding: '10px 0 10px 24px',
-                          minHeight: '44px',
-                          color: '#ffffff',
-                          fontSize: '14px',
-                          fontWeight: '400',
-                          textDecoration: 'none',
-                          backgroundColor: 'transparent',
-                          transition: 'background-color 200ms ease-in-out'
-                        }}
-                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(249, 115, 22, 0.1)'}
-                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
-                      >
-                        {item.label}
-                      </a>
-                    );
-                  })}
-                </div>
-              </div>
+              {/* Products Link */}
+              <a 
+                href="/shop/products" 
+                onClick={handleLinkClick}
+                data-testid="nav-products"
+                style={{ 
+                  color: '#ffffff', 
+                  fontSize: '16px', 
+                  fontWeight: '500', 
+                  textDecoration: 'none',
+                  padding: '12px 0',
+                  minHeight: '44px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  borderBottom: '1px solid rgba(249, 115, 22, 0.1)'
+                }}
+              >
+                Products
+              </a>
 
               {/* Technical Data Link */}
               <a 
