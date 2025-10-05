@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useMotionTemplate, useMotionValue, animate } from "framer-motion";
-import { Zap, Sun, Battery, Package, Shield, Award } from "lucide-react";
+import { Zap, Sun, Battery, Package, Shield, Award, Sparkles } from "lucide-react";
 
 // ============================================================================
 // SOLAR WAVE BACKGROUND COMPONENT
@@ -300,7 +300,7 @@ const ProductsWaveHero: React.FC<ProductsWaveHeroProps> = ({
                 animate={{ rotate: [0, 360] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
               >
-                <Package className="w-4 h-4 text-amber-400" />
+                <Sparkles className="w-4 h-4 text-amber-400 fill-amber-400" />
               </motion.div>
               <span>{tagline}</span>
             </motion.div>

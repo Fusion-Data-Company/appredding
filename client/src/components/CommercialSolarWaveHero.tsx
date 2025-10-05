@@ -265,7 +265,7 @@ const CommercialSolarWaveHero: React.FC<CommercialSolarWaveHeroProps> = ({
               animate={{ rotate: [0, 360] }}
               transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
             >
-              <Battery className="w-4 h-4 text-orange-400" />
+              <Zap className="w-4 h-4 text-orange-400" />
             </motion.div>
             <span>{tagline}</span>
           </motion.div>

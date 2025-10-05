@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useMotionTemplate, useMotionValue, animate } from "framer-motion";
-import { Zap, Sun, Battery } from "lucide-react";
+import { Zap, Sun, Battery, Sparkles } from "lucide-react";
 import { AwardBadge } from '@/components/ui/award-badge';
 
 // ============================================================================
@@ -306,7 +306,7 @@ const SolarWaveHero: React.FC<SolarWaveHeroProps> = ({
                 animate={{ rotate: [0, 360] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
               >
-                <Battery className="w-4 h-4 text-amber-400" />
+                <Sun className="w-4 h-4 text-amber-400" />
               </motion.div>
               <span>{tagline}</span>
             </motion.div>

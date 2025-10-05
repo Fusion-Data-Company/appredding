@@ -3,7 +3,7 @@
 import * as React from "react";
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Sun, Wrench, Battery } from "lucide-react";
+import { ArrowRight, Sun, Wrench, Battery, Settings } from "lucide-react";
 import { AwardBadge } from '@/components/ui/award-badge';
 
 // ============================================================================
@@ -195,7 +195,7 @@ const MaintenanceWaveHero: React.FC<MaintenanceWaveHeroProps> = ({
               animate={{ rotate: [0, 360] }}
               transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
             >
-              <Battery className="w-4 h-4 text-blue-400" />
+              <Settings className="w-4 h-4 text-blue-400" />
             </motion.div>
             <span>{tagline}</span>
           </motion.div>

@@ -99,10 +99,23 @@ const SolarBenefitsSection: React.FC = () => {
       </div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <Badge className="mb-4 bg-blue-500/20 text-blue-300 border-blue-500/40">
-            <Sun className="w-4 h-4 mr-2" />
-            California Solar Benefits
-          </Badge>
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-block mb-4"
+          >
+            <Badge className="px-6 py-3 text-base bg-gradient-to-r from-amber-500/20 via-orange-500/20 to-yellow-500/20 text-amber-300 border-2 border-amber-500/40 shadow-lg shadow-amber-500/20">
+              <motion.div
+                animate={{ rotate: [0, 360] }}
+                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                className="mr-2"
+              >
+                <Sun className="w-5 h-5 text-amber-400" />
+              </motion.div>
+              California Solar Benefits
+            </Badge>
+          </motion.div>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Why Northern California Homeowners Choose Solar
           </h2>
