@@ -156,9 +156,9 @@ const HybridSolar = () => {
         ]}
       />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-gradient-mesh py-12">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-gradient-mesh pt-24">
         {/* PSPS/Grid Failure Alert */}
-        <div className="alert-elite">
+        <div className="alert-elite mb-8 mt-8">
           <div className="flex items-center gap-3">
             <WifiOff className="h-6 w-6 text-orange-400 animate-pulse" />
             <div className="flex-1">
@@ -169,9 +169,9 @@ const HybridSolar = () => {
         </div>
 
         <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/30 rounded-full px-4 py-2 mb-6">
-              <GitBranch className="h-4 w-4 text-green-400" />
-              <span className="text-sm font-semibold text-green-400 uppercase tracking-wider">Grid-Tie + Off-Grid • Seamless Transfer • UL 1741-SA</span>
+            <div className="badge-elite-metallic badge-solar mb-8">
+              <GitBranch className="h-4 w-4 text-orange-400" />
+              <span>Grid-Tie + Off-Grid • Seamless Transfer • UL 1741-SA</span>
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
               <span className="bg-gradient-to-r from-orange-300 via-yellow-200 to-white bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(251,191,36,0.5)]">
@@ -498,8 +498,11 @@ const HybridSolar = () => {
                 Solar panels connect to a standard grid-tie inverter (existing or new). Battery inverter/charger is added on the AC side.
                 Both inverters synchronize on the AC bus during grid-tie operation.
               </p>
-              <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-4 mb-4">
-                <h5 className="text-blue-300 font-semibold mb-2">Best For:</h5>
+              <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-4 mb-4 mt-6">
+                <div className="badge-elite-metallic badge-electric mb-4">
+                  <Award className="h-4 w-4 text-blue-400" />
+                  <span>Best For:</span>
+                </div>
                 <ul className="space-y-1 text-sm text-gray-300">
                   <li>• Retrofitting existing grid-tie solar systems</li>
                   <li>• Systems requiring maximum flexibility</li>
@@ -553,8 +556,11 @@ const HybridSolar = () => {
                 Solar panels connect directly to charge controller or hybrid inverter's DC input.
                 Batteries charge directly from DC solar power. Single inverter manages all power conversion.
               </p>
-              <div className="bg-green-900/20 border border-green-500/30 rounded-lg p-4 mb-4">
-                <h5 className="text-green-300 font-semibold mb-2">Best For:</h5>
+              <div className="bg-green-900/20 border border-green-500/30 rounded-lg p-4 mb-4 mt-6">
+                <div className="badge-elite-metallic badge-energy mb-4">
+                  <Award className="h-4 w-4 text-green-400" />
+                  <span>Best For:</span>
+                </div>
                 <ul className="space-y-1 text-sm text-gray-300">
                   <li>• New installations designed for battery backup</li>
                   <li>• Off-grid or primarily off-grid systems</li>
