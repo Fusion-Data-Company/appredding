@@ -15,7 +15,7 @@ const SEOHead = ({
   title, 
   description, 
   keywords = [],
-  image = '/meta-images/hero-image-social-preview-may-2025.jpg',
+  image = '/images/APR-Logo-White-New-300x222.png',
   url,
   type = 'website',
   structuredData,

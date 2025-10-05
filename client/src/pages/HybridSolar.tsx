@@ -477,7 +477,6 @@ const HybridSolar = () => {
 
       {/* Hybrid System Architecture Section */}
       <ContentSection
-        id="system-architecture"
         title="Hybrid Solar System Architecture"
         subtitle="AC-Coupled vs DC-Coupled Design"
         description="Understanding the technical differences between coupling methods and their impact on system performance, efficiency, and flexibility"
