@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { PremiumTabs, PremiumTabsList, PremiumTabsTrigger, PremiumTabsContent } from "@/components/ui/premium-tabs";
+import { Zap, Sun, Battery, Sparkles } from "lucide-react";
+import SolarBackground from "@/components/SolarBackground";
 
 interface ProductFeature {
   name: string;
@@ -349,16 +351,54 @@ const ProductComparison = () => {
   
   return (
     <MainLayout fullWidth={true}>
-      <section className="py-16 md:py-24">
-          <div className="container mx-auto">
-            <div className="max-w-4xl mx-auto text-center mb-16">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 glow-text">Solar Inverter Comparison</h1>
-              <p className="text-xl text-gray-200 mb-8">
+      <section className="relative min-h-screen py-20 md:py-32">
+        <div className="absolute inset-0">
+          <SolarBackground />
+        </div>
+        
+        {/* Content Container - positioned above background */}
+        <div className="relative z-10 container mx-auto">
+          {/* Header Card */}
+          <div className="max-w-5xl mx-auto mb-20">
+            <div className="bg-gradient-to-br from-white/95 via-white/90 to-amber-50/95 backdrop-blur-xl rounded-3xl p-10 md:p-14 shadow-2xl border border-amber-200/50">
+              {/* Badge */}
+              <div className="flex justify-center mb-6">
+                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+                  <Sparkles className="h-4 w-4" />
+                  Industry-Leading Comparison Tool
+                </div>
+              </div>
+              
+              {/* Main Heading */}
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-center bg-gradient-to-r from-amber-600 via-orange-600 to-amber-700 bg-clip-text text-transparent leading-tight">
+                Solar Inverter Comparison
+              </h1>
+              
+              {/* Subtext */}
+              <p className="text-xl md:text-2xl text-gray-700 text-center mb-8 leading-relaxed">
                 Compare Sol-Ark hybrid inverters with leading competitors side by side to find the perfect inverter solution for your solar energy system.
               </p>
+              
+              {/* Stats Row */}
+              <div className="grid grid-cols-3 gap-4 md:gap-6">
+                <div className="text-center p-4 bg-gradient-to-br from-amber-100/80 to-orange-100/80 rounded-xl backdrop-blur">
+                  <div className="text-3xl font-bold text-amber-700 mb-1">6+</div>
+                  <div className="text-sm text-gray-600 font-medium">Top Brands</div>
+                </div>
+                <div className="text-center p-4 bg-gradient-to-br from-orange-100/80 to-amber-100/80 rounded-xl backdrop-blur">
+                  <div className="text-3xl font-bold text-orange-700 mb-1">15+</div>
+                  <div className="text-sm text-gray-600 font-medium">Specs Compared</div>
+                </div>
+                <div className="text-center p-4 bg-gradient-to-br from-amber-100/80 to-yellow-100/80 rounded-xl backdrop-blur">
+                  <div className="text-3xl font-bold text-amber-700 mb-1">100%</div>
+                  <div className="text-sm text-gray-600 font-medium">Unbiased</div>
+                </div>
+              </div>
             </div>
-            
-            <div className="bg-primary-800 premium-border rounded-xl p-8 mb-10">
+          </div>
+          
+          {/* Rest of the content continues here */}
+          <div className="bg-primary-800 premium-border rounded-xl p-8 mb-10">
               <h2 className="text-2xl font-bold mb-6">Select Inverters to Compare</h2>
               <p className="mb-6 text-gray-300">Choose up to 3 inverters to compare their features, specifications, and pricing.</p>
               

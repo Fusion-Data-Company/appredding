@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Wrench, AlertTriangle, Shield, CheckCircle, Clock, Phone, Zap, Battery, Sun, Settings, Activity, Gauge, ThermometerSun, Cpu, Component, AlertCircle, TrendingDown, DollarSign, FileCheck, Calendar, MapPin, Timer, Search, Tool, Package, Truck, Heart, Users, Award, Star, ChevronRight, ArrowRight, Info, Database, Lock, Eye, Filter, Layers, Grid, Box, Hexagon, Circle, Square, Triangle, Bell, Mail, MessageSquare, Building2, Home, Car, Smartphone, Laptop, Server, HardDrive, Wifi, Radio, Microscope, TestTube, Scale, BookOpen, GraduationCap, Globe, Navigation, Compass, Target, Crosshair, Flame, Droplets, Wind, Cloud, CloudRain, Power, Leaf } from "lucide-react";
 import { motion } from "framer-motion";
+import RepairsWaveHero from "@/components/RepairsWaveHero";
+import MainLayout from "@/components/layout/MainLayout";
 
 const Repairs = () => {
   const [activeTab, setActiveTab] = useState("diagnostics");
@@ -130,7 +132,20 @@ const Repairs = () => {
   ];
 
   return (
-    <div className="py-16 sm:py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <MainLayout>
+      {/* Repairs Wave Hero Section */}
+      <RepairsWaveHero 
+        tagline="Emergency Solar & Electric Repair Services"
+        title="Solar System Repairs"
+        subtitle="Expert repair services for all solar and electrical systems. Our certified technicians provide fast, reliable solutions to get your system back online quickly."
+        stats={[
+          { value: "24hr", label: "Emergency Response" },
+          { value: "100%", label: "Repair Success Rate" },
+          { value: "25+", label: "Years Experience" }
+        ]}
+      />
+
+      <div className="py-16 sm:py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
       {/* Hero Section with Live System Status */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -1182,7 +1197,8 @@ const Repairs = () => {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </MainLayout>
   );
 };
 
