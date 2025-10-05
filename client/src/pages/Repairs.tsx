@@ -132,7 +132,7 @@ const Repairs = () => {
   ];
 
   return (
-    <MainLayout>
+    <MainLayout fullWidth={true}>
       {/* Repairs Wave Hero Section */}
       <RepairsWaveHero 
         tagline="Emergency Solar & Electric Repair Services"

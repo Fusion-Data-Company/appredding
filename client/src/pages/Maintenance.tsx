@@ -365,7 +365,7 @@ const Maintenance = () => {
   };
 
   return (
-    <MainLayout>
+    <MainLayout fullWidth={true}>
       <div className="bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
 
       {/* Maintenance Wave Hero Section */}

@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { PremiumTabs, PremiumTabsList, PremiumTabsTrigger, PremiumTabsContent } from "@/components/ui/premium-tabs";
-import { Zap, Sun, Battery, Sparkles, Star } from "lucide-react";
+import { Zap, Sun, Battery, Sparkles, Star, TrendingUp, Shield, Gauge, Thermometer, CheckCircle2, Package, Award, ArrowRight } from "lucide-react";
 import SolarBackground from "@/components/SolarBackground";
 
 interface ProductFeature {
@@ -426,6 +426,50 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, isSelected, onToggle
   );
 };
 
+const getSpecIcon = (specName: string) => {
+  const iconMap: Record<string, React.ReactNode> = {
+    "Continuous Power Output": <Zap className="w-4 h-4 text-amber-600" />,
+    "Peak/Surge Power": <TrendingUp className="w-4 h-4 text-amber-600" />,
+    "Max Efficiency": <Gauge className="w-4 h-4 text-green-600" />,
+    "CEC Weighted Efficiency": <Gauge className="w-4 h-4 text-green-600" />,
+    "Warranty": <Shield className="w-4 h-4 text-blue-600" />,
+    "Operating Temperature": <Thermometer className="w-4 h-4 text-orange-600" />,
+    "Battery Type Support": <Battery className="w-4 h-4 text-purple-600" />,
+    "Certifications": <Award className="w-4 h-4 text-indigo-600" />,
+    "Weight": <Package className="w-4 h-4 text-gray-600" />,
+  };
+  return iconMap[specName] || null;
+};
+
+const isImportantSpec = (specName: string): boolean => {
+  const importantSpecs = [
+    "Continuous Power Output",
+    "Max Efficiency", 
+    "CEC Weighted Efficiency",
+    "Warranty",
+    "Peak/Surge Power"
+  ];
+  return importantSpecs.includes(specName);
+};
+
+const getValueColor = (specName: string, value: string | number): string => {
+  if (specName.includes("Efficiency")) {
+    const numValue = parseFloat(value.toString());
+    if (numValue >= 98) return "text-green-700 font-bold";
+    if (numValue >= 97) return "text-green-600 font-semibold";
+    return "text-gray-700";
+  }
+  if (specName === "Warranty") {
+    const yearMatch = value.toString().match(/(\d+)\s*years?/i);
+    if (yearMatch) {
+      const years = parseInt(yearMatch[1]);
+      if (years >= 20) return "text-green-700 font-bold";
+      if (years >= 12) return "text-green-600 font-semibold";
+    }
+  }
+  return "text-gray-700";
+};
+
 const ProductComparison = () => {
   const [selectedProducts, setSelectedProducts] = useState<string[]>([]);
   const [activeCategory, setActiveCategory] = useState("all");
@@ -576,126 +620,219 @@ const ProductComparison = () => {
             </div>
             
             {/* Comparison Section */}
-            {selectedProducts.length > 0 && (
-              <div className="bg-primary-800 premium-border rounded-xl p-8">
-                <div className="flex items-center justify-between mb-8">
-                  <h2 className="text-2xl font-bold">Inverter Comparison</h2>
-                  <Button variant="outline" onClick={clearComparison}>Clear All</Button>
+            {selectedProducts.length === 0 ? (
+              <div className="bg-gradient-to-br from-white via-cream-50 to-amber-50/30 backdrop-blur-sm rounded-3xl p-16 md:p-20 border-2 border-amber-200 shadow-2xl">
+                <div className="text-center max-w-2xl mx-auto">
+                  <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-amber-100 to-orange-100 mb-6">
+                    <CheckCircle2 className="w-12 h-12 text-amber-600" />
+                  </div>
+                  <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    No Inverters Selected Yet
+                  </h3>
+                  <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                    Select up to 3 inverters from the options above to see a detailed side-by-side comparison of their specifications, features, and pricing.
+                  </p>
+                  <div className="flex items-center justify-center gap-2 text-sm text-amber-700 font-medium">
+                    <ArrowRight className="w-4 h-4" />
+                    <span>Start by checking the boxes on the inverter cards above</span>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="bg-gradient-to-br from-white via-cream-50 to-amber-50/30 backdrop-blur-sm rounded-3xl p-8 md:p-12 border-3 border-amber-300 shadow-2xl shadow-amber-500/20">
+                {/* Header with Product Count and Clear Button */}
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-10 pb-6 border-b-2 border-amber-200">
+                  <div className="flex items-center gap-4">
+                    <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">
+                      Inverter Comparison
+                    </h2>
+                    <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                      <Sparkles className="h-4 w-4" />
+                      {selectedProducts.length} Selected
+                    </div>
+                  </div>
+                  <Button 
+                    onClick={clearComparison}
+                    className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                    data-testid="button-clear-comparison"
+                  >
+                    Clear All
+                  </Button>
                 </div>
                 
-                <div className="overflow-x-auto">
-                  <table className="w-full border-collapse">
-                    <thead>
-                      <tr className="bg-primary-700">
-                        <th className="text-left p-4 border-b border-gray-700 w-1/4">Inverter Details</th>
-                        {comparisonProducts.map(product => (
-                          <th key={product.id} className="text-center p-4 border-b border-gray-700">
-                            {product.name}
-                          </th>
-                        ))}
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td className="p-4 border-b border-gray-700 font-semibold bg-primary-700">Category</td>
-                        {comparisonProducts.map(product => (
-                          <td key={product.id} className="text-center p-4 border-b border-gray-700">
-                            <span className="capitalize">{product.category.replace('-', ' ')}</span>
-                          </td>
-                        ))}
-                      </tr>
-                      <tr>
-                        <td className="p-4 border-b border-gray-700 font-semibold bg-primary-700">Price</td>
-                        {comparisonProducts.map(product => (
-                          <td key={product.id} className="text-center p-4 border-b border-gray-700">
-                            ${product.price.value.toLocaleString()}/{product.price.unit}
-                          </td>
-                        ))}
-                      </tr>
-                      <tr>
-                        <td className="p-4 border-b border-gray-700 font-semibold bg-primary-700">Rating</td>
-                        {comparisonProducts.map(product => (
-                          <td key={product.id} className="text-center p-4 border-b border-gray-700">
-                            <div className="flex items-center justify-center">
-                              <div className="flex mr-2">
-                                {[...Array(5)].map((_, index) => (
-                                  <i 
-                                    key={index} 
-                                    className={`fas fa-star ${index < Math.floor(product.rating) ? 'text-yellow-400' : 'text-gray-500'}`}
-                                  ></i>
-                                ))}
-                              </div>
-                              <span>{product.rating.toFixed(1)}</span>
-                            </div>
-                          </td>
-                        ))}
-                      </tr>
-                      
-                      {/* Features */}
-                      <tr>
-                        <td colSpan={comparisonProducts.length + 1} className="p-4 bg-primary-700 font-bold text-lg">
-                          Key Features
-                        </td>
-                      </tr>
-                      {comparisonProducts.length > 0 && comparisonProducts[0].features.map((_, featureIndex) => (
-                        <tr key={`feature-${featureIndex}`}>
-                          <td className="p-4 border-b border-gray-700 font-semibold bg-primary-700">
-                            {comparisonProducts[0].features[featureIndex].name}
-                          </td>
-                          {comparisonProducts.map(product => (
-                            <td key={product.id} className="text-center p-4 border-b border-gray-700">
-                              {featureIndex < product.features.length ? product.features[featureIndex].description : "-"}
+                {/* Responsive Table Container */}
+                <div className="overflow-x-auto -mx-4 md:mx-0">
+                  <div className="inline-block min-w-full align-middle">
+                    <div className="overflow-hidden rounded-2xl border-2 border-amber-200 shadow-xl">
+                      <table className="min-w-full divide-y-2 divide-amber-200">
+                        <thead>
+                          {/* Product Images and Names Row */}
+                          <tr className="bg-gradient-to-r from-amber-50 to-orange-50">
+                            <th className="px-6 py-6 text-left">
+                              <span className="text-sm font-bold text-gray-500 uppercase tracking-wider">
+                                Specification
+                              </span>
+                            </th>
+                            {comparisonProducts.map(product => (
+                              <th key={product.id} className="px-6 py-6 text-center border-l-2 border-amber-100">
+                                <div className="flex flex-col items-center gap-4">
+                                  <div className="relative w-32 h-32 rounded-2xl overflow-hidden shadow-xl ring-2 ring-amber-200">
+                                    <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 via-transparent to-orange-500/20 z-10"></div>
+                                    <img 
+                                      src={product.imageUrl} 
+                                      alt={product.name} 
+                                      className="w-full h-full object-cover"
+                                    />
+                                  </div>
+                                  <div>
+                                    <h4 className="text-xl font-bold text-gray-900 mb-1">
+                                      {product.name}
+                                    </h4>
+                                    <p className="text-2xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
+                                      ${product.price.value.toLocaleString()}
+                                    </p>
+                                  </div>
+                                </div>
+                              </th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody className="bg-white divide-y divide-amber-100">
+                          {/* Category Row */}
+                          <tr className="bg-amber-50/50">
+                            <td className="px-6 py-4 whitespace-nowrap">
+                              <span className="text-sm font-bold text-gray-900">Category</span>
                             </td>
-                          ))}
-                        </tr>
-                      ))}
-                      
-                      {/* Specifications */}
-                      <tr>
-                        <td colSpan={comparisonProducts.length + 1} className="p-4 bg-primary-700 font-bold text-lg">
-                          Technical Specifications
-                        </td>
-                      </tr>
-                      {allSpecifications.map(spec => (
-                        <tr key={spec}>
-                          <td className="p-4 border-b border-gray-700 font-semibold bg-primary-700">{spec}</td>
-                          {comparisonProducts.map(product => (
-                            <td key={product.id} className="text-center p-4 border-b border-gray-700">
-                              {product.specifications[spec] || "-"}
+                            {comparisonProducts.map(product => (
+                              <td key={product.id} className="px-6 py-4 text-center border-l border-amber-100">
+                                <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 capitalize">
+                                  {product.category.replace('-', ' ')}
+                                </span>
+                              </td>
+                            ))}
+                          </tr>
+                          
+                          {/* Rating Row */}
+                          <tr className="bg-white">
+                            <td className="px-6 py-4 whitespace-nowrap">
+                              <span className="text-sm font-bold text-gray-900">Rating</span>
                             </td>
-                          ))}
-                        </tr>
-                      ))}
-                      
-                      {/* Application Areas */}
-                      <tr>
-                        <td colSpan={comparisonProducts.length + 1} className="p-4 bg-primary-700 font-bold text-lg">
-                          Application Areas
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="p-4 border-b border-gray-700 font-semibold bg-primary-700">Recommended For</td>
-                        {comparisonProducts.map(product => (
-                          <td key={product.id} className="p-4 border-b border-gray-700">
-                            <ul className="list-disc list-inside text-left">
-                              {product.applicationAreas.map((area, index) => (
-                                <li key={index} className="mb-1">{area}</li>
+                            {comparisonProducts.map(product => (
+                              <td key={product.id} className="px-6 py-4 text-center border-l border-amber-100">
+                                <div className="flex items-center justify-center gap-2">
+                                  <div className="flex gap-0.5">
+                                    {[...Array(5)].map((_, index) => (
+                                      <Star
+                                        key={index}
+                                        className={`w-5 h-5 ${
+                                          index < Math.floor(product.rating)
+                                            ? 'fill-amber-400 text-amber-400'
+                                            : index < product.rating
+                                            ? 'fill-amber-200 text-amber-200'
+                                            : 'fill-gray-200 text-gray-200'
+                                        }`}
+                                      />
+                                    ))}
+                                  </div>
+                                  <span className="text-sm font-bold text-gray-900">
+                                    {product.rating.toFixed(1)}
+                                  </span>
+                                </div>
+                              </td>
+                            ))}
+                          </tr>
+                          
+                          {/* Technical Specifications Section Header */}
+                          <tr className="bg-gradient-to-r from-amber-100 to-orange-100">
+                            <td colSpan={comparisonProducts.length + 1} className="px-6 py-4">
+                              <h3 className="text-lg font-bold text-amber-900 uppercase tracking-wide">
+                                Technical Specifications
+                              </h3>
+                            </td>
+                          </tr>
+                          
+                          {/* Specification Rows with Alternating Backgrounds */}
+                          {allSpecifications.map((spec, index) => (
+                            <tr 
+                              key={spec} 
+                              className={`
+                                ${index % 2 === 0 ? 'bg-white' : 'bg-amber-50/30'}
+                                ${isImportantSpec(spec) ? 'ring-2 ring-inset ring-green-200' : ''}
+                                hover:bg-amber-50 transition-colors duration-150
+                              `}
+                            >
+                              <td className="px-6 py-4 whitespace-nowrap">
+                                <div className="flex items-center gap-2">
+                                  {getSpecIcon(spec)}
+                                  <span className={`text-sm font-semibold ${isImportantSpec(spec) ? 'text-gray-900' : 'text-gray-700'}`}>
+                                    {spec}
+                                  </span>
+                                </div>
+                              </td>
+                              {comparisonProducts.map(product => (
+                                <td key={product.id} className="px-6 py-4 text-center border-l border-amber-100">
+                                  <span className={`text-sm ${getValueColor(spec, product.specifications[spec] || "-")}`}>
+                                    {product.specifications[spec] || (
+                                      <span className="text-gray-400">N/A</span>
+                                    )}
+                                  </span>
+                                </td>
                               ))}
-                            </ul>
-                          </td>
-                        ))}
-                      </tr>
-                    </tbody>
-                  </table>
+                            </tr>
+                          ))}
+                          
+                          {/* Application Areas Section Header */}
+                          <tr className="bg-gradient-to-r from-amber-100 to-orange-100">
+                            <td colSpan={comparisonProducts.length + 1} className="px-6 py-4">
+                              <h3 className="text-lg font-bold text-amber-900 uppercase tracking-wide">
+                                Recommended Applications
+                              </h3>
+                            </td>
+                          </tr>
+                          
+                          {/* Application Areas Row */}
+                          <tr className="bg-white">
+                            <td className="px-6 py-4">
+                              <span className="text-sm font-bold text-gray-900">Best Used For</span>
+                            </td>
+                            {comparisonProducts.map(product => (
+                              <td key={product.id} className="px-6 py-4 border-l border-amber-100">
+                                <ul className="space-y-2 text-left">
+                                  {product.applicationAreas.map((area, areaIndex) => (
+                                    <li key={areaIndex} className="flex items-start gap-2 text-sm text-gray-700">
+                                      <CheckCircle2 className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                                      <span>{area}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </td>
+                            ))}
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
                 </div>
                 
-                <div className="mt-8 text-center">
-                  <p className="text-gray-300 mb-4">Ready to purchase or need more information?</p>
-                  <div className="flex flex-wrap justify-center gap-4">
-                    <Button>
+                {/* Call to Action Footer */}
+                <div className="mt-10 pt-8 border-t-2 border-amber-200">
+                  <p className="text-center text-lg text-gray-700 mb-6 font-medium">
+                    Ready to purchase or need more information about these inverters?
+                  </p>
+                  <div className="flex flex-col sm:flex-row justify-center gap-4">
+                    <Button 
+                      className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300"
+                      data-testid="button-contact-sales"
+                    >
+                      <Sun className="w-5 h-5 mr-2" />
                       Contact Sales Team
                     </Button>
-                    <Button variant="outline">
+                    <Button 
+                      variant="outline"
+                      className="border-2 border-amber-500 text-amber-700 hover:bg-amber-50 font-semibold"
+                      data-testid="button-download-specs"
+                    >
+                      <Package className="w-5 h-5 mr-2" />
                       Download Specifications
                     </Button>
                   </div>

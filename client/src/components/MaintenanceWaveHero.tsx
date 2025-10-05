@@ -292,34 +292,52 @@ const MaintenanceWaveHero: React.FC<MaintenanceWaveHeroProps> = ({
           {subtitle}
         </motion.p>
 
-        {/* CTA Buttons */}
+
+        {/* Premium Stats Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex flex-col gap-4 sm:flex-row sm:gap-6 mb-16"
-        >
-          <GradientButton variant="default">
-            Schedule Maintenance
-          </GradientButton>
-          <InteractiveHoverButton text="Emergency Service" className="w-40" />
-        </motion.div>
-
-        {/* Stats Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1 }}
-          className="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-12"
+          className="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-12 max-w-5xl mx-auto"
         >
           {stats.map((stat, index) => (
-            <div
+            <motion.div
               key={index}
-              className="flex flex-col items-center gap-2 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
+              whileHover={{ scale: 1.05, y: -5 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className="group relative overflow-hidden rounded-3xl border border-yellow-500/20 bg-gradient-to-br from-white/10 via-white/5 to-transparent p-8 backdrop-blur-md shadow-2xl shadow-yellow-500/10"
             >
-              <div className="text-4xl font-bold text-white">{stat.value}</div>
-              <div className="text-sm text-slate-400">{stat.label}</div>
-            </div>
+              {/* Animated background gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 via-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              {/* Glow effect */}
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-yellow-400/20 to-orange-400/20 blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
+              
+              {/* Content */}
+              <div className="relative z-10 flex flex-col items-center gap-4">
+                {/* Icon container with animated glow */}
+                <div className="relative">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-yellow-400/20 to-orange-400/20 flex items-center justify-center backdrop-blur-sm border border-yellow-400/30 group-hover:border-yellow-400/60 transition-colors duration-300">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-yellow-400 to-orange-400 animate-pulse" />
+                  </div>
+                  {/* Outer glow ring */}
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-yellow-400/30 to-orange-400/30 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
+                
+                {/* Stats value with gradient text */}
+                <div className="text-5xl font-bold bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent group-hover:from-yellow-300 group-hover:via-orange-300 group-hover:to-yellow-300 transition-all duration-300">
+                  {stat.value}
+                </div>
+                
+                {/* Label with enhanced styling */}
+                <div className="text-lg font-semibold text-white/90 group-hover:text-white transition-colors duration-300 text-center">
+                  {stat.label}
+                </div>
+                
+                {/* Subtle accent line */}
+                <div className="w-16 h-1 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full opacity-60 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+            </motion.div>
           ))}
         </motion.div>
       </motion.div>
