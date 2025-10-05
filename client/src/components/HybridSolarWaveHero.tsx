@@ -223,7 +223,9 @@ const HybridSolarWaveHero: React.FC<HybridSolarWaveHeroProps> = ({
       <SolarWaveBackground />
       <EnergyParticles />
 
-      {/* Gradient Overlays - REMOVED DARK LAYERS */}
+      {/* Gradient Overlays */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/80 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-orange-500/5 via-transparent to-blue-500/5 pointer-events-none" />
 
       {/* Navigation */}
       <Navigation />

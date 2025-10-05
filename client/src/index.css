@@ -167,66 +167,66 @@ body {
   background-clip: text;
 }
 
-/* BRIGHT HERO GRADIENTS - LIGHT LETTERS WITH COLORED GLOW */
+/* BRIGHT HERO GRADIENTS - SOLID BRIGHT COLORS WITH GLOW */
 .gradient-bright-fire {
-  background: linear-gradient(to right, #fffbeb, #fef3c7, #fffbeb);
+  background: linear-gradient(to right, #fbbf24, #fb923c, #f97316);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 15px rgba(251, 191, 36, 1)) drop-shadow(0 0 30px rgba(251, 146, 60, 0.8)) drop-shadow(0 0 50px rgba(249, 115, 22, 0.6));
+  filter: drop-shadow(0 0 20px rgba(251, 191, 36, 0.9)) drop-shadow(0 0 40px rgba(251, 146, 60, 0.7)) drop-shadow(0 0 60px rgba(249, 115, 22, 0.5));
 }
 
 .gradient-bright-electric {
-  background: linear-gradient(to right, #f0fdff, #e0f2fe, #f0fdff);
+  background: linear-gradient(to right, #06b6d4, #3b82f6, #00d9ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 15px rgba(6, 182, 212, 1)) drop-shadow(0 0 30px rgba(59, 130, 246, 0.8)) drop-shadow(0 0 50px rgba(0, 217, 255, 0.6));
+  filter: drop-shadow(0 0 20px rgba(6, 182, 212, 0.9)) drop-shadow(0 0 40px rgba(59, 130, 246, 0.7)) drop-shadow(0 0 60px rgba(0, 217, 255, 0.5));
 }
 
 .gradient-bright-sunset {
-  background: linear-gradient(to right, #fffbeb, #fef3c7, #fff5f5);
+  background: linear-gradient(to right, #fbbf24, #fb923c, #ef4444);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 15px rgba(251, 191, 36, 1)) drop-shadow(0 0 30px rgba(251, 146, 60, 0.8)) drop-shadow(0 0 50px rgba(239, 68, 68, 0.6));
+  filter: drop-shadow(0 0 20px rgba(251, 191, 36, 0.9)) drop-shadow(0 0 40px rgba(251, 146, 60, 0.7)) drop-shadow(0 0 60px rgba(239, 68, 68, 0.5));
 }
 
 .gradient-bright-ocean {
-  background: linear-gradient(to right, #f0fdff, #e0f2fe, #f0f9ff);
+  background: linear-gradient(to right, #22d3ee, #06b6d4, #0ea5e9);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 15px rgba(34, 211, 238, 1)) drop-shadow(0 0 30px rgba(6, 182, 212, 0.8)) drop-shadow(0 0 50px rgba(14, 165, 233, 0.6));
+  filter: drop-shadow(0 0 20px rgba(34, 211, 238, 0.9)) drop-shadow(0 0 40px rgba(6, 182, 212, 0.7)) drop-shadow(0 0 60px rgba(14, 165, 233, 0.5));
 }
 
 .gradient-bright-emerald {
-  background: linear-gradient(to right, #f0fdf4, #d1fae5, #f7fee7);
+  background: linear-gradient(to right, #34d399, #10b981, #84cc16);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 15px rgba(52, 211, 153, 1)) drop-shadow(0 0 30px rgba(16, 185, 129, 0.8)) drop-shadow(0 0 50px rgba(132, 204, 22, 0.6));
+  filter: drop-shadow(0 0 20px rgba(52, 211, 153, 0.9)) drop-shadow(0 0 40px rgba(16, 185, 129, 0.7)) drop-shadow(0 0 60px rgba(132, 204, 22, 0.5));
 }
 
 .gradient-bright-purple {
-  background: linear-gradient(to right, #faf5ff, #f3e8ff, #fdf4ff);
+  background: linear-gradient(to right, #c084fc, #a855f7, #e879f9);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 15px rgba(192, 132, 252, 1)) drop-shadow(0 0 30px rgba(168, 85, 247, 0.8)) drop-shadow(0 0 50px rgba(232, 121, 249, 0.6));
+  filter: drop-shadow(0 0 20px rgba(192, 132, 252, 0.9)) drop-shadow(0 0 40px rgba(168, 85, 247, 0.7)) drop-shadow(0 0 60px rgba(232, 121, 249, 0.5));
 }
 
 .gradient-bright-white {
   color: #ffffff;
-  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 1)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.7)) drop-shadow(0 0 50px rgba(255, 255, 255, 0.5));
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 60px rgba(255, 255, 255, 0.4));
 }
 
 .gradient-bright-yellow {
-  background: linear-gradient(to right, #fefce8, #fffbeb, #fefce8);
+  background: linear-gradient(to right, #fde047, #facc15, #fef08a);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 15px rgba(253, 224, 71, 1)) drop-shadow(0 0 30px rgba(250, 204, 21, 0.8)) drop-shadow(0 0 50px rgba(254, 240, 138, 0.6));
+  filter: drop-shadow(0 0 20px rgba(253, 224, 71, 0.9)) drop-shadow(0 0 40px rgba(250, 204, 21, 0.7)) drop-shadow(0 0 60px rgba(254, 240, 138, 0.5));
 }
 
 /* Smooth hover transitions */
