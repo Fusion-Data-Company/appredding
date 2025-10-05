@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+import { OptimizedImage } from '@/components/ui/optimized-image'
 
 interface ContactFormData {
   name: string
@@ -239,9 +240,12 @@ const AdvancePowerHero = () => {
             animate={{ opacity: index === currentSlide ? 0.3 : 0 }}
             transition={{ duration: 1 }}
           >
-            <img
+            <OptimizedImage
               src={slide.image}
-              alt={`Slide ${index + 1}`}
+              alt={`Solar installation ${index + 1}`}
+              width={1920}
+              height={1080}
+              priority={index === 0}
               className="w-full h-full object-cover"
             />
           </motion.div>

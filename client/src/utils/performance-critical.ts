@@ -209,16 +209,16 @@ export function monitorPerformanceBudget(): void {
         const resourceEntry = entry as any;
         // Monitor large resource loads with safe property access
         if (entry.name.includes('.js') && resourceEntry.transferSize && resourceEntry.transferSize > 100 * 1024) {
-          }KB)`);
+          console.warn(`Large JS file: ${entry.name} (${Math.round(resourceEntry.transferSize / 1024)}KB)`);
         }
         
         if (entry.name.includes('.css') && resourceEntry.transferSize && resourceEntry.transferSize > 50 * 1024) {
-          }KB)`);
+          console.warn(`Large CSS file: ${entry.name} (${Math.round(resourceEntry.transferSize / 1024)}KB)`);
         }
         
         if ((entry.name.includes('.jpg') || entry.name.includes('.png') || entry.name.includes('.webp')) && 
             resourceEntry.transferSize && resourceEntry.transferSize > 200 * 1024) {
-          }KB)`);
+          console.warn(`Large image file: ${entry.name} (${Math.round(resourceEntry.transferSize / 1024)}KB)`);
         }
       }
     });

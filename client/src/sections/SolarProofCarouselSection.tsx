@@ -6,6 +6,7 @@ import { motion, Transition, useMotionValue } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Star, TrendingUp, Zap, Sun } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
+import { OptimizedImage } from '@/components/ui/optimized-image';
 
 // Carousel context
 interface CarouselContextValue {
@@ -271,12 +272,28 @@ const ImageComparisonSlider = React.forwardRef<HTMLDivElement, ImageComparisonSl
         onTouchStart={() => setDragging(true)}
         {...props}
       >
-        <img src={rightImage} alt={altRight} className='absolute inset-0 h-full w-full object-cover' draggable={false} />
+        <OptimizedImage 
+          src={rightImage} 
+          alt={altRight} 
+          width={800} 
+          height={600} 
+          priority 
+          className='absolute inset-0 h-full w-full object-cover' 
+          draggable={false} 
+        />
         <div
           className='absolute inset-0 h-full w-full overflow-hidden'
           style={{ clipPath: `polygon(0 0, ${position}% 0, ${position}% 100%, 0 100%)` }}
         >
-          <img src={leftImage} alt={altLeft} className='h-full w-full object-cover' draggable={false} />
+          <OptimizedImage 
+            src={leftImage} 
+            alt={altLeft} 
+            width={800} 
+            height={600} 
+            priority 
+            className='h-full w-full object-cover' 
+            draggable={false} 
+          />
         </div>
         <div className='absolute top-0 h-full w-1' style={{ left: `calc(${position}% - 2px)` }}>
           <div className='absolute inset-y-0 w-1 bg-background/60 backdrop-blur-sm' />
@@ -475,9 +492,11 @@ export function SolarTestimonialCarousel() {
                         “{testimonial.quote}”
                       </blockquote>
                       <div className='mt-6 flex items-center gap-4'>
-                        <img
+                        <OptimizedImage
                           src={testimonial.avatar}
                           alt={testimonial.name}
+                          width={48}
+                          height={48}
                           className='h-12 w-12 rounded-full border-2 border-white/10 object-cover'
                         />
                         <div>

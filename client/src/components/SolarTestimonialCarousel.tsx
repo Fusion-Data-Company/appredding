@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, TrendingUp, Sun, Zap, DollarSign } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { OptimizedImage } from "@/components/ui/optimized-image";
 
 type Tone = "default" | "primary" | "success" | "warning" | "danger";
 type Size = "sm" | "md" | "lg";
@@ -264,9 +265,12 @@ const ImageComparisonSlider = React.forwardRef<
         onTouchStart={handleInteractionStart}
         {...props}
       >
-        <img
+        <OptimizedImage
           src={rightImage}
           alt={altRight}
+          width={800}
+          height={600}
+          priority
           className="absolute inset-0 w-full h-full object-cover pointer-events-none"
           draggable={false}
         />
@@ -277,9 +281,12 @@ const ImageComparisonSlider = React.forwardRef<
             clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)`,
           }}
         >
-          <img
+          <OptimizedImage
             src={leftImage}
             alt={altLeft}
+            width={800}
+            height={600}
+            priority
             className="w-full h-full object-cover"
             draggable={false}
           />

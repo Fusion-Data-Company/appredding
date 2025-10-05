@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { PremiumTabs, PremiumTabsList, PremiumTabsTrigger, PremiumTabsContent } from "@/components/ui/premium-tabs";
 import { Zap, Sun, Battery, Sparkles, Star, TrendingUp, Shield, Gauge, Thermometer, CheckCircle2, Package, Award, ArrowRight } from "lucide-react";
 import SolarBackground from "@/components/SolarBackground";
+import { OptimizedImage } from "@/components/ui/optimized-image";
 
 interface ProductFeature {
   name: string;
@@ -396,12 +397,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, isSelected, onToggle
               whileHover={{ opacity: [0.3, 0.6, 0.3] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             />
-            <motion.img 
+            <OptimizedImage 
               src={product.imageUrl} 
-              alt={product.name} 
+              alt={product.name}
+              width={600}
+              height={600}
               className="w-full h-full object-cover"
-              whileHover={{ scale: 1.1 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
             />
           </div>
         </div>
@@ -947,7 +950,7 @@ const ProductComparison = () => {
                               transition={{ duration: 0.2 }}
                             >
                               <div className="w-20 h-20 rounded-lg overflow-hidden shadow-md">
-                                <motion.img 
+                                <OptimizedImage 
                                   src={product.imageUrl} 
                                   alt={product.name} 
                                   className="w-full h-full object-cover"

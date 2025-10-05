@@ -108,8 +108,18 @@ class ImageOptimizer {
       return [baseUrl];
     }
 
-    // For external images, generate different sizes
-    return sizes.map(size => `${baseUrl}?w=${size}&q=80&auto=format`);
+    // For external images, generate different sizes using proper URL parsing
+    return sizes.map(size => {
+      try {
+        const urlObj = new URL(baseUrl);
+        urlObj.searchParams.set('w', size.toString());
+        urlObj.searchParams.set('q', '80');
+        urlObj.searchParams.set('auto', 'format');
+        return urlObj.toString();
+      } catch {
+        return baseUrl;
+      }
+    });
   }
 
   // Preload images in viewport priority order
@@ -218,5 +228,60 @@ export class ProgressiveImageLoader {
     onProgress?.(100);
 
     return highQualityImg;
+  }
+
+  // Generate low quality placeholder URL for unsplash
+  generateLowQualityUrl(url: string): string {
+    if (url.includes('unsplash.com')) {
+      try {
+        const urlObj = new URL(url);
+        urlObj.searchParams.set('w', '50');
+        urlObj.searchParams.set('q', '10');
+        urlObj.searchParams.set('blur', '20');
+        return urlObj.toString();
+      } catch {
+        return url;
+      }
+    }
+    return url;
+  }
+}
+
+// Create singleton instance
+export const progressiveLoader = new ProgressiveImageLoader();
+
+// Preload critical unsplash images with optimized parameters
+export function preloadCriticalUnsplashImages(urls: string[]): void {
+  urls.forEach(url => {
+    if (url.includes('unsplash.com')) {
+      try {
+        const urlObj = new URL(url);
+        urlObj.searchParams.set('w', '800');
+        urlObj.searchParams.set('q', '80');
+        urlObj.searchParams.set('fm', 'webp');
+        urlObj.searchParams.set('auto', 'format');
+        imageOptimizer.loadImageWithRetry(urlObj.toString(), true);
+      } catch (error) {
+        console.error('Error preloading image:', error);
+        imageOptimizer.loadImageWithRetry(url, true);
+      }
+    }
+  });
+}
+
+// Generate optimized image URL for unsplash with modern formats
+export function getOptimizedUnsplashUrl(url: string, width?: number, quality: number = 80): string {
+  if (!url.includes('unsplash.com')) return url;
+  
+  try {
+    const urlObj = new URL(url);
+    if (width) urlObj.searchParams.set('w', width.toString());
+    urlObj.searchParams.set('q', quality.toString());
+    urlObj.searchParams.set('fm', 'webp');
+    urlObj.searchParams.set('auto', 'format');
+    return urlObj.toString();
+  } catch (error) {
+    console.error('Error optimizing Unsplash URL:', error);
+    return url;
   }
 }

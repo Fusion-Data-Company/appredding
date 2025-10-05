@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Wrench, Phone, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { OptimizedImage } from '@/components/ui/optimized-image';
 import heroBackgroundImage from '@assets/generated_images/4K_solar_panels_hero_background_87aa32c0.png';
 
 interface SolarRepairHeroProps {
@@ -206,10 +207,14 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
                   rotate: `${(index % 2 === 0 ? -2 : 5)}deg`,
                 }}
               >
-                <img
+                <OptimizedImage
                   src={src}
-                  alt={`Solar panel ${index + 1}`}
-                  className="w-full h-full object-cover rounded-2xl shadow-lg"
+                  alt={`Solar panel installation ${index + 1}`}
+                  width={400}
+                  height={600}
+                  priority={index === 0}
+                  className="rounded-2xl shadow-lg"
+                  sizes="(max-width: 768px) 192px, 256px"
                 />
               </div>
             ))}
