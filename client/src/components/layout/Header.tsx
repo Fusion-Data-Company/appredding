@@ -83,10 +83,7 @@ const SolarCompanyHeader: React.FC = () => {
   const DropdownMenu = ({ items, dropdownKey }: { items: any[], dropdownKey: string }) => (
     <div 
       ref={el => dropdownRefs.current[dropdownKey] = el}
-      className={cn(
-        "absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 rounded-2xl py-3 overflow-hidden",
-        "animate-in fade-in slide-in-from-top-1 duration-300"
-      )}
+      className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 rounded-2xl py-3 overflow-hidden"
       style={{
         position: 'absolute',
         pointerEvents: 'auto',
