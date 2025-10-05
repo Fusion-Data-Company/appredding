@@ -400,11 +400,27 @@ const RepairsWaveHero: React.FC<RepairsWaveHeroProps> = ({
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.3, duration: 0.8 }}
                             >
-                                <span className="bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-500 bg-clip-text text-transparent drop-shadow-2xl font-extrabold">
+                                <span 
+                                    className="drop-shadow-2xl font-extrabold"
+                                    style={{
+                                        background: 'linear-gradient(to right, #fbbf24, #fb923c, #fbbf24)',
+                                        WebkitBackgroundClip: 'text',
+                                        WebkitTextFillColor: 'transparent',
+                                        backgroundClip: 'text'
+                                    }}
+                                >
                                     Solar System Repairs
                                 </span>
                                 <br />
-                                <span className="bg-gradient-to-r from-white via-yellow-100 to-white bg-clip-text text-transparent font-extrabold tracking-wide">
+                                <span 
+                                    className="font-extrabold tracking-wide"
+                                    style={{
+                                        background: 'linear-gradient(to right, #ffffff, #fef3c7, #ffffff)',
+                                        WebkitBackgroundClip: 'text',
+                                        WebkitTextFillColor: 'transparent',
+                                        backgroundClip: 'text'
+                                    }}
+                                >
                                     Advance Power Redding
                                 </span>
                             </motion.h1>

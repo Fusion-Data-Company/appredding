@@ -14,7 +14,7 @@ export function useParallax(offset: number = 50) {
 
   const y = useTransform(scrollYProgress, [0, 1], [-offset, offset]);
 
-  return { ref, y };
+  return { ref, y, style: { position: 'relative' } };
 }
 
 /**

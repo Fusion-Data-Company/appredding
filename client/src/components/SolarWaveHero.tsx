@@ -292,7 +292,15 @@ const SolarWaveHero: React.FC<SolarWaveHeroProps> = ({
                 Residential Solar Installation
               </ShimmerText>
               <br />
-              <span className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent font-extrabold tracking-wide">
+              <span 
+                className="font-extrabold tracking-wide"
+                style={{
+                  background: 'linear-gradient(to right, #ffffff, #dbeafe, #ffffff)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text'
+                }}
+              >
                 Advance Power Redding
               </span>
             </motion.h1>

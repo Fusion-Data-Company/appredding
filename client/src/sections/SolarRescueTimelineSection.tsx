@@ -86,6 +86,7 @@ const SolarRescueTimelineSection: React.FC<SalesFunnelProps> = ({
         'relative min-h-screen w-full overflow-hidden bg-background py-20',
         className,
       )}
+      style={{ position: 'relative' }}
     >
       <div className='absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background' />
 

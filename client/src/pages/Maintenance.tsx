@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Settings, Sparkles, Shield, CheckCircle, Calendar, Phone, TrendingUp, Eye, Droplets, BarChart3 as BarChart, Activity, Zap, AlertTriangle, ClipboardCheck, FileText, TestTube, Gauge, ThermometerSun, Cable, Battery, Users, Mail, MapPin, MessageSquare, Clock, Timer, Search, Tool, Package, Truck, Heart, Award, Star, ChevronRight, ArrowRight, Info, Database, Lock, Filter, Layers, Grid, Box, Hexagon, Circle, Square, Triangle, Bell, Building2, Home, Car, Smartphone, Laptop, Server, HardDrive, Wifi, Radio, Microscope, Scale, BookOpen, GraduationCap, Globe, Navigation, Compass, Target, Crosshair, Flame, Wind, Cloud, CloudRain, Power, Leaf, Component, Cpu, Wrench, DollarSign, FileCheck, Sun, Snowflake, Camera, Clipboard, BadgeCheck, FileSearch, AlertCircle, TrendingDown, Lightbulb, Banknote, Receipt, CreditCard, PiggyBank, Wallet, HandshakeIcon, UserCheck, ShieldCheck, FileWarning, ScrollText, ClipboardList, FileBarChart, Presentation, BrainCircuit, Workflow, GitBranch, Network, Boxes, Package2, PackageCheck, AlertOctagon } from "lucide-react";
+import { Settings, Sparkles, Shield, CheckCircle, Calendar, Phone, TrendingUp, Eye, Droplets, BarChart3 as BarChart, Activity, Zap, AlertTriangle, ClipboardCheck, FileText, TestTube, Gauge, ThermometerSun, Cable, Battery, Users, Mail, MapPin, MessageSquare, Clock, Timer, Search, Package, Truck, Heart, Award, Star, ChevronRight, ArrowRight, Info, Database, Lock, Filter, Layers, Grid, Box, Hexagon, Circle, Square, Triangle, Bell, Building2, Home, Car, Smartphone, Laptop, Server, HardDrive, Wifi, Radio, Microscope, Scale, BookOpen, GraduationCap, Globe, Navigation, Compass, Target, Crosshair, Flame, Wind, Cloud, CloudRain, Power, Leaf, Component, Cpu, Wrench, DollarSign, FileCheck, Sun, Snowflake, Camera, Clipboard, BadgeCheck, FileSearch, AlertCircle, TrendingDown, Lightbulb, Banknote, Receipt, CreditCard, PiggyBank, Wallet, HandshakeIcon, UserCheck, ShieldCheck, FileWarning, ScrollText, ClipboardList, FileBarChart, Presentation, BrainCircuit, Workflow, GitBranch, Network, Boxes, Package2, PackageCheck, AlertOctagon } from "lucide-react";
 import { motion } from "framer-motion";
 import MaintenanceWaveHero from "@/components/MaintenanceWaveHero";
 import MainLayout from "@/components/layout/MainLayout";
 
 const Maintenance = () => {
   const [activeTab, setActiveTab] = useState("preventive");
-  const [selectedService, setSelectedService] = useState("inspection");
+  const [selectedService, setSelectedService] = useState<string>("inspection");
   const [systemAge, setSystemAge] = useState(5);
   const [efficiencyLevel, setEfficiencyLevel] = useState(92);
   const [cleaningDue, setCleaningDue] = useState(45);
@@ -541,19 +541,19 @@ const Maintenance = () => {
             <div className="flex items-start justify-between mb-4">
               <div>
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                  {maintenanceServices[selectedService].name}
+                  {(maintenanceServices as any)[selectedService].name}
                 </h3>
                 <div className="flex items-center gap-4 mt-2">
                   <span className="text-sm bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full">
-                    {maintenanceServices[selectedService].frequency}
+                    {(maintenanceServices as any)[selectedService].frequency}
                   </span>
                   <span className="text-sm text-gray-600 dark:text-gray-400">
-                    Duration: {maintenanceServices[selectedService].duration}
+                    Duration: {(maintenanceServices as any)[selectedService].duration}
                   </span>
                 </div>
               </div>
               <span className="text-xl font-bold text-purple-600 dark:text-purple-400">
-                {maintenanceServices[selectedService].price}
+                {(maintenanceServices as any)[selectedService].price}
               </span>
             </div>
 
@@ -563,7 +563,7 @@ const Maintenance = () => {
                   <CheckCircle className="h-5 w-5 text-green-500" /> Service Includes
                 </h4>
                 <ul className="space-y-2">
-                  {maintenanceServices[selectedService].includes.map((item, idx) => (
+                  {(maintenanceServices as any)[selectedService].includes.map((item: string, idx: number) => (
                     <li key={idx} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
                       <ChevronRight className="h-4 w-4 text-purple-500 mt-0.5" />
                       <span>{item}</span>
@@ -577,7 +577,7 @@ const Maintenance = () => {
                   <TrendingUp className="h-5 w-5 text-blue-500" /> Key Benefits
                 </h4>
                 <ul className="space-y-2">
-                  {maintenanceServices[selectedService].benefits.map((benefit, idx) => (
+                  {(maintenanceServices as any)[selectedService].benefits.map((benefit: string, idx: number) => (
                     <li key={idx} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
                       <ChevronRight className="h-4 w-4 text-green-500 mt-0.5" />
                       <span>{benefit}</span>

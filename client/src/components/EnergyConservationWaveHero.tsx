@@ -261,12 +261,28 @@ const EnergyConservationWaveHero: React.FC<EnergyConservationWaveHeroProps> = ({
           className="mb-6 max-w-5xl text-6xl font-bold leading-tight md:text-7xl lg:text-8xl"
         >
           The Future of{" "}
-          <span className="bg-gradient-to-r from-green-400 via-emerald-500 to-green-400 bg-clip-text text-transparent drop-shadow-2xl font-extrabold">
+          <span 
+            className="drop-shadow-2xl font-extrabold"
+            style={{
+              background: 'linear-gradient(to right, #4ade80, #10b981, #4ade80)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text'
+            }}
+          >
             Energy Conservation
           </span>
           <br />
           Meets{" "}
-          <span className="bg-gradient-to-r from-blue-400 via-cyan-500 to-blue-400 bg-clip-text text-transparent drop-shadow-2xl font-extrabold">
+          <span 
+            className="drop-shadow-2xl font-extrabold"
+            style={{
+              background: 'linear-gradient(to right, #60a5fa, #06b6d4, #60a5fa)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text'
+            }}
+          >
             Efficiency Innovation
           </span>
         </motion.h1>
