@@ -181,7 +181,7 @@ const MaintenanceWaveHero: React.FC<MaintenanceWaveHeroProps> = ({
       {/* Hero Content */}
       <motion.div
         style={{ opacity, scale }}
-        className="relative z-10 flex min-h-screen items-center justify-center px-6"
+        className="relative z-10 flex min-h-screen items-start justify-center px-6 pt-24 md:pt-32"
       >
         <div className="max-w-6xl mx-auto text-center">
           {/* Badge */}

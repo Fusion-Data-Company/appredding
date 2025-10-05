@@ -220,7 +220,7 @@ const HybridSolarWaveHero: React.FC = () => {
 
 
       {/* Hero Content */}
-      <div className="relative z-10 flex min-h-[calc(70vh-5rem)] items-center pt-8">
+      <div className="relative z-10 flex min-h-[calc(70vh-5rem)] items-start pt-24 md:pt-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full">
           <div className="mx-auto max-w-5xl">
             <motion.div
@@ -241,11 +241,11 @@ const HybridSolarWaveHero: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-5xl md:text-7xl lg:text-8xl font-bold text-center mb-6 leading-tight"
             >
-              <span className="bg-gradient-to-r from-white via-yellow-300 to-white bg-clip-text text-transparent">
+              <span className="gradient-bright-yellow font-extrabold">
                 Hybrid Solar
               </span>
               <br />
-              <span className="text-white">Advance Power Redding</span>
+              <span className="gradient-bright-white font-extrabold">Advance Power Redding</span>
             </motion.h1>
 
             <motion.p
