@@ -145,7 +145,7 @@ const HybridSolar = () => {
 
       {/* Hybrid Solar Wave Hero Section */}
       <HybridSolarWaveHero 
-        tagline="Advanced Hybrid Solar & Energy Systems"
+        tagline="Next-Gen Energy Solutions"
         title="Hybrid Solar"
         subtitle="Revolutionary hybrid solar systems with seamless grid-tie to off-grid transition. Sol-Ark inverters provide <10ms transfer time for uninterrupted power during PSPS events and grid outages."
         stats={[
@@ -406,9 +406,8 @@ const HybridSolar = () => {
             </div>
           </div>
         </div>
-      </section>
 
-      {/* Enhanced Color-Coded Hybrid Solar Funnel */}
+        {/* Enhanced Color-Coded Hybrid Solar Funnel */}
       <SolarRescueTimelineSection
         className="bg-gradient-to-br from-gray-950 via-gray-900 to-black"
         stages={[
