@@ -347,7 +347,7 @@ const RepairsWaveHero: React.FC<RepairsWaveHeroProps> = ({
     }, [])
 
     return (
-        <div className="relative min-h-screen w-full bg-black overflow-hidden">
+        <div className="relative min-h-screen w-full bg-black overflow-hidden" style={{ position: 'relative' }}>
             {/* Wave Background */}
             <div className="absolute inset-0 z-0">
                 <Waves 

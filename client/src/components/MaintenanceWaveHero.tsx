@@ -163,7 +163,7 @@ const MaintenanceWaveHero: React.FC<MaintenanceWaveHeroProps> = ({
   const scale = useTransform(scrollY, [0, 500], [1, 0.8]);
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-black">
+    <div className="relative min-h-screen w-full overflow-hidden bg-black" style={{ position: 'relative' }}>
       {/* Animated Background (Exact from demo) */}
       <SolarWaveBackground />
       <EnergyParticles />

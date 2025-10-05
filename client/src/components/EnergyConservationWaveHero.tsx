@@ -236,7 +236,7 @@ const EnergyConservationWaveHero: React.FC<EnergyConservationWaveHeroProps> = ({
   const y = useTransform(scrollY, [0, 300], [0, 100]);
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-950 via-green-950 to-slate-900">
+    <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-950 via-green-950 to-slate-900" style={{ position: 'relative' }}>
       {/* Animated Background */}
       <AnimatedWaveBackground />
       

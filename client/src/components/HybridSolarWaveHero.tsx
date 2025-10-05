@@ -218,7 +218,7 @@ const HybridSolarWaveHero: React.FC<HybridSolarWaveHeroProps> = ({
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-black">
+    <div className="relative min-h-screen w-full overflow-hidden bg-black" style={{ position: 'relative' }}>
       {/* Animated Background */}
       <SolarWaveBackground />
       <EnergyParticles />

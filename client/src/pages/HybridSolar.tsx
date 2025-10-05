@@ -80,21 +80,22 @@ const HybridSolar = () => {
   const form = useForm<HybridSolarFormValues>({
     resolver: zodResolver(insertFirePreventionHomeownerSchema),
     defaultValues: {
-      name: "",
+      firstName: "",
+      lastName: "",
       email: "",
       phone: "",
       address: "",
+      city: "",
+      state: "",
+      zipCode: "",
       propertyType: "",
-      message: ""
+      additionalComments: ""
     },
   });
 
   const consultationMutation = useMutation({
     mutationFn: async (data: HybridSolarFormValues) => {
-      return await apiRequest("/api/hybrid-solar/consultation", {
-        method: "POST",
-        data,
-      });
+      return await apiRequest("POST", "/api/hybrid-solar/consultation", data);
     },
     onSuccess: () => {
       setShowConsultationForm(false);
@@ -1393,19 +1394,34 @@ const HybridSolar = () => {
             <h3 className="text-2xl font-bold text-white mb-6">Request Hybrid Solar Consultation</h3>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                <FormField
-                  control={form.control}
-                  name="name"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-gray-300">Name</FormLabel>
-                      <FormControl>
-                        <Input {...field} className="bg-gray-800 border-gray-700 text-white" />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                <div className="grid grid-cols-2 gap-4">
+                  <FormField
+                    control={form.control}
+                    name="firstName"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-gray-300">First Name</FormLabel>
+                        <FormControl>
+                          <Input {...field} className="bg-gray-800 border-gray-700 text-white" data-testid="input-firstName" />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="lastName"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-gray-300">Last Name</FormLabel>
+                        <FormControl>
+                          <Input {...field} className="bg-gray-800 border-gray-700 text-white" data-testid="input-lastName" />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
                 <FormField
                   control={form.control}
                   name="email"
@@ -1413,7 +1429,7 @@ const HybridSolar = () => {
                     <FormItem>
                       <FormLabel className="text-gray-300">Email</FormLabel>
                       <FormControl>
-                        <Input {...field} type="email" className="bg-gray-800 border-gray-700 text-white" />
+                        <Input {...field} type="email" className="bg-gray-800 border-gray-700 text-white" data-testid="input-email" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -1426,7 +1442,7 @@ const HybridSolar = () => {
                     <FormItem>
                       <FormLabel className="text-gray-300">Phone</FormLabel>
                       <FormControl>
-                        <Input {...field} className="bg-gray-800 border-gray-700 text-white" />
+                        <Input {...field} className="bg-gray-800 border-gray-700 text-white" data-testid="input-phone" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -1439,12 +1455,53 @@ const HybridSolar = () => {
                     <FormItem>
                       <FormLabel className="text-gray-300">Property Address</FormLabel>
                       <FormControl>
-                        <Input {...field} className="bg-gray-800 border-gray-700 text-white" />
+                        <Input {...field} className="bg-gray-800 border-gray-700 text-white" data-testid="input-address" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
+                <div className="grid grid-cols-3 gap-4">
+                  <FormField
+                    control={form.control}
+                    name="city"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-gray-300">City</FormLabel>
+                        <FormControl>
+                          <Input {...field} className="bg-gray-800 border-gray-700 text-white" data-testid="input-city" />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="state"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-gray-300">State</FormLabel>
+                        <FormControl>
+                          <Input {...field} className="bg-gray-800 border-gray-700 text-white" data-testid="input-state" />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="zipCode"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-gray-300">Zip Code</FormLabel>
+                        <FormControl>
+                          <Input {...field} className="bg-gray-800 border-gray-700 text-white" data-testid="input-zipCode" />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
                 <FormField
                   control={form.control}
                   name="propertyType"
@@ -1452,7 +1509,7 @@ const HybridSolar = () => {
                     <FormItem>
                       <FormLabel className="text-gray-300">Are you in a PSPS zone?</FormLabel>
                       <FormControl>
-                        <select {...field} className="w-full bg-gray-800 border-gray-700 text-white rounded-md px-3 py-2">
+                        <select {...field} className="w-full bg-gray-800 border-gray-700 text-white rounded-md px-3 py-2" data-testid="input-propertyType">
                           <option value="">Select...</option>
                           <option value="psps-yes">Yes - Tier 2/3 Fire Zone</option>
                           <option value="psps-maybe">Not Sure</option>
@@ -1466,16 +1523,18 @@ const HybridSolar = () => {
                 />
                 <FormField
                   control={form.control}
-                  name="message"
+                  name="additionalComments"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-gray-300">Message (Optional)</FormLabel>
+                      <FormLabel className="text-gray-300">Additional Comments (Optional)</FormLabel>
                       <FormControl>
                         <Textarea
                           {...field}
+                          value={field.value || ""}
                           className="bg-gray-800 border-gray-700 text-white"
                           rows={3}
                           placeholder="Tell us about your backup power needs, outage frequency, etc."
+                          data-testid="input-additionalComments"
                         />
                       </FormControl>
                       <FormMessage />
@@ -1487,6 +1546,7 @@ const HybridSolar = () => {
                     type="submit"
                     disabled={consultationMutation.isPending}
                     className="flex-1 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700"
+                    data-testid="button-submit"
                   >
                     {consultationMutation.isPending ? "Submitting..." : "Submit Request"}
                   </Button>
@@ -1495,6 +1555,7 @@ const HybridSolar = () => {
                     variant="outline"
                     onClick={() => setShowConsultationForm(false)}
                     className="flex-1 border-gray-600 text-gray-300 hover:bg-gray-800"
+                    data-testid="button-cancel"
                   >
                     Cancel
                   </Button>

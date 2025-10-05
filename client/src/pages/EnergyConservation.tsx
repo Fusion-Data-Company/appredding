@@ -55,10 +55,7 @@ const EnergyConservation = () => {
 
   const consultationMutation = useMutation({
     mutationFn: async (data: EnergyConservationFormValues) => {
-      return await apiRequest("/api/energy-conservation/consultation", {
-        method: "POST",
-        data,
-      });
+      return await apiRequest("POST", "/api/energy-conservation/consultation", data);
     },
     onSuccess: () => {
       setShowConsultationForm(false);
@@ -277,7 +274,7 @@ const EnergyConservation = () => {
           </div>
 
           <div className="flex flex-wrap gap-2 mb-6">
-            {Object.keys(conservationServices).map((service) => (
+            {Object.keys(conservationServices).map((service: string) => (
               <button
                 key={service}
                 onClick={() => setSelectedService(service)}
@@ -287,7 +284,7 @@ const EnergyConservation = () => {
                     : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
                 }`}
               >
-                {conservationServices[service].name.split(' ')[0]}
+                {conservationServices[service as keyof typeof conservationServices].name.split(' ')[0]}
               </button>
             ))}
           </div>
@@ -295,15 +292,15 @@ const EnergyConservation = () => {
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
             <div className="flex items-start justify-between mb-4">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                {conservationServices[selectedService].name}
+                {conservationServices[selectedService as keyof typeof conservationServices].name}
               </h3>
               <span className="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-3 py-1 rounded-full text-sm font-medium">
-                {conservationServices[selectedService].savings} Savings
+                {conservationServices[selectedService as keyof typeof conservationServices].savings} Savings
               </span>
             </div>
 
             <p className="text-gray-600 dark:text-gray-400 mb-6">
-              {conservationServices[selectedService].description}
+              {conservationServices[selectedService as keyof typeof conservationServices].description}
             </p>
 
             <div className="grid md:grid-cols-2 gap-6 mb-6">
@@ -312,7 +309,7 @@ const EnergyConservation = () => {
                   <CheckCircle className="h-5 w-5 text-green-500" /> Key Features
                 </h4>
                 <ul className="space-y-2">
-                  {conservationServices[selectedService].features.map((feature, idx) => (
+                  {conservationServices[selectedService as keyof typeof conservationServices].features.map((feature: string, idx: number) => (
                     <li key={idx} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
                       <ChevronRight className="h-4 w-4 text-green-500 mt-0.5" />
                       <span>{feature}</span>
@@ -325,11 +322,11 @@ const EnergyConservation = () => {
                 <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4">
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-sm text-gray-600 dark:text-gray-400">ROI Period</span>
-                    <span className="font-bold text-gray-900 dark:text-white">{conservationServices[selectedService].roi}</span>
+                    <span className="font-bold text-gray-900 dark:text-white">{conservationServices[selectedService as keyof typeof conservationServices].roi}</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-gray-600 dark:text-gray-400">Investment Range</span>
-                    <span className="font-bold text-green-600 dark:text-green-400">{conservationServices[selectedService].price}</span>
+                    <span className="font-bold text-green-600 dark:text-green-400">{conservationServices[selectedService as keyof typeof conservationServices].price}</span>
                   </div>
                 </div>
 
