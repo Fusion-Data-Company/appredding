@@ -1,6 +1,30 @@
 import React, { useState, useEffect } from "react";
-import { Leaf, Lightbulb, ThermometerSun, Wind, Droplets, Home, Shield, AlertTriangle, CheckCircle, TrendingUp, CircleDollarSign, BarChart, DollarSign, Calculator, Zap, Eye, FileCheck, ChevronRight, ArrowRight, Building2, Factory, Gauge, Timer, Settings, Info, Target, Activity, Battery, Power, Sun, Cloud, Snowflake, Flame, Award, Package, Wrench, Component, Cpu, Lock, Database, Globe, MapPin, Users, Phone, Mail, MessageSquare, Calendar, Clock, Star, Heart, Bell, Search, Filter, Layers, Grid, Box, Hexagon } from "lucide-react";
+import MainLayout from "@/components/layout/MainLayout";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage
+} from "@/components/ui/form";
+import { Leaf, Lightbulb, ThermometerSun, Wind, Droplets, Home, Shield, AlertTriangle, CheckCircle, TrendingUp, CircleDollarSign, BarChart, DollarSign, Calculator, Zap, Eye, FileCheck, ChevronRight, ArrowRight, Building2, Factory, Gauge, Timer, Settings, Info, Target, Activity, Battery, Power, Sun, Cloud, Snowflake, Flame, Award, Package, Wrench, Component, Cpu, Lock, Database, Globe, MapPin, Users, Phone, Mail, MessageSquare, Calendar, Clock, Star, Heart, Bell, Search, Filter, Layers, Grid, Box, Hexagon, BarChart3, LineChart, PieChart, FileText, Circle, GraduationCap, HelpCircle } from "lucide-react";
 import { motion } from "framer-motion";
+import { insertFirePreventionHomeownerSchema } from "@shared/schema";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
+import { useToast } from "@/hooks/use-toast";
+import { z } from "zod";
+import SEOHead from "@/components/SEOHead";
+import SolarRescueTimelineSection from "@/sections/SolarRescueTimelineSection";
+import ContentSection from "@/components/sections/ContentSection";
+
+type EnergyConservationFormValues = z.infer<typeof insertFirePreventionHomeownerSchema>;
 
 const EnergyConservation = () => {
   const [activeTab, setActiveTab] = useState("overview");
@@ -9,6 +33,70 @@ const EnergyConservation = () => {
   const [efficiency, setEfficiency] = useState(65);
   const [savings, setSavings] = useState(0);
   const [temperature, setTemperature] = useState(72);
+  const [showConsultationForm, setShowConsultationForm] = useState(false);
+  const { toast } = useToast();
+
+  const pageTitle = "Energy Conservation & Efficiency Solutions | Professional Energy Audits";
+  const pageDescription = "Comprehensive energy conservation services including professional energy audits, HVAC optimization, insulation upgrades, and smart home integration. Reduce energy consumption by 30-50% with expert efficiency solutions.";
+
+  const form = useForm<EnergyConservationFormValues>({
+    resolver: zodResolver(insertFirePreventionHomeownerSchema),
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      address: "",
+      propertyType: "",
+      additionalComments: ""
+    },
+  });
+
+  const consultationMutation = useMutation({
+    mutationFn: async (data: EnergyConservationFormValues) => {
+      return await apiRequest("/api/energy-conservation/consultation", {
+        method: "POST",
+        data,
+      });
+    },
+    onSuccess: () => {
+      setShowConsultationForm(false);
+      form.reset();
+      toast({
+        title: "Request Submitted",
+        description: "We've received your energy consultation request and will contact you shortly.",
+        variant: "default",
+      });
+    },
+    onError: (error: Error) => {
+      toast({
+        title: "Error",
+        description: error.message || "Failed to submit your request. Please try again.",
+        variant: "destructive",
+      });
+    },
+  });
+
+  const onSubmit = (data: EnergyConservationFormValues) => {
+    consultationMutation.mutate(data);
+  };
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Energy Conservation Services",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Advance Power Redding",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Redding",
+        "addressRegion": "CA"
+      }
+    },
+    "description": pageDescription,
+    "areaServed": "Northern California"
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -108,7 +196,13 @@ const EnergyConservation = () => {
   ];
 
   return (
-    <div className="py-16 sm:py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <MainLayout fullWidth={true}>
+      <SEOHead
+        title={pageTitle}
+        description={pageDescription}
+        structuredData={structuredData}
+      />
+      <div className="py-16 sm:py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
       {/* Hero Section with Live Metrics */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -1390,6 +1484,7 @@ const EnergyConservation = () => {
         </div>
       </div>
     </div>
+    </MainLayout>
   );
 };
 

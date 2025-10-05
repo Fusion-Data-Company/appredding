@@ -340,38 +340,60 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, isSelected, onToggle
       }}
       whileHover={{ scale: 1.02, y: -4 }}
       className={`
-        group relative
-        bg-gradient-to-br from-white via-cream-50 to-amber-50/30
+        group relative overflow-hidden
+        bg-gradient-to-br from-gray-800/95 via-gray-900/90 to-black/95
         backdrop-blur-sm
         rounded-2xl p-8
-        border-2 transition-all duration-300 ease-in-out
+        border-2 transition-all duration-500 ease-in-out
         ${isSelected 
-          ? 'border-amber-400 shadow-2xl shadow-amber-500/20 ring-4 ring-amber-200/50' 
-          : 'border-amber-200 shadow-xl hover:shadow-2xl hover:border-amber-300'
+          ? 'border-amber-500/60 shadow-2xl shadow-amber-900/60' 
+          : 'border-amber-500/30 shadow-2xl shadow-amber-900/40 hover:shadow-amber-900/70 hover:border-amber-500/50'
         }
       `}
     >
+      <div className="absolute inset-0 bg-gradient-to-br from-amber-600/5 via-transparent to-orange-600/5 opacity-50" />
+      <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-orange-500/5 rounded-full blur-3xl" />
+      
       {isSelected && (
-        <motion.div
-          className="absolute inset-0 rounded-2xl ring-4 ring-amber-400/30"
-          animate={{ 
-            scale: [1, 1.02, 1],
-            opacity: [0.5, 0.8, 0.5]
-          }}
-          transition={{ 
-            duration: 2, 
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
+        <>
+          <motion.div
+            className="absolute inset-0 rounded-2xl border-2 border-amber-400/40"
+            animate={{ 
+              scale: [1, 1.01, 1],
+              opacity: [0.3, 0.6, 0.3],
+              boxShadow: [
+                "0 0 20px rgba(251, 191, 36, 0.3)",
+                "0 0 40px rgba(251, 191, 36, 0.6)",
+                "0 0 20px rgba(251, 191, 36, 0.3)"
+              ]
+            }}
+            transition={{ 
+              duration: 2.5, 
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-400/10 to-transparent"
+            animate={{
+              x: ["-100%", "100%"]
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+          />
+        </>
       )}
       
-      <div className="flex gap-6">
+      <div className="relative z-10 flex gap-6">
         <div className="flex-shrink-0">
-          <div className="relative w-32 h-32 rounded-xl overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300">
+          <div className="relative w-32 h-32 rounded-xl overflow-hidden shadow-2xl shadow-amber-900/40 border-2 border-amber-500/20 group-hover:shadow-amber-900/60 group-hover:border-amber-500/40 transition-all duration-500">
             <motion.div 
-              className="absolute inset-0 bg-gradient-to-br from-amber-500/20 via-transparent to-orange-500/20 z-10"
-              whileHover={{ opacity: [0.2, 0.4, 0.2] }}
+              className="absolute inset-0 bg-gradient-to-br from-amber-500/30 via-transparent to-orange-500/30 z-10"
+              whileHover={{ opacity: [0.3, 0.6, 0.3] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             />
             <motion.img 
@@ -388,7 +410,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, isSelected, onToggle
           <div>
             <div className="flex items-start justify-between gap-4 mb-3">
               <motion.h3 
-                className="text-2xl font-bold text-gray-900 leading-tight group-hover:text-amber-700 transition-colors duration-300"
+                className="text-2xl font-bold text-white leading-tight group-hover:text-amber-300 transition-colors duration-300"
+                style={{ 
+                  textShadow: isSelected ? '0 0 20px rgba(251, 191, 36, 0.4)' : 'none'
+                }}
                 whileHover={{ x: 4 }}
                 transition={{ duration: 0.2 }}
               >
@@ -400,14 +425,16 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, isSelected, onToggle
                   checked={isSelected}
                   onCheckedChange={() => onToggle(product.id)}
                   disabled={isDisabled}
-                  className="border-2 border-amber-500 data-[state=checked]:bg-gradient-to-br data-[state=checked]:from-amber-500 data-[state=checked]:to-orange-500 data-[state=checked]:border-amber-500 disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200"
+                  className="border-2 border-amber-400/60 data-[state=checked]:bg-gradient-to-br data-[state=checked]:from-amber-500 data-[state=checked]:to-orange-500 data-[state=checked]:border-amber-400 data-[state=checked]:shadow-lg data-[state=checked]:shadow-amber-500/50 disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-300"
                 />
                 <Label 
                   htmlFor={`select-${product.id}`} 
                   className={`text-sm font-semibold cursor-pointer whitespace-nowrap transition-all duration-300 ${
                     isDisabled 
-                      ? 'text-gray-400' 
-                      : 'text-gray-800 hover:text-amber-600 hover:scale-105'
+                      ? 'text-gray-500' 
+                      : isSelected
+                      ? 'text-amber-300 hover:text-amber-200 hover:scale-105'
+                      : 'text-amber-100 hover:text-amber-300 hover:scale-105'
                   }`}
                 >
                   {isSelected ? 'Selected' : 'Compare'}
@@ -415,12 +442,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, isSelected, onToggle
               </div>
             </div>
             
-            <p className="text-sm text-gray-800 leading-relaxed mb-4 line-clamp-2 transition-colors duration-300 group-hover:text-gray-900">
+            <p className="text-sm text-amber-50/80 leading-relaxed mb-4 line-clamp-2 transition-colors duration-300 group-hover:text-amber-50">
               {product.description}
             </p>
           </div>
           
-          <div className="flex items-center justify-between gap-4 pt-2 border-t border-amber-100">
+          <div className="flex items-center justify-between gap-4 pt-2 border-t border-amber-500/20">
             <div className="flex items-center gap-2">
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, starIndex) => (
@@ -435,17 +462,17 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, isSelected, onToggle
                     <Star
                       className={`w-4 h-4 ${
                         starIndex < Math.floor(product.rating)
-                          ? 'fill-amber-400 text-amber-400'
+                          ? 'fill-amber-400 text-amber-400 drop-shadow-[0_0_6px_rgba(251,191,36,0.6)]'
                           : starIndex < product.rating
-                          ? 'fill-amber-200 text-amber-200'
-                          : 'fill-gray-200 text-gray-200'
-                      } transition-colors duration-300`}
+                          ? 'fill-amber-500/50 text-amber-500/50'
+                          : 'fill-gray-600 text-gray-600'
+                      } transition-all duration-300`}
                     />
                   </motion.div>
                 ))}
               </div>
               <motion.span 
-                className="text-sm font-semibold text-gray-800"
+                className="text-sm font-semibold text-amber-100"
                 whileHover={{ scale: 1.1 }}
               >
                 {product.rating.toFixed(1)}
@@ -457,10 +484,15 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, isSelected, onToggle
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
             >
-              <div className="text-2xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
+              <div 
+                className="text-2xl font-bold bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 bg-clip-text text-transparent"
+                style={{ 
+                  textShadow: '0 0 20px rgba(251, 191, 36, 0.8), 0 0 10px rgba(251, 191, 36, 0.5)'
+                }}
+              >
                 ${product.price.value.toLocaleString()}
               </div>
-              <div className="text-xs text-gray-600 font-medium">
+              <div className="text-xs text-amber-200/70 font-medium">
                 per {product.price.unit}
               </div>
             </motion.div>
@@ -501,19 +533,19 @@ const isImportantSpec = (specName: string): boolean => {
 const getValueColor = (specName: string, value: string | number): string => {
   if (specName.includes("Efficiency")) {
     const numValue = parseFloat(value.toString());
-    if (numValue >= 98) return "text-amber-700 font-bold";
-    if (numValue >= 97) return "text-amber-600 font-semibold";
-    return "text-gray-800";
+    if (numValue >= 98) return "text-amber-300 font-bold";
+    if (numValue >= 97) return "text-amber-400 font-semibold";
+    return "text-amber-100";
   }
   if (specName === "Warranty") {
     const yearMatch = value.toString().match(/(\d+)\s*years?/i);
     if (yearMatch) {
       const years = parseInt(yearMatch[1]);
-      if (years >= 20) return "text-amber-700 font-bold";
-      if (years >= 12) return "text-amber-600 font-semibold";
+      if (years >= 20) return "text-amber-300 font-bold";
+      if (years >= 12) return "text-amber-400 font-semibold";
     }
   }
-  return "text-gray-800";
+  return "text-white";
 };
 
 const ProductComparison = () => {
@@ -746,30 +778,103 @@ const ProductComparison = () => {
             {selectedProducts.length === 0 ? (
               <motion.div 
                 key="empty-state"
-                className="bg-gradient-to-br from-white via-cream-50 to-amber-50/30 backdrop-blur-sm rounded-3xl p-16 md:p-20 border-2 border-amber-200 shadow-2xl"
+                className="relative overflow-hidden bg-gradient-to-br from-gray-900/95 via-black/90 to-gray-900/95 backdrop-blur-xl rounded-3xl p-16 md:p-20 border-2 shadow-2xl shadow-amber-900/50"
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.4 }}
               >
-                <div className="text-center max-w-2xl mx-auto">
+                <motion.div
+                  className="absolute inset-0 border-2 border-amber-500/40 rounded-3xl"
+                  animate={{
+                    opacity: [0.3, 0.6, 0.3],
+                    boxShadow: [
+                      "0 0 30px rgba(251, 191, 36, 0.3), inset 0 0 30px rgba(251, 191, 36, 0.1)",
+                      "0 0 50px rgba(251, 191, 36, 0.5), inset 0 0 50px rgba(251, 191, 36, 0.2)",
+                      "0 0 30px rgba(251, 191, 36, 0.3), inset 0 0 30px rgba(251, 191, 36, 0.1)"
+                    ]
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+                
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-600/5 via-transparent to-orange-600/5" />
+                <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl" />
+                <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl" />
+                
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-400/5 to-transparent"
+                  animate={{
+                    x: ["-100%", "100%"]
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                />
+                
+                <div className="relative z-10 text-center max-w-2xl mx-auto">
                   <motion.div
+                    className="relative"
                     animate={{ 
-                      y: [0, -10, 0],
+                      y: [0, -15, 0],
                       rotate: [0, 5, -5, 0]
                     }}
                     transition={{ 
-                      duration: 3, 
+                      duration: 4, 
                       repeat: Infinity,
                       ease: "easeInOut"
                     }}
                   >
-                    <Sparkles className="w-20 h-20 mx-auto mb-6 text-amber-500" />
+                    <motion.div
+                      className="absolute inset-0 flex items-center justify-center"
+                      animate={{
+                        scale: [1, 1.3, 1],
+                        opacity: [0.3, 0.6, 0.3]
+                      }}
+                      transition={{
+                        duration: 2.5,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                    >
+                      <Sparkles 
+                        className="w-32 h-32 text-amber-400/40" 
+                        style={{
+                          filter: 'blur(8px) drop-shadow(0 0 30px rgba(251, 191, 36, 0.8))'
+                        }}
+                      />
+                    </motion.div>
+                    <Sparkles 
+                      className="relative w-28 h-28 mx-auto mb-8 text-amber-400" 
+                      style={{
+                        filter: 'drop-shadow(0 0 20px rgba(251, 191, 36, 0.9)) drop-shadow(0 0 40px rgba(251, 191, 36, 0.5))'
+                      }}
+                    />
                   </motion.div>
-                  <h3 className="text-3xl font-bold mb-4 text-gray-900">No Products Selected</h3>
-                  <p className="text-lg text-gray-700 leading-relaxed">
+                  <motion.h3 
+                    className="text-4xl md:text-5xl font-bold mb-6 text-white"
+                    style={{ 
+                      textShadow: '0 0 30px rgba(251, 191, 36, 0.6), 0 0 15px rgba(251, 191, 36, 0.4)' 
+                    }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                  >
+                    No Products Selected
+                  </motion.h3>
+                  <motion.p 
+                    className="text-lg md:text-xl text-amber-100/80 leading-relaxed"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.3 }}
+                  >
                     Select up to 3 inverters from the list above to compare their features, specifications, and pricing side by side.
-                  </p>
+                  </motion.p>
                 </div>
               </motion.div>
             ) : (
