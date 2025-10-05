@@ -14,39 +14,45 @@ import { RouteErrorBoundary } from "@/components/RouteErrorBoundary";
 import { NetworkStatus } from "@/components/NetworkStatus";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
-import CRM from "@/pages/CRM";
-import Cart from "@/pages/Cart";
-import Checkout from "@/pages/Checkout";
-import OrderConfirmation from "@/pages/OrderConfirmation";
-import ResidentialSolar from "@/pages/ResidentialSolar";
-import CommercialSolar from "@/pages/CommercialSolar";
-import HybridSolar from "@/pages/HybridSolar";
-import LithiumBattery from "@/pages/LithiumBattery";
-import EnergyConservation from "@/pages/EnergyConservation";
-import BatteryStorage from "@/pages/BatteryStorage";
-import Maintenance from "@/pages/Maintenance";
-import Repairs from "@/pages/Repairs";
-import BookAppointment from "@/pages/BookAppointment";
-import Portfolio from "@/pages/Portfolio"; 
-import ProductComparison from "@/pages/ProductComparison";
+import AuthPage from "@/pages/auth-page";
+
+const About = lazy(() => import('./pages/About'));
 const Products = lazy(() => import('./pages/Products'));
 const ROICalculator = lazy(() => import('./pages/ROICalculator'));
-import Technology from "@/pages/Technology";
-import AuthPage from "@/pages/auth-page";
-import ClientDashboard from "@/pages/client-dashboard";
-import AdminDashboard from "@/pages/admin-dashboard";
-const About = lazy(() => import('./pages/About'));
-import Team from "@/pages/Team";
-import Contact from "@/pages/Contact";
-import Commerce from "@/pages/Commerce";
-import TechnicalData from "@/pages/TechnicalData";
-import CrmLogin from "@/pages/crm-login";
-import EnterpriseCARM from "@/pages/EnterpriseCARM";
-import AnalyticsDashboard from "@/pages/AnalyticsDashboard";
-import InventoryPage from "@/pages/inventory";
-import RAGDocumentsPage from "@/pages/rag-documents";
-import ChatPage from "@/pages/chat";
-import DocumentChatInterface from "@/pages/DocumentChatInterface";
+const Technology = lazy(() => import('./pages/Technology'));
+const Team = lazy(() => import('./pages/Team'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Portfolio = lazy(() => import('./pages/Portfolio'));
+const TechnicalData = lazy(() => import('./pages/TechnicalData'));
+const BookAppointment = lazy(() => import('./pages/BookAppointment'));
+
+const AdminDashboard = lazy(() => import('./pages/admin-dashboard'));
+const ClientDashboard = lazy(() => import('./pages/client-dashboard'));
+const AnalyticsDashboard = lazy(() => import('./pages/AnalyticsDashboard'));
+
+const CRM = lazy(() => import('./pages/CRM'));
+const CrmLogin = lazy(() => import('./pages/crm-login'));
+const EnterpriseCARM = lazy(() => import('./pages/EnterpriseCARM'));
+
+const Cart = lazy(() => import('./pages/Cart'));
+const Checkout = lazy(() => import('./pages/Checkout'));
+const OrderConfirmation = lazy(() => import('./pages/OrderConfirmation'));
+const Commerce = lazy(() => import('./pages/Commerce'));
+const ProductComparison = lazy(() => import('./pages/ProductComparison'));
+
+const ResidentialSolar = lazy(() => import('./pages/ResidentialSolar'));
+const CommercialSolar = lazy(() => import('./pages/CommercialSolar'));
+const HybridSolar = lazy(() => import('./pages/HybridSolar'));
+const LithiumBattery = lazy(() => import('./pages/LithiumBattery'));
+const EnergyConservation = lazy(() => import('./pages/EnergyConservation'));
+const BatteryStorage = lazy(() => import('./pages/BatteryStorage'));
+const Maintenance = lazy(() => import('./pages/Maintenance'));
+const Repairs = lazy(() => import('./pages/Repairs'));
+
+const InventoryPage = lazy(() => import('./pages/inventory'));
+const RAGDocumentsPage = lazy(() => import('./pages/rag-documents'));
+const ChatPage = lazy(() => import('./pages/chat'));
+const DocumentChatInterface = lazy(() => import('./pages/DocumentChatInterface'));
 import { AuthProvider } from "@/hooks/use-auth";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
 import { SmoothScrollWrapper } from "@/components/ui/smooth-scroll-wrapper";
@@ -141,19 +147,63 @@ function Router() {
           <About />
         </Suspense>
       </Route>
-      <Route path="/team" component={Team} />
-      <Route path="/contact" component={Contact} />
-      <Route path="/portfolio" component={Portfolio} />
+      <Route path="/team">
+        <Suspense fallback={<SuspenseFallback message="Loading Team..." operationName="team-page" />}>
+          <Team />
+        </Suspense>
+      </Route>
+      <Route path="/contact">
+        <Suspense fallback={<SuspenseFallback message="Loading Contact..." operationName="contact-page" />}>
+          <Contact />
+        </Suspense>
+      </Route>
+      <Route path="/portfolio">
+        <Suspense fallback={<SuspenseFallback message="Loading Portfolio..." operationName="portfolio-page" />}>
+          <Portfolio />
+        </Suspense>
+      </Route>
       
       {/* Services Pages */}
-      <Route path="/services/residential-solar" component={ResidentialSolar} />
-      <Route path="/services/commercial-solar" component={CommercialSolar} />
-      <Route path="/services/hybrid-solar" component={HybridSolar} />
-      <Route path="/services/battery-storage" component={BatteryStorage} />
-      <Route path="/services/maintenance" component={Maintenance} />
-      <Route path="/services/repairs" component={Repairs} />
-      <Route path="/services/energy-conservation" component={EnergyConservation} />
-      <Route path="/services/lithium-battery" component={LithiumBattery} />
+      <Route path="/services/residential-solar">
+        <Suspense fallback={<SuspenseFallback message="Loading..." operationName="residential-solar" />}>
+          <ResidentialSolar />
+        </Suspense>
+      </Route>
+      <Route path="/services/commercial-solar">
+        <Suspense fallback={<SuspenseFallback message="Loading..." operationName="commercial-solar" />}>
+          <CommercialSolar />
+        </Suspense>
+      </Route>
+      <Route path="/services/hybrid-solar">
+        <Suspense fallback={<SuspenseFallback message="Loading..." operationName="hybrid-solar" />}>
+          <HybridSolar />
+        </Suspense>
+      </Route>
+      <Route path="/services/battery-storage">
+        <Suspense fallback={<SuspenseFallback message="Loading..." operationName="battery-storage" />}>
+          <BatteryStorage />
+        </Suspense>
+      </Route>
+      <Route path="/services/maintenance">
+        <Suspense fallback={<SuspenseFallback message="Loading..." operationName="maintenance" />}>
+          <Maintenance />
+        </Suspense>
+      </Route>
+      <Route path="/services/repairs">
+        <Suspense fallback={<SuspenseFallback message="Loading..." operationName="repairs" />}>
+          <Repairs />
+        </Suspense>
+      </Route>
+      <Route path="/services/energy-conservation">
+        <Suspense fallback={<SuspenseFallback message="Loading..." operationName="energy-conservation" />}>
+          <EnergyConservation />
+        </Suspense>
+      </Route>
+      <Route path="/services/lithium-battery">
+        <Suspense fallback={<SuspenseFallback message="Loading..." operationName="lithium-battery" />}>
+          <LithiumBattery />
+        </Suspense>
+      </Route>
       
       
       {/* Commerce Pages */}
@@ -162,10 +212,26 @@ function Router() {
           <Products />
         </Suspense>
       </Route>
-      <Route path="/shop/cart" component={Cart} />
-      <Route path="/shop/checkout" component={Checkout} />
-      <Route path="/shop/order/confirmation/:orderNumber" component={OrderConfirmation} />
-      <Route path="/comparison" component={ProductComparison} />
+      <Route path="/shop/cart">
+        <Suspense fallback={<SuspenseFallback message="Loading Cart..." operationName="cart-page" />}>
+          <Cart />
+        </Suspense>
+      </Route>
+      <Route path="/shop/checkout">
+        <Suspense fallback={<SuspenseFallback message="Loading Checkout..." operationName="checkout-page" />}>
+          <Checkout />
+        </Suspense>
+      </Route>
+      <Route path="/shop/order/confirmation/:orderNumber">
+        <Suspense fallback={<SuspenseFallback message="Loading..." operationName="order-confirmation" />}>
+          <OrderConfirmation />
+        </Suspense>
+      </Route>
+      <Route path="/comparison">
+        <Suspense fallback={<SuspenseFallback message="Loading..." operationName="comparison" />}>
+          <ProductComparison />
+        </Suspense>
+      </Route>
       
       {/* Resources Pages */}
       <Route path="/resources/technology">
@@ -173,48 +239,148 @@ function Router() {
           <Technology />
         </Suspense>
       </Route>
-      <Route path="/resources/technical-data" component={TechnicalData} />
+      <Route path="/resources/technical-data">
+        <Suspense fallback={<SuspenseFallback message="Loading..." operationName="technical-data" />}>
+          <TechnicalData />
+        </Suspense>
+      </Route>
       <Route path="/resources/roi-calculator">
         <Suspense fallback={<SuspenseFallback message="Loading ROI Calculator..." operationName="roi-calculator-page" />}>
           <ROICalculator />
         </Suspense>
       </Route>
-      <Route path="/resources/book-appointment" component={BookAppointment} />
+      <Route path="/resources/book-appointment">
+        <Suspense fallback={<SuspenseFallback message="Loading..." operationName="book-appointment" />}>
+          <BookAppointment />
+        </Suspense>
+      </Route>
       
       {/* Platform Pages */}
-      <Route path="/platform/crm" component={CRM} />
-      <Route path="/platform/analytics" component={AnalyticsDashboard} />
-      <Route path="/platform/inventory" component={InventoryPage} />
+      <Route path="/platform/crm">
+        <Suspense fallback={<SuspenseFallback message="Loading CRM..." operationName="crm-page" />}>
+          <CRM />
+        </Suspense>
+      </Route>
+      <Route path="/platform/analytics">
+        <Suspense fallback={<SuspenseFallback message="Loading Analytics..." operationName="analytics-page" />}>
+          <AnalyticsDashboard />
+        </Suspense>
+      </Route>
+      <Route path="/platform/inventory">
+        <Suspense fallback={<SuspenseFallback message="Loading Inventory..." operationName="inventory-page" />}>
+          <InventoryPage />
+        </Suspense>
+      </Route>
       <Route path="/auth" component={AuthPage} />
       <ProtectedRoute path="/admin" component={AdminDashboard} adminOnly={true} />
       <ProtectedRoute path="/dashboard" component={ClientDashboard} />
       
       {/* Legacy routes - temporarily kept for compatibility - will be removed later */}
-      <Route path="/crm" component={CRM} />
-      <Route path="/crm-login" component={CrmLogin} />
-      <Route path="/enterprise-carm" component={EnterpriseCARM} />
-      <Route path="/commerce" component={Commerce} />
-      <Route path="/rag-documents" component={RAGDocumentsPage} />
-      <Route path="/chat" component={ChatPage} />
-      <Route path="/document-chat" component={DocumentChatInterface} />
-      <Route path="/residential-solar" component={ResidentialSolar} />
-      <Route path="/commercial-solar" component={CommercialSolar} />
-      <Route path="/hybrid-solar" component={HybridSolar} />
-      <Route path="/battery-storage" component={BatteryStorage} />
-      <Route path="/maintenance" component={Maintenance} />
-      <Route path="/repairs" component={Repairs} />
-      <Route path="/energy-conservation" component={EnergyConservation} />
-      <Route path="/lithium-battery" component={LithiumBattery} />
+      <Route path="/crm">
+        <Suspense fallback={<SuspenseFallback message="Loading CRM..." operationName="crm-page" />}>
+          <CRM />
+        </Suspense>
+      </Route>
+      <Route path="/crm-login">
+        <Suspense fallback={<SuspenseFallback message="Loading..." operationName="crm-login" />}>
+          <CrmLogin />
+        </Suspense>
+      </Route>
+      <Route path="/enterprise-carm">
+        <Suspense fallback={<SuspenseFallback message="Loading..." operationName="enterprise-carm" />}>
+          <EnterpriseCARM />
+        </Suspense>
+      </Route>
+      <Route path="/commerce">
+        <Suspense fallback={<SuspenseFallback message="Loading..." operationName="commerce" />}>
+          <Commerce />
+        </Suspense>
+      </Route>
+      <Route path="/rag-documents">
+        <Suspense fallback={<SuspenseFallback message="Loading..." operationName="rag-documents" />}>
+          <RAGDocumentsPage />
+        </Suspense>
+      </Route>
+      <Route path="/chat">
+        <Suspense fallback={<SuspenseFallback message="Loading Chat..." operationName="chat-page" />}>
+          <ChatPage />
+        </Suspense>
+      </Route>
+      <Route path="/document-chat">
+        <Suspense fallback={<SuspenseFallback message="Loading..." operationName="document-chat" />}>
+          <DocumentChatInterface />
+        </Suspense>
+      </Route>
+      <Route path="/residential-solar">
+        <Suspense fallback={<SuspenseFallback message="Loading..." operationName="residential-solar" />}>
+          <ResidentialSolar />
+        </Suspense>
+      </Route>
+      <Route path="/commercial-solar">
+        <Suspense fallback={<SuspenseFallback message="Loading..." operationName="commercial-solar" />}>
+          <CommercialSolar />
+        </Suspense>
+      </Route>
+      <Route path="/hybrid-solar">
+        <Suspense fallback={<SuspenseFallback message="Loading..." operationName="hybrid-solar" />}>
+          <HybridSolar />
+        </Suspense>
+      </Route>
+      <Route path="/battery-storage">
+        <Suspense fallback={<SuspenseFallback message="Loading..." operationName="battery-storage" />}>
+          <BatteryStorage />
+        </Suspense>
+      </Route>
+      <Route path="/maintenance">
+        <Suspense fallback={<SuspenseFallback message="Loading..." operationName="maintenance" />}>
+          <Maintenance />
+        </Suspense>
+      </Route>
+      <Route path="/repairs">
+        <Suspense fallback={<SuspenseFallback message="Loading..." operationName="repairs" />}>
+          <Repairs />
+        </Suspense>
+      </Route>
+      <Route path="/energy-conservation">
+        <Suspense fallback={<SuspenseFallback message="Loading..." operationName="energy-conservation" />}>
+          <EnergyConservation />
+        </Suspense>
+      </Route>
+      <Route path="/lithium-battery">
+        <Suspense fallback={<SuspenseFallback message="Loading..." operationName="lithium-battery" />}>
+          <LithiumBattery />
+        </Suspense>
+      </Route>
       <Route path="/products">
         <Suspense fallback={<SuspenseFallback message="Loading Products..." operationName="products-page" />}>
           <Products />
         </Suspense>
       </Route>
-      <Route path="/cart" component={Cart} />
-      <Route path="/checkout" component={Checkout} />
-      <Route path="/product-comparison" component={ProductComparison} />
-      <Route path="/book-appointment" component={BookAppointment} />
-      <Route path="/technical-data" component={TechnicalData} />
+      <Route path="/cart">
+        <Suspense fallback={<SuspenseFallback message="Loading Cart..." operationName="cart-page" />}>
+          <Cart />
+        </Suspense>
+      </Route>
+      <Route path="/checkout">
+        <Suspense fallback={<SuspenseFallback message="Loading Checkout..." operationName="checkout-page" />}>
+          <Checkout />
+        </Suspense>
+      </Route>
+      <Route path="/product-comparison">
+        <Suspense fallback={<SuspenseFallback message="Loading..." operationName="comparison" />}>
+          <ProductComparison />
+        </Suspense>
+      </Route>
+      <Route path="/book-appointment">
+        <Suspense fallback={<SuspenseFallback message="Loading..." operationName="book-appointment" />}>
+          <BookAppointment />
+        </Suspense>
+      </Route>
+      <Route path="/technical-data">
+        <Suspense fallback={<SuspenseFallback message="Loading..." operationName="technical-data" />}>
+          <TechnicalData />
+        </Suspense>
+      </Route>
       <Route path="/technology">
         <Suspense fallback={<SuspenseFallback message="Loading Technology..." operationName="technology-page" />}>
           <Technology />
@@ -225,8 +391,16 @@ function Router() {
           <ROICalculator />
         </Suspense>
       </Route>
-      <Route path="/analytics" component={AnalyticsDashboard} />
-      <Route path="/inventory" component={InventoryPage} />
+      <Route path="/analytics">
+        <Suspense fallback={<SuspenseFallback message="Loading Analytics..." operationName="analytics-page" />}>
+          <AnalyticsDashboard />
+        </Suspense>
+      </Route>
+      <Route path="/inventory">
+        <Suspense fallback={<SuspenseFallback message="Loading Inventory..." operationName="inventory-page" />}>
+          <InventoryPage />
+        </Suspense>
+      </Route>
       
       {/* Fallback to 404 */}
       <Route component={NotFound} />

@@ -1,6 +1,8 @@
 import { useAuth } from "@/hooks/use-auth";
 import { Loader2 } from "lucide-react";
 import { Redirect, Route } from "wouter";
+import { Suspense } from "react";
+import { SuspenseFallback } from "@/components/ui/enhanced-loading";
 
 type ProtectedRouteProps = {
   component: React.ComponentType<any>;
@@ -50,8 +52,12 @@ export function ProtectedRoute({
           );
         }
 
-        // If authenticated and authorized, render the component
-        return <Component {...params} />;
+        // If authenticated and authorized, render the component with Suspense for lazy loading
+        return (
+          <Suspense fallback={<SuspenseFallback message="Loading..." operationName="protected-route" />}>
+            <Component {...params} />
+          </Suspense>
+        );
       }}
     </Route>
   );
