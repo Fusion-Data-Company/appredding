@@ -286,23 +286,16 @@ const SolarWaveHero: React.FC<SolarWaveHeroProps> = ({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="mb-6 text-5xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl"
+              className="mb-6 text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl"
             >
-              <ShimmerText className="text-5xl sm:text-6xl lg:text-7xl font-bold">
-                {title}
+              <ShimmerText className="text-5xl sm:text-6xl lg:text-7xl font-bold drop-shadow-2xl">
+                Residential Solar Installation
               </ShimmerText>
-            </motion.h1>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="mb-6"
-            >
-              <h2 className="text-2xl md:text-3xl font-semibold text-blue-200">
+              <br />
+              <span className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent font-extrabold tracking-wide">
                 Advance Power Redding
-              </h2>
-            </motion.div>
+              </span>
+            </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}

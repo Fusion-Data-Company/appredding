@@ -255,11 +255,13 @@ const CommercialSolarWaveHero: React.FC<CommercialSolarWaveHeroProps> = ({
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
           >
-            <span className="bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-500 bg-clip-text text-transparent">
-              {title}
+            <span className="bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-500 bg-clip-text text-transparent drop-shadow-2xl font-extrabold">
+              Commercial Solar Installation
             </span>
             <br />
-            <span className="text-white">Advance Power Redding</span>
+            <span className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent font-extrabold tracking-wide">
+              Advance Power Redding
+            </span>
           </motion.h1>
 
           {/* Subtitle */}

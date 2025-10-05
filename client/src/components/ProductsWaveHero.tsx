@@ -286,14 +286,14 @@ const ProductsWaveHero: React.FC<ProductsWaveHeroProps> = ({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="mb-6 text-5xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl"
+              className="mb-6 text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl"
             >
-              <span className="text-white">Advance Power </span>
-              <ShimmerText className="text-5xl sm:text-6xl lg:text-7xl font-bold">
-                {title}
+              <span className="bg-gradient-to-r from-white via-amber-100 to-white bg-clip-text text-transparent font-extrabold">Advance Power </span>
+              <ShimmerText className="text-5xl sm:text-6xl lg:text-7xl font-bold drop-shadow-2xl">
+                Solar Products
               </ShimmerText>
               <br />
-              <span className="text-white">Redding</span>
+              <span className="bg-gradient-to-r from-amber-400 via-orange-400 to-amber-500 bg-clip-text text-transparent font-extrabold tracking-wide">Redding</span>
             </motion.h1>
 
             <motion.p

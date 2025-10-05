@@ -277,34 +277,34 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
             <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-primary via-orange-500 to-amber-500 bg-clip-text text-transparent">
               Common Solar Panel Issues
             </h2>
-            <div className="relative overflow-hidden rounded-xl p-8 backdrop-blur-sm bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/90 dark:to-purple-800/90 ring-2 ring-purple-300/80 dark:ring-purple-600/80 shadow-lg shadow-purple-200/50 dark:shadow-purple-900/50 mb-12">
+            <div className="relative overflow-hidden rounded-xl p-8 backdrop-blur-sm bg-gradient-to-br from-blue-50 to-cyan-100 dark:from-blue-900/90 dark:to-cyan-800/90 ring-2 ring-cyan-300/80 dark:ring-cyan-600/80 shadow-lg shadow-cyan-200/50 dark:shadow-cyan-900/50 mb-12">
               <span className="pointer-events-none absolute -right-6 -top-6 inline-flex h-16 w-16 rounded-full bg-white/30 dark:bg-white/10" />
               <span className="pointer-events-none absolute -right-2 -top-2 inline-flex h-8 w-8 rounded-full bg-white/40 dark:bg-white/15" />
               <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 pointer-events-none" />
               
               <ul className="space-y-4 relative z-10">
-                <li className="flex items-start gap-3 text-purple-900 dark:text-purple-100">
-                  <span className="text-purple-700 dark:text-purple-300 font-bold text-xl leading-none">•</span>
+                <li className="flex items-start gap-3 text-blue-900 dark:text-cyan-100">
+                  <span className="text-cyan-700 dark:text-cyan-300 font-bold text-xl leading-none">•</span>
                   <span className="font-medium">Reduced energy output and efficiency loss</span>
                 </li>
-                <li className="flex items-start gap-3 text-purple-900 dark:text-purple-100">
-                  <span className="text-purple-700 dark:text-purple-300 font-bold text-xl leading-none">•</span>
+                <li className="flex items-start gap-3 text-blue-900 dark:text-cyan-100">
+                  <span className="text-cyan-700 dark:text-cyan-300 font-bold text-xl leading-none">•</span>
                   <span className="font-medium">Physical damage from weather or debris</span>
                 </li>
-                <li className="flex items-start gap-3 text-purple-900 dark:text-purple-100">
-                  <span className="text-purple-700 dark:text-purple-300 font-bold text-xl leading-none">•</span>
+                <li className="flex items-start gap-3 text-blue-900 dark:text-cyan-100">
+                  <span className="text-cyan-700 dark:text-cyan-300 font-bold text-xl leading-none">•</span>
                   <span className="font-medium">Inverter malfunctions and electrical issues</span>
                 </li>
-                <li className="flex items-start gap-3 text-purple-900 dark:text-purple-100">
-                  <span className="text-purple-700 dark:text-purple-300 font-bold text-xl leading-none">•</span>
+                <li className="flex items-start gap-3 text-blue-900 dark:text-cyan-100">
+                  <span className="text-cyan-700 dark:text-cyan-300 font-bold text-xl leading-none">•</span>
                   <span className="font-medium">Wiring problems and connection failures</span>
                 </li>
-                <li className="flex items-start gap-3 text-purple-900 dark:text-purple-100">
-                  <span className="text-purple-700 dark:text-purple-300 font-bold text-xl leading-none">•</span>
+                <li className="flex items-start gap-3 text-blue-900 dark:text-cyan-100">
+                  <span className="text-cyan-700 dark:text-cyan-300 font-bold text-xl leading-none">•</span>
                   <span className="font-medium">Monitoring system errors and communication loss</span>
                 </li>
               </ul>
-              <div className="bg-purple-700/40 dark:bg-purple-300/40 mt-6 h-0.5 w-24 rounded opacity-60" />
+              <div className="bg-cyan-700/40 dark:bg-cyan-300/40 mt-6 h-0.5 w-24 rounded opacity-60" />
             </div>
 
             <div className="text-center">
