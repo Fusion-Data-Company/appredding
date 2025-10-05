@@ -65,7 +65,6 @@ import { motion } from "framer-motion";
 import SEOHead from "@/components/SEOHead";
 import SolarRescueTimelineSection from "@/sections/SolarRescueTimelineSection";
 import ContentSection from "@/components/sections/ContentSection";
-import { GlassyMetallicCard } from '@/components/ui/glassy-metallic-card';
 
 type HybridSolarFormValues = z.infer<typeof insertFirePreventionHomeownerSchema>;
 
@@ -148,6 +147,17 @@ const HybridSolar = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black/80" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* PSPS/Grid Failure Alert */}
+          <div className="bg-orange-900/20 border border-orange-500/50 backdrop-blur-sm rounded-xl p-4 mb-8">
+            <div className="flex items-center gap-3">
+              <WifiOff className="h-6 w-6 text-orange-400 animate-pulse" />
+              <div className="flex-1">
+                <p className="text-orange-300 font-semibold">CRITICAL: California PSPS Events Increasing 300% Year-Over-Year</p>
+                <p className="text-gray-400 text-sm mt-1">Tier 2/3 fire zones experience 48-72 hour power shutoffs • Grid-tied solar provides ZERO backup without batteries</p>
+              </div>
+            </div>
+          </div>
+
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/30 rounded-full px-4 py-2 mb-6">
               <GitBranch className="h-4 w-4 text-green-400" />
@@ -162,17 +172,6 @@ const HybridSolar = () => {
             <p className="text-lg text-gray-400 max-w-4xl mx-auto mb-8">
               AC/DC coupled architecture • Critical load panels • Generator integration • PSPS protection for Tier 2/3 wildfire zones
             </p>
-
-            {/* PSPS/Grid Failure Alert */}
-            <div className="bg-orange-900/20 border border-orange-500/50 backdrop-blur-sm rounded-xl p-4 mb-8">
-              <div className="flex items-center gap-3">
-                <WifiOff className="h-6 w-6 text-orange-400 animate-pulse" />
-                <div className="flex-1">
-                  <p className="text-orange-300 font-semibold">CRITICAL: California PSPS Events Increasing 300% Year-Over-Year</p>
-                  <p className="text-gray-400 text-sm mt-1">Tier 2/3 fire zones experience 48-72 hour power shutoffs • Grid-tied solar provides ZERO backup without batteries</p>
-                </div>
-              </div>
-            </div>
 
             {/* Live System Status Bar */}
             <div className="flex flex-wrap justify-center gap-4 mb-8 text-sm">
@@ -219,125 +218,129 @@ const HybridSolar = () => {
 
           {/* Enhanced Technical Specifications Grid */}
           <div className="grid lg:grid-cols-4 gap-4 mb-12">
-            <GlassyMetallicCard
-              icon={Cpu}
-              title="Sol-Ark Hybrid"
-              description="Dual-mode inverter specifications"
-              accentColor="green"
-            >
+            <div className="bg-gradient-to-br from-green-500/10 to-green-600/5 backdrop-blur-sm rounded-2xl p-6 border border-green-500/30 hover:border-green-400 transition-all group">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-3 bg-green-500/20 rounded-lg group-hover:bg-green-500/30 transition-colors">
+                  <Cpu className="h-6 w-6 text-green-400" />
+                </div>
+                <h3 className="text-lg font-bold text-white">Sol-Ark Hybrid</h3>
+              </div>
               <div className="space-y-3">
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Model:</span>
-                  <span className="text-green-600 font-mono font-semibold">12K/15K</span>
+                  <span className="text-gray-400">Model:</span>
+                  <span className="text-green-300 font-mono">12K/15K</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Grid-Tie:</span>
-                  <span className="text-green-600 font-mono font-semibold">12/15kW</span>
+                  <span className="text-gray-400">Grid-Tie:</span>
+                  <span className="text-green-300 font-mono">12/15kW</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Off-Grid:</span>
-                  <span className="text-green-600 font-mono font-semibold">9/12kW</span>
+                  <span className="text-gray-400">Off-Grid:</span>
+                  <span className="text-green-300 font-mono">9/12kW</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Surge:</span>
-                  <span className="text-green-600 font-mono font-semibold">20/23kW</span>
+                  <span className="text-gray-400">Surge:</span>
+                  <span className="text-green-300 font-mono">20/23kW</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Transfer:</span>
-                  <span className="text-green-600 font-mono font-semibold">&lt;4ms UPS</span>
+                  <span className="text-gray-400">Transfer:</span>
+                  <span className="text-green-300 font-mono">&lt;4ms UPS</span>
                 </div>
               </div>
-            </GlassyMetallicCard>
+            </div>
 
-            <GlassyMetallicCard
-              icon={ToggleRight}
-              title="Auto Transfer"
-              description="Seamless grid to off-grid switching"
-              accentColor="blue"
-            >
+            <div className="bg-gradient-to-br from-blue-500/10 to-blue-600/5 backdrop-blur-sm rounded-2xl p-6 border border-blue-500/30 hover:border-blue-400 transition-all group">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-3 bg-blue-500/20 rounded-lg group-hover:bg-blue-500/30 transition-colors">
+                  <ToggleRight className="h-6 w-6 text-blue-400" />
+                </div>
+                <h3 className="text-lg font-bold text-white">Auto Transfer</h3>
+              </div>
               <div className="space-y-3">
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Detection:</span>
-                  <span className="text-blue-600 font-mono font-semibold">&lt;100ms</span>
+                  <span className="text-gray-400">Detection:</span>
+                  <span className="text-blue-300 font-mono">&lt;100ms</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Switch:</span>
-                  <span className="text-blue-600 font-mono font-semibold">&lt;10ms</span>
+                  <span className="text-gray-400">Switch:</span>
+                  <span className="text-blue-300 font-mono">&lt;10ms</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Mode:</span>
-                  <span className="text-blue-600 font-mono font-semibold">Seamless</span>
+                  <span className="text-gray-400">Mode:</span>
+                  <span className="text-blue-300 font-mono">Seamless</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Priority:</span>
-                  <span className="text-blue-600 font-mono font-semibold">Critical</span>
+                  <span className="text-gray-400">Priority:</span>
+                  <span className="text-blue-300 font-mono">Critical</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Gen Start:</span>
-                  <span className="text-blue-600 font-mono font-semibold">Auto AGS</span>
+                  <span className="text-gray-400">Gen Start:</span>
+                  <span className="text-blue-300 font-mono">Auto AGS</span>
                 </div>
               </div>
-            </GlassyMetallicCard>
+            </div>
 
-            <GlassyMetallicCard
-              icon={HardDrive}
-              title="Battery Backup"
-              description="LiFePO4 energy storage system"
-              accentColor="orange"
-            >
+            <div className="bg-gradient-to-br from-orange-500/10 to-orange-600/5 backdrop-blur-sm rounded-2xl p-6 border border-orange-500/30 hover:border-orange-400 transition-all group">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-3 bg-orange-500/20 rounded-lg group-hover:bg-orange-500/30 transition-colors">
+                  <HardDrive className="h-6 w-6 text-orange-400" />
+                </div>
+                <h3 className="text-lg font-bold text-white">Battery Backup</h3>
+              </div>
               <div className="space-y-3">
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Capacity:</span>
-                  <span className="text-orange-600 font-mono font-semibold">15-30kWh</span>
+                  <span className="text-gray-400">Capacity:</span>
+                  <span className="text-orange-300 font-mono">15-30kWh</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Chemistry:</span>
-                  <span className="text-orange-600 font-mono font-semibold">LiFePO4</span>
+                  <span className="text-gray-400">Chemistry:</span>
+                  <span className="text-orange-300 font-mono">LiFePO4</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Runtime:</span>
-                  <span className="text-orange-600 font-mono font-semibold">8-24hrs</span>
+                  <span className="text-gray-400">Runtime:</span>
+                  <span className="text-orange-300 font-mono">8-24hrs</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Cycles:</span>
-                  <span className="text-orange-600 font-mono font-semibold">6000+</span>
+                  <span className="text-gray-400">Cycles:</span>
+                  <span className="text-orange-300 font-mono">6000+</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Warranty:</span>
-                  <span className="text-orange-600 font-mono font-semibold">10 years</span>
+                  <span className="text-gray-400">Warranty:</span>
+                  <span className="text-orange-300 font-mono">10 years</span>
                 </div>
               </div>
-            </GlassyMetallicCard>
+            </div>
 
-            <GlassyMetallicCard
-              icon={Monitor}
-              title="Smart Control"
-              description="Intelligent monitoring and automation"
-              accentColor="purple"
-            >
+            <div className="bg-gradient-to-br from-purple-500/10 to-purple-600/5 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/30 hover:border-purple-400 transition-all group">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-3 bg-purple-500/20 rounded-lg group-hover:bg-purple-500/30 transition-colors">
+                  <Monitor className="h-6 w-6 text-purple-400" />
+                </div>
+                <h3 className="text-lg font-bold text-white">Smart Control</h3>
+              </div>
               <div className="space-y-3">
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Monitor:</span>
-                  <span className="text-purple-600 font-mono font-semibold">24/7 App</span>
+                  <span className="text-gray-400">Monitor:</span>
+                  <span className="text-purple-300 font-mono">24/7 App</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Loads:</span>
-                  <span className="text-purple-600 font-mono font-semibold">Priority</span>
+                  <span className="text-gray-400">Loads:</span>
+                  <span className="text-purple-300 font-mono">Priority</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">TOU:</span>
-                  <span className="text-purple-600 font-mono font-semibold">Optimized</span>
+                  <span className="text-gray-400">TOU:</span>
+                  <span className="text-purple-300 font-mono">Optimized</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Remote:</span>
-                  <span className="text-purple-600 font-mono font-semibold">Full Control</span>
+                  <span className="text-gray-400">Remote:</span>
+                  <span className="text-purple-300 font-mono">Full Control</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Updates:</span>
-                  <span className="text-purple-600 font-mono font-semibold">OTA</span>
+                  <span className="text-gray-400">Updates:</span>
+                  <span className="text-purple-300 font-mono">OTA</span>
                 </div>
               </div>
-            </GlassyMetallicCard>
+            </div>
           </div>
 
           {/* Critical Application Matrix */}

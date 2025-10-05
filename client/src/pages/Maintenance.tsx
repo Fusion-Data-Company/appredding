@@ -364,12 +364,34 @@ const Maintenance = () => {
 
   return (
     <div className="py-16 sm:py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
-      {/* Hero Section */}
+      {/* Critical Alert Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-gradient-to-r from-red-600 to-orange-600 rounded-2xl p-4 text-white"
+        >
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <AlertOctagon className="h-8 w-8 animate-pulse" />
+              <div>
+                <h3 className="text-lg font-bold">{criticalAlert.title}</h3>
+                <p className="text-sm text-red-100">{criticalAlert.subtitle}</p>
+              </div>
+            </div>
+            <button className="bg-white text-red-600 px-4 py-2 rounded-lg font-semibold hover:bg-red-50 transition">
+              {criticalAlert.action}
+            </button>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Hero Section with Enhanced Live Metrics */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-gradient-to-r from-green-600 to-blue-700 rounded-3xl p-8 mb-12 text-white relative overflow-hidden"
+          className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-3xl p-8 mb-12 text-white relative overflow-hidden"
         >
           <div className="absolute inset-0 bg-circuit-pattern opacity-10"></div>
           <div className="relative z-10">
@@ -377,41 +399,25 @@ const Maintenance = () => {
               <Settings className="h-8 w-8" />
               <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">Professional Solar Care</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl font-bold mb-4">Professional Solar Maintenance Services</h1>
-            <p className="text-xl mb-6 text-green-100">Protect your investment with expert maintenance - Annual service requirements, warranty protection, performance optimization</p>
+            <h1 className="text-4xl sm:text-5xl font-bold mb-4">Advanced Maintenance & Diagnostics</h1>
+            <p className="text-xl mb-6 text-purple-100">Maximize efficiency • Extend system life • Ensure compliance • Protect your investment</p>
 
-            {/* Critical Maintenance Alert */}
-            <div className="bg-red-600/90 backdrop-blur rounded-2xl p-4 mb-6">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <AlertOctagon className="h-8 w-8 animate-pulse" />
-                  <div>
-                    <h3 className="text-lg font-bold">{criticalAlert.title}</h3>
-                    <p className="text-sm text-red-100">{criticalAlert.subtitle}</p>
-                  </div>
-                </div>
-                <button className="bg-white text-red-600 px-4 py-2 rounded-lg font-semibold hover:bg-red-50 transition whitespace-nowrap">
-                  {criticalAlert.action}
-                </button>
-              </div>
-            </div>
-
-            {/* Live System Metrics */}
+            {/* Enhanced Live System Metrics */}
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-6">
               <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <Activity className="h-5 w-5 mb-2 text-green-200" />
+                <Activity className="h-5 w-5 mb-2 text-purple-200" />
                 <div className="text-2xl font-bold">{efficiencyLevel.toFixed(1)}%</div>
-                <div className="text-sm text-green-200">Efficiency</div>
+                <div className="text-sm text-purple-200">Efficiency</div>
               </div>
               <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <Gauge className="h-5 w-5 mb-2 text-blue-200" />
+                <Gauge className="h-5 w-5 mb-2 text-indigo-200" />
                 <div className="text-2xl font-bold">{performanceRatio.toFixed(2)}</div>
-                <div className="text-sm text-blue-200">PR Score</div>
+                <div className="text-sm text-indigo-200">PR Score</div>
               </div>
               <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <Timer className="h-5 w-5 mb-2 text-cyan-200" />
+                <Timer className="h-5 w-5 mb-2 text-pink-200" />
                 <div className="text-2xl font-bold">{Math.floor(cleaningDue)}d</div>
-                <div className="text-sm text-cyan-200">Next Clean</div>
+                <div className="text-sm text-pink-200">Next Clean</div>
               </div>
               <div className="bg-white/10 backdrop-blur rounded-xl p-4">
                 <TrendingDown className="h-5 w-5 mb-2 text-yellow-200" />
@@ -419,19 +425,19 @@ const Maintenance = () => {
                 <div className="text-sm text-yellow-200">Degradation/yr</div>
               </div>
               <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <Shield className="h-5 w-5 mb-2 text-emerald-200" />
+                <Shield className="h-5 w-5 mb-2 text-green-200" />
                 <div className="text-2xl font-bold">{uptime.toFixed(1)}%</div>
-                <div className="text-sm text-emerald-200">Uptime</div>
+                <div className="text-sm text-green-200">Uptime</div>
               </div>
               <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <Calendar className="h-5 w-5 mb-2 text-sky-200" />
+                <Calendar className="h-5 w-5 mb-2 text-blue-200" />
                 <div className="text-2xl font-bold">{systemAge}yr</div>
-                <div className="text-sm text-sky-200">System Age</div>
+                <div className="text-sm text-blue-200">System Age</div>
               </div>
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <button className="bg-white text-green-600 px-6 py-3 rounded-xl font-semibold hover:bg-green-50 transition flex items-center gap-2">
+              <button className="bg-white text-purple-600 px-6 py-3 rounded-xl font-semibold hover:bg-purple-50 transition flex items-center gap-2">
                 Schedule Service <Calendar className="h-5 w-5" />
               </button>
               <button className="bg-white/20 backdrop-blur text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/30 transition flex items-center gap-2">

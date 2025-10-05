@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { LucideIcon } from 'lucide-react';
-import { GlassyMetallicCard } from '@/components/ui/glassy-metallic-card';
 
 export interface Feature {
   icon: React.ReactNode | LucideIcon;
@@ -144,14 +143,35 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({
             <motion.div
               key={index}
               variants={itemVariants}
-              className={`${feature.highlight ? 'md:col-span-2' : ''}`}
+              className={`relative group ${feature.highlight ? 'md:col-span-2' : ''}`}
             >
-              <GlassyMetallicCard
-                icon={feature.icon as React.ElementType}
-                title={feature.title}
-                description={feature.description}
-                accentColor={accentColor}
-              />
+              <div className={`
+                h-full p-6 rounded-xl transition-all duration-300
+                ${feature.highlight 
+                  ? `bg-gradient-to-br ${accent.highlight} border ${accent.border}` 
+                  : 'bg-gray-800/50 border border-gray-700 hover:bg-gray-800/70'
+                }
+                backdrop-blur-sm hover:scale-105 hover:shadow-xl
+              `}>
+                <div className={`
+                  inline-flex p-3 rounded-lg ${accent.iconBg} mb-4
+                `}>
+                  <div className={accent.icon}>
+                    {React.isValidElement(feature.icon) 
+                      ? feature.icon 
+                      : React.createElement(feature.icon as LucideIcon, { className: 'w-6 h-6' })
+                    }
+                  </div>
+                </div>
+                
+                <h3 className="text-xl font-semibold text-white mb-3">
+                  {feature.title}
+                </h3>
+                
+                <p className="text-gray-400 leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
             </motion.div>
           ))}
         </motion.div>
