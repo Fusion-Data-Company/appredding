@@ -92,7 +92,7 @@ const SolarRescueFunnelSection: React.FC = () => {
   const stages: FunnelStage[] = [
     {
       id: 'pain',
-      title: 'Red • Pain Signals',
+      title: 'Red • Problem Signals',
       description:
         'Emergency outage calls, orphaned installs, inverter faults, wildfire outage risk, NEM 3.0 bill shock.',
       primaryValue: 8420,
@@ -200,13 +200,13 @@ const SolarRescueFunnelSection: React.FC = () => {
           className='flex flex-col items-center text-center'
         >
           <div className='inline-flex items-center gap-3 rounded-full border border-slate-700/60 bg-slate-900/70 px-4 py-2 text-xs uppercase tracking-[0.35em] text-slate-300/90'>
-            <ArrowDown className='h-4 w-4' /> Sandler Intake Sequence
+            <ArrowDown className='h-4 w-4' /> Proven Intake Sequence
           </div>
           <h2 className='mt-6 text-4xl font-bold text-white sm:text-5xl md:text-6xl'>
-            Solar Rescue Conversion Spine
+            Solar Rescue Conversion Process
           </h2>
           <p className='mt-4 max-w-2xl text-base text-slate-300 sm:text-lg'>
-            Orchestrate every rescue journey with red (pain), yellow (technical intel), green (ROI activation), and purple (decision) milestones engineered for California&apos;s orphaned solar systems.
+            Orchestrate every rescue journey with red (problems), yellow (technical intel), green (ROI activation), and purple (decision) milestones engineered for California&apos;s orphaned solar systems.
           </p>
         </motion.div>
 

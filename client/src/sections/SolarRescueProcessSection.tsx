@@ -48,7 +48,7 @@ const SolarRescueProcessSection: React.FC = () => {
         { label: 'Lead Capture', value: '2,450' },
         { label: 'Response Rate', value: '68%' },
       ],
-      actions: ['Warm introduction', 'Pain point discovery', 'Trust acceleration'],
+      actions: ['Warm introduction', 'Problem discovery', 'Trust acceleration'],
     },
     {
       id: 'discovery',
@@ -67,7 +67,7 @@ const SolarRescueProcessSection: React.FC = () => {
     },
     {
       id: 'assessment',
-      title: 'Pain Discovery',
+      title: 'Problem Analysis',
       subtitle: 'Needs Analysis',
       description:
         'Dive into production loss, utility frustration, and resiliency concerns to surface the emotional drivers for rescue.',
@@ -78,14 +78,14 @@ const SolarRescueProcessSection: React.FC = () => {
         { label: 'Site Assessments', value: '1,260' },
         { label: 'Conversion Rate', value: '75%' },
       ],
-      actions: ['Energy audit', 'Pain amplification', 'Impact modeling'],
+      actions: ['Energy audit', 'Problem assessment', 'Impact modeling'],
     },
     {
       id: 'proposal',
       title: 'Budget Discussion',
       subtitle: 'Investment Phase',
       description:
-        'Deliver precise proposals, layered financing, and ROI modeling that addresses red pain with yellow intelligence for green gains.',
+        'Deliver precise proposals, layered financing, and ROI modeling that addresses problems with technical intelligence for financial gains.',
       color: 'bg-purple-500',
       glowColor: 'shadow-purple-500/50',
       icon: <DollarSign className='h-8 w-8' />,
@@ -102,15 +102,15 @@ const SolarRescueProcessSection: React.FC = () => {
       <div className='mx-auto max-w-7xl'>
         <div className='mb-16 space-y-5 text-center'>
           <Badge className='flex items-center justify-center gap-2 bg-gradient-to-r from-yellow-500 to-orange-500 px-4 py-1.5 text-sm font-semibold text-white shadow-lg shadow-yellow-500/20'>
-            <Sun className='h-4 w-4' /> Sandler Sales Methodology
+            <Sun className='h-4 w-4' /> Proven Sales Process
           </Badge>
           <h2 className='text-5xl font-bold text-transparent md:text-6xl'>
             <span className='bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text'>
-              Solar Rescue Funnel
+              Solar Rescue Process
             </span>
           </h2>
           <p className='mx-auto max-w-3xl text-xl text-muted-foreground'>
-            Move homeowners from energy crisis to stabilized solar performance with a four-stage Sandler playbook tailored to Northern California.
+            Move homeowners from energy crisis to stabilized solar performance with a four-stage process tailored to Northern California.
           </p>
           <div className='mt-8 flex items-center justify-center gap-8 text-left text-muted-foreground'>
             <div className='text-center'>
@@ -197,7 +197,7 @@ const SolarRescueProcessSection: React.FC = () => {
           <Card className='bg-gradient-to-r from-red-500/10 via-yellow-500/10 via-green-500/10 to-purple-500/10 border border-slate-800 px-6 py-10 backdrop-blur-sm sm:px-10'>
             <div className='mx-auto flex max-w-3xl flex-col items-center gap-6 text-center'>
               <h3 className='text-3xl font-bold text-white'>Ready to Rescue More Homeowners?</h3>
-              <p className='text-lg text-muted-foreground'>Deploy our Sandler-engineered rescue sequence and elevate conversions while stabilizing orphaned solar assets.</p>
+              <p className='text-lg text-muted-foreground'>Deploy our proven rescue sequence and elevate conversions while stabilizing orphaned solar assets.</p>
               <div className='flex flex-col items-center gap-4 sm:flex-row'>
                 <Button size='lg' className='bg-gradient-to-r from-yellow-500 to-orange-500 text-white shadow-lg shadow-yellow-500/30 hover:from-yellow-600 hover:to-orange-600'>
                   <Phone className='mr-2 h-5 w-5' /> Schedule Demo

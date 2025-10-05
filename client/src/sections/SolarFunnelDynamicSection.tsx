@@ -120,7 +120,7 @@ const colorConfig = {
 };
 
 /**
- * Enterprise-grade Sandler funnel visualization with animated stage transitions.
+ * Enterprise-grade funnel visualization with animated stage transitions.
  */
 export function SolarFunnel({
   className,
@@ -225,14 +225,14 @@ export function SolarFunnel({
             className='mb-4 inline-block'
           >
             <span className='rounded-full border border-slate-700 bg-gradient-to-r from-red-500/20 via-yellow-500/20 to-green-500/20 px-4 py-2 text-sm font-medium text-slate-300'>
-              Sandler Sales Methodology
+              Proven Sales Process
             </span>
           </motion.div>
           <h2 className='bg-gradient-to-r from-slate-100 via-slate-300 to-slate-100 bg-clip-text text-5xl font-bold text-transparent md:text-7xl'>
-            Solar Rescue Funnel
+            Solar Rescue Process
           </h2>
           <p className='mx-auto mt-6 max-w-3xl text-xl text-slate-400'>
-            Transform distressed solar customers into high-retention homeowners with a four-stage Sandler rescue sequence.
+            Transform distressed solar customers into high-retention homeowners with a four-stage rescue sequence.
           </p>
         </motion.div>
 

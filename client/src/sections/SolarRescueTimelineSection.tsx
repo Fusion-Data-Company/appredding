@@ -43,7 +43,7 @@ const defaultStages: FunnelStage[] = [
   {
     id: 'decision',
     title: 'Decision',
-    description: 'Present triage reports with ROI modeling, financing, and storage pairings that neutralize red pain with green outcomes.',
+    description: 'Present triage reports with ROI modeling, financing, and storage pairings that neutralize problems with green outcomes.',
     color: 'from-green-500 to-green-600',
     glowColor: 'rgba(34, 197, 94, 0.5)',
     icon: <CheckCircle2 className='h-8 w-8' />,
@@ -120,7 +120,7 @@ const SolarRescueTimelineSection: React.FC<SalesFunnelProps> = ({
             transition={{ duration: 0.6 }}
             className='text-5xl font-bold tracking-tight text-foreground md:text-6xl'
           >
-            Solar Rescue <span className='bg-gradient-to-r from-red-500 via-yellow-500 to-purple-500 bg-clip-text text-transparent'>Sales Funnel</span>
+            Solar Rescue <span className='bg-gradient-to-r from-red-500 via-yellow-500 to-purple-500 bg-clip-text text-transparent'>Sales Process</span>
           </motion.h2>
           <motion.p
             initial={{ y: 20, opacity: 0 }}
@@ -128,7 +128,7 @@ const SolarRescueTimelineSection: React.FC<SalesFunnelProps> = ({
             transition={{ duration: 0.6, delay: 0.1 }}
             className='mx-auto mt-4 max-w-3xl text-xl text-muted-foreground'
           >
-            Transform stranded arrays into resilient assets with a Sandler-guided journey engineered for Northern California homeowners.
+            Transform stranded arrays into resilient assets with a proven journey engineered for Northern California homeowners.
           </motion.p>
         </div>
 

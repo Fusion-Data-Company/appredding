@@ -35,7 +35,7 @@ const Contact = () => {
         structuredData={contactSchema}
       />
       <div className="flex-1 flex flex-col">
-        {/* Sandler Solar Funnel Process */}
+        {/* Solar Journey Process */}
         <SandlerSolarFunnel 
           title="Your Solar Journey Starts Here"
           subtitle="Follow our proven 3-step process to transform your home with clean, affordable solar energy"

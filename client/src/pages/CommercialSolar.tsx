@@ -339,8 +339,8 @@ const CommercialSolar = () => {
         className="bg-gradient-to-br from-gray-950 via-gray-900 to-black"
         stages={[
           {
-            id: 'pain-red',
-            title: 'Demand Charge Crisis & Peak Load Pain',
+            id: 'problem-red',
+            title: 'Demand Charge Crisis & Peak Load Problems',
             description: 'California businesses suffer $8,000-$18,000/month demand charges on TOU-8 rates. Aging inverters fail during critical production hours. Grid instability threatens operations in Tier 3 wildfire zones.',
             color: 'from-red-500 to-red-600',
             glowColor: 'rgba(239, 68, 68, 0.5)',

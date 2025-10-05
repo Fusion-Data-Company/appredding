@@ -242,7 +242,7 @@ const ResidentialSolar = () => {
         className="bg-gradient-to-br from-gray-950 via-gray-900 to-black"
         stages={[
           {
-            id: 'pain-red',
+            id: 'problem-red',
             title: 'STAGE 1: NEM 3.0 Crisis & System Failure Recognition',
             description: 'Critical discovery phase: Export credits plummet from $0.21-0.30/kWh (NEM 2.0) to $0.03-0.05/kWh (NEM 3.0). Monthly bills increase 200-400% despite full solar production. SolarCity/Sunrun orphaned systems fail without technical support. Inverter error codes multiply. Production drops 15-30% from deferred maintenance.',
             color: 'from-red-500 to-red-600',
