@@ -44,19 +44,6 @@ Core Technologies:
 - ACCESSIBILITY_AUDIT_REPORT.md, PHASE_1_FINAL_REPORT.md
 
 ## Recent Changes
-- **PRODUCTS NAVIGATION SIMPLIFIED (October 2025)**: Removed Products dropdown and comparison page from previous site
-  - **Products Dropdown Removed**: Replaced dropdown with simple "Products" link to /shop/products
-    - Updated both layout/Header.tsx and ProfessionalHeader.tsx
-    - Desktop and mobile navigation now show single Products tab instead of dropdown
-  - **Comparison Page Deleted**: Removed ProductComparison page (legacy from previous site)
-    - Deleted client/src/pages/ProductComparison.tsx
-    - Deleted client/src/components/store/ProductComparison.tsx
-    - Removed all routes to /product-comparison and /shop/product-comparison from App.tsx
-  - **Code Cleanup**: Removed unused imports and state variables
-    - Cleaned up ShoppingBag, GitCompare, ShoppingCart icons from ProfessionalHeader
-    - Updated openDropdown state type to exclude removed 'shop' option
-  - Files modified: client/src/components/layout/Header.tsx, client/src/components/ProfessionalHeader.tsx, client/src/App.tsx
-  - Files deleted: client/src/pages/ProductComparison.tsx, client/src/components/store/ProductComparison.tsx
 - **ACCESSIBLE NAVIGATION DROPDOWNS IMPLEMENTED (October 2025)**: Added professional, accessible dropdown menus to header navigation
   - **Three Dropdown Menus**: Services (8 items), Solutions (6 items), Shop (3 items)
   - **Full Accessibility Compliance**: WCAG 4.1.2 compliant with proper ARIA attributes

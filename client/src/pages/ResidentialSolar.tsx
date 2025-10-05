@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import MainLayout from "@/components/layout/MainLayout";
-import SolarWaveHero from "@/components/SolarWaveHero";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -124,19 +123,120 @@ const ResidentialSolar = () => {
         structuredData={structuredData}
       />
 
-      {/* Solar Wave Hero Section */}
-      <SolarWaveHero 
-        tagline="Powering the Future with Clean Energy"
-        title="Residential Solar Installation"
-        subtitle="Professional solar installations for Northern California homes. Our founder brings decades of expertise in renewable energy systems, helping Redding families achieve energy independence with premium solar solutions."
-        stats={[
-          { value: "25+", label: "Years Experience" },
-          { value: "1000+", label: "Homes Powered" },
-          { value: "25yr", label: "Warranty" }
-        ]}
-      />
-
-      <div className="bg-black">
+      <div className="min-h-screen bg-black">
+        {/* SANDLER STAGE 0: OPENING - BLUE GLOW SECTION - Introduction */}
+        <section className="relative z-10 pt-20 pb-12 overflow-hidden">
+          <div className="container mx-auto">
+            <div className="relative">
+              {/* Enhanced Blue glow effect with multi-layer glow */}
+              <div className="absolute -inset-10 bg-blue-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
+              <div className="absolute -inset-20 bg-blue-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
+              <div className="absolute -inset-30 bg-blue-700/5 rounded-xl blur-3xl opacity-30 z-0 animate-pulse-slow"></div>
+              
+              {/* Content within the glow */}
+              <div className="relative z-20 rounded-2xl overflow-hidden">
+                <div className="bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-blue-700/30 shadow-lg p-8">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    {/* Left column with text content */}
+                    <motion.div 
+                      initial={{ opacity: 0, x: -50 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.7 }}
+                      className="space-y-6"
+                    >
+                      <div className="space-y-4">
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-200 to-blue-300">
+                          Residential Solar Installation
+                        </h1>
+                        <h2 className="text-2xl md:text-3xl font-semibold text-blue-200">
+                          Advance Power Redding
+                        </h2>
+                        <p className="text-lg text-gray-300 leading-relaxed">
+                          Professional solar installations for Northern California homes. Our founder brings decades of expertise in renewable energy systems, helping Redding families achieve energy independence with premium solar solutions.
+                        </p>
+                      </div>
+                      
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div className="flex items-center space-x-2">
+                          <CheckCircle className="h-5 w-5 text-blue-400" />
+                          <span className="text-gray-200">25-Year Warranty</span>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <Shield className="h-5 w-5 text-blue-400" />
+                          <span className="text-gray-200">Licensed & Insured</span>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <Sun className="h-5 w-5 text-blue-400" />
+                          <span className="text-gray-200">Tier 1 Solar Panels</span>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <Award className="h-5 w-5 text-blue-400" />
+                          <span className="text-gray-200">Local Expertise</span>
+                        </div>
+                      </div>
+                      
+                      <div className="flex flex-wrap gap-4">
+                        <Button 
+                          className="relative group overflow-hidden bg-gradient-to-r from-gray-800 to-gray-950 border border-gray-700 hover:border-blue-500 transition-all duration-300 px-6 py-2 shadow-lg"
+                          onClick={handleShowConsultationForm}
+                        >
+                          <span className="relative z-10 text-white group-hover:text-blue-200 transition-colors duration-300">
+                            Get Free Quote
+                          </span>
+                          <span className="absolute inset-0 bg-blue-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+                        </Button>
+                        <Button 
+                          variant="outline" 
+                          className="border-gray-600 text-blue-400 hover:text-blue-300 hover:border-blue-500"
+                        >
+                          Learn More
+                        </Button>
+                      </div>
+                    </motion.div>
+                    
+                    {/* Right column with image */}
+                    <motion.div 
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.7, delay: 0.2 }}
+                      className="lg:w-full"
+                    >
+                      <div className="relative">
+                        {/* Premium image container with decorative elements */}
+                        <div className="relative rounded-2xl overflow-hidden border border-blue-700/30 shadow-lg">
+                          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-black/80 mix-blend-overlay z-10"></div>
+                          
+                          {/* Hero Image */}
+                          <img 
+                            src="/advance-power-logo.jpg" 
+                            alt="Advance Power Redding - Professional solar installation company" 
+                            className="w-full h-auto max-h-[500px] object-contain object-center bg-white p-8"
+                          />
+                          
+                          {/* Premium overlay elements */}
+                          <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-blue-400/40 rounded-tl-xl"></div>
+                          <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-blue-400/40 rounded-br-xl"></div>
+                          
+                          {/* Image caption */}
+                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 z-20">
+                            <p className="text-sm text-gray-300 text-center">Professional residential solar installation in Redding, CA</p>
+                          </div>
+                        </div>
+                        
+                        {/* Stats overlay */}
+                        <div className="absolute -bottom-6 -right-6 bg-gradient-to-br from-gray-900 to-gray-950 border border-blue-700/30 rounded-lg p-4 shadow-lg z-30">
+                          <p className="text-blue-400 font-semibold">Average Savings</p>
+                          <p className="text-3xl font-bold text-white">30-50%</p>
+                          <p className="text-xs text-gray-400">*On monthly energy bills</p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* SANDLER STAGE 1: PAIN - RED GLOW SECTION - Critical Problems */}
         <section className="relative z-10 py-12 overflow-hidden">

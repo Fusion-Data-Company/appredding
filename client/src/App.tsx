@@ -9,6 +9,9 @@ import { errorHandler } from "@/utils/error-handler";
 import { usePerformance } from "@/hooks/use-performance";
 import { initializeCriticalPerformance, monitorPerformanceBudget } from "@/utils/performance-critical";
 import { SuspenseFallback } from "@/components/ui/enhanced-loading";
+import { TwentyFirstToolbar } from "@21st-extension/toolbar-react";
+import { ReactPlugin } from "@21st-extension/react";
+import { setupStagewiseToolbar } from "@/utils/toolbar-setup";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import CRM from "@/pages/CRM";
@@ -25,6 +28,7 @@ import Maintenance from "@/pages/Maintenance";
 import Repairs from "@/pages/Repairs";
 import BookAppointment from "@/pages/BookAppointment";
 import Portfolio from "@/pages/Portfolio"; 
+import ProductComparison from "@/pages/ProductComparison";
 const Products = lazy(() => import('./pages/Products'));
 const ROICalculator = lazy(() => import('./pages/ROICalculator'));
 import Technology from "@/pages/Technology";
@@ -105,6 +109,9 @@ function Router() {
       <Route path="/checkout">
         {() => <Redirect to="/shop/checkout" replace />}
       </Route>
+      <Route path="/product-comparison">
+        {() => <Redirect to="/shop/product-comparison" replace />}
+      </Route>
       <Route path="/technology">
         {() => <Redirect to="/resources/technology" replace />}
       </Route>
@@ -158,6 +165,7 @@ function Router() {
       <Route path="/shop/cart" component={Cart} />
       <Route path="/shop/checkout" component={Checkout} />
       <Route path="/shop/order/confirmation/:orderNumber" component={OrderConfirmation} />
+      <Route path="/shop/product-comparison" component={ProductComparison} />
       
       {/* Resources Pages */}
       <Route path="/resources/technology">
@@ -204,6 +212,7 @@ function Router() {
       </Route>
       <Route path="/cart" component={Cart} />
       <Route path="/checkout" component={Checkout} />
+      <Route path="/product-comparison" component={ProductComparison} />
       <Route path="/book-appointment" component={BookAppointment} />
       <Route path="/technical-data" component={TechnicalData} />
       <Route path="/technology">
@@ -236,6 +245,11 @@ function App() {
     document.documentElement.classList.add('dark');
     document.body.style.backgroundColor = '#000';
     document.body.classList.add('dark');
+
+    // Initialize 21st extension toolbar in development
+    if (import.meta.env.DEV) {
+      setupStagewiseToolbar();
+    }
 
     // Defer expensive operations to not block initial render
     setTimeout(() => {
@@ -277,6 +291,20 @@ function App() {
             <Router />
           </SmoothScrollWrapper>
         </AuthProvider>
+        {import.meta.env.DEV && (
+          <TwentyFirstToolbar 
+            config={{
+              plugins: [ReactPlugin],
+              theme: 'dark',
+              position: 'bottom-right',
+              autoConnect: false, // Disable auto-connect in Replit
+              development: true,
+              standalone: true, // Run in standalone mode
+              hideConnectionError: true, // Hide connection errors in Replit
+              showToolbar: true
+            }}
+          />
+        )}
       </TooltipProvider>
     </QueryClientProvider>
   );
