@@ -367,18 +367,18 @@ const SolarCompanyHeader: React.FC = () => {
             </div>
           </nav>
 
-          {/* CTA Button - Solid colorful with glass effects */}
+          {/* CTA Button - Solid colorful with glass effects via shadows only */}
           <div className="hidden lg:flex items-center">
             <Link href="/contact">
               <button
-                className="relative px-5 py-2.5 rounded-lg text-white text-[15px] font-semibold overflow-hidden group transition-all duration-300 hover:scale-[1.02]"
+                className="px-5 py-2.5 rounded-lg text-white text-[15px] font-semibold transition-all duration-300 hover:scale-[1.02]"
                 style={{
                   background: 'linear-gradient(135deg, #f97316 0%, #fb923c 25%, #ea580c 50%, #f59e0b 75%, #3b82f6 100%)',
-                  boxShadow: '0 4px 16px rgba(249,115,22,0.4), 0 2px 8px rgba(59,130,246,0.3), inset 0 2px 4px rgba(255,255,255,0.5), inset 0 -2px 4px rgba(0,0,0,0.2)',
-                  border: '1px solid rgba(255,255,255,0.3)'
+                  boxShadow: '0 4px 20px rgba(249,115,22,0.5), 0 2px 10px rgba(59,130,246,0.4), inset 0 2px 0 rgba(255,255,255,0.4), inset 0 -2px 0 rgba(0,0,0,0.2)',
+                  border: '1px solid rgba(255,255,255,0.4)'
                 }}
               >
-                <span className="relative z-10">Get Free Quote</span>
+                Get Free Quote
               </button>
             </Link>
           </div>
