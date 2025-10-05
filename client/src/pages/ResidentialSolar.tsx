@@ -80,21 +80,22 @@ const ResidentialSolar = () => {
   const form = useForm<ResidentialSolarFormValues>({
     resolver: zodResolver(insertFirePreventionHomeownerSchema),
     defaultValues: {
-      name: "",
+      firstName: "",
+      lastName: "",
       email: "",
       phone: "",
       address: "",
+      city: "",
+      state: "",
+      zipCode: "",
       propertyType: "",
-      message: ""
+      additionalComments: ""
     },
   });
 
   const consultationMutation = useMutation({
     mutationFn: async (data: ResidentialSolarFormValues) => {
-      return await apiRequest("/api/fire-prevention/consultation", {
-        method: "POST",
-        data,
-      });
+      return await apiRequest("POST", "/api/fire-prevention/consultation", data);
     },
     onSuccess: () => {
       form.reset();
@@ -1387,12 +1388,25 @@ const ResidentialSolar = () => {
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                 <FormField
                   control={form.control}
-                  name="name"
+                  name="firstName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Name</FormLabel>
+                      <FormLabel>First Name</FormLabel>
                       <FormControl>
-                        <Input {...field} className="bg-gray-800 border-gray-700" data-testid="input-name" />
+                        <Input {...field} className="bg-gray-800 border-gray-700" data-testid="input-firstName" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="lastName"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Last Name</FormLabel>
+                      <FormControl>
+                        <Input {...field} className="bg-gray-800 border-gray-700" data-testid="input-lastName" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -1439,12 +1453,64 @@ const ResidentialSolar = () => {
                 />
                 <FormField
                   control={form.control}
-                  name="message"
+                  name="city"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Message (Optional)</FormLabel>
+                      <FormLabel>City</FormLabel>
                       <FormControl>
-                        <Textarea {...field} className="bg-gray-800 border-gray-700" rows={3} data-testid="input-message" />
+                        <Input {...field} className="bg-gray-800 border-gray-700" data-testid="input-city" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="state"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>State</FormLabel>
+                      <FormControl>
+                        <Input {...field} className="bg-gray-800 border-gray-700" data-testid="input-state" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="zipCode"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Zip Code</FormLabel>
+                      <FormControl>
+                        <Input {...field} className="bg-gray-800 border-gray-700" data-testid="input-zipCode" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="propertyType"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Property Type</FormLabel>
+                      <FormControl>
+                        <Input {...field} className="bg-gray-800 border-gray-700" data-testid="input-propertyType" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="additionalComments"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Additional Comments (Optional)</FormLabel>
+                      <FormControl>
+                        <Textarea {...field} value={field.value || ""} className="bg-gray-800 border-gray-700" rows={3} data-testid="input-additionalComments" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
