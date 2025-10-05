@@ -266,27 +266,11 @@ const CommercialSolarWaveHero: React.FC<CommercialSolarWaveHeroProps> = ({
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
           >
-            <span 
-              className="drop-shadow-2xl font-extrabold"
-              style={{
-                background: 'linear-gradient(to right, #fb923c, #fbbf24, #f59e0b)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text'
-              }}
-            >
+            <span className="gradient-bright-electric font-extrabold">
               Commercial Solar Installation
             </span>
             <br />
-            <span 
-              className="font-extrabold tracking-wide"
-              style={{
-                background: 'linear-gradient(to right, #ffffff, #dbeafe, #ffffff)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text'
-              }}
-            >
+            <span className="gradient-bright-sunset font-extrabold tracking-wide">
               Advance Power Redding
             </span>
           </motion.h1>
