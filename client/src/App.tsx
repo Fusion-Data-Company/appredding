@@ -9,6 +9,9 @@ import { errorHandler } from "@/utils/error-handler";
 import { usePerformance } from "@/hooks/use-performance";
 import { initializeCriticalPerformance, monitorPerformanceBudget } from "@/utils/performance-critical";
 import { SuspenseFallback } from "@/components/ui/enhanced-loading";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { RouteErrorBoundary } from "@/components/RouteErrorBoundary";
+import { NetworkStatus } from "@/components/NetworkStatus";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import CRM from "@/pages/CRM";
@@ -275,16 +278,21 @@ function App() {
   }, []);
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <AuthProvider>
-          <SmoothScrollWrapper disableOnRoutes={["/services/lithium-battery", "/lithium-battery"]}>
-            <Router />
-          </SmoothScrollWrapper>
-        </AuthProvider>
-      </TooltipProvider>
-    </QueryClientProvider>
+    <ErrorBoundary>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <NetworkStatus />
+          <AuthProvider>
+            <SmoothScrollWrapper disableOnRoutes={["/services/lithium-battery", "/lithium-battery"]}>
+              <RouteErrorBoundary>
+                <Router />
+              </RouteErrorBoundary>
+            </SmoothScrollWrapper>
+          </AuthProvider>
+        </TooltipProvider>
+      </QueryClientProvider>
+    </ErrorBoundary>
   );
 }
 

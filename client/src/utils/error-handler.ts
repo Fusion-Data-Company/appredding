@@ -17,6 +17,24 @@ class ErrorHandler {
   private errorQueue: ErrorReport[] = [];
   private maxQueueSize = 50;
   private flushInterval = 5000; // 5 seconds
+  private errorCounts: Map<string, { count: number; lastReported: number }> = new Map();
+  private rateLimitWindow = 10000; // 10 seconds
+  private maxErrorsPerWindow = 5;
+
+  // Development-only error patterns to filter out  
+  private devErrorPatterns = [
+    /Script error/i, // Generic cross-origin script errors (any variation)
+    /vscode/i,
+    /extension/i,
+    /stagewise/i,
+    /toolbar/i,
+    /ResizeObserver loop/i,
+    /Non-Error promise rejection captured with value/i,
+    /__vite/i,
+    /Failed to fetch dynamically imported module/i, // Vite HMR errors
+    /discoverVSCodeWindows/i, // VSCode integration errors
+    /An uncaught exception/i, // Generic uncaught exceptions without details
+  ];
 
   constructor() {
     this.initializeErrorHandlers();
@@ -83,7 +101,57 @@ class ErrorHandler {
     };
   }
 
+  private shouldFilterError(message: string): boolean {
+    // Filter out development-only errors
+    if (import.meta.env.DEV) {
+      return this.devErrorPatterns.some(pattern => pattern.test(message));
+    }
+    return false;
+  }
+
+  private getErrorKey(errorReport: ErrorReport): string {
+    // Create a unique key for deduplication
+    return `${errorReport.type}:${errorReport.message}`;
+  }
+
+  private shouldReportError(errorKey: string): boolean {
+    const now = Date.now();
+    const errorRecord = this.errorCounts.get(errorKey);
+
+    if (!errorRecord) {
+      this.errorCounts.set(errorKey, { count: 1, lastReported: now });
+      return true;
+    }
+
+    // Reset counter if outside the rate limit window
+    if (now - errorRecord.lastReported > this.rateLimitWindow) {
+      this.errorCounts.set(errorKey, { count: 1, lastReported: now });
+      return true;
+    }
+
+    // Increment count
+    errorRecord.count++;
+
+    // Check if we've exceeded the rate limit
+    if (errorRecord.count > this.maxErrorsPerWindow) {
+      return false;
+    }
+
+    return true;
+  }
+
   private reportError(errorReport: ErrorReport) {
+    // Filter out development noise
+    if (this.shouldFilterError(errorReport.message)) {
+      return;
+    }
+
+    // Check rate limiting and deduplication
+    const errorKey = this.getErrorKey(errorReport);
+    if (!this.shouldReportError(errorKey)) {
+      return;
+    }
+
     // Add to queue
     this.errorQueue.push(errorReport);
     
@@ -94,7 +162,7 @@ class ErrorHandler {
 
     // Log to console for development
     if (import.meta.env.DEV) {
-      
+      console.error('[Error Handler]', errorReport.type, errorReport.message);
     }
   }
 
