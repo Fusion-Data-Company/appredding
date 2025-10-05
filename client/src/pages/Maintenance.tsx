@@ -399,6 +399,68 @@ const Maintenance = () => {
         ]}
       />
 
+      {/* Enhanced Live System Metrics Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-gradient-to-br from-orange-600 via-amber-600 to-yellow-600 rounded-3xl p-8 mb-12 text-white relative overflow-hidden"
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-yellow-500/20 opacity-50"></div>
+          <div className="relative z-10">
+            <div className="flex items-center gap-2 mb-4">
+              <Settings className="h-8 w-8" />
+              <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">Professional Solar Care</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Live System Performance Metrics</h2>
+            <p className="text-lg mb-6 text-orange-100">Real-time monitoring • Predictive maintenance • Maximum efficiency</p>
+
+            {/* Enhanced Live System Metrics */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-6">
+              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
+                <Activity className="h-5 w-5 mb-2 text-purple-200" />
+                <div className="text-2xl font-bold">{efficiencyLevel.toFixed(1)}%</div>
+                <div className="text-sm text-purple-200">Efficiency</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
+                <Gauge className="h-5 w-5 mb-2 text-indigo-200" />
+                <div className="text-2xl font-bold">{performanceRatio.toFixed(2)}</div>
+                <div className="text-sm text-indigo-200">PR Score</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
+                <Timer className="h-5 w-5 mb-2 text-pink-200" />
+                <div className="text-2xl font-bold">{Math.floor(cleaningDue)}d</div>
+                <div className="text-sm text-pink-200">Next Clean</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
+                <TrendingDown className="h-5 w-5 mb-2 text-yellow-200" />
+                <div className="text-2xl font-bold">{degradationRate.toFixed(1)}%</div>
+                <div className="text-sm text-yellow-200">Degradation/yr</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
+                <Shield className="h-5 w-5 mb-2 text-green-200" />
+                <div className="text-2xl font-bold">{uptime.toFixed(1)}%</div>
+                <div className="text-sm text-green-200">Uptime</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
+                <Calendar className="h-5 w-5 mb-2 text-blue-200" />
+                <div className="text-2xl font-bold">{systemAge}yr</div>
+                <div className="text-sm text-blue-200">System Age</div>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap gap-4">
+              <button className="bg-white text-purple-600 px-6 py-3 rounded-xl font-semibold hover:bg-purple-50 transition flex items-center gap-2">
+                Schedule Service <Calendar className="h-5 w-5" />
+              </button>
+              <button className="bg-white/20 backdrop-blur text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/30 transition flex items-center gap-2">
+                <Phone className="h-5 w-5" /> (530) 226-0701
+              </button>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+
       {/* Real Customer Case Studies */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-12">

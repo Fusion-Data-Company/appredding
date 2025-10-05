@@ -110,7 +110,7 @@ function Router() {
         {() => <Redirect to="/shop/checkout" replace />}
       </Route>
       <Route path="/product-comparison">
-        {() => <Redirect to="/shop/product-comparison" replace />}
+        {() => <Redirect to="/comparison" replace />}
       </Route>
       <Route path="/technology">
         {() => <Redirect to="/resources/technology" replace />}
@@ -165,7 +165,7 @@ function Router() {
       <Route path="/shop/cart" component={Cart} />
       <Route path="/shop/checkout" component={Checkout} />
       <Route path="/shop/order/confirmation/:orderNumber" component={OrderConfirmation} />
-      <Route path="/shop/product-comparison" component={ProductComparison} />
+      <Route path="/comparison" component={ProductComparison} />
       
       {/* Resources Pages */}
       <Route path="/resources/technology">
