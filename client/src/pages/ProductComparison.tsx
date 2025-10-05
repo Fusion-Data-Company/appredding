@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Header from "@/components/Header";
+import MainLayout from "@/components/layout/MainLayout";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
@@ -348,11 +348,8 @@ const ProductComparison = () => {
     : [];
   
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      
-      <main className="flex-grow">
-        <section className="py-16 md:py-24">
+    <MainLayout fullWidth={true}>
+      <section className="py-16 md:py-24">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto text-center mb-16">
               <h1 className="text-4xl md:text-5xl font-bold mb-6 glow-text">Solar Inverter Comparison</h1>
@@ -708,8 +705,7 @@ const ProductComparison = () => {
             )}
           </div>
         </section>
-      </main>
-    </div>
+    </MainLayout>
   );
 };
 
