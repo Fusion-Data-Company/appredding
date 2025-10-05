@@ -167,6 +167,79 @@ body {
   background-clip: text;
 }
 
+/* BRIGHT HERO GRADIENTS - NO SHADING */
+.gradient-bright-fire {
+  background: linear-gradient(to right, #fb923c, #fbbf24, #f59e0b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+  filter: none;
+}
+
+.gradient-bright-electric {
+  background: linear-gradient(to right, #06b6d4, #3b82f6, #00d9ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+  filter: none;
+}
+
+.gradient-bright-sunset {
+  background: linear-gradient(to right, #fbbf24, #fb923c, #ef4444);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+  filter: none;
+}
+
+.gradient-bright-ocean {
+  background: linear-gradient(to right, #00d9ff, #06b6d4, #0ea5e9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+  filter: none;
+}
+
+.gradient-bright-emerald {
+  background: linear-gradient(to right, #10b981, #34d399, #84cc16);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+  filter: none;
+}
+
+.gradient-bright-purple {
+  background: linear-gradient(to right, #a855f7, #c084fc, #e879f9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+  filter: none;
+}
+
+.gradient-bright-white {
+  background: linear-gradient(to right, #ffffff, #f0f9ff, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+  filter: none;
+}
+
+.gradient-bright-yellow {
+  background: linear-gradient(to right, #facc15, #fde047, #fef08a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+  filter: none;
+}
+
 /* Smooth hover transitions */
 .hover-lift {
   transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);

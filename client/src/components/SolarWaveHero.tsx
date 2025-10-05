@@ -306,19 +306,11 @@ const SolarWaveHero: React.FC<SolarWaveHeroProps> = ({
               transition={{ duration: 0.8, delay: 0.2 }}
               className="mb-6 text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl"
             >
-              <ShimmerText className="text-5xl sm:text-6xl lg:text-7xl font-bold drop-shadow-2xl">
+              <span className="gradient-bright-fire text-5xl sm:text-6xl lg:text-7xl font-bold">
                 Residential Solar Installation
-              </ShimmerText>
+              </span>
               <br />
-              <span 
-                className="font-extrabold tracking-wide"
-                style={{
-                  background: 'linear-gradient(to right, #ffffff, #dbeafe, #ffffff)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
-                }}
-              >
+              <span className="gradient-bright-white font-extrabold tracking-wide">
                 Advance Power Redding
               </span>
             </motion.h1>
