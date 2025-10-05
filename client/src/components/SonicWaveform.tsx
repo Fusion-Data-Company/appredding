@@ -2,28 +2,28 @@ import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Battery, Zap, Activity } from 'lucide-react';
 
-// Sonic Waveform Canvas Component - now accepts a container ref
-const SonicWaveformCanvas = ({ containerRef }: { containerRef: React.RefObject<HTMLElement> }) => {
+// Sonic Waveform Canvas Component - optimized for performance
+const SonicWaveformCanvas = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
     useEffect(() => {
         const canvas = canvasRef.current;
-        const container = containerRef.current;
-        if (!canvas || !container) return;
+        if (!canvas) return;
 
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
 
         let animationFrameId: number;
-        const mouse = { x: container.clientWidth / 2, y: container.clientHeight / 2 };
+        const mouse = { x: canvas.width / 2, y: canvas.height / 2 };
         let time = 0;
-        const dpr = Math.max(1, Math.min(1.5, window.devicePixelRatio || 1));
+        const dpr = Math.max(1, Math.min(1.5, window.devicePixelRatio || 1)); // Reduced DPR for performance
         let last = 0;
-        const targetFps = 24;
+        const targetFps = 24; // Reduced from 30 to 24 for better performance
         const frameInterval = 1000 / targetFps;
 
         const resizeCanvas = () => {
-            const { width, height } = container.getBoundingClientRect();
+            const width = window.innerWidth;
+            const height = window.innerHeight;
             canvas.style.width = `${width}px`;
             canvas.style.height = `${height}px`;
             canvas.width = Math.floor(width * dpr);
@@ -38,26 +38,30 @@ const SonicWaveformCanvas = ({ containerRef }: { containerRef: React.RefObject<H
             }
             last = now;
             
+            // Use clearRect instead of full clear for better performance
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            const lineCount = 32;
-            const segmentCount = 48;
-            const height = canvas.height / (2 * dpr); // Adjust for DPR in drawing calculations
+            const lineCount = 32; // Reduced from 48 for performance
+            const segmentCount = 48; // Reduced from 72 for performance
+            const height = canvas.height / 2;
 
             for (let i = 0; i < lineCount; i++) {
                 ctx.beginPath();
                 const progress = i / lineCount;
                 const colorIntensity = Math.sin(progress * Math.PI);
 
+                // Simplified color with reduced opacity
                 ctx.strokeStyle = `rgba(204, 85, 0, ${colorIntensity * 0.5})`;
                 ctx.lineWidth = 1;
 
                 for (let j = 0; j < segmentCount + 1; j++) {
-                    const x = (j / segmentCount) * (canvas.width / dpr);
+                    const x = (j / segmentCount) * canvas.width;
 
+                    // Reduced mouse influence calculations
                     const distToMouse = Math.hypot(x - mouse.x, height - mouse.y);
                     const mouseEffect = Math.max(0, 1 - distToMouse / 300);
 
+                    // Simplified wave calculation
                     const noise = Math.sin(j * 0.08 + time + i * 0.15) * 15;
                     const spike = Math.cos(j * 0.15 + time) * 30;
                     const y = height + noise + spike * (1 + mouseEffect * 1.5);
@@ -71,38 +75,33 @@ const SonicWaveformCanvas = ({ containerRef }: { containerRef: React.RefObject<H
                 ctx.stroke();
             }
 
-            time += 0.015;
+            time += 0.015; // Slightly slower animation
             animationFrameId = requestAnimationFrame(draw);
         };
 
         const handleMouseMove = (event: MouseEvent) => {
-            const rect = container.getBoundingClientRect();
-            mouse.x = event.clientX - rect.left;
-            mouse.y = event.clientY - rect.top;
+            mouse.x = event.clientX;
+            mouse.y = event.clientY;
         };
 
-        const resizeObserver = new ResizeObserver(resizeCanvas);
-        resizeObserver.observe(container);
-        
-        container.addEventListener('mousemove', handleMouseMove);
+        window.addEventListener('resize', resizeCanvas);
+        window.addEventListener('mousemove', handleMouseMove);
 
         resizeCanvas();
         draw(0);
 
         return () => {
             cancelAnimationFrame(animationFrameId);
-            resizeObserver.unobserve(container);
-            container.removeEventListener('mousemove', handleMouseMove);
+            window.removeEventListener('resize', resizeCanvas);
+            window.removeEventListener('mousemove', handleMouseMove);
         };
-    }, [containerRef]);
+    }, []);
 
-    return <canvas ref={canvasRef} className="absolute inset-0 z-0 w-full h-full" style={{ background: 'transparent' }} />;
+    return <canvas ref={canvasRef} className="absolute inset-0 z-0 w-full h-full pointer-events-none" style={{ background: 'transparent' }} />;
 };
 
 // The main hero component for Lithium Battery page
 const SonicWaveformHero = () => {
-    const heroRef = useRef<HTMLDivElement>(null);
-
     const fadeUpVariants = {
         hidden: { opacity: 0, y: 20 },
         visible: (i: number) => ({
@@ -124,10 +123,13 @@ const SonicWaveformHero = () => {
     };
 
     return (
-        <div ref={heroRef} className="relative h-full w-full flex flex-col overflow-hidden" style={{ background: 'transparent' }}>
-            <SonicWaveformCanvas containerRef={heroRef} />
+        <div className="relative h-screen w-full flex flex-col overflow-hidden" style={{ background: 'transparent' }}>
+            <SonicWaveformCanvas />
 
-            {/* Overlay Content */}
+            {/* Subtle gradient to blend with content - mostly transparent */}
+            <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-transparent z-10 pointer-events-none"></div>
+
+            {/* Overlay Content - Battery Theme */}
             <div className="absolute inset-0 flex items-center justify-center z-20">
             <div className="text-center p-6 max-w-6xl mx-auto">
                 <motion.div

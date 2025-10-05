@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback, useRef } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { Battery, Zap, Shield, Award, Activity, AlertTriangle, CheckCircle, TrendingUp, Cpu, Thermometer, Clock, ArrowRight, Beaker, Database, Lock, Gauge, Wrench, BarChart, DollarSign, Package, Truck, FileCheck, Phone, ChevronRight, AlertCircle, CircuitBoard, Flame, Snowflake, Droplets, Wind, Sun, Moon, Cloud, CloudRain, Timer, Settings, Info, Calculator, TrendingDown, Briefcase, Factory, Building2, Home, Car, Smartphone, Laptop, Server, HardDrive, Wifi, Radio, Microscope, TestTube, Scale, BookOpen, GraduationCap, Globe, MapPin, Navigation, Compass, Target, Crosshair, Eye, Search, Filter, Layers, Grid, Box, Hexagon, Triangle, Square, Circle, Star, Heart, ThumbsUp, Users, UserCheck, UserPlus, Mail, MessageSquare, Send, Bell, BellOff, Volume2, VolumeX, Mic, MicOff, Video, VideoOff, Camera, CameraOff, Image, Film, Music, Headphones, Speaker, Monitor, Tv, Projector, Watch, Tablet, Power, Leaf, Component } from "lucide-react";
 import { motion } from "framer-motion";
 import SonicWaveformHero from "../components/SonicWaveform";
@@ -117,7 +117,6 @@ const LithiumBattery = () => {
   const [voltageReading, setVoltageReading] = useState(52.8);
   const [currentFlow, setCurrentFlow] = useState(28.5);
   const [powerOutput, setPowerOutput] = useState(1.5);
-  const contentRef = useRef<HTMLDivElement>(null);
 
   // Minimal animation styles
   useEffect(() => {
@@ -311,16 +310,18 @@ const LithiumBattery = () => {
     <>
       <ScrollProgress />
       <Header />
-      <div className="min-h-screen bg-gray-50 overflow-x-hidden">
+      <div className="min-h-screen bg-gray-50">
         {/* Hero Section - Fixed height container */}
         <section className="relative h-[70vh] max-h-[800px] w-full overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
-          <SonicWaveformHero />
+          <div className="absolute inset-0">
+            <SonicWaveformHero />
+          </div>
         </section>
 
         {/* Main Content Section with Solar Background */}
-        <section ref={contentRef} className="relative min-h-screen">
-          <div className="absolute inset-0 z-0">
-            <SolarBackground containerRef={contentRef} />
+        <section className="relative min-h-screen">
+          <div className="absolute inset-0">
+            <SolarBackground />
           </div>
           
           {/* Content Container - positioned above background */}
@@ -1262,6 +1263,7 @@ const LithiumBattery = () => {
                 </ScaleReveal>
               </div>
             </div>
+          </div>
         </section>
       </div>
     </>
