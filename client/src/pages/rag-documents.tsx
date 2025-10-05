@@ -322,7 +322,7 @@ const RAGDocumentsPage = () => {
 
         {isLoading ? (
           <div className="flex justify-center items-center h-64">
-            <Loader2 className="h-8 w-8 animate-spin text-primary" />
+            {(() => { const LoadingLines = require('@/components/ui/loading-lines').default; return <LoadingLines />; })()}
           </div>
         ) : isError ? (
           <Card className="bg-red-50 dark:bg-red-950 border-red-200 dark:border-red-800">

@@ -23,7 +23,8 @@
       "Bash(curl:*)",
       "Bash(cat:*)",
       "Bash(lsof:*)",
-      "Bash(pkill:*)"
+      "Bash(pkill:*)",
+      "Bash(npm run check:*)"
     ],
     "deny": [],
     "ask": []

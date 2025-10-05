@@ -1,8 +1,8 @@
 import { useAuth } from "@/hooks/use-auth";
-import { Loader2 } from "lucide-react";
 import { Redirect, Route } from "wouter";
 import { Suspense } from "react";
 import { SuspenseFallback } from "@/components/ui/enhanced-loading";
+import LoadingLines from "@/components/ui/loading-lines";
 
 type ProtectedRouteProps = {
   component: React.ComponentType<any>;
@@ -20,11 +20,11 @@ export function ProtectedRoute({
   return (
     <Route path={path}>
       {(params) => {
-        // Show loading spinner while checking authentication status
+        // Show LoadingLines while checking authentication status
         if (isLoading) {
           return (
-            <div className="flex items-center justify-center min-h-screen">
-              <Loader2 className="w-8 h-8 animate-spin text-primary" />
+            <div className="flex items-center justify-center min-h-screen bg-background">
+              <LoadingLines />
             </div>
           );
         }

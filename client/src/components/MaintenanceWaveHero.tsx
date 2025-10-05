@@ -4,6 +4,7 @@ import * as React from "react";
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Sun, Wrench, Battery } from "lucide-react";
+import { AwardBadge } from '@/components/ui/award-badge';
 
 // ============================================================================
 // ANIMATED WAVE BACKGROUND COMPONENT (Exact from demo)
@@ -164,6 +165,11 @@ const MaintenanceWaveHero: React.FC<MaintenanceWaveHeroProps> = ({
 
   return (
     <div className="hero-section relative min-h-screen w-full overflow-hidden bg-black" style={{ position: 'relative' }}>
+      {/* Award Badge */}
+      <div className="absolute top-4 right-4 md:top-8 md:right-8 z-50">
+        <AwardBadge type="customer-service-excellence" data-testid="award-badge-maintenance" />
+      </div>
+
       {/* Animated Background (Exact from demo) */}
       <SolarWaveBackground />
       <EnergyParticles />

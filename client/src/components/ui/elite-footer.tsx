@@ -1,10 +1,18 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { GradientTracing } from "@/components/ui/gradient-tracing";
 import { Sun, Zap, Battery, Shield, Phone, Mail, MapPin, Calendar, Award, Star } from "lucide-react";
 
 export const EliteFooter: React.FC = () => {
   return (
     <footer className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black overflow-hidden">
+      <div className="absolute inset-0 opacity-15 pointer-events-none">
+        <GradientTracing
+          gradientColors={["#f97316", "#fb923c", "#3b82f6"]}
+          animationDuration={4}
+          strokeWidth={2}
+        />
+      </div>
       {/* Ultra-Realistic Solar Panel Texture */}
       <div className="absolute inset-0 opacity-10">
         <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">

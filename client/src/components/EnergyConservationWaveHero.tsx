@@ -4,6 +4,7 @@ import * as React from "react";
 import { motion, useScroll, useTransform, useMotionTemplate } from "framer-motion";
 import { ArrowRight, Zap, Sun, Leaf, ThermometerSun } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { AwardBadge } from '@/components/ui/award-badge';
 
 // GradientButton Component
 const GradientButton = React.forwardRef<
@@ -237,6 +238,11 @@ const EnergyConservationWaveHero: React.FC<EnergyConservationWaveHeroProps> = ({
 
   return (
     <div className="hero-section relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-950 via-green-950 to-slate-900" style={{ position: 'relative' }}>
+      {/* Award Badge */}
+      <div className="absolute top-4 right-4 md:top-8 md:right-8 z-50">
+        <AwardBadge type="customer-service-excellence" data-testid="award-badge-energy-conservation" />
+      </div>
+
       {/* Animated Background */}
       <AnimatedWaveBackground />
       
@@ -249,14 +255,14 @@ const EnergyConservationWaveHero: React.FC<EnergyConservationWaveHeroProps> = ({
       {/* Content */}
       <motion.div
         style={{ opacity, scale, y }}
-        className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 text-center"
+        className="relative z-10 flex min-h-screen flex-col items-start justify-start px-4 text-center pt-24 md:pt-32"
       >
         {/* Icon Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="badge-elite-metallic badge-energy"
+          className="badge-elite-metallic badge-energy mx-auto"
         >
           <Leaf className="h-5 w-5 text-green-400" />
           <span>{tagline}</span>
@@ -268,31 +274,15 @@ const EnergyConservationWaveHero: React.FC<EnergyConservationWaveHeroProps> = ({
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mb-6 max-w-5xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight"
+          className="mb-6 max-w-5xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight mx-auto"
         >
           The Future of{" "}
-          <span 
-            className="drop-shadow-2xl font-extrabold"
-            style={{
-              background: 'linear-gradient(to right, #4ade80, #10b981, #4ade80)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
-            }}
-          >
+          <span className="gradient-bright-emerald font-extrabold">
             Energy Conservation
           </span>
           <br />
           Meets{" "}
-          <span 
-            className="drop-shadow-2xl font-extrabold"
-            style={{
-              background: 'linear-gradient(to right, #60a5fa, #06b6d4, #60a5fa)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
-            }}
-          >
+          <span className="gradient-bright-ocean font-extrabold">
             Efficiency Innovation
           </span>
         </motion.h1>

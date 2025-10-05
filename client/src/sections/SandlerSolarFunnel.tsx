@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import { GradientTracing } from "@/components/ui/gradient-tracing"
 import { CheckCircle2, ArrowRight, Sun, Zap, DollarSign } from "lucide-react"
 
 interface FunnelStep {
@@ -80,6 +81,13 @@ export function SandlerSolarFunnel({
 
   return (
     <section className={cn("relative py-16 md:py-24 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 overflow-hidden", className)}>
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
+        <GradientTracing
+          gradientColors={["#3b82f6", "#06b6d4", "#8b5cf6"]}
+          animationDuration={3}
+          strokeWidth={2}
+        />
+      </div>
       <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 via-transparent to-transparent" />
       
       <div className="container max-w-7xl mx-auto px-4 md:px-6 relative z-10">

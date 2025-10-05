@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, CheckCircle2, TrendingUp, Zap } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
+import { GradientTracing } from '@/components/ui/gradient-tracing';
 
 interface FunnelStage {
   id: string;
@@ -19,6 +20,7 @@ interface FunnelStage {
 interface SalesFunnelProps {
   stages?: FunnelStage[];
   className?: string;
+  gradientColors?: string[];
 }
 
 const defaultStages: FunnelStage[] = [
@@ -63,6 +65,7 @@ const defaultStages: FunnelStage[] = [
 const SolarRescueTimelineSection: React.FC<SalesFunnelProps> = ({
   stages = defaultStages,
   className,
+  gradientColors,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -79,6 +82,9 @@ const SolarRescueTimelineSection: React.FC<SalesFunnelProps> = ({
     });
   }, [stages]);
 
+  // Check if this is a dark background that should have gradient tracing
+  const isDarkBackground = className && (className.includes('from-gray-9') || className.includes('to-black'));
+
   return (
     <section
       ref={containerRef}
@@ -89,6 +95,16 @@ const SolarRescueTimelineSection: React.FC<SalesFunnelProps> = ({
       style={{ position: 'relative' }}
     >
       <div className='absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background' />
+      
+      {isDarkBackground && (
+        <div className="absolute inset-0 opacity-20 pointer-events-none z-0">
+          <GradientTracing
+            gradientColors={gradientColors || ["#f97316", "#fb923c", "#facc15"]}
+            animationDuration={3.5}
+            strokeWidth={2}
+          />
+        </div>
+      )}
 
       <div className='absolute inset-0 opacity-30'>
         {stages.map((stage, index) => (

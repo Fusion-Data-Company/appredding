@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useMotionTemplate, useMotionValue, animate } from "framer-motion";
 import { Zap, Sun, Battery } from "lucide-react";
+import { AwardBadge } from '@/components/ui/award-badge';
 
 // ============================================================================
 // SOLAR WAVE BACKGROUND COMPONENT
@@ -275,6 +276,11 @@ const SolarWaveHero: React.FC<SolarWaveHeroProps> = ({
 
   return (
     <div className="hero-section relative min-h-screen w-full overflow-hidden bg-black">
+      {/* Award Badge */}
+      <div className="absolute top-4 right-4 md:top-8 md:right-8 z-50">
+        <AwardBadge type="customer-service-excellence" data-testid="award-badge-residential-solar" />
+      </div>
+
       {/* Animated Backgrounds */}
       <SolarWaveBackground />
       <ElectricParticles />
@@ -287,8 +293,8 @@ const SolarWaveHero: React.FC<SolarWaveHeroProps> = ({
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/80 pointer-events-none" />
 
       {/* Hero Content */}
-      <div className="relative z-[2] flex min-h-screen items-center">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 py-20">
+      <div className="relative z-[2] flex min-h-screen items-start pt-24 md:pt-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -307,7 +313,7 @@ const SolarWaveHero: React.FC<SolarWaveHeroProps> = ({
               className="mb-6 text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl"
             >
               <span className="gradient-bright-fire text-5xl sm:text-6xl lg:text-7xl font-bold">
-                Residential Solar Installation
+                {title}
               </span>
               <br />
               <span className="gradient-bright-white font-extrabold tracking-wide">

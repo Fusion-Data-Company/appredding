@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { Loader2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useOperationTimer } from '@/hooks/use-performance';
+import LoadingLines from '@/components/ui/loading-lines';
 
 interface EnhancedLoadingProps {
   message?: string;
@@ -127,26 +128,17 @@ export function EnhancedLoading({
   );
 }
 
-// Suspense fallback component with enhanced loading
-export function SuspenseFallback({ 
+// Suspense fallback component with LoadingLines - DO NOT MODIFY LOADINGLINES STYLING
+export function SuspenseFallback({
   message = "Loading page...",
-  operationName 
-}: { 
+  operationName
+}: {
   message?: string;
   operationName?: string;
 }) {
   return (
     <div className="min-h-screen flex items-center justify-center bg-background">
-      <EnhancedLoading 
-        message={message}
-        showProgress={true}
-        timeout={15000}
-        size="lg"
-        operationName={operationName}
-        onTimeout={() => {
-          
-        }}
-      />
+      <LoadingLines />
     </div>
   );
 }

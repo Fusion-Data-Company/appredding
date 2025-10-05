@@ -90,11 +90,12 @@ export default function CrmLoginPage() {
     loginMutation.mutate(data);
   };
   
-  // If checking authentication, show loading state
+  // If checking authentication, show LoadingLines
   if (checkingAuth) {
+    const LoadingLines = require('@/components/ui/loading-lines').default;
     return (
-      <div className="flex h-screen items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      <div className="flex h-screen items-center justify-center bg-background">
+        <LoadingLines />
       </div>
     );
   }

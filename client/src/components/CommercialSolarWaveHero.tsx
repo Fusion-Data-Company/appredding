@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Zap, Sun, Battery, ArrowRight, Menu, X } from 'lucide-react';
+import { AwardBadge } from '@/components/ui/award-badge';
 
 // ============================================================================
 // ANIMATED WAVE BACKGROUND COMPONENT
@@ -231,6 +232,11 @@ const CommercialSolarWaveHero: React.FC<CommercialSolarWaveHeroProps> = ({
 
   return (
     <div className="hero-section relative min-h-screen w-full overflow-hidden bg-black" style={{ position: 'relative' }}>
+      {/* Award Badge */}
+      <div className="absolute top-4 right-4 md:top-8 md:right-8 z-50">
+        <AwardBadge type="customer-service-excellence" data-testid="award-badge-commercial-solar" />
+      </div>
+
       {/* Animated Background */}
       <SolarWaveBackground />
       <EnergyParticles />
@@ -245,7 +251,7 @@ const CommercialSolarWaveHero: React.FC<CommercialSolarWaveHeroProps> = ({
       {/* Hero Content */}
       <motion.div
         style={{ opacity, scale }}
-        className="relative z-[2] flex min-h-screen items-center justify-center px-6"
+        className="relative z-[2] flex min-h-screen items-start justify-center px-6 pt-24 md:pt-32"
       >
         <div className="max-w-6xl mx-auto text-center">
           {/* Badge */}
@@ -267,7 +273,7 @@ const CommercialSolarWaveHero: React.FC<CommercialSolarWaveHeroProps> = ({
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
           >
             <span className="gradient-bright-electric font-extrabold">
-              Commercial Solar Installation
+              {title}
             </span>
             <br />
             <span className="gradient-bright-sunset font-extrabold tracking-wide">

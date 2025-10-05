@@ -3,6 +3,7 @@
 import * as React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import { GradientTracing } from '@/components/ui/gradient-tracing';
 import { ArrowDown, AlertTriangle, Flame, ClipboardCheck, Wrench, Battery, TrendingUp, CheckCircle, Calendar } from 'lucide-react';
 
 function GridPattern({
@@ -183,6 +184,13 @@ const SolarRescueFunnelSection: React.FC = () => {
 
   return (
     <section className='relative min-h-screen w-full overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950'>
+      <div className='absolute inset-0 opacity-25 pointer-events-none'>
+        <GradientTracing
+          gradientColors={["#ef4444", "#f59e0b", "#22c55e"]}
+          animationDuration={3.5}
+          strokeWidth={2}
+        />
+      </div>
       <div className='absolute inset-0 opacity-15'>
         <GridPattern width={42} height={42} className='fill-slate-600/40 stroke-slate-700/40' />
       </div>

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
+import { GradientTracing } from '@/components/ui/gradient-tracing';
 import { 
   DollarSign, 
   Shield, 
@@ -88,8 +89,15 @@ const SolarBenefitsSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
+      <div className="absolute inset-0 opacity-30 pointer-events-none">
+        <GradientTracing
+          gradientColors={["#3b82f6", "#06b6d4", "#8b5cf6"]}
+          animationDuration={3}
+          strokeWidth={3}
+        />
+      </div>
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <Badge className="mb-4 bg-blue-500/20 text-blue-300 border-blue-500/40">
             <Sun className="w-4 h-4 mr-2" />

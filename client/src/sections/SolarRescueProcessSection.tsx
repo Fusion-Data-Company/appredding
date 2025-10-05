@@ -4,6 +4,7 @@ import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { GradientTracing } from '@/components/ui/gradient-tracing';
 import {
   Users,
   Phone,
@@ -98,8 +99,15 @@ const SolarRescueProcessSection: React.FC = () => {
   ];
 
   return (
-    <section className='min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 py-20 px-4 text-foreground sm:px-6 lg:px-8'>
-      <div className='mx-auto max-w-7xl'>
+    <section className='relative min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 py-20 px-4 text-foreground sm:px-6 lg:px-8 overflow-hidden'>
+      <div className='absolute inset-0 opacity-20 pointer-events-none'>
+        <GradientTracing
+          gradientColors={["#eab308", "#f59e0b", "#22c55e"]}
+          animationDuration={4}
+          strokeWidth={2}
+        />
+      </div>
+      <div className='mx-auto max-w-7xl relative z-10'>
         <div className='mb-16 space-y-5 text-center'>
           <Badge className='flex items-center justify-center gap-2 bg-gradient-to-r from-yellow-500 to-orange-500 px-4 py-1.5 text-sm font-semibold text-white shadow-lg shadow-yellow-500/20'>
             <Sun className='h-4 w-4' /> Proven Sales Process

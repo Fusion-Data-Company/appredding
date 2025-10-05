@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { GradientTracing } from '@/components/ui/gradient-tracing';
 
 interface ContentSectionProps {
   title?: string;
@@ -10,6 +11,7 @@ interface ContentSectionProps {
   backgroundColor?: string;
   fullWidth?: boolean;
   className?: string;
+  gradientColors?: string[];
 }
 
 const ContentSection: React.FC<ContentSectionProps> = ({
@@ -19,20 +21,33 @@ const ContentSection: React.FC<ContentSectionProps> = ({
   children,
   backgroundColor = 'bg-gray-900',
   fullWidth = false,
-  className = ''
+  className = '',
+  gradientColors
 }) => {
   const { ref, inView } = useInView({
     threshold: 0.1,
     triggerOnce: true
   });
 
+  // Check if this is a dark background that should have gradient tracing
+  const isDarkBackground = backgroundColor.includes('from-gray-9') || backgroundColor.includes('to-black');
+
   return (
-    <section ref={ref} className={`py-16 relative ${backgroundColor === 'bg-gray-900' || backgroundColor === 'bg-gradient-to-br from-gray-900 to-black' ? 'bg-gradient-mesh' : backgroundColor} ${className}`}>
+    <section ref={ref} className={`py-16 relative overflow-hidden ${backgroundColor === 'bg-gray-900' || backgroundColor === 'bg-gradient-to-br from-gray-900 to-black' ? 'bg-gradient-mesh' : backgroundColor} ${className}`}>
+      {isDarkBackground && (
+        <div className="absolute inset-0 opacity-20 pointer-events-none">
+          <GradientTracing
+            gradientColors={gradientColors || ["#3b82f6", "#06b6d4", "#8b5cf6"]}
+            animationDuration={3.5}
+            strokeWidth={2}
+          />
+        </div>
+      )}
       <motion.div 
         initial={{ opacity: 0, y: 30 }}
         animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
         transition={{ duration: 0.7 }}
-        className={`${fullWidth ? 'w-full' : 'max-w-7xl mx-auto'} px-4 sm:px-6 lg:px-8`}
+        className={`${fullWidth ? 'w-full' : 'max-w-7xl mx-auto'} px-4 sm:px-6 lg:px-8 relative z-10`}
       >
         {(title || subtitle || description) && (
           <div className="text-center mb-12">

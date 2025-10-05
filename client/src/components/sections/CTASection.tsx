@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Button } from '@/components/ui/button';
+import { GradientTracing } from '@/components/ui/gradient-tracing';
 import { Phone, Mail, ArrowRight, Calendar } from 'lucide-react';
 import { Link } from 'wouter';
 
@@ -62,6 +63,13 @@ const CTASection: React.FC<CTASectionProps> = ({
 
   return (
     <section ref={ref} className={`py-20 relative overflow-hidden ${backgroundColor}`}>
+      <div className="absolute inset-0 opacity-15 pointer-events-none">
+        <GradientTracing
+          gradientColors={["#f97316", "#fb923c", "#3b82f6"]}
+          animationDuration={3.5}
+          strokeWidth={2}
+        />
+      </div>
       <motion.div 
         initial={{ opacity: 0, y: 30 }}
         animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}

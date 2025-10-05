@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import { GradientTracing } from '@/components/ui/gradient-tracing';
 import { CheckCircle2, AlertCircle, Zap, TrendingUp } from 'lucide-react';
 
 interface FunnelStage {
@@ -196,6 +197,13 @@ export function SolarFunnel({
         className,
       )}
     >
+      <div className='absolute inset-0 opacity-20 pointer-events-none'>
+        <GradientTracing
+          gradientColors={["#ef4444", "#f59e0b", "#22c55e"]}
+          animationDuration={4}
+          strokeWidth={2}
+        />
+      </div>
       <div className='absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.035)_1px,transparent_1px)] bg-[size:64px_64px]' />
       <div className='absolute top-20 left-10 h-96 w-96 animate-pulse rounded-full bg-red-500/10 blur-[120px]' />
       <div

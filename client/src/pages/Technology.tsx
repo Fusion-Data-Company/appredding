@@ -7,6 +7,7 @@ import MainLayout from "@/components/layout/MainLayout";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
+import { GradientTracing } from '@/components/ui/gradient-tracing';
 
 const Technology = () => {
   return (
@@ -20,6 +21,15 @@ const Technology = () => {
         {/* Background */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950"></div>
+          
+          <div className="absolute inset-0 opacity-20 pointer-events-none">
+            <GradientTracing
+              gradientColors={["#10b981", "#06b6d4", "#8b5cf6"]}
+              animationDuration={3.5}
+              strokeWidth={2}
+            />
+          </div>
+          
           <ParticleBackground
             quantity={75}
             minSize={1}

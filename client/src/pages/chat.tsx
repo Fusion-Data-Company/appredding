@@ -314,7 +314,7 @@ const ChatPage = () => {
               <CardContent className="flex-1 overflow-y-auto p-4 flex flex-col gap-4">
                 {isLoadingMessages || !currentSessionId ? (
                   <div className="flex justify-center items-center h-full">
-                    <Loader2 className="h-8 w-8 animate-spin text-primary" />
+                    {(() => { const LoadingLines = require('@/components/ui/loading-lines').default; return <LoadingLines />; })()}
                   </div>
                 ) : isMessagesError ? (
                   <div className="flex justify-center items-center h-full">

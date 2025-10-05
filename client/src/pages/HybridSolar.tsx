@@ -67,6 +67,7 @@ import { motion } from "framer-motion";
 import SEOHead from "@/components/SEOHead";
 import SolarRescueTimelineSection from "@/sections/SolarRescueTimelineSection";
 import ContentSection from "@/components/sections/ContentSection";
+import { GradientTracing } from '@/components/ui/gradient-tracing';
 
 type HybridSolarFormValues = z.infer<typeof insertFirePreventionHomeownerSchema>;
 

@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react'
 import { createNoise2D } from 'simplex-noise'
 import { motion } from 'framer-motion'
 import { Zap, Sun, Battery, Wrench, AlertTriangle, Shield } from 'lucide-react'
+import { AwardBadge } from '@/components/ui/award-badge'
 
 interface Point {
     x: number
@@ -348,6 +349,11 @@ const RepairsWaveHero: React.FC<RepairsWaveHeroProps> = ({
 
     return (
         <div className="hero-section relative min-h-screen w-full bg-black overflow-hidden" style={{ position: 'relative' }}>
+            {/* Award Badge */}
+            <div className="absolute top-4 right-4 md:top-8 md:right-8 z-50">
+                <AwardBadge type="customer-service-excellence" data-testid="award-badge-repairs" />
+            </div>
+
             {/* Wave Background */}
             <div className="absolute inset-0 z-0">
                 <Waves 
