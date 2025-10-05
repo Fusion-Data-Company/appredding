@@ -24,7 +24,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
     <>
       Advance Power of Redding
       <br />
-      <span className="text-primary">Solar Solutions Expert</span>
+      <span className="text-primary">Solar Solutions Experts</span>
     </>
   ),
   subtitle = "Rescuing orphaned solar systems in 7 days or less. Specializing in NEM 3.0 battery retrofits and load shifting to recover 25-40% of lost export value. Serving Shasta County, North State I-5 corridor, Trinity & Tehama counties.",
