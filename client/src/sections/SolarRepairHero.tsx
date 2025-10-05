@@ -21,13 +21,7 @@ interface SolarRepairHeroProps {
 
 const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
   tagline = "25+ Years Serving Northern California",
-  title = (
-    <>
-      Advance Power of Redding
-      <br />
-      <span className="text-primary">Solar Solutions Experts</span>
-    </>
-  ),
+  title,
   subtitle = "Rescuing orphaned solar systems in 7 days or less. Specializing in NEM 3.0 battery retrofits and load shifting to recover 25-40% of lost export value. Serving Shasta County, North State I-5 corridor, Trinity & Tehama counties.",
   ctaButtons = {
     primary: { label: "Get Free Quote", onClick: () => console.log("Schedule clicked") },
@@ -121,7 +115,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
       </div>
 
       <div className="relative z-10 w-full">
-        <div className="container mx-auto px-4 sm:px-6 pt-16 sm:pt-20 pb-12 sm:pb-20">
+        <div className="container mx-auto px-4 sm:px-6 pt-8 sm:pt-12 pb-12 sm:pb-20">
           <div className="flex flex-col items-center justify-center text-center min-h-[60vh]">
             <motion.div 
               className="flex justify-center mb-6"
@@ -162,9 +156,57 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
                   },
                 },
               }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-foreground mb-4 sm:mb-6 px-2"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-4 sm:mb-6 px-2"
             >
-              {title}
+              <span 
+                className="relative inline-block"
+                style={{
+                  background: 'linear-gradient(135deg, #fbbf24 0%, #d97706 50%, #000000 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  filter: 'drop-shadow(0 2px 6px rgba(251,191,36,0.4)) drop-shadow(0 4px 12px rgba(0,0,0,0.3))',
+                  textShadow: 'none'
+                }}
+              >
+                Advance Power
+              </span>
+              {' '}
+              <span 
+                className="relative inline-block"
+                style={{
+                  color: 'white',
+                  filter: 'drop-shadow(0 2px 6px rgba(255,255,255,0.3)) drop-shadow(0 4px 12px rgba(255,255,255,0.15))',
+                  textShadow: '0 1px 3px rgba(0,0,0,0.3)'
+                }}
+              >
+                of Redding
+              </span>
+              <br />
+              <span 
+                className="relative inline-block"
+                style={{
+                  background: 'linear-gradient(135deg, #f97316 0%, #fb923c 50%, #fbbf24 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  filter: 'drop-shadow(0 2px 6px rgba(249,115,22,0.5)) drop-shadow(0 4px 12px rgba(251,191,36,0.3))',
+                  textShadow: 'none'
+                }}
+              >
+                Solar Solutions
+              </span>
+              {' '}
+              <span 
+                className="relative inline-block"
+                style={{
+                  color: 'white',
+                  filter: 'drop-shadow(0 2px 6px rgba(255,255,255,0.3)) drop-shadow(0 4px 12px rgba(255,255,255,0.15))',
+                  textShadow: '0 1px 3px rgba(0,0,0,0.3)'
+                }}
+              >
+                Experts
+              </span>
             </motion.h1>
 
             <motion.p
