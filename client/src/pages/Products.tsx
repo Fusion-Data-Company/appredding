@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 import { Sun, Zap, Battery, ShieldCheck, Cpu } from 'lucide-react';
 import ProductsWaveHero from '@/components/ProductsWaveHero';
+import CardCarouselDemo from '@/components/ui/card-carousel-demo';
 
 export default function Products() {
   return (
@@ -18,6 +19,13 @@ export default function Products() {
           { value: "100%", label: "Quality Guaranteed" }
         ]}
       />
+
+      {/* Featured Solar Products Carousel */}
+      <div className="py-16 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+        <div className="container mx-auto px-4">
+          <CardCarouselDemo />
+        </div>
+      </div>
 
       <div className="relative bg-gray-900">
         <div className="container mx-auto px-4 py-16">
