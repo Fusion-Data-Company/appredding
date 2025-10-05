@@ -661,7 +661,6 @@ const ProductComparison = () => {
               </motion.div>
               </div>
             </div>
-            </div>
           </motion.div>
           
           <motion.div 
