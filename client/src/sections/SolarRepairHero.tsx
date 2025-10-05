@@ -156,57 +156,14 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
                   },
                 },
               }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-4 sm:mb-6 px-2"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white mb-4 sm:mb-6 px-2"
+              style={{
+                textShadow: '0 2px 4px rgba(0,0,0,0.3)'
+              }}
             >
-              <span 
-                className="relative inline-block"
-                style={{
-                  background: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #ea580c 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                  filter: 'drop-shadow(0 3px 8px rgba(251,191,36,0.6)) drop-shadow(0 6px 16px rgba(234,88,12,0.4))',
-                  textShadow: 'none'
-                }}
-              >
-                Advance Power
-              </span>
-              {' '}
-              <span 
-                className="relative inline-block"
-                style={{
-                  color: '#1f2937',
-                  filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))',
-                  textShadow: '0 1px 2px rgba(255,255,255,0.8)'
-                }}
-              >
-                of Redding
-              </span>
+              Advance Power of Redding
               <br />
-              <span 
-                className="relative inline-block"
-                style={{
-                  background: 'linear-gradient(135deg, #f97316 0%, #fb923c 50%, #fbbf24 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                  filter: 'drop-shadow(0 3px 8px rgba(249,115,22,0.7)) drop-shadow(0 6px 16px rgba(251,191,36,0.5))',
-                  textShadow: 'none'
-                }}
-              >
-                Solar Solutions
-              </span>
-              {' '}
-              <span 
-                className="relative inline-block"
-                style={{
-                  color: '#1f2937',
-                  filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))',
-                  textShadow: '0 1px 2px rgba(255,255,255,0.8)'
-                }}
-              >
-                Experts
-              </span>
+              <span className="text-primary">Solar Solutions Experts</span>
             </motion.h1>
 
             <motion.p
