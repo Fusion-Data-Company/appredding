@@ -11,9 +11,20 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { X, CalendarIcon, Clock } from 'lucide-react';
 import { useMutation } from '@tanstack/react-query';
 import { queryClient, apiRequest } from '@/lib/queryClient';
-import { format } from "date-fns";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+
+const formatDate = (date: Date) => {
+  const options: Intl.DateTimeFormatOptions = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: true
+  };
+  return date.toLocaleString('en-US', options);
+};
 import { cn } from "@/lib/utils";
 import { useToast } from '@/hooks/use-toast';
 
@@ -242,7 +253,7 @@ export function ActivityForm({ isOpen, onClose, contacts, companies, opportuniti
                             )}
                           >
                             {field.value ? (
-                              format(field.value, "PPP p")
+                              formatDate(field.value)
                             ) : (
                               <span>Select date and time</span>
                             )}

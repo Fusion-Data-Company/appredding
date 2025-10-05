@@ -35,8 +35,15 @@ import {
   Tag,
   Loader2
 } from "lucide-react";
-import { format } from "date-fns";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+
+const formatDate = (date: string) => {
+  return new Date(date).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
+  });
+};
 import toast from "react-hot-toast";
 
 // Task types

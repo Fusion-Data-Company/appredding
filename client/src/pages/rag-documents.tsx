@@ -33,8 +33,15 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { format } from "date-fns";
 import { useForm } from "react-hook-form";
+
+const formatDate = (date: string) => {
+  return new Date(date).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+};
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {

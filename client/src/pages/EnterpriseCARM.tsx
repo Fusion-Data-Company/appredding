@@ -17,8 +17,15 @@ import {
   BarChart3, TrendingUp, Clock, CheckCircle, AlertCircle, Settings, Target,
   Activity, PieChart, Sun, FileCheck, FileX, Loader2, ChevronDown, ChevronUp
 } from "lucide-react";
-import { format } from "date-fns";
 import { useToast } from "@/hooks/use-toast";
+
+const formatDate = (date: string) => {
+  return new Date(date).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
+  });
+};
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 interface Contact {
