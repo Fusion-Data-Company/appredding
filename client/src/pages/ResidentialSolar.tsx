@@ -312,31 +312,31 @@ const ResidentialSolar = () => {
         backgroundColor="bg-gradient-to-br from-gray-900 to-black"
       >
         {/* Real-Time Rate Monitor */}
-        <div className="bg-gradient-to-r from-blue-900/20 to-purple-900/20 border border-blue-500/30 rounded-2xl p-6 mb-8">
+        <div className="card-elite glow-blue p-6 mb-8">
           <h3 className="text-xl font-bold text-white mb-4 flex items-center">
             <Activity className="mr-3 h-6 w-6 text-blue-400" />
             Live PG&E TOU-C Rate Schedule (Winter 2024)
           </h3>
           <div className="grid md:grid-cols-4 gap-4">
-            <div className="bg-black/40 rounded-lg p-4">
+            <div className="category-card-elite p-4">
               <div className="text-xs text-gray-500 uppercase mb-1">Peak (4-9pm)</div>
               <div className="text-2xl font-bold text-red-400">$0.51/kWh</div>
               <div className="text-xs text-gray-400 mt-1">Import Cost</div>
               <div className="text-sm font-mono text-red-300">Export: $0.08</div>
             </div>
-            <div className="bg-black/40 rounded-lg p-4">
+            <div className="category-card-elite p-4">
               <div className="text-xs text-gray-500 uppercase mb-1">Partial Peak (3-4pm, 9-12am)</div>
               <div className="text-2xl font-bold text-yellow-400">$0.42/kWh</div>
               <div className="text-xs text-gray-400 mt-1">Import Cost</div>
               <div className="text-sm font-mono text-yellow-300">Export: $0.06</div>
             </div>
-            <div className="bg-black/40 rounded-lg p-4">
+            <div className="category-card-elite p-4">
               <div className="text-xs text-gray-500 uppercase mb-1">Off-Peak (12am-3pm)</div>
               <div className="text-2xl font-bold text-green-400">$0.40/kWh</div>
               <div className="text-xs text-gray-400 mt-1">Import Cost</div>
               <div className="text-sm font-mono text-green-300">Export: $0.04</div>
             </div>
-            <div className="bg-black/40 rounded-lg p-4">
+            <div className="category-card-elite p-4">
               <div className="text-xs text-gray-500 uppercase mb-1">Price Differential</div>
               <div className="text-2xl font-bold text-purple-400">12.75x</div>
               <div className="text-xs text-gray-400 mt-1">Import/Export Ratio</div>
@@ -347,7 +347,7 @@ const ResidentialSolar = () => {
 
         <div className="grid lg:grid-cols-2 gap-8 mb-8">
           {/* Detailed Export Value Calculator */}
-          <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
+          <div className="card-elite glow-orange p-8">
             <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
               <Calculator className="mr-3 h-6 w-6 text-orange-400" />
               NEM 3.0 Avoided Cost Calculator (ACC Plus)
@@ -420,7 +420,7 @@ const ResidentialSolar = () => {
           </div>
 
           {/* Advanced Load-Shifting Strategy */}
-          <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
+          <div className="card-elite glow-green p-8">
             <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
               <LineChart className="mr-3 h-6 w-6 text-green-400" />
               24-Hour Optimization Protocol
@@ -454,7 +454,7 @@ const ResidentialSolar = () => {
         </div>
 
         {/* Comparative Analysis Table */}
-        <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 mb-8">
+        <div className="card-elite glow-purple p-8 mb-8">
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
             <PieChart className="mr-3 h-6 w-6 text-purple-400" />
             NEM 2.0 vs NEM 3.0: 10-Year Financial Impact Analysis
@@ -513,7 +513,7 @@ const ResidentialSolar = () => {
 
         {/* Critical Insights */}
         <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-gradient-to-r from-orange-500/10 to-orange-600/5 border border-orange-500/30 rounded-2xl p-6">
+          <div className="card-elite glow-orange p-6">
             <h4 className="text-xl font-bold text-white mb-3 flex items-center">
               <AlertTriangle className="mr-2 h-5 w-5 text-orange-400" />
               AB 942: The Hidden Home Value Killer
@@ -532,7 +532,7 @@ const ResidentialSolar = () => {
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-green-500/10 to-green-600/5 border border-green-500/30 rounded-2xl p-6">
+          <div className="card-elite glow-green p-6">
             <h4 className="text-xl font-bold text-white mb-3 flex items-center">
               <TrendingUp className="mr-2 h-5 w-5 text-green-400" />
               Virtual Power Plant (VPP) Opportunity
@@ -643,7 +643,7 @@ const ResidentialSolar = () => {
             LiFePO4 Battery Selection Guide
           </h3>
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-gradient-to-br from-blue-500/10 to-blue-600/5 border border-blue-500/30 rounded-2xl p-6">
+            <div className="spec-card-elite glow-blue p-6">
               <h4 className="text-xl font-bold text-white mb-4">SimpliPhi PHI 3.8</h4>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
@@ -680,7 +680,7 @@ const ResidentialSolar = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-green-500/10 to-green-600/5 border border-green-500/30 rounded-2xl p-6">
+            <div className="spec-card-elite glow-green p-6">
               <h4 className="text-xl font-bold text-white mb-4">Fortress eVault Max</h4>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
@@ -717,7 +717,7 @@ const ResidentialSolar = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-purple-500/10 to-purple-600/5 border border-purple-500/30 rounded-2xl p-6">
+            <div className="spec-card-elite glow-purple p-6">
               <h4 className="text-xl font-bold text-white mb-4">EG4 LifePower4</h4>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
@@ -757,7 +757,7 @@ const ResidentialSolar = () => {
         </div>
 
         {/* Solar Panel Technology */}
-        <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
+        <div className="card-elite glow-gold p-8">
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
             <Sun className="mr-3 h-6 w-6 text-yellow-400" />
             Premium Solar Panel Technology Comparison
@@ -824,13 +824,13 @@ const ResidentialSolar = () => {
         description="Comprehensive financial analysis with actual customer data from Northern California installations"
         backgroundColor="bg-gradient-to-br from-gray-900 to-black"
       >
-        <div className="bg-gradient-to-r from-green-900/20 to-blue-900/20 border border-green-500/30 rounded-2xl p-8 mb-8">
+        <div className="card-elite glow-green p-8 mb-8">
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
             <DollarSign className="mr-3 h-6 w-6 text-green-400" />
             Case Study: 4BR Redding Home (2,400 sq ft)
           </h3>
           <div className="grid lg:grid-cols-3 gap-6">
-            <div className="bg-black/40 rounded-lg p-6">
+            <div className="spec-card-elite glow-green p-6">
               <h4 className="text-lg font-semibold text-green-400 mb-4">System Configuration</h4>
               <ul className="space-y-2 text-sm text-gray-300">
                 <li className="flex justify-between">
@@ -856,7 +856,7 @@ const ResidentialSolar = () => {
               </ul>
             </div>
 
-            <div className="bg-black/40 rounded-lg p-6">
+            <div className="spec-card-elite glow-blue p-6">
               <h4 className="text-lg font-semibold text-blue-400 mb-4">Incentives & Credits</h4>
               <ul className="space-y-2 text-sm text-gray-300">
                 <li className="flex justify-between">
@@ -882,7 +882,7 @@ const ResidentialSolar = () => {
               </ul>
             </div>
 
-            <div className="bg-black/40 rounded-lg p-6">
+            <div className="spec-card-elite glow-gold p-6">
               <h4 className="text-lg font-semibold text-yellow-400 mb-4">Monthly Performance</h4>
               <ul className="space-y-2 text-sm text-gray-300">
                 <li className="flex justify-between">
@@ -934,7 +934,7 @@ const ResidentialSolar = () => {
 
         {/* Financing Options */}
         <div className="grid md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-6 border border-gray-700">
+          <div className="card-elite glow-green p-6">
             <h4 className="text-xl font-bold text-white mb-4">Cash Purchase</h4>
             <div className="space-y-3 text-sm">
               <div className="flex justify-between">
@@ -956,7 +956,7 @@ const ResidentialSolar = () => {
             </div>
           </div>
 
-          <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-6 border border-gray-700">
+          <div className="card-elite glow-blue p-6">
             <h4 className="text-xl font-bold text-white mb-4">Solar Loan (4.99%)</h4>
             <div className="space-y-3 text-sm">
               <div className="flex justify-between">
@@ -978,7 +978,7 @@ const ResidentialSolar = () => {
             </div>
           </div>
 
-          <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-6 border border-gray-700">
+          <div className="card-elite glow-orange p-6">
             <h4 className="text-xl font-bold text-white mb-4">PACE Financing</h4>
             <div className="space-y-3 text-sm">
               <div className="flex justify-between">
@@ -1002,7 +1002,7 @@ const ResidentialSolar = () => {
         </div>
 
         {/* Energy Independence Calculator */}
-        <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
+        <div className="card-elite glow-purple p-8">
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
             <LineChart className="mr-3 h-6 w-6 text-purple-400" />
             Self-Sufficiency Analysis
@@ -1074,9 +1074,9 @@ const ResidentialSolar = () => {
         backgroundColor="bg-gray-900"
       >
         <div className="grid md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-gradient-to-br from-purple-500/10 to-purple-600/5 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/30">
+          <div className="spec-card-elite glow-purple group p-6">
             <div className="flex items-center gap-3 mb-4">
-              <div className="p-3 bg-purple-500/20 rounded-lg">
+              <div className="icon-container-elite bg-purple-500/20 group-hover:bg-purple-500/30">
                 <Award className="h-6 w-6 text-purple-400" />
               </div>
               <h3 className="text-xl font-bold text-white">Equity Budget</h3>
@@ -1097,9 +1097,9 @@ const ResidentialSolar = () => {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-blue-500/10 to-blue-600/5 backdrop-blur-sm rounded-2xl p-6 border border-blue-500/30">
+          <div className="spec-card-elite glow-blue group p-6">
             <div className="flex items-center gap-3 mb-4">
-              <div className="p-3 bg-blue-500/20 rounded-lg">
+              <div className="icon-container-elite bg-blue-500/20 group-hover:bg-blue-500/30">
                 <Shield className="h-6 w-6 text-blue-400" />
               </div>
               <h3 className="text-xl font-bold text-white">Equity Resiliency</h3>
@@ -1120,9 +1120,9 @@ const ResidentialSolar = () => {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-green-500/10 to-green-600/5 backdrop-blur-sm rounded-2xl p-6 border border-green-500/30">
+          <div className="spec-card-elite glow-green group p-6">
             <div className="flex items-center gap-3 mb-4">
-              <div className="p-3 bg-green-500/20 rounded-lg">
+              <div className="icon-container-elite bg-green-500/20 group-hover:bg-green-500/30">
                 <CircleDollarSign className="h-6 w-6 text-green-400" />
               </div>
               <h3 className="text-xl font-bold text-white">General Market</h3>
@@ -1144,7 +1144,7 @@ const ResidentialSolar = () => {
           </div>
         </div>
 
-        <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
+        <div className="card-elite glow-orange p-8">
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
             <FileCheck className="mr-3 h-6 w-6 text-orange-400" />
             SGIP Application Strategy & Timeline
@@ -1217,7 +1217,7 @@ const ResidentialSolar = () => {
         backgroundColor="bg-gradient-to-br from-gray-900 to-black"
       >
         <div className="grid lg:grid-cols-2 gap-8">
-          <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
+          <div className="card-elite glow-blue p-8">
             <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
               <Code className="mr-3 h-6 w-6 text-blue-400" />
               CPUC Rule 21 Requirements
@@ -1253,7 +1253,7 @@ const ResidentialSolar = () => {
             </div>
           </div>
 
-          <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
+          <div className="card-elite glow-green p-8">
             <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
               <FileCheck className="mr-3 h-6 w-6 text-green-400" />
               Title 24 Building Code
@@ -1290,7 +1290,7 @@ const ResidentialSolar = () => {
           </div>
         </div>
 
-        <div className="mt-8 bg-gradient-to-r from-blue-500/10 to-blue-600/5 border border-blue-500/30 rounded-2xl p-6">
+        <div className="mt-8 alert-elite">
           <h4 className="text-xl font-bold text-white mb-3 flex items-center">
             <Shield className="mr-2 h-5 w-5 text-blue-400" />
             APR C-46 Contractor Expertise

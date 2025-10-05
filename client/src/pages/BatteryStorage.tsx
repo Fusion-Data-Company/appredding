@@ -246,7 +246,7 @@ const BatteryStorage = () => {
       {/* Energy Storage Crisis Alert */}
       <section className="relative bg-gradient-to-br from-gray-900 via-black to-gray-900 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-purple-900/20 border border-purple-500/50 backdrop-blur-sm rounded-xl p-6">
+          <div className="alert-elite">
             <div className="flex items-center gap-4">
               <TrendingDown className="h-8 w-8 text-purple-400 animate-pulse flex-shrink-0" />
               <div className="flex-1">
@@ -262,22 +262,22 @@ const BatteryStorage = () => {
       <section className="bg-gradient-to-br from-gray-900 via-black to-gray-900 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center gap-4 text-sm">
-            <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-4 py-3 rounded-full border border-gray-700" data-testid="metric-roundtrip">
+            <div className="status-badge-elite" data-testid="metric-roundtrip">
               <Activity className="h-4 w-4 text-green-400" />
               <span className="text-gray-400">Round-Trip:</span>
               <span className="text-green-400 font-mono">95-98%</span>
             </div>
-            <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-4 py-3 rounded-full border border-gray-700" data-testid="metric-cycles">
+            <div className="status-badge-elite" data-testid="metric-cycles">
               <Timer className="h-4 w-4 text-yellow-400" />
               <span className="text-gray-400">Cycle Life:</span>
               <span className="text-yellow-400 font-mono">6,000-10,000</span>
             </div>
-            <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-4 py-3 rounded-full border border-gray-700" data-testid="metric-sgip">
+            <div className="status-badge-elite" data-testid="metric-sgip">
               <DollarSign className="h-4 w-4 text-purple-400" />
               <span className="text-gray-400">SGIP Rebate:</span>
               <span className="text-purple-400 font-mono">$200-1,000/kWh</span>
             </div>
-            <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-4 py-3 rounded-full border border-gray-700" data-testid="metric-warranty">
+            <div className="status-badge-elite" data-testid="metric-warranty">
               <Shield className="h-4 w-4 text-blue-400" />
               <span className="text-gray-400">Warranty:</span>
               <span className="text-blue-400 font-mono">10 years</span>
@@ -290,124 +290,124 @@ const BatteryStorage = () => {
       <section className="bg-gradient-to-br from-gray-900 via-black to-gray-900 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-4 gap-4 mb-12">
-            <div className="bg-gradient-to-br from-purple-500/10 to-purple-600/5 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/30 hover:border-purple-400 transition-all group">
+            <div className="spec-card-elite glow-purple group">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-purple-500/20 rounded-lg group-hover:bg-purple-500/30 transition-colors">
+                <div className="icon-container-elite bg-purple-500/20 group-hover:bg-purple-500/30">
                   <Battery className="h-6 w-6 text-purple-400" />
                 </div>
                 <h3 className="text-lg font-bold text-white">LiFePO4 Chemistry</h3>
               </div>
               <div className="space-y-3">
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Safety:</span>
                   <span className="text-purple-300 font-mono">Highest</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Thermal:</span>
                   <span className="text-purple-300 font-mono">270°C</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Cycles:</span>
                   <span className="text-purple-300 font-mono">10,000+</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">DoD:</span>
                   <span className="text-purple-300 font-mono">100%</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Degrade:</span>
                   <span className="text-purple-300 font-mono">0.5%/yr</span>
                 </div>
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-blue-500/10 to-blue-600/5 backdrop-blur-sm rounded-2xl p-6 border border-blue-500/30 hover:border-blue-400 transition-all group">
+            <div className="spec-card-elite glow-blue group">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-blue-500/20 rounded-lg group-hover:bg-blue-500/30 transition-colors">
+                <div className="icon-container-elite bg-blue-500/20 group-hover:bg-blue-500/30">
                   <Cpu className="h-6 w-6 text-blue-400" />
                 </div>
                 <h3 className="text-lg font-bold text-white">Smart BMS</h3>
               </div>
               <div className="space-y-3">
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Cell Balance:</span>
                   <span className="text-blue-300 font-mono">±20mV</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Protection:</span>
                   <span className="text-blue-300 font-mono">8-Layer</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Monitor:</span>
                   <span className="text-blue-300 font-mono">Real-time</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Comm:</span>
                   <span className="text-blue-300 font-mono">CAN/RS485</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Alerts:</span>
                   <span className="text-blue-300 font-mono">Instant</span>
                 </div>
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-green-500/10 to-green-600/5 backdrop-blur-sm rounded-2xl p-6 border border-green-500/30 hover:border-green-400 transition-all group">
+            <div className="spec-card-elite glow-green group">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-green-500/20 rounded-lg group-hover:bg-green-500/30 transition-colors">
+                <div className="icon-container-elite bg-green-500/20 group-hover:bg-green-500/30">
                   <Gauge className="h-6 w-6 text-green-400" />
                 </div>
                 <h3 className="text-lg font-bold text-white">Performance</h3>
               </div>
               <div className="space-y-3">
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Efficiency:</span>
                   <span className="text-green-300 font-mono">95-98%</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">C-Rate:</span>
                   <span className="text-green-300 font-mono">1C cont</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Response:</span>
                   <span className="text-green-300 font-mono">&lt;20ms</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Voltage:</span>
                   <span className="text-green-300 font-mono">48-51.2V</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Scalable:</span>
                   <span className="text-green-300 font-mono">200kWh+</span>
                 </div>
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-orange-500/10 to-orange-600/5 backdrop-blur-sm rounded-2xl p-6 border border-orange-500/30 hover:border-orange-400 transition-all group">
+            <div className="spec-card-elite glow-orange group">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-orange-500/20 rounded-lg group-hover:bg-orange-500/30 transition-colors">
+                <div className="icon-container-elite bg-orange-500/20 group-hover:bg-orange-500/30">
                   <Shield className="h-6 w-6 text-orange-400" />
                 </div>
                 <h3 className="text-lg font-bold text-white">Safety/Code</h3>
               </div>
               <div className="space-y-3">
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">UL:</span>
                   <span className="text-orange-300 font-mono">9540A</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">NFPA:</span>
                   <span className="text-orange-300 font-mono">855</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Fire:</span>
                   <span className="text-orange-300 font-mono">2hr rated</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Venting:</span>
                   <span className="text-orange-300 font-mono">Sealed</span>
                 </div>
-                <div className="flex justify-between text-sm">
+                <div className="data-row-elite text-sm">
                   <span className="text-gray-400">IP Rating:</span>
                   <span className="text-orange-300 font-mono">IP65</span>
                 </div>
@@ -416,13 +416,13 @@ const BatteryStorage = () => {
           </div>
 
           {/* Use Case Matrix */}
-          <div className="bg-gradient-to-r from-purple-900/20 to-blue-900/20 border border-purple-500/30 rounded-2xl p-6">
+          <div className="matrix-elite">
             <h3 className="text-xl font-bold text-white mb-4 flex items-center">
               <Layers className="mr-3 h-6 w-6 text-purple-400" />
               Critical Battery Storage Applications
             </h3>
             <div className="grid md:grid-cols-4 gap-4 text-sm">
-              <div className="bg-black/30 rounded-lg p-4">
+              <div className="category-card-elite">
                 <div className="flex items-center gap-2 mb-2">
                   <TrendingDown className="h-5 w-5 text-red-400" />
                   <h4 className="text-red-300 font-semibold">NEM 3.0 Arbitrage</h4>
@@ -433,7 +433,7 @@ const BatteryStorage = () => {
                   <li>• 12x value multiplier</li>
                 </ul>
               </div>
-              <div className="bg-black/30 rounded-lg p-4">
+              <div className="category-card-elite">
                 <div className="flex items-center gap-2 mb-2">
                   <Shield className="h-5 w-5 text-blue-400" />
                   <h4 className="text-blue-300 font-semibold">Backup Power</h4>
@@ -444,7 +444,7 @@ const BatteryStorage = () => {
                   <li>• Critical loads 24/7</li>
                 </ul>
               </div>
-              <div className="bg-black/30 rounded-lg p-4">
+              <div className="category-card-elite">
                 <div className="flex items-center gap-2 mb-2">
                   <CircleDollarSign className="h-5 w-5 text-green-400" />
                   <h4 className="text-green-300 font-semibold">Demand Charge</h4>
@@ -455,7 +455,7 @@ const BatteryStorage = () => {
                   <li>• $8-18K/month reduction</li>
                 </ul>
               </div>
-              <div className="bg-black/30 rounded-lg p-4">
+              <div className="category-card-elite">
                 <div className="flex items-center gap-2 mb-2">
                   <Wifi className="h-5 w-5 text-purple-400" />
                   <h4 className="text-purple-300 font-semibold">VPP Revenue</h4>
@@ -627,13 +627,13 @@ const BatteryStorage = () => {
         </div>
 
         {/* Why LiFePO4 Wins */}
-        <div className="bg-gradient-to-r from-purple-900/20 to-pink-900/20 border border-purple-500/30 rounded-2xl p-8">
+        <div className="card-elite glow-purple p-8">
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
             <Award className="mr-3 h-6 w-6 text-purple-400" />
             Why LiFePO4 Dominates Residential Storage
           </h3>
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-black/30 rounded-lg p-4">
+            <div className="category-card-elite">
               <div className="flex items-center gap-2 mb-3">
                 <Flame className="h-6 w-6 text-red-400" />
                 <h4 className="text-white font-semibold">Unmatched Safety</h4>
@@ -645,7 +645,7 @@ const BatteryStorage = () => {
                 <li>• No off-gassing or explosion risk</li>
               </ul>
             </div>
-            <div className="bg-black/30 rounded-lg p-4">
+            <div className="category-card-elite">
               <div className="flex items-center gap-2 mb-3">
                 <Activity className="h-6 w-6 text-green-400" />
                 <h4 className="text-white font-semibold">Superior Longevity</h4>
@@ -657,7 +657,7 @@ const BatteryStorage = () => {
                 <li>• No memory effect issues</li>
               </ul>
             </div>
-            <div className="bg-black/30 rounded-lg p-4">
+            <div className="category-card-elite">
               <div className="flex items-center gap-2 mb-3">
                 <Zap className="h-6 w-6 text-yellow-400" />
                 <h4 className="text-white font-semibold">Economic Efficiency</h4>
@@ -678,7 +678,7 @@ const BatteryStorage = () => {
           Top LiFePO4 Battery Manufacturers
         </h3>
         <div className="grid md:grid-cols-3 gap-6">
-          <div className="bg-gradient-to-br from-blue-500/10 to-blue-600/5 border border-blue-500/30 rounded-2xl p-6">
+          <div className="card-elite glow-blue p-6">
             <div className="flex items-center gap-3 mb-4">
               <Package className="h-6 w-6 text-blue-400" />
               <h3 className="text-xl font-bold text-white">SimpliPhi Power</h3>
@@ -718,7 +718,7 @@ const BatteryStorage = () => {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-green-500/10 to-green-600/5 border border-green-500/30 rounded-2xl p-6">
+          <div className="card-elite glow-green p-6">
             <div className="flex items-center gap-3 mb-4">
               <Package className="h-6 w-6 text-green-400" />
               <h3 className="text-xl font-bold text-white">Fortress Power</h3>
@@ -758,7 +758,7 @@ const BatteryStorage = () => {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-purple-500/10 to-purple-600/5 border border-purple-500/30 rounded-2xl p-6">
+          <div className="card-elite glow-purple p-6">
             <div className="flex items-center gap-3 mb-4">
               <Package className="h-6 w-6 text-purple-400" />
               <h3 className="text-xl font-bold text-white">EG4 Electronics</h3>
@@ -800,7 +800,7 @@ const BatteryStorage = () => {
         </div>
 
         {/* Installation Timeline */}
-        <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 mt-12">
+        <div className="card-elite glow-blue p-8 mt-12">
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
             <Calendar className="mr-3 h-6 w-6 text-blue-400" />
             Professional Installation Timeline
@@ -853,7 +853,7 @@ const BatteryStorage = () => {
         description="Complete guide to California's Self-Generation Incentive Program and financial optimization strategies"
         backgroundColor="bg-gradient-to-br from-gray-900 to-black"
       >
-        <div className="bg-gradient-to-r from-green-900/20 to-purple-900/20 border border-green-500/30 rounded-2xl p-8 mb-8">
+        <div className="card-elite glow-green p-8 mb-8">
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
             <CircleDollarSign className="mr-3 h-6 w-6 text-green-400" />
             SGIP Incentive Tiers (2024)
@@ -900,7 +900,7 @@ const BatteryStorage = () => {
 
         {/* Complete Financial Example */}
         <div className="grid lg:grid-cols-2 gap-8">
-          <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
+          <div className="card-elite glow-purple p-8">
             <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
               <Calculator className="mr-3 h-6 w-6 text-purple-400" />
               Real Customer Example: 15.2kWh System
@@ -936,7 +936,7 @@ const BatteryStorage = () => {
             </div>
           </div>
 
-          <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
+          <div className="card-elite glow-green p-8">
             <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
               <TrendingUp className="mr-3 h-6 w-6 text-green-400" />
               Incentives & Net Cost

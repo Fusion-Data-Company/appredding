@@ -496,13 +496,15 @@ const Maintenance = () => {
 
           <div className="grid md:grid-cols-3 gap-6">
             {realCustomerCases.map((case_, idx) => (
-              <div key={idx} className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
+              <div key={idx} className="card-elite glow-green p-6 group">
                 <div className="flex items-start justify-between mb-4">
                   <div>
                     <h3 className="font-bold text-gray-900 dark:text-white">{case_.customer}</h3>
                     <p className="text-sm text-gray-600 dark:text-gray-400">{case_.system}</p>
                   </div>
-                  <Award className="h-8 w-8 text-purple-500" />
+                  <div className="icon-container-elite bg-purple-500/20 group-hover:bg-purple-500/30">
+                    <Award className="h-5 w-5 text-purple-500" />
+                  </div>
                 </div>
 
                 <div className="space-y-3 mb-4">
@@ -558,7 +560,7 @@ const Maintenance = () => {
             ))}
           </div>
 
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
+          <div className="card-elite glow-purple p-8 group">
             <div className="flex items-start justify-between mb-4">
               <div>
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -624,14 +626,14 @@ const Maintenance = () => {
             <p className="text-gray-600 dark:text-gray-400">Systematic approach ensuring nothing is missed</p>
           </div>
 
-          <div className="bg-gradient-to-br from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 rounded-2xl p-8">
+          <div className="card-elite glow-purple p-8 group">
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {maintenanceWorkflow.map((step) => (
                 <div key={step.step} className="relative">
                   <div className="absolute -left-2 -top-2 w-10 h-10 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold">
                     {step.step}
                   </div>
-                  <div className="bg-white dark:bg-gray-800 rounded-xl p-4 pl-10 shadow">
+                  <div className="category-card-elite p-4 pl-10">
                     <h4 className="font-bold text-gray-900 dark:text-white mb-2">{step.phase}</h4>
                     <ul className="space-y-1">
                       {step.tasks.map((task, idx) => (
@@ -663,7 +665,7 @@ const Maintenance = () => {
 
           <div className="grid md:grid-cols-2 gap-6">
             {commonProblems.map((problem, idx) => (
-              <div key={idx} className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
+              <div key={idx} className="card-elite glow-orange p-6 group">
                 <div className="flex items-start justify-between mb-4">
                   <h3 className="text-lg font-bold text-gray-900 dark:text-white">{problem.problem}</h3>
                   <span className="text-sm bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-2 py-1 rounded">
@@ -715,7 +717,7 @@ const Maintenance = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {seasonalConsiderations.map((season, idx) => (
-              <div key={idx} className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
+              <div key={idx} className="card-elite glow-blue p-6 group">
                 <div className="flex items-center gap-3 mb-4">
                   {season.icon}
                   <h3 className="text-lg font-bold text-gray-900 dark:text-white">{season.season}</h3>
@@ -758,7 +760,7 @@ const Maintenance = () => {
             <p className="text-gray-600 dark:text-gray-400">Industry-leading tools for precise system analysis</p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
+          <div className="card-elite glow-blue overflow-hidden group">
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead className="bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
@@ -804,10 +806,10 @@ const Maintenance = () => {
             <p className="text-gray-600 dark:text-gray-400">How maintenance affects warranty claims</p>
           </div>
 
-          <div className="bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 rounded-2xl p-8">
+          <div className="card-elite glow-orange p-8 group">
             <div className="grid md:grid-cols-2 gap-6">
               {warrantyProtection.map((item, idx) => (
-                <div key={idx} className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow">
+                <div key={idx} className="spec-card-elite glow-green">
                   <div className="flex items-start justify-between mb-4">
                     <h3 className="font-bold text-gray-900 dark:text-white">{item.component}</h3>
                     <ShieldCheck className="h-6 w-6 text-green-500" />
@@ -854,10 +856,10 @@ const Maintenance = () => {
             <p className="text-gray-600 dark:text-gray-400">Month-by-month service planning for optimal performance</p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
+          <div className="card-elite glow-purple p-8 group">
             <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
               {maintenanceSchedule.map((item) => (
-                <div key={item.month} className="border border-gray-200 dark:border-gray-700 rounded-xl p-4 hover:shadow-lg transition">
+                <div key={item.month} className="category-card-elite p-4 hover:shadow-lg transition">
                   <div className="flex items-center justify-between mb-2">
                     <h4 className="font-bold text-gray-900 dark:text-white">Month {item.month}</h4>
                     <span className={`text-xs px-2 py-1 rounded-full font-medium ${
@@ -887,7 +889,7 @@ const Maintenance = () => {
 
           <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-4">
             {maintenanceMetrics.map((metric, idx) => (
-              <div key={idx} className="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-4">
+              <div key={idx} className="spec-card-elite glow-blue">
                 <h4 className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">{metric.metric}</h4>
                 <div className="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-1">{metric.value}</div>
                 <div className="text-xs text-green-600 dark:text-green-400 mb-2">Target: {metric.target}</div>
@@ -905,11 +907,13 @@ const Maintenance = () => {
             <p className="text-gray-600 dark:text-gray-400">Our team's credentials and ongoing education</p>
           </div>
 
-          <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl p-8">
+          <div className="card-elite glow-purple p-8 group">
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
               {industryCertifications.map((cert, idx) => (
-                <div key={idx} className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow">
-                  <BadgeCheck className="h-8 w-8 text-purple-500 mb-3" />
+                <div key={idx} className="spec-card-elite glow-green">
+                  <div className="icon-container-elite bg-purple-500/20 group-hover:bg-purple-500/30 mb-3">
+                    <BadgeCheck className="h-5 w-5 text-purple-500" />
+                  </div>
                   <h4 className="font-bold text-gray-900 dark:text-white text-sm mb-1">{cert.cert}</h4>
                   <p className="text-xs text-gray-600 dark:text-gray-400 mb-2">{cert.description}</p>
                   <div className="space-y-1 text-xs">
@@ -927,7 +931,7 @@ const Maintenance = () => {
             </div>
 
             {/* Lead Technician Profile */}
-            <div className="mt-8 bg-white dark:bg-gray-800 rounded-xl p-6 shadow-xl">
+            <div className="mt-8 card-elite glow-purple p-6 group">
               <div className="flex items-start gap-6">
                 <div className="w-20 h-20 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center">
                   <Users className="h-10 w-10 text-purple-600 dark:text-purple-400" />
@@ -964,7 +968,7 @@ const Maintenance = () => {
             <p className="text-gray-600 dark:text-gray-400">20-year production value with different maintenance levels</p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
+          <div className="card-elite glow-gold overflow-hidden group">
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead className="bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
@@ -1079,7 +1083,7 @@ const Maintenance = () => {
                 best: false
               }
             ].map((plan, idx) => (
-              <div key={idx} className={`bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 ${plan.best ? 'ring-2 ring-purple-500' : ''}`}>
+              <div key={idx} className={`card-elite ${plan.best ? 'glow-purple ring-2 ring-purple-500' : 'glow-blue'} p-6 group`}>
                 {plan.best && (
                   <div className="bg-purple-600 text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-4">
                     MOST POPULAR - 85% OF CUSTOMERS
@@ -1122,7 +1126,7 @@ const Maintenance = () => {
 
           <div className="grid md:grid-cols-2 gap-6">
             {faqItems.map((faq, idx) => (
-              <div key={idx} className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
+              <div key={idx} className="card-elite glow-purple p-6 group">
                 <h3 className="font-bold text-gray-900 dark:text-white mb-3 flex items-start gap-2">
                   <HelpCircle className="h-5 w-5 text-purple-500 flex-shrink-0 mt-0.5" />
                   {faq.question}

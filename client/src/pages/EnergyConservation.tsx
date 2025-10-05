@@ -289,7 +289,7 @@ const EnergyConservation = () => {
             ))}
           </div>
 
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
+          <div className="card-elite glow-green p-8 group">
             <div className="flex items-start justify-between mb-4">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
                 {conservationServices[selectedService as keyof typeof conservationServices].name}
@@ -348,7 +348,7 @@ const EnergyConservation = () => {
 
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Audit Steps */}
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
+            <div className="card-elite glow-blue p-8 group">
               <h3 className="text-xl font-bold mb-6 text-gray-900 dark:text-white flex items-center gap-2">
                 <Eye className="h-6 w-6 text-blue-500" /> Audit Methodology
               </h3>
@@ -381,7 +381,7 @@ const EnergyConservation = () => {
             </div>
 
             {/* Diagnostic Equipment */}
-            <div className="bg-gradient-to-br from-blue-50 to-green-50 dark:from-blue-900/20 dark:to-green-900/20 rounded-2xl p-8">
+            <div className="card-elite glow-blue p-8 group">
               <h3 className="text-xl font-bold mb-6 text-gray-900 dark:text-white flex items-center gap-2">
                 <Cpu className="h-6 w-6 text-green-500" /> Diagnostic Equipment
               </h3>
@@ -395,7 +395,7 @@ const EnergyConservation = () => {
                   { tool: "Moisture Meter", spec: "Protimeter MMS2", measure: "WME, %MC" },
                   { tool: "Data Logger", spec: "HOBO MX2301A", measure: "Temp, RH, Dew Point" }
                 ].map((item, idx) => (
-                  <div key={idx} className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow">
+                  <div key={idx} className="spec-card-elite glow-blue">
                     <h4 className="font-semibold text-gray-900 dark:text-white text-sm">{item.tool}</h4>
                     <p className="text-xs text-gray-500 dark:text-gray-400">{item.spec}</p>
                     <p className="text-xs text-green-600 dark:text-green-400 mt-1">Measures: {item.measure}</p>
@@ -420,8 +420,8 @@ const EnergyConservation = () => {
             <p className="text-gray-600 dark:text-gray-400">Understanding the physics of energy efficiency</p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 p-8">
+          <div className="card-elite glow-blue p-8 group">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {buildingScience.map((concept, idx) => (
                 <div key={idx} className="border-l-4 border-green-500 pl-4">
                   <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-1">{concept.concept}</h4>
@@ -452,7 +452,7 @@ const EnergyConservation = () => {
 
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Heat Pump Specifications */}
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
+            <div className="card-elite glow-blue p-8 group">
               <h3 className="text-xl font-bold mb-6 text-gray-900 dark:text-white flex items-center gap-2">
                 <Wind className="h-6 w-6 text-blue-500" /> Heat Pump Technology
               </h3>
@@ -522,7 +522,7 @@ const EnergyConservation = () => {
             </div>
 
             {/* Smart Controls */}
-            <div className="bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 rounded-2xl p-8">
+            <div className="card-elite glow-purple p-8 group">
               <h3 className="text-xl font-bold mb-6 text-gray-900 dark:text-white flex items-center gap-2">
                 <Settings className="h-6 w-6 text-purple-500" /> Smart HVAC Controls
               </h3>
@@ -535,7 +535,7 @@ const EnergyConservation = () => {
                   { feature: "Demand Response", savings: "5-15%", desc: "Grid-interactive load management" },
                   { feature: "Predictive Maintenance", savings: "10-20%", desc: "AI-based fault detection" }
                 ].map((item, idx) => (
-                  <div key={idx} className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow">
+                  <div key={idx} className="spec-card-elite glow-purple">
                     <div className="flex items-center justify-between mb-2">
                       <h4 className="font-semibold text-gray-900 dark:text-white">{item.feature}</h4>
                       <span className="text-sm font-bold text-green-600 dark:text-green-400">{item.savings}</span>
@@ -556,7 +556,7 @@ const EnergyConservation = () => {
             <p className="text-gray-600 dark:text-gray-400">Creating an efficient thermal boundary for your building</p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
+          <div className="card-elite glow-green p-8 group">
             <div className="grid md:grid-cols-2 gap-8 mb-8">
               {/* R-Value Requirements */}
               <div>
@@ -662,9 +662,11 @@ const EnergyConservation = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {smartHomeIntegration.map((system, idx) => (
-              <div key={idx} className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
+              <div key={idx} className="card-elite glow-purple p-6 group">
                 <div className="flex items-start justify-between mb-3">
-                  <Component className="h-8 w-8 text-blue-500" />
+                  <div className="icon-container-elite bg-purple-500/20 group-hover:bg-purple-500/30">
+                    <Component className="h-5 w-5 text-blue-500" />
+                  </div>
                   <span className="text-sm font-bold text-green-600 dark:text-green-400">{system.savings} Savings</span>
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-3">{system.system}</h3>
@@ -689,7 +691,7 @@ const EnergyConservation = () => {
             <p className="text-gray-600 dark:text-gray-400">Understanding efficiency ratings and certifications</p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
+          <div className="card-elite glow-blue overflow-hidden group">
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead className="bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
@@ -733,9 +735,11 @@ const EnergyConservation = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {rebatePrograms.map((program, idx) => (
-              <div key={idx} className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
+              <div key={idx} className="card-elite glow-gold p-6 group">
                 <div className="flex items-start justify-between mb-3">
-                  <DollarSign className="h-8 w-8 text-green-500" />
+                  <div className="icon-container-elite bg-yellow-500/20 group-hover:bg-yellow-500/30">
+                    <DollarSign className="h-5 w-5 text-green-500" />
+                  </div>
                   <span className="text-sm bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded">
                     {program.type}
                   </span>
@@ -747,7 +751,7 @@ const EnergyConservation = () => {
             ))}
           </div>
 
-          <div className="mt-8 bg-blue-50 dark:bg-blue-900/20 rounded-2xl p-6">
+          <div className="mt-8 alert-elite">
             <div className="flex items-start gap-4">
               <Info className="h-6 w-6 text-blue-500 flex-shrink-0" />
               <div>
@@ -769,7 +773,7 @@ const EnergyConservation = () => {
             <p className="text-gray-600 dark:text-gray-400">Calculate your potential savings and payback period</p>
           </div>
 
-          <div className="bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-2xl p-8">
+          <div className="card-elite glow-green p-8 group">
             <div className="grid lg:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-xl font-bold mb-6 text-gray-900 dark:text-white">Typical Project ROI</h3>
@@ -781,7 +785,7 @@ const EnergyConservation = () => {
                     { upgrade: "Heat Pump HVAC", cost: "$8,000", savings: "$1,200/yr", payback: "6.7 years", roi: "15%" },
                     { upgrade: "Full Envelope", cost: "$12,000", savings: "$2,400/yr", payback: "5 years", roi: "20%" }
                   ].map((item, idx) => (
-                    <div key={idx} className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow">
+                    <div key={idx} className="spec-card-elite glow-gold">
                       <div className="flex justify-between items-start mb-2">
                         <h4 className="font-semibold text-gray-900 dark:text-white">{item.upgrade}</h4>
                         <span className="text-sm font-bold text-green-600">{item.roi} ROI</span>
@@ -807,7 +811,7 @@ const EnergyConservation = () => {
 
               <div>
                 <h3 className="text-xl font-bold mb-6 text-gray-900 dark:text-white">Quick Calculator</h3>
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-xl">
+                <div className="category-card-elite p-6">
                   <div className="space-y-4">
                     <div>
                       <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Monthly Energy Bill</label>
@@ -919,7 +923,7 @@ const EnergyConservation = () => {
                 additional_benefits: "Green certification, marketing advantage, guest satisfaction up 12%"
               }
             ].map((study, idx) => (
-              <div key={idx} className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
+              <div key={idx} className="card-elite glow-green p-6 group">
                 <div className="mb-4">
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white">{study.customer}</h3>
                   <p className="text-sm text-gray-600 dark:text-gray-400">{study.property}</p>
@@ -1031,7 +1035,7 @@ const EnergyConservation = () => {
             ].map((phase, idx) => {
               const Icon = phase.icon;
               return (
-                <div key={idx} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-4">
+                <div key={idx} className="card-elite glow-blue p-4 group">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-10 h-10 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center">
                       <Icon className="h-5 w-5 text-green-600 dark:text-green-400" />
@@ -1062,7 +1066,7 @@ const EnergyConservation = () => {
             })}
           </div>
 
-          <div className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-2xl p-8">
+          <div className="card-elite glow-blue p-8 group">
             <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Audit Technologies & Tools</h3>
             <div className="grid md:grid-cols-3 gap-4">
               {[
@@ -1073,7 +1077,7 @@ const EnergyConservation = () => {
                 { tool: "TSI VelociCalc 9565", purpose: "HVAC airflow, temperature, humidity measurement", value: "$3,800" },
                 { tool: "EnergyCAP Software", purpose: "Utility tracking, benchmarking, M&V", value: "$12,000/yr" }
               ].map((item, idx) => (
-                <div key={idx} className="bg-white dark:bg-gray-800 rounded-lg p-3">
+                <div key={idx} className="category-card-elite p-3">
                   <h4 className="text-sm font-semibold text-gray-900 dark:text-white">{item.tool}</h4>
                   <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">{item.purpose}</p>
                   <p className="text-xs text-green-600 dark:text-green-400 mt-1">Investment: {item.value}</p>
@@ -1166,7 +1170,7 @@ const EnergyConservation = () => {
                 best_for: "Offices, schools, restaurants"
               }
             ].map((category, idx) => (
-              <div key={idx} className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
+              <div key={idx} className="card-elite glow-green p-6 group">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-lg font-bold text-gray-900 dark:text-white">{category.category}</h3>
                   <span className="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-3 py-1 rounded-full text-sm font-medium">
@@ -1207,7 +1211,7 @@ const EnergyConservation = () => {
             <p className="text-gray-600 dark:text-gray-400">Maximize your ROI with available funding</p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
+          <div className="card-elite glow-gold overflow-hidden group">
             <table className="w-full">
               <thead className="bg-gray-50 dark:bg-gray-700">
                 <tr>
@@ -1299,7 +1303,7 @@ const EnergyConservation = () => {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
+            <div className="card-elite glow-blue p-6 group">
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">IPMVP Options</h3>
               <div className="space-y-3">
                 {[
@@ -1322,7 +1326,7 @@ const EnergyConservation = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-2xl p-6">
+            <div className="card-elite glow-green p-6 group">
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">M&V Process</h3>
               <div className="space-y-3">
                 {[
@@ -1373,8 +1377,10 @@ const EnergyConservation = () => {
             ].map((cert, idx) => {
               const Icon = cert.icon;
               return (
-                <div key={idx} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-4 text-center">
-                  <Icon className="h-8 w-8 mx-auto mb-2 text-green-600 dark:text-green-400" />
+                <div key={idx} className="card-elite glow-green p-4 text-center group">
+                  <div className="icon-container-elite bg-green-500/20 group-hover:bg-green-500/30 mx-auto mb-2">
+                    <Icon className="h-5 w-5 text-green-600 dark:text-green-400" />
+                  </div>
                   <h4 className="text-sm font-semibold text-gray-900 dark:text-white">{cert.cert}</h4>
                   <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">{cert.org}</p>
                   <p className="text-xs text-green-600 dark:text-green-400 mt-1">
@@ -1437,7 +1443,7 @@ const EnergyConservation = () => {
                 a: "Yes! Options include: PACE financing (100% financed via property tax), On-Bill Financing (0% through utility), equipment leasing, and performance contracts. Most projects are cash-flow positive."
               }
             ].map((faq, idx) => (
-              <div key={idx} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
+              <div key={idx} className="card-elite glow-blue p-6 group">
                 <h3 className="font-bold text-gray-900 dark:text-white mb-3 flex items-start gap-2">
                   <HelpCircle className="h-5 w-5 text-green-500 mt-0.5" />
                   {faq.q}

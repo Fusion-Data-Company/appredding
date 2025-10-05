@@ -389,98 +389,96 @@ const CommercialSolar = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-gradient-to-br from-blue-900/20 to-blue-950/20 border border-blue-800/30 rounded-xl p-8">
+            <div className="card-elite glow-blue p-8">
               <div className="flex items-center mb-6">
-                <div className="w-16 h-16 bg-blue-500/20 rounded-lg flex items-center justify-center mr-4">
+                <div className="icon-container-elite bg-blue-500/20">
                   <Zap className="h-8 w-8 text-blue-400" />
                 </div>
-                <div>
+                <div className="ml-4">
                   <h3 className="text-2xl font-bold text-blue-400">Sol-Ark 30K</h3>
                   <p className="text-gray-400">30kW Three-Phase Commercial</p>
                 </div>
               </div>
-              
+
               <div className="space-y-4">
-                <div className="flex justify-between border-b border-gray-700 pb-2">
+                <div className="data-row-elite">
                   <span className="text-gray-400">AC Output Power:</span>
                   <span className="text-white font-semibold">30kW (208/240/277/480V)</span>
                 </div>
-                <div className="flex justify-between border-b border-gray-700 pb-2">
+                <div className="data-row-elite">
                   <span className="text-gray-400">Max PV Input:</span>
                   <span className="text-white font-semibold">45kW (150% DC/AC ratio)</span>
                 </div>
-                <div className="flex justify-between border-b border-gray-700 pb-2">
+                <div className="data-row-elite">
                   <span className="text-gray-400">Battery Voltage:</span>
                   <span className="text-white font-semibold">400-800VDC CANbus HV</span>
                 </div>
-                <div className="flex justify-between border-b border-gray-700 pb-2">
+                <div className="data-row-elite">
                   <span className="text-gray-400">Efficiency:</span>
                   <span className="text-white font-semibold">98.2% CEC Weighted</span>
                 </div>
-                <div className="flex justify-between border-b border-gray-700 pb-2">
+                <div className="data-row-elite">
                   <span className="text-gray-400">Grid Code:</span>
                   <span className="text-white font-semibold">UL 1741-SA Rule 21</span>
                 </div>
-                <div className="flex justify-between">
+                <div className="data-row-elite">
                   <span className="text-gray-400">Warranty:</span>
                   <span className="text-white font-semibold">12 years standard</span>
                 </div>
               </div>
 
-              <div className="mt-6 p-4 bg-blue-500/10 border border-blue-700/30 rounded-lg">
-                <p className="text-sm text-blue-300">
-                  <strong>Ideal For:</strong> 100-200kW commercial systems, multi-inverter parallel configuration, B-10/E-19 rate schedules
-                </p>
+              <div className="badge-elite-metallic badge-electric mt-6">
+                <CheckCircle className="h-4 w-4 text-blue-400" />
+                <span>Ideal For: 100-200kW commercial systems, multi-inverter parallel configuration, B-10/E-19 rate schedules</span>
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-purple-900/20 to-purple-950/20 border border-purple-800/30 rounded-xl p-8">
+            <div className="card-elite glow-purple p-8">
               <div className="flex items-center mb-6">
-                <div className="w-16 h-16 bg-purple-500/20 rounded-lg flex items-center justify-center mr-4">
+                <div className="icon-container-elite bg-purple-500/20">
                   <Zap className="h-8 w-8 text-purple-400" />
                 </div>
-                <div>
+                <div className="ml-4">
                   <h3 className="text-2xl font-bold text-purple-400">Sol-Ark 60K</h3>
                   <p className="text-gray-400">60kW Three-Phase Commercial</p>
                 </div>
               </div>
-              
+
               <div className="space-y-4">
-                <div className="flex justify-between border-b border-gray-700 pb-2">
+                <div className="data-row-elite">
                   <span className="text-gray-400">AC Output Power:</span>
                   <span className="text-white font-semibold">60kW (208/240/277/480V)</span>
                 </div>
-                <div className="flex justify-between border-b border-gray-700 pb-2">
+                <div className="data-row-elite">
                   <span className="text-gray-400">Max PV Input:</span>
                   <span className="text-white font-semibold">90kW (150% DC/AC ratio)</span>
                 </div>
-                <div className="flex justify-between border-b border-gray-700 pb-2">
+                <div className="data-row-elite">
                   <span className="text-gray-400">Battery Voltage:</span>
                   <span className="text-white font-semibold">400-800VDC CANbus HV</span>
                 </div>
-                <div className="flex justify-between border-b border-gray-700 pb-2">
+                <div className="data-row-elite">
                   <span className="text-gray-400">Efficiency:</span>
                   <span className="text-white font-semibold">98.5% CEC Weighted</span>
                 </div>
-                <div className="flex justify-between border-b border-gray-700 pb-2">
+                <div className="data-row-elite">
                   <span className="text-gray-400">Grid Code:</span>
                   <span className="text-white font-semibold">UL 1741-SA Rule 21</span>
                 </div>
-                <div className="flex justify-between">
+                <div className="data-row-elite">
                   <span className="text-gray-400">Warranty:</span>
                   <span className="text-white font-semibold">12 years standard</span>
                 </div>
               </div>
 
-              <div className="mt-6 p-4 bg-purple-500/10 border border-purple-700/30 rounded-lg">
-                <p className="text-sm text-purple-300">
-                  <strong>Ideal For:</strong> 250kW-1MW systems, B-19/B-20 facilities, high-demand manufacturing/cold storage
-                </p>
+              <div className="badge-elite-metallic badge-premium mt-6">
+                <CheckCircle className="h-4 w-4 text-purple-400" />
+                <span>Ideal For: 250kW-1MW systems, B-19/B-20 facilities, high-demand manufacturing/cold storage</span>
               </div>
             </div>
           </div>
 
-          <div className="mt-12 bg-gray-800/50 border border-gray-700 rounded-xl p-8">
+          <div className="mt-12 card-elite glow-orange p-8">
             <h4 className="text-2xl font-bold text-orange-400 mb-6">CANbus Battery Integration</h4>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div>
@@ -533,9 +531,9 @@ const CommercialSolar = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             {rateStructures.map((rate, index) => (
-              <div key={index} className="bg-gray-800/50 border border-gray-700 rounded-xl p-6">
+              <div key={index} className="card-elite glow-orange p-6">
                 <div className="flex items-start mb-4">
-                  <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                  <div className="icon-container-elite bg-orange-500/20 mr-4 flex-shrink-0">
                     <rate.icon className="h-6 w-6 text-orange-400" />
                   </div>
                   <div>
@@ -547,7 +545,7 @@ const CommercialSolar = () => {
             ))}
           </div>
 
-          <div className="bg-gradient-to-br from-orange-900/20 to-red-900/20 border border-orange-700/30 rounded-xl p-8">
+          <div className="card-elite glow-red p-8">
             <h3 className="text-2xl font-bold text-orange-400 mb-6">Demand Charge Optimization Strategies</h3>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
@@ -585,7 +583,7 @@ const CommercialSolar = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-4">
+              <div className="category-card-elite">
                 <h5 className="text-white font-semibold mb-2 flex items-center">
                   <Activity className="h-5 w-5 text-blue-400 mr-2" />
                   Peak Shaving
@@ -595,7 +593,7 @@ const CommercialSolar = () => {
                 </p>
               </div>
 
-              <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-4">
+              <div className="category-card-elite">
                 <h5 className="text-white font-semibold mb-2 flex items-center">
                   <Clock className="h-5 w-5 text-orange-400 mr-2" />
                   TOU Arbitrage
