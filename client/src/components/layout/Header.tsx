@@ -290,22 +290,68 @@ const SolarCompanyHeader: React.FC = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-2">
             {/* Products Link */}
-            <Link href="/shop/products" className={cn(
-              "px-4 py-2 text-[15px] font-medium rounded-lg transition-all duration-200",
-              isActive("/shop/products") 
-                ? "text-orange-600 bg-orange-50/80" 
-                : "text-gray-700 hover:text-gray-900 hover:bg-gray-100/50"
-            )}>
+            <Link 
+              href="/shop/products" 
+              className={cn(
+                "px-4 py-2 text-[15px] font-medium rounded-lg transition-all duration-200",
+                isActive("/shop/products") 
+                  ? "text-orange-600" 
+                  : "text-gray-700 hover:text-gray-900"
+              )}
+              style={{
+                background: isActive("/shop/products") 
+                  ? 'rgba(249,115,22,0.08)' 
+                  : 'rgba(255,255,255,0.05)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+                border: '1px solid rgba(255,255,255,0.2)'
+              }}
+              onMouseEnter={(e) => {
+                if (!isActive("/shop/products")) {
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)';
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (!isActive("/shop/products")) {
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
+                }
+              }}
+            >
               Products
             </Link>
 
             {/* Comparison Link */}
-            <Link href="/comparison" className={cn(
-              "px-4 py-2 text-[15px] font-medium rounded-lg transition-all duration-200",
-              isActive("/comparison") 
-                ? "text-orange-600 bg-orange-50/80" 
-                : "text-gray-700 hover:text-gray-900 hover:bg-gray-100/50"
-            )}>
+            <Link 
+              href="/comparison" 
+              className={cn(
+                "px-4 py-2 text-[15px] font-medium rounded-lg transition-all duration-200",
+                isActive("/comparison") 
+                  ? "text-orange-600" 
+                  : "text-gray-700 hover:text-gray-900"
+              )}
+              style={{
+                background: isActive("/comparison") 
+                  ? 'rgba(249,115,22,0.08)' 
+                  : 'rgba(255,255,255,0.05)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+                border: '1px solid rgba(255,255,255,0.2)'
+              }}
+              onMouseEnter={(e) => {
+                if (!isActive("/comparison")) {
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)';
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (!isActive("/comparison")) {
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
+                }
+              }}
+            >
               Comparison
             </Link>
 
@@ -320,9 +366,29 @@ const SolarCompanyHeader: React.FC = () => {
                 className={cn(
                   "flex items-center px-4 py-2 text-[15px] font-medium rounded-lg transition-all duration-200 relative z-10",
                   activeDropdown === 'services' 
-                    ? "text-orange-600 bg-orange-50/80" 
-                    : "text-gray-700 hover:text-gray-900 hover:bg-gray-100/50"
+                    ? "text-orange-600" 
+                    : "text-gray-700 hover:text-gray-900"
                 )}
+                style={{
+                  background: activeDropdown === 'services' 
+                    ? 'rgba(249,115,22,0.08)' 
+                    : 'rgba(255,255,255,0.05)',
+                  backdropFilter: 'blur(12px)',
+                  WebkitBackdropFilter: 'blur(12px)',
+                  border: '1px solid rgba(255,255,255,0.2)'
+                }}
+                onMouseEnter={(e) => {
+                  if (activeDropdown !== 'services') {
+                    e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
+                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)';
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (activeDropdown !== 'services') {
+                    e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
+                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
+                  }
+                }}
                 aria-expanded={activeDropdown === 'services'}
                 aria-haspopup="true"
               >
@@ -346,9 +412,29 @@ const SolarCompanyHeader: React.FC = () => {
                 className={cn(
                   "flex items-center px-4 py-2 text-[15px] font-medium rounded-lg transition-all duration-200 relative z-10",
                   activeDropdown === 'company' 
-                    ? "text-orange-600 bg-orange-50/80" 
-                    : "text-gray-700 hover:text-gray-900 hover:bg-gray-100/50"
+                    ? "text-orange-600" 
+                    : "text-gray-700 hover:text-gray-900"
                 )}
+                style={{
+                  background: activeDropdown === 'company' 
+                    ? 'rgba(249,115,22,0.08)' 
+                    : 'rgba(255,255,255,0.05)',
+                  backdropFilter: 'blur(12px)',
+                  WebkitBackdropFilter: 'blur(12px)',
+                  border: '1px solid rgba(255,255,255,0.2)'
+                }}
+                onMouseEnter={(e) => {
+                  if (activeDropdown !== 'company') {
+                    e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
+                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)';
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (activeDropdown !== 'company') {
+                    e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
+                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
+                  }
+                }}
                 aria-expanded={activeDropdown === 'company'}
                 aria-haspopup="true"
               >
