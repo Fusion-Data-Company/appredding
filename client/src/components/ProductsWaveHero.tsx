@@ -306,30 +306,14 @@ const ProductsWaveHero: React.FC<ProductsWaveHeroProps> = ({
               transition={{ duration: 0.8, delay: 0.2 }}
               className="mb-6 text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl"
             >
-              <span 
-                className="font-extrabold"
-                style={{
-                  background: 'linear-gradient(to right, #ffffff, #fef3c7, #ffffff)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
-                }}
-              >
+              <span className="gradient-bright-white font-extrabold">
                 Advance Power 
               </span>
-              <ShimmerText className="text-5xl sm:text-6xl lg:text-7xl font-bold drop-shadow-2xl">
+              <span className="gradient-bright-purple text-5xl sm:text-6xl lg:text-7xl font-bold">
                 Solar Products
-              </ShimmerText>
+              </span>
               <br />
-              <span 
-                className="font-extrabold tracking-wide"
-                style={{
-                  background: 'linear-gradient(to right, #fbbf24, #fb923c, #fbbf24)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
-                }}
-              >
+              <span className="gradient-bright-fire font-extrabold tracking-wide">
                 Redding
               </span>
             </motion.h1>
