@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import MainLayout from "@/components/layout/MainLayout";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -324,11 +325,20 @@ interface ProductCardProps {
   isSelected: boolean;
   onToggle: (productId: string) => void;
   isDisabled: boolean;
+  index: number;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product, isSelected, onToggle, isDisabled }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ product, isSelected, onToggle, isDisabled, index }) => {
   return (
-    <div 
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ 
+        duration: 0.5, 
+        delay: index * 0.1,
+        ease: [0.22, 1, 0.36, 1]
+      }}
+      whileHover={{ scale: 1.02, y: -4 }}
       className={`
         group relative
         bg-gradient-to-br from-white via-cream-50 to-amber-50/30
@@ -339,104 +349,140 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, isSelected, onToggle
           ? 'border-amber-400 shadow-2xl shadow-amber-500/20 ring-4 ring-amber-200/50' 
           : 'border-amber-200 shadow-xl hover:shadow-2xl hover:border-amber-300'
         }
-        hover:scale-[1.02] hover:-translate-y-1
       `}
     >
+      {isSelected && (
+        <motion.div
+          className="absolute inset-0 rounded-2xl ring-4 ring-amber-400/30"
+          animate={{ 
+            scale: [1, 1.02, 1],
+            opacity: [0.5, 0.8, 0.5]
+          }}
+          transition={{ 
+            duration: 2, 
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+      )}
+      
       <div className="flex gap-6">
-        {/* Product Image */}
         <div className="flex-shrink-0">
-          <div className="relative w-32 h-32 rounded-xl overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 via-transparent to-orange-500/20 z-10"></div>
-            <img 
+          <div className="relative w-32 h-32 rounded-xl overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300">
+            <motion.div 
+              className="absolute inset-0 bg-gradient-to-br from-amber-500/20 via-transparent to-orange-500/20 z-10"
+              whileHover={{ opacity: [0.2, 0.4, 0.2] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            />
+            <motion.img 
               src={product.imageUrl} 
               alt={product.name} 
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              className="w-full h-full object-cover"
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
             />
           </div>
         </div>
         
-        {/* Product Info */}
         <div className="flex-grow flex flex-col justify-between min-w-0">
-          {/* Top Section - Name and Checkbox */}
           <div>
             <div className="flex items-start justify-between gap-4 mb-3">
-              <h3 className="text-2xl font-bold text-gray-900 leading-tight group-hover:text-amber-700 transition-colors duration-300">
+              <motion.h3 
+                className="text-2xl font-bold text-gray-900 leading-tight group-hover:text-amber-700 transition-colors duration-300"
+                whileHover={{ x: 4 }}
+                transition={{ duration: 0.2 }}
+              >
                 {product.name}
-              </h3>
+              </motion.h3>
               <div className="flex items-center gap-2 flex-shrink-0">
                 <Checkbox 
                   id={`select-${product.id}`} 
                   checked={isSelected}
                   onCheckedChange={() => onToggle(product.id)}
                   disabled={isDisabled}
-                  className="border-2 border-amber-500 data-[state=checked]:bg-gradient-to-br data-[state=checked]:from-amber-500 data-[state=checked]:to-orange-500 data-[state=checked]:border-amber-500 disabled:opacity-40 disabled:cursor-not-allowed"
+                  className="border-2 border-amber-500 data-[state=checked]:bg-gradient-to-br data-[state=checked]:from-amber-500 data-[state=checked]:to-orange-500 data-[state=checked]:border-amber-500 disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200"
                 />
                 <Label 
                   htmlFor={`select-${product.id}`} 
-                  className={`text-sm font-semibold cursor-pointer whitespace-nowrap ${isDisabled ? 'text-gray-400' : 'text-gray-800'}`}
+                  className={`text-sm font-semibold cursor-pointer whitespace-nowrap transition-all duration-300 ${
+                    isDisabled 
+                      ? 'text-gray-400' 
+                      : 'text-gray-800 hover:text-amber-600 hover:scale-105'
+                  }`}
                 >
                   {isSelected ? 'Selected' : 'Compare'}
                 </Label>
               </div>
             </div>
             
-            {/* Description */}
-            <p className="text-sm text-gray-800 leading-relaxed mb-4 line-clamp-2">
+            <p className="text-sm text-gray-800 leading-relaxed mb-4 line-clamp-2 transition-colors duration-300 group-hover:text-gray-900">
               {product.description}
             </p>
           </div>
           
-          {/* Bottom Section - Rating and Price */}
           <div className="flex items-center justify-between gap-4 pt-2 border-t border-amber-100">
-            {/* Star Rating */}
             <div className="flex items-center gap-2">
               <div className="flex gap-0.5">
-                {[...Array(5)].map((_, index) => (
-                  <Star
-                    key={index}
-                    className={`w-4 h-4 ${
-                      index < Math.floor(product.rating)
-                        ? 'fill-amber-400 text-amber-400'
-                        : index < product.rating
-                        ? 'fill-amber-200 text-amber-200'
-                        : 'fill-gray-200 text-gray-200'
-                    } transition-colors duration-300`}
-                  />
+                {[...Array(5)].map((_, starIndex) => (
+                  <motion.div
+                    key={starIndex}
+                    whileHover={{ 
+                      scale: 1.2,
+                      rotate: [0, -10, 10, 0]
+                    }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Star
+                      className={`w-4 h-4 ${
+                        starIndex < Math.floor(product.rating)
+                          ? 'fill-amber-400 text-amber-400'
+                          : starIndex < product.rating
+                          ? 'fill-amber-200 text-amber-200'
+                          : 'fill-gray-200 text-gray-200'
+                      } transition-colors duration-300`}
+                    />
+                  </motion.div>
                 ))}
               </div>
-              <span className="text-sm font-semibold text-gray-800">
+              <motion.span 
+                className="text-sm font-semibold text-gray-800"
+                whileHover={{ scale: 1.1 }}
+              >
                 {product.rating.toFixed(1)}
-              </span>
+              </motion.span>
             </div>
             
-            {/* Price */}
-            <div className="text-right">
+            <motion.div 
+              className="text-right"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.2 }}
+            >
               <div className="text-2xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
                 ${product.price.value.toLocaleString()}
               </div>
               <div className="text-xs text-gray-600 font-medium">
                 per {product.price.unit}
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 const getSpecIcon = (specName: string) => {
+  const iconClass = "w-4 h-4 transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110";
   const iconMap: Record<string, React.ReactNode> = {
-    "Continuous Power Output": <Zap className="w-4 h-4 text-amber-600" />,
-    "Peak/Surge Power": <TrendingUp className="w-4 h-4 text-amber-600" />,
-    "Max Efficiency": <Gauge className="w-4 h-4 text-amber-700" />,
-    "CEC Weighted Efficiency": <Gauge className="w-4 h-4 text-amber-700" />,
-    "Warranty": <Shield className="w-4 h-4 text-amber-600" />,
-    "Operating Temperature": <Thermometer className="w-4 h-4 text-orange-600" />,
-    "Battery Type Support": <Battery className="w-4 h-4 text-amber-600" />,
-    "Certifications": <Award className="w-4 h-4 text-amber-700" />,
-    "Weight": <Package className="w-4 h-4 text-amber-600" />,
+    "Continuous Power Output": <Zap className={`${iconClass} text-amber-600`} />,
+    "Peak/Surge Power": <TrendingUp className={`${iconClass} text-amber-600`} />,
+    "Max Efficiency": <Gauge className={`${iconClass} text-amber-700`} />,
+    "CEC Weighted Efficiency": <Gauge className={`${iconClass} text-amber-700`} />,
+    "Warranty": <Shield className={`${iconClass} text-amber-600`} />,
+    "Operating Temperature": <Thermometer className={`${iconClass} text-orange-600`} />,
+    "Battery Type Support": <Battery className={`${iconClass} text-amber-600`} />,
+    "Certifications": <Award className={`${iconClass} text-amber-700`} />,
+    "Weight": <Package className={`${iconClass} text-amber-600`} />,
   };
   return iconMap[specName] || null;
 };
@@ -507,341 +553,410 @@ const ProductComparison = () => {
           <SolarBackground />
         </div>
         
-        {/* Content Container - positioned above background */}
         <div className="relative z-10 container mx-auto">
-          {/* Header Card */}
-          <div className="max-w-5xl mx-auto mb-20">
+          <motion.div 
+            className="max-w-5xl mx-auto mb-20"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          >
             <div className="bg-gradient-to-br from-white/95 via-white/90 to-amber-50/95 backdrop-blur-xl rounded-3xl p-10 md:p-14 shadow-2xl border border-amber-200/50">
-              {/* Badge */}
-              <div className="flex justify-center mb-6">
-                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
-                  <Sparkles className="h-4 w-4" />
-                  Industry-Leading Comparison Tool
-                </div>
-              </div>
-              
-              {/* Main Heading */}
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-center bg-gradient-to-r from-amber-600 via-orange-600 to-amber-700 bg-clip-text text-transparent leading-tight">
-                Solar Inverter Comparison
-              </h1>
-              
-              {/* Subtext */}
-              <p className="text-xl md:text-2xl text-gray-700 text-center mb-8 leading-relaxed">
-                Compare Sol-Ark hybrid inverters with leading competitors side by side to find the perfect inverter solution for your solar energy system.
-              </p>
-              
-              {/* Stats Row */}
-              <div className="grid grid-cols-3 gap-4 md:gap-6">
-                <div className="text-center p-4 bg-gradient-to-br from-amber-100/80 to-orange-100/80 rounded-xl backdrop-blur">
-                  <div className="text-3xl font-bold text-amber-700 mb-1">6+</div>
-                  <div className="text-sm text-gray-700 font-semibold">Top Brands</div>
-                </div>
-                <div className="text-center p-4 bg-gradient-to-br from-orange-100/80 to-amber-100/80 rounded-xl backdrop-blur">
-                  <div className="text-3xl font-bold text-orange-700 mb-1">15+</div>
-                  <div className="text-sm text-gray-700 font-semibold">Specs Compared</div>
-                </div>
-                <div className="text-center p-4 bg-gradient-to-br from-amber-100/80 to-yellow-100/80 rounded-xl backdrop-blur">
-                  <div className="text-3xl font-bold text-amber-700 mb-1">100%</div>
-                  <div className="text-sm text-gray-700 font-semibold">Unbiased</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Rest of the content continues here */}
-          <div className="bg-gradient-to-br from-white/95 via-white/90 to-amber-50/95 backdrop-blur-xl rounded-3xl p-8 mb-10 border-2 border-amber-200 shadow-2xl">
-              <h2 className="text-2xl font-bold mb-6 bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Select Inverters to Compare</h2>
-              <p className="mb-6 text-gray-700 font-medium">Choose up to 3 inverters to compare their features, specifications, and pricing.</p>
-              
-              <PremiumTabs defaultValue="all" onValueChange={setActiveCategory} className="w-full">
-                <PremiumTabsList>
-                  <PremiumTabsTrigger value="all">All Inverters</PremiumTabsTrigger>
-                  <PremiumTabsTrigger value="hybrid-inverter">Hybrid Inverters</PremiumTabsTrigger>
-                  <PremiumTabsTrigger value="microinverter">Microinverters</PremiumTabsTrigger>
-                  <PremiumTabsTrigger value="string-inverter">String Inverters</PremiumTabsTrigger>
-                </PremiumTabsList>
-                
-                <PremiumTabsContent value="all">
-                  <div className="grid md:grid-cols-2 gap-8">
-                    {filteredProducts.map(product => (
-                      <ProductCard
-                        key={product.id}
-                        product={product}
-                        isSelected={selectedProducts.includes(product.id)}
-                        onToggle={handleProductToggle}
-                        isDisabled={!selectedProducts.includes(product.id) && selectedProducts.length >= 3}
-                      />
-                    ))}
-                  </div>
-                </PremiumTabsContent>
-                
-                <PremiumTabsContent value="hybrid-inverter">
-                  <div className="grid md:grid-cols-2 gap-8">
-                    {filteredProducts.map(product => (
-                      <ProductCard
-                        key={product.id}
-                        product={product}
-                        isSelected={selectedProducts.includes(product.id)}
-                        onToggle={handleProductToggle}
-                        isDisabled={!selectedProducts.includes(product.id) && selectedProducts.length >= 3}
-                      />
-                    ))}
-                  </div>
-                </PremiumTabsContent>
-                
-                <PremiumTabsContent value="microinverter">
-                  <div className="grid md:grid-cols-2 gap-8">
-                    {filteredProducts.map(product => (
-                      <ProductCard
-                        key={product.id}
-                        product={product}
-                        isSelected={selectedProducts.includes(product.id)}
-                        onToggle={handleProductToggle}
-                        isDisabled={!selectedProducts.includes(product.id) && selectedProducts.length >= 3}
-                      />
-                    ))}
-                  </div>
-                </PremiumTabsContent>
-                
-                <PremiumTabsContent value="string-inverter">
-                  <div className="grid md:grid-cols-2 gap-8">
-                    {filteredProducts.map(product => (
-                      <ProductCard
-                        key={product.id}
-                        product={product}
-                        isSelected={selectedProducts.includes(product.id)}
-                        onToggle={handleProductToggle}
-                        isDisabled={!selectedProducts.includes(product.id) && selectedProducts.length >= 3}
-                      />
-                    ))}
-                  </div>
-                </PremiumTabsContent>
-              </PremiumTabs>
-            </div>
-            
-            {/* Comparison Section */}
-            {selectedProducts.length === 0 ? (
-              <div className="bg-gradient-to-br from-white via-cream-50 to-amber-50/30 backdrop-blur-sm rounded-3xl p-16 md:p-20 border-2 border-amber-200 shadow-2xl">
-                <div className="text-center max-w-2xl mx-auto">
-                  <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-amber-100 to-orange-100 mb-6">
-                    <CheckCircle2 className="w-12 h-12 text-amber-600" />
-                  </div>
-                  <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                    No Inverters Selected Yet
-                  </h3>
-                  <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                    Select up to 3 inverters from the options above to see a detailed side-by-side comparison of their specifications, features, and pricing.
-                  </p>
-                  <div className="flex items-center justify-center gap-2 text-sm text-amber-700 font-medium">
-                    <ArrowRight className="w-4 h-4" />
-                    <span>Start by checking the boxes on the inverter cards above</span>
-                  </div>
-                </div>
-              </div>
-            ) : (
-              <div className="bg-gradient-to-br from-white via-cream-50 to-amber-50/30 backdrop-blur-sm rounded-3xl p-8 md:p-12 border-2 border-amber-300 shadow-2xl shadow-amber-500/20">
-                {/* Header with Product Count and Clear Button */}
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-10 pb-6 border-b-2 border-amber-200">
-                  <div className="flex items-center gap-4">
-                    <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">
-                      Inverter Comparison
-                    </h2>
-                    <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
-                      <Sparkles className="h-4 w-4" />
-                      {selectedProducts.length} Selected
-                    </div>
-                  </div>
-                  <Button 
-                    onClick={clearComparison}
-                    variant="outline"
-                    className="border-2 border-gray-300 text-gray-700 hover:bg-gray-100 hover:border-gray-400 font-semibold shadow-md hover:shadow-lg transition-all duration-300"
-                    data-testid="button-clear-comparison"
+              <motion.div 
+                className="flex justify-center mb-6"
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                <motion.div 
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg"
+                  animate={{ 
+                    boxShadow: [
+                      "0 10px 25px rgba(245, 158, 11, 0.3)",
+                      "0 10px 35px rgba(245, 158, 11, 0.5)",
+                      "0 10px 25px rgba(245, 158, 11, 0.3)"
+                    ]
+                  }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <motion.div
+                    animate={{ rotate: [0, 360] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
                   >
-                    Clear All
-                  </Button>
+                    <Sparkles className="h-4 w-4" />
+                  </motion.div>
+                  Industry-Leading Comparison Tool
+                </motion.div>
+              </motion.div>
+              
+              <motion.h1 
+                className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-center bg-gradient-to-r from-amber-600 via-orange-600 to-amber-700 bg-clip-text text-transparent leading-tight"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                Solar Inverter Comparison
+              </motion.h1>
+              
+              <motion.p 
+                className="text-xl md:text-2xl text-gray-700 text-center mb-8 leading-relaxed"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                Compare Sol-Ark hybrid inverters with leading competitors side by side to find the perfect inverter solution for your solar energy system.
+              </motion.p>
+              
+              <motion.div 
+                className="grid grid-cols-3 gap-4 md:gap-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+              >
+                {[
+                  { value: "6+", label: "Top Brands" },
+                  { value: "15+", label: "Specs Compared" },
+                  { value: "100%", label: "Unbiased" }
+                ].map((stat, index) => (
+                  <motion.div
+                    key={stat.label}
+                    className="text-center p-4 bg-gradient-to-br from-amber-100/80 to-orange-100/80 rounded-xl backdrop-blur"
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
+                    whileHover={{ 
+                      scale: 1.05,
+                      boxShadow: "0 10px 30px rgba(245, 158, 11, 0.3)"
+                    }}
+                  >
+                    <motion.div 
+                      className="text-3xl font-bold text-amber-700 mb-1"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.8, delay: 0.8 + index * 0.1 }}
+                    >
+                      {stat.value}
+                    </motion.div>
+                    <div className="text-sm text-gray-700 font-semibold">{stat.label}</div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+          </motion.div>
+          
+          <motion.div 
+            className="bg-gradient-to-br from-white/95 via-white/90 to-amber-50/95 backdrop-blur-xl rounded-3xl p-8 mb-10 border-2 border-amber-200 shadow-2xl"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.6 }}
+          >
+            <h2 className="text-2xl font-bold mb-6 bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Select Inverters to Compare</h2>
+            <p className="mb-6 text-gray-700 font-medium">Choose up to 3 inverters to compare their features, specifications, and pricing.</p>
+            
+            <PremiumTabs defaultValue="all" onValueChange={setActiveCategory} className="w-full">
+              <PremiumTabsList>
+                <PremiumTabsTrigger value="all">All Inverters</PremiumTabsTrigger>
+                <PremiumTabsTrigger value="hybrid-inverter">Hybrid Inverters</PremiumTabsTrigger>
+                <PremiumTabsTrigger value="microinverter">Microinverters</PremiumTabsTrigger>
+                <PremiumTabsTrigger value="string-inverter">String Inverters</PremiumTabsTrigger>
+              </PremiumTabsList>
+              
+              <PremiumTabsContent value="all">
+                <div className="grid md:grid-cols-2 gap-8">
+                  {filteredProducts.map((product, index) => (
+                    <ProductCard
+                      key={product.id}
+                      product={product}
+                      isSelected={selectedProducts.includes(product.id)}
+                      onToggle={handleProductToggle}
+                      isDisabled={!selectedProducts.includes(product.id) && selectedProducts.length >= 3}
+                      index={index}
+                    />
+                  ))}
                 </div>
-                
-                {/* Responsive Table Container */}
-                <div className="overflow-x-auto -mx-4 md:mx-0">
-                  <div className="inline-block min-w-full align-middle">
-                    <div className="overflow-hidden rounded-2xl border-2 border-amber-200 shadow-xl">
-                      <table className="min-w-full divide-y-2 divide-amber-200">
-                        <thead>
-                          {/* Product Images and Names Row */}
-                          <tr className="bg-gradient-to-r from-amber-50 to-orange-50">
-                            <th className="px-6 py-6 text-left">
-                              <span className="text-sm font-bold text-gray-700 uppercase tracking-wider">
-                                Specification
-                              </span>
-                            </th>
-                            {comparisonProducts.map(product => (
-                              <th key={product.id} className="px-6 py-6 text-center border-l-2 border-amber-100">
-                                <div className="flex flex-col items-center gap-4">
-                                  <div className="relative w-32 h-32 rounded-2xl overflow-hidden shadow-xl ring-2 ring-amber-200">
-                                    <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 via-transparent to-orange-500/20 z-10"></div>
-                                    <img 
-                                      src={product.imageUrl} 
-                                      alt={product.name} 
-                                      className="w-full h-full object-cover"
-                                    />
-                                  </div>
-                                  <div>
-                                    <h4 className="text-xl font-bold text-gray-900 mb-1">
-                                      {product.name}
-                                    </h4>
-                                    <p className="text-2xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
-                                      ${product.price.value.toLocaleString()}
-                                    </p>
-                                  </div>
-                                </div>
-                              </th>
-                            ))}
-                          </tr>
-                        </thead>
-                        <tbody className="bg-white divide-y divide-amber-100">
-                          {/* Category Row */}
-                          <tr className="bg-amber-50/60">
-                            <td className="px-6 py-4 whitespace-nowrap">
-                              <span className="text-sm font-bold text-gray-900">Category</span>
-                            </td>
-                            {comparisonProducts.map(product => (
-                              <td key={product.id} className="px-6 py-4 text-center border-l border-amber-100">
-                                <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-gradient-to-r from-amber-100 to-orange-100 text-amber-900 capitalize">
-                                  {product.category.replace('-', ' ')}
-                                </span>
-                              </td>
-                            ))}
-                          </tr>
-                          
-                          {/* Rating Row */}
-                          <tr className="bg-white">
-                            <td className="px-6 py-4 whitespace-nowrap">
-                              <span className="text-sm font-bold text-gray-900">Rating</span>
-                            </td>
-                            {comparisonProducts.map(product => (
-                              <td key={product.id} className="px-6 py-4 text-center border-l border-amber-100">
-                                <div className="flex items-center justify-center gap-2">
-                                  <div className="flex gap-0.5">
-                                    {[...Array(5)].map((_, index) => (
-                                      <Star
-                                        key={index}
-                                        className={`w-5 h-5 ${
-                                          index < Math.floor(product.rating)
-                                            ? 'fill-amber-400 text-amber-400'
-                                            : index < product.rating
-                                            ? 'fill-amber-200 text-amber-200'
-                                            : 'fill-gray-200 text-gray-200'
-                                        }`}
-                                      />
-                                    ))}
-                                  </div>
-                                  <span className="text-sm font-bold text-gray-900">
-                                    {product.rating.toFixed(1)}
-                                  </span>
-                                </div>
-                              </td>
-                            ))}
-                          </tr>
-                          
-                          {/* Technical Specifications Section Header */}
-                          <tr className="bg-gradient-to-r from-amber-100 to-orange-100">
-                            <td colSpan={comparisonProducts.length + 1} className="px-6 py-4">
-                              <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wide">
-                                Technical Specifications
-                              </h3>
-                            </td>
-                          </tr>
-                          
-                          {/* Specification Rows with Alternating Backgrounds */}
-                          {allSpecifications.map((spec, index) => (
-                            <tr 
-                              key={spec} 
-                              className={`
-                                ${index % 2 === 0 ? 'bg-white' : 'bg-amber-50/30'}
-                                ${isImportantSpec(spec) ? 'ring-2 ring-inset ring-amber-200' : ''}
-                                hover:bg-amber-50/70 transition-colors duration-150
-                              `}
-                            >
-                              <td className="px-6 py-4 whitespace-nowrap">
-                                <div className="flex items-center gap-2">
-                                  {getSpecIcon(spec)}
-                                  <span className={`text-sm font-semibold ${isImportantSpec(spec) ? 'text-gray-900' : 'text-gray-800'}`}>
-                                    {spec}
-                                  </span>
-                                </div>
-                              </td>
-                              {comparisonProducts.map(product => (
-                                <td key={product.id} className="px-6 py-4 text-center border-l border-amber-100">
-                                  <span className={`text-sm ${getValueColor(spec, product.specifications[spec] || "-")}`}>
-                                    {product.specifications[spec] || (
-                                      <span className="text-gray-400">N/A</span>
-                                    )}
-                                  </span>
-                                </td>
-                              ))}
-                            </tr>
-                          ))}
-                          
-                          {/* Application Areas Section Header */}
-                          <tr className="bg-gradient-to-r from-amber-100 to-orange-100">
-                            <td colSpan={comparisonProducts.length + 1} className="px-6 py-4">
-                              <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wide">
-                                Recommended Applications
-                              </h3>
-                            </td>
-                          </tr>
-                          
-                          {/* Application Areas Row */}
-                          <tr className="bg-white">
-                            <td className="px-6 py-4">
-                              <span className="text-sm font-bold text-gray-900">Best Used For</span>
-                            </td>
-                            {comparisonProducts.map(product => (
-                              <td key={product.id} className="px-6 py-4 border-l border-amber-100">
-                                <ul className="space-y-2 text-left">
-                                  {product.applicationAreas.map((area, areaIndex) => (
-                                    <li key={areaIndex} className="flex items-start gap-2 text-sm text-gray-800">
-                                      <CheckCircle2 className="w-4 h-4 text-amber-600 mt-0.5 flex-shrink-0" />
-                                      <span>{area}</span>
-                                    </li>
-                                  ))}
-                                </ul>
-                              </td>
-                            ))}
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
+              </PremiumTabsContent>
+              
+              <PremiumTabsContent value="hybrid-inverter">
+                <div className="grid md:grid-cols-2 gap-8">
+                  {filteredProducts.map((product, index) => (
+                    <ProductCard
+                      key={product.id}
+                      product={product}
+                      isSelected={selectedProducts.includes(product.id)}
+                      onToggle={handleProductToggle}
+                      isDisabled={!selectedProducts.includes(product.id) && selectedProducts.length >= 3}
+                      index={index}
+                    />
+                  ))}
                 </div>
-                
-                {/* Call to Action Footer */}
-                <div className="mt-10 pt-8 border-t-2 border-amber-200">
-                  <p className="text-center text-lg text-gray-700 mb-6 font-medium">
-                    Ready to purchase or need more information about these inverters?
+              </PremiumTabsContent>
+              
+              <PremiumTabsContent value="microinverter">
+                <div className="grid md:grid-cols-2 gap-8">
+                  {filteredProducts.map((product, index) => (
+                    <ProductCard
+                      key={product.id}
+                      product={product}
+                      isSelected={selectedProducts.includes(product.id)}
+                      onToggle={handleProductToggle}
+                      isDisabled={!selectedProducts.includes(product.id) && selectedProducts.length >= 3}
+                      index={index}
+                    />
+                  ))}
+                </div>
+              </PremiumTabsContent>
+              
+              <PremiumTabsContent value="string-inverter">
+                <div className="grid md:grid-cols-2 gap-8">
+                  {filteredProducts.map((product, index) => (
+                    <ProductCard
+                      key={product.id}
+                      product={product}
+                      isSelected={selectedProducts.includes(product.id)}
+                      onToggle={handleProductToggle}
+                      isDisabled={!selectedProducts.includes(product.id) && selectedProducts.length >= 3}
+                      index={index}
+                    />
+                  ))}
+                </div>
+              </PremiumTabsContent>
+            </PremiumTabs>
+          </motion.div>
+          
+          <AnimatePresence mode="wait">
+            {selectedProducts.length === 0 ? (
+              <motion.div 
+                key="empty-state"
+                className="bg-gradient-to-br from-white via-cream-50 to-amber-50/30 backdrop-blur-sm rounded-3xl p-16 md:p-20 border-2 border-amber-200 shadow-2xl"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.4 }}
+              >
+                <div className="text-center max-w-2xl mx-auto">
+                  <motion.div
+                    animate={{ 
+                      y: [0, -10, 0],
+                      rotate: [0, 5, -5, 0]
+                    }}
+                    transition={{ 
+                      duration: 3, 
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  >
+                    <Sparkles className="w-20 h-20 mx-auto mb-6 text-amber-500" />
+                  </motion.div>
+                  <h3 className="text-3xl font-bold mb-4 text-gray-900">No Products Selected</h3>
+                  <p className="text-lg text-gray-700 leading-relaxed">
+                    Select up to 3 inverters from the list above to compare their features, specifications, and pricing side by side.
                   </p>
-                  <div className="flex flex-col sm:flex-row justify-center gap-4">
-                    <Button 
-                      className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300"
-                      data-testid="button-contact-sales"
-                    >
-                      <Sun className="w-5 h-5 mr-2" />
-                      Contact Sales Team
-                    </Button>
-                    <Button 
-                      variant="outline"
-                      className="border-2 border-amber-500 text-amber-700 hover:bg-amber-50 font-semibold"
-                      data-testid="button-download-specs"
-                    >
-                      <Package className="w-5 h-5 mr-2" />
-                      Download Specifications
-                    </Button>
-                  </div>
                 </div>
-              </div>
+              </motion.div>
+            ) : (
+              <motion.div
+                key="comparison-table"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -30 }}
+                transition={{ duration: 0.5 }}
+                className="bg-gradient-to-br from-white via-cream-50 to-amber-50/30 backdrop-blur-sm rounded-3xl p-8 border-2 border-amber-200 shadow-2xl"
+              >
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-10 pb-6 border-b-2 border-amber-200">
+                  <motion.div 
+                    className="flex items-center gap-4"
+                    initial={{ x: -20, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 0.4, delay: 0.2 }}
+                  >
+                    <motion.div
+                      whileHover={{ rotate: 360 }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      <CheckCircle2 className="w-8 h-8 text-amber-600" />
+                    </motion.div>
+                    <div>
+                      <h2 className="text-3xl font-bold bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">
+                        Product Comparison
+                      </h2>
+                      <p className="text-sm text-gray-600 font-medium mt-1">
+                        Comparing {selectedProducts.length} {selectedProducts.length === 1 ? 'product' : 'products'}
+                      </p>
+                    </div>
+                  </motion.div>
+                  <motion.div
+                    initial={{ x: 20, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 0.4, delay: 0.3 }}
+                  >
+                    <Button 
+                      onClick={clearComparison}
+                      variant="outline"
+                      className="border-2 border-amber-500 text-amber-700 hover:bg-amber-50 hover:border-amber-600 hover:text-amber-800 transition-all duration-300 hover:scale-105 active:scale-95 font-semibold"
+                    >
+                      Clear All
+                    </Button>
+                  </motion.div>
+                </div>
+
+                <div className="overflow-x-auto">
+                  <table className="w-full border-collapse">
+                    <thead>
+                      <motion.tr 
+                        className="border-b-2 border-amber-200"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.4, delay: 0.4 }}
+                      >
+                        <th className="text-left py-6 px-6 font-bold text-gray-800 bg-amber-50/50">Product</th>
+                        {comparisonProducts.map((product, index) => (
+                          <motion.th 
+                            key={product.id} 
+                            className="py-6 px-6 min-w-[250px]"
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
+                          >
+                            <motion.div 
+                              className="flex flex-col items-center gap-3"
+                              whileHover={{ scale: 1.05 }}
+                              transition={{ duration: 0.2 }}
+                            >
+                              <div className="w-20 h-20 rounded-lg overflow-hidden shadow-md">
+                                <motion.img 
+                                  src={product.imageUrl} 
+                                  alt={product.name} 
+                                  className="w-full h-full object-cover"
+                                  whileHover={{ scale: 1.1 }}
+                                  transition={{ duration: 0.3 }}
+                                />
+                              </div>
+                              <div className="text-center">
+                                <div className="font-bold text-gray-900 mb-1">{product.name}</div>
+                                <div className="text-xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
+                                  ${product.price.value.toLocaleString()}
+                                </div>
+                              </div>
+                            </motion.div>
+                          </motion.th>
+                        ))}
+                      </motion.tr>
+                    </thead>
+                    <tbody>
+                      {allSpecifications.map((specName, specIndex) => (
+                        <motion.tr 
+                          key={specName}
+                          className={`border-b border-amber-100 transition-all duration-300 hover:bg-amber-50/50 ${
+                            isImportantSpec(specName) ? 'bg-amber-50/30' : ''
+                          }`}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.3, delay: 0.6 + specIndex * 0.05 }}
+                          whileHover={{ backgroundColor: "rgba(251, 191, 36, 0.1)" }}
+                        >
+                          <td className="py-4 px-6 font-semibold text-gray-800 whitespace-nowrap group">
+                            <div className="flex items-center gap-2">
+                              {getSpecIcon(specName)}
+                              <span className={isImportantSpec(specName) ? 'text-amber-800' : ''}>
+                                {specName}
+                              </span>
+                            </div>
+                          </td>
+                          {comparisonProducts.map((product, prodIndex) => (
+                            <motion.td 
+                              key={product.id} 
+                              className={`py-4 px-6 text-center ${getValueColor(specName, product.specifications[specName] || 'N/A')}`}
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              transition={{ duration: 0.3, delay: 0.7 + prodIndex * 0.05 }}
+                              whileHover={{ scale: 1.05, fontWeight: 600 }}
+                            >
+                              {product.specifications[specName] || (
+                                <span className="text-gray-400 italic">N/A</span>
+                              )}
+                            </motion.td>
+                          ))}
+                        </motion.tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+
+                <motion.div 
+                  className="mt-10 pt-8 border-t-2 border-amber-200"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.8 }}
+                >
+                  <h3 className="text-xl font-bold text-gray-900 mb-6">Key Features</h3>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {comparisonProducts.map((product, prodIndex) => (
+                      <motion.div 
+                        key={product.id}
+                        className="bg-white/80 backdrop-blur rounded-xl p-6 border border-amber-200 shadow-md hover:shadow-xl transition-all duration-300"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay: 0.9 + prodIndex * 0.1 }}
+                        whileHover={{ 
+                          y: -4,
+                          boxShadow: "0 20px 40px rgba(245, 158, 11, 0.2)"
+                        }}
+                      >
+                        <h4 className="font-bold text-gray-900 mb-4 text-lg">{product.name}</h4>
+                        <ul className="space-y-3">
+                          {product.features.slice(0, 4).map((feature, featIndex) => (
+                            <motion.li 
+                              key={featIndex}
+                              className="flex items-start gap-2 text-sm group"
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ duration: 0.3, delay: 1 + featIndex * 0.05 }}
+                              whileHover={{ x: 4 }}
+                            >
+                              <motion.div
+                                whileHover={{ scale: 1.3, rotate: 360 }}
+                                transition={{ duration: 0.4 }}
+                              >
+                                <CheckCircle2 className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
+                              </motion.div>
+                              <span className="text-gray-700 leading-tight group-hover:text-gray-900 transition-colors duration-200">
+                                {feature.name}
+                              </span>
+                            </motion.li>
+                          ))}
+                        </ul>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+
+                <motion.div 
+                  className="mt-8 text-center"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 1.2 }}
+                >
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Button 
+                      className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold px-8 py-6 text-lg shadow-xl hover:shadow-2xl transition-all duration-300"
+                    >
+                      Request Quote for Selected Products
+                      <motion.div
+                        animate={{ x: [0, 5, 0] }}
+                        transition={{ duration: 1.5, repeat: Infinity }}
+                      >
+                        <ArrowRight className="ml-2 h-5 w-5" />
+                      </motion.div>
+                    </Button>
+                  </motion.div>
+                </motion.div>
+              </motion.div>
             )}
-          </div>
-        </section>
+          </AnimatePresence>
+        </div>
+      </section>
     </MainLayout>
   );
 };

@@ -2,52 +2,24 @@ import MainLayout from '@/components/layout/MainLayout';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 import { Sun, Zap, Battery, ShieldCheck, ArrowRight } from 'lucide-react';
+import ProductsWaveHero from '@/components/ProductsWaveHero';
 
 export default function Products() {
   return (
-    <MainLayout>
+    <MainLayout fullWidth={true}>
+      {/* Products Wave Hero Section */}
+      <ProductsWaveHero 
+        tagline="Premium Solar Solutions & Energy Systems"
+        title="Solar Products"
+        subtitle="Discover our comprehensive range of cutting-edge solar products and energy solutions. From high-efficiency panels to advanced battery storage systems, we deliver the technology that powers your sustainable future."
+        stats={[
+          { value: "99.9%", label: "Product Efficiency" },
+          { value: "25yr", label: "Warranty Coverage" },
+          { value: "100%", label: "Quality Guaranteed" }
+        ]}
+      />
+
       <div className="relative">
-        <div className="relative py-20 mb-12 bg-gradient-to-br from-amber-50 via-white to-amber-50/40 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950/90 overflow-hidden">
-          <div className="absolute inset-0 opacity-5 bg-[url('/src/assets_dir/images/grid-pattern.svg')]"></div>
-          <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/5 to-amber-700/5 dark:from-amber-500/10 dark:to-amber-700/10"></div>
-          
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-amber-100/80 to-amber-50/80 dark:from-amber-900/40 dark:to-amber-800/30 text-amber-800 dark:text-amber-300 text-sm font-medium mb-6">
-                <Sun size={14} className="text-amber-600 dark:text-amber-500" />
-                <span>Premium Solar Solutions</span>
-              </div>
-              
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-gray-900 dark:text-white">
-                Solar Energy Products
-              </h1>
-              
-              <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-                Advance Power Redding offers cutting-edge solar energy solutions for residential and commercial properties.
-              </p>
-              
-              <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
-                <Link href="/contact">
-                  <Button 
-                    size="lg"
-                    className="bg-amber-600 hover:bg-amber-700 text-white"
-                  >
-                    Request a Quote
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-                <Link href="/technology">
-                  <Button 
-                    variant="outline"
-                    size="lg"
-                  >
-                    Learn More
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
 
         <div className="container mx-auto px-4 py-16">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
