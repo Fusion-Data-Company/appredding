@@ -151,7 +151,7 @@ const Navigation: React.FC = () => {
               <Sun className="w-8 h-8 text-orange-500" />
               <Zap className="w-4 h-4 text-yellow-400 absolute -bottom-1 -right-1" />
             </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-500 bg-clip-text text-transparent">
+            <span className="text-2xl font-bold bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-500 bg-clip-text text-transparent preserve-text-color">
               SolarWave
             </span>
           </div>
@@ -277,11 +277,11 @@ const CommercialSolarWaveHero: React.FC<CommercialSolarWaveHeroProps> = ({
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
           >
-            <span className="font-extrabold bg-gradient-to-r from-cyan-300 via-blue-400 to-cyan-500 bg-clip-text text-transparent">
+            <span className="font-extrabold bg-gradient-to-r from-cyan-300 via-blue-400 to-cyan-500 bg-clip-text text-transparent preserve-text-color">
               {title}
             </span>
             <br />
-            <span className="font-extrabold tracking-wide bg-gradient-to-r from-amber-300 via-orange-400 to-red-500 bg-clip-text text-transparent">
+            <span className="font-extrabold tracking-wide bg-gradient-to-r from-amber-300 via-orange-400 to-red-500 bg-clip-text text-transparent preserve-text-color">
               Advance Power Redding
             </span>
           </motion.h1>

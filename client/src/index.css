@@ -1318,9 +1318,8 @@ input:not(.preserve-text-color) {
 } */
 
 /* Catch any remaining invisible text */
-*[style*="color: transparent"],
-*[style*="opacity: 0"],
-*[style*="visibility: hidden"] {
+*[style*="opacity: 0"]:not(.preserve-text-color),
+*[style*="visibility: hidden"]:not(.preserve-text-color) {
   color: white !important;
   opacity: 1 !important;
   visibility: visible !important;

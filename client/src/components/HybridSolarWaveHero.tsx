@@ -246,7 +246,7 @@ const HybridSolarWaveHero: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-5xl md:text-7xl lg:text-8xl font-bold text-center mb-6 leading-tight"
             >
-              <span className="font-extrabold bg-gradient-to-r from-yellow-300 via-amber-400 to-yellow-500 bg-clip-text text-transparent">
+              <span className="font-extrabold bg-gradient-to-r from-yellow-300 via-amber-400 to-yellow-500 bg-clip-text text-transparent preserve-text-color">
                 Hybrid Solar
               </span>
               <br />

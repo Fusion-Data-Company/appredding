@@ -207,11 +207,11 @@ const MaintenanceWaveHero: React.FC<MaintenanceWaveHeroProps> = ({
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
           >
-            <span className="font-extrabold bg-gradient-to-r from-cyan-300 via-blue-400 to-sky-500 bg-clip-text text-transparent">
+            <span className="font-extrabold bg-gradient-to-r from-cyan-300 via-blue-400 to-sky-500 bg-clip-text text-transparent preserve-text-color">
               Solar System
             </span>
             <br />
-            <span className="font-extrabold tracking-wide bg-gradient-to-r from-amber-300 via-orange-400 to-red-500 bg-clip-text text-transparent">
+            <span className="font-extrabold tracking-wide bg-gradient-to-r from-amber-300 via-orange-400 to-red-500 bg-clip-text text-transparent preserve-text-color">
               Maintenance & Care
             </span>
           </motion.h1>
