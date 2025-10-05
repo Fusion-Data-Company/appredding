@@ -402,6 +402,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, isSelected, onToggle
               alt={product.name}
               width={600}
               height={600}
+              priority={true}
               className="w-full h-full object-cover"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
