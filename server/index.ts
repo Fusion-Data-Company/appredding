@@ -2,16 +2,42 @@ import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 import { setupCompressionMiddleware } from "./middleware/compression-middleware";
+import { securityHeadersMiddleware } from "./middleware/security-headers";
+import { cachingMiddleware, etagMiddleware } from "./middleware/caching";
+import { 
+  performanceMonitoringMiddleware, 
+  productionLoggingMiddleware,
+  errorHandlingMiddleware 
+} from "./middleware/performance";
 import crmRoutes from "./routes/crmFixed";
 
 const app = express();
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
 
-// Setup compression for better performance
+// Disable X-Powered-By header globally for security
+app.disable('x-powered-by');
+
+// MIDDLEWARE ORDERING (critical for proper function):
+// 1. Security headers - MUST be first to protect all responses
+app.use(securityHeadersMiddleware);
+
+// 2. Performance monitoring - track all request response times
+app.use(performanceMonitoringMiddleware);
+
+// 3. Production logging - log errors only in production
+app.use(productionLoggingMiddleware);
+
+// 4. Body parsers with size limits - protect against large payloads
+app.use(express.json({ limit: '1mb' }));
+app.use(express.urlencoded({ extended: true, limit: '1mb' }));
+
+// 6. Compression - MUST be before routes and static serving
 setupCompressionMiddleware(app);
 
-// Add CORS configuration
+// 7. Caching strategy - intelligent cache headers for all resources
+app.use(cachingMiddleware);
+app.use(etagMiddleware);
+
+// 8. CORS configuration
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', req.headers.origin || '*');
   res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
@@ -72,13 +98,8 @@ app.use("/api/data-processing", dataProcessingRoutes);
 (async () => {
   await registerRoutes(app);
 
-  app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
-    const status = err.status || err.statusCode || 500;
-    const message = err.message || "Internal Server Error";
-
-    res.status(status).json({ message });
-    throw err;
-  });
+  // Error handling middleware - MUST be last
+  app.use(errorHandlingMiddleware);
 
   // ALWAYS serve the app on port 5000
   // this serves both the API and the client.
