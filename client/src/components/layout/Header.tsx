@@ -84,29 +84,59 @@ const SolarCompanyHeader: React.FC = () => {
     <div 
       ref={el => dropdownRefs.current[dropdownKey] = el}
       className={cn(
-        "absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 bg-white/95 backdrop-blur-2xl rounded-2xl shadow-2xl border border-gray-200/50 py-3 overflow-hidden",
+        "absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 rounded-2xl py-3 overflow-hidden",
         "animate-in fade-in slide-in-from-top-2 duration-200"
       )}
       style={{
         position: 'absolute',
         pointerEvents: 'auto',
-        zIndex: 10001
+        zIndex: 10001,
+        background: 'linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(249,250,251,0.96) 50%, rgba(243,244,246,0.97) 100%)',
+        backdropFilter: 'blur(32px) saturate(200%)',
+        WebkitBackdropFilter: 'blur(32px) saturate(200%)',
+        border: '1px solid rgba(226, 232, 240, 0.6)',
+        boxShadow: '0 20px 60px rgba(0,0,0,0.12), 0 8px 24px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9), inset 0 0 0 1px rgba(255,255,255,0.5)'
       }}
     >
+      {/* Noise texture for dropdown */}
+      <div 
+        className="absolute inset-0 opacity-[0.02] pointer-events-none"
+        style={{
+          backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'3\' /%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\' /%3E%3C/svg%3E")'
+        }}
+      />
+      
       {items.map((item, index) => (
         <Link 
           key={item.href} 
           href={item.href}
           className={cn(
-            "flex items-start px-4 py-3 mx-2 rounded-xl hover:bg-gray-100/80 transition-all duration-200 cursor-pointer group",
+            "flex items-start px-4 py-3 mx-2 rounded-xl transition-all duration-200 cursor-pointer group relative",
             index !== items.length - 1 && "mb-1"
           )}
+          style={{
+            background: 'transparent'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = 'linear-gradient(135deg, rgba(249,250,251,0.9) 0%, rgba(243,244,246,0.8) 100%)';
+            e.currentTarget.style.boxShadow = 'inset 0 1px 0 rgba(255,255,255,0.8), inset 0 -1px 0 rgba(148,163,184,0.1)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = 'transparent';
+            e.currentTarget.style.boxShadow = 'none';
+          }}
           onClick={() => {
             setActiveDropdown(null);
             setIsMobileMenuOpen(false);
           }}
         >
-          <div className="w-9 h-9 bg-gradient-to-br from-orange-500/10 to-blue-500/10 rounded-xl flex items-center justify-center text-orange-600 mr-3 flex-shrink-0 group-hover:scale-110 transition-transform duration-200">
+          <div 
+            className="w-9 h-9 rounded-xl flex items-center justify-center text-orange-600 mr-3 flex-shrink-0 group-hover:scale-110 transition-transform duration-200 relative"
+            style={{
+              background: 'linear-gradient(135deg, rgba(249,115,22,0.08) 0%, rgba(59,130,246,0.08) 100%)',
+              boxShadow: 'inset 0 1px 2px rgba(249,115,22,0.1), inset 0 -1px 2px rgba(59,130,246,0.1)'
+            }}
+          >
             {item.icon}
           </div>
           <div className="flex-1 min-w-0">
@@ -121,15 +151,49 @@ const SolarCompanyHeader: React.FC = () => {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 w-full transition-all duration-700 ease-out",
+        "fixed top-0 left-0 right-0 w-full transition-all duration-700 ease-out relative",
         isScrolled 
-          ? "bg-white/85 backdrop-blur-3xl shadow-lg shadow-black/5 border-b border-gray-200/60" 
-          : "bg-white/98 backdrop-blur-2xl border-b border-gray-100/40"
+          ? "shadow-[0_8px_32px_rgba(0,0,0,0.08),0_2px_8px_rgba(0,0,0,0.04)]" 
+          : "shadow-[0_4px_16px_rgba(0,0,0,0.04)]"
       )}
-      style={{ zIndex: 9999 }}
+      style={{ 
+        zIndex: 9999,
+        background: isScrolled 
+          ? 'linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(248,250,252,0.88) 50%, rgba(241,245,249,0.90) 100%)'
+          : 'linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(252,252,253,0.94) 50%, rgba(248,250,252,0.95) 100%)',
+        backdropFilter: 'blur(24px) saturate(180%)',
+        WebkitBackdropFilter: 'blur(24px) saturate(180%)',
+        borderBottom: '1px solid rgba(226, 232, 240, 0.5)',
+        boxShadow: isScrolled 
+          ? '0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.7), inset 0 -1px 0 rgba(148,163,184,0.1)'
+          : '0 4px 16px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.8), inset 0 -1px 0 rgba(148,163,184,0.08)'
+      }}
     >
-      {/* Top scrolling banner - refined */}
-      <div className="bg-gradient-to-r from-orange-500 via-orange-600 to-blue-600 text-white py-2 overflow-hidden relative">
+      {/* Noise texture overlay for premium feel */}
+      <div 
+        className="absolute inset-0 opacity-[0.015] pointer-events-none"
+        style={{
+          backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' /%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\' /%3E%3C/svg%3E")',
+          backgroundRepeat: 'repeat',
+          mixBlendMode: 'overlay'
+        }}
+      />
+      
+      {/* Top scrolling banner with premium gradient and texture */}
+      <div 
+        className="text-white py-2 overflow-hidden relative"
+        style={{
+          background: 'linear-gradient(135deg, #f97316 0%, #fb923c 25%, #ea580c 50%, #f59e0b 75%, #3b82f6 100%)',
+          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.2), inset 0 -1px 0 rgba(0,0,0,0.1)'
+        }}
+      >
+        {/* Subtle texture overlay on banner */}
+        <div 
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,0.05) 2px, rgba(255,255,255,0.05) 4px)'
+          }}
+        />
         <div className="flex animate-scroll whitespace-nowrap">
           {/* First set of items */}
           <div className="flex items-center space-x-8 px-8 text-[13px] font-medium tracking-wide">
