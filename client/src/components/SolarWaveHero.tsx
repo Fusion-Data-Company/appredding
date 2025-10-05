@@ -269,7 +269,7 @@ const SolarWaveHero: React.FC<SolarWaveHeroProps> = ({
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/80 pointer-events-none" />
 
       {/* Hero Content */}
-      <div className="relative z-10 flex min-h-screen items-center">
+      <div className="relative z-[2] flex min-h-screen items-center">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 py-20">
           <div className="mx-auto max-w-4xl text-center">
             <motion.div

@@ -130,7 +130,7 @@ const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50">
+    <nav className="fixed top-0 left-0 right-0 z-40">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -243,7 +243,7 @@ const CommercialSolarWaveHero: React.FC<CommercialSolarWaveHeroProps> = ({
       {/* Hero Content */}
       <motion.div
         style={{ opacity, scale }}
-        className="relative z-10 flex min-h-screen items-center justify-center px-6"
+        className="relative z-[2] flex min-h-screen items-center justify-center px-6"
       >
         <div className="max-w-6xl mx-auto text-center">
           {/* Badge */}

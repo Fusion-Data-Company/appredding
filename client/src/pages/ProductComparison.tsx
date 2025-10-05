@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { PremiumTabs, PremiumTabsList, PremiumTabsTrigger, PremiumTabsContent } from "@/components/ui/premium-tabs";
-import { Zap, Sun, Battery, Sparkles } from "lucide-react";
+import { Zap, Sun, Battery, Sparkles, Star } from "lucide-react";
 import SolarBackground from "@/components/SolarBackground";
 
 interface ProductFeature {
@@ -319,6 +319,113 @@ const productData: Product[] = [
   }
 ];
 
+interface ProductCardProps {
+  product: Product;
+  isSelected: boolean;
+  onToggle: (productId: string) => void;
+  isDisabled: boolean;
+}
+
+const ProductCard: React.FC<ProductCardProps> = ({ product, isSelected, onToggle, isDisabled }) => {
+  return (
+    <div 
+      className={`
+        group relative
+        bg-gradient-to-br from-white via-cream-50 to-amber-50/30
+        backdrop-blur-sm
+        rounded-2xl p-8
+        border-2 transition-all duration-300 ease-in-out
+        ${isSelected 
+          ? 'border-amber-400 shadow-2xl shadow-amber-500/20 ring-4 ring-amber-200/50' 
+          : 'border-amber-200 shadow-xl hover:shadow-2xl hover:border-amber-300'
+        }
+        hover:scale-[1.02] hover:-translate-y-1
+      `}
+    >
+      <div className="flex gap-6">
+        {/* Product Image */}
+        <div className="flex-shrink-0">
+          <div className="relative w-32 h-32 rounded-xl overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 via-transparent to-orange-500/20 z-10"></div>
+            <img 
+              src={product.imageUrl} 
+              alt={product.name} 
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+          </div>
+        </div>
+        
+        {/* Product Info */}
+        <div className="flex-grow flex flex-col justify-between min-w-0">
+          {/* Top Section - Name and Checkbox */}
+          <div>
+            <div className="flex items-start justify-between gap-4 mb-3">
+              <h3 className="text-2xl font-bold text-gray-900 leading-tight group-hover:text-amber-700 transition-colors duration-300">
+                {product.name}
+              </h3>
+              <div className="flex items-center gap-2 flex-shrink-0">
+                <Checkbox 
+                  id={`select-${product.id}`} 
+                  checked={isSelected}
+                  onCheckedChange={() => onToggle(product.id)}
+                  disabled={isDisabled}
+                  className="border-2 border-amber-400 data-[state=checked]:bg-amber-500 data-[state=checked]:border-amber-500"
+                />
+                <Label 
+                  htmlFor={`select-${product.id}`} 
+                  className="text-sm font-semibold text-gray-700 cursor-pointer whitespace-nowrap"
+                >
+                  {isSelected ? 'Selected' : 'Compare'}
+                </Label>
+              </div>
+            </div>
+            
+            {/* Description */}
+            <p className="text-sm text-gray-700 leading-relaxed mb-4 line-clamp-2">
+              {product.description}
+            </p>
+          </div>
+          
+          {/* Bottom Section - Rating and Price */}
+          <div className="flex items-center justify-between gap-4 pt-2 border-t border-amber-100">
+            {/* Star Rating */}
+            <div className="flex items-center gap-2">
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, index) => (
+                  <Star
+                    key={index}
+                    className={`w-4 h-4 ${
+                      index < Math.floor(product.rating)
+                        ? 'fill-amber-400 text-amber-400'
+                        : index < product.rating
+                        ? 'fill-amber-200 text-amber-200'
+                        : 'fill-gray-200 text-gray-200'
+                    } transition-colors duration-300`}
+                  />
+                ))}
+              </div>
+              <span className="text-sm font-semibold text-gray-700">
+                {product.rating.toFixed(1)}
+              </span>
+            </div>
+            
+            {/* Price */}
+            <div className="text-right">
+              <div className="text-2xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
+                ${product.price.value.toLocaleString()}
+              </div>
+              <div className="text-xs text-gray-500 font-medium">
+                per {product.price.unit}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const ProductComparison = () => {
   const [selectedProducts, setSelectedProducts] = useState<string[]>([]);
   const [activeCategory, setActiveCategory] = useState("all");
@@ -411,205 +518,57 @@ const ProductComparison = () => {
                 </PremiumTabsList>
                 
                 <PremiumTabsContent value="all">
-                  <div className="grid md:grid-cols-2 gap-6">
+                  <div className="grid md:grid-cols-2 gap-8">
                     {filteredProducts.map(product => (
-                      <div key={product.id} className="bg-primary-700 rounded-lg p-6 flex gap-4">
-                        <div className="flex-shrink-0">
-                          <div className="w-24 h-24 bg-primary-600 rounded-lg overflow-hidden">
-                            <img 
-                              src={product.imageUrl} 
-                              alt={product.name} 
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                        </div>
-                        <div className="flex-grow">
-                          <div className="flex items-center justify-between mb-2">
-                            <h3 className="text-xl font-bold">{product.name}</h3>
-                            <div className="flex items-center">
-                              <Checkbox 
-                                id={`select-${product.id}`} 
-                                checked={selectedProducts.includes(product.id)}
-                                onCheckedChange={() => handleProductToggle(product.id)}
-                                disabled={!selectedProducts.includes(product.id) && selectedProducts.length >= 3}
-                              />
-                              <Label htmlFor={`select-${product.id}`} className="ml-2">
-                                {selectedProducts.includes(product.id) ? 'Selected' : 'Compare'}
-                              </Label>
-                            </div>
-                          </div>
-                          <p className="text-gray-300 text-sm mb-2">{product.description}</p>
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center">
-                              <div className="flex mr-2">
-                                {[...Array(5)].map((_, index) => (
-                                  <i 
-                                    key={index} 
-                                    className={`fas fa-star ${index < Math.floor(product.rating) ? 'text-yellow-400' : 'text-gray-500'}`}
-                                  ></i>
-                                ))}
-                              </div>
-                              <span className="text-sm">{product.rating.toFixed(1)}</span>
-                            </div>
-                            <div className="text-primary-400 font-semibold">
-                              ${product.price.value.toLocaleString()}/{product.price.unit}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                      <ProductCard
+                        key={product.id}
+                        product={product}
+                        isSelected={selectedProducts.includes(product.id)}
+                        onToggle={handleProductToggle}
+                        isDisabled={!selectedProducts.includes(product.id) && selectedProducts.length >= 3}
+                      />
                     ))}
                   </div>
                 </PremiumTabsContent>
                 
                 <PremiumTabsContent value="hybrid-inverter">
-                  <div className="grid md:grid-cols-2 gap-6">
+                  <div className="grid md:grid-cols-2 gap-8">
                     {filteredProducts.map(product => (
-                      <div key={product.id} className="bg-primary-700 rounded-lg p-6 flex gap-4">
-                        <div className="flex-shrink-0">
-                          <div className="w-24 h-24 bg-primary-600 rounded-lg overflow-hidden">
-                            <img 
-                              src={product.imageUrl} 
-                              alt={product.name} 
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                        </div>
-                        <div className="flex-grow">
-                          <div className="flex items-center justify-between mb-2">
-                            <h3 className="text-xl font-bold">{product.name}</h3>
-                            <div className="flex items-center">
-                              <Checkbox 
-                                id={`select-${product.id}`} 
-                                checked={selectedProducts.includes(product.id)}
-                                onCheckedChange={() => handleProductToggle(product.id)}
-                                disabled={!selectedProducts.includes(product.id) && selectedProducts.length >= 3}
-                              />
-                              <Label htmlFor={`select-${product.id}`} className="ml-2">
-                                {selectedProducts.includes(product.id) ? 'Selected' : 'Compare'}
-                              </Label>
-                            </div>
-                          </div>
-                          <p className="text-gray-300 text-sm mb-2">{product.description}</p>
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center">
-                              <div className="flex mr-2">
-                                {[...Array(5)].map((_, index) => (
-                                  <i 
-                                    key={index} 
-                                    className={`fas fa-star ${index < Math.floor(product.rating) ? 'text-yellow-400' : 'text-gray-500'}`}
-                                  ></i>
-                                ))}
-                              </div>
-                              <span className="text-sm">{product.rating.toFixed(1)}</span>
-                            </div>
-                            <div className="text-primary-400 font-semibold">
-                              ${product.price.value.toLocaleString()}/{product.price.unit}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                      <ProductCard
+                        key={product.id}
+                        product={product}
+                        isSelected={selectedProducts.includes(product.id)}
+                        onToggle={handleProductToggle}
+                        isDisabled={!selectedProducts.includes(product.id) && selectedProducts.length >= 3}
+                      />
                     ))}
                   </div>
                 </PremiumTabsContent>
                 
                 <PremiumTabsContent value="microinverter">
-                  <div className="grid md:grid-cols-2 gap-6">
+                  <div className="grid md:grid-cols-2 gap-8">
                     {filteredProducts.map(product => (
-                      <div key={product.id} className="bg-primary-700 rounded-lg p-6 flex gap-4">
-                        <div className="flex-shrink-0">
-                          <div className="w-24 h-24 bg-primary-600 rounded-lg overflow-hidden">
-                            <img 
-                              src={product.imageUrl} 
-                              alt={product.name} 
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                        </div>
-                        <div className="flex-grow">
-                          <div className="flex items-center justify-between mb-2">
-                            <h3 className="text-xl font-bold">{product.name}</h3>
-                            <div className="flex items-center">
-                              <Checkbox 
-                                id={`select-${product.id}`} 
-                                checked={selectedProducts.includes(product.id)}
-                                onCheckedChange={() => handleProductToggle(product.id)}
-                                disabled={!selectedProducts.includes(product.id) && selectedProducts.length >= 3}
-                              />
-                              <Label htmlFor={`select-${product.id}`} className="ml-2">
-                                {selectedProducts.includes(product.id) ? 'Selected' : 'Compare'}
-                              </Label>
-                            </div>
-                          </div>
-                          <p className="text-gray-300 text-sm mb-2">{product.description}</p>
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center">
-                              <div className="flex mr-2">
-                                {[...Array(5)].map((_, index) => (
-                                  <i 
-                                    key={index} 
-                                    className={`fas fa-star ${index < Math.floor(product.rating) ? 'text-yellow-400' : 'text-gray-500'}`}
-                                  ></i>
-                                ))}
-                              </div>
-                              <span className="text-sm">{product.rating.toFixed(1)}</span>
-                            </div>
-                            <div className="text-primary-400 font-semibold">
-                              ${product.price.value.toLocaleString()}/{product.price.unit}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                      <ProductCard
+                        key={product.id}
+                        product={product}
+                        isSelected={selectedProducts.includes(product.id)}
+                        onToggle={handleProductToggle}
+                        isDisabled={!selectedProducts.includes(product.id) && selectedProducts.length >= 3}
+                      />
                     ))}
                   </div>
                 </PremiumTabsContent>
                 
                 <PremiumTabsContent value="string-inverter">
-                  <div className="grid md:grid-cols-2 gap-6">
+                  <div className="grid md:grid-cols-2 gap-8">
                     {filteredProducts.map(product => (
-                      <div key={product.id} className="bg-primary-700 rounded-lg p-6 flex gap-4">
-                        <div className="flex-shrink-0">
-                          <div className="w-24 h-24 bg-primary-600 rounded-lg overflow-hidden">
-                            <img 
-                              src={product.imageUrl} 
-                              alt={product.name} 
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                        </div>
-                        <div className="flex-grow">
-                          <div className="flex items-center justify-between mb-2">
-                            <h3 className="text-xl font-bold">{product.name}</h3>
-                            <div className="flex items-center">
-                              <Checkbox 
-                                id={`select-${product.id}`} 
-                                checked={selectedProducts.includes(product.id)}
-                                onCheckedChange={() => handleProductToggle(product.id)}
-                                disabled={!selectedProducts.includes(product.id) && selectedProducts.length >= 3}
-                              />
-                              <Label htmlFor={`select-${product.id}`} className="ml-2">
-                                {selectedProducts.includes(product.id) ? 'Selected' : 'Compare'}
-                              </Label>
-                            </div>
-                          </div>
-                          <p className="text-gray-300 text-sm mb-2">{product.description}</p>
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center">
-                              <div className="flex mr-2">
-                                {[...Array(5)].map((_, index) => (
-                                  <i 
-                                    key={index} 
-                                    className={`fas fa-star ${index < Math.floor(product.rating) ? 'text-yellow-400' : 'text-gray-500'}`}
-                                  ></i>
-                                ))}
-                              </div>
-                              <span className="text-sm">{product.rating.toFixed(1)}</span>
-                            </div>
-                            <div className="text-primary-400 font-semibold">
-                              ${product.price.value.toLocaleString()}/{product.price.unit}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                      <ProductCard
+                        key={product.id}
+                        product={product}
+                        isSelected={selectedProducts.includes(product.id)}
+                        onToggle={handleProductToggle}
+                        isDisabled={!selectedProducts.includes(product.id) && selectedProducts.length >= 3}
+                      />
                     ))}
                   </div>
                 </PremiumTabsContent>

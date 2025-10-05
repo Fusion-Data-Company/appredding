@@ -85,7 +85,7 @@ const SolarCompanyHeader: React.FC = () => {
     <div 
       ref={el => dropdownRefs.current[dropdownKey] = el}
       className={cn(
-        "absolute top-full left-0 mt-2 w-80 bg-white rounded-lg shadow-2xl border border-gray-200 py-2 z-50",
+        "absolute top-full left-0 mt-2 w-80 bg-white rounded-lg shadow-2xl border border-gray-200 py-2 z-[60]",
         "animate-in fade-in slide-in-from-top-1 duration-200"
       )}
     >

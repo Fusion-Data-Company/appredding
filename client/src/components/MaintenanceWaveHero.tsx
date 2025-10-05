@@ -252,7 +252,7 @@ const MaintenanceWaveHero: React.FC<MaintenanceWaveHeroProps> = ({
       {/* Content */}
       <motion.div
         style={{ opacity, scale, y }}
-        className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 text-center"
+        className="relative z-[2] flex min-h-screen flex-col items-center justify-center px-4 text-center"
       >
         {/* Icon Badge */}
         <motion.div

@@ -354,7 +354,7 @@ const RepairsWaveHero: React.FC<RepairsWaveHeroProps> = ({
             <div className="absolute inset-0 z-[1] bg-gradient-to-b from-transparent via-black/20 to-black/80 pointer-events-none" />
 
             {/* Content */}
-            <div className="relative z-10 min-h-screen flex flex-col">
+            <div className="relative z-[2] min-h-screen flex flex-col">
                 {/* Hero Content */}
                 <div className="flex-1 flex items-center justify-center px-4 pt-24 pb-16">
                     <div className="container mx-auto max-w-6xl">
@@ -457,7 +457,7 @@ const RepairsWaveHero: React.FC<RepairsWaveHeroProps> = ({
 
                 {/* Scroll Indicator */}
                 <motion.div 
-                    className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
+                    className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-[3]"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1.2, duration: 0.8 }}
