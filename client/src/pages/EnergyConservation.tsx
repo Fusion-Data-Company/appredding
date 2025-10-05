@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MainLayout from "@/components/layout/MainLayout";
 import { Button } from "@/components/ui/button";
+import EnergyConservationWaveHero from "@/components/EnergyConservationWaveHero";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
@@ -202,8 +203,21 @@ const EnergyConservation = () => {
         description={pageDescription}
         structuredData={structuredData}
       />
+
+      {/* Energy Conservation Wave Hero Section */}
+      <EnergyConservationWaveHero 
+        tagline="Professional Energy Efficiency Solutions"
+        title="Energy Conservation"
+        subtitle="Comprehensive energy conservation services to reduce your consumption by 30-50%. Our certified professionals provide energy audits, HVAC optimization, and smart home integration for maximum efficiency."
+        stats={[
+          { value: "30-50%", label: "Energy Savings" },
+          { value: "BPI", label: "Certified" },
+          { value: "25+", label: "Years Experience" }
+        ]}
+      />
+
       <div className="py-16 sm:py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
-      {/* Hero Section with Live Metrics */}
+      {/* Live Metrics Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -216,8 +230,8 @@ const EnergyConservation = () => {
               <Leaf className="h-8 w-8" />
               <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">Energy Efficiency Solutions</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl font-bold mb-4">Comprehensive Energy Conservation</h1>
-            <p className="text-xl mb-6 text-green-100">Reduce energy consumption by 30-50% with professional efficiency upgrades</p>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Live Energy Metrics</h2>
+            <p className="text-lg mb-6 text-green-100">Real-time monitoring of your energy consumption and savings potential</p>
 
             {/* Live Energy Metrics */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">

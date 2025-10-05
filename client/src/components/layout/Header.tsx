@@ -85,24 +85,29 @@ const SolarCompanyHeader: React.FC = () => {
     <div 
       ref={el => dropdownRefs.current[dropdownKey] = el}
       className={cn(
-        "absolute top-full left-0 mt-2 w-80 bg-white rounded-lg shadow-2xl border border-gray-200 py-2 z-[60]",
-        "animate-in fade-in slide-in-from-top-1 duration-200"
+        "absolute top-full left-0 mt-2 w-80 bg-white rounded-lg shadow-2xl border border-gray-200 py-2",
+        "animate-in fade-in slide-in-from-top-1 duration-200",
+        "z-[100]"
       )}
+      style={{
+        position: 'absolute',
+        pointerEvents: 'auto'
+      }}
     >
       {items.map((item) => (
         <Link 
           key={item.href} 
           href={item.href}
-          className="flex items-center px-4 py-3 hover:bg-orange-50 transition-colors cursor-pointer"
+          className="flex items-center px-4 py-3 hover:bg-orange-50 transition-colors cursor-pointer block"
           onClick={() => {
             setActiveDropdown(null);
             setIsMobileMenuOpen(false);
           }}
         >
-          <div className="w-10 h-10 bg-gradient-to-br from-orange-100 to-blue-100 rounded-lg flex items-center justify-center text-orange-600 mr-3">
+          <div className="w-10 h-10 bg-gradient-to-br from-orange-100 to-blue-100 rounded-lg flex items-center justify-center text-orange-600 mr-3 flex-shrink-0">
             {item.icon}
           </div>
-          <div>
+          <div className="flex-1">
             <div className="font-semibold text-gray-900">{item.label}</div>
             <div className="text-sm text-gray-600">{item.description}</div>
           </div>
@@ -231,15 +236,21 @@ const SolarCompanyHeader: React.FC = () => {
             </Link>
 
             {/* Services Dropdown */}
-            <div className="relative" ref={el => dropdownRefs.current['services'] = el}>
+            <div 
+              className="relative" 
+              ref={el => dropdownRefs.current['services'] = el}
+              style={{ position: 'relative', zIndex: activeDropdown === 'services' ? 101 : 1 }}
+            >
               <button 
                 onClick={() => setActiveDropdown(activeDropdown === 'services' ? null : 'services')}
                 className={cn(
-                  "flex items-center px-4 py-2 font-medium rounded-lg transition-all duration-200",
+                  "flex items-center px-4 py-2 font-medium rounded-lg transition-all duration-200 relative z-10",
                   activeDropdown === 'services' 
                     ? "text-orange-600 bg-orange-50" 
                     : "text-gray-700 hover:text-orange-600 hover:bg-orange-50/50"
                 )}
+                aria-expanded={activeDropdown === 'services'}
+                aria-haspopup="true"
               >
                 Services
                 <ChevronDown className={cn(
@@ -271,15 +282,21 @@ const SolarCompanyHeader: React.FC = () => {
             </Link>
 
             {/* Company Dropdown */}
-            <div className="relative" ref={el => dropdownRefs.current['company'] = el}>
+            <div 
+              className="relative" 
+              ref={el => dropdownRefs.current['company'] = el}
+              style={{ position: 'relative', zIndex: activeDropdown === 'company' ? 101 : 1 }}
+            >
               <button 
                 onClick={() => setActiveDropdown(activeDropdown === 'company' ? null : 'company')}
                 className={cn(
-                  "flex items-center px-4 py-2 font-medium rounded-lg transition-all duration-200",
+                  "flex items-center px-4 py-2 font-medium rounded-lg transition-all duration-200 relative z-10",
                   activeDropdown === 'company' 
                     ? "text-orange-600 bg-orange-50" 
                     : "text-gray-700 hover:text-orange-600 hover:bg-orange-50/50"
                 )}
+                aria-expanded={activeDropdown === 'company'}
+                aria-haspopup="true"
               >
                 Company
                 <ChevronDown className={cn(

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MainLayout from "@/components/layout/MainLayout";
 import { Button } from "@/components/ui/button";
+import HybridSolarWaveHero from "@/components/HybridSolarWaveHero";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
@@ -142,24 +143,31 @@ const HybridSolar = () => {
         structuredData={structuredData}
       />
 
-      {/* Enhanced Hybrid Solar Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-black to-gray-900 pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/optimized/diamond-plate-industrial.jpg')] opacity-5 bg-cover bg-center" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black/80" />
+      {/* Hybrid Solar Wave Hero Section */}
+      <HybridSolarWaveHero 
+        tagline="Advanced Hybrid Solar & Energy Systems"
+        title="Hybrid Solar"
+        subtitle="Revolutionary hybrid solar systems with seamless grid-tie to off-grid transition. Sol-Ark inverters provide <10ms transfer time for uninterrupted power during PSPS events and grid outages."
+        stats={[
+          { value: "<10ms", label: "Transfer Time" },
+          { value: "UL 1741-SA", label: "Certified" },
+          { value: "25+", label: "Years Experience" }
+        ]}
+      />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* PSPS/Grid Failure Alert */}
-          <div className="bg-orange-900/20 border border-orange-500/50 backdrop-blur-sm rounded-xl p-4 mb-8">
-            <div className="flex items-center gap-3">
-              <WifiOff className="h-6 w-6 text-orange-400 animate-pulse" />
-              <div className="flex-1">
-                <p className="text-orange-300 font-semibold">CRITICAL: California PSPS Events Increasing 300% Year-Over-Year</p>
-                <p className="text-gray-400 text-sm mt-1">Tier 2/3 fire zones experience 48-72 hour power shutoffs • Grid-tied solar provides ZERO backup without batteries</p>
-              </div>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* PSPS/Grid Failure Alert */}
+        <div className="bg-orange-900/20 border border-orange-500/50 backdrop-blur-sm rounded-xl p-4 mb-8">
+          <div className="flex items-center gap-3">
+            <WifiOff className="h-6 w-6 text-orange-400 animate-pulse" />
+            <div className="flex-1">
+              <p className="text-orange-300 font-semibold">CRITICAL: California PSPS Events Increasing 300% Year-Over-Year</p>
+              <p className="text-gray-400 text-sm mt-1">Tier 2/3 fire zones experience 48-72 hour power shutoffs • Grid-tied solar provides ZERO backup without batteries</p>
             </div>
           </div>
+        </div>
 
-          <div className="text-center mb-12">
+        <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/30 rounded-full px-4 py-2 mb-6">
               <GitBranch className="h-4 w-4 text-green-400" />
               <span className="text-sm font-semibold text-green-400 uppercase tracking-wider">Grid-Tie + Off-Grid • Seamless Transfer • UL 1741-SA</span>
