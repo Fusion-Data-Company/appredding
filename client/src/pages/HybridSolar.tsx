@@ -52,7 +52,8 @@ import {
   BarChart3,
   FileCheck,
   ChevronRight,
-  ArrowRight
+  ArrowRight,
+  Award
 } from "lucide-react";
 import { insertFirePreventionHomeownerSchema } from "@shared/schema";
 import { useForm } from "react-hook-form";
