@@ -161,11 +161,11 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
               <span 
                 className="relative inline-block"
                 style={{
-                  background: 'linear-gradient(135deg, #fbbf24 0%, #d97706 50%, #000000 100%)',
+                  background: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #ea580c 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
-                  filter: 'drop-shadow(0 2px 6px rgba(251,191,36,0.4)) drop-shadow(0 4px 12px rgba(0,0,0,0.3))',
+                  filter: 'drop-shadow(0 3px 8px rgba(251,191,36,0.6)) drop-shadow(0 6px 16px rgba(234,88,12,0.4))',
                   textShadow: 'none'
                 }}
               >
@@ -175,9 +175,9 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
               <span 
                 className="relative inline-block"
                 style={{
-                  color: 'white',
-                  filter: 'drop-shadow(0 2px 6px rgba(255,255,255,0.3)) drop-shadow(0 4px 12px rgba(255,255,255,0.15))',
-                  textShadow: '0 1px 3px rgba(0,0,0,0.3)'
+                  color: '#1f2937',
+                  filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))',
+                  textShadow: '0 1px 2px rgba(255,255,255,0.8)'
                 }}
               >
                 of Redding
@@ -190,7 +190,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
-                  filter: 'drop-shadow(0 2px 6px rgba(249,115,22,0.5)) drop-shadow(0 4px 12px rgba(251,191,36,0.3))',
+                  filter: 'drop-shadow(0 3px 8px rgba(249,115,22,0.7)) drop-shadow(0 6px 16px rgba(251,191,36,0.5))',
                   textShadow: 'none'
                 }}
               >
@@ -200,9 +200,9 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
               <span 
                 className="relative inline-block"
                 style={{
-                  color: 'white',
-                  filter: 'drop-shadow(0 2px 6px rgba(255,255,255,0.3)) drop-shadow(0 4px 12px rgba(255,255,255,0.15))',
-                  textShadow: '0 1px 3px rgba(0,0,0,0.3)'
+                  color: '#1f2937',
+                  filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))',
+                  textShadow: '0 1px 2px rgba(255,255,255,0.8)'
                 }}
               >
                 Experts
