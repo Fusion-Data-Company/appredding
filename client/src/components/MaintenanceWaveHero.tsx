@@ -163,7 +163,7 @@ const MaintenanceWaveHero: React.FC<MaintenanceWaveHeroProps> = ({
   const scale = useTransform(scrollY, [0, 500], [1, 0.8]);
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-black" style={{ position: 'relative' }}>
+    <div className="hero-section relative min-h-screen w-full overflow-hidden bg-black" style={{ position: 'relative' }}>
       {/* Animated Background (Exact from demo) */}
       <SolarWaveBackground />
       <EnergyParticles />
@@ -183,7 +183,7 @@ const MaintenanceWaveHero: React.FC<MaintenanceWaveHeroProps> = ({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-8 badge-elite-metallic badge-electric"
+            className="badge-elite-metallic badge-electric"
           >
             <Battery className="w-4 h-4 text-blue-400" />
             <span>{tagline}</span>

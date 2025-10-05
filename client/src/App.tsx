@@ -415,10 +415,10 @@ function App() {
   useEffect(() => {
     // Initialize error handler
 
-    // Force dark mode first (blocking)
-    document.documentElement.classList.add('dark');
-    document.body.style.backgroundColor = '#000';
-    document.body.classList.add('dark');
+    // Removed forced dark mode - let user preference or system decide
+    // document.documentElement.classList.add('dark');
+    // document.body.style.backgroundColor = '#000';
+    // document.body.classList.add('dark');
 
     // Defer expensive operations to not block initial render
     setTimeout(() => {

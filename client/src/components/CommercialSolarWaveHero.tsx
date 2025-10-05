@@ -230,7 +230,7 @@ const CommercialSolarWaveHero: React.FC<CommercialSolarWaveHeroProps> = ({
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-black" style={{ position: 'relative' }}>
+    <div className="hero-section relative min-h-screen w-full overflow-hidden bg-black" style={{ position: 'relative' }}>
       {/* Animated Background */}
       <SolarWaveBackground />
       <EnergyParticles />
@@ -253,7 +253,7 @@ const CommercialSolarWaveHero: React.FC<CommercialSolarWaveHeroProps> = ({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-8 badge-elite-metallic badge-solar"
+            className="badge-elite-metallic badge-solar"
           >
             <Battery className="w-4 h-4 text-orange-400" />
             <span>{tagline}</span>

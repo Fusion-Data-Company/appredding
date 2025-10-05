@@ -168,6 +168,96 @@ body {
 }
 
 /* BRIGHT HERO GRADIENTS - SOLID BRIGHT COLORS WITH GLOW */
+.gradient-bright-fire {
+  background: linear-gradient(to right, #fbbf24, #fb923c, #f97316) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important; /* Fallback for non-webkit */
+  filter: drop-shadow(0 0 20px rgba(251, 191, 36, 0.9)) drop-shadow(0 0 40px rgba(251, 146, 60, 0.7)) drop-shadow(0 0 60px rgba(249, 115, 22, 0.5));
+}
+
+.gradient-bright-electric {
+  background: linear-gradient(to right, #06b6d4, #3b82f6, #00d9ff) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important; /* Fallback for non-webkit */
+  filter: drop-shadow(0 0 20px rgba(6, 182, 212, 0.9)) drop-shadow(0 0 40px rgba(59, 130, 246, 0.7)) drop-shadow(0 0 60px rgba(0, 217, 255, 0.5));
+}
+
+.gradient-bright-sunset {
+  background: linear-gradient(to right, #fbbf24, #fb923c, #ef4444) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important; /* Fallback for non-webkit */
+  filter: drop-shadow(0 0 20px rgba(251, 191, 36, 0.9)) drop-shadow(0 0 40px rgba(251, 146, 60, 0.7)) drop-shadow(0 0 60px rgba(239, 68, 68, 0.5));
+}
+
+.gradient-bright-ocean {
+  background: linear-gradient(to right, #22d3ee, #06b6d4, #0ea5e9) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important;
+  filter: drop-shadow(0 0 20px rgba(34, 211, 238, 0.9)) drop-shadow(0 0 40px rgba(6, 182, 212, 0.7)) drop-shadow(0 0 60px rgba(14, 165, 233, 0.5));
+}
+
+.gradient-bright-emerald {
+  background: linear-gradient(to right, #34d399, #10b981, #84cc16) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important;
+  filter: drop-shadow(0 0 20px rgba(52, 211, 153, 0.9)) drop-shadow(0 0 40px rgba(16, 185, 129, 0.7)) drop-shadow(0 0 60px rgba(132, 204, 22, 0.5));
+}
+
+.gradient-bright-purple {
+  background: linear-gradient(to right, #c084fc, #a855f7, #e879f9) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important;
+  filter: drop-shadow(0 0 20px rgba(192, 132, 252, 0.9)) drop-shadow(0 0 40px rgba(168, 85, 247, 0.7)) drop-shadow(0 0 60px rgba(232, 121, 249, 0.5));
+}
+
+/* Bright white text for non-gradient emphasis */
+.gradient-bright-white {
+  color: #ffffff !important;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 0 0 40px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.4) !important;
+  filter: none !important;
+  -webkit-text-fill-color: initial !important;
+  background: none !important;
+}
+
+/* Hero section text overrides - FORCE BRIGHT TEXT */
+.hero-section h1,
+.hero-section h2,
+.hero-section h3,
+.hero-section h4,
+.hero-section h5,
+.hero-section h6,
+.hero-section p,
+.hero-section span:not([class*="gradient"]) {
+  color: #ffffff !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Base bright text for hero sections */
+.hero-text-bright {
+  color: #ffffff !important;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+.gradient-bright-yellow {
+  background: linear-gradient(to right, #fde047, #facc15, #fef08a) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important;
+  filter: drop-shadow(0 0 20px rgba(253, 224, 71, 0.9)) drop-shadow(0 0 40px rgba(250, 204, 21, 0.7)) drop-shadow(0 0 60px rgba(254, 240, 138, 0.5));
+}
 
 /* Smooth hover transitions */
 .hover-lift {
@@ -4069,3 +4159,238 @@ header a[href="/"] img {
   }
   
   .shadow-theme-glow-dark {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5),
+                0 0 40px rgba(59, 130, 246, 0.2);
+  }
+  
+  .theme-button-pulse {
+    animation: theme-button-pulse 3s infinite ease-in-out;
+  }
+  
+  @keyframes theme-button-pulse {
+    0%, 100% {
+      box-shadow: 0 0 10px rgba(59, 130, 246, 0.2),
+                  0 0 20px rgba(59, 130, 246, 0.1);
+    }
+    50% {
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.5),
+                  0 0 30px rgba(59, 130, 246, 0.3);
+    }
+  }
+  
+  .theme-icon-container {
+    transition: transform 0.3s ease;
+  }
+  
+  .theme-toggle-button:hover .theme-icon-container {
+    transform: rotate(15deg);
+  }
+  
+  .theme-icon {
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .theme-toggle-button:hover .theme-icon {
+    transform: scale(1.2);
+  }
+  
+  .animate-shimmer-slow {
+    animation: shimmerSlow 3s linear infinite;
+  }
+  
+  @keyframes shimmerSlow {
+    from {
+      background-position: 200% 0;
+    }
+    to {
+      background-position: -200% 0;
+    }
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+  
+  .animate-spin-very-slow {
+    animation: spinVerySlow 8s linear infinite;
+  }
+  
+  @keyframes spinVerySlow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .text-gradient {
+    background: linear-gradient(90deg, #fff, #e2e8f0, #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% auto;
+    animation: textShimmer 4s linear infinite;
+  }
+  
+  @keyframes textShimmer {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+  }
+}
+
+/* ============================================================================
+   ULTRA IMPORTANT: GRADIENT CLASSES MUST BE LAST TO OVERRIDE EVERYTHING!
+   These MUST come after all @layer declarations to have highest specificity
+   ============================================================================ */
+
+/* BRIGHT HERO GRADIENTS - ABSOLUTE HIGHEST PRIORITY */
+.gradient-bright-fire {
+  background: linear-gradient(to right, #fbbf24, #fb923c, #f97316) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important;
+  filter: drop-shadow(0 0 20px rgba(251, 191, 36, 0.9)) drop-shadow(0 0 40px rgba(251, 146, 60, 0.7)) drop-shadow(0 0 60px rgba(249, 115, 22, 0.5));
+}
+
+.gradient-bright-electric {
+  background: linear-gradient(to right, #06b6d4, #3b82f6, #00d9ff) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important;
+  filter: drop-shadow(0 0 20px rgba(6, 182, 212, 0.9)) drop-shadow(0 0 40px rgba(59, 130, 246, 0.7)) drop-shadow(0 0 60px rgba(0, 217, 255, 0.5));
+}
+
+.gradient-bright-sunset {
+  background: linear-gradient(to right, #fbbf24, #fb923c, #ef4444) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important;
+  filter: drop-shadow(0 0 20px rgba(251, 191, 36, 0.9)) drop-shadow(0 0 40px rgba(251, 146, 60, 0.7)) drop-shadow(0 0 60px rgba(239, 68, 68, 0.5));
+}
+
+.gradient-bright-ocean {
+  background: linear-gradient(to right, #22d3ee, #06b6d4, #0ea5e9) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important;
+  filter: drop-shadow(0 0 20px rgba(34, 211, 238, 0.9)) drop-shadow(0 0 40px rgba(6, 182, 212, 0.7)) drop-shadow(0 0 60px rgba(14, 165, 233, 0.5));
+}
+
+.gradient-bright-emerald {
+  background: linear-gradient(to right, #34d399, #10b981, #84cc16) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important;
+  filter: drop-shadow(0 0 20px rgba(52, 211, 153, 0.9)) drop-shadow(0 0 40px rgba(16, 185, 129, 0.7)) drop-shadow(0 0 60px rgba(132, 204, 22, 0.5));
+}
+
+.gradient-bright-purple {
+  background: linear-gradient(to right, #c084fc, #a855f7, #e879f9) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important;
+  filter: drop-shadow(0 0 20px rgba(192, 132, 252, 0.9)) drop-shadow(0 0 40px rgba(168, 85, 247, 0.7)) drop-shadow(0 0 60px rgba(232, 121, 249, 0.5));
+}
+
+.gradient-bright-white {
+  color: #ffffff !important;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 0 0 40px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.4) !important;
+  filter: none !important;
+  -webkit-text-fill-color: initial !important;
+  background: none !important;
+}
+
+.gradient-bright-yellow {
+  background: linear-gradient(to right, #fde047, #facc15, #fef08a) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important;
+  filter: drop-shadow(0 0 20px rgba(253, 224, 71, 0.9)) drop-shadow(0 0 40px rgba(250, 204, 21, 0.7)) drop-shadow(0 0 60px rgba(254, 240, 138, 0.5));
+}
+
+/* Force hero section text to be visible */
+.hero-section span.gradient-bright-fire,
+.hero-section span.gradient-bright-electric,
+.hero-section span.gradient-bright-sunset,
+.hero-section span.gradient-bright-ocean,
+.hero-section span.gradient-bright-emerald,
+.hero-section span.gradient-bright-purple,
+.hero-section span.gradient-bright-yellow {
+  display: inline-block !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* NUCLEAR OPTION: Force gradients with maximum specificity */
+span.gradient-bright-fire.font-extrabold,
+span.gradient-bright-electric.font-extrabold,
+span.gradient-bright-sunset.font-extrabold,
+span.gradient-bright-ocean.font-extrabold,
+span.gradient-bright-emerald.font-extrabold,
+span.gradient-bright-purple.font-extrabold,
+span.gradient-bright-yellow.font-extrabold,
+span.gradient-bright-white.font-extrabold,
+h1 span.gradient-bright-fire,
+h1 span.gradient-bright-electric,
+h1 span.gradient-bright-sunset,
+h1 span.gradient-bright-ocean,
+h1 span.gradient-bright-emerald,
+h1 span.gradient-bright-purple,
+h1 span.gradient-bright-yellow,
+h1 span.gradient-bright-white {
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
+
+/* Special handling for gradient-bright-white which should be solid white */
+span.gradient-bright-white.font-extrabold,
+h1 span.gradient-bright-white {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background: none !important;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 1) !important;
+}
+
+/* Force gradient backgrounds to actually apply */
+span.gradient-bright-fire {
+  background-image: linear-gradient(to right, #fbbf24, #fb923c, #f97316) !important;
+}
+
+span.gradient-bright-electric {
+  background-image: linear-gradient(to right, #06b6d4, #3b82f6, #00d9ff) !important;
+}
+
+span.gradient-bright-sunset {
+  background-image: linear-gradient(to right, #fbbf24, #fb923c, #ef4444) !important;
+}
+
+span.gradient-bright-ocean {
+  background-image: linear-gradient(to right, #22d3ee, #06b6d4, #0ea5e9) !important;
+}
+
+span.gradient-bright-emerald {
+  background-image: linear-gradient(to right, #34d399, #10b981, #84cc16) !important;
+}
+
+span.gradient-bright-purple {
+  background-image: linear-gradient(to right, #c084fc, #a855f7, #e879f9) !important;
+}
+
+span.gradient-bright-yellow {
+  background-image: linear-gradient(to right, #fde047, #facc15, #fef08a) !important;
+}

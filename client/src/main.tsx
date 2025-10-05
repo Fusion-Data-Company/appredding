@@ -8,8 +8,9 @@ const isProduction = import.meta.env.PROD;
 
 // Basic performance optimizations
 if (typeof window !== 'undefined') {
-  document.documentElement.classList.add('dark');
-  
+  // Removed forced dark mode - let ThemeProvider handle it
+  // document.documentElement.classList.add('dark');
+
   // Remove loading state
   setTimeout(() => {
     document.getElementById('root')?.classList.remove('loading');

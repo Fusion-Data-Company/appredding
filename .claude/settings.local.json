@@ -15,7 +15,10 @@
       "Bash(python:*)",
       "Bash(node:*)",
       "Bash(git stash:*)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Bash(xargs:*)",
+      "Bash(npm run dev:*)",
+      "Bash(sed:*)"
     ],
     "deny": [],
     "ask": []

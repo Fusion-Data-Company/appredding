@@ -274,7 +274,7 @@ const ProductsWaveHero: React.FC<ProductsWaveHeroProps> = ({
   const borderGlow = useMotionTemplate`0 0 20px ${color}40`;
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-black">
+    <div className="hero-section relative min-h-screen w-full overflow-hidden bg-black">
       {/* Animated Backgrounds */}
       <SolarWaveBackground />
       <ElectricParticles />
@@ -294,7 +294,7 @@ const ProductsWaveHero: React.FC<ProductsWaveHeroProps> = ({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="mb-8 badge-elite-metallic badge-solar"
+              className="badge-elite-metallic badge-solar"
             >
               <Package className="w-4 h-4 text-amber-400" />
               <span>{tagline}</span>

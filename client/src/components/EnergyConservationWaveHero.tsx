@@ -236,7 +236,7 @@ const EnergyConservationWaveHero: React.FC<EnergyConservationWaveHeroProps> = ({
   const y = useTransform(scrollY, [0, 300], [0, 100]);
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-950 via-green-950 to-slate-900" style={{ position: 'relative' }}>
+    <div className="hero-section relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-950 via-green-950 to-slate-900" style={{ position: 'relative' }}>
       {/* Animated Background */}
       <AnimatedWaveBackground />
       
@@ -256,7 +256,7 @@ const EnergyConservationWaveHero: React.FC<EnergyConservationWaveHeroProps> = ({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-8 badge-elite-metallic badge-energy"
+          className="badge-elite-metallic badge-energy"
         >
           <Leaf className="h-5 w-5 text-green-400" />
           <span>{tagline}</span>

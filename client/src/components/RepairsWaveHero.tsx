@@ -347,7 +347,7 @@ const RepairsWaveHero: React.FC<RepairsWaveHeroProps> = ({
     }, [])
 
     return (
-        <div className="relative min-h-screen w-full bg-black overflow-hidden" style={{ position: 'relative' }}>
+        <div className="hero-section relative min-h-screen w-full bg-black overflow-hidden" style={{ position: 'relative' }}>
             {/* Wave Background */}
             <div className="absolute inset-0 z-0">
                 <Waves 
@@ -379,7 +379,7 @@ const RepairsWaveHero: React.FC<RepairsWaveHeroProps> = ({
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.2 }}
-                                className="mb-8 badge-elite-metallic badge-solar mx-auto"
+                                className="badge-elite-metallic badge-solar mx-auto"
                             >
                                 <Wrench className="h-5 w-5 text-yellow-400" />
                                 <span>{tagline}</span>
