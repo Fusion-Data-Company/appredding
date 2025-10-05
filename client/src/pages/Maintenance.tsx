@@ -365,28 +365,8 @@ const Maintenance = () => {
   };
 
   return (
-    <div className="py-16 sm:py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
-      {/* Critical Alert Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="bg-gradient-to-r from-red-600 to-orange-600 rounded-2xl p-4 text-white"
-        >
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <AlertOctagon className="h-8 w-8 animate-pulse" />
-              <div>
-                <h3 className="text-lg font-bold">{criticalAlert.title}</h3>
-                <p className="text-sm text-red-100">{criticalAlert.subtitle}</p>
-              </div>
-            </div>
-            <button className="bg-white text-red-600 px-4 py-2 rounded-lg font-semibold hover:bg-red-50 transition">
-              {criticalAlert.action}
-            </button>
-          </div>
-        </motion.div>
-      </div>
+    <MainLayout>
+      <div className="bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
 
       {/* Maintenance Wave Hero Section */}
       <MaintenanceWaveHero 
@@ -458,6 +438,28 @@ const Maintenance = () => {
                 <Phone className="h-5 w-5" /> (530) 226-0701
               </button>
             </div>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Critical Alert Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-gradient-to-r from-red-600 to-orange-600 rounded-2xl p-4 text-white"
+        >
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <AlertOctagon className="h-8 w-8 animate-pulse" />
+              <div>
+                <h3 className="text-lg font-bold">{criticalAlert.title}</h3>
+                <p className="text-sm text-red-100">{criticalAlert.subtitle}</p>
+              </div>
+            </div>
+            <button className="bg-white text-red-600 px-4 py-2 rounded-lg font-semibold hover:bg-red-50 transition">
+              {criticalAlert.action}
+            </button>
           </div>
         </motion.div>
       </div>
@@ -1171,7 +1173,7 @@ const Maintenance = () => {
           </div>
         </div>
       </div>
-    </div>
+    </MainLayout>
   );
 };
 
