@@ -268,49 +268,28 @@ const SolarCompanyHeader: React.FC = () => {
       {/* Main navigation */}
       <div className="w-full px-6 lg:px-8">
         <div className="flex items-center justify-between h-[68px]">
-          {/* Logo with glass cover and shimmer */}
-          <Link href="/" className="flex items-center group relative">
-            <div className="relative overflow-hidden rounded-lg">
-              <img 
-                src="/advance-power-logo.jpg" 
-                alt="Advance Power Redding" 
-                className="h-11 w-auto object-contain rounded-lg transition-transform duration-300 group-hover:scale-105"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.style.display = 'none';
-                  const textLogo = document.createElement('div');
-                  textLogo.className = 'flex flex-col';
-                  textLogo.innerHTML = `
-                    <span class="text-xl font-bold bg-gradient-to-r from-orange-600 to-blue-600 bg-clip-text text-transparent">
-                      Advance Power
-                    </span>
-                    <span class="text-xs text-gray-600 font-medium">
-                      Redding Solar Solutions
-                    </span>
-                  `;
-                  target.parentElement?.appendChild(textLogo);
-                }}
-              />
-              
-              {/* Glass cover overlay */}
-              <div 
-                className="absolute inset-0 pointer-events-none rounded-lg"
-                style={{
-                  background: 'linear-gradient(180deg, rgba(255,255,255,0.3) 0%, transparent 40%, rgba(0,0,0,0.05) 100%)',
-                  boxShadow: 'inset 0 1px 1px rgba(255,255,255,0.6), inset 0 -1px 1px rgba(0,0,0,0.1)'
-                }}
-              />
-              
-              {/* Shimmer effect on hover */}
-              <div 
-                className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                style={{
-                  background: 'linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.7) 50%, transparent 100%)',
-                  transform: 'translateX(-100%)',
-                  animation: 'shimmer 2.5s ease-in-out infinite'
-                }}
-              />
-            </div>
+          {/* Logo - clean and clickable */}
+          <Link href="/" className="flex items-center group">
+            <img 
+              src="/advance-power-logo.jpg" 
+              alt="Advance Power Redding" 
+              className="h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+                const textLogo = document.createElement('div');
+                textLogo.className = 'flex flex-col';
+                textLogo.innerHTML = `
+                  <span class="text-xl font-bold bg-gradient-to-r from-orange-600 to-blue-600 bg-clip-text text-transparent">
+                    Advance Power
+                  </span>
+                  <span class="text-xs text-gray-600 font-medium">
+                    Redding Solar Solutions
+                  </span>
+                `;
+                target.parentElement?.appendChild(textLogo);
+              }}
+            />
           </Link>
 
           {/* Desktop Navigation */}
