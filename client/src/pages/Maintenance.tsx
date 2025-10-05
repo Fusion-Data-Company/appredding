@@ -1173,6 +1173,7 @@ const Maintenance = () => {
           </div>
         </div>
       </div>
+      </div>
     </MainLayout>
   );
 };
