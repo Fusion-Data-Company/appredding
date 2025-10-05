@@ -85,7 +85,7 @@ const SolarCompanyHeader: React.FC = () => {
       ref={el => dropdownRefs.current[dropdownKey] = el}
       className={cn(
         "absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 rounded-2xl py-3 overflow-hidden",
-        "animate-in fade-in slide-in-from-top-2 duration-200"
+        "animate-in fade-in slide-in-from-top-1 duration-300"
       )}
       style={{
         position: 'absolute',
@@ -111,19 +111,21 @@ const SolarCompanyHeader: React.FC = () => {
           key={item.href} 
           href={item.href}
           className={cn(
-            "flex items-start px-4 py-3 mx-2 rounded-xl transition-all duration-200 cursor-pointer group relative",
+            "flex items-start px-4 py-3 mx-2 transition-all duration-200 cursor-pointer group relative",
             index !== items.length - 1 && "mb-1"
           )}
           style={{
             background: 'transparent'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.background = 'linear-gradient(135deg, rgba(249,250,251,0.9) 0%, rgba(243,244,246,0.8) 100%)';
-            e.currentTarget.style.boxShadow = 'inset 0 1px 0 rgba(255,255,255,0.8), inset 0 -1px 0 rgba(148,163,184,0.1)';
+            e.currentTarget.style.background = 'linear-gradient(90deg, rgba(249,115,22,0.03) 0%, rgba(59,130,246,0.03) 100%)';
+            e.currentTarget.style.borderLeft = '3px solid rgba(249,115,22,0.6)';
+            e.currentTarget.style.paddingLeft = '13px';
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.background = 'transparent';
-            e.currentTarget.style.boxShadow = 'none';
+            e.currentTarget.style.borderLeft = '3px solid transparent';
+            e.currentTarget.style.paddingLeft = '16px';
           }}
           onClick={() => {
             setActiveDropdown(null);
@@ -266,28 +268,49 @@ const SolarCompanyHeader: React.FC = () => {
       {/* Main navigation */}
       <div className="w-full px-6 lg:px-8">
         <div className="flex items-center justify-between h-[68px]">
-          {/* Logo - clickable to home */}
-          <Link href="/" className="flex items-center group">
-            <img 
-              src="/advance-power-logo.jpg" 
-              alt="Advance Power Redding" 
-              className="h-11 w-auto object-contain rounded transition-transform duration-300 group-hover:scale-105"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.style.display = 'none';
-                const textLogo = document.createElement('div');
-                textLogo.className = 'flex flex-col';
-                textLogo.innerHTML = `
-                  <span class="text-xl font-bold bg-gradient-to-r from-orange-600 to-blue-600 bg-clip-text text-transparent">
-                    Advance Power
-                  </span>
-                  <span class="text-xs text-gray-600 font-medium">
-                    Redding Solar Solutions
-                  </span>
-                `;
-                target.parentElement?.appendChild(textLogo);
-              }}
-            />
+          {/* Logo with glass cover and shimmer */}
+          <Link href="/" className="flex items-center group relative">
+            <div className="relative overflow-hidden rounded-lg">
+              <img 
+                src="/advance-power-logo.jpg" 
+                alt="Advance Power Redding" 
+                className="h-11 w-auto object-contain rounded-lg transition-transform duration-300 group-hover:scale-105"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  const textLogo = document.createElement('div');
+                  textLogo.className = 'flex flex-col';
+                  textLogo.innerHTML = `
+                    <span class="text-xl font-bold bg-gradient-to-r from-orange-600 to-blue-600 bg-clip-text text-transparent">
+                      Advance Power
+                    </span>
+                    <span class="text-xs text-gray-600 font-medium">
+                      Redding Solar Solutions
+                    </span>
+                  `;
+                  target.parentElement?.appendChild(textLogo);
+                }}
+              />
+              
+              {/* Glass cover overlay */}
+              <div 
+                className="absolute inset-0 pointer-events-none rounded-lg"
+                style={{
+                  background: 'linear-gradient(180deg, rgba(255,255,255,0.3) 0%, transparent 40%, rgba(0,0,0,0.05) 100%)',
+                  boxShadow: 'inset 0 1px 1px rgba(255,255,255,0.6), inset 0 -1px 1px rgba(0,0,0,0.1)'
+                }}
+              />
+              
+              {/* Shimmer effect on hover */}
+              <div 
+                className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                style={{
+                  background: 'linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.7) 50%, transparent 100%)',
+                  transform: 'translateX(-100%)',
+                  animation: 'shimmer 2.5s ease-in-out infinite'
+                }}
+              />
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -365,22 +388,37 @@ const SolarCompanyHeader: React.FC = () => {
             </div>
           </nav>
 
-          {/* CTA Button - Apple-style */}
+          {/* CTA Button with glass face and shimmer */}
           <div className="hidden lg:flex items-center">
             <Link href="/contact">
-              <Button
-                size="lg"
-                className={cn(
-                  "bg-gradient-to-r from-orange-500 to-blue-600",
-                  "hover:from-orange-600 hover:to-blue-700",
-                  "text-white text-[15px] font-semibold",
-                  "shadow-lg shadow-orange-500/25 hover:shadow-xl hover:shadow-orange-500/30",
-                  "transition-all duration-300 hover:scale-[1.02]",
-                  "px-5 py-2.5 rounded-lg"
-                )}
+              <button
+                className="relative px-5 py-2.5 rounded-lg text-white text-[15px] font-semibold overflow-hidden group transition-all duration-300 hover:scale-[1.02]"
+                style={{
+                  background: 'linear-gradient(135deg, #f97316 0%, #fb923c 25%, #ea580c 50%, #f59e0b 75%, #3b82f6 100%)',
+                  boxShadow: '0 4px 16px rgba(249,115,22,0.25), 0 2px 8px rgba(59,130,246,0.15), inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -1px 0 rgba(0,0,0,0.1)'
+                }}
               >
-                Get Free Quote
-              </Button>
+                {/* Glass face overlay */}
+                <div 
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background: 'linear-gradient(180deg, rgba(255,255,255,0.25) 0%, transparent 50%, rgba(0,0,0,0.1) 100%)',
+                    borderRadius: 'inherit'
+                  }}
+                />
+                
+                {/* Shimmer effect */}
+                <div 
+                  className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.6) 50%, transparent 100%)',
+                    transform: 'translateX(-100%)',
+                    animation: 'shimmer 2s infinite'
+                  }}
+                />
+                
+                <span className="relative z-10">Get Free Quote</span>
+              </button>
             </Link>
           </div>
 
