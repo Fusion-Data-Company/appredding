@@ -388,35 +388,17 @@ const SolarCompanyHeader: React.FC = () => {
             </div>
           </nav>
 
-          {/* CTA Button with glass face and shimmer */}
+          {/* CTA Button - Solid colorful with glass effects */}
           <div className="hidden lg:flex items-center">
             <Link href="/contact">
               <button
                 className="relative px-5 py-2.5 rounded-lg text-white text-[15px] font-semibold overflow-hidden group transition-all duration-300 hover:scale-[1.02]"
                 style={{
                   background: 'linear-gradient(135deg, #f97316 0%, #fb923c 25%, #ea580c 50%, #f59e0b 75%, #3b82f6 100%)',
-                  boxShadow: '0 4px 16px rgba(249,115,22,0.25), 0 2px 8px rgba(59,130,246,0.15), inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -1px 0 rgba(0,0,0,0.1)'
+                  boxShadow: '0 4px 16px rgba(249,115,22,0.4), 0 2px 8px rgba(59,130,246,0.3), inset 0 2px 4px rgba(255,255,255,0.5), inset 0 -2px 4px rgba(0,0,0,0.2)',
+                  border: '1px solid rgba(255,255,255,0.3)'
                 }}
               >
-                {/* Glass face overlay */}
-                <div 
-                  className="absolute inset-0 pointer-events-none"
-                  style={{
-                    background: 'linear-gradient(180deg, rgba(255,255,255,0.25) 0%, transparent 50%, rgba(0,0,0,0.1) 100%)',
-                    borderRadius: 'inherit'
-                  }}
-                />
-                
-                {/* Shimmer effect */}
-                <div 
-                  className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{
-                    background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.6) 50%, transparent 100%)',
-                    transform: 'translateX(-100%)',
-                    animation: 'shimmer 2s infinite'
-                  }}
-                />
-                
                 <span className="relative z-10">Get Free Quote</span>
               </button>
             </Link>
