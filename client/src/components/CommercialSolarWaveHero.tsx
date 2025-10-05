@@ -277,11 +277,11 @@ const CommercialSolarWaveHero: React.FC<CommercialSolarWaveHeroProps> = ({
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
           >
-            <span className="font-extrabold bg-gradient-to-r from-cyan-300 via-blue-400 to-cyan-500 bg-clip-text text-transparent preserve-text-color">
+            <span className="font-extrabold bg-gradient-to-r from-white via-cyan-300 to-blue-400 bg-clip-text text-transparent preserve-text-color">
               {title}
             </span>
             <br />
-            <span className="font-extrabold tracking-wide bg-gradient-to-r from-amber-300 via-orange-400 to-red-500 bg-clip-text text-transparent preserve-text-color">
+            <span className="font-extrabold tracking-wide bg-gradient-to-r from-white via-amber-300 to-orange-400 bg-clip-text text-transparent preserve-text-color">
               Advance Power Redding
             </span>
           </motion.h1>

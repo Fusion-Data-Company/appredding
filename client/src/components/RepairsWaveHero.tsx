@@ -421,7 +421,7 @@ const RepairsWaveHero: React.FC<RepairsWaveHeroProps> = ({
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.3, duration: 0.8 }}
                             >
-                                <span className="font-extrabold bg-gradient-to-r from-amber-300 via-orange-400 to-amber-500 bg-clip-text text-transparent preserve-text-color">
+                                <span className="font-extrabold bg-gradient-to-r from-white via-amber-300 to-orange-400 bg-clip-text text-transparent preserve-text-color">
                                     Solar System Repairs
                                 </span>
                                 <br />
