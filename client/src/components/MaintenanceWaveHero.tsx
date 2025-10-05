@@ -183,10 +183,10 @@ const MaintenanceWaveHero: React.FC<MaintenanceWaveHeroProps> = ({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center space-x-2 bg-gradient-to-r from-orange-500/10 to-yellow-500/10 backdrop-blur-xl border border-orange-500/20 rounded-full px-6 py-3 mb-8"
+            className="mb-8 badge-elite-metallic badge-electric"
           >
-            <Battery className="w-4 h-4 text-orange-400" />
-            <span className="text-sm font-medium text-orange-200">{tagline}</span>
+            <Battery className="w-4 h-4 text-blue-400" />
+            <span>{tagline}</span>
           </motion.div>
 
           {/* Main Heading (Exact typography from demo) */}

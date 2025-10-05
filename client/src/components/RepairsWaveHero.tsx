@@ -379,12 +379,10 @@ const RepairsWaveHero: React.FC<RepairsWaveHeroProps> = ({
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.2 }}
-                                className="mb-8 flex items-center justify-center gap-3 rounded-full border border-yellow-500/30 bg-yellow-500/10 px-6 py-3 backdrop-blur-sm max-w-fit mx-auto"
+                                className="mb-8 badge-elite-metallic badge-solar mx-auto"
                             >
                                 <Wrench className="h-5 w-5 text-yellow-400" />
-                                <span className="text-sm font-medium text-yellow-100">
-                                    {tagline}
-                                </span>
+                                <span>{tagline}</span>
                                 <AlertTriangle className="h-5 w-5 text-orange-400" />
                             </motion.div>
 

@@ -294,7 +294,7 @@ const ProductsWaveHero: React.FC<ProductsWaveHeroProps> = ({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="mb-8 inline-flex items-center space-x-2 rounded-full bg-white/5 backdrop-blur-xl border border-amber-500/30 px-5 py-2.5 text-sm text-white/90"
+              className="mb-8 badge-elite-metallic badge-solar"
             >
               <Package className="w-4 h-4 text-amber-400" />
               <span>{tagline}</span>
