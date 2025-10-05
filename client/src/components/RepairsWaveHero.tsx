@@ -400,11 +400,11 @@ const RepairsWaveHero: React.FC<RepairsWaveHeroProps> = ({
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.3, duration: 0.8 }}
                             >
-                                <span className="bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-500 bg-clip-text text-transparent">
-                                    {title}
+                                <span className="bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-500 bg-clip-text text-transparent drop-shadow-2xl font-extrabold">
+                                    Solar System Repairs
                                 </span>
                                 <br />
-                                <span className="text-white">
+                                <span className="bg-gradient-to-r from-white via-yellow-100 to-white bg-clip-text text-transparent font-extrabold tracking-wide">
                                     Advance Power Redding
                                 </span>
                             </motion.h1>
@@ -419,23 +419,6 @@ const RepairsWaveHero: React.FC<RepairsWaveHeroProps> = ({
                                 {subtitle}
                             </motion.p>
 
-                            {/* CTA Buttons */}
-                            <motion.div 
-                                className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-16"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.7, duration: 0.8 }}
-                            >
-                                <button className="group relative bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-black font-bold py-4 px-10 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-yellow-500/50">
-                                    <span className="flex items-center space-x-2">
-                                        <span>Emergency Repair</span>
-                                        <AlertTriangle className="w-5 h-5 group-hover:animate-pulse" />
-                                    </span>
-                                </button>
-                                <button className="bg-transparent border-2 border-yellow-500 hover:bg-yellow-500/10 text-yellow-400 hover:text-yellow-300 font-semibold py-4 px-10 rounded-full transition-all duration-300 backdrop-blur-sm">
-                                    Schedule Service
-                                </button>
-                            </motion.div>
 
                             {/* Stats */}
                             <motion.div 

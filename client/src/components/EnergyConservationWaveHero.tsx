@@ -258,15 +258,15 @@ const EnergyConservationWaveHero: React.FC<EnergyConservationWaveHeroProps> = ({
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mb-6 max-w-5xl text-6xl font-bold leading-tight text-white md:text-7xl lg:text-8xl"
+          className="mb-6 max-w-5xl text-6xl font-bold leading-tight md:text-7xl lg:text-8xl"
         >
           The Future of{" "}
-          <span className="bg-gradient-to-r from-green-400 via-emerald-500 to-green-400 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-green-400 via-emerald-500 to-green-400 bg-clip-text text-transparent drop-shadow-2xl font-extrabold">
             Energy Conservation
           </span>
           <br />
           Meets{" "}
-          <span className="bg-gradient-to-r from-blue-400 via-cyan-500 to-blue-400 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-blue-400 via-cyan-500 to-blue-400 bg-clip-text text-transparent drop-shadow-2xl font-extrabold">
             Efficiency Innovation
           </span>
         </motion.h1>
@@ -281,18 +281,6 @@ const EnergyConservationWaveHero: React.FC<EnergyConservationWaveHeroProps> = ({
           {subtitle}
         </motion.p>
 
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex flex-col gap-4 sm:flex-row sm:gap-6"
-        >
-          <GradientButton variant="default" className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700">
-            Energy Audit
-          </GradientButton>
-          <InteractiveHoverButton text="Learn More" className="w-40 border-green-500/30 text-green-400 hover:bg-green-500/10" />
-        </motion.div>
 
         {/* Stats Section */}
         <motion.div

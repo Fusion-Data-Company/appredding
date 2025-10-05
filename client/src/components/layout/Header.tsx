@@ -86,12 +86,12 @@ const SolarCompanyHeader: React.FC = () => {
       ref={el => dropdownRefs.current[dropdownKey] = el}
       className={cn(
         "absolute top-full left-0 mt-2 w-80 bg-white rounded-lg shadow-2xl border border-gray-200 py-2",
-        "animate-in fade-in slide-in-from-top-1 duration-200",
-        "z-[100]"
+        "animate-in fade-in slide-in-from-top-1 duration-200"
       )}
       style={{
         position: 'absolute',
-        pointerEvents: 'auto'
+        pointerEvents: 'auto',
+        zIndex: 10001
       }}
     >
       {items.map((item) => (
@@ -119,11 +119,12 @@ const SolarCompanyHeader: React.FC = () => {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300",
+        "fixed top-0 left-0 right-0 w-full transition-all duration-300",
         isScrolled 
           ? "bg-white/98 backdrop-blur-xl shadow-lg border-b border-gray-100" 
           : "bg-gradient-to-b from-white/95 to-white/85 backdrop-blur-md border-b border-gray-100/50"
       )}
+      style={{ zIndex: 9999 }}
     >
       {/* Top scrolling banner */}
       <div className="bg-gradient-to-r from-orange-500 via-orange-600 to-blue-600 text-white py-2.5 overflow-hidden relative" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
@@ -239,7 +240,7 @@ const SolarCompanyHeader: React.FC = () => {
             <div 
               className="relative" 
               ref={el => dropdownRefs.current['services'] = el}
-              style={{ position: 'relative', zIndex: activeDropdown === 'services' ? 101 : 1 }}
+              style={{ position: 'relative', zIndex: 10000 }}
             >
               <button 
                 onClick={() => setActiveDropdown(activeDropdown === 'services' ? null : 'services')}
@@ -285,7 +286,7 @@ const SolarCompanyHeader: React.FC = () => {
             <div 
               className="relative" 
               ref={el => dropdownRefs.current['company'] = el}
-              style={{ position: 'relative', zIndex: activeDropdown === 'company' ? 101 : 1 }}
+              style={{ position: 'relative', zIndex: 10000 }}
             >
               <button 
                 onClick={() => setActiveDropdown(activeDropdown === 'company' ? null : 'company')}

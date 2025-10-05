@@ -305,33 +305,6 @@ const ProductsWaveHero: React.FC<ProductsWaveHeroProps> = ({
               {subtitle}
             </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
-            >
-              <motion.button
-                className="group relative px-8 py-4 rounded-full bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold text-lg overflow-hidden"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                style={{ boxShadow: borderGlow }}
-              >
-                <span className="relative z-10 flex items-center">
-                  Explore Products
-                  <Zap className="ml-2 w-5 h-5" />
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </motion.button>
-
-              <motion.button
-                className="px-8 py-4 rounded-full border border-white/20 bg-white/5 backdrop-blur-xl text-white font-semibold text-lg hover:bg-white/10 hover:border-white/30 transition-all"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Get Quote
-              </motion.button>
-            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}

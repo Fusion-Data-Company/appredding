@@ -160,12 +160,6 @@ const Navigation: React.FC = () => {
             </a>
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:flex items-center space-x-4">
-            <button className="px-6 py-2.5 bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-semibold rounded-full hover:shadow-lg hover:shadow-orange-500/50 transition-all duration-300">
-              Get Started
-            </button>
-          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -188,9 +182,6 @@ const Navigation: React.FC = () => {
               <a href="#" className="text-white/90 hover:text-white font-medium">Technology</a>
               <a href="#" className="text-white/90 hover:text-white font-medium">About</a>
               <a href="#" className="text-white/90 hover:text-white font-medium">Contact</a>
-              <button className="px-6 py-3 bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-semibold rounded-full">
-                Get Started
-              </button>
             </div>
           </motion.div>
         )}

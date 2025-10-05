@@ -151,12 +151,6 @@ const Navigation: React.FC = () => {
             </a>
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:flex items-center space-x-4">
-            <button className="px-6 py-2.5 bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-semibold rounded-full hover:shadow-lg hover:shadow-orange-500/50 transition-all duration-300">
-              Get Started
-            </button>
-          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -179,9 +173,6 @@ const Navigation: React.FC = () => {
               <a href="#" className="text-white/90 hover:text-white font-medium">Technology</a>
               <a href="#" className="text-white/90 hover:text-white font-medium">About</a>
               <a href="#" className="text-white/90 hover:text-white font-medium">Contact</a>
-              <button className="px-6 py-3 bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-semibold rounded-full">
-                Get Started
-              </button>
             </div>
           </motion.div>
         )}
@@ -252,11 +243,13 @@ const HybridSolarWaveHero: React.FC<HybridSolarWaveHeroProps> = ({
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
           >
-            <span className="bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-500 bg-clip-text text-transparent">
-              {title}
+            <span className="bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-500 bg-clip-text text-transparent drop-shadow-2xl">
+              Hybrid Solar
             </span>
             <br />
-            <span className="text-white">Advance Power Redding</span>
+            <span className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent font-extrabold tracking-wide">
+              Advance Power Redding
+            </span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -269,24 +262,6 @@ const HybridSolarWaveHero: React.FC<HybridSolarWaveHeroProps> = ({
             {subtitle}
           </motion.p>
 
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
-          >
-            <button className="group relative px-8 py-4 bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-bold text-lg rounded-full overflow-hidden shadow-2xl shadow-orange-500/30 hover:shadow-orange-500/50 transition-all duration-300">
-              <span className="relative z-10 flex items-center">
-                Start Your Journey
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </button>
-            <button className="px-8 py-4 bg-white/5 backdrop-blur-xl border border-white/20 text-white font-semibold text-lg rounded-full hover:bg-white/10 hover:border-white/30 transition-all duration-300">
-              Learn More
-            </button>
-          </motion.div>
 
           {/* Stats */}
           <motion.div

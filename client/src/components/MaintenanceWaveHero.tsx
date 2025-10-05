@@ -201,24 +201,6 @@ const MaintenanceWaveHero: React.FC<MaintenanceWaveHeroProps> = ({
             {subtitle}
           </motion.p>
 
-          {/* CTA Buttons (Exact from demo) */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
-          >
-            <button className="group relative px-8 py-4 bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-bold text-lg rounded-full overflow-hidden shadow-2xl shadow-orange-500/30 hover:shadow-orange-500/50 transition-all duration-300">
-              <span className="relative z-10 flex items-center">
-                Schedule Service
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </button>
-            <button className="px-8 py-4 bg-white/5 backdrop-blur-xl border border-white/20 text-white font-semibold text-lg rounded-full hover:bg-white/10 hover:border-white/30 transition-all duration-300">
-              Learn More
-            </button>
-          </motion.div>
 
           {/* Stats (Exact from demo) */}
           <motion.div
