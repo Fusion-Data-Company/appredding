@@ -418,39 +418,39 @@ const Maintenance = () => {
             {/* Enhanced Live System Metrics */}
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-6">
               <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <Activity className="h-5 w-5 mb-2 text-purple-200" />
+                <Activity className="h-5 w-5 mb-2 text-orange-200" />
                 <div className="text-2xl font-bold">{efficiencyLevel.toFixed(1)}%</div>
-                <div className="text-sm text-purple-200">Efficiency</div>
+                <div className="text-sm text-orange-200">Efficiency</div>
               </div>
               <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <Gauge className="h-5 w-5 mb-2 text-indigo-200" />
+                <Gauge className="h-5 w-5 mb-2 text-amber-200" />
                 <div className="text-2xl font-bold">{performanceRatio.toFixed(2)}</div>
-                <div className="text-sm text-indigo-200">PR Score</div>
+                <div className="text-sm text-amber-200">PR Score</div>
               </div>
               <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <Timer className="h-5 w-5 mb-2 text-pink-200" />
+                <Timer className="h-5 w-5 mb-2 text-yellow-200" />
                 <div className="text-2xl font-bold">{Math.floor(cleaningDue)}d</div>
-                <div className="text-sm text-pink-200">Next Clean</div>
+                <div className="text-sm text-yellow-200">Next Clean</div>
               </div>
               <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <TrendingDown className="h-5 w-5 mb-2 text-yellow-200" />
+                <TrendingDown className="h-5 w-5 mb-2 text-orange-300" />
                 <div className="text-2xl font-bold">{degradationRate.toFixed(1)}%</div>
-                <div className="text-sm text-yellow-200">Degradation/yr</div>
+                <div className="text-sm text-orange-300">Degradation/yr</div>
               </div>
               <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <Shield className="h-5 w-5 mb-2 text-green-200" />
+                <Shield className="h-5 w-5 mb-2 text-amber-300" />
                 <div className="text-2xl font-bold">{uptime.toFixed(1)}%</div>
-                <div className="text-sm text-green-200">Uptime</div>
+                <div className="text-sm text-amber-300">Uptime</div>
               </div>
               <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <Calendar className="h-5 w-5 mb-2 text-blue-200" />
+                <Calendar className="h-5 w-5 mb-2 text-yellow-300" />
                 <div className="text-2xl font-bold">{systemAge}yr</div>
-                <div className="text-sm text-blue-200">System Age</div>
+                <div className="text-sm text-yellow-300">System Age</div>
               </div>
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <button className="bg-white text-purple-600 px-6 py-3 rounded-xl font-semibold hover:bg-purple-50 transition flex items-center gap-2">
+              <button className="bg-white text-orange-600 px-6 py-3 rounded-xl font-semibold hover:bg-orange-50 transition flex items-center gap-2">
                 Schedule Service <Calendar className="h-5 w-5" />
               </button>
               <button className="bg-white/20 backdrop-blur text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/30 transition flex items-center gap-2">
