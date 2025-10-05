@@ -301,18 +301,21 @@ const SolarCompanyHeader: React.FC = () => {
                   : 'rgba(255,255,255,0.05)',
                 backdropFilter: 'blur(12px)',
                 WebkitBackdropFilter: 'blur(12px)',
-                border: '1px solid rgba(255,255,255,0.2)'
+                border: '1px solid rgba(203,213,225,0.5)',
+                boxShadow: '0 0 20px rgba(249,115,22,0.15), 0 0 40px rgba(59,130,246,0.1)'
               }}
               onMouseEnter={(e) => {
                 if (!isActive("/shop/products")) {
                   e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)';
+                  e.currentTarget.style.borderColor = 'rgba(203,213,225,0.7)';
+                  e.currentTarget.style.boxShadow = '0 0 25px rgba(249,115,22,0.25), 0 0 50px rgba(59,130,246,0.15)';
                 }
               }}
               onMouseLeave={(e) => {
                 if (!isActive("/shop/products")) {
                   e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
+                  e.currentTarget.style.borderColor = 'rgba(203,213,225,0.5)';
+                  e.currentTarget.style.boxShadow = '0 0 20px rgba(249,115,22,0.15), 0 0 40px rgba(59,130,246,0.1)';
                 }
               }}
             >
@@ -334,18 +337,21 @@ const SolarCompanyHeader: React.FC = () => {
                   : 'rgba(255,255,255,0.05)',
                 backdropFilter: 'blur(12px)',
                 WebkitBackdropFilter: 'blur(12px)',
-                border: '1px solid rgba(255,255,255,0.2)'
+                border: '1px solid rgba(203,213,225,0.5)',
+                boxShadow: '0 0 20px rgba(249,115,22,0.15), 0 0 40px rgba(59,130,246,0.1)'
               }}
               onMouseEnter={(e) => {
                 if (!isActive("/comparison")) {
                   e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)';
+                  e.currentTarget.style.borderColor = 'rgba(203,213,225,0.7)';
+                  e.currentTarget.style.boxShadow = '0 0 25px rgba(249,115,22,0.25), 0 0 50px rgba(59,130,246,0.15)';
                 }
               }}
               onMouseLeave={(e) => {
                 if (!isActive("/comparison")) {
                   e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
+                  e.currentTarget.style.borderColor = 'rgba(203,213,225,0.5)';
+                  e.currentTarget.style.boxShadow = '0 0 20px rgba(249,115,22,0.15), 0 0 40px rgba(59,130,246,0.1)';
                 }
               }}
             >
@@ -372,18 +378,21 @@ const SolarCompanyHeader: React.FC = () => {
                     : 'rgba(255,255,255,0.05)',
                   backdropFilter: 'blur(12px)',
                   WebkitBackdropFilter: 'blur(12px)',
-                  border: '1px solid rgba(255,255,255,0.2)'
+                  border: '1px solid rgba(203,213,225,0.5)',
+                  boxShadow: '0 0 20px rgba(249,115,22,0.15), 0 0 40px rgba(59,130,246,0.1)'
                 }}
                 onMouseEnter={(e) => {
                   if (activeDropdown !== 'services') {
                     e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
-                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)';
+                    e.currentTarget.style.borderColor = 'rgba(203,213,225,0.7)';
+                    e.currentTarget.style.boxShadow = '0 0 25px rgba(249,115,22,0.25), 0 0 50px rgba(59,130,246,0.15)';
                   }
                 }}
                 onMouseLeave={(e) => {
                   if (activeDropdown !== 'services') {
                     e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
-                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
+                    e.currentTarget.style.borderColor = 'rgba(203,213,225,0.5)';
+                    e.currentTarget.style.boxShadow = '0 0 20px rgba(249,115,22,0.15), 0 0 40px rgba(59,130,246,0.1)';
                   }
                 }}
                 aria-expanded={activeDropdown === 'services'}
@@ -418,18 +427,21 @@ const SolarCompanyHeader: React.FC = () => {
                     : 'rgba(255,255,255,0.05)',
                   backdropFilter: 'blur(12px)',
                   WebkitBackdropFilter: 'blur(12px)',
-                  border: '1px solid rgba(255,255,255,0.2)'
+                  border: '1px solid rgba(203,213,225,0.5)',
+                  boxShadow: '0 0 20px rgba(249,115,22,0.15), 0 0 40px rgba(59,130,246,0.1)'
                 }}
                 onMouseEnter={(e) => {
                   if (activeDropdown !== 'company') {
                     e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
-                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)';
+                    e.currentTarget.style.borderColor = 'rgba(203,213,225,0.7)';
+                    e.currentTarget.style.boxShadow = '0 0 25px rgba(249,115,22,0.25), 0 0 50px rgba(59,130,246,0.15)';
                   }
                 }}
                 onMouseLeave={(e) => {
                   if (activeDropdown !== 'company') {
                     e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
-                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
+                    e.currentTarget.style.borderColor = 'rgba(203,213,225,0.5)';
+                    e.currentTarget.style.boxShadow = '0 0 20px rgba(249,115,22,0.15), 0 0 40px rgba(59,130,246,0.1)';
                   }
                 }}
                 aria-expanded={activeDropdown === 'company'}

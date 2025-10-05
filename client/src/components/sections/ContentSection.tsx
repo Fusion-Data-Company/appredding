@@ -27,7 +27,7 @@ const ContentSection: React.FC<ContentSectionProps> = ({
   });
 
   return (
-    <section ref={ref} className={`py-16 relative ${backgroundColor} ${className}`}>
+    <section ref={ref} className={`py-16 relative ${backgroundColor === 'bg-gray-900' || backgroundColor === 'bg-gradient-to-br from-gray-900 to-black' ? 'bg-gradient-mesh' : backgroundColor} ${className}`}>
       <motion.div 
         initial={{ opacity: 0, y: 30 }}
         animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}

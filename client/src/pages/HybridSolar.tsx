@@ -484,7 +484,7 @@ const HybridSolar = () => {
       >
         <div className="grid lg:grid-cols-2 gap-8 mb-8">
           {/* AC-Coupled Systems */}
-          <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
+          <div className="card-elite glow-blue p-8">
             <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
               <Layers className="mr-3 h-6 w-6 text-blue-400" />
               AC-Coupled Architecture
@@ -539,7 +539,7 @@ const HybridSolar = () => {
           </div>
 
           {/* DC-Coupled Systems */}
-          <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
+          <div className="card-elite glow-green p-8">
             <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
               <GitBranch className="mr-3 h-6 w-6 text-green-400" />
               DC-Coupled Architecture
@@ -664,7 +664,7 @@ const HybridSolar = () => {
         backgroundColor="bg-gray-900"
       >
         <div className="grid lg:grid-cols-2 gap-8 mb-8">
-          <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
+          <div className="card-elite glow-green p-8">
             <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
               <Home className="mr-3 h-6 w-6 text-green-400" />
               Critical Load Categories
@@ -706,7 +706,7 @@ const HybridSolar = () => {
             </div>
           </div>
 
-          <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
+          <div className="card-elite glow-gold p-8">
             <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
               <Calculator className="mr-3 h-6 w-6 text-blue-400" />
               Runtime Calculator Example
@@ -772,7 +772,7 @@ const HybridSolar = () => {
         </div>
 
         {/* Whole Home vs Critical Loads Comparison */}
-        <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
+        <div className="card-elite glow-purple p-8">
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
             <BarChart3 className="mr-3 h-6 w-6 text-purple-400" />
             Whole Home vs Critical Load Backup Comparison
@@ -836,7 +836,7 @@ const HybridSolar = () => {
         backgroundColor="bg-gradient-to-br from-gray-900 to-black"
       >
         <div className="grid lg:grid-cols-2 gap-8">
-          <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
+          <div className="card-elite glow-orange p-8">
             <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
               <Fuel className="mr-3 h-6 w-6 text-orange-400" />
               Automatic Generator Start (AGS)
@@ -891,7 +891,7 @@ const HybridSolar = () => {
             </div>
           </div>
 
-          <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
+          <div className="card-elite glow-blue p-8">
             <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
               <Network className="mr-3 h-6 w-6 text-blue-400" />
               Multi-Source Optimization
@@ -964,7 +964,7 @@ const HybridSolar = () => {
         </div>
 
         {/* Extended Outage Timeline */}
-        <div className="mt-8 bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
+        <div className="mt-8 card-elite glow-purple p-8">
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
             <Clock className="mr-3 h-6 w-6 text-purple-400" />
             72-Hour PSPS Event Timeline
@@ -1031,7 +1031,7 @@ const HybridSolar = () => {
         backgroundColor="bg-gray-900"
       >
         <div className="grid lg:grid-cols-2 gap-8 mb-8">
-          <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
+          <div className="card-elite glow-red p-8">
             <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
               <MapPin className="mr-3 h-6 w-6 text-red-400" />
               Northern California PSPS Statistics
@@ -1076,7 +1076,7 @@ const HybridSolar = () => {
             </div>
           </div>
 
-          <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
+          <div className="card-elite glow-green p-8">
             <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
               <DollarSign className="mr-3 h-6 w-6 text-green-400" />
               PSPS Economic Impact
