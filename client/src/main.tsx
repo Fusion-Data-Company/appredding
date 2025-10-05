@@ -2,6 +2,7 @@ import { createRoot } from "react-dom/client";
 import { ThemeProvider } from "next-themes";
 import App from "./App";
 import "./index.css";
+import "./styles/elite-styling.css";
 
 // Production mode optimization
 const isProduction = import.meta.env.PROD;

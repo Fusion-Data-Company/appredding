@@ -156,7 +156,7 @@ const HybridSolar = () => {
         ]}
       />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-gradient-mesh py-12">
         {/* PSPS/Grid Failure Alert */}
         <div className="alert-elite">
           <div className="flex items-center gap-3">
@@ -228,7 +228,7 @@ const HybridSolar = () => {
 
           {/* Enhanced Technical Specifications Grid */}
           <div className="grid lg:grid-cols-4 gap-4 mb-12">
-            <div className="spec-card-elite group border-green-500/30 hover:border-green-400">
+            <div className="spec-card-elite glow-green group">
               <div className="flex items-center gap-3 mb-4">
                 <div className="icon-container-elite bg-green-500/20 group-hover:bg-green-500/30">
                   <Cpu className="h-6 w-6 text-green-400" />
@@ -259,7 +259,7 @@ const HybridSolar = () => {
               </div>
             </div>
 
-            <div className="spec-card-elite group border-blue-500/30 hover:border-blue-400">
+            <div className="spec-card-elite glow-blue group">
               <div className="flex items-center gap-3 mb-4">
                 <div className="icon-container-elite bg-blue-500/20 group-hover:bg-blue-500/30">
                   <ToggleRight className="h-6 w-6 text-blue-400" />
@@ -290,7 +290,7 @@ const HybridSolar = () => {
               </div>
             </div>
 
-            <div className="spec-card-elite group border-orange-500/30 hover:border-orange-400">
+            <div className="spec-card-elite glow-orange group">
               <div className="flex items-center gap-3 mb-4">
                 <div className="icon-container-elite bg-orange-500/20 group-hover:bg-orange-500/30">
                   <HardDrive className="h-6 w-6 text-orange-400" />
@@ -321,7 +321,7 @@ const HybridSolar = () => {
               </div>
             </div>
 
-            <div className="spec-card-elite group border-purple-500/30 hover:border-purple-400">
+            <div className="spec-card-elite glow-purple group">
               <div className="flex items-center gap-3 mb-4">
                 <div className="icon-container-elite bg-purple-500/20 group-hover:bg-purple-500/30">
                   <Monitor className="h-6 w-6 text-purple-400" />
@@ -1202,13 +1202,13 @@ const HybridSolar = () => {
         description="Comprehensive financial breakdown including incentives, savings, and increased property value"
         backgroundColor="bg-gradient-to-br from-gray-900 to-black"
       >
-        <div className="bg-gradient-to-r from-green-900/20 to-blue-900/20 border border-green-500/30 rounded-2xl p-8 mb-8">
+        <div className="card-elite glow-green p-8 mb-8">
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
             <Calculator className="mr-3 h-6 w-6 text-green-400" />
             Typical Hybrid System Financial Analysis
           </h3>
           <div className="grid lg:grid-cols-3 gap-6">
-            <div className="bg-black/40 rounded-lg p-6">
+            <div className="spec-card-elite glow-green">
               <h4 className="text-lg font-semibold text-green-400 mb-4">System Configuration</h4>
               <ul className="space-y-2 text-sm text-gray-300">
                 <li className="flex justify-between">
@@ -1234,7 +1234,7 @@ const HybridSolar = () => {
               </ul>
             </div>
 
-            <div className="bg-black/40 rounded-lg p-6">
+            <div className="spec-card-elite glow-blue">
               <h4 className="text-lg font-semibold text-blue-400 mb-4">Cost & Incentives</h4>
               <ul className="space-y-2 text-sm text-gray-300">
                 <li className="flex justify-between">
@@ -1260,7 +1260,7 @@ const HybridSolar = () => {
               </ul>
             </div>
 
-            <div className="bg-black/40 rounded-lg p-6">
+            <div className="spec-card-elite glow-gold">
               <h4 className="text-lg font-semibold text-yellow-400 mb-4">Savings & Returns</h4>
               <ul className="space-y-2 text-sm text-gray-300">
                 <li className="flex justify-between">
@@ -1289,13 +1289,13 @@ const HybridSolar = () => {
         </div>
 
         {/* Value Comparison Table */}
-        <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
+        <div className="card-elite glow-purple p-8">
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
             <PieChart className="mr-3 h-6 w-6 text-orange-400" />
             Backup Power Options Comparison
           </h3>
           <div className="overflow-x-auto">
-            <table className="w-full text-sm">
+            <table className="table-elite">
               <thead>
                 <tr className="border-b border-gray-700">
                   <th className="text-left py-3 px-4 text-gray-400">Solution</th>

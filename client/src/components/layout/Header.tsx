@@ -108,19 +108,16 @@ const SolarCompanyHeader: React.FC = () => {
           key={item.href} 
           href={item.href}
           className={cn(
-            "flex items-start px-4 py-3 mx-2 transition-all duration-200 cursor-pointer group relative",
+            "flex items-start px-4 py-3 mx-2 rounded-xl transition-all duration-200 cursor-pointer group relative",
             index !== items.length - 1 && "mb-1"
           )}
-          style={{
-            borderLeft: '3px solid transparent'
-          }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.borderLeft = '3px solid rgba(249,115,22,0.6)';
-            e.currentTarget.style.paddingLeft = '13px';
+            e.currentTarget.style.background = 'linear-gradient(135deg, rgba(249,115,22,0.08) 0%, rgba(59,130,246,0.05) 100%)';
+            e.currentTarget.style.transform = 'translateX(4px)';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.borderLeft = '3px solid transparent';
-            e.currentTarget.style.paddingLeft = '16px';
+            e.currentTarget.style.background = 'transparent';
+            e.currentTarget.style.transform = 'translateX(0)';
           }}
           onClick={() => {
             setActiveDropdown(null);
