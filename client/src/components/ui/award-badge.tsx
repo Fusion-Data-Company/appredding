@@ -20,7 +20,7 @@ const maxScale = 1;
 const minScale = 0.97;
 
 const backgroundColor: Record<AwardBadgeType, string[]> = {
-  "customer-service-excellence": ["#1a2332", "#2a3342", "#3a4352"],
+  "customer-service-excellence": ["#8B95A5", "#A8B2C0", "#C5CDD8"],
   "golden-kitty": ["#f3e3ac", "#ddd", "#f1cfa6"],
   "product-of-the-day": ["#f3e3ac", "#ddd", "#f1cfa6"],
   "product-of-the-month": ["#f3e3ac", "#ddd", "#f1cfa6"],
@@ -235,29 +235,71 @@ export const AwardBadge = ({ type, place, link }: AwardBadgeProps) => {
               <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
             </filter>
             <linearGradient id={`badgeGradient-${type}`} x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" style={{ stopColor: badgeColor, stopOpacity: 1 }} />
-              <stop offset="100%" style={{ stopColor: badgeColor, stopOpacity: 0.9 }} />
+              <stop offset="0%" style={{ stopColor: '#D4D9E0', stopOpacity: 1 }} />
+              <stop offset="50%" style={{ stopColor: badgeColor, stopOpacity: 1 }} />
+              <stop offset="100%" style={{ stopColor: '#A0A8B5', stopOpacity: 1 }} />
             </linearGradient>
+            <linearGradient id={`metalShine-${type}`} x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style={{ stopColor: 'white', stopOpacity: 0.4 }} />
+              <stop offset="50%" style={{ stopColor: 'white', stopOpacity: 0.1 }} />
+              <stop offset="100%" style={{ stopColor: 'white', stopOpacity: 0.3 }} />
+            </linearGradient>
+            <radialGradient id={`starGradient-${type}`} cx="50%" cy="40%">
+              <stop offset="0%" style={{ stopColor: '#FFF9E6', stopOpacity: 1 }} />
+              <stop offset="40%" style={{ stopColor: '#FFD700', stopOpacity: 1 }} />
+              <stop offset="70%" style={{ stopColor: '#DAA520', stopOpacity: 1 }} />
+              <stop offset="100%" style={{ stopColor: '#B8860B', stopOpacity: 1 }} />
+            </radialGradient>
+            <radialGradient id={`starHighlight-${type}`} cx="35%" cy="30%">
+              <stop offset="0%" style={{ stopColor: 'white', stopOpacity: 0.9 }} />
+              <stop offset="50%" style={{ stopColor: 'white', stopOpacity: 0.3 }} />
+              <stop offset="100%" style={{ stopColor: 'white', stopOpacity: 0 }} />
+            </radialGradient>
+            <filter id={`starGlow-${type}`}>
+              <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+            </filter>
             <mask id={`badgeMask-${type}`}>
               <rect width="280" height="64" fill="white" rx="12" />
             </mask>
           </defs>
           
           <rect width="280" height="64" rx="12" fill={`url(#badgeGradient-${type})`} />
-          <rect x="2" y="2" width="276" height="60" rx="11" fill="transparent" stroke="#FF6B35" strokeWidth="2" />
+          <rect width="280" height="64" rx="12" fill={`url(#metalShine-${type})`} />
+          <rect x="2" y="2" width="276" height="60" rx="11" fill="transparent" stroke="#6B7280" strokeWidth="2" />
           <rect x="5" y="5" width="270" height="54" rx="9" fill="transparent" stroke="rgba(255,107,53,0.3)" strokeWidth="1" />
           
           {type === "customer-service-excellence" ? (
             <g transform="translate(10, 10)">
-              <circle cx="22" cy="22" r="21" fill="#FF6B35" opacity="0.15"/>
-              <circle cx="22" cy="22" r="18" fill="#FF6B35" opacity="0.2"/>
+              <circle cx="22" cy="22" r="22" fill="#FFD700" opacity="0.15" filter={`url(#starGlow-${type})`}/>
+              <circle cx="22" cy="22" r="19" fill="#FFD700" opacity="0.2"/>
+              
               <path 
-                fill="#FF6B35" 
-                stroke="#FF6B35" 
-                strokeWidth="1.5" 
-                d="M22 6 L26.5 17.5 L39 19.2 L30.5 27.3 L32.7 40 L22 33.5 L11.3 40 L13.5 27.3 L5 19.2 L17.5 17.5 Z"
+                fill="#8B7355" 
+                d="M22 8 L25.8 18.5 L37.2 20 L29.6 27.2 L31.6 38.5 L22 32.8 L12.4 38.5 L14.4 27.2 L6.8 20 L18.2 18.5 Z"
               />
-              <circle cx="22" cy="22" r="3" fill="white"/>
+              
+              <path 
+                fill={`url(#starGradient-${type})`}
+                stroke="#B8860B" 
+                strokeWidth="1.5" 
+                d="M22 7 L25.9 18.2 L37.5 19.8 L29.8 27.1 L31.8 38.7 L22 33.2 L12.2 38.7 L14.2 27.1 L6.5 19.8 L18.1 18.2 Z"
+              />
+              
+              <path 
+                fill={`url(#starHighlight-${type})`}
+                d="M22 7 L25.9 18.2 L37.5 19.8 L29.8 27.1 L31.8 38.7 L22 33.2 L12.2 38.7 L14.2 27.1 L6.5 19.8 L18.1 18.2 Z"
+              />
+              
+              <path 
+                fill="none"
+                stroke="#FFF9E6" 
+                strokeWidth="1" 
+                opacity="0.6"
+                d="M22 9 L25.3 17.8 L34.5 19.2 L28.2 25.3 L29.6 34.5 L22 30.5 L14.4 34.5 L15.8 25.3 L9.5 19.2 L18.7 17.8 Z"
+              />
+              
+              <circle cx="18" cy="16" r="2.5" fill="white" opacity="0.8"/>
+              <circle cx="20" cy="18" r="1.5" fill="white" opacity="0.6"/>
             </g>
           ) : (
             <g transform="translate(8, 9)">
@@ -266,11 +308,11 @@ export const AwardBadge = ({ type, place, link }: AwardBadgeProps) => {
             </g>
           )}
           
-          <text fontFamily="Arial, Helvetica, sans-serif" fontSize="10" fontWeight="900" letterSpacing="1.2" fill="white" x="65" y="24" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.8)' }}>
+          <text fontFamily="Arial, Helvetica, sans-serif" fontSize="10" fontWeight="900" letterSpacing="1.2" fill="#1F2937" x="65" y="24" style={{ textShadow: '0 1px 2px rgba(255,255,255,0.5)' }}>
             {subtitle[type]}
           </text>
           
-          <text fontFamily="Arial, Helvetica, sans-serif" fontSize="18" fontWeight="900" fill="white" x="64" y="48" style={{ textShadow: '0 2px 6px rgba(0,0,0,0.9)' }}>
+          <text fontFamily="Arial, Helvetica, sans-serif" fontSize="18" fontWeight="900" fill="#111827" x="64" y="48" style={{ textShadow: '0 1px 3px rgba(255,255,255,0.6)' }}>
             {title[type]}{place && ` #${place}`}
           </text>
           
@@ -282,85 +324,31 @@ export const AwardBadge = ({ type, place, link }: AwardBadgeProps) => {
               animation: disableOverlayAnimation ? "none" : "overlayAnimation1 5s infinite",
               willChange: "transform"
             }}>
-              <polygon points="0,0 280,64 280,0 0,64" fill="hsl(358, 100%, 62%)" filter={`url(#blur1-${type})`} opacity="0.3" />
-            </g>
-            <g style={{
-              transform: `rotate(${firstOverlayPosition + 10}deg)`,
-              transformOrigin: "center center",
-              transition: !disableInOutOverlayAnimation ? "transform 200ms ease-out" : "none",
-              animation: disableOverlayAnimation ? "none" : "overlayAnimation2 5s infinite",
-              willChange: "transform"
-            }}>
-              <polygon points="0,0 280,64 280,0 0,64" fill="hsl(30, 100%, 50%)" filter={`url(#blur1-${type})`} opacity="0.3" />
-            </g>
-            <g style={{
-              transform: `rotate(${firstOverlayPosition + 20}deg)`,
-              transformOrigin: "center center",
-              transition: !disableInOutOverlayAnimation ? "transform 200ms ease-out" : "none",
-              animation: disableOverlayAnimation ? "none" : "overlayAnimation3 5s infinite",
-              willChange: "transform"
-            }}>
-              <polygon points="0,0 280,64 280,0 0,64" fill="hsl(60, 100%, 50%)" filter={`url(#blur1-${type})`} opacity="0.3" />
+              <polygon points="0,0 280,64 280,0 0,64" fill="white" filter={`url(#blur1-${type})`} opacity="0.25" />
             </g>
             <g style={{
               transform: `rotate(${firstOverlayPosition + 30}deg)`,
               transformOrigin: "center center",
               transition: !disableInOutOverlayAnimation ? "transform 200ms ease-out" : "none",
-              animation: disableOverlayAnimation ? "none" : "overlayAnimation4 5s infinite",
+              animation: disableOverlayAnimation ? "none" : "overlayAnimation2 5s infinite",
               willChange: "transform"
             }}>
-              <polygon points="0,0 280,64 280,0 0,64" fill="hsl(96, 100%, 50%)" filter={`url(#blur1-${type})`} opacity="0.3" />
-            </g>
-            <g style={{
-              transform: `rotate(${firstOverlayPosition + 40}deg)`,
-              transformOrigin: "center center",
-              transition: !disableInOutOverlayAnimation ? "transform 200ms ease-out" : "none",
-              animation: disableOverlayAnimation ? "none" : "overlayAnimation5 5s infinite",
-              willChange: "transform"
-            }}>
-              <polygon points="0,0 280,64 280,0 0,64" fill="hsl(233, 85%, 47%)" filter={`url(#blur1-${type})`} opacity="0.3" />
-            </g>
-            <g style={{
-              transform: `rotate(${firstOverlayPosition + 50}deg)`,
-              transformOrigin: "center center",
-              transition: !disableInOutOverlayAnimation ? "transform 200ms ease-out" : "none",
-              animation: disableOverlayAnimation ? "none" : "overlayAnimation6 5s infinite",
-              willChange: "transform"
-            }}>
-              <polygon points="0,0 280,64 280,0 0,64" fill="hsl(271, 85%, 47%)" filter={`url(#blur1-${type})`} opacity="0.3" />
+              <polygon points="0,0 280,64 280,0 0,64" fill="hsl(30, 100%, 60%)" filter={`url(#blur1-${type})`} opacity="0.15" />
             </g>
             <g style={{
               transform: `rotate(${firstOverlayPosition + 60}deg)`,
               transformOrigin: "center center",
               transition: !disableInOutOverlayAnimation ? "transform 200ms ease-out" : "none",
-              animation: disableOverlayAnimation ? "none" : "overlayAnimation7 5s infinite",
+              animation: disableOverlayAnimation ? "none" : "overlayAnimation3 5s infinite",
               willChange: "transform"
             }}>
-              <polygon points="0,0 280,64 280,0 0,64" fill="hsl(300, 20%, 35%)" filter={`url(#blur1-${type})`} opacity="0.3" />
-            </g>
-            <g style={{
-              transform: `rotate(${firstOverlayPosition + 70}deg)`,
-              transformOrigin: "center center",
-              transition: !disableInOutOverlayAnimation ? "transform 200ms ease-out" : "none",
-              animation: disableOverlayAnimation ? "none" : "overlayAnimation8 5s infinite",
-              willChange: "transform"
-            }}>
-              <polygon points="0,0 280,64 280,0 0,64" fill="transparent" filter={`url(#blur1-${type})`} opacity="0.3" />
-            </g>
-            <g style={{
-              transform: `rotate(${firstOverlayPosition + 80}deg)`,
-              transformOrigin: "center center",
-              transition: !disableInOutOverlayAnimation ? "transform 200ms ease-out" : "none",
-              animation: disableOverlayAnimation ? "none" : "overlayAnimation9 5s infinite",
-              willChange: "transform"
-            }}>
-              <polygon points="0,0 280,64 280,0 0,64" fill="transparent" filter={`url(#blur1-${type})`} opacity="0.3" />
+              <polygon points="0,0 280,64 280,0 0,64" fill="hsl(210, 60%, 50%)" filter={`url(#blur1-${type})`} opacity="0.12" />
             </g>
             <g style={{
               transform: `rotate(${firstOverlayPosition + 90}deg)`,
               transformOrigin: "center center",
               transition: !disableInOutOverlayAnimation ? "transform 200ms ease-out" : "none",
-              animation: disableOverlayAnimation ? "none" : "overlayAnimation10 5s infinite",
+              animation: disableOverlayAnimation ? "none" : "overlayAnimation4 5s infinite",
               willChange: "transform"
             }}>
               <polygon points="0,0 280,64 280,0 0,64" fill="white" filter={`url(#blur1-${type})`} opacity="0.3" />
