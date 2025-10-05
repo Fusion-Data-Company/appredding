@@ -287,30 +287,12 @@ const EnergyConservationWaveHero: React.FC<EnergyConservationWaveHeroProps> = ({
           className="mb-6 max-w-5xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight mx-auto"
         >
           The Future of{" "}
-          <span
-            className="font-extrabold preserve-text-color"
-            style={{
-              background: 'linear-gradient(to right, #34d399, #10b981, #84cc16)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-              filter: 'drop-shadow(0 0 20px rgba(52, 211, 153, 0.9)) drop-shadow(0 0 40px rgba(16, 185, 129, 0.7)) drop-shadow(0 0 60px rgba(132, 204, 22, 0.5))'
-            }}
-          >
+          <span className="font-extrabold bg-gradient-to-r from-emerald-300 via-green-400 to-lime-500 bg-clip-text text-transparent">
             Energy Conservation
           </span>
           <br />
           Meets{" "}
-          <span
-            className="font-extrabold preserve-text-color"
-            style={{
-              background: 'linear-gradient(to right, #22d3ee, #06b6d4, #0ea5e9)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-              filter: 'drop-shadow(0 0 20px rgba(34, 211, 238, 0.9)) drop-shadow(0 0 40px rgba(6, 182, 212, 0.7)) drop-shadow(0 0 60px rgba(14, 165, 233, 0.5))'
-            }}
-          >
+          <span className="font-extrabold bg-gradient-to-r from-cyan-300 via-blue-400 to-sky-500 bg-clip-text text-transparent">
             Efficiency Innovation
           </span>
         </motion.h1>

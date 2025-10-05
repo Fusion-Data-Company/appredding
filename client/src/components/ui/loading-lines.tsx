@@ -24,7 +24,7 @@ const LoadingLines: React.FC = () => {
           animate-[transformAnim_2s_infinite_alternate_cubic-bezier(0.6,0.8,0.5,1),opacityAnim_4s_infinite]" />
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes transformAnim {
           0% {
             transform: translate(-55%);

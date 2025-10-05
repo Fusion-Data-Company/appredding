@@ -277,29 +277,11 @@ const CommercialSolarWaveHero: React.FC<CommercialSolarWaveHeroProps> = ({
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
           >
-            <span
-              className="font-extrabold preserve-text-color"
-              style={{
-                background: 'linear-gradient(to right, #06b6d4, #3b82f6, #00d9ff)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                filter: 'drop-shadow(0 0 20px rgba(6, 182, 212, 0.9)) drop-shadow(0 0 40px rgba(59, 130, 246, 0.7)) drop-shadow(0 0 60px rgba(0, 217, 255, 0.5))'
-              }}
-            >
+            <span className="font-extrabold bg-gradient-to-r from-cyan-300 via-blue-400 to-cyan-500 bg-clip-text text-transparent">
               {title}
             </span>
             <br />
-            <span
-              className="font-extrabold tracking-wide preserve-text-color"
-              style={{
-                background: 'linear-gradient(to right, #fbbf24, #fb923c, #ef4444)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                filter: 'drop-shadow(0 0 20px rgba(251, 191, 36, 0.9)) drop-shadow(0 0 40px rgba(251, 146, 60, 0.7)) drop-shadow(0 0 60px rgba(239, 68, 68, 0.5))'
-              }}
-            >
+            <span className="font-extrabold tracking-wide bg-gradient-to-r from-amber-300 via-orange-400 to-red-500 bg-clip-text text-transparent">
               Advance Power Redding
             </span>
           </motion.h1>
