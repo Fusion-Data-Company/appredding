@@ -1,11 +1,12 @@
-# Robots.txt for Praetorian Smart-Coat
 User-agent: *
 Allow: /
 
-# Allow all crawlers to access most of the site
+# Disallow admin and API routes
 Disallow: /admin/
-Disallow: /cart/checkout/
 Disallow: /api/
+Disallow: /crm/
+Disallow: /auth-page/
+Disallow: /cart/checkout/
 
-# Specify sitemap location
-Sitemap: https://praetorian-smart-coat.com/sitemap.xml
+# Sitemap location
+Sitemap: https://apredding.net/sitemap.xml

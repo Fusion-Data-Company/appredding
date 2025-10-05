@@ -3,8 +3,21 @@ import { Settings, Sparkles, Shield, CheckCircle, Calendar, Phone, TrendingUp, E
 import { motion } from "framer-motion";
 import MaintenanceWaveHero from "@/components/MaintenanceWaveHero";
 import MainLayout from "@/components/layout/MainLayout";
+import SEOHead from "@/components/SEOHead";
 
 const Maintenance = () => {
+  const maintenanceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Solar Panel Maintenance Services",
+    "provider": {
+      "@type": "Organization",
+      "name": "Advance Power Redding"
+    },
+    "description": "Professional solar panel maintenance including inspections, cleaning, electrical testing, and performance monitoring. Annual maintenance required for warranty compliance.",
+    "areaServed": "Northern California",
+    "serviceType": "Solar System Maintenance"
+  };
   const [activeTab, setActiveTab] = useState("preventive");
   const [selectedService, setSelectedService] = useState<string>("inspection");
   const [systemAge, setSystemAge] = useState(5);
@@ -366,6 +379,14 @@ const Maintenance = () => {
 
   return (
     <MainLayout fullWidth={true}>
+      <SEOHead
+        title="Solar Maintenance | Panel Cleaning & Inspections | APR"
+        description="Expert solar maintenance in Northern CA. Annual inspections, professional cleaning, electrical testing, performance monitoring. Warranty compliance. 25+ years."
+        keywords={['solar maintenance', 'solar panel cleaning', 'solar inspection', 'solar system maintenance', 'panel cleaning Redding', 'solar warranty compliance', 'Northern California solar maintenance']}
+        url="/maintenance"
+        type="service"
+        structuredData={maintenanceSchema}
+      />
       <div className="bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
 
       {/* Maintenance Wave Hero Section */}

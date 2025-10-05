@@ -7,10 +7,21 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import type { PortfolioProject } from "@shared/schema";
+import SEOHead from "@/components/SEOHead";
 
 type CategoryFilter = "all" | "residential" | "commercial" | "maintenance";
 
 export default function Portfolio() {
+  const portfolioSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Solar Installation Portfolio",
+    "description": "1,000+ successful solar installations across Northern California. View our residential, commercial, and maintenance projects.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Advance Power Redding"
+    }
+  };
   const [activeCategory, setActiveCategory] = useState<CategoryFilter>("all");
   const [selectedProject, setSelectedProject] = useState<PortfolioProject | null>(null);
   const [beforeAfterSlider, setBeforeAfterSlider] = useState(50);
@@ -48,6 +59,14 @@ export default function Portfolio() {
 
   return (
     <MainLayout>
+      <SEOHead
+        title="Solar Portfolio | 1,000+ Installations | APR Redding"
+        description="View 1,000+ solar success stories: residential, commercial & maintenance projects across Northern CA. 25+ years experience. Real results from customers."
+        keywords={['solar portfolio', 'solar installation examples', 'Northern California solar projects', 'residential solar portfolio', 'commercial solar projects', 'solar gallery Redding']}
+        url="/portfolio"
+        type="website"
+        structuredData={portfolioSchema}
+      />
       <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
         {/* Hero Section */}
         <section className="relative py-20 overflow-hidden">

@@ -3,8 +3,21 @@ import { Wrench, AlertTriangle, Shield, CheckCircle, Clock, Phone, Zap, Battery,
 import { motion } from "framer-motion";
 import RepairsWaveHero from "@/components/RepairsWaveHero";
 import MainLayout from "@/components/layout/MainLayout";
+import SEOHead from "@/components/SEOHead";
 
 const Repairs = () => {
+  const repairsSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Solar Panel Repair Services",
+    "provider": {
+      "@type": "Organization",
+      "name": "Advance Power Redding"
+    },
+    "description": "Expert solar panel repair services including inverter replacement, panel damage repair, electrical troubleshooting, and emergency response. 24/7 availability.",
+    "areaServed": "Northern California",
+    "serviceType": "Solar System Repair"
+  };
   const [activeTab, setActiveTab] = useState("diagnostics");
   const [selectedIssue, setSelectedIssue] = useState("inverter");
   const [systemHealth, setSystemHealth] = useState(65);
@@ -133,6 +146,14 @@ const Repairs = () => {
 
   return (
     <MainLayout fullWidth={true}>
+      <SEOHead
+        title="Solar Repair | Emergency Service & Inverters | APR"
+        description="Expert solar panel repair in Northern CA. Inverter replacement, panel damage repair, electrical troubleshooting. 24/7 emergency. Same-day service available."
+        keywords={['solar panel repair', 'inverter replacement', 'solar repair Redding', 'emergency solar service', 'panel damage repair', 'solar troubleshooting', 'Northern California solar repair']}
+        url="/repairs"
+        type="service"
+        structuredData={repairsSchema}
+      />
       {/* Repairs Wave Hero Section */}
       <RepairsWaveHero 
         tagline="Emergency Solar & Electric Repair Services"

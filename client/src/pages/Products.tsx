@@ -4,10 +4,49 @@ import { Link } from 'wouter';
 import { Sun, Zap, Battery, ShieldCheck, Cpu } from 'lucide-react';
 import ProductsWaveHero from '@/components/ProductsWaveHero';
 import CardCarouselDemo from '@/components/ui/card-carousel-demo';
+import SEOHead from '@/components/SEOHead';
 
 export default function Products() {
+  const productsSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Solar Products & Energy Systems",
+    "description": "Premium solar panels, battery storage systems, and hybrid inverters from Advance Power Redding",
+    "itemListElement": [
+      {
+        "@type": "Product",
+        "position": 1,
+        "name": "Sol-Ark 12K Hybrid Inverter",
+        "description": "12kW continuous power hybrid inverter with seamless grid-tie to off-grid transition",
+        "brand": { "@type": "Brand", "name": "Sol-Ark" }
+      },
+      {
+        "@type": "Product",
+        "position": 2,
+        "name": "Sol-Ark 15K Hybrid Inverter",
+        "description": "15kW continuous power hybrid inverter ideal for larger residential and small commercial applications",
+        "brand": { "@type": "Brand", "name": "Sol-Ark" }
+      },
+      {
+        "@type": "Product",
+        "position": 3,
+        "name": "High-Efficiency Solar Panels",
+        "description": "Premium solar panels with 25-year warranty and 99.9% efficiency rating",
+        "brand": { "@type": "Brand", "name": "Advance Power Redding" }
+      }
+    ]
+  };
+
   return (
     <MainLayout fullWidth={true}>
+      <SEOHead
+        title="Solar Products | Panels, Batteries & Inverters | APR"
+        description="Premium solar panels, Sol-Ark hybrid inverters (12K/15K/30K), battery storage systems. 25-year warranties, 99.9% efficiency. Quality guaranteed in CA."
+        keywords={['solar panels', 'Sol-Ark inverters', 'battery storage systems', 'hybrid inverters', 'solar products Redding', 'solar equipment Northern California', '12K inverter', '15K inverter']}
+        url="/products"
+        type="website"
+        structuredData={productsSchema}
+      />
       {/* Products Wave Hero Section */}
       <ProductsWaveHero 
         tagline="Premium Solar Solutions & Energy Systems"

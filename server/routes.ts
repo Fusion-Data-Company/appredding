@@ -25,6 +25,42 @@ const upload = multer({
 
 const router = Router();
 
+// Dynamic sitemap.xml endpoint
+router.get("/sitemap.xml", (req, res) => {
+  const baseUrl = "https://apredding.net";
+  const currentDate = new Date().toISOString().split('T')[0];
+  
+  const pages = [
+    { url: "/", priority: "1.0", changefreq: "weekly" },
+    { url: "/residential-solar", priority: "0.9", changefreq: "monthly" },
+    { url: "/commercial-solar", priority: "0.9", changefreq: "monthly" },
+    { url: "/hybrid-solar", priority: "0.9", changefreq: "monthly" },
+    { url: "/battery-storage", priority: "0.9", changefreq: "monthly" },
+    { url: "/energy-conservation", priority: "0.8", changefreq: "monthly" },
+    { url: "/maintenance", priority: "0.8", changefreq: "monthly" },
+    { url: "/repairs", priority: "0.8", changefreq: "monthly" },
+    { url: "/products", priority: "0.8", changefreq: "weekly" },
+    { url: "/about", priority: "0.7", changefreq: "monthly" },
+    { url: "/contact", priority: "0.7", changefreq: "monthly" },
+    { url: "/portfolio", priority: "0.7", changefreq: "weekly" },
+    { url: "/team", priority: "0.6", changefreq: "monthly" },
+    { url: "/technology", priority: "0.6", changefreq: "monthly" }
+  ];
+  
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${pages.map(page => `  <url>
+    <loc>${baseUrl}${page.url}</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>${page.changefreq}</changefreq>
+    <priority>${page.priority}</priority>
+  </url>`).join('\n')}
+</urlset>`;
+  
+  res.header('Content-Type', 'application/xml');
+  res.send(sitemap);
+});
+
 // Add monitoring routes first
 router.use(monitoringRoutes);
 

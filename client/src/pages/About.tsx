@@ -3,10 +3,39 @@ import { GradientHeading } from "@/components/ui/gradient-heading";
 import PageTransition from "@/components/ui/page-transition";
 import { GradientButton } from "@/components/ui/gradient-button";
 import AboutAdvancePowerSection from "@/sections/AboutAdvancePowerSection";
+import SEOHead from "@/components/SEOHead";
 
 const About = () => {
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Advance Power Redding",
+    "description": "Learn about Advance Power Redding's 25+ years of solar excellence in Northern California. NABCEP certified team, local Redding business serving the North State.",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Advance Power Redding",
+      "foundingDate": "1999",
+      "numberOfEmployees": {
+        "@type": "QuantitativeValue",
+        "value": "15-25"
+      },
+      "award": [
+        "NABCEP Certified Installation Team",
+        "Licensed and Bonded Solar Contractors"
+      ]
+    }
+  };
+
   return (
     <PageTransition>
+      <SEOHead
+        title="About Advance Power Redding | 25+ Years in Solar CA"
+        description="Founded 1999. Northern California's trusted solar expert. NABCEP certified team, licensed contractors, comprehensive warranties. Serving Redding & North State."
+        keywords={['about Advance Power Redding', 'solar company history', 'NABCEP certified solar', 'Redding solar experts', 'Northern California solar installers', 'licensed solar contractors']}
+        url="/about"
+        type="website"
+        structuredData={aboutSchema}
+      />
       <MainLayout>
         <section className="relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-orange-500/10 pointer-events-none"></div>

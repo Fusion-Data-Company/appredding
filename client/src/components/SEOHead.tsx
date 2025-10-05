@@ -1,110 +1,99 @@
-import React from 'react';
 import { Helmet } from 'react-helmet';
 
 interface SEOHeadProps {
   title: string;
   description: string;
-  imagePath?: string;
-  industry: string;
-  slug: string;
-  keywords?: string[];
+  keywords?: string | string[];
+  image?: string;
+  url?: string;
+  type?: 'website' | 'article' | 'product' | 'service';
+  structuredData?: Record<string, any> | Record<string, any>[];
   canonical?: string;
-  structuredData?: Record<string, any>;
 }
 
-/**
- * SEOHead Component - Enhanced for Accessibility and SEO
- * 
- * Provides comprehensive metadata for industry pages including:
- * - Standard meta tags
- * - Open Graph / Facebook tags
- * - Twitter Card tags
- * - Structured data (JSON-LD)
- * - Canonicalization
- * - Preloaded hero images
- * - Accessibility enhancement
- */
-const SEOHead: React.FC<SEOHeadProps> = ({ 
+const SEOHead = ({ 
   title, 
   description, 
-  imagePath = `/images/og-default.jpg`, 
-  industry,
-  slug,
   keywords = [],
-  canonical,
-  structuredData
-}) => {
-  // Default keywords if none provided
-  const defaultKeywords = [
-    'Advance Power Redding', 
-    'solar panels',
-    'solar energy',
-    'battery storage',
-    'renewable energy',
-    industry,
-    'solar installation'
-  ];
-
-  // Combine default keywords with any provided and remove duplicates
-  const allKeywords = Array.from(new Set([...defaultKeywords, ...keywords])).join(', ');
+  image = '/meta-images/hero-image-social-preview-may-2025.jpg',
+  url,
+  type = 'website',
+  structuredData,
+  canonical
+}: SEOHeadProps) => {
+  const baseUrl = 'https://apredding.net';
+  const fullUrl = url ? `${baseUrl}${url}` : baseUrl;
+  const canonicalUrl = canonical || fullUrl;
+  const fullImageUrl = image.startsWith('http') ? image : `${baseUrl}${image}`;
   
-  // Build canonical URL if provided
-  const canonicalUrl = canonical || `https://apredding.net/${slug}`;
+  const keywordsString = typeof keywords === 'string' 
+    ? keywords 
+    : (Array.isArray(keywords) ? keywords.join(', ') : '');
   
-  // Generate default structured data if none provided
+  const defaultKeywords = 'solar installation, solar panels, solar repair, Northern California solar, NEM 3.0, battery storage, solar energy, Advance Power Redding';
+  const finalKeywords = keywordsString ? `${keywordsString}, ${defaultKeywords}` : defaultKeywords;
+  
   const defaultStructuredData = {
     "@context": "https://schema.org",
-    "@type": "Product",
-    "name": `Advance Power Redding for ${industry}`,
-    "description": description,
-    "image": `https://apredding.net/images/og-${slug}.jpg`,
-    "brand": {
-      "@type": "Brand",
-      "name": "Advance Power Redding"
+    "@type": "Organization",
+    "name": "Advance Power Redding",
+    "alternateName": "APR Solar",
+    "url": baseUrl,
+    "logo": `${baseUrl}/advance-power-logo.jpg`,
+    "description": "Northern California's premier solar installation company with 25+ years of experience",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Redding",
+      "addressRegion": "CA",
+      "addressCountry": "US"
     },
-    "offers": {
-      "@type": "Offer",
-      "url": canonicalUrl,
-      "priceCurrency": "USD",
-      "availability": "https://schema.org/InStock"
-    }
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Sales",
+      "telephone": "+1-530-221-1234",
+      "email": "info@apredding.net"
+    },
+    "sameAs": [
+      "https://www.facebook.com/AdvancePowerRedding",
+      "https://www.linkedin.com/company/advance-power-redding"
+    ]
   };
-
-  // Use provided structured data or default
-  const finalStructuredData = structuredData || defaultStructuredData;
+  
+  const structuredDataArray = structuredData 
+    ? (Array.isArray(structuredData) ? structuredData : [structuredData])
+    : [defaultStructuredData];
   
   return (
     <Helmet>
-      {/* Primary Meta Tags */}
       <html lang="en" />
       <title>{title}</title>
-      <meta name="title" content={title} />
       <meta name="description" content={description} />
-      <meta name="keywords" content={allKeywords} />
+      <meta name="keywords" content={finalKeywords} />
       <link rel="canonical" href={canonicalUrl} />
       
-      {/* Open Graph / Facebook */}
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:title" content={`Advance Power Redding – ${industry}`} />
-      <meta property="og:description" content={`Solar energy solutions for ${industry}. Powering your future.`} />
-      <meta property="og:image" content={`https://apredding.net/images/og-${slug}.jpg`} />
+      <meta property="og:type" content={type} />
+      <meta property="og:url" content={fullUrl} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={fullImageUrl} />
+      <meta property="og:image:secure_url" content={fullImageUrl} />
+      <meta property="og:image:alt" content={title} />
+      <meta property="og:image:type" content="image/jpeg" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
       <meta property="og:site_name" content="Advance Power Redding" />
       
-      {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:url" content={canonicalUrl} />
-      <meta name="twitter:title" content={`Advance Power Redding – ${industry}`} />
-      <meta name="twitter:description" content={`Solar energy solutions for ${industry}. Powering your future.`} />
-      <meta name="twitter:image" content={`https://apredding.net/images/og-${slug}.jpg`} />
+      <meta name="twitter:url" content={fullUrl} />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={fullImageUrl} />
       
-      {/* Preload hero image */}
-      <link rel="preload" as="image" href={imagePath} />
-      
-      {/* JSON-LD Structured Data */}
-      <script type="application/ld+json">
-        {JSON.stringify(finalStructuredData)}
-      </script>
+      {structuredDataArray.map((data, index) => (
+        <script key={`structured-data-${index}`} type="application/ld+json">
+          {JSON.stringify(data)}
+        </script>
+      ))}
     </Helmet>
   );
 };
