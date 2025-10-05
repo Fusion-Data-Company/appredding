@@ -293,7 +293,7 @@ const SolarCompanyHeader: React.FC = () => {
                 "px-4 py-2 text-[15px] font-medium rounded-lg transition-all duration-200",
                 isActive("/shop/products") 
                   ? "text-orange-600" 
-                  : "text-gray-700 hover:text-gray-900"
+                  : "text-black hover:text-gray-900"
               )}
               style={{
                 background: isActive("/shop/products") 
@@ -329,7 +329,7 @@ const SolarCompanyHeader: React.FC = () => {
                 "px-4 py-2 text-[15px] font-medium rounded-lg transition-all duration-200",
                 isActive("/comparison") 
                   ? "text-orange-600" 
-                  : "text-gray-700 hover:text-gray-900"
+                  : "text-black hover:text-gray-900"
               )}
               style={{
                 background: isActive("/comparison") 
@@ -370,7 +370,7 @@ const SolarCompanyHeader: React.FC = () => {
                   "flex items-center px-4 py-2 text-[15px] font-medium rounded-lg transition-all duration-200 relative z-10",
                   activeDropdown === 'services' 
                     ? "text-orange-600" 
-                    : "text-gray-700 hover:text-gray-900"
+                    : "text-black hover:text-gray-900"
                 )}
                 style={{
                   background: activeDropdown === 'services' 
@@ -419,7 +419,7 @@ const SolarCompanyHeader: React.FC = () => {
                   "flex items-center px-4 py-2 text-[15px] font-medium rounded-lg transition-all duration-200 relative z-10",
                   activeDropdown === 'company' 
                     ? "text-orange-600" 
-                    : "text-gray-700 hover:text-gray-900"
+                    : "text-black hover:text-gray-900"
                 )}
                 style={{
                   background: activeDropdown === 'company' 

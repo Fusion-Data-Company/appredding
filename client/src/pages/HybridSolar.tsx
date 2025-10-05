@@ -526,7 +526,7 @@ const HybridSolar = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-gray-900/50 rounded-lg p-4">
+            <div className="card-elite glow-blue p-4">
               <div className="flex justify-between items-center mb-2">
                 <span className="text-gray-400 text-sm">Efficiency (Grid-Tie):</span>
                 <span className="text-white font-mono">94-96%</span>
@@ -581,7 +581,7 @@ const HybridSolar = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-gray-900/50 rounded-lg p-4">
+            <div className="card-elite glow-green p-4">
               <div className="flex justify-between items-center mb-2">
                 <span className="text-gray-400 text-sm">Efficiency (Battery Charge):</span>
                 <span className="text-white font-mono">95-98%</span>
@@ -711,7 +711,7 @@ const HybridSolar = () => {
               <Calculator className="mr-3 h-6 w-6 text-blue-400" />
               Runtime Calculator Example
             </h3>
-            <div className="bg-gray-900/50 rounded-lg p-6 mb-6">
+            <div className="card-elite glow-gold p-6 mb-6">
               <h4 className="text-blue-400 font-semibold mb-4">Typical Home Scenario:</h4>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
@@ -870,7 +870,7 @@ const HybridSolar = () => {
 
             <div className="space-y-4">
               <h4 className="text-white font-semibold">Generator Sizing Guide:</h4>
-              <div className="bg-gray-900/50 rounded-lg p-4 space-y-2 text-sm">
+              <div className="card-elite glow-orange p-4 space-y-2 text-sm">
                 <div className="flex justify-between">
                   <span className="text-gray-400">Small Home (1,500 sq ft):</span>
                   <span className="text-white font-mono">8-12kW</span>
@@ -1082,7 +1082,7 @@ const HybridSolar = () => {
               PSPS Economic Impact
             </h3>
             <div className="space-y-4">
-              <div className="bg-gray-900/50 rounded-lg p-4">
+              <div className="card-elite glow-green p-4">
                 <h4 className="text-white font-semibold mb-3">Cost of Outages (Per Event):</h4>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
