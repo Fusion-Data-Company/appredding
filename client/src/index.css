@@ -923,22 +923,7 @@ li:not(.preserve-text-color) {
   color: inherit;
 } */
 
-header, 
-header * {
-  background-color: rgba(17, 24, 39, 0.95) !important;
-}
-
-/* Specifically target navigation links */
-header nav a[href="/"],
-header nav span:contains("Services"),
-header nav a[href="/about"],
-header nav a[href="#contact"],
-header nav button {
-  color: white !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  display: inline !important;
-}
+/* Header styles removed - using component-level styling for Apple-quality header */
 
 /* Comprehensive dark background text enforcement with enhanced outlines */
 .bg-gradient-to-br.from-gray-900 *,
@@ -2105,83 +2090,7 @@ section + section {
   z-index: 9999 !important;
 }
 
-/* ELITE ENTERPRISE HEADER STYLING */
-header {
-  background: linear-gradient(135deg, 
-    rgba(255, 255, 255, 0.98) 0%, 
-    rgba(254, 250, 245, 0.95) 30%, 
-    rgba(253, 245, 235, 0.92) 70%, 
-    rgba(255, 255, 255, 0.98) 100%) !important;
-  backdrop-filter: blur(12px) saturate(105%) !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
-  box-shadow: 
-    0 2px 8px rgba(0, 0, 0, 0.03),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
-}
-
-header * {
-  color: #374151 !important;
-}
-
-header .bg-black, header .bg-gray-900, header .bg-gray-800 {
-  background: transparent !important;
-}
-
-header nav a, header nav button {
-  color: #374151 !important;
-  font-weight: 500 !important;
-  text-shadow: none !important;
-  transition: all 0.2s ease !important;
-  position: relative !important;
-}
-
-header nav a:hover, header nav button:hover {
-  color: #111827 !important;
-  text-shadow: none !important;
-  transform: none !important;
-}
-
-/* Elite dropdown menu styling */
-header .group:hover > div {
-  background: linear-gradient(135deg,
-    rgba(255, 255, 255, 0.98) 0%,
-    rgba(249, 250, 251, 0.96) 50%,
-    rgba(255, 255, 255, 0.98) 100%) !important;
-  backdrop-filter: blur(12px) saturate(105%) !important;
-  border: 1px solid rgba(0, 0, 0, 0.08) !important;
-  box-shadow: 
-    0 8px 25px rgba(0, 0, 0, 0.06),
-    0 3px 10px rgba(0, 0, 0, 0.04),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
-}
-
-header .group:hover > div a {
-  color: #374151 !important;
-  font-weight: 400 !important;
-  text-shadow: none !important;
-  transition: all 0.2s ease !important;
-}
-
-header .group:hover > div a:hover {
-  background: rgba(249, 250, 251, 0.6) !important;
-  color: #111827 !important;
-  text-shadow: none !important;
-  transform: none !important;
-}
-
-/* Premium logo styling with yellow/orange glow */
-header a[href="/"] > div > div:first-child {
-  background: linear-gradient(135deg, 
-    rgba(250, 204, 21, 0.4) 0%, 
-    rgba(245, 158, 11, 0.3) 50%, 
-    rgba(250, 204, 21, 0.4) 100%) !important;
-  filter: blur(8px) !important;
-  transform: scale(1.1) !important;
-}
-
-header a[href="/"] img {
-  filter: drop-shadow(0 0 10px rgba(250, 204, 21, 0.6)) drop-shadow(0 0 20px rgba(245, 158, 11, 0.4)) !important;
-}
+/* Header styling removed - using component-level Apple-style design */
 
 @layer utilities {
   .animate-fade-in {

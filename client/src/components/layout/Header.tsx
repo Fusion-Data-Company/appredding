@@ -121,10 +121,10 @@ const SolarCompanyHeader: React.FC = () => {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 w-full transition-all duration-500 ease-out",
+        "fixed top-0 left-0 right-0 w-full transition-all duration-700 ease-out",
         isScrolled 
-          ? "bg-white/80 backdrop-blur-2xl shadow-sm border-b border-gray-200/50" 
-          : "bg-white/95 backdrop-blur-xl border-b border-gray-100/30"
+          ? "bg-white/85 backdrop-blur-3xl shadow-lg shadow-black/5 border-b border-gray-200/60" 
+          : "bg-white/98 backdrop-blur-2xl border-b border-gray-100/40"
       )}
       style={{ zIndex: 9999 }}
     >

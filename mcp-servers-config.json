@@ -1,0 +1,102 @@
+{
+  "mcpServers": {
+    "saas-project Docs": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://gitmcp.io/ahmedm87/saas-project/issues/4"
+      ]
+    },
+    "context7 Docs": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://gitmcp.io/upstash/context7"
+      ]
+    },
+    "filesystem": {
+      "command": "/opt/homebrew/bin/npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/robertyeager"
+      ]
+    },
+    "brave-search": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-brave-search"
+      ],
+      "env": {
+        "BRAVE_API_KEY": "BSAyHdrPNl-02Mq3reRDOKdewTmDdvA"
+      }
+    },
+    "puppeteer": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-puppeteer"
+      ]
+    },
+    "n8n-mcp": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "--init",
+        "-e",
+        "MCP_MODE=stdio",
+        "-e",
+        "LOG_LEVEL=error",
+        "-e",
+        "DISABLE_CONSOLE_OUTPUT=true",
+        "-e",
+        "N8N_API_URL=https://fusiondataco.app.n8n.cloud/",
+        "-e",
+        "N8N_API_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5OWVlYWY5Yy0xZGFiLTQwZDMtYmU2Yi05ZWE1YmExNjM3N2IiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwiaWF0IjoxNzU1NjQwMTgyfQ.2BGlFrB7wnzqVADiL-yOxcjbqqmNhnnHDgE6z7BvckE",
+        "ghcr.io/czlonkowski/n8n-mcp:latest"
+      ]
+    },
+    "tanstack.com Docs": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://gitmcp.io/TanStack/tanstack.com"
+      ]
+    },
+    "Magic MCP": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@21st-dev/magic@latest",
+        "API_KEY=\"127b1efb13f0bc92822f93664f4ad0c5f2d0e4f81b8eaba2ba4bd59abe3eb0ea\""
+      ],
+      "env": {}
+    },
+    "spec-kit Docs": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://gitmcp.io/github/spec-kit"
+      ]
+    },
+    "GitKraken": {
+      "command": "/Users/robertyeager/Library/Application Support/Cursor/User/globalStorage/eamodio.gitlens/gk",
+      "type": "stdio",
+      "name": "GitKraken",
+      "args": [
+        "mcp",
+        "--host=cursor",
+        "--source=gitlens",
+        "--scheme=cursor"
+      ],
+      "env": {}
+    },
+    "claude-code": {
+      "command": "claude-code",
+      "args": ["mcp"]
+    }
+  }
+}
