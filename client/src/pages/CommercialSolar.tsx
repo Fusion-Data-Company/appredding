@@ -69,6 +69,7 @@ import CTASection from "@/components/sections/CTASection";
 import ContentSection from "@/components/sections/ContentSection";
 import ServiceCard from "@/components/cards/ServiceCard";
 import TestimonialCard from "@/components/cards/TestimonialCard";
+import { GlassyMetallicCard } from '@/components/ui/glassy-metallic-card';
 
 const commercialConsultationSchema = z.object({
   companyName: z.string().min(1, "Company name is required"),
@@ -327,17 +328,6 @@ const CommercialSolar = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black/80" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Demand Charge Crisis Alert */}
-          <div className="bg-red-900/20 border border-red-500/50 backdrop-blur-sm rounded-xl p-4 mb-8">
-            <div className="flex items-center gap-3">
-              <TrendingDown className="h-6 w-6 text-red-400 animate-pulse" />
-              <div className="flex-1">
-                <p className="text-red-300 font-semibold">CRITICAL: California Demand Charges at Historic Highs</p>
-                <p className="text-gray-400 text-sm mt-1">PG&E B-19/B-20: $18-24/kW peak demand • Average facility: $8,000-18,000/month in demand charges alone</p>
-              </div>
-            </div>
-          </div>
-
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/30 rounded-full px-4 py-2 mb-6">
               <Shield className="h-4 w-4 text-blue-400" />
@@ -352,6 +342,17 @@ const CommercialSolar = () => {
             <p className="text-lg text-gray-400 max-w-4xl mx-auto mb-8">
               ITC 30% + Bonus Depreciation 60% + SGIP rebates = 1.9-year payback • Trusted by 500+ California businesses
             </p>
+
+            {/* Demand Charge Crisis Alert */}
+            <div className="bg-red-900/20 border border-red-500/50 backdrop-blur-sm rounded-xl p-4 mb-8">
+              <div className="flex items-center gap-3">
+                <TrendingDown className="h-6 w-6 text-red-400 animate-pulse" />
+                <div className="flex-1">
+                  <p className="text-red-300 font-semibold">CRITICAL: California Demand Charges at Historic Highs</p>
+                  <p className="text-gray-400 text-sm mt-1">PG&E B-19/B-20: $18-24/kW peak demand • Average facility: $8,000-18,000/month in demand charges alone</p>
+                </div>
+              </div>
+            </div>
 
             {/* Live Commercial Metrics Bar */}
             <div className="flex flex-wrap justify-center gap-4 mb-8 text-sm">
@@ -398,129 +399,125 @@ const CommercialSolar = () => {
 
           {/* Enhanced Technical Specifications Grid */}
           <div className="grid lg:grid-cols-4 gap-4 mb-12">
-            <div className="bg-gradient-to-br from-blue-500/10 to-blue-600/5 backdrop-blur-sm rounded-2xl p-6 border border-blue-500/30 hover:border-blue-400 transition-all group">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-blue-500/20 rounded-lg group-hover:bg-blue-500/30 transition-colors">
-                  <Cpu className="h-6 w-6 text-blue-400" />
-                </div>
-                <h3 className="text-lg font-bold text-white">Sol-Ark 60K</h3>
-              </div>
+            <GlassyMetallicCard
+              icon={Cpu}
+              title="Sol-Ark 60K"
+              description="Three-phase commercial inverter specifications"
+              accentColor="blue"
+            >
               <div className="space-y-3">
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">AC Output:</span>
-                  <span className="text-blue-300 font-mono">60kW 3φ</span>
+                  <span className="text-gray-600">AC Output:</span>
+                  <span className="text-blue-600 font-mono font-semibold">60kW 3φ</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">PV Input:</span>
-                  <span className="text-blue-300 font-mono">90kW DC</span>
+                  <span className="text-gray-600">PV Input:</span>
+                  <span className="text-blue-600 font-mono font-semibold">90kW DC</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">Voltage:</span>
-                  <span className="text-blue-300 font-mono">208-480V</span>
+                  <span className="text-gray-600">Voltage:</span>
+                  <span className="text-blue-600 font-mono font-semibold">208-480V</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">Battery:</span>
-                  <span className="text-blue-300 font-mono">400-800V</span>
+                  <span className="text-gray-600">Battery:</span>
+                  <span className="text-blue-600 font-mono font-semibold">400-800V</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">Efficiency:</span>
-                  <span className="text-blue-300 font-mono">98.5%</span>
+                  <span className="text-gray-600">Efficiency:</span>
+                  <span className="text-blue-600 font-mono font-semibold">98.5%</span>
                 </div>
               </div>
-            </div>
+            </GlassyMetallicCard>
 
-            <div className="bg-gradient-to-br from-green-500/10 to-green-600/5 backdrop-blur-sm rounded-2xl p-6 border border-green-500/30 hover:border-green-400 transition-all group">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-green-500/20 rounded-lg group-hover:bg-green-500/30 transition-colors">
-                  <TrendingDown className="h-6 w-6 text-green-400" />
-                </div>
-                <h3 className="text-lg font-bold text-white">Demand Mgmt</h3>
-              </div>
+            <GlassyMetallicCard
+              icon={TrendingDown}
+              title="Demand Mgmt"
+              description="Advanced demand charge optimization"
+              accentColor="green"
+            >
               <div className="space-y-3">
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">Peak Shave:</span>
-                  <span className="text-green-300 font-mono">40-60%</span>
+                  <span className="text-gray-600">Peak Shave:</span>
+                  <span className="text-green-600 font-mono font-semibold">40-60%</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">Savings/mo:</span>
-                  <span className="text-green-300 font-mono">$8-18K</span>
+                  <span className="text-gray-600">Savings/mo:</span>
+                  <span className="text-green-600 font-mono font-semibold">$8-18K</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">Response:</span>
-                  <span className="text-green-300 font-mono">&lt;4ms</span>
+                  <span className="text-gray-600">Response:</span>
+                  <span className="text-green-600 font-mono font-semibold">&lt;4ms</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">ML Predict:</span>
-                  <span className="text-green-300 font-mono">95% acc</span>
+                  <span className="text-gray-600">ML Predict:</span>
+                  <span className="text-green-600 font-mono font-semibold">95% acc</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">Load Shift:</span>
-                  <span className="text-green-300 font-mono">Auto</span>
+                  <span className="text-gray-600">Load Shift:</span>
+                  <span className="text-green-600 font-mono font-semibold">Auto</span>
                 </div>
               </div>
-            </div>
+            </GlassyMetallicCard>
 
-            <div className="bg-gradient-to-br from-purple-500/10 to-purple-600/5 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/30 hover:border-purple-400 transition-all group">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-purple-500/20 rounded-lg group-hover:bg-purple-500/30 transition-colors">
-                  <DollarSign className="h-6 w-6 text-purple-400" />
-                </div>
-                <h3 className="text-lg font-bold text-white">Tax Benefits</h3>
-              </div>
+            <GlassyMetallicCard
+              icon={DollarSign}
+              title="Tax Benefits"
+              description="Federal and state incentive programs"
+              accentColor="purple"
+            >
               <div className="space-y-3">
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">ITC 2024:</span>
-                  <span className="text-purple-300 font-mono">30%</span>
+                  <span className="text-gray-600">ITC 2024:</span>
+                  <span className="text-purple-600 font-mono font-semibold">30%</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">Bonus Dep:</span>
-                  <span className="text-purple-300 font-mono">60%</span>
+                  <span className="text-gray-600">Bonus Dep:</span>
+                  <span className="text-purple-600 font-mono font-semibold">60%</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">SGIP/kWh:</span>
-                  <span className="text-purple-300 font-mono">$200-850</span>
+                  <span className="text-gray-600">SGIP/kWh:</span>
+                  <span className="text-purple-600 font-mono font-semibold">$200-850</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">Yr 1 Offset:</span>
-                  <span className="text-purple-300 font-mono">55-70%</span>
+                  <span className="text-gray-600">Yr 1 Offset:</span>
+                  <span className="text-purple-600 font-mono font-semibold">55-70%</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">Payback:</span>
-                  <span className="text-purple-300 font-mono">1.9-3.5yr</span>
+                  <span className="text-gray-600">Payback:</span>
+                  <span className="text-purple-600 font-mono font-semibold">1.9-3.5yr</span>
                 </div>
               </div>
-            </div>
+            </GlassyMetallicCard>
 
-            <div className="bg-gradient-to-br from-orange-500/10 to-orange-600/5 backdrop-blur-sm rounded-2xl p-6 border border-orange-500/30 hover:border-orange-400 transition-all group">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-orange-500/20 rounded-lg group-hover:bg-orange-500/30 transition-colors">
-                  <Monitor className="h-6 w-6 text-orange-400" />
-                </div>
-                <h3 className="text-lg font-bold text-white">Monitoring</h3>
-              </div>
+            <GlassyMetallicCard
+              icon={Monitor}
+              title="Monitoring"
+              description="24/7 system monitoring and control"
+              accentColor="orange"
+            >
               <div className="space-y-3">
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">SCADA:</span>
-                  <span className="text-orange-300 font-mono">Modbus</span>
+                  <span className="text-gray-600">SCADA:</span>
+                  <span className="text-orange-600 font-mono font-semibold">Modbus</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">Cloud:</span>
-                  <span className="text-orange-300 font-mono">24/7 NOC</span>
+                  <span className="text-gray-600">Cloud:</span>
+                  <span className="text-orange-600 font-mono font-semibold">24/7 NOC</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">API:</span>
-                  <span className="text-orange-300 font-mono">REST/MQTT</span>
+                  <span className="text-gray-600">API:</span>
+                  <span className="text-orange-600 font-mono font-semibold">REST/MQTT</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">Alerts:</span>
-                  <span className="text-orange-300 font-mono">Real-time</span>
+                  <span className="text-gray-600">Alerts:</span>
+                  <span className="text-orange-600 font-mono font-semibold">Real-time</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">SLA:</span>
-                  <span className="text-orange-300 font-mono">99.5%</span>
+                  <span className="text-gray-600">SLA:</span>
+                  <span className="text-orange-600 font-mono font-semibold">99.5%</span>
                 </div>
               </div>
-            </div>
+            </GlassyMetallicCard>
           </div>
 
           {/* Industry-Specific Value Props */}

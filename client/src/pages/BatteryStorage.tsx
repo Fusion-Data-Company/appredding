@@ -243,7 +243,7 @@ const BatteryStorage = () => {
         </div>
       </section>
 
-      {/* Energy Storage Crisis Alert */}
+      {/* Energy Storage Crisis Alert - Moved from below */}
       <section className="relative bg-gradient-to-br from-gray-900 via-black to-gray-900 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-purple-900/20 border border-purple-500/50 backdrop-blur-sm rounded-xl p-6">

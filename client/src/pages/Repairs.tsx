@@ -131,7 +131,7 @@ const Repairs = () => {
 
   return (
     <div className="py-16 sm:py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
-      {/* Hero Section with Live System Status */}
+      {/* Hero Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -144,8 +144,8 @@ const Repairs = () => {
               <Wrench className="h-8 w-8" />
               <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">24/7 Emergency Service</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl font-bold mb-4">Professional Solar Repair Services</h1>
-            <p className="text-xl mb-6 text-orange-100">7-day orphaned system rescue • Same-day inverter swaps • Expert diagnostics</p>
+            <h1 className="text-4xl sm:text-5xl font-bold mb-4">Expert Solar Repair Services</h1>
+            <p className="text-xl mb-6 text-orange-100">24/7 emergency response - Same-day inverter swaps - 7-day orphaned system rescue</p>
 
             {/* Live System Health Metrics */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
