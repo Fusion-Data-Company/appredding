@@ -115,10 +115,10 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
       </div>
 
       <div className="relative z-10 w-full">
-        <div className="container mx-auto px-4 sm:px-6 pt-8 sm:pt-12 pb-12 sm:pb-20">
-          <div className="flex flex-col items-center justify-center text-center min-h-[60vh]">
+        <div className="container mx-auto px-4 sm:px-6 !pt-4 pb-12 sm:pb-20">
+          <div className="flex flex-col items-center justify-start text-center !mt-0">
             <motion.div 
-              className="flex justify-center mb-6"
+              className="flex justify-center mb-4 !mt-0"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
