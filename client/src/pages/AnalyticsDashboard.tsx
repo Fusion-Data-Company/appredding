@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { Skeleton, StatsSkeleton, CardSkeleton } from "@/components/ui/skeleton";
 import { 
   BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, 
   ResponsiveContainer, PieChart, Pie, Cell, AreaChart, Area 
@@ -15,6 +16,7 @@ import {
   TrendingUp, Users, Zap, MapPin, Calendar, DollarSign, 
   Wrench, Battery, Search, Download, Filter 
 } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface YearlyStats {
   year: number;
@@ -147,7 +149,27 @@ export default function AnalyticsDashboard() {
         </div>
 
         {/* Key Metrics */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {yearlyLoading ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" data-testid="loading-skeleton-metrics">
+            {[...Array(4)].map((_, i) => (
+              <Card key={i} className="bg-white/10 backdrop-blur border-white/20">
+                <CardHeader className="space-y-2">
+                  <Skeleton className="h-4 w-24 bg-white/20" />
+                </CardHeader>
+                <CardContent className="space-y-2">
+                  <Skeleton className="h-8 w-32 bg-white/20" />
+                  <Skeleton className="h-3 w-40 bg-white/20" />
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        ) : (
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
           <Card className="bg-gradient-to-br from-orange-500 to-red-500 text-white border-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Total Customers</CardTitle>
@@ -199,7 +221,8 @@ export default function AnalyticsDashboard() {
               </p>
             </CardContent>
           </Card>
-        </div>
+        </motion.div>
+        )}
 
         {/* Analytics Tabs */}
         <Tabs defaultValue="yearly" className="w-full">
@@ -213,7 +236,27 @@ export default function AnalyticsDashboard() {
 
           {/* Yearly Analytics */}
           <TabsContent value="yearly" className="space-y-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {yearlyLoading ? (
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6" data-testid="loading-skeleton-charts">
+                {[...Array(4)].map((_, i) => (
+                  <Card key={i} className="bg-white/10 backdrop-blur border-white/20">
+                    <CardHeader className="space-y-2">
+                      <Skeleton className="h-6 w-48 bg-white/20" />
+                      <Skeleton className="h-4 w-64 bg-white/20" />
+                    </CardHeader>
+                    <CardContent>
+                      <Skeleton className="h-[300px] w-full bg-white/20" />
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            ) : (
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
+              className="grid grid-cols-1 lg:grid-cols-2 gap-6"
+            >
               <Card className="bg-white/10 backdrop-blur border-white/20">
                 <CardHeader>
                   <CardTitle className="text-white">Installations by Year</CardTitle>
@@ -283,7 +326,8 @@ export default function AnalyticsDashboard() {
                   </ResponsiveContainer>
                 </CardContent>
               </Card>
-            </div>
+            </motion.div>
+            )}
           </TabsContent>
 
           {/* Decades Analysis */}

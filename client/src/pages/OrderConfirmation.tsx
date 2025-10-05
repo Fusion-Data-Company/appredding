@@ -4,8 +4,10 @@ import { useQuery } from '@tanstack/react-query';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
+import { Skeleton, CardSkeleton } from '@/components/ui/skeleton';
 import { CheckCircle2, Package, MapPin, CreditCard, Mail, Phone, ArrowRight, Loader2 } from 'lucide-react';
 import MainLayout from '@/components/layout/MainLayout';
+import { motion } from 'framer-motion';
 
 export default function OrderConfirmation() {
   const params = useParams();
@@ -34,10 +36,26 @@ export default function OrderConfirmation() {
   if (isLoading) {
     return (
       <MainLayout>
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
-          <div className="text-center">
-            <Loader2 className="w-12 h-12 animate-spin mx-auto mb-4 text-blue-600" />
-            <p className="text-gray-600 dark:text-gray-400">Loading order details...</p>
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <div className="text-center mb-8 space-y-4" data-testid="loading-skeleton-order">
+              <Skeleton className="h-20 w-20 rounded-full mx-auto" />
+              <Skeleton className="h-10 w-2/3 mx-auto" />
+              <Skeleton className="h-6 w-1/2 mx-auto" />
+              <Skeleton className="h-16 w-48 mx-auto rounded-lg" />
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-2 mb-8">
+              <CardSkeleton />
+              <CardSkeleton />
+            </div>
+
+            <CardSkeleton className="mb-8" />
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Skeleton className="h-12 w-48" />
+              <Skeleton className="h-12 w-48" />
+            </div>
           </div>
         </div>
       </MainLayout>
@@ -80,7 +98,12 @@ export default function OrderConfirmation() {
 
   return (
     <MainLayout>
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12">
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
+        className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12"
+      >
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="text-center mb-8">
             <div className="flex justify-center mb-4">
@@ -291,7 +314,7 @@ export default function OrderConfirmation() {
             </Button>
           </div>
         </div>
-      </div>
+      </motion.div>
     </MainLayout>
   );
 }

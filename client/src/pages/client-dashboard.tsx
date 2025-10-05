@@ -8,7 +8,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { CardSkeleton } from "@/components/ui/skeleton";
 import { Loader2, Plus, FileText, MessageSquare, ClipboardList } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function ClientDashboard() {
   const { user } = useAuth();
@@ -104,11 +106,18 @@ export default function ClientDashboard() {
               </div>
               
               {isLoadingProjects ? (
-                <div className="flex justify-center items-center py-12">
-                  <Loader2 className="h-8 w-8 animate-spin text-primary-500" />
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-testid="loading-skeleton-projects">
+                  {[...Array(6)].map((_, i) => (
+                    <CardSkeleton key={i} />
+                  ))}
                 </div>
               ) : projects && projects.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                >
                   {projects.map((project) => (
                     <Card key={project.id} className="bg-primary-800 border-primary-700">
                       <CardHeader>
@@ -145,7 +154,7 @@ export default function ClientDashboard() {
                       </CardFooter>
                     </Card>
                   ))}
-                </div>
+                </motion.div>
               ) : (
                 <div className="text-center py-12 bg-primary-800/50 rounded-lg border border-dashed border-primary-700">
                   <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary-800 mb-4">
