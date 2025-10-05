@@ -121,7 +121,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
       </div>
 
       <div className="relative z-10 w-full">
-        <div className="container mx-auto px-6 pt-32 pb-20">
+        <div className="container mx-auto px-4 sm:px-6 pt-24 sm:pt-32 pb-12 sm:pb-20">
           <div className="flex flex-col items-center justify-center text-center min-h-[60vh]">
             <motion.div
               initial="hidden"
@@ -144,7 +144,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
                   },
                 },
               }}
-              className="text-5xl md:text-7xl font-bold tracking-tighter text-foreground mb-6"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-foreground mb-4 sm:mb-6 px-2"
             >
               {title}
             </motion.h1>
@@ -154,7 +154,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
               animate="show"
               variants={FADE_IN_ANIMATION_VARIANTS}
               transition={{ delay: 0.3 }}
-              className="text-lg md:text-xl leading-relaxed tracking-tight text-muted-foreground max-w-2xl mb-8"
+              className="text-base sm:text-lg md:text-xl leading-relaxed tracking-tight text-muted-foreground max-w-2xl mb-6 sm:mb-8 px-4"
             >
               {subtitle}
             </motion.p>
@@ -187,9 +187,9 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
           </div>
         </div>
 
-        <div className="w-full h-64 md:h-80 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]">
+        <div className="w-full h-48 sm:h-64 md:h-80 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]">
           <motion.div
-            className="flex gap-4"
+            className="flex gap-3 sm:gap-4"
             animate={{
               x: ["-100%", "0%"],
               transition: {
@@ -202,7 +202,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
             {duplicatedImages.map((src, index) => (
               <div
                 key={index}
-                className="relative aspect-[3/4] h-48 md:h-64 flex-shrink-0"
+                className="relative aspect-[3/4] h-40 sm:h-48 md:h-64 flex-shrink-0"
                 style={{
                   rotate: `${(index % 2 === 0 ? -2 : 5)}deg`,
                 }}
@@ -221,14 +221,14 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
           </motion.div>
         </div>
 
-        <div className="container mx-auto px-6 py-20">
+        <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-20">
           <div className="max-w-4xl mx-auto">
             <div className="shimmer-effect">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-primary via-orange-500 to-amber-500 bg-clip-text text-transparent">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-primary via-orange-500 to-amber-500 bg-clip-text text-transparent">
                 Our Triage Process
               </h2>
             </div>
-            <div className="grid md:grid-cols-3 gap-6 mb-12">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
               <div className="relative overflow-hidden rounded-xl p-6 backdrop-blur-sm bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/90 dark:to-orange-800/90 ring-2 ring-orange-300/80 dark:ring-orange-600/80 shadow-lg shadow-orange-200/50 dark:shadow-orange-900/50">
                 <span className="pointer-events-none absolute -right-6 -top-6 inline-flex h-16 w-16 rounded-full bg-white/30 dark:bg-white/10" />
                 <span className="pointer-events-none absolute -right-2 -top-2 inline-flex h-8 w-8 rounded-full bg-white/40 dark:bg-white/15" />

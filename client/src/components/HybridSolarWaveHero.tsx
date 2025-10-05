@@ -7,6 +7,7 @@ import { Zap, Sun, Battery, ArrowRight, Menu, X } from 'lucide-react';
 // Animated Wave Background Component
 const SolarWaveBackground: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -23,8 +24,13 @@ const SolarWaveBackground: React.FC = () => {
       canvas.height = window.innerHeight;
     };
 
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+      resize();
+    };
+
     resize();
-    window.addEventListener('resize', resize);
+    window.addEventListener('resize', handleResize, { passive: true });
 
     const drawWave = (
       offset: number,
@@ -59,12 +65,17 @@ const SolarWaveBackground: React.FC = () => {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Multiple wave layers with solar/electric theme colors
-      drawWave(time * 0.5, 80, 1, '#FFA500', 0.15); // Orange
-      drawWave(time * 0.7, 60, 1.5, '#FFD700', 0.12); // Gold
-      drawWave(time * 0.9, 100, 0.8, '#FF6B35', 0.1); // Red-Orange
-      drawWave(time * 1.1, 70, 1.2, '#4ECDC4', 0.08); // Electric Teal
-      drawWave(time * 1.3, 90, 0.9, '#00D9FF', 0.06); // Electric Blue
+      if (isMobile) {
+        drawWave(time * 0.5, 80, 1, '#FFA500', 0.15);
+        drawWave(time * 0.9, 100, 0.8, '#FF6B35', 0.1);
+        drawWave(time * 1.3, 90, 0.9, '#00D9FF', 0.06);
+      } else {
+        drawWave(time * 0.5, 80, 1, '#FFA500', 0.15);
+        drawWave(time * 0.7, 60, 1.5, '#FFD700', 0.12);
+        drawWave(time * 0.9, 100, 0.8, '#FF6B35', 0.1);
+        drawWave(time * 1.1, 70, 1.2, '#4ECDC4', 0.08);
+        drawWave(time * 1.3, 90, 0.9, '#00D9FF', 0.06);
+      }
 
       time += 0.5;
       animationFrameId = requestAnimationFrame(animate);
@@ -73,10 +84,10 @@ const SolarWaveBackground: React.FC = () => {
     animate();
 
     return () => {
-      window.removeEventListener('resize', resize);
+      window.removeEventListener('resize', handleResize);
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <canvas

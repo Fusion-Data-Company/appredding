@@ -70,7 +70,7 @@ const PageHeroSection: React.FC<PageHeroSectionProps> = ({
       <div className={`absolute inset-0 z-[1] bg-gradient-to-br ${overlayGradients[overlayColor]}`} />
 
       {/* Content */}
-      <div className="relative z-10 w-full py-16">
+      <div className="relative z-10 w-full py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
@@ -93,7 +93,7 @@ const PageHeroSection: React.FC<PageHeroSectionProps> = ({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 sm:mb-8 px-4"
             >
               {title}
             </motion.h1>

@@ -4,7 +4,7 @@ import { SOLAR_HERO_IMAGE } from "@/assets_dir/imageExports";
 
 const SolarHeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50" style={{ minHeight: '100vh' }}>
       {/* Subtle Enterprise Background */}
       <div className="absolute inset-0">
         {/* Very Subtle Base Gradient */}
@@ -107,7 +107,7 @@ const SolarHeroSection = () => {
         </div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-12 sm:py-16">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -124,7 +124,7 @@ const SolarHeroSection = () => {
               {/* Card Content */}
               <div className="relative">
                 {/* Elite Typography */}
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight tracking-tight">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-6 sm:mb-8 leading-tight tracking-tight">
                   <span className="block text-gray-900 mb-4 drop-shadow-sm">
                     Advance Power of Redding
                   </span>
@@ -134,8 +134,8 @@ const SolarHeroSection = () => {
                 </h1>
                 
                 {/* Professional Description */}
-                <div className="max-w-4xl mx-auto mb-10">
-                  <p className="text-xl md:text-2xl lg:text-3xl text-gray-700 font-light leading-relaxed drop-shadow-sm">
+                <div className="max-w-4xl mx-auto mb-8 sm:mb-10">
+                  <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-700 font-light leading-relaxed drop-shadow-sm px-4">
                     Redding's trusted solar experts with over 20 years of experience. 
                     Professional installation, repair, and maintenance services for homes and businesses.
                   </p>
@@ -237,12 +237,12 @@ const SolarHeroSection = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-12 sm:mt-20 px-4"
         >
           {/* Years Experience Card */}
           <motion.div 
             whileHover={{ scale: 1.02, y: -4 }}
-            className="group relative bg-white/80 backdrop-blur-sm border border-orange-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+            className="group relative bg-white/80 backdrop-blur-sm border border-orange-200 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300"
           >
             
             <div className="relative">
@@ -253,16 +253,16 @@ const SolarHeroSection = () => {
                 </svg>
               </div>
               
-              <div className="text-4xl md:text-5xl font-black text-yellow-400 mb-3 leading-none">20+</div>
-              <div className="text-xl text-gray-200 font-medium">Years Experience</div>
-              <div className="text-sm text-gray-400 mt-2">Serving Northern California since 2004</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl font-black text-yellow-400 mb-2 sm:mb-3 leading-none">20+</div>
+              <div className="text-lg sm:text-xl text-gray-200 font-medium">Years Experience</div>
+              <div className="text-xs sm:text-sm text-gray-400 mt-2">Serving Northern California since 2004</div>
             </div>
           </motion.div>
           
           {/* Solar Installations Card */}
           <motion.div 
             whileHover={{ scale: 1.02, y: -4 }}
-            className="group relative bg-gradient-to-br from-black/40 via-black/30 to-black/20 backdrop-blur-lg border border-orange-500/30 rounded-2xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500"
+            className="group relative bg-gradient-to-br from-black/40 via-black/30 to-black/20 backdrop-blur-lg border border-orange-500/30 rounded-2xl p-4 sm:p-6 md:p-8 shadow-2xl hover:shadow-3xl transition-all duration-500"
           >
             {/* Card glow effect */}
             <div className="absolute -inset-0.5 bg-gradient-to-br from-orange-500/20 to-red-500/10 rounded-2xl blur-lg opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
@@ -275,16 +275,16 @@ const SolarHeroSection = () => {
                 </svg>
               </div>
               
-              <div className="text-4xl md:text-5xl font-black text-orange-400 mb-3 leading-none">1000+</div>
-              <div className="text-xl text-gray-200 font-medium">Solar Installations</div>
-              <div className="text-sm text-gray-400 mt-2">Residential & commercial projects</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl font-black text-orange-400 mb-2 sm:mb-3 leading-none">1000+</div>
+              <div className="text-lg sm:text-xl text-gray-200 font-medium">Solar Installations</div>
+              <div className="text-xs sm:text-sm text-gray-400 mt-2">Residential & commercial projects</div>
             </div>
           </motion.div>
           
           {/* Support & Service Card */}
           <motion.div 
             whileHover={{ scale: 1.02, y: -4 }}
-            className="group relative bg-gradient-to-br from-black/40 via-black/30 to-black/20 backdrop-blur-lg border border-red-500/30 rounded-2xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500"
+            className="group relative bg-gradient-to-br from-black/40 via-black/30 to-black/20 backdrop-blur-lg border border-red-500/30 rounded-2xl p-4 sm:p-6 md:p-8 shadow-2xl hover:shadow-3xl transition-all duration-500"
           >
             {/* Card glow effect */}
             <div className="absolute -inset-0.5 bg-gradient-to-br from-red-500/20 to-orange-500/10 rounded-2xl blur-lg opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
@@ -297,9 +297,9 @@ const SolarHeroSection = () => {
                 </svg>
               </div>
               
-              <div className="text-4xl md:text-5xl font-black text-red-400 mb-3 leading-none">24/7</div>
-              <div className="text-xl text-gray-200 font-medium">Support & Service</div>
-              <div className="text-sm text-gray-400 mt-2">Emergency repairs & maintenance</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl font-black text-red-400 mb-2 sm:mb-3 leading-none">24/7</div>
+              <div className="text-lg sm:text-xl text-gray-200 font-medium">Support & Service</div>
+              <div className="text-xs sm:text-sm text-gray-400 mt-2">Emergency repairs & maintenance</div>
             </div>
           </motion.div>
         </motion.div>

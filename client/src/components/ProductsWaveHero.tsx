@@ -14,6 +14,13 @@ interface SolarWaveBackgroundProps {
 
 const SolarWaveBackground: React.FC<SolarWaveBackgroundProps> = ({ className = "" }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const waveDataRef = useRef<Array<{
+    amplitude: number;
+    frequency: number;
+    speed: number;
+    offset: number;
+  }>>([]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -30,10 +37,16 @@ const SolarWaveBackground: React.FC<SolarWaveBackgroundProps> = ({ className = "
       canvas.height = window.innerHeight;
     };
 
-    resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+      resizeCanvas();
+    };
 
-    const waveData = Array.from({ length: 12 }).map(() => ({
+    resizeCanvas();
+    window.addEventListener("resize", handleResize, { passive: true });
+
+    const waveCount = isMobile ? 6 : 12;
+    waveDataRef.current = Array.from({ length: waveCount }).map(() => ({
       amplitude: Math.random() * 0.3 + 0.2,
       frequency: Math.random() * 3 + 2,
       speed: Math.random() * 0.02 + 0.01,
@@ -44,7 +57,7 @@ const SolarWaveBackground: React.FC<SolarWaveBackgroundProps> = ({ className = "
       ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      waveData.forEach((wave, index) => {
+      waveDataRef.current.forEach((wave, index) => {
         ctx.beginPath();
         
         for (let x = 0; x < canvas.width; x += 2) {
@@ -66,7 +79,7 @@ const SolarWaveBackground: React.FC<SolarWaveBackgroundProps> = ({ className = "
         const hue = 30 + index * 10;
         const saturation = 100;
         const lightness = 50 + index * 2;
-        const alpha = 0.3 + (index / waveData.length) * 0.4;
+        const alpha = 0.3 + (index / waveDataRef.current.length) * 0.4;
 
         ctx.strokeStyle = `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha})`;
         ctx.lineWidth = 2 + index * 0.3;
@@ -82,10 +95,10 @@ const SolarWaveBackground: React.FC<SolarWaveBackgroundProps> = ({ className = "
     draw();
 
     return () => {
-      window.removeEventListener("resize", resizeCanvas);
+      window.removeEventListener("resize", handleResize);
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [isMobile]);
 
   return <canvas ref={canvasRef} className={`fixed inset-0 pointer-events-none ${className}`} />;
 };
@@ -96,6 +109,16 @@ const SolarWaveBackground: React.FC<SolarWaveBackgroundProps> = ({ className = "
 
 const ElectricParticles: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const particlesRef = useRef<Array<{
+    x: number;
+    y: number;
+    vx: number;
+    vy: number;
+    life: number;
+    maxLife: number;
+    hue: number;
+  }>>([]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -111,21 +134,16 @@ const ElectricParticles: React.FC = () => {
       canvas.height = window.innerHeight;
     };
 
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+      resizeCanvas();
+    };
+
     resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
+    window.addEventListener("resize", handleResize, { passive: true });
 
-    interface Particle {
-      x: number;
-      y: number;
-      vx: number;
-      vy: number;
-      life: number;
-      maxLife: number;
-      hue: number;
-    }
-
-    const particles: Particle[] = [];
-    const maxParticles = 100;
+    const maxParticles = isMobile ? 40 : 100;
+    particlesRef.current = [];
 
     const createParticle = () => {
       return {
@@ -140,14 +158,14 @@ const ElectricParticles: React.FC = () => {
     };
 
     for (let i = 0; i < maxParticles; i++) {
-      particles.push(createParticle());
+      particlesRef.current.push(createParticle());
     }
 
     const animate = () => {
       ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      particles.forEach((particle, index) => {
+      particlesRef.current.forEach((particle, index) => {
         particle.x += particle.vx;
         particle.y += particle.vy;
         particle.life++;
@@ -159,7 +177,7 @@ const ElectricParticles: React.FC = () => {
           particle.y < 0 ||
           particle.y > canvas.height
         ) {
-          particles[index] = createParticle();
+          particlesRef.current[index] = createParticle();
           return;
         }
 
@@ -178,10 +196,10 @@ const ElectricParticles: React.FC = () => {
     animate();
 
     return () => {
-      window.removeEventListener("resize", resizeCanvas);
+      window.removeEventListener("resize", handleResize);
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [isMobile]);
 
   return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none" />;
 };

@@ -58,9 +58,9 @@ function Waves({
         setSize()
         setLines()
 
-        window.addEventListener('resize', onResize)
-        window.addEventListener('mousemove', onMouseMove)
-        containerRef.current.addEventListener('touchmove', onTouchMove, { passive: false })
+        window.addEventListener('resize', onResize, { passive: true })
+        window.addEventListener('mousemove', onMouseMove, { passive: true })
+        containerRef.current.addEventListener('touchmove', onTouchMove, { passive: true })
 
         rafRef.current = requestAnimationFrame(tick)
 
@@ -332,10 +332,17 @@ const RepairsWaveHero: React.FC<RepairsWaveHeroProps> = ({
     const [scrollY, setScrollY] = useState(0)
 
     useEffect(() => {
+        let ticking = false
         const handleScroll = () => {
-            setScrollY(window.scrollY)
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    setScrollY(window.scrollY)
+                    ticking = false
+                })
+                ticking = true
+            }
         }
-        window.addEventListener('scroll', handleScroll)
+        window.addEventListener('scroll', handleScroll, { passive: true })
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
@@ -438,15 +445,15 @@ const RepairsWaveHero: React.FC<RepairsWaveHeroProps> = ({
 
                             {/* Stats */}
                             <motion.div 
-                                className="grid grid-cols-3 gap-8 max-w-4xl mx-auto"
+                                className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 max-w-4xl mx-auto px-4"
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.9, duration: 0.8 }}
                             >
                                 {stats.map((stat, index) => (
-                                    <div key={index} className="text-center">
-                                        <div className="text-3xl md:text-4xl font-bold text-yellow-400 mb-2">{stat.value}</div>
-                                        <div className="text-sm md:text-base text-gray-400">{stat.label}</div>
+                                    <div key={index} className="text-center p-4 sm:p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-yellow-500/20">
+                                        <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-yellow-400 mb-2">{stat.value}</div>
+                                        <div className="text-xs sm:text-sm md:text-base text-gray-400">{stat.label}</div>
                                     </div>
                                 ))}
                             </motion.div>

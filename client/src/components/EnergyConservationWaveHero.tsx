@@ -159,7 +159,19 @@ const AnimatedWaveBackground: React.FC = () => {
 
 // Floating Particles Component
 const FloatingParticles: React.FC = () => {
-  const particles = Array.from({ length: 20 });
+  const [isMobile, setIsMobile] = React.useState(typeof window !== 'undefined' && window.innerWidth < 768);
+  
+  React.useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    window.addEventListener('resize', handleResize, { passive: true });
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
+  const particleCount = isMobile ? 10 : 20;
+  const particles = Array.from({ length: particleCount });
   
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -258,7 +270,7 @@ const EnergyConservationWaveHero: React.FC<EnergyConservationWaveHeroProps> = ({
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mb-6 max-w-5xl text-6xl font-bold leading-tight md:text-7xl lg:text-8xl"
+          className="mb-6 max-w-5xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight"
         >
           The Future of{" "}
           <span 
@@ -303,7 +315,7 @@ const EnergyConservationWaveHero: React.FC<EnergyConservationWaveHeroProps> = ({
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
-          className="mt-20 grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-12"
+          className="mt-20 grid grid-cols-1 gap-8 sm:grid-cols-3"
         >
           {stats.map((stat, index) => (
             <div
