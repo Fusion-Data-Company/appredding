@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Settings, Sparkles, Shield, CheckCircle, Calendar, Phone, TrendingUp, Eye, Droplets, BarChart3 as BarChart, Activity, Zap, AlertTriangle, ClipboardCheck, FileText, TestTube, Gauge, ThermometerSun, Cable, Battery, Users, Mail, MapPin, MessageSquare, Clock, Timer, Search, Tool, Package, Truck, Heart, Award, Star, ChevronRight, ArrowRight, Info, Database, Lock, Filter, Layers, Grid, Box, Hexagon, Circle, Square, Triangle, Bell, Building2, Home, Car, Smartphone, Laptop, Server, HardDrive, Wifi, Radio, Microscope, Scale, BookOpen, GraduationCap, Globe, Navigation, Compass, Target, Crosshair, Flame, Wind, Cloud, CloudRain, Power, Leaf, Component, Cpu, Wrench, DollarSign, FileCheck, Sun, Snowflake, Camera, Clipboard, BadgeCheck, FileSearch, AlertCircle, TrendingDown, Lightbulb, Banknote, Receipt, CreditCard, PiggyBank, Wallet, HandshakeIcon, UserCheck, ShieldCheck, FileWarning, ScrollText, ClipboardList, FileBarChart, Presentation, BrainCircuit, Workflow, GitBranch, Network, Boxes, Package2, PackageCheck, AlertOctagon } from "lucide-react";
 import { motion } from "framer-motion";
 import MaintenanceWaveHero from "@/components/MaintenanceWaveHero";
+import MainLayout from "@/components/layout/MainLayout";
 
 const Maintenance = () => {
   const [activeTab, setActiveTab] = useState("preventive");
