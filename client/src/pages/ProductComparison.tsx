@@ -560,7 +560,11 @@ const ProductComparison = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="bg-gradient-to-br from-white/95 via-white/90 to-amber-50/95 backdrop-blur-xl rounded-3xl p-10 md:p-14 shadow-2xl border border-amber-200/50">
+            <div className="relative overflow-hidden bg-gradient-to-br from-amber-700 via-orange-700 to-amber-800 backdrop-blur-xl rounded-3xl p-10 md:p-14 shadow-2xl shadow-amber-900/50 border-2 border-amber-500/30">
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-600/20 via-transparent to-orange-600/20 opacity-50" />
+              <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl" />
+              <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl" />
+              <div className="relative z-10">
               <motion.div 
                 className="flex justify-center mb-6"
                 initial={{ scale: 0.8, opacity: 0 }}
@@ -568,12 +572,13 @@ const ProductComparison = () => {
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
                 <motion.div 
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg"
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-gray-900 px-6 py-2.5 rounded-full text-sm font-bold shadow-2xl shadow-amber-400/60 border-2 border-amber-300/50"
+                  style={{ textShadow: '0 1px 2px rgba(0,0,0,0.1)' }}
                   animate={{ 
                     boxShadow: [
-                      "0 10px 25px rgba(245, 158, 11, 0.3)",
-                      "0 10px 35px rgba(245, 158, 11, 0.5)",
-                      "0 10px 25px rgba(245, 158, 11, 0.3)"
+                      "0 10px 40px rgba(251, 191, 36, 0.6), 0 0 20px rgba(251, 191, 36, 0.3)",
+                      "0 15px 50px rgba(251, 191, 36, 0.8), 0 0 30px rgba(251, 191, 36, 0.5)",
+                      "0 10px 40px rgba(251, 191, 36, 0.6), 0 0 20px rgba(251, 191, 36, 0.3)"
                     ]
                   }}
                   transition={{ duration: 2, repeat: Infinity }}
@@ -582,14 +587,17 @@ const ProductComparison = () => {
                     animate={{ rotate: [0, 360] }}
                     transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
                   >
-                    <Sparkles className="h-4 w-4" />
+                    <Sparkles className="h-4 w-4 fill-amber-600 text-amber-600" />
                   </motion.div>
                   Industry-Leading Comparison Tool
                 </motion.div>
               </motion.div>
               
               <motion.h1 
-                className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-center bg-gradient-to-r from-amber-600 via-orange-600 to-amber-700 bg-clip-text text-transparent leading-tight"
+                className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 text-center text-white leading-tight"
+                style={{ 
+                  textShadow: '0 0 40px rgba(251, 191, 36, 0.6), 0 0 20px rgba(251, 191, 36, 0.4), 0 4px 8px rgba(0, 0, 0, 0.3)' 
+                }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
@@ -598,7 +606,8 @@ const ProductComparison = () => {
               </motion.h1>
               
               <motion.p 
-                className="text-xl md:text-2xl text-gray-700 text-center mb-8 leading-relaxed"
+                className="text-xl md:text-2xl text-amber-50 text-center mb-8 leading-relaxed font-medium"
+                style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)' }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
@@ -619,27 +628,39 @@ const ProductComparison = () => {
                 ].map((stat, index) => (
                   <motion.div
                     key={stat.label}
-                    className="text-center p-4 bg-gradient-to-br from-amber-100/80 to-orange-100/80 rounded-xl backdrop-blur"
+                    className="relative overflow-hidden text-center p-6 bg-gradient-to-br from-amber-600 via-orange-600 to-amber-700 rounded-xl backdrop-blur border-2 border-amber-400/40 shadow-2xl shadow-amber-900/40"
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
                     whileHover={{ 
                       scale: 1.05,
-                      boxShadow: "0 10px 30px rgba(245, 158, 11, 0.3)"
+                      boxShadow: "0 20px 50px rgba(251, 191, 36, 0.5), 0 0 30px rgba(251, 191, 36, 0.3)"
                     }}
                   >
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-50" />
                     <motion.div 
-                      className="text-3xl font-bold text-amber-700 mb-1"
+                      className="absolute top-0 right-0 w-20 h-20 bg-amber-300/20 rounded-full blur-2xl"
+                      animate={{ 
+                        scale: [1, 1.2, 1],
+                        opacity: [0.3, 0.6, 0.3]
+                      }}
+                      transition={{ duration: 3, repeat: Infinity, delay: index * 0.3 }}
+                    />
+                    <motion.div 
+                      className="relative text-4xl md:text-5xl font-black text-white mb-2"
+                      style={{ textShadow: '0 0 20px rgba(251, 191, 36, 0.8), 0 2px 4px rgba(0, 0, 0, 0.4)' }}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ duration: 0.8, delay: 0.8 + index * 0.1 }}
                     >
                       {stat.value}
                     </motion.div>
-                    <div className="text-sm text-gray-700 font-semibold">{stat.label}</div>
+                    <div className="relative text-sm text-amber-100 font-bold uppercase tracking-wider" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)' }}>{stat.label}</div>
                   </motion.div>
                 ))}
               </motion.div>
+              </div>
+            </div>
             </div>
           </motion.div>
           
