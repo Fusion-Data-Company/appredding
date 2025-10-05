@@ -369,7 +369,7 @@ const RepairsWaveHero: React.FC<RepairsWaveHeroProps> = ({
             {/* Content */}
             <div className="relative z-[2] min-h-screen flex flex-col">
                 {/* Hero Content */}
-                <div className="flex-1 flex items-center justify-center px-4 pt-24 pb-16">
+                <div className="flex-1 flex items-start justify-center px-4 pt-24 md:pt-32 pb-16">
                     <div className="container mx-auto max-w-6xl">
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
@@ -393,7 +393,7 @@ const RepairsWaveHero: React.FC<RepairsWaveHeroProps> = ({
                             </motion.div>
 
                             {/* Icon Group */}
-                            <motion.div 
+                            <motion.div
                                 className="flex items-center justify-center space-x-4 mb-8"
                                 initial={{ opacity: 0, scale: 0.8 }}
                                 animate={{ opacity: 1, scale: 1 }}
@@ -405,33 +405,17 @@ const RepairsWaveHero: React.FC<RepairsWaveHeroProps> = ({
                             </motion.div>
 
                             {/* Main Heading */}
-                            <motion.h1 
+                            <motion.h1
                                 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.3, duration: 0.8 }}
                             >
-                                <span 
-                                    className="drop-shadow-2xl font-extrabold"
-                                    style={{
-                                        background: 'linear-gradient(to right, #fbbf24, #fb923c, #fbbf24)',
-                                        WebkitBackgroundClip: 'text',
-                                        WebkitTextFillColor: 'transparent',
-                                        backgroundClip: 'text'
-                                    }}
-                                >
+                                <span className="gradient-bright-fire font-extrabold">
                                     Solar System Repairs
                                 </span>
                                 <br />
-                                <span 
-                                    className="font-extrabold tracking-wide"
-                                    style={{
-                                        background: 'linear-gradient(to right, #ffffff, #fef3c7, #ffffff)',
-                                        WebkitBackgroundClip: 'text',
-                                        WebkitTextFillColor: 'transparent',
-                                        backgroundClip: 'text'
-                                    }}
-                                >
+                                <span className="gradient-bright-white font-extrabold tracking-wide">
                                     Advance Power Redding
                                 </span>
                             </motion.h1>

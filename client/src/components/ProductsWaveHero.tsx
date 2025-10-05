@@ -287,8 +287,8 @@ const ProductsWaveHero: React.FC<ProductsWaveHeroProps> = ({
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/80 pointer-events-none" />
 
       {/* Hero Content */}
-      <div className="relative z-10 flex min-h-screen items-center">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 py-20">
+      <div className="relative z-10 flex min-h-screen items-start pt-24 md:pt-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -307,7 +307,7 @@ const ProductsWaveHero: React.FC<ProductsWaveHeroProps> = ({
               className="mb-6 text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl"
             >
               <span className="gradient-bright-white font-extrabold">
-                Advance Power 
+                Advance Power
               </span>
               <span className="gradient-bright-purple text-5xl sm:text-6xl lg:text-7xl font-bold">
                 Solar Products

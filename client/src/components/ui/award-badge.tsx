@@ -20,7 +20,7 @@ const maxScale = 1;
 const minScale = 0.97;
 
 const backgroundColor: Record<AwardBadgeType, string[]> = {
-  "customer-service-excellence": ["#f3e3ac", "#ddd", "#f1cfa6"],
+  "customer-service-excellence": ["#FF6B35", "#FF8555", "#FF9575"],
   "golden-kitty": ["#f3e3ac", "#ddd", "#f1cfa6"],
   "product-of-the-day": ["#f3e3ac", "#ddd", "#f1cfa6"],
   "product-of-the-month": ["#f3e3ac", "#ddd", "#f1cfa6"],
@@ -28,7 +28,7 @@ const backgroundColor: Record<AwardBadgeType, string[]> = {
 };
 
 const title: Record<AwardBadgeType, string> = {
-  "customer-service-excellence": "Service Excellence",
+  "customer-service-excellence": "5-Star Service",
   "golden-kitty": "Golden Kitty Awards",
   "product-of-the-day": "Product of the Day",
   "product-of-the-month": "Product of the Month",
@@ -36,7 +36,7 @@ const title: Record<AwardBadgeType, string> = {
 };
 
 const subtitle: Record<AwardBadgeType, string> = {
-  "customer-service-excellence": "ADVANCE POWER",
+  "customer-service-excellence": "CERTIFIED EXCELLENCE",
   "golden-kitty": "PRODUCT HUNT",
   "product-of-the-day": "PRODUCT HUNT",
   "product-of-the-month": "PRODUCT HUNT",
@@ -213,7 +213,7 @@ export const AwardBadge = ({ type, place, link }: AwardBadgeProps) => {
       href={link || "#"}
       target={link ? "_blank" : undefined}
       rel={link ? "noopener noreferrer" : undefined}
-      className="block w-[180px] sm:w-[260px] h-auto cursor-pointer"
+      className="block w-[200px] sm:w-[280px] h-auto cursor-pointer"
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
       onMouseEnter={onMouseEnter}
@@ -229,27 +229,28 @@ export const AwardBadge = ({ type, place, link }: AwardBadgeProps) => {
           transition: "transform 200ms ease-out"
         }}
       >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 54" className="w-[180px] sm:w-[260px] h-auto">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 64" className="w-[200px] sm:w-[280px] h-auto drop-shadow-2xl">
           <defs>
             <filter id={`blur1-${type}`}>
               <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
             </filter>
+            <linearGradient id={`badgeGradient-${type}`} x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style={{ stopColor: badgeColor, stopOpacity: 1 }} />
+              <stop offset="100%" style={{ stopColor: badgeColor, stopOpacity: 0.85 }} />
+            </linearGradient>
             <mask id={`badgeMask-${type}`}>
-              <rect width="260" height="54" fill="white" rx="10" />
+              <rect width="280" height="64" fill="white" rx="12" />
             </mask>
           </defs>
-          <rect width="260" height="54" rx="10" fill={badgeColor} />
-          <rect x="4" y="4" width="252" height="46" rx="8" fill="transparent" stroke="#bbb" strokeWidth="1" />
-          <text fontFamily="Helvetica-Bold, Helvetica" fontSize="9" fontWeight="bold" fill="#666" x="53" y="20">
-            {subtitle[type]}
-          </text>
-          <text fontFamily="Helvetica-Bold, Helvetica" fontSize="16" fontWeight="bold" fill="#666" x="52" y="40">
-            {title[type]}{place && ` #${place}`}
-          </text>
+          
+          <rect width="280" height="64" rx="12" fill={`url(#badgeGradient-${type})`} />
+          <rect x="3" y="3" width="274" height="58" rx="10" fill="transparent" stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
+          
           {type === "customer-service-excellence" ? (
-            <g transform="translate(8, 9)">
-              <path fill="#666" d="M18 2C9.163 2 2 9.163 2 18s7.163 16 16 16 16-7.163 16-16S26.837 2 18 2zm0 28c-6.627 0-12-5.373-12-12S11.373 6 18 6s12 5.373 12 12-5.373 12-12 12zm-1-17h2v10h-2zm0 12h2v2h-2z"/>
-              <path fill="#666" d="M18 10l2.598 5.264 5.809.846-4.204 4.096.992 5.784L18 23.264 12.805 26l.992-5.784-4.204-4.096 5.809-.846z"/>
+            <g transform="translate(12, 12)">
+              <circle cx="20" cy="20" r="19" fill="white" opacity="0.95"/>
+              <path fill="#FF6B35" stroke="#FF6B35" strokeWidth="1.5" d="M20 8 L23.09 17.26 L33 18.27 L26.5 24.24 L28.18 34 L20 29.27 L11.82 34 L13.5 24.24 L7 18.27 L16.91 17.26 Z"/>
+              <path fill="none" stroke="#1a2332" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" d="M20 5 L20 2 M32 8 L34 6 M38 20 L41 20 M32 32 L34 34 M20 35 L20 38 M8 32 L6 34 M2 20 L-1 20 M8 8 L6 6"/>
             </g>
           ) : (
             <g transform="translate(8, 9)">
@@ -257,6 +258,15 @@ export const AwardBadge = ({ type, place, link }: AwardBadgeProps) => {
                     d="M14.963 9.075c.787-3-.188-5.887-.188-5.887S12.488 5.175 11.7 8.175c-.787 3 .188 5.887.188 5.887s2.25-1.987 3.075-4.987m-4.5 1.987c.787 3-.188 5.888-.188 5.888S7.988 14.962 7.2 11.962c-.787-3 .188-5.887.188-5.887s2.287 1.987 3.075 4.987m.862 10.388s-.6-2.962-2.775-5.175C6.337 14.1 3.375 13.5 3.375 13.5s.6 2.962 2.775 5.175c2.213 2.175 5.175 2.775 5.175 2.775m3.3 3.413s-1.988-2.288-4.988-3.075-5.887.187-5.887.187 1.987 2.287 4.988 3.075c3 .787 5.887-.188 5.887-.188Zm6.75 0s1.988-2.288 4.988-3.075c3-.826 5.887.187 5.887.187s-1.988 2.287-4.988 3.075c-3 .787-5.887-.188-5.887-.188ZM32.625 13.5s-2.963.6-5.175 2.775c-2.213 2.213-2.775 5.175-2.775 5.175s2.962-.6 5.175-2.775c2.175-2.213 2.775-5.175 2.775-5.175M28.65 6.075s.975 2.887.188 5.887c-.826 3-3.076 4.988-3.076 4.988s-.974-2.888-.187-5.888c.788-3 3.075-4.987 3.075-4.987m-4.5 7.987s.975-2.887.188-5.887c-.788-3-3.076-4.988-3.076-4.988s-.974 2.888-.187 5.888c.788 3 3.075 4.988 3.075 4.988ZM18 26.1c.975-.225 3.113-.6 5.325 0 3 .788 5.063 3.038 5.063 3.038s-2.888.975-5.888.187a13 13 0 0 1-1.425-.525c.563.788 1.125 1.425 2.288 1.913l-.863 2.062c-2.063-.862-2.925-2.137-3.675-3.262-.262-.375-.525-.713-.787-1.05-.26.293-.465.586-.686.903l-.102.147-.048.068c-.775 1.108-1.643 2.35-3.627 3.194l-.862-2.062c1.162-.488 1.725-1.125 2.287-1.913-.45.225-.938.375-1.425.525-3 .788-5.887-.187-5.887-.187s1.987-2.288 4.987-3.075c2.212-.563 4.35-.188 5.325.037" />
             </g>
           )}
+          
+          <text fontFamily="Arial, Helvetica, sans-serif" fontSize="11" fontWeight="900" letterSpacing="1.5" fill="white" x="65" y="26">
+            {subtitle[type]}
+          </text>
+          
+          <text fontFamily="Arial, Helvetica, sans-serif" fontSize="22" fontWeight="900" fill="white" x="64" y="50">
+            {title[type]}{place && ` #${place}`}
+          </text>
+          
           <g style={{ mixBlendMode: "overlay" }} mask={`url(#badgeMask-${type})`}>
             <g style={{
               transform: `rotate(${firstOverlayPosition}deg)`,
@@ -265,7 +275,7 @@ export const AwardBadge = ({ type, place, link }: AwardBadgeProps) => {
               animation: disableOverlayAnimation ? "none" : "overlayAnimation1 5s infinite",
               willChange: "transform"
             }}>
-              <polygon points="0,0 260,54 260,0 0,54" fill="hsl(358, 100%, 62%)" filter={`url(#blur1-${type})`} opacity="0.5" />
+              <polygon points="0,0 280,64 280,0 0,64" fill="hsl(358, 100%, 62%)" filter={`url(#blur1-${type})`} opacity="0.5" />
             </g>
             <g style={{
               transform: `rotate(${firstOverlayPosition + 10}deg)`,
@@ -274,7 +284,7 @@ export const AwardBadge = ({ type, place, link }: AwardBadgeProps) => {
               animation: disableOverlayAnimation ? "none" : "overlayAnimation2 5s infinite",
               willChange: "transform"
             }}>
-              <polygon points="0,0 260,54 260,0 0,54" fill="hsl(30, 100%, 50%)" filter={`url(#blur1-${type})`} opacity="0.5" />
+              <polygon points="0,0 280,64 280,0 0,64" fill="hsl(30, 100%, 50%)" filter={`url(#blur1-${type})`} opacity="0.5" />
             </g>
             <g style={{
               transform: `rotate(${firstOverlayPosition + 20}deg)`,
@@ -283,7 +293,7 @@ export const AwardBadge = ({ type, place, link }: AwardBadgeProps) => {
               animation: disableOverlayAnimation ? "none" : "overlayAnimation3 5s infinite",
               willChange: "transform"
             }}>
-              <polygon points="0,0 260,54 260,0 0,54" fill="hsl(60, 100%, 50%)" filter={`url(#blur1-${type})`} opacity="0.5" />
+              <polygon points="0,0 280,64 280,0 0,64" fill="hsl(60, 100%, 50%)" filter={`url(#blur1-${type})`} opacity="0.5" />
             </g>
             <g style={{
               transform: `rotate(${firstOverlayPosition + 30}deg)`,
@@ -292,7 +302,7 @@ export const AwardBadge = ({ type, place, link }: AwardBadgeProps) => {
               animation: disableOverlayAnimation ? "none" : "overlayAnimation4 5s infinite",
               willChange: "transform"
             }}>
-              <polygon points="0,0 260,54 260,0 0,54" fill="hsl(96, 100%, 50%)" filter={`url(#blur1-${type})`} opacity="0.5" />
+              <polygon points="0,0 280,64 280,0 0,64" fill="hsl(96, 100%, 50%)" filter={`url(#blur1-${type})`} opacity="0.5" />
             </g>
             <g style={{
               transform: `rotate(${firstOverlayPosition + 40}deg)`,
@@ -301,7 +311,7 @@ export const AwardBadge = ({ type, place, link }: AwardBadgeProps) => {
               animation: disableOverlayAnimation ? "none" : "overlayAnimation5 5s infinite",
               willChange: "transform"
             }}>
-              <polygon points="0,0 260,54 260,0 0,54" fill="hsl(233, 85%, 47%)" filter={`url(#blur1-${type})`} opacity="0.5" />
+              <polygon points="0,0 280,64 280,0 0,64" fill="hsl(233, 85%, 47%)" filter={`url(#blur1-${type})`} opacity="0.5" />
             </g>
             <g style={{
               transform: `rotate(${firstOverlayPosition + 50}deg)`,
@@ -310,7 +320,7 @@ export const AwardBadge = ({ type, place, link }: AwardBadgeProps) => {
               animation: disableOverlayAnimation ? "none" : "overlayAnimation6 5s infinite",
               willChange: "transform"
             }}>
-              <polygon points="0,0 260,54 260,0 0,54" fill="hsl(271, 85%, 47%)" filter={`url(#blur1-${type})`} opacity="0.5" />
+              <polygon points="0,0 280,64 280,0 0,64" fill="hsl(271, 85%, 47%)" filter={`url(#blur1-${type})`} opacity="0.5" />
             </g>
             <g style={{
               transform: `rotate(${firstOverlayPosition + 60}deg)`,
@@ -319,7 +329,7 @@ export const AwardBadge = ({ type, place, link }: AwardBadgeProps) => {
               animation: disableOverlayAnimation ? "none" : "overlayAnimation7 5s infinite",
               willChange: "transform"
             }}>
-              <polygon points="0,0 260,54 260,0 0,54" fill="hsl(300, 20%, 35%)" filter={`url(#blur1-${type})`} opacity="0.5" />
+              <polygon points="0,0 280,64 280,0 0,64" fill="hsl(300, 20%, 35%)" filter={`url(#blur1-${type})`} opacity="0.5" />
             </g>
             <g style={{
               transform: `rotate(${firstOverlayPosition + 70}deg)`,
@@ -328,7 +338,7 @@ export const AwardBadge = ({ type, place, link }: AwardBadgeProps) => {
               animation: disableOverlayAnimation ? "none" : "overlayAnimation8 5s infinite",
               willChange: "transform"
             }}>
-              <polygon points="0,0 260,54 260,0 0,54" fill="transparent" filter={`url(#blur1-${type})`} opacity="0.5" />
+              <polygon points="0,0 280,64 280,0 0,64" fill="transparent" filter={`url(#blur1-${type})`} opacity="0.5" />
             </g>
             <g style={{
               transform: `rotate(${firstOverlayPosition + 80}deg)`,
@@ -337,7 +347,7 @@ export const AwardBadge = ({ type, place, link }: AwardBadgeProps) => {
               animation: disableOverlayAnimation ? "none" : "overlayAnimation9 5s infinite",
               willChange: "transform"
             }}>
-              <polygon points="0,0 260,54 260,0 0,54" fill="transparent" filter={`url(#blur1-${type})`} opacity="0.5" />
+              <polygon points="0,0 280,64 280,0 0,64" fill="transparent" filter={`url(#blur1-${type})`} opacity="0.5" />
             </g>
             <g style={{
               transform: `rotate(${firstOverlayPosition + 90}deg)`,
@@ -346,7 +356,7 @@ export const AwardBadge = ({ type, place, link }: AwardBadgeProps) => {
               animation: disableOverlayAnimation ? "none" : "overlayAnimation10 5s infinite",
               willChange: "transform"
             }}>
-              <polygon points="0,0 260,54 260,0 0,54" fill="white" filter={`url(#blur1-${type})`} opacity="0.5" />
+              <polygon points="0,0 280,64 280,0 0,64" fill="white" filter={`url(#blur1-${type})`} opacity="0.5" />
             </g>
           </g>
         </svg>
