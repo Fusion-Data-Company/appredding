@@ -264,9 +264,19 @@ const EnergyConservationWaveHero: React.FC<EnergyConservationWaveHeroProps> = ({
           transition={{ duration: 0.8, delay: 0.2 }}
           className="badge-elite-metallic badge-energy mx-auto"
         >
-          <Leaf className="h-5 w-5 text-green-400" />
+          <motion.div
+            animate={{ rotate: [0, 360] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+          >
+            <Leaf className="h-5 w-5 text-green-400" />
+          </motion.div>
           <span>{tagline}</span>
-          <ThermometerSun className="h-5 w-5 text-blue-400" />
+          <motion.div
+            animate={{ rotate: [0, 360] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "linear", delay: 1.5 }}
+          >
+            <ThermometerSun className="h-5 w-5 text-blue-400" />
+          </motion.div>
         </motion.div>
 
         {/* Main Heading */}
@@ -278,7 +288,7 @@ const EnergyConservationWaveHero: React.FC<EnergyConservationWaveHeroProps> = ({
         >
           The Future of{" "}
           <span
-            className="font-extrabold"
+            className="font-extrabold preserve-text-color"
             style={{
               background: 'linear-gradient(to right, #34d399, #10b981, #84cc16)',
               WebkitBackgroundClip: 'text',
@@ -292,7 +302,7 @@ const EnergyConservationWaveHero: React.FC<EnergyConservationWaveHeroProps> = ({
           <br />
           Meets{" "}
           <span
-            className="font-extrabold"
+            className="font-extrabold preserve-text-color"
             style={{
               background: 'linear-gradient(to right, #22d3ee, #06b6d4, #0ea5e9)',
               WebkitBackgroundClip: 'text',

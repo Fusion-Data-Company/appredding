@@ -230,7 +230,12 @@ const HybridSolarWaveHero: React.FC = () => {
               className="text-center mb-8"
             >
               <div className="badge-elite-metallic badge-solar">
-                <Battery className="w-4 h-4 text-orange-400" />
+                <motion.div
+                  animate={{ rotate: [0, 360] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                >
+                  <Battery className="w-4 h-4 text-orange-400" />
+                </motion.div>
                 <span>Next-Gen Energy Solutions</span>
               </div>
             </motion.div>
@@ -242,7 +247,7 @@ const HybridSolarWaveHero: React.FC = () => {
               className="text-5xl md:text-7xl lg:text-8xl font-bold text-center mb-6 leading-tight"
             >
               <span
-                className="font-extrabold"
+                className="font-extrabold preserve-text-color"
                 style={{
                   background: 'linear-gradient(to right, #fde047, #facc15, #fef08a)',
                   WebkitBackgroundClip: 'text',
@@ -255,7 +260,7 @@ const HybridSolarWaveHero: React.FC = () => {
               </span>
               <br />
               <span
-                className="font-extrabold"
+                className="font-extrabold preserve-text-color"
                 style={{
                   color: '#ffffff',
                   textShadow: '0 0 30px rgba(255, 255, 255, 1), 0 0 60px rgba(255, 255, 255, 0.6)',

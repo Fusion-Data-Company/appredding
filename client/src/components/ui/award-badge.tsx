@@ -268,6 +268,45 @@ export const AwardBadge = ({ type, place, link }: AwardBadgeProps) => {
           <rect x="2" y="2" width="276" height="60" rx="11" fill="transparent" stroke="#6B7280" strokeWidth="2" />
           <rect x="5" y="5" width="270" height="54" rx="9" fill="transparent" stroke="rgba(255,107,53,0.3)" strokeWidth="1" />
           
+          <g style={{ mixBlendMode: "overlay" }} mask={`url(#badgeMask-${type})`}>
+            <g style={{
+              transform: `rotate(${firstOverlayPosition}deg)`,
+              transformOrigin: "center center",
+              transition: !disableInOutOverlayAnimation ? "transform 200ms ease-out" : "none",
+              animation: disableOverlayAnimation ? "none" : "overlayAnimation1 5s infinite",
+              willChange: "transform"
+            }}>
+              <polygon points="0,0 280,64 280,0 0,64" fill="white" filter={`url(#blur1-${type})`} opacity="0.25" />
+            </g>
+            <g style={{
+              transform: `rotate(${firstOverlayPosition + 30}deg)`,
+              transformOrigin: "center center",
+              transition: !disableInOutOverlayAnimation ? "transform 200ms ease-out" : "none",
+              animation: disableOverlayAnimation ? "none" : "overlayAnimation2 5s infinite",
+              willChange: "transform"
+            }}>
+              <polygon points="0,0 280,64 280,0 0,64" fill="hsl(30, 100%, 60%)" filter={`url(#blur1-${type})`} opacity="0.15" />
+            </g>
+            <g style={{
+              transform: `rotate(${firstOverlayPosition + 60}deg)`,
+              transformOrigin: "center center",
+              transition: !disableInOutOverlayAnimation ? "transform 200ms ease-out" : "none",
+              animation: disableOverlayAnimation ? "none" : "overlayAnimation3 5s infinite",
+              willChange: "transform"
+            }}>
+              <polygon points="0,0 280,64 280,0 0,64" fill="hsl(210, 60%, 50%)" filter={`url(#blur1-${type})`} opacity="0.12" />
+            </g>
+            <g style={{
+              transform: `rotate(${firstOverlayPosition + 90}deg)`,
+              transformOrigin: "center center",
+              transition: !disableInOutOverlayAnimation ? "transform 200ms ease-out" : "none",
+              animation: disableOverlayAnimation ? "none" : "overlayAnimation4 5s infinite",
+              willChange: "transform"
+            }}>
+              <polygon points="0,0 280,64 280,0 0,64" fill="white" filter={`url(#blur1-${type})`} opacity="0.3" />
+            </g>
+          </g>
+          
           {type === "customer-service-excellence" ? (
             <g transform="translate(10, 10)">
               <circle cx="22" cy="22" r="22" fill="#FFD700" opacity="0.15" filter={`url(#starGlow-${type})`}/>
@@ -315,45 +354,6 @@ export const AwardBadge = ({ type, place, link }: AwardBadgeProps) => {
           <text fontFamily="Arial, Helvetica, sans-serif" fontSize="18" fontWeight="900" fill="#111827" x="64" y="48" style={{ textShadow: '0 1px 3px rgba(255,255,255,0.6)' }}>
             {title[type]}{place && ` #${place}`}
           </text>
-          
-          <g style={{ mixBlendMode: "overlay" }} mask={`url(#badgeMask-${type})`}>
-            <g style={{
-              transform: `rotate(${firstOverlayPosition}deg)`,
-              transformOrigin: "center center",
-              transition: !disableInOutOverlayAnimation ? "transform 200ms ease-out" : "none",
-              animation: disableOverlayAnimation ? "none" : "overlayAnimation1 5s infinite",
-              willChange: "transform"
-            }}>
-              <polygon points="0,0 280,64 280,0 0,64" fill="white" filter={`url(#blur1-${type})`} opacity="0.25" />
-            </g>
-            <g style={{
-              transform: `rotate(${firstOverlayPosition + 30}deg)`,
-              transformOrigin: "center center",
-              transition: !disableInOutOverlayAnimation ? "transform 200ms ease-out" : "none",
-              animation: disableOverlayAnimation ? "none" : "overlayAnimation2 5s infinite",
-              willChange: "transform"
-            }}>
-              <polygon points="0,0 280,64 280,0 0,64" fill="hsl(30, 100%, 60%)" filter={`url(#blur1-${type})`} opacity="0.15" />
-            </g>
-            <g style={{
-              transform: `rotate(${firstOverlayPosition + 60}deg)`,
-              transformOrigin: "center center",
-              transition: !disableInOutOverlayAnimation ? "transform 200ms ease-out" : "none",
-              animation: disableOverlayAnimation ? "none" : "overlayAnimation3 5s infinite",
-              willChange: "transform"
-            }}>
-              <polygon points="0,0 280,64 280,0 0,64" fill="hsl(210, 60%, 50%)" filter={`url(#blur1-${type})`} opacity="0.12" />
-            </g>
-            <g style={{
-              transform: `rotate(${firstOverlayPosition + 90}deg)`,
-              transformOrigin: "center center",
-              transition: !disableInOutOverlayAnimation ? "transform 200ms ease-out" : "none",
-              animation: disableOverlayAnimation ? "none" : "overlayAnimation4 5s infinite",
-              willChange: "transform"
-            }}>
-              <polygon points="0,0 280,64 280,0 0,64" fill="white" filter={`url(#blur1-${type})`} opacity="0.3" />
-            </g>
-          </g>
         </svg>
       </div>
     </a>

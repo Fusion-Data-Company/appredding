@@ -261,7 +261,12 @@ const CommercialSolarWaveHero: React.FC<CommercialSolarWaveHeroProps> = ({
             transition={{ duration: 0.6 }}
             className="badge-elite-metallic badge-solar"
           >
-            <Battery className="w-4 h-4 text-orange-400" />
+            <motion.div
+              animate={{ rotate: [0, 360] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+            >
+              <Battery className="w-4 h-4 text-orange-400" />
+            </motion.div>
             <span>{tagline}</span>
           </motion.div>
 
@@ -273,7 +278,7 @@ const CommercialSolarWaveHero: React.FC<CommercialSolarWaveHeroProps> = ({
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
           >
             <span
-              className="font-extrabold"
+              className="font-extrabold preserve-text-color"
               style={{
                 background: 'linear-gradient(to right, #06b6d4, #3b82f6, #00d9ff)',
                 WebkitBackgroundClip: 'text',
@@ -286,7 +291,7 @@ const CommercialSolarWaveHero: React.FC<CommercialSolarWaveHeroProps> = ({
             </span>
             <br />
             <span
-              className="font-extrabold tracking-wide"
+              className="font-extrabold tracking-wide preserve-text-color"
               style={{
                 background: 'linear-gradient(to right, #fbbf24, #fb923c, #ef4444)',
                 WebkitBackgroundClip: 'text',

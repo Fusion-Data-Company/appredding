@@ -191,7 +191,12 @@ const MaintenanceWaveHero: React.FC<MaintenanceWaveHeroProps> = ({
             transition={{ duration: 0.6 }}
             className="badge-elite-metallic badge-electric"
           >
-            <Battery className="w-4 h-4 text-blue-400" />
+            <motion.div
+              animate={{ rotate: [0, 360] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+            >
+              <Battery className="w-4 h-4 text-blue-400" />
+            </motion.div>
             <span>{tagline}</span>
           </motion.div>
 
@@ -203,7 +208,7 @@ const MaintenanceWaveHero: React.FC<MaintenanceWaveHeroProps> = ({
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
           >
             <span
-              className="font-extrabold"
+              className="font-extrabold preserve-text-color"
               style={{
                 background: 'linear-gradient(to right, #22d3ee, #06b6d4, #0ea5e9)',
                 WebkitBackgroundClip: 'text',
@@ -216,7 +221,7 @@ const MaintenanceWaveHero: React.FC<MaintenanceWaveHeroProps> = ({
             </span>
             <br />
             <span
-              className="font-extrabold tracking-wide"
+              className="font-extrabold tracking-wide preserve-text-color"
               style={{
                 background: 'linear-gradient(to right, #fbbf24, #fb923c, #ef4444)',
                 WebkitBackgroundClip: 'text',

@@ -387,9 +387,19 @@ const RepairsWaveHero: React.FC<RepairsWaveHeroProps> = ({
                                 transition={{ duration: 0.8, delay: 0.2 }}
                                 className="badge-elite-metallic badge-solar mx-auto"
                             >
-                                <Wrench className="h-5 w-5 text-yellow-400" />
+                                <motion.div
+                                    animate={{ rotate: [0, 360] }}
+                                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                                >
+                                    <Wrench className="h-5 w-5 text-yellow-400" />
+                                </motion.div>
                                 <span>{tagline}</span>
-                                <AlertTriangle className="h-5 w-5 text-orange-400" />
+                                <motion.div
+                                    animate={{ rotate: [0, 360] }}
+                                    transition={{ duration: 3, repeat: Infinity, ease: "linear", delay: 1.5 }}
+                                >
+                                    <AlertTriangle className="h-5 w-5 text-orange-400" />
+                                </motion.div>
                             </motion.div>
 
                             {/* Icon Group */}
@@ -412,7 +422,7 @@ const RepairsWaveHero: React.FC<RepairsWaveHeroProps> = ({
                                 transition={{ delay: 0.3, duration: 0.8 }}
                             >
                                 <span
-                                    className="font-extrabold"
+                                    className="font-extrabold preserve-text-color"
                                     style={{
                                         background: 'linear-gradient(to right, #fbbf24, #fb923c, #f97316)',
                                         WebkitBackgroundClip: 'text',
@@ -425,7 +435,7 @@ const RepairsWaveHero: React.FC<RepairsWaveHeroProps> = ({
                                 </span>
                                 <br />
                                 <span
-                                    className="font-extrabold tracking-wide"
+                                    className="font-extrabold tracking-wide preserve-text-color"
                                     style={{
                                         color: '#ffffff',
                                         textShadow: '0 0 30px rgba(255, 255, 255, 1), 0 0 60px rgba(255, 255, 255, 0.6)',
