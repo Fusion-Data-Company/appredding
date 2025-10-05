@@ -370,11 +370,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, isSelected, onToggle
                   checked={isSelected}
                   onCheckedChange={() => onToggle(product.id)}
                   disabled={isDisabled}
-                  className="border-2 border-amber-400 data-[state=checked]:bg-amber-500 data-[state=checked]:border-amber-500"
+                  className="border-2 border-amber-500 data-[state=checked]:bg-gradient-to-br data-[state=checked]:from-amber-500 data-[state=checked]:to-orange-500 data-[state=checked]:border-amber-500 disabled:opacity-40 disabled:cursor-not-allowed"
                 />
                 <Label 
                   htmlFor={`select-${product.id}`} 
-                  className="text-sm font-semibold text-gray-700 cursor-pointer whitespace-nowrap"
+                  className={`text-sm font-semibold cursor-pointer whitespace-nowrap ${isDisabled ? 'text-gray-400' : 'text-gray-800'}`}
                 >
                   {isSelected ? 'Selected' : 'Compare'}
                 </Label>
@@ -382,7 +382,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, isSelected, onToggle
             </div>
             
             {/* Description */}
-            <p className="text-sm text-gray-700 leading-relaxed mb-4 line-clamp-2">
+            <p className="text-sm text-gray-800 leading-relaxed mb-4 line-clamp-2">
               {product.description}
             </p>
           </div>
@@ -405,7 +405,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, isSelected, onToggle
                   />
                 ))}
               </div>
-              <span className="text-sm font-semibold text-gray-700">
+              <span className="text-sm font-semibold text-gray-800">
                 {product.rating.toFixed(1)}
               </span>
             </div>
@@ -415,7 +415,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, isSelected, onToggle
               <div className="text-2xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
                 ${product.price.value.toLocaleString()}
               </div>
-              <div className="text-xs text-gray-500 font-medium">
+              <div className="text-xs text-gray-600 font-medium">
                 per {product.price.unit}
               </div>
             </div>
@@ -430,13 +430,13 @@ const getSpecIcon = (specName: string) => {
   const iconMap: Record<string, React.ReactNode> = {
     "Continuous Power Output": <Zap className="w-4 h-4 text-amber-600" />,
     "Peak/Surge Power": <TrendingUp className="w-4 h-4 text-amber-600" />,
-    "Max Efficiency": <Gauge className="w-4 h-4 text-green-600" />,
-    "CEC Weighted Efficiency": <Gauge className="w-4 h-4 text-green-600" />,
-    "Warranty": <Shield className="w-4 h-4 text-blue-600" />,
+    "Max Efficiency": <Gauge className="w-4 h-4 text-amber-700" />,
+    "CEC Weighted Efficiency": <Gauge className="w-4 h-4 text-amber-700" />,
+    "Warranty": <Shield className="w-4 h-4 text-amber-600" />,
     "Operating Temperature": <Thermometer className="w-4 h-4 text-orange-600" />,
-    "Battery Type Support": <Battery className="w-4 h-4 text-purple-600" />,
-    "Certifications": <Award className="w-4 h-4 text-indigo-600" />,
-    "Weight": <Package className="w-4 h-4 text-gray-600" />,
+    "Battery Type Support": <Battery className="w-4 h-4 text-amber-600" />,
+    "Certifications": <Award className="w-4 h-4 text-amber-700" />,
+    "Weight": <Package className="w-4 h-4 text-amber-600" />,
   };
   return iconMap[specName] || null;
 };
@@ -455,19 +455,19 @@ const isImportantSpec = (specName: string): boolean => {
 const getValueColor = (specName: string, value: string | number): string => {
   if (specName.includes("Efficiency")) {
     const numValue = parseFloat(value.toString());
-    if (numValue >= 98) return "text-green-700 font-bold";
-    if (numValue >= 97) return "text-green-600 font-semibold";
-    return "text-gray-700";
+    if (numValue >= 98) return "text-amber-700 font-bold";
+    if (numValue >= 97) return "text-amber-600 font-semibold";
+    return "text-gray-800";
   }
   if (specName === "Warranty") {
     const yearMatch = value.toString().match(/(\d+)\s*years?/i);
     if (yearMatch) {
       const years = parseInt(yearMatch[1]);
-      if (years >= 20) return "text-green-700 font-bold";
-      if (years >= 12) return "text-green-600 font-semibold";
+      if (years >= 20) return "text-amber-700 font-bold";
+      if (years >= 12) return "text-amber-600 font-semibold";
     }
   }
-  return "text-gray-700";
+  return "text-gray-800";
 };
 
 const ProductComparison = () => {
@@ -534,24 +534,24 @@ const ProductComparison = () => {
               <div className="grid grid-cols-3 gap-4 md:gap-6">
                 <div className="text-center p-4 bg-gradient-to-br from-amber-100/80 to-orange-100/80 rounded-xl backdrop-blur">
                   <div className="text-3xl font-bold text-amber-700 mb-1">6+</div>
-                  <div className="text-sm text-gray-600 font-medium">Top Brands</div>
+                  <div className="text-sm text-gray-700 font-semibold">Top Brands</div>
                 </div>
                 <div className="text-center p-4 bg-gradient-to-br from-orange-100/80 to-amber-100/80 rounded-xl backdrop-blur">
                   <div className="text-3xl font-bold text-orange-700 mb-1">15+</div>
-                  <div className="text-sm text-gray-600 font-medium">Specs Compared</div>
+                  <div className="text-sm text-gray-700 font-semibold">Specs Compared</div>
                 </div>
                 <div className="text-center p-4 bg-gradient-to-br from-amber-100/80 to-yellow-100/80 rounded-xl backdrop-blur">
                   <div className="text-3xl font-bold text-amber-700 mb-1">100%</div>
-                  <div className="text-sm text-gray-600 font-medium">Unbiased</div>
+                  <div className="text-sm text-gray-700 font-semibold">Unbiased</div>
                 </div>
               </div>
             </div>
           </div>
           
           {/* Rest of the content continues here */}
-          <div className="bg-primary-800 premium-border rounded-xl p-8 mb-10">
-              <h2 className="text-2xl font-bold mb-6">Select Inverters to Compare</h2>
-              <p className="mb-6 text-gray-300">Choose up to 3 inverters to compare their features, specifications, and pricing.</p>
+          <div className="bg-gradient-to-br from-white/95 via-white/90 to-amber-50/95 backdrop-blur-xl rounded-3xl p-8 mb-10 border-2 border-amber-200 shadow-2xl">
+              <h2 className="text-2xl font-bold mb-6 bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Select Inverters to Compare</h2>
+              <p className="mb-6 text-gray-700 font-medium">Choose up to 3 inverters to compare their features, specifications, and pricing.</p>
               
               <PremiumTabs defaultValue="all" onValueChange={setActiveCategory} className="w-full">
                 <PremiumTabsList>
@@ -629,7 +629,7 @@ const ProductComparison = () => {
                   <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                     No Inverters Selected Yet
                   </h3>
-                  <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                  <p className="text-lg text-gray-700 mb-8 leading-relaxed">
                     Select up to 3 inverters from the options above to see a detailed side-by-side comparison of their specifications, features, and pricing.
                   </p>
                   <div className="flex items-center justify-center gap-2 text-sm text-amber-700 font-medium">
@@ -639,7 +639,7 @@ const ProductComparison = () => {
                 </div>
               </div>
             ) : (
-              <div className="bg-gradient-to-br from-white via-cream-50 to-amber-50/30 backdrop-blur-sm rounded-3xl p-8 md:p-12 border-3 border-amber-300 shadow-2xl shadow-amber-500/20">
+              <div className="bg-gradient-to-br from-white via-cream-50 to-amber-50/30 backdrop-blur-sm rounded-3xl p-8 md:p-12 border-2 border-amber-300 shadow-2xl shadow-amber-500/20">
                 {/* Header with Product Count and Clear Button */}
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-10 pb-6 border-b-2 border-amber-200">
                   <div className="flex items-center gap-4">
@@ -653,7 +653,8 @@ const ProductComparison = () => {
                   </div>
                   <Button 
                     onClick={clearComparison}
-                    className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                    variant="outline"
+                    className="border-2 border-gray-300 text-gray-700 hover:bg-gray-100 hover:border-gray-400 font-semibold shadow-md hover:shadow-lg transition-all duration-300"
                     data-testid="button-clear-comparison"
                   >
                     Clear All
@@ -669,7 +670,7 @@ const ProductComparison = () => {
                           {/* Product Images and Names Row */}
                           <tr className="bg-gradient-to-r from-amber-50 to-orange-50">
                             <th className="px-6 py-6 text-left">
-                              <span className="text-sm font-bold text-gray-500 uppercase tracking-wider">
+                              <span className="text-sm font-bold text-gray-700 uppercase tracking-wider">
                                 Specification
                               </span>
                             </th>
@@ -699,13 +700,13 @@ const ProductComparison = () => {
                         </thead>
                         <tbody className="bg-white divide-y divide-amber-100">
                           {/* Category Row */}
-                          <tr className="bg-amber-50/50">
+                          <tr className="bg-amber-50/60">
                             <td className="px-6 py-4 whitespace-nowrap">
                               <span className="text-sm font-bold text-gray-900">Category</span>
                             </td>
                             {comparisonProducts.map(product => (
                               <td key={product.id} className="px-6 py-4 text-center border-l border-amber-100">
-                                <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 capitalize">
+                                <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-gradient-to-r from-amber-100 to-orange-100 text-amber-900 capitalize">
                                   {product.category.replace('-', ' ')}
                                 </span>
                               </td>
@@ -745,7 +746,7 @@ const ProductComparison = () => {
                           {/* Technical Specifications Section Header */}
                           <tr className="bg-gradient-to-r from-amber-100 to-orange-100">
                             <td colSpan={comparisonProducts.length + 1} className="px-6 py-4">
-                              <h3 className="text-lg font-bold text-amber-900 uppercase tracking-wide">
+                              <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wide">
                                 Technical Specifications
                               </h3>
                             </td>
@@ -757,14 +758,14 @@ const ProductComparison = () => {
                               key={spec} 
                               className={`
                                 ${index % 2 === 0 ? 'bg-white' : 'bg-amber-50/30'}
-                                ${isImportantSpec(spec) ? 'ring-2 ring-inset ring-green-200' : ''}
-                                hover:bg-amber-50 transition-colors duration-150
+                                ${isImportantSpec(spec) ? 'ring-2 ring-inset ring-amber-200' : ''}
+                                hover:bg-amber-50/70 transition-colors duration-150
                               `}
                             >
                               <td className="px-6 py-4 whitespace-nowrap">
                                 <div className="flex items-center gap-2">
                                   {getSpecIcon(spec)}
-                                  <span className={`text-sm font-semibold ${isImportantSpec(spec) ? 'text-gray-900' : 'text-gray-700'}`}>
+                                  <span className={`text-sm font-semibold ${isImportantSpec(spec) ? 'text-gray-900' : 'text-gray-800'}`}>
                                     {spec}
                                   </span>
                                 </div>
@@ -784,7 +785,7 @@ const ProductComparison = () => {
                           {/* Application Areas Section Header */}
                           <tr className="bg-gradient-to-r from-amber-100 to-orange-100">
                             <td colSpan={comparisonProducts.length + 1} className="px-6 py-4">
-                              <h3 className="text-lg font-bold text-amber-900 uppercase tracking-wide">
+                              <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wide">
                                 Recommended Applications
                               </h3>
                             </td>
@@ -799,8 +800,8 @@ const ProductComparison = () => {
                               <td key={product.id} className="px-6 py-4 border-l border-amber-100">
                                 <ul className="space-y-2 text-left">
                                   {product.applicationAreas.map((area, areaIndex) => (
-                                    <li key={areaIndex} className="flex items-start gap-2 text-sm text-gray-700">
-                                      <CheckCircle2 className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                                    <li key={areaIndex} className="flex items-start gap-2 text-sm text-gray-800">
+                                      <CheckCircle2 className="w-4 h-4 text-amber-600 mt-0.5 flex-shrink-0" />
                                       <span>{area}</span>
                                     </li>
                                   ))}

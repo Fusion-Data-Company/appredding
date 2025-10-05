@@ -273,13 +273,13 @@ const MaintenanceWaveHero: React.FC<MaintenanceWaveHeroProps> = ({
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mb-6 max-w-5xl text-6xl font-bold leading-tight text-white md:text-7xl lg:text-8xl"
+          className="mb-6 max-w-5xl text-6xl font-bold leading-tight md:text-7xl lg:text-8xl"
         >
-          <span className="bg-gradient-to-r from-yellow-400 via-orange-500 to-yellow-400 bg-clip-text text-transparent">
-            {title}
-          </span>
+          <span className="text-white">Solar System </span>
+          <span className="bg-gradient-to-r from-yellow-400 via-orange-500 to-yellow-400 bg-clip-text text-transparent">Maintenance</span>
           <br />
-          <span className="text-white">Advance Power Redding</span>
+          <span className="text-white">Advance Power </span>
+          <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400 bg-clip-text text-transparent">Redding</span>
         </motion.h1>
 
         {/* Subtitle */}
