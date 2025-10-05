@@ -84,7 +84,7 @@ const ContactSection = () => {
           viewport={{ once: true }}
           className="text-center mb-24"
         >
-          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black mb-12 leading-tight drop-shadow-lg">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-12 leading-tight drop-shadow-lg">
             <span className="bg-gradient-to-r from-orange-800 via-red-700 to-amber-800 bg-clip-text text-transparent">Get In</span>{" "}
             <span className="relative inline-block">
               <span className="bg-gradient-to-r from-orange-700 via-red-600 to-amber-700 bg-clip-text text-transparent drop-shadow-lg">
@@ -215,7 +215,7 @@ const ContactSection = () => {
             <div className="absolute -inset-1 bg-gradient-to-r from-red-500/20 to-orange-500/20 blur-2xl animate-pulse"></div>
             
             <div className="relative z-10">
-              <h3 className="text-4xl md:text-5xl font-black text-white mb-6">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6">
                 🚨 Emergency Solar Service
               </h3>
               
@@ -250,7 +250,7 @@ const ContactSection = () => {
             <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 blur-2xl"></div>
             
             <div className="relative z-10">
-              <h3 className="text-5xl md:text-6xl font-black text-white mb-8">
+              <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-8">
                 Start Your Solar Journey Today
               </h3>
               

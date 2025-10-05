@@ -104,7 +104,7 @@ const AboutAdvancePowerSection = () => {
           viewport={{ once: true }}
           className="text-center mb-24"
         >
-          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black mb-12 leading-tight drop-shadow-lg">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-12 leading-tight drop-shadow-lg">
             <span className="bg-gradient-to-r from-orange-800 via-red-700 to-amber-800 bg-clip-text text-transparent">About</span>{" "}
             <span className="relative inline-block">
               <span className="bg-gradient-to-r from-orange-700 via-red-600 to-amber-700 bg-clip-text text-transparent drop-shadow-lg">
@@ -147,7 +147,7 @@ const AboutAdvancePowerSection = () => {
                   </div>
 
                   {/* Enhanced Number */}
-                  <div className="text-5xl font-black text-gray-800 mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-orange-600 group-hover:to-red-500 group-hover:bg-clip-text transition-all duration-300 drop-shadow-md">
+                  <div className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-800 mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-orange-600 group-hover:to-red-500 group-hover:bg-clip-text transition-all duration-300 drop-shadow-md">
                     {achievement.number}
                   </div>
                   
@@ -178,7 +178,7 @@ const AboutAdvancePowerSection = () => {
             
             <div className="relative z-10 text-center">
               <div className="text-6xl mb-4">⚡</div>
-              <h3 className="text-4xl md:text-5xl font-black text-white mb-6">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6">
                 Your Complete Solar Solution
               </h3>
               <p className="text-2xl text-green-100 mb-8 max-w-4xl mx-auto leading-relaxed">

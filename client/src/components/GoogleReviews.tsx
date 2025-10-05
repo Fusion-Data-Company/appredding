@@ -156,7 +156,7 @@ const GoogleReviews = () => {
         <div className="inline-block bg-white/90 backdrop-blur-sm rounded-3xl px-8 py-6 shadow-xl border border-gray-200">
           <div className="flex items-center justify-center gap-6">
             <div className="text-center">
-              <div className="text-6xl font-black text-transparent bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text mb-2" data-testid="text-overall-rating">
+              <div className="text-4xl sm:text-5xl md:text-6xl font-black text-transparent bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text mb-2" data-testid="text-overall-rating">
                 {reviewsData.rating.toFixed(1)}
               </div>
               <div className="text-sm text-gray-600 font-medium">out of 5.0</div>

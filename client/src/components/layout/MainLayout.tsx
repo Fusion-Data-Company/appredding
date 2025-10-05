@@ -43,11 +43,10 @@ export default function MainLayout({ children, className, fullWidth = false }: M
       
       <main 
         className={cn(
-          "flex-1 pb-16 relative z-10",
+          "flex-1 pb-16 relative z-10 pt-20",
           "md:pb-12",
           className
         )}
-        style={{ paddingTop: 'calc(var(--app-header-height) + 1.5rem)' }}
       >
         {fullWidth ? (
           children

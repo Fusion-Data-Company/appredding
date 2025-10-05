@@ -81,7 +81,7 @@ const SolarServicesSection = () => {
           viewport={{ once: true }}
           className="text-center mb-24"
         >
-          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black mb-12 leading-tight drop-shadow-lg">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-12 leading-tight drop-shadow-lg">
             <span className="bg-gradient-to-r from-orange-800 via-red-700 to-amber-800 bg-clip-text text-transparent">Sol-Ark</span>{" "}
             <span className="relative inline-block">
               <span className="bg-gradient-to-r from-orange-700 via-red-600 to-amber-700 bg-clip-text text-transparent drop-shadow-lg">
@@ -214,7 +214,7 @@ const SolarServicesSection = () => {
             <div className="absolute -inset-1 bg-gradient-to-r from-yellow-500/10 to-orange-500/10 blur-2xl"></div>
             
             <div className="relative z-10">
-              <h3 className="text-5xl md:text-6xl font-black text-white mb-8">
+              <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-8">
                 Ready to Get Started?
               </h3>
               

@@ -201,7 +201,7 @@ export function SandlerSolarFunnel({
                     </div>
 
                     {/* Stats/Benefits */}
-                    <div className="grid grid-cols-2 gap-4 pt-6 border-t border-slate-700">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 border-t border-slate-700">
                       <div>
                         <p className="text-3xl font-bold text-blue-400">20-50%</p>
                         <p className="text-sm text-slate-400">Average Savings</p>

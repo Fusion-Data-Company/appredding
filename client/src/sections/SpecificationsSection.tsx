@@ -289,7 +289,7 @@ const SpecificationsSection = () => {
                       Sol-Ark {model.model}
                     </h3>
                     
-                    <div className="grid grid-cols-2 gap-4 mb-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                       <div className="bg-orange-50 p-4 rounded-lg">
                         <div className="text-sm text-orange-600 font-semibold">Output Power</div>
                         <div className="text-xl font-bold text-orange-800">{model.outputPower}</div>
@@ -357,7 +357,7 @@ const SpecificationsSection = () => {
                       {battery.model}
                     </h3>
                     
-                    <div className="grid grid-cols-2 gap-4 mb-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                       <div className="bg-green-50 p-4 rounded-lg">
                         <div className="text-sm text-green-600 font-semibold">Capacity</div>
                         <div className="text-xl font-bold text-green-800">{battery.capacity}</div>

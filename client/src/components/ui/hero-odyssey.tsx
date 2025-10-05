@@ -17,7 +17,7 @@ export const HeroOdyssey: React.FC<HeroOdysseyProps> = ({ className = "" }) => {
           transition={{ duration: 1 }}
         >
           <motion.h1 
-            className="text-6xl md:text-8xl font-bold text-white mb-8"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-white mb-8"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
