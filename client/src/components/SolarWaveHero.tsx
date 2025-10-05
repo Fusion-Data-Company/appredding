@@ -317,7 +317,7 @@ const SolarWaveHero: React.FC<SolarWaveHeroProps> = ({
               transition={{ duration: 0.8, delay: 0.2 }}
               className="mb-6 text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl"
             >
-              <span className="text-5xl sm:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-amber-300 via-orange-400 to-amber-500 bg-clip-text text-transparent">
+              <span className="text-5xl sm:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-amber-300 via-orange-400 to-amber-500 bg-clip-text text-transparent preserve-text-color">
                 {title}
               </span>
               <br />

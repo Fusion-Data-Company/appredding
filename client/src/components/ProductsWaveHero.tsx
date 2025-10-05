@@ -312,8 +312,9 @@ const ProductsWaveHero: React.FC<ProductsWaveHeroProps> = ({
               className="mb-6 text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl"
             >
               <span className="font-extrabold text-white">
-                Advance Power{" "}
+                Advance Power
               </span>
+              <br />
               <span className="text-5xl sm:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-purple-300 via-violet-400 to-purple-500 bg-clip-text text-transparent">
                 Solar Products
               </span>
