@@ -1,5 +1,4 @@
 import { MouseEvent, useEffect, useRef, useState } from "react";
-import { Shield } from "lucide-react";
 
 type AwardBadgeType = "customer-service-excellence" | "golden-kitty" | "product-of-the-day" | "product-of-the-month" | "product-of-the-week";
 
@@ -9,67 +8,366 @@ interface AwardBadgeProps {
   link?: string;
 }
 
+const identityMatrix =
+  "1, 0, 0, 0, " +
+  "0, 1, 0, 0, " +
+  "0, 0, 1, 0, " +
+  "0, 0, 0, 1";
+
+const maxRotate = 0.25;
+const minRotate = -0.25;
+const maxScale = 1;
+const minScale = 0.97;
+
+const backgroundColor: Record<AwardBadgeType, string[]> = {
+  "customer-service-excellence": ["#1a2332", "#2a3342", "#3a4352"],
+  "golden-kitty": ["#f3e3ac", "#ddd", "#f1cfa6"],
+  "product-of-the-day": ["#f3e3ac", "#ddd", "#f1cfa6"],
+  "product-of-the-month": ["#f3e3ac", "#ddd", "#f1cfa6"],
+  "product-of-the-week": ["#f3e3ac", "#ddd", "#f1cfa6"],
+};
+
+const title: Record<AwardBadgeType, string> = {
+  "customer-service-excellence": "CUSTOMER SERVICE",
+  "golden-kitty": "Golden Kitty Awards",
+  "product-of-the-day": "Product of the Day",
+  "product-of-the-month": "Product of the Month",
+  "product-of-the-week": "Product of the Week",
+};
+
+const subtitle: Record<AwardBadgeType, string> = {
+  "customer-service-excellence": "EXCELLENCE AWARD",
+  "golden-kitty": "PRODUCT HUNT",
+  "product-of-the-day": "PRODUCT HUNT",
+  "product-of-the-month": "PRODUCT HUNT",
+  "product-of-the-week": "PRODUCT HUNT",
+};
+
 export const AwardBadge = ({ type, place, link }: AwardBadgeProps) => {
-  const [isHovered, setIsHovered] = useState(false);
+  const ref = useRef<HTMLAnchorElement>(null);
+  const [firstOverlayPosition, setFirstOverlayPosition] = useState<number>(0);
+  const [matrix, setMatrix] = useState<string>(identityMatrix);
+  const [currentMatrix, setCurrentMatrix] = useState<string>(identityMatrix);
+  const [disableInOutOverlayAnimation, setDisableInOutOverlayAnimation] = useState<boolean>(true);
+  const [disableOverlayAnimation, setDisableOverlayAnimation] = useState<boolean>(false);
+  const [isTimeoutFinished, setIsTimeoutFinished] = useState<boolean>(false);
+  const enterTimeout = useRef<NodeJS.Timeout | null>(null);
+  const leaveTimeout1 = useRef<NodeJS.Timeout | null>(null);
+  const leaveTimeout2 = useRef<NodeJS.Timeout | null>(null);
+  const leaveTimeout3 = useRef<NodeJS.Timeout | null>(null);
 
-  if (type === "customer-service-excellence") {
-    return (
-      <div
-        className="relative group"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        data-testid="award-badge"
-      >
-        <div className={`
-          bg-gradient-to-br from-slate-800 via-slate-900 to-black
-          border-2 border-amber-400/60
-          rounded-2xl px-6 py-4
-          shadow-2xl shadow-amber-900/30
-          transition-all duration-300
-          ${isHovered ? 'scale-105 shadow-amber-500/40 border-amber-300' : ''}
-        `}>
-          <div className="flex items-center gap-4">
-            <div className="relative">
-              <div className="absolute inset-0 bg-amber-400/20 blur-xl rounded-full"></div>
-              <Shield className="w-12 h-12 text-amber-400 relative z-10 drop-shadow-lg" strokeWidth={2.5} />
-            </div>
-            
-            <div className="flex flex-col">
-              <span className="text-amber-400 text-xs font-bold tracking-wider uppercase mb-1">
-                Certified Excellence
-              </span>
-              <span className="text-white text-xl font-black tracking-tight leading-tight">
-                5-Star Service
-              </span>
-              <span className="text-slate-400 text-xs font-semibold mt-0.5">
-                Advance Power Redding
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  const getDimensions = () => {
+    const left = ref?.current?.getBoundingClientRect()?.left || 0;
+    const right = ref?.current?.getBoundingClientRect()?.right || 0;
+    const top = ref?.current?.getBoundingClientRect()?.top || 0;
+    const bottom = ref?.current?.getBoundingClientRect()?.bottom || 0;
 
-  // Original Product Hunt style for other types
+    return { left, right, top, bottom };
+  };
+
+  const getMatrix = (clientX: number, clientY: number) => {
+    const { left, right, top, bottom } = getDimensions();
+    const xCenter = (left + right) / 2;
+    const yCenter = (top + bottom) / 2;
+
+    const scale = [
+      maxScale - (maxScale - minScale) * Math.abs(xCenter - clientX) / (xCenter - left),
+      maxScale - (maxScale - minScale) * Math.abs(yCenter - clientY) / (yCenter - top),
+      maxScale - (maxScale - minScale) * (Math.abs(xCenter - clientX) + Math.abs(yCenter - clientY)) / (xCenter - left + yCenter - top)
+    ];
+
+    const rotate = {
+      x1: 0.25 * ((yCenter - clientY) / yCenter - (xCenter - clientX) / xCenter),
+      x2: maxRotate - (maxRotate - minRotate) * Math.abs(right - clientX) / (right - left),
+      x3: 0,
+      y0: 0,
+      y2: maxRotate - (maxRotate - minRotate) * (top - clientY) / (top - bottom),
+      y3: 0,
+      z0: -(maxRotate - (maxRotate - minRotate) * Math.abs(right - clientX) / (right - left)),
+      z1: (0.2 - (0.2 + 0.6) * (top - clientY) / (top - bottom)),
+      z3: 0
+    };
+    return `${scale[0]}, ${rotate.y0}, ${rotate.z0}, 0, ` +
+      `${rotate.x1}, ${scale[1]}, ${rotate.z1}, 0, ` +
+      `${rotate.x2}, ${rotate.y2}, ${scale[2]}, 0, ` +
+      `${rotate.x3}, ${rotate.y3}, ${rotate.z3}, 1`;
+  };
+
+  const getOppositeMatrix = (_matrix: string, clientY: number, onMouseEnter?: boolean) => {
+    const { top, bottom } = getDimensions();
+    const oppositeY = bottom - clientY + top;
+    const weakening = onMouseEnter ? 0.7 : 4;
+    const multiplier = onMouseEnter ? -1 : 1;
+
+    return _matrix.split(", ").map((item, index) => {
+      if (index === 2 || index === 4 || index === 8) {
+        return (-parseFloat(item) * multiplier / weakening).toString();
+      } else if (index === 0 || index === 5 || index === 10) {
+        return "1";
+      } else if (index === 6) {
+        return (multiplier * (maxRotate - (maxRotate - minRotate) * (top - oppositeY) / (top - bottom)) / weakening).toString();
+      } else if (index === 9) {
+        return ((maxRotate - (maxRotate - minRotate) * (top - oppositeY) / (top - bottom)) / weakening).toString();
+      }
+      return item;
+    }).join(", ");
+  };
+
+  const onMouseEnter = (e: MouseEvent<HTMLAnchorElement>) => {
+    if (leaveTimeout1.current) {
+      clearTimeout(leaveTimeout1.current);
+    }
+    if (leaveTimeout2.current) {
+      clearTimeout(leaveTimeout2.current);
+    }
+    if (leaveTimeout3.current) {
+      clearTimeout(leaveTimeout3.current);
+    }
+    setDisableOverlayAnimation(true);
+
+    const { left, right, top, bottom } = getDimensions();
+    const xCenter = (left + right) / 2;
+    const yCenter = (top + bottom) / 2;
+
+    setDisableInOutOverlayAnimation(false);
+    enterTimeout.current = setTimeout(() => setDisableInOutOverlayAnimation(true), 350);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setFirstOverlayPosition((Math.abs(xCenter - e.clientX) + Math.abs(yCenter - e.clientY)) / 1.5);
+      });
+    });
+
+    const matrix = getMatrix(e.clientX, e.clientY);
+    const oppositeMatrix = getOppositeMatrix(matrix, e.clientY, true);
+
+    setMatrix(oppositeMatrix);
+    setIsTimeoutFinished(false);
+    setTimeout(() => {
+      setIsTimeoutFinished(true)
+    }, 200);
+  };
+
+  const onMouseMove = (e: MouseEvent<HTMLAnchorElement>) => {
+    const { left, right, top, bottom } = getDimensions();
+    const xCenter = (left + right) / 2;
+    const yCenter = (top + bottom) / 2;
+
+    setTimeout(() => setFirstOverlayPosition((Math.abs(xCenter - e.clientX) + Math.abs(yCenter - e.clientY)) / 1.5), 150);
+
+    if (isTimeoutFinished) {
+      setCurrentMatrix(getMatrix(e.clientX, e.clientY));
+    }
+  };
+
+  const onMouseLeave = (e: MouseEvent<HTMLAnchorElement>) => {
+    const oppositeMatrix = getOppositeMatrix(matrix, e.clientY);
+
+    if (enterTimeout.current) {
+      clearTimeout(enterTimeout.current);
+    }
+
+    setCurrentMatrix(oppositeMatrix);
+    setTimeout(() => setCurrentMatrix(identityMatrix), 200);
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setDisableInOutOverlayAnimation(false);
+        leaveTimeout1.current = setTimeout(() => setFirstOverlayPosition(-firstOverlayPosition / 4), 150);
+        leaveTimeout2.current = setTimeout(() => setFirstOverlayPosition(0), 300);
+        leaveTimeout3.current = setTimeout(() => {
+          setDisableOverlayAnimation(false);
+          setDisableInOutOverlayAnimation(true);
+        }, 500);
+      });
+    });
+  };
+
+  useEffect(() => {
+    if (isTimeoutFinished) {
+      setMatrix(currentMatrix);
+    }
+  }, [currentMatrix, isTimeoutFinished]);
+
+  const overlayAnimations = Array.from({ length: 10 }, (_, e) => (
+    `
+    @keyframes overlayAnimation${e + 1} {
+      0% {
+        transform: rotate(${e * 10}deg);
+      }
+      50% {
+        transform: rotate(${(e + 1) * 10}deg);
+      }
+      100% {
+        transform: rotate(${e * 10}deg);
+      }
+    }
+    `
+  )).join(" ");
+
+  const colors = backgroundColor[type];
+  const badgeColor = colors[(place || 2) - 1] || colors[1];
+
   return (
     <a
+      ref={ref}
       href={link || "#"}
       target={link ? "_blank" : undefined}
       rel={link ? "noopener noreferrer" : undefined}
-      className="block w-[180px] sm:w-[260px] h-auto cursor-pointer"
+      className="block w-[200px] sm:w-[280px] h-auto cursor-pointer"
+      onMouseMove={onMouseMove}
+      onMouseLeave={onMouseLeave}
+      onMouseEnter={onMouseEnter}
       data-testid="award-badge"
     >
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 54" className="w-[180px] sm:w-[260px] h-auto">
-        <rect width="260" height="54" rx="10" fill="#f3e3ac" />
-        <rect x="4" y="4" width="252" height="46" rx="8" fill="transparent" stroke="#bbb" strokeWidth="1" />
-        <text fontFamily="Helvetica-Bold, Helvetica" fontSize="9" fontWeight="bold" fill="#666" x="53" y="20">
-          PRODUCT HUNT
-        </text>
-        <text fontFamily="Helvetica-Bold, Helvetica" fontSize="16" fontWeight="bold" fill="#666" x="52" y="40">
-          Product Award
-        </text>
-      </svg>
+      <style>
+        {overlayAnimations}
+      </style>
+      <div
+        style={{
+          transform: `perspective(700px) matrix3d(${matrix})`,
+          transformOrigin: "center center",
+          transition: "transform 200ms ease-out"
+        }}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 64" className="w-[200px] sm:w-[280px] h-auto drop-shadow-2xl">
+          <defs>
+            <filter id={`blur1-${type}`}>
+              <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
+            </filter>
+            <linearGradient id={`badgeGradient-${type}`} x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style={{ stopColor: badgeColor, stopOpacity: 1 }} />
+              <stop offset="100%" style={{ stopColor: badgeColor, stopOpacity: 0.9 }} />
+            </linearGradient>
+            <mask id={`badgeMask-${type}`}>
+              <rect width="280" height="64" fill="white" rx="12" />
+            </mask>
+          </defs>
+          
+          <rect width="280" height="64" rx="12" fill={`url(#badgeGradient-${type})`} />
+          <rect x="2" y="2" width="276" height="60" rx="11" fill="transparent" stroke="#FF6B35" strokeWidth="2" />
+          <rect x="5" y="5" width="270" height="54" rx="9" fill="transparent" stroke="rgba(255,107,53,0.3)" strokeWidth="1" />
+          
+          {type === "customer-service-excellence" ? (
+            <g transform="translate(10, 10)">
+              <circle cx="22" cy="22" r="21" fill="#FF6B35" opacity="0.15"/>
+              <circle cx="22" cy="22" r="18" fill="#FF6B35" opacity="0.2"/>
+              <path 
+                fill="#FF6B35" 
+                stroke="#FF6B35" 
+                strokeWidth="1.5" 
+                d="M22 6 L26.5 17.5 L39 19.2 L30.5 27.3 L32.7 40 L22 33.5 L11.3 40 L13.5 27.3 L5 19.2 L17.5 17.5 Z"
+              />
+              <circle cx="22" cy="22" r="3" fill="white"/>
+            </g>
+          ) : (
+            <g transform="translate(8, 9)">
+              <path fill="#666"
+                    d="M14.963 9.075c.787-3-.188-5.887-.188-5.887S12.488 5.175 11.7 8.175c-.787 3 .188 5.887.188 5.887s2.25-1.987 3.075-4.987m-4.5 1.987c.787 3-.188 5.888-.188 5.888S7.988 14.962 7.2 11.962c-.787-3 .188-5.887.188-5.887s2.287 1.987 3.075 4.987m.862 10.388s-.6-2.962-2.775-5.175C6.337 14.1 3.375 13.5 3.375 13.5s.6 2.962 2.775 5.175c2.213 2.175 5.175 2.775 5.175 2.775m3.3 3.413s-1.988-2.288-4.988-3.075-5.887.187-5.887.187 1.987 2.287 4.988 3.075c3 .787 5.887-.188 5.887-.188Zm6.75 0s1.988-2.288 4.988-3.075c3-.826 5.887.187 5.887.187s-1.988 2.287-4.988 3.075c-3 .787-5.887-.188-5.887-.188ZM32.625 13.5s-2.963.6-5.175 2.775c-2.213 2.213-2.775 5.175-2.775 5.175s2.962-.6 5.175-2.775c2.175-2.213 2.775-5.175 2.775-5.175M28.65 6.075s.975 2.887.188 5.887c-.826 3-3.076 4.988-3.076 4.988s-.974-2.888-.187-5.888c.788-3 3.075-4.987 3.075-4.987m-4.5 7.987s.975-2.887.188-5.887c-.788-3-3.076-4.988-3.076-4.988s-.974 2.888-.187 5.888c.788 3 3.075 4.988 3.075 4.988ZM18 26.1c.975-.225 3.113-.6 5.325 0 3 .788 5.063 3.038 5.063 3.038s-2.888.975-5.888.187a13 13 0 0 1-1.425-.525c.563.788 1.125 1.425 2.288 1.913l-.863 2.062c-2.063-.862-2.925-2.137-3.675-3.262-.262-.375-.525-.713-.787-1.05-.26.293-.465.586-.686.903l-.102.147-.048.068c-.775 1.108-1.643 2.35-3.627 3.194l-.862-2.062c1.162-.488 1.725-1.125 2.287-1.913-.45.225-.938.375-1.425.525-3 .788-5.887-.187-5.887-.187s1.987-2.288 4.987-3.075c2.212-.563 4.35-.188 5.325.037" />
+            </g>
+          )}
+          
+          <text fontFamily="Arial, Helvetica, sans-serif" fontSize="10" fontWeight="900" letterSpacing="1.2" fill="white" x="65" y="24" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.8)' }}>
+            {subtitle[type]}
+          </text>
+          
+          <text fontFamily="Arial, Helvetica, sans-serif" fontSize="18" fontWeight="900" fill="white" x="64" y="48" style={{ textShadow: '0 2px 6px rgba(0,0,0,0.9)' }}>
+            {title[type]}{place && ` #${place}`}
+          </text>
+          
+          <g style={{ mixBlendMode: "overlay" }} mask={`url(#badgeMask-${type})`}>
+            <g style={{
+              transform: `rotate(${firstOverlayPosition}deg)`,
+              transformOrigin: "center center",
+              transition: !disableInOutOverlayAnimation ? "transform 200ms ease-out" : "none",
+              animation: disableOverlayAnimation ? "none" : "overlayAnimation1 5s infinite",
+              willChange: "transform"
+            }}>
+              <polygon points="0,0 280,64 280,0 0,64" fill="hsl(358, 100%, 62%)" filter={`url(#blur1-${type})`} opacity="0.3" />
+            </g>
+            <g style={{
+              transform: `rotate(${firstOverlayPosition + 10}deg)`,
+              transformOrigin: "center center",
+              transition: !disableInOutOverlayAnimation ? "transform 200ms ease-out" : "none",
+              animation: disableOverlayAnimation ? "none" : "overlayAnimation2 5s infinite",
+              willChange: "transform"
+            }}>
+              <polygon points="0,0 280,64 280,0 0,64" fill="hsl(30, 100%, 50%)" filter={`url(#blur1-${type})`} opacity="0.3" />
+            </g>
+            <g style={{
+              transform: `rotate(${firstOverlayPosition + 20}deg)`,
+              transformOrigin: "center center",
+              transition: !disableInOutOverlayAnimation ? "transform 200ms ease-out" : "none",
+              animation: disableOverlayAnimation ? "none" : "overlayAnimation3 5s infinite",
+              willChange: "transform"
+            }}>
+              <polygon points="0,0 280,64 280,0 0,64" fill="hsl(60, 100%, 50%)" filter={`url(#blur1-${type})`} opacity="0.3" />
+            </g>
+            <g style={{
+              transform: `rotate(${firstOverlayPosition + 30}deg)`,
+              transformOrigin: "center center",
+              transition: !disableInOutOverlayAnimation ? "transform 200ms ease-out" : "none",
+              animation: disableOverlayAnimation ? "none" : "overlayAnimation4 5s infinite",
+              willChange: "transform"
+            }}>
+              <polygon points="0,0 280,64 280,0 0,64" fill="hsl(96, 100%, 50%)" filter={`url(#blur1-${type})`} opacity="0.3" />
+            </g>
+            <g style={{
+              transform: `rotate(${firstOverlayPosition + 40}deg)`,
+              transformOrigin: "center center",
+              transition: !disableInOutOverlayAnimation ? "transform 200ms ease-out" : "none",
+              animation: disableOverlayAnimation ? "none" : "overlayAnimation5 5s infinite",
+              willChange: "transform"
+            }}>
+              <polygon points="0,0 280,64 280,0 0,64" fill="hsl(233, 85%, 47%)" filter={`url(#blur1-${type})`} opacity="0.3" />
+            </g>
+            <g style={{
+              transform: `rotate(${firstOverlayPosition + 50}deg)`,
+              transformOrigin: "center center",
+              transition: !disableInOutOverlayAnimation ? "transform 200ms ease-out" : "none",
+              animation: disableOverlayAnimation ? "none" : "overlayAnimation6 5s infinite",
+              willChange: "transform"
+            }}>
+              <polygon points="0,0 280,64 280,0 0,64" fill="hsl(271, 85%, 47%)" filter={`url(#blur1-${type})`} opacity="0.3" />
+            </g>
+            <g style={{
+              transform: `rotate(${firstOverlayPosition + 60}deg)`,
+              transformOrigin: "center center",
+              transition: !disableInOutOverlayAnimation ? "transform 200ms ease-out" : "none",
+              animation: disableOverlayAnimation ? "none" : "overlayAnimation7 5s infinite",
+              willChange: "transform"
+            }}>
+              <polygon points="0,0 280,64 280,0 0,64" fill="hsl(300, 20%, 35%)" filter={`url(#blur1-${type})`} opacity="0.3" />
+            </g>
+            <g style={{
+              transform: `rotate(${firstOverlayPosition + 70}deg)`,
+              transformOrigin: "center center",
+              transition: !disableInOutOverlayAnimation ? "transform 200ms ease-out" : "none",
+              animation: disableOverlayAnimation ? "none" : "overlayAnimation8 5s infinite",
+              willChange: "transform"
+            }}>
+              <polygon points="0,0 280,64 280,0 0,64" fill="transparent" filter={`url(#blur1-${type})`} opacity="0.3" />
+            </g>
+            <g style={{
+              transform: `rotate(${firstOverlayPosition + 80}deg)`,
+              transformOrigin: "center center",
+              transition: !disableInOutOverlayAnimation ? "transform 200ms ease-out" : "none",
+              animation: disableOverlayAnimation ? "none" : "overlayAnimation9 5s infinite",
+              willChange: "transform"
+            }}>
+              <polygon points="0,0 280,64 280,0 0,64" fill="transparent" filter={`url(#blur1-${type})`} opacity="0.3" />
+            </g>
+            <g style={{
+              transform: `rotate(${firstOverlayPosition + 90}deg)`,
+              transformOrigin: "center center",
+              transition: !disableInOutOverlayAnimation ? "transform 200ms ease-out" : "none",
+              animation: disableOverlayAnimation ? "none" : "overlayAnimation10 5s infinite",
+              willChange: "transform"
+            }}>
+              <polygon points="0,0 280,64 280,0 0,64" fill="white" filter={`url(#blur1-${type})`} opacity="0.3" />
+            </g>
+          </g>
+        </svg>
+      </div>
     </a>
   );
 };

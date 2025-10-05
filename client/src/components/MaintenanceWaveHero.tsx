@@ -202,11 +202,29 @@ const MaintenanceWaveHero: React.FC<MaintenanceWaveHeroProps> = ({
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
           >
-            <span className="gradient-bright-ocean font-extrabold">
+            <span
+              className="font-extrabold"
+              style={{
+                background: 'linear-gradient(to right, #22d3ee, #06b6d4, #0ea5e9)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                filter: 'drop-shadow(0 0 20px rgba(34, 211, 238, 0.9)) drop-shadow(0 0 40px rgba(6, 182, 212, 0.7)) drop-shadow(0 0 60px rgba(14, 165, 233, 0.5))'
+              }}
+            >
               Solar System
             </span>
             <br />
-            <span className="gradient-bright-sunset font-extrabold tracking-wide">
+            <span
+              className="font-extrabold tracking-wide"
+              style={{
+                background: 'linear-gradient(to right, #fbbf24, #fb923c, #ef4444)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                filter: 'drop-shadow(0 0 20px rgba(251, 191, 36, 0.9)) drop-shadow(0 0 40px rgba(251, 146, 60, 0.7)) drop-shadow(0 0 60px rgba(239, 68, 68, 0.5))'
+              }}
+            >
               Maintenance & Care
             </span>
           </motion.h1>

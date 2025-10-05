@@ -306,14 +306,39 @@ const ProductsWaveHero: React.FC<ProductsWaveHeroProps> = ({
               transition={{ duration: 0.8, delay: 0.2 }}
               className="mb-6 text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl"
             >
-              <span className="gradient-bright-white font-extrabold">
-                Advance Power
+              <span
+                className="font-extrabold"
+                style={{
+                  color: '#ffffff',
+                  textShadow: '0 0 30px rgba(255, 255, 255, 1), 0 0 60px rgba(255, 255, 255, 0.6)',
+                  WebkitTextFillColor: '#ffffff'
+                }}
+              >
+                Advance Power{" "}
               </span>
-              <span className="gradient-bright-purple text-5xl sm:text-6xl lg:text-7xl font-bold">
+              <span
+                className="text-5xl sm:text-6xl lg:text-7xl font-bold"
+                style={{
+                  background: 'linear-gradient(to right, #c084fc, #a855f7, #e879f9)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  filter: 'drop-shadow(0 0 20px rgba(192, 132, 252, 0.9)) drop-shadow(0 0 40px rgba(168, 85, 247, 0.7)) drop-shadow(0 0 60px rgba(232, 121, 249, 0.5))'
+                }}
+              >
                 Solar Products
               </span>
               <br />
-              <span className="gradient-bright-fire font-extrabold tracking-wide">
+              <span
+                className="font-extrabold tracking-wide"
+                style={{
+                  background: 'linear-gradient(to right, #fbbf24, #fb923c, #f97316)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  filter: 'drop-shadow(0 0 20px rgba(251, 191, 36, 0.9)) drop-shadow(0 0 40px rgba(251, 146, 60, 0.7)) drop-shadow(0 0 60px rgba(249, 115, 22, 0.5))'
+                }}
+              >
                 Redding
               </span>
             </motion.h1>

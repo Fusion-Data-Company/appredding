@@ -241,11 +241,29 @@ const HybridSolarWaveHero: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-5xl md:text-7xl lg:text-8xl font-bold text-center mb-6 leading-tight"
             >
-              <span className="gradient-bright-yellow font-extrabold">
+              <span
+                className="font-extrabold"
+                style={{
+                  background: 'linear-gradient(to right, #fde047, #facc15, #fef08a)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  filter: 'drop-shadow(0 0 20px rgba(253, 224, 71, 0.9)) drop-shadow(0 0 40px rgba(250, 204, 21, 0.7)) drop-shadow(0 0 60px rgba(254, 240, 138, 0.5))'
+                }}
+              >
                 Hybrid Solar
               </span>
               <br />
-              <span className="gradient-bright-white font-extrabold">Advance Power Redding</span>
+              <span
+                className="font-extrabold"
+                style={{
+                  color: '#ffffff',
+                  textShadow: '0 0 30px rgba(255, 255, 255, 1), 0 0 60px rgba(255, 255, 255, 0.6)',
+                  WebkitTextFillColor: '#ffffff'
+                }}
+              >
+                Advance Power Redding
+              </span>
             </motion.h1>
 
             <motion.p

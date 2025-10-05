@@ -25,7 +25,8 @@
       "Bash(lsof:*)",
       "Bash(pkill:*)",
       "Bash(npm run check:*)",
-      "Read(///**)"
+      "Read(///**)",
+      "Bash(wait)"
     ],
     "deny": [],
     "ask": []
