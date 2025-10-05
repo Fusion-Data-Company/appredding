@@ -173,8 +173,11 @@ const HybridSolar = () => {
               <GitBranch className="h-4 w-4 text-green-400" />
               <span className="text-sm font-semibold text-green-400 uppercase tracking-wider">Grid-Tie + Off-Grid • Seamless Transfer • UL 1741-SA</span>
             </div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 bg-gradient-to-r from-green-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              Hybrid Solar + Battery Systems
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
+              <span className="bg-gradient-to-r from-orange-300 via-yellow-200 to-white bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(251,191,36,0.5)]">
+                Hybrid Solar
+              </span>
+              <span className="text-white"> + Battery Systems</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-5xl mx-auto mb-4">
               True energy independence with Sol-Ark hybrid inverters — seamlessly switch from grid-tie to off-grid in &lt;10ms
