@@ -26,7 +26,8 @@
       "Bash(pkill:*)",
       "Bash(npm run check:*)",
       "Read(///**)",
-      "Bash(wait)"
+      "Bash(wait)",
+      "Bash(npm install:*)"
     ],
     "deny": [],
     "ask": []
