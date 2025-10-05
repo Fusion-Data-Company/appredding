@@ -827,7 +827,7 @@ nav *:not(.preserve-text-color),
 
 /* Global text visibility enforcement - DISABLED - blocking gradients */
 /* * {
-  /* color: inherit */;
+  color: inherit;
 } */
 
 /* Force high contrast text on any dark element */
@@ -899,7 +899,7 @@ footer *:not(.preserve-text-color),
 .team *:not(.preserve-text-color),
 .contact *:not(.preserve-text-color),
 .services *:not(.preserve-text-color) {
-  /* color: inherit */;
+  color: inherit;
   text-shadow: inherit;
   min-contrast: 4.5;
 } */
@@ -915,12 +915,12 @@ h6:not(.preserve-text-color),
 span:not(.preserve-text-color),
 div:not(.preserve-text-color),
 li:not(.preserve-text-color) {
-  /* color: inherit */;
+  color: inherit;
 } */
 
 /* Absolute fallback for invisible text - DISABLED */
 /* *:not(.preserve-text-color) {
-  /* color: inherit */;
+  color: inherit;
 } */
 
 header, 
@@ -1240,7 +1240,7 @@ a:not(.preserve-text-color),
 label:not(.preserve-text-color),
 button:not(.preserve-text-color),
 input:not(.preserve-text-color) {
-  /* color: inherit */;
+  color: inherit;
   min-contrast-ratio: 4.5;
 } */
 
@@ -1267,7 +1267,7 @@ input:not(.preserve-text-color) {
 button *,
 .button-primary *,
 [role="button"] * {
-  /* color: inherit */ !important;
+  color: inherit !important;
 }
 
 /* Universal dark background text fix with enhanced outlines */
