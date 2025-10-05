@@ -121,16 +121,34 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
       </div>
 
       <div className="relative z-10 w-full">
-        <div className="container mx-auto px-4 sm:px-6 pt-24 sm:pt-32 pb-12 sm:pb-20">
+        <div className="container mx-auto px-4 sm:px-6 pt-16 sm:pt-20 pb-12 sm:pb-20">
           <div className="flex flex-col items-center justify-center text-center min-h-[60vh]">
-            <motion.div
-              initial="hidden"
-              animate="show"
-              variants={FADE_IN_ANIMATION_VARIANTS}
-              className="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-card/80 backdrop-blur-sm px-4 py-2 text-sm font-medium text-muted-foreground glass-card shimmer-effect"
+            <motion.div 
+              className="flex justify-center mb-6"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <Wrench className="w-4 h-4" />
-              {tagline}
+              <motion.div 
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-400 via-amber-400 to-white text-gray-900 px-6 py-2.5 rounded-full text-sm font-bold shadow-2xl shadow-orange-400/60 border-2 border-orange-300/50"
+                style={{ textShadow: '0 1px 2px rgba(0,0,0,0.1)' }}
+                animate={{ 
+                  boxShadow: [
+                    "0 10px 40px rgba(249, 115, 22, 0.6), 0 0 20px rgba(249, 115, 22, 0.3)",
+                    "0 15px 50px rgba(249, 115, 22, 0.8), 0 0 30px rgba(249, 115, 22, 0.5)",
+                    "0 10px 40px rgba(249, 115, 22, 0.6), 0 0 20px rgba(249, 115, 22, 0.3)"
+                  ]
+                }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                <motion.div
+                  animate={{ rotate: [0, 360] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                >
+                  <Wrench className="h-4 w-4 fill-orange-600 text-orange-600" />
+                </motion.div>
+                {tagline}
+              </motion.div>
             </motion.div>
 
             <motion.h1
