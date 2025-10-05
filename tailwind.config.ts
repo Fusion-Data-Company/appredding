@@ -3,6 +3,17 @@ import type { Config } from "tailwindcss";
 export default {
   darkMode: ["class"],
   content: ["./client/index.html", "./client/src/**/*.{js,jsx,ts,tsx}"],
+  safelist: [
+    'gradient-bright-fire',
+    'gradient-bright-electric',
+    'gradient-bright-sunset',
+    'gradient-bright-ocean',
+    'gradient-bright-emerald',
+    'gradient-bright-purple',
+    'gradient-bright-white',
+    'gradient-bright-yellow',
+    'hero-section',
+  ],
   theme: {
     fontFamily: {
       sans: ["ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "Noto Sans", "sans-serif"],

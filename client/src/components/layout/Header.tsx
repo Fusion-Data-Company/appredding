@@ -200,7 +200,7 @@ const SolarCompanyHeader: React.FC = () => {
       </div>
 
       {/* Main navigation */}
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
+      <div className="w-full px-6 lg:px-8">
         <div className="flex items-center justify-between h-[68px]">
           {/* Logo - clickable to home */}
           <Link href="/" className="flex items-center group">
