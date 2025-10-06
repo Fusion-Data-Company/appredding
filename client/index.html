@@ -8,27 +8,48 @@
     <meta name="author" content="apredding.net Solar Solutions" />
     <meta http-equiv="Cache-Control" content="max-age=86400, must-revalidate" />
     
-    <!-- Twitter Card (also works for other platforms and often takes precedence) -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="apredding.net - Premier Solar Solutions" />
-    <meta name="twitter:description" content="Northern California's trusted solar installation company. Expert solar panel repair, maintenance, and installation with 25+ years of experience and NEM 3.0 expertise." />
-    <meta name="twitter:image" content="https://apredding.net/images/solar-og-share.png" />
+    <!-- Dynamic base URL for social media (set by script below) -->
+    <meta name="twitter:card" content="summary_large_image" id="twitter-card" />
+    <meta name="twitter:title" content="Advance Power Redding - Premier Solar Solutions" id="twitter-title" />
+    <meta name="twitter:description" content="Northern California's trusted solar installation company. Expert solar panel repair, maintenance, and installation with 25+ years of experience and NEM 3.0 expertise." id="twitter-description" />
+    <meta name="twitter:image" content="" id="twitter-image" />
     
-    <!-- Open Graph (Facebook) - More complete -->
-    <meta property="og:title" content="apredding.net - Premier Solar Solutions" />
-    <meta property="og:description" content="Northern California's trusted solar installation company. Expert solar panel repair, maintenance, and installation with 25+ years of experience and NEM 3.0 expertise." />
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp, etc.) -->
+    <meta property="og:title" content="Advance Power Redding - Premier Solar Solutions" id="og-title" />
+    <meta property="og:description" content="Northern California's trusted solar installation company. Expert solar panel repair, maintenance, and installation with 25+ years of experience and NEM 3.0 expertise." id="og-description" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://apredding.net/" />
-    <meta property="og:image" content="https://apredding.net/images/solar-og-share.png" />
-    <meta property="og:image:secure_url" content="https://apredding.net/images/solar-og-share.png" />
-    <meta property="og:image:alt" content="apredding.net - Premier solar installation and repair services in Northern California" />
-    <meta property="og:image:type" content="image/png" />
+    <meta property="og:url" content="" id="og-url" />
+    <meta property="og:image" content="" id="og-image" />
+    <meta property="og:image:secure_url" content="" id="og-image-secure" />
+    <meta property="og:image:alt" content="Advance Power Redding - Premier solar installation and repair services in Northern California" />
+    <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:site_name" content="apredding.net Solar Solutions" />
+    <meta property="og:site_name" content="Advance Power Redding" />
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <!-- Favicons for all platforms -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/jpeg" sizes="any" href="/advance-power-logo.jpg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    
+    <!-- Set dynamic URLs based on current domain -->
+    <script>
+      (function() {
+        const baseUrl = window.location.origin;
+        const logoPath = '/advance-power-logo.jpg';
+        const fullLogoUrl = baseUrl + logoPath;
+        
+        // Update Open Graph tags
+        document.getElementById('og-url').setAttribute('content', baseUrl + '/');
+        document.getElementById('og-image').setAttribute('content', fullLogoUrl);
+        document.getElementById('og-image-secure').setAttribute('content', fullLogoUrl);
+        
+        // Update Twitter Card tags
+        document.getElementById('twitter-image').setAttribute('content', fullLogoUrl);
+      })();
+    </script>
     
     <title>apredding.net | Premier Solar Solutions for Northern California</title>
     

@@ -15,13 +15,14 @@ const SEOHead = ({
   title, 
   description, 
   keywords = [],
-  image = '/images/APR-Logo-White-New-300x222.png',
+  image = '/advance-power-logo.jpg',
   url,
   type = 'website',
   structuredData,
   canonical
 }: SEOHeadProps) => {
-  const baseUrl = 'https://apredding.net';
+  // Use window.location.origin for environment-aware base URL
+  const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://apredding.net';
   const fullUrl = url ? `${baseUrl}${url}` : baseUrl;
   const canonicalUrl = canonical || fullUrl;
   const fullImageUrl = image.startsWith('http') ? image : `${baseUrl}${image}`;

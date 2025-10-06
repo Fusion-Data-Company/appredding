@@ -22,7 +22,8 @@ export const addSocialTags = (
   slug: string,
   imagePath: string = `/images/og-${slug}.jpg`
 ) => {
-  const baseUrl = 'https://apredding.net';
+  // Use window.location.origin for environment-aware base URL
+  const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://apredding.net';
 
   // Create meta tags dynamically
   const metaTags = [
@@ -74,7 +75,8 @@ export const generateStructuredData = (
   slug: string,
   features: string[] = []
 ) => {
-  const baseUrl = 'https://advance-power-redding.com';
+  // Use window.location.origin for environment-aware base URL
+  const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://apredding.net';
   
   return {
     "@context": "https://schema.org",
