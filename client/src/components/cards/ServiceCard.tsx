@@ -34,28 +34,32 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       iconBg: 'bg-orange-500/10',
       border: 'border-orange-500/30',
       button: 'from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700',
-      highlight: 'from-orange-500/10 to-orange-600/10'
+      highlight: 'from-orange-500/10 to-orange-600/10',
+      glow: 'glow-orange'
     },
     blue: {
       icon: 'text-blue-400',
       iconBg: 'bg-blue-500/10',
       border: 'border-blue-500/30',
       button: 'from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700',
-      highlight: 'from-blue-500/10 to-blue-600/10'
+      highlight: 'from-blue-500/10 to-blue-600/10',
+      glow: 'glow-blue'
     },
     green: {
       icon: 'text-orange-400',
       iconBg: 'bg-orange-500/10',
       border: 'border-green-500/30',
       button: 'from-green-500 to-green-600 hover:from-green-600 hover:to-green-700',
-      highlight: 'from-green-500/10 to-green-600/10'
+      highlight: 'from-green-500/10 to-green-600/10',
+      glow: 'glow-green'
     },
     purple: {
       icon: 'text-purple-400',
       iconBg: 'bg-purple-500/10',
       border: 'border-purple-500/30',
       button: 'from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700',
-      highlight: 'from-purple-500/10 to-purple-600/10'
+      highlight: 'from-purple-500/10 to-purple-600/10',
+      glow: 'glow-purple'
     }
   };
 
@@ -104,8 +108,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 
   const cardClass = `
     relative h-full p-8 rounded-2xl transition-all duration-300 flex flex-col
-    ${highlight 
-      ? `bg-gradient-to-br ${accent.highlight} border ${accent.border} shadow-2xl` 
+    ${highlight
+      ? `bg-gradient-to-br ${accent.highlight} border ${accent.border} shadow-2xl ${accent.glow}`
       : 'bg-gray-800/50 border border-gray-700 hover:bg-gray-800/70'
     }
     backdrop-blur-sm hover:scale-105 hover:shadow-xl hover:border-opacity-50

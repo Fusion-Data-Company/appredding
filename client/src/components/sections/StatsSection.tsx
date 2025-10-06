@@ -42,25 +42,29 @@ const StatsSection: React.FC<StatsSectionProps> = ({
       text: 'from-orange-400 to-orange-500',
       border: 'border-orange-500/30',
       highlight: 'from-orange-500/10 to-orange-600/10',
-      icon: 'text-orange-400'
+      icon: 'text-orange-400',
+      glow: 'glow-orange'
     },
     blue: {
       text: 'from-blue-400 to-blue-500',
       border: 'border-blue-500/30',
       highlight: 'from-blue-500/10 to-blue-600/10',
-      icon: 'text-blue-400'
+      icon: 'text-blue-400',
+      glow: 'glow-blue'
     },
     green: {
       text: 'from-green-400 to-green-500',
       border: 'border-green-500/30',
       highlight: 'from-green-500/10 to-green-600/10',
-      icon: 'text-orange-400'
+      icon: 'text-orange-400',
+      glow: 'glow-green'
     },
     purple: {
       text: 'from-purple-400 to-purple-500',
       border: 'border-purple-500/30',
       highlight: 'from-purple-500/10 to-purple-600/10',
-      icon: 'text-purple-400'
+      icon: 'text-purple-400',
+      glow: 'glow-purple'
     }
   };
 
@@ -147,10 +151,10 @@ const StatsSection: React.FC<StatsSectionProps> = ({
               variants={itemVariants}
               className={`
                 text-center p-6 rounded-xl
-                ${variant === 'bordered' 
-                  ? `border ${accent.border} bg-gray-800/30` 
+                ${variant === 'bordered'
+                  ? `border ${accent.border} bg-gray-800/30 ${accent.glow}`
                   : variant === 'highlighted'
-                  ? `bg-gradient-to-br ${accent.highlight} backdrop-blur-sm border ${accent.border}`
+                  ? `bg-gradient-to-br ${accent.highlight} backdrop-blur-sm border ${accent.border} ${accent.glow}`
                   : ''
                 }
               `}

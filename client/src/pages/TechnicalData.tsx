@@ -44,7 +44,7 @@ const TechnicalData = () => {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
                 <motion.a
                   href="#specifications"
-                  className="p-4 bg-gray-800/50 rounded-xl border border-orange-500/20 hover:border-orange-500/40 transition-all duration-300 group"
+                  className="spec-card-elite glow-orange p-4 hover:border-orange-500/40 transition-all duration-300 group"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -54,7 +54,7 @@ const TechnicalData = () => {
                 
                 <motion.a
                   href="#power-flow"
-                  className="p-4 bg-gray-800/50 rounded-xl border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 group"
+                  className="spec-card-elite glow-blue p-4 hover:border-blue-500/40 transition-all duration-300 group"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -64,7 +64,7 @@ const TechnicalData = () => {
                 
                 <motion.a
                   href="#energy-storage"
-                  className="p-4 bg-gray-800/50 rounded-xl border border-green-500/20 hover:border-green-500/40 transition-all duration-300 group"
+                  className="spec-card-elite glow-green p-4 hover:border-green-500/40 transition-all duration-300 group"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -74,7 +74,7 @@ const TechnicalData = () => {
                 
                 <motion.a
                   href="#tools"
-                  className="p-4 bg-gray-800/50 rounded-xl border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300 group"
+                  className="spec-card-elite glow-purple p-4 hover:border-purple-500/40 transition-all duration-300 group"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >

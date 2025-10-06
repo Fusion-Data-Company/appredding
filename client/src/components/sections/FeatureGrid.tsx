@@ -38,28 +38,32 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({
       iconBg: 'bg-orange-500/10',
       border: 'border-orange-500/30',
       highlight: 'from-orange-500/20 to-orange-600/20',
-      text: 'from-orange-400 to-orange-500'
+      text: 'from-orange-400 to-orange-500',
+      glow: 'glow-orange'
     },
     blue: {
       icon: 'text-blue-400',
       iconBg: 'bg-blue-500/10',
       border: 'border-blue-500/30',
       highlight: 'from-blue-500/20 to-blue-600/20',
-      text: 'from-blue-400 to-blue-500'
+      text: 'from-blue-400 to-blue-500',
+      glow: 'glow-blue'
     },
     green: {
       icon: 'text-orange-400',
       iconBg: 'bg-orange-500/10',
       border: 'border-green-500/30',
       highlight: 'from-green-500/20 to-green-600/20',
-      text: 'from-green-400 to-green-500'
+      text: 'from-green-400 to-green-500',
+      glow: 'glow-green'
     },
     purple: {
       icon: 'text-purple-400',
       iconBg: 'bg-purple-500/10',
       border: 'border-purple-500/30',
       highlight: 'from-purple-500/20 to-purple-600/20',
-      text: 'from-purple-400 to-purple-500'
+      text: 'from-purple-400 to-purple-500',
+      glow: 'glow-purple'
     }
   };
 
@@ -147,8 +151,8 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({
             >
               <div className={`
                 h-full p-6 rounded-xl transition-all duration-300
-                ${feature.highlight 
-                  ? `bg-gradient-to-br ${accent.highlight} border ${accent.border}` 
+                ${feature.highlight
+                  ? `bg-gradient-to-br ${accent.highlight} border ${accent.border} ${accent.glow}`
                   : 'bg-gray-800/50 border border-gray-700 hover:bg-gray-800/70'
                 }
                 backdrop-blur-sm hover:scale-105 hover:shadow-xl

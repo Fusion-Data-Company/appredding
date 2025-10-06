@@ -366,13 +366,13 @@ const Technology = () => {
         {/* CTA Section */}
         <section className="relative py-16 z-10">
           <div className="container mx-auto px-4">
-            <div className="bg-gradient-to-br from-amber-900/40 to-gray-900/40 backdrop-blur-sm rounded-xl border border-amber-500/30 p-8 md:p-10 text-center">
-              <div className="inline-flex items-center gap-2 bg-amber-900/50 px-4 py-2 rounded-full border border-amber-500/30 text-amber-300 text-sm mb-6">
+            <div className="card-elite glow-orange p-8 md:p-10 text-center">
+              <div className="inline-flex items-center gap-2 bg-orange-900/50 px-4 py-2 rounded-full border border-orange-500/30 text-orange-300 text-sm mb-6">
                 <Sun className="h-4 w-4" />
                 <span>FREE CONSULTATION</span>
               </div>
-              
-              <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-amber-300 via-white to-amber-300 bg-clip-text text-transparent mb-4">
+
+              <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-orange-300 via-white to-orange-300 bg-clip-text text-transparent mb-4">
                 Ready to Go Solar?
               </h2>
               

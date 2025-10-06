@@ -150,25 +150,64 @@ const BatteryStorage = () => {
                 className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
               >
                 {/* Premium CTA Button */}
-                <Button
+                <button
                   onClick={() => setShowConsultationForm(true)}
-                  className="bg-amber-500 hover:bg-amber-600 text-black font-bold px-8 py-6 text-lg rounded-full shadow-2xl shadow-amber-500/50 transition-all hover:scale-105"
+                  className="relative overflow-hidden px-8 py-6 text-lg font-bold rounded-full transition-all hover:scale-105 text-white group"
+                  style={{
+                    background: 'linear-gradient(135deg, #f97316 0%, #fb923c 25%, #ea580c 50%, #f59e0b 75%, #3b82f6 100%)',
+                    boxShadow: '0 4px 20px rgba(249,115,22,0.5), 0 2px 10px rgba(59,130,246,0.4), inset 0 2px 0 rgba(255,255,255,0.4), inset 0 -2px 0 rgba(0,0,0,0.2)',
+                    border: '1px solid rgba(255,255,255,0.4)'
+                  }}
                   data-testid="button-calculate-battery"
                 >
-                  <Zap className="w-5 h-5 mr-2" />
-                  Calculate Battery Sizing & SGIP
-                </Button>
+                  <span className="relative z-10 flex items-center">
+                    <Zap className="w-5 h-5 mr-2" />
+                    Calculate Battery Sizing & SGIP
+                  </span>
+                  {/* Glass overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/10 to-transparent opacity-60 pointer-events-none rounded-full" />
+                  {/* Shimmer effect */}
+                  <div
+                    className="absolute inset-0 pointer-events-none rounded-full"
+                    style={{
+                      background: 'linear-gradient(125deg, transparent 45%, rgba(255, 255, 255, 0.9) 50%, transparent 55%)',
+                      backgroundSize: '200% 100%',
+                      animation: 'shimmer1 3s infinite',
+                      mixBlendMode: 'overlay'
+                    }}
+                  />
+                </button>
 
                 {/* Secondary Button */}
-                <Button
-                  variant="outline"
-                  className="border-2 border-amber-500 text-amber-400 hover:bg-amber-500/10 px-8 py-6 text-lg rounded-full backdrop-blur-sm"
+                <button
                   onClick={() => document.getElementById('battery-comparison')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="relative overflow-hidden px-8 py-6 text-lg font-semibold rounded-full transition-all hover:scale-105 text-white group"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(249,115,22,0.2) 0%, rgba(251,146,60,0.15) 50%, rgba(59,130,246,0.2) 100%)',
+                    backdropFilter: 'blur(12px)',
+                    WebkitBackdropFilter: 'blur(12px)',
+                    boxShadow: '0 4px 20px rgba(249,115,22,0.3), 0 2px 10px rgba(59,130,246,0.2), inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0,0,0,0.1)',
+                    border: '2px solid rgba(251,146,60,0.5)'
+                  }}
                   data-testid="button-compare-batteries"
                 >
-                  <Battery className="w-5 h-5 mr-2" />
-                  Learn More
-                </Button>
+                  <span className="relative z-10 flex items-center">
+                    <Battery className="w-5 h-5 mr-2" />
+                    Learn More
+                  </span>
+                  {/* Glass overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-tl from-white/30 via-transparent to-white/10 opacity-50 pointer-events-none rounded-full" />
+                  {/* Shimmer effect */}
+                  <div
+                    className="absolute inset-0 pointer-events-none rounded-full"
+                    style={{
+                      background: 'linear-gradient(130deg, transparent 40%, rgba(255, 255, 255, 0.7) 50%, transparent 60%)',
+                      backgroundSize: '200% 100%',
+                      animation: 'shimmer2 3.5s infinite',
+                      mixBlendMode: 'overlay'
+                    }}
+                  />
+                </button>
               </motion.div>
             </div>
 

@@ -626,7 +626,7 @@ const CommercialSolar = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="category-card-elite">
+              <div className="category-card-elite glow-blue">
                 <h5 className="text-white font-semibold mb-2 flex items-center">
                   <Activity className="h-5 w-5 text-blue-400 mr-2" />
                   Peak Shaving
@@ -636,7 +636,7 @@ const CommercialSolar = () => {
                 </p>
               </div>
 
-              <div className="category-card-elite">
+              <div className="category-card-elite glow-orange">
                 <h5 className="text-white font-semibold mb-2 flex items-center">
                   <Clock className="h-5 w-5 text-orange-400 mr-2" />
                   TOU Arbitrage
@@ -646,7 +646,7 @@ const CommercialSolar = () => {
                 </p>
               </div>
 
-              <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-4">
+              <div className="category-card-elite glow-green">
                 <h5 className="text-white font-semibold mb-2 flex items-center">
                   <BarChart3 className="h-5 w-5 text-orange-400 mr-2" />
                   Load Forecasting
@@ -672,7 +672,7 @@ const CommercialSolar = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            <div className="bg-gradient-to-br from-green-900/20 to-green-950/20 border border-green-700/30 rounded-xl p-8">
+            <div className="card-elite glow-green p-8">
               <div className="flex items-center mb-6">
                 <CheckCircle className="h-10 w-10 text-orange-400 mr-4" />
                 <div>
@@ -732,7 +732,7 @@ const CommercialSolar = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-orange-900/20 to-orange-950/20 border border-orange-700/30 rounded-xl p-8">
+            <div className="card-elite glow-orange p-8">
               <div className="flex items-center mb-6">
                 <AlertTriangle className="h-10 w-10 text-orange-400 mr-4" />
                 <div>
@@ -793,7 +793,7 @@ const CommercialSolar = () => {
             </div>
           </div>
 
-          <div className="bg-blue-900/20 border border-blue-700/30 rounded-xl p-8">
+          <div className="card-elite glow-blue p-8">
             <h3 className="text-2xl font-bold text-blue-400 mb-4">Three-Phase Interconnection Requirements</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div>
@@ -852,7 +852,7 @@ const CommercialSolar = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-            <div className="bg-gradient-to-br from-green-900/20 to-green-950/20 border border-green-700/30 rounded-xl p-8">
+            <div className="card-elite glow-green p-8">
               <h3 className="text-2xl font-bold text-orange-400 mb-6">Federal Tax Incentives</h3>
               
               <div className="space-y-6">
@@ -924,7 +924,7 @@ const CommercialSolar = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-orange-900/20 to-orange-950/20 border border-orange-700/30 rounded-xl p-8">
+            <div className="card-elite glow-orange p-8">
               <h3 className="text-2xl font-bold text-orange-400 mb-6">Complete ROI Analysis</h3>
               
               <div className="space-y-6">
@@ -1011,7 +1011,7 @@ const CommercialSolar = () => {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-purple-900/20 to-purple-950/20 border border-purple-700/30 rounded-xl p-8">
+          <div className="card-elite glow-purple p-8">
             <h3 className="text-2xl font-bold text-purple-400 mb-4">Important Tax Considerations</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>

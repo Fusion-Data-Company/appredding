@@ -248,10 +248,10 @@ const Repairs = () => {
             ))}
           </div>
 
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
+          <div className="card-elite glow-orange p-8">
             <div className="flex items-start justify-between mb-4">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 ">
+                <h3 className="text-2xl font-bold text-white">
                   {repairCategories[selectedIssue].name}
                 </h3>
                 <div className="flex items-center gap-4 mt-2">
@@ -347,9 +347,9 @@ const Repairs = () => {
 
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Diagnostic Steps */}
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
-              <h3 className="text-xl font-bold mb-6 text-gray-900  flex items-center gap-2">
-                <Search className="h-6 w-6 text-blue-500" /> Diagnostic Process
+            <div className="card-elite glow-blue p-8">
+              <h3 className="text-xl font-bold mb-6 text-white flex items-center gap-2">
+                <Search className="h-6 w-6 text-blue-400" /> Diagnostic Process
               </h3>
 
               <div className="space-y-4">
@@ -379,9 +379,9 @@ const Repairs = () => {
             </div>
 
             {/* Testing Equipment */}
-            <div className="bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 rounded-2xl p-8">
-              <h3 className="text-xl font-bold mb-6 text-gray-900  flex items-center gap-2">
-                <Cpu className="h-6 w-6 text-red-500" /> Diagnostic Equipment
+            <div className="card-elite glow-red p-8">
+              <h3 className="text-xl font-bold mb-6 text-white flex items-center gap-2">
+                <Cpu className="h-6 w-6 text-red-400" /> Diagnostic Equipment
               </h3>
 
               <div className="grid grid-cols-2 gap-4">
@@ -393,10 +393,10 @@ const Repairs = () => {
                   { tool: "Power Analyzer", model: "Fluke 435-II", function: "Power quality analysis" },
                   { tool: "DC Clamp Meter", model: "Fluke 393 FC", function: "String current measurement" }
                 ].map((item, idx) => (
-                  <div key={idx} className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow">
-                    <h4 className="font-semibold text-gray-900  text-sm">{item.tool}</h4>
-                    <p className="text-xs text-gray-500 ">{item.model}</p>
-                    <p className="text-xs text-red-600  mt-1">{item.function}</p>
+                  <div key={idx} className="spec-card-elite glow-orange p-4">
+                    <h4 className="font-semibold text-white text-sm">{item.tool}</h4>
+                    <p className="text-xs text-gray-400">{item.model}</p>
+                    <p className="text-xs text-orange-400 mt-1">{item.function}</p>
                   </div>
                 ))}
               </div>
@@ -431,12 +431,12 @@ const Repairs = () => {
             <p className="text-gray-600 ">Factory-trained technicians for warranty and out-of-warranty repairs</p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
+          <div className="card-elite glow-orange overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full">
-                <thead className="bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
+                <thead className="bg-gray-800/50 border-b border-gray-700">
                   <tr>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Brand</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Brand</th>
                     <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Models Serviced</th>
                     <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Common Issues</th>
                     <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Warranty</th>
@@ -475,8 +475,8 @@ const Repairs = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {commonFailures.map((component, idx) => (
-              <div key={idx} className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
-                <h3 className="text-lg font-bold text-gray-900  mb-3">{component.component}</h3>
+              <div key={idx} className="card-elite glow-orange p-6">
+                <h3 className="text-lg font-bold text-white mb-3">{component.component}</h3>
 
                 <div className="space-y-3 mb-4">
                   <div className="flex justify-between items-center">
@@ -512,9 +512,9 @@ const Repairs = () => {
 
           <div className="grid md:grid-cols-2 gap-6">
             {troubleshootingGuide.map((item, idx) => (
-              <div key={idx} className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
+              <div key={idx} className="card-elite glow-blue p-6">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-lg font-bold text-gray-900 ">{item.problem}</h3>
+                  <h3 className="text-lg font-bold text-white">{item.problem}</h3>
                   <AlertTriangle className="h-5 w-5 text-orange-500" />
                 </div>
 
@@ -617,12 +617,12 @@ const Repairs = () => {
             <p className="text-gray-600 ">Understanding your coverage and repair options</p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
+          <div className="card-elite glow-green overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full">
-                <thead className="bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
+                <thead className="bg-gray-800/50 border-b border-gray-700">
                   <tr>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Warranty Type</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Warranty Type</th>
                     <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Product Coverage</th>
                     <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Performance</th>
                     <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">What's Covered</th>
@@ -705,9 +705,9 @@ const Repairs = () => {
                 roi: "Investment recovered in less than 30 days"
               }
             ].map((case_study, idx) => (
-              <div key={idx} className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
+              <div key={idx} className="card-elite glow-green p-6">
                 <div className="mb-4">
-                  <h3 className="text-xl font-bold text-gray-900 ">{case_study.customer}</h3>
+                  <h3 className="text-xl font-bold text-white">{case_study.customer}</h3>
                   <p className="text-sm text-gray-600 ">{case_study.system}</p>
                   <p className="text-xs text-gray-500  mt-1">Installed: {case_study.installed}</p>
                 </div>
@@ -820,10 +820,10 @@ const Repairs = () => {
             ].map((step, idx) => {
               const Icon = step.icon;
               return (
-                <div key={idx} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-4">
+                <div key={idx} className="spec-card-elite glow-blue p-4">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 bg-red-100 dark:bg-red-900 rounded-full flex items-center justify-center">
-                      <Icon className="h-5 w-5 text-red-600 " />
+                    <div className="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center">
+                      <Icon className="h-5 w-5 text-blue-400" />
                     </div>
                     <div className="text-2xl font-bold text-gray-300 ">
                       {step.step.toString().padStart(2, '0')}
@@ -903,9 +903,9 @@ const Repairs = () => {
                 cost_range: "$500-$2,000"
               }
             ].map((issue, idx) => (
-              <div key={idx} className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
+              <div key={idx} className="card-elite glow-purple p-6">
                 <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-lg font-bold text-gray-900 ">{issue.problem}</h3>
+                  <h3 className="text-lg font-bold text-white">{issue.problem}</h3>
                   <span className="text-sm bg-red-100 dark:bg-red-900 text-red-600  px-2 py-1 rounded-full">
                     {issue.frequency}
                   </span>
@@ -1051,9 +1051,9 @@ const Repairs = () => {
             ].map((cert, idx) => {
               const Icon = cert.icon;
               return (
-                <div key={idx} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-4 text-center">
-                  <Icon className="h-8 w-8 mx-auto mb-2 text-red-600 " />
-                  <h4 className="text-sm font-semibold text-gray-900 ">{cert.cert}</h4>
+                <div key={idx} className="spec-card-elite glow-orange p-4 text-center">
+                  <Icon className="h-8 w-8 mx-auto mb-2 text-orange-400" />
+                  <h4 className="text-sm font-semibold text-white">{cert.cert}</h4>
                   <p className="text-xs text-gray-600  mt-1">{cert.count}</p>
                 </div>
               );
@@ -1069,11 +1069,11 @@ const Repairs = () => {
             <p className="text-gray-600 ">Upfront, honest pricing for common repairs</p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
+          <div className="card-elite glow-blue overflow-hidden">
             <table className="w-full">
-              <thead className="bg-gray-50 dark:bg-gray-700">
+              <thead className="bg-gray-800/50">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500  uppercase">Repair Type</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase">Repair Type</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500  uppercase">Parts Cost</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500  uppercase">Labor Cost</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500  uppercase">Total Range</th>
@@ -1166,9 +1166,9 @@ const Repairs = () => {
                 a: "Yes! Our maintenance plans include monitoring, cleaning, inspections, and priority service. Plans start at $15/month and prevent 90% of common failures."
               }
             ].map((faq, idx) => (
-              <div key={idx} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
-                <h3 className="font-bold text-gray-900  mb-3 flex items-start gap-2">
-                  <AlertCircle className="h-5 w-5 text-red-500 mt-0.5" />
+              <div key={idx} className="spec-card-elite glow-blue p-6">
+                <h3 className="font-bold text-white mb-3 flex items-start gap-2">
+                  <AlertCircle className="h-5 w-5 text-blue-400 mt-0.5" />
                   {faq.q}
                 </h3>
                 <p className="text-gray-700  text-sm">

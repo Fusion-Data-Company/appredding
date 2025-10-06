@@ -183,23 +183,60 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
               transition={{ delay: 0.4 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <Button 
-                size="lg" 
-                className="gap-2 glass-button edge-glow"
+              <button
                 onClick={ctaButtons.primary.onClick}
+                className="relative overflow-hidden px-8 py-4 text-lg font-bold rounded-full transition-all hover:scale-105 text-white group"
+                style={{
+                  background: 'linear-gradient(135deg, #f97316 0%, #fb923c 25%, #ea580c 50%, #f59e0b 75%, #3b82f6 100%)',
+                  boxShadow: '0 4px 20px rgba(249,115,22,0.5), 0 2px 10px rgba(59,130,246,0.4), inset 0 2px 0 rgba(255,255,255,0.4), inset 0 -2px 0 rgba(0,0,0,0.2)',
+                  border: '1px solid rgba(255,255,255,0.4)'
+                }}
               >
-                <Calendar className="w-4 h-4" />
-                {ctaButtons.primary.label}
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="gap-2 bg-background/80 backdrop-blur-sm glass-button edge-glow"
+                <span className="relative z-10 flex items-center gap-2">
+                  <Calendar className="w-4 h-4" />
+                  {ctaButtons.primary.label}
+                </span>
+                {/* Glass overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/10 to-transparent opacity-60 pointer-events-none rounded-full" />
+                {/* Shimmer effect */}
+                <div
+                  className="absolute inset-0 pointer-events-none rounded-full"
+                  style={{
+                    background: 'linear-gradient(125deg, transparent 45%, rgba(255, 255, 255, 0.9) 50%, transparent 55%)',
+                    backgroundSize: '200% 100%',
+                    animation: 'shimmer1 3s infinite',
+                    mixBlendMode: 'overlay'
+                  }}
+                />
+              </button>
+              <button
                 onClick={ctaButtons.secondary.onClick}
+                className="relative overflow-hidden px-8 py-4 text-lg font-semibold rounded-full transition-all hover:scale-105 text-white group"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(249,115,22,0.2) 0%, rgba(251,146,60,0.15) 50%, rgba(59,130,246,0.2) 100%)',
+                  backdropFilter: 'blur(12px)',
+                  WebkitBackdropFilter: 'blur(12px)',
+                  boxShadow: '0 4px 20px rgba(249,115,22,0.3), 0 2px 10px rgba(59,130,246,0.2), inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0,0,0,0.1)',
+                  border: '2px solid rgba(251,146,60,0.5)'
+                }}
               >
-                <Phone className="w-4 h-4" />
-                {ctaButtons.secondary.label}
-              </Button>
+                <span className="relative z-10 flex items-center gap-2">
+                  <Phone className="w-4 h-4" />
+                  {ctaButtons.secondary.label}
+                </span>
+                {/* Glass overlay */}
+                <div className="absolute inset-0 bg-gradient-to-tl from-white/30 via-transparent to-white/10 opacity-50 pointer-events-none rounded-full" />
+                {/* Shimmer effect */}
+                <div
+                  className="absolute inset-0 pointer-events-none rounded-full"
+                  style={{
+                    background: 'linear-gradient(130deg, transparent 40%, rgba(255, 255, 255, 0.7) 50%, transparent 60%)',
+                    backgroundSize: '200% 100%',
+                    animation: 'shimmer2 3.5s infinite',
+                    mixBlendMode: 'overlay'
+                  }}
+                />
+              </button>
             </motion.div>
           </div>
         </div>
@@ -337,23 +374,60 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
                 Don't let solar panel issues cost you money. Get expert repair service today.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button 
-                  size="lg" 
-                  className="gap-2 glass-button edge-glow"
+                <button
                   onClick={ctaButtons.primary.onClick}
+                  className="relative overflow-hidden px-8 py-4 text-lg font-bold rounded-full transition-all hover:scale-105 text-white group"
+                  style={{
+                    background: 'linear-gradient(135deg, #f97316 0%, #fb923c 25%, #ea580c 50%, #f59e0b 75%, #3b82f6 100%)',
+                    boxShadow: '0 4px 20px rgba(249,115,22,0.5), 0 2px 10px rgba(59,130,246,0.4), inset 0 2px 0 rgba(255,255,255,0.4), inset 0 -2px 0 rgba(0,0,0,0.2)',
+                    border: '1px solid rgba(255,255,255,0.4)'
+                  }}
                 >
-                  <Calendar className="w-4 h-4" />
-                  {ctaButtons.primary.label}
-                </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline"
-                  className="gap-2 glass-button edge-glow"
+                  <span className="relative z-10 flex items-center gap-2">
+                    <Calendar className="w-4 h-4" />
+                    {ctaButtons.primary.label}
+                  </span>
+                  {/* Glass overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/10 to-transparent opacity-60 pointer-events-none rounded-full" />
+                  {/* Shimmer effect */}
+                  <div
+                    className="absolute inset-0 pointer-events-none rounded-full"
+                    style={{
+                      background: 'linear-gradient(125deg, transparent 45%, rgba(255, 255, 255, 0.9) 50%, transparent 55%)',
+                      backgroundSize: '200% 100%',
+                      animation: 'shimmer3 3.2s infinite',
+                      mixBlendMode: 'overlay'
+                    }}
+                  />
+                </button>
+                <button
                   onClick={ctaButtons.secondary.onClick}
+                  className="relative overflow-hidden px-8 py-4 text-lg font-semibold rounded-full transition-all hover:scale-105 text-white group"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(249,115,22,0.2) 0%, rgba(251,146,60,0.15) 50%, rgba(59,130,246,0.2) 100%)',
+                    backdropFilter: 'blur(12px)',
+                    WebkitBackdropFilter: 'blur(12px)',
+                    boxShadow: '0 4px 20px rgba(249,115,22,0.3), 0 2px 10px rgba(59,130,246,0.2), inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0,0,0,0.1)',
+                    border: '2px solid rgba(251,146,60,0.5)'
+                  }}
                 >
-                  <Phone className="w-4 h-4" />
-                  {ctaButtons.secondary.label}
-                </Button>
+                  <span className="relative z-10 flex items-center gap-2">
+                    <Phone className="w-4 h-4" />
+                    {ctaButtons.secondary.label}
+                  </span>
+                  {/* Glass overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-tl from-white/30 via-transparent to-white/10 opacity-50 pointer-events-none rounded-full" />
+                  {/* Shimmer effect */}
+                  <div
+                    className="absolute inset-0 pointer-events-none rounded-full"
+                    style={{
+                      background: 'linear-gradient(130deg, transparent 40%, rgba(255, 255, 255, 0.7) 50%, transparent 60%)',
+                      backgroundSize: '200% 100%',
+                      animation: 'shimmer4 3.8s infinite',
+                      mixBlendMode: 'overlay'
+                    }}
+                  />
+                </button>
               </div>
             </div>
           </div>

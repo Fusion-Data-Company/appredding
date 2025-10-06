@@ -2113,6 +2113,52 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* Header sun animations */
+@keyframes float1 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(10px, -8px); }
+}
+
+@keyframes float2 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-12px, 10px); }
+}
+
+@keyframes float3 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(8px, -6px); }
+}
+
+@keyframes pulse1 {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+@keyframes pulse2 {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.75; transform: scale(1.15); }
+}
+
+@keyframes pulse3 {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.12); }
+}
+
+@keyframes rotate1 {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotate2 {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes rotate3 {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 .animate-shimmer {
   animation: shimmer 3s infinite;
 }
@@ -4134,4 +4180,30 @@ section + section {
     background-clip: text !important;
     filter: drop-shadow(0 0 20px rgba(253, 224, 71, 0.9)) drop-shadow(0 0 40px rgba(250, 204, 21, 0.7)) drop-shadow(0 0 60px rgba(254, 240, 138, 0.5)) !important;
   }
+}
+
+/* Nav button shimmer animations */
+@keyframes shimmer1 {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes shimmer2 {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes shimmer3 {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes shimmer4 {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes shimmer5 {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }

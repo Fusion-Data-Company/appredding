@@ -154,28 +154,178 @@ const SolarCompanyHeader: React.FC = () => {
           ? "shadow-[0_8px_32px_rgba(0,0,0,0.08),0_2px_8px_rgba(0,0,0,0.04)]" 
           : "shadow-[0_4px_16px_rgba(0,0,0,0.04)]"
       )}
-      style={{ 
+      style={{
         zIndex: 9999,
-        background: isScrolled 
-          ? 'linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(248,250,252,0.88) 50%, rgba(241,245,249,0.90) 100%)'
-          : 'linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(252,252,253,0.94) 50%, rgba(248,250,252,0.95) 100%)',
-        backdropFilter: 'blur(24px) saturate(180%)',
-        WebkitBackdropFilter: 'blur(24px) saturate(180%)',
-        borderBottom: '1px solid rgba(226, 232, 240, 0.5)',
-        boxShadow: isScrolled 
-          ? '0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.7)'
-          : '0 4px 16px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.8)'
+        background: isScrolled
+          ? 'linear-gradient(180deg, #ffd699 0%, #ffcc66 30%, #99ccff 100%)'
+          : 'linear-gradient(180deg, #ffcc66 0%, #ffb84d 25%, #66b3ff 100%)',
+        backdropFilter: 'blur(16px) saturate(140%)',
+        WebkitBackdropFilter: 'blur(16px) saturate(140%)',
+        borderBottom: '1px solid rgba(251, 146, 60, 0.5)',
+        boxShadow: isScrolled
+          ? '0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.4)'
+          : '0 4px 16px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.5)'
       }}
     >
-      {/* Noise texture overlay for premium feel */}
-      <div 
-        className="absolute inset-0 opacity-[0.015] pointer-events-none"
+      {/* Enhanced noise texture overlay */}
+      <div
+        className="absolute inset-0 opacity-[0.04] pointer-events-none"
         style={{
           backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' /%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\' /%3E%3C/svg%3E")',
           backgroundRepeat: 'repeat',
           mixBlendMode: 'overlay'
         }}
       />
+
+      {/* Sunburst radial pattern */}
+      <div
+        className="absolute inset-0 opacity-[0.08] pointer-events-none"
+        style={{
+          background: 'repeating-conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(251, 191, 36, 0.15) 2deg, transparent 4deg)',
+          mixBlendMode: 'soft-light'
+        }}
+      />
+
+      {/* Animated sun icons */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Sun 1 - Top Left */}
+        <div
+          className="absolute"
+          style={{
+            top: '15%',
+            left: '8%',
+            animation: 'float1 8s ease-in-out infinite'
+          }}
+        >
+          <div className="relative w-12 h-12">
+            {/* Sun core with glow */}
+            <div
+              className="absolute inset-0 rounded-full"
+              style={{
+                background: 'radial-gradient(circle, rgba(251, 191, 36, 0.4) 0%, rgba(251, 191, 36, 0.2) 40%, transparent 70%)',
+                animation: 'pulse1 4s ease-in-out infinite'
+              }}
+            />
+            {/* Sun rays */}
+            <div
+              className="absolute inset-0"
+              style={{
+                animation: 'rotate1 20s linear infinite'
+              }}
+            >
+              {[...Array(8)].map((_, i) => (
+                <div
+                  key={i}
+                  className="absolute w-0.5 h-3 bg-gradient-to-t from-amber-400/40 to-transparent origin-bottom"
+                  style={{
+                    left: '50%',
+                    top: '50%',
+                    transform: `translate(-50%, -100%) rotate(${i * 45}deg) translateY(-8px)`
+                  }}
+                />
+              ))}
+            </div>
+            {/* Inner sun circle */}
+            <div
+              className="absolute top-1/2 left-1/2 w-4 h-4 rounded-full -translate-x-1/2 -translate-y-1/2"
+              style={{
+                background: 'radial-gradient(circle, rgba(251, 191, 36, 0.5) 0%, rgba(251, 191, 36, 0.3) 100%)',
+                boxShadow: '0 0 10px rgba(251, 191, 36, 0.3)'
+              }}
+            />
+          </div>
+        </div>
+
+        {/* Sun 2 - Top Right */}
+        <div
+          className="absolute"
+          style={{
+            top: '25%',
+            right: '12%',
+            animation: 'float2 10s ease-in-out infinite'
+          }}
+        >
+          <div className="relative w-10 h-10">
+            <div
+              className="absolute inset-0 rounded-full"
+              style={{
+                background: 'radial-gradient(circle, rgba(249, 115, 22, 0.35) 0%, rgba(249, 115, 22, 0.15) 40%, transparent 70%)',
+                animation: 'pulse2 5s ease-in-out infinite'
+              }}
+            />
+            <div
+              className="absolute inset-0"
+              style={{
+                animation: 'rotate2 25s linear infinite reverse'
+              }}
+            >
+              {[...Array(8)].map((_, i) => (
+                <div
+                  key={i}
+                  className="absolute w-0.5 h-2.5 bg-gradient-to-t from-orange-400/35 to-transparent origin-bottom"
+                  style={{
+                    left: '50%',
+                    top: '50%',
+                    transform: `translate(-50%, -100%) rotate(${i * 45}deg) translateY(-6px)`
+                  }}
+                />
+              ))}
+            </div>
+            <div
+              className="absolute top-1/2 left-1/2 w-3 h-3 rounded-full -translate-x-1/2 -translate-y-1/2"
+              style={{
+                background: 'radial-gradient(circle, rgba(249, 115, 22, 0.45) 0%, rgba(249, 115, 22, 0.25) 100%)',
+                boxShadow: '0 0 8px rgba(249, 115, 22, 0.3)'
+              }}
+            />
+          </div>
+        </div>
+
+        {/* Sun 3 - Center */}
+        <div
+          className="absolute"
+          style={{
+            top: '40%',
+            left: '50%',
+            animation: 'float3 12s ease-in-out infinite'
+          }}
+        >
+          <div className="relative w-8 h-8">
+            <div
+              className="absolute inset-0 rounded-full"
+              style={{
+                background: 'radial-gradient(circle, rgba(251, 146, 60, 0.3) 0%, rgba(251, 146, 60, 0.12) 40%, transparent 70%)',
+                animation: 'pulse3 6s ease-in-out infinite'
+              }}
+            />
+            <div
+              className="absolute inset-0"
+              style={{
+                animation: 'rotate3 18s linear infinite'
+              }}
+            >
+              {[...Array(6)].map((_, i) => (
+                <div
+                  key={i}
+                  className="absolute w-0.5 h-2 bg-gradient-to-t from-orange-300/30 to-transparent origin-bottom"
+                  style={{
+                    left: '50%',
+                    top: '50%',
+                    transform: `translate(-50%, -100%) rotate(${i * 60}deg) translateY(-5px)`
+                  }}
+                />
+              ))}
+            </div>
+            <div
+              className="absolute top-1/2 left-1/2 w-2.5 h-2.5 rounded-full -translate-x-1/2 -translate-y-1/2"
+              style={{
+                background: 'radial-gradient(circle, rgba(251, 146, 60, 0.4) 0%, rgba(251, 146, 60, 0.2) 100%)',
+                boxShadow: '0 0 6px rgba(251, 146, 60, 0.25)'
+              }}
+            />
+          </div>
+        </div>
+      </div>
       
       {/* Top scrolling banner with premium gradient and texture */}
       <div 
@@ -294,143 +444,74 @@ const SolarCompanyHeader: React.FC = () => {
             <Link
               href="/shop/products"
               className={cn(
-                "px-5 py-2.5 text-[15px] font-semibold rounded-xl transition-all duration-300 relative overflow-hidden group",
-                isActive("/shop/products")
-                  ? "text-white"
-                  : "text-gray-800 hover:text-white"
+                "px-4 py-2 text-[15px] font-medium rounded-lg transition-all duration-200 relative overflow-hidden group",
+                "text-white"
               )}
               style={{
-                background: isActive("/shop/products")
-                  ? 'linear-gradient(135deg, rgba(249,115,22,0.95) 0%, rgba(251,146,60,0.9) 50%, rgba(234,88,12,0.95) 100%)'
-                  : 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(248,250,252,0.3) 100%)',
-                backdropFilter: 'blur(20px) saturate(180%)',
-                WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-                border: isActive("/shop/products")
-                  ? '2px solid rgba(251,146,60,0.6)'
-                  : '2px solid rgba(203,213,225,0.4)',
-                boxShadow: isActive("/shop/products")
-                  ? '0 8px 32px rgba(249,115,22,0.4), 0 4px 16px rgba(234,88,12,0.3), inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -1px 0 rgba(0,0,0,0.2)'
-                  : '0 4px 20px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.6)',
-                textShadow: isActive("/shop/products") ? '0 2px 8px rgba(0,0,0,0.3)' : 'none'
-              }}
-              onMouseEnter={(e) => {
-                if (!isActive("/shop/products")) {
-                  e.currentTarget.style.background = 'linear-gradient(135deg, rgba(249,115,22,0.85) 0%, rgba(251,146,60,0.8) 50%, rgba(59,130,246,0.85) 100%)';
-                  e.currentTarget.style.borderImage = 'linear-gradient(135deg, rgba(249,115,22,0.8), rgba(59,130,246,0.8)) 1';
-                  e.currentTarget.style.boxShadow = '0 12px 40px rgba(249,115,22,0.5), 0 6px 20px rgba(59,130,246,0.4), inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -2px 0 rgba(0,0,0,0.3)';
-                  e.currentTarget.style.transform = 'translateY(-2px) scale(1.05)';
-                  e.currentTarget.style.textShadow = '0 2px 12px rgba(0,0,0,0.4), 0 0 20px rgba(255,255,255,0.6)';
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (!isActive("/shop/products")) {
-                  e.currentTarget.style.background = 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(248,250,252,0.3) 100%)';
-                  e.currentTarget.style.borderImage = 'none';
-                  e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.6)';
-                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                  e.currentTarget.style.textShadow = 'none';
-                }
+                background: 'linear-gradient(135deg, #f97316 0%, #fb923c 25%, #ea580c 50%, #f59e0b 75%, #3b82f6 100%)',
+                boxShadow: '0 4px 20px rgba(249,115,22,0.5), 0 2px 10px rgba(59,130,246,0.4), inset 0 2px 0 rgba(255,255,255,0.4), inset 0 -2px 0 rgba(0,0,0,0.2)',
+                border: '1px solid rgba(255,255,255,0.4)'
               }}
             >
               <span className="relative z-10">Products</span>
-              {!isActive("/shop/products") && (
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-500 via-amber-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl blur-xl" />
-              )}
+              {/* Glass overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-50 pointer-events-none rounded-lg" />
+              {/* Shimmer effect */}
+              <div
+                className="absolute inset-0 pointer-events-none rounded-lg"
+                style={{
+                  background: 'linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.8) 50%, transparent 60%)',
+                  backgroundSize: '200% 100%',
+                  animation: 'shimmer1 3.2s infinite 0s',
+                  mixBlendMode: 'overlay'
+                }}
+              />
             </Link>
 
             {/* Comparison Link */}
             <Link
               href="/comparison"
               className={cn(
-                "px-5 py-2.5 text-[15px] font-semibold rounded-xl transition-all duration-300 relative overflow-hidden group",
-                isActive("/comparison")
-                  ? "text-white"
-                  : "text-gray-800 hover:text-white"
+                "px-4 py-2 text-[15px] font-medium rounded-lg transition-all duration-200 relative overflow-hidden group",
+                "text-white"
               )}
               style={{
-                background: isActive("/comparison")
-                  ? 'linear-gradient(135deg, rgba(249,115,22,0.95) 0%, rgba(251,146,60,0.9) 50%, rgba(234,88,12,0.95) 100%)'
-                  : 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(248,250,252,0.3) 100%)',
-                backdropFilter: 'blur(20px) saturate(180%)',
-                WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-                border: isActive("/comparison")
-                  ? '2px solid rgba(251,146,60,0.6)'
-                  : '2px solid rgba(203,213,225,0.4)',
-                boxShadow: isActive("/comparison")
-                  ? '0 8px 32px rgba(249,115,22,0.4), 0 4px 16px rgba(234,88,12,0.3), inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -1px 0 rgba(0,0,0,0.2)'
-                  : '0 4px 20px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.6)',
-                textShadow: isActive("/comparison") ? '0 2px 8px rgba(0,0,0,0.3)' : 'none'
-              }}
-              onMouseEnter={(e) => {
-                if (!isActive("/comparison")) {
-                  e.currentTarget.style.background = 'linear-gradient(135deg, rgba(249,115,22,0.85) 0%, rgba(251,146,60,0.8) 50%, rgba(59,130,246,0.85) 100%)';
-                  e.currentTarget.style.borderImage = 'linear-gradient(135deg, rgba(249,115,22,0.8), rgba(59,130,246,0.8)) 1';
-                  e.currentTarget.style.boxShadow = '0 12px 40px rgba(249,115,22,0.5), 0 6px 20px rgba(59,130,246,0.4), inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -2px 0 rgba(0,0,0,0.3)';
-                  e.currentTarget.style.transform = 'translateY(-2px) scale(1.05)';
-                  e.currentTarget.style.textShadow = '0 2px 12px rgba(0,0,0,0.4), 0 0 20px rgba(255,255,255,0.6)';
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (!isActive("/comparison")) {
-                  e.currentTarget.style.background = 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(248,250,252,0.3) 100%)';
-                  e.currentTarget.style.borderImage = 'none';
-                  e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.6)';
-                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                  e.currentTarget.style.textShadow = 'none';
-                }
+                background: 'linear-gradient(135deg, #f97316 0%, #fb923c 25%, #ea580c 50%, #f59e0b 75%, #3b82f6 100%)',
+                boxShadow: '0 4px 20px rgba(249,115,22,0.5), 0 2px 10px rgba(59,130,246,0.4), inset 0 2px 0 rgba(255,255,255,0.4), inset 0 -2px 0 rgba(0,0,0,0.2)',
+                border: '1px solid rgba(255,255,255,0.4)'
               }}
             >
               <span className="relative z-10">Comparison</span>
-              {!isActive("/comparison") && (
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-500 via-amber-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl blur-xl" />
-              )}
+              {/* Glass overlay */}
+              <div className="absolute inset-0 bg-gradient-to-bl from-white/25 via-transparent to-transparent opacity-40 pointer-events-none rounded-lg" />
+              {/* Shimmer effect */}
+              <div
+                className="absolute inset-0 pointer-events-none rounded-lg"
+                style={{
+                  background: 'linear-gradient(110deg, transparent 35%, rgba(255, 255, 255, 0.7) 50%, transparent 65%)',
+                  backgroundSize: '200% 100%',
+                  animation: 'shimmer2 4.1s infinite 0.5s',
+                  mixBlendMode: 'overlay'
+                }}
+              />
             </Link>
 
             {/* Services Dropdown */}
             <div
-              className="relative group"
+              className="relative"
               ref={el => dropdownRefs.current['services'] = el}
               style={{ position: 'relative', zIndex: 10000 }}
             >
               <button
                 onClick={() => setActiveDropdown(activeDropdown === 'services' ? null : 'services')}
                 className={cn(
-                  "flex items-center px-5 py-2.5 text-[15px] font-semibold rounded-xl transition-all duration-300 relative z-10 overflow-hidden",
-                  activeDropdown === 'services'
-                    ? "text-white"
-                    : "text-gray-800 hover:text-white"
+                  "flex items-center px-4 py-2 text-[15px] font-medium rounded-lg transition-all duration-200 relative overflow-hidden",
+                  "text-white"
                 )}
                 style={{
-                  background: activeDropdown === 'services'
-                    ? 'linear-gradient(135deg, rgba(249,115,22,0.95) 0%, rgba(251,146,60,0.9) 50%, rgba(234,88,12,0.95) 100%)'
-                    : 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(248,250,252,0.3) 100%)',
-                  backdropFilter: 'blur(20px) saturate(180%)',
-                  WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-                  border: activeDropdown === 'services'
-                    ? '2px solid rgba(251,146,60,0.6)'
-                    : '2px solid rgba(203,213,225,0.4)',
-                  boxShadow: activeDropdown === 'services'
-                    ? '0 8px 32px rgba(249,115,22,0.4), 0 4px 16px rgba(234,88,12,0.3), inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -1px 0 rgba(0,0,0,0.2)'
-                    : '0 4px 20px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.6)',
-                  textShadow: activeDropdown === 'services' ? '0 2px 8px rgba(0,0,0,0.3)' : 'none'
-                }}
-                onMouseEnter={(e) => {
-                  if (activeDropdown !== 'services') {
-                    e.currentTarget.style.background = 'linear-gradient(135deg, rgba(249,115,22,0.85) 0%, rgba(251,146,60,0.8) 50%, rgba(59,130,246,0.85) 100%)';
-                    e.currentTarget.style.borderImage = 'linear-gradient(135deg, rgba(249,115,22,0.8), rgba(59,130,246,0.8)) 1';
-                    e.currentTarget.style.boxShadow = '0 12px 40px rgba(249,115,22,0.5), 0 6px 20px rgba(59,130,246,0.4), inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -2px 0 rgba(0,0,0,0.3)';
-                    e.currentTarget.style.transform = 'translateY(-2px) scale(1.05)';
-                    e.currentTarget.style.textShadow = '0 2px 12px rgba(0,0,0,0.4), 0 0 20px rgba(255,255,255,0.6)';
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (activeDropdown !== 'services') {
-                    e.currentTarget.style.background = 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(248,250,252,0.3) 100%)';
-                    e.currentTarget.style.borderImage = 'none';
-                    e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.6)';
-                    e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                    e.currentTarget.style.textShadow = 'none';
-                  }
+                  background: 'linear-gradient(135deg, #f97316 0%, #fb923c 25%, #ea580c 50%, #f59e0b 75%, #3b82f6 100%)',
+                  boxShadow: '0 4px 20px rgba(249,115,22,0.5), 0 2px 10px rgba(59,130,246,0.4), inset 0 2px 0 rgba(255,255,255,0.4), inset 0 -2px 0 rgba(0,0,0,0.2)',
+                  border: '1px solid rgba(255,255,255,0.4)'
                 }}
                 aria-expanded={activeDropdown === 'services'}
                 aria-haspopup="true"
@@ -440,58 +521,38 @@ const SolarCompanyHeader: React.FC = () => {
                   "ml-1 w-4 h-4 transition-transform duration-200 relative z-10",
                   activeDropdown === 'services' ? "rotate-180" : ""
                 )} />
-                {activeDropdown !== 'services' && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-orange-500 via-amber-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl blur-xl" />
-                )}
+                {/* Glass overlay */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-white/15 via-white/5 to-transparent opacity-60 pointer-events-none rounded-lg" />
+                {/* Shimmer effect */}
+                <div
+                  className="absolute inset-0 pointer-events-none rounded-lg"
+                  style={{
+                    background: 'linear-gradient(115deg, transparent 38%, rgba(255, 255, 255, 0.9) 50%, transparent 62%)',
+                    backgroundSize: '200% 100%',
+                    animation: 'shimmer3 2.8s infinite 1s',
+                    mixBlendMode: 'overlay'
+                  }}
+                />
               </button>
               {activeDropdown === 'services' && <DropdownMenu items={servicesItems} dropdownKey="services" />}
             </div>
 
             {/* Company Dropdown */}
             <div
-              className="relative group"
+              className="relative"
               ref={el => dropdownRefs.current['company'] = el}
               style={{ position: 'relative', zIndex: 10000 }}
             >
               <button
                 onClick={() => setActiveDropdown(activeDropdown === 'company' ? null : 'company')}
                 className={cn(
-                  "flex items-center px-5 py-2.5 text-[15px] font-semibold rounded-xl transition-all duration-300 relative z-10 overflow-hidden",
-                  activeDropdown === 'company'
-                    ? "text-white"
-                    : "text-gray-800 hover:text-white"
+                  "flex items-center px-4 py-2 text-[15px] font-medium rounded-lg transition-all duration-200 relative overflow-hidden",
+                  "text-white"
                 )}
                 style={{
-                  background: activeDropdown === 'company'
-                    ? 'linear-gradient(135deg, rgba(249,115,22,0.95) 0%, rgba(251,146,60,0.9) 50%, rgba(234,88,12,0.95) 100%)'
-                    : 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(248,250,252,0.3) 100%)',
-                  backdropFilter: 'blur(20px) saturate(180%)',
-                  WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-                  border: activeDropdown === 'company'
-                    ? '2px solid rgba(251,146,60,0.6)'
-                    : '2px solid rgba(203,213,225,0.4)',
-                  boxShadow: activeDropdown === 'company'
-                    ? '0 8px 32px rgba(249,115,22,0.4), 0 4px 16px rgba(234,88,12,0.3), inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -1px 0 rgba(0,0,0,0.2)'
-                    : '0 4px 20px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.6)',
-                  textShadow: activeDropdown === 'company' ? '0 2px 8px rgba(0,0,0,0.3)' : 'none'
-                }}
-                onMouseEnter={(e) => {
-                  if (activeDropdown !== 'company') {
-                    e.currentTarget.style.background = 'linear-gradient(135deg, rgba(249,115,22,0.85) 0%, rgba(251,146,60,0.8) 50%, rgba(59,130,246,0.85) 100%)';
-                    e.currentTarget.style.borderImage = 'linear-gradient(135deg, rgba(249,115,22,0.8), rgba(59,130,246,0.8)) 1';
-                    e.currentTarget.style.boxShadow = '0 12px 40px rgba(249,115,22,0.5), 0 6px 20px rgba(59,130,246,0.4), inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -2px 0 rgba(0,0,0,0.3)';
-                    e.currentTarget.style.transform = 'translateY(-2px) scale(1.05)';
-                    e.currentTarget.style.textShadow = '0 2px 12px rgba(0,0,0,0.4), 0 0 20px rgba(255,255,255,0.6)';
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (activeDropdown !== 'company') {
-                    e.currentTarget.style.background = 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(248,250,252,0.3) 100%)';
-                    e.currentTarget.style.borderImage = 'none';
-                    e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.6)';
-                    e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                    e.currentTarget.style.textShadow = 'none';
-                  }
+                  background: 'linear-gradient(135deg, #f97316 0%, #fb923c 25%, #ea580c 50%, #f59e0b 75%, #3b82f6 100%)',
+                  boxShadow: '0 4px 20px rgba(249,115,22,0.5), 0 2px 10px rgba(59,130,246,0.4), inset 0 2px 0 rgba(255,255,255,0.4), inset 0 -2px 0 rgba(0,0,0,0.2)',
+                  border: '1px solid rgba(255,255,255,0.4)'
                 }}
                 aria-expanded={activeDropdown === 'company'}
                 aria-haspopup="true"
@@ -501,9 +562,18 @@ const SolarCompanyHeader: React.FC = () => {
                   "ml-1 w-4 h-4 transition-transform duration-200 relative z-10",
                   activeDropdown === 'company' ? "rotate-180" : ""
                 )} />
-                {activeDropdown !== 'company' && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-orange-500 via-amber-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl blur-xl" />
-                )}
+                {/* Glass overlay */}
+                <div className="absolute inset-0 bg-gradient-to-tl from-white/30 via-transparent to-white/10 opacity-45 pointer-events-none rounded-lg" />
+                {/* Shimmer effect */}
+                <div
+                  className="absolute inset-0 pointer-events-none rounded-lg"
+                  style={{
+                    background: 'linear-gradient(100deg, transparent 42%, rgba(255, 255, 255, 0.75) 50%, transparent 58%)',
+                    backgroundSize: '200% 100%',
+                    animation: 'shimmer4 3.6s infinite 1.5s',
+                    mixBlendMode: 'overlay'
+                  }}
+                />
               </button>
               {activeDropdown === 'company' && <DropdownMenu items={companyItems} dropdownKey="company" />}
             </div>
@@ -513,14 +583,26 @@ const SolarCompanyHeader: React.FC = () => {
           <div className="hidden lg:flex items-center">
             <Link href="/contact">
               <button
-                className="px-5 py-2.5 rounded-lg text-white text-[15px] font-semibold transition-all duration-300 hover:scale-[1.02]"
+                className="px-5 py-2.5 rounded-lg text-white text-[15px] font-semibold transition-all duration-300 hover:scale-[1.02] relative overflow-hidden"
                 style={{
                   background: 'linear-gradient(135deg, #f97316 0%, #fb923c 25%, #ea580c 50%, #f59e0b 75%, #3b82f6 100%)',
                   boxShadow: '0 4px 20px rgba(249,115,22,0.5), 0 2px 10px rgba(59,130,246,0.4), inset 0 2px 0 rgba(255,255,255,0.4), inset 0 -2px 0 rgba(0,0,0,0.2)',
                   border: '1px solid rgba(255,255,255,0.4)'
                 }}
               >
-                Get Free Quote
+                <span className="relative z-10">Get Free Quote</span>
+                {/* Glass overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/35 via-white/10 to-transparent opacity-55 pointer-events-none rounded-lg" />
+                {/* Shimmer effect */}
+                <div
+                  className="absolute inset-0 pointer-events-none rounded-lg"
+                  style={{
+                    background: 'linear-gradient(120deg, transparent 45%, rgba(255, 255, 255, 0.85) 50%, transparent 55%)',
+                    backgroundSize: '200% 100%',
+                    animation: 'shimmer5 3.4s infinite 2s',
+                    mixBlendMode: 'overlay'
+                  }}
+                />
               </button>
             </Link>
           </div>

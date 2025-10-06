@@ -33,7 +33,10 @@
       "Bash(do if [ -f \"$file\" ])",
       "Bash(then sed -i 's/dark:text-[a-zA-Z0-9-]*//g' \"$file\")",
       "Bash(echo:*)",
-      "Bash(fi)"
+      "Bash(fi)",
+      "Read(//tmp/**)",
+      "Bash(fuser:*)",
+      "Bash(do echo \"=== $file.tsx ===\")"
     ],
     "deny": [],
     "ask": []
