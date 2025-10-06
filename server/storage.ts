@@ -1,4 +1,4 @@
-import { contacts, companies, opportunities, activities, tasks, orders, orderItems, products, productCategories, formSubmissions, portfolioProjects, solarFormSubmissions, type Contact, type Company, type Opportunity, type FormSubmission, type PortfolioProject, type Product, type ProductCategory, type SolarFormSubmission } from "@shared/schema";
+import { contacts, companies, opportunities, activities, tasks, orders, orderItems, products, productCategories, formSubmissions, portfolioProjects, solarFormSubmissions, newsletterSubscribers, type Contact, type Company, type Opportunity, type FormSubmission, type PortfolioProject, type Product, type ProductCategory, type SolarFormSubmission, type NewsletterSubscriber } from "@shared/schema";
 import { db } from "./db";
 import { eq, desc, and, like, sql } from "drizzle-orm";
 
@@ -73,6 +73,10 @@ export interface IStorage {
   createSolarSubmission(data: any): Promise<SolarFormSubmission>;
   getAllSolarSubmissions(filters?: { page?: number; limit?: number; search?: string }): Promise<{ submissions: SolarFormSubmission[]; total: number }>;
   verifySolarAdminCode(code: string): Promise<boolean>;
+
+  // Newsletter subscribers
+  addNewsletterSubscriber(email: string, name: string | undefined, source: string): Promise<NewsletterSubscriber>;
+  getAllNewsletterSubscribers(): Promise<NewsletterSubscriber[]>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -729,6 +733,36 @@ export class DatabaseStorage implements IStorage {
 
   async verifySolarAdminCode(code: string): Promise<boolean> {
     return code === '0843';
+  }
+
+  async addNewsletterSubscriber(email: string, name: string | undefined, source: string): Promise<NewsletterSubscriber> {
+    try {
+      const [subscriber] = await db
+        .insert(newsletterSubscribers)
+        .values({
+          email,
+          name,
+          source
+        })
+        .returning();
+      return subscriber;
+    } catch (error: any) {
+      if (error.code === '23505') {
+        const [existingSubscriber] = await db
+          .select()
+          .from(newsletterSubscribers)
+          .where(eq(newsletterSubscribers.email, email));
+        return existingSubscriber;
+      }
+      throw error;
+    }
+  }
+
+  async getAllNewsletterSubscribers(): Promise<NewsletterSubscriber[]> {
+    return await db
+      .select()
+      .from(newsletterSubscribers)
+      .orderBy(desc(newsletterSubscribers.subscribedAt));
   }
 }
 

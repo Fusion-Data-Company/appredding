@@ -1709,3 +1709,20 @@ export const insertSolarFormSubmissionSchema = createInsertSchema(solarFormSubmi
 });
 export type InsertSolarFormSubmission = z.infer<typeof insertSolarFormSubmissionSchema>;
 export type SolarFormSubmission = typeof solarFormSubmissions.$inferSelect;
+
+// Newsletter Subscribers Table
+export const newsletterSubscribers = pgTable("newsletter_subscribers", {
+  id: serial("id").primaryKey(),
+  email: text("email").notNull().unique(),
+  name: text("name"),
+  source: text("source").notNull(),
+  subscribedAt: timestamp("subscribed_at", { withTimezone: true }).notNull().defaultNow(),
+});
+
+// Insert schemas for Newsletter Subscribers
+export const insertNewsletterSubscriberSchema = createInsertSchema(newsletterSubscribers).omit({ 
+  id: true, 
+  subscribedAt: true 
+});
+export type InsertNewsletterSubscriber = z.infer<typeof insertNewsletterSubscriberSchema>;
+export type NewsletterSubscriber = typeof newsletterSubscribers.$inferSelect;

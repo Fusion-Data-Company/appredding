@@ -443,7 +443,7 @@ const LithiumBattery = () => {
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                       {[
                         { icon: <Zap className="h-5 w-5" />, label: "Nominal Voltage", value: chemistryData[selectedChemistry].voltage, gradient: "from-blue-500 via-cyan-500 to-blue-600", glowColor: "rgba(59, 130, 246, 0.4)", iconColor: "text-blue-300" },
-                        { icon: <Battery className="h-5 w-5" />, label: "Energy Density", value: chemistryData[selectedChemistry].energy, gradient: "from-purple-500 via-violet-500 to-purple-600", glowColor: "rgba(168, 85, 247, 0.4)", iconColor: "text-purple-300" },
+                        { icon: <Battery className="h-5 w-5" />, label: "Energy Density", value: chemistryData[selectedChemistry].energy, gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", iconColor: "text-orange-300" },
                         { icon: <Activity className="h-5 w-5" />, label: "Cycle Life", value: chemistryData[selectedChemistry].cycles, gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", iconColor: "text-orange-300" },
                         { icon: <Shield className="h-5 w-5" />, label: "Safety Rating", value: chemistryData[selectedChemistry].safety, gradient: "from-green-500 via-emerald-500 to-green-600", glowColor: "rgba(34, 197, 94, 0.4)", iconColor: "text-green-300" }
                       ].map((item, idx) => (
@@ -643,9 +643,9 @@ const LithiumBattery = () => {
                     />
 
                     <div className="overflow-x-auto relative">
-                      <div className="relative rounded-2xl overflow-hidden border border-purple-500/20"
+                      <div className="relative rounded-2xl overflow-hidden border border-orange-500/20"
                         style={{
-                          background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(59, 130, 246, 0.05) 50%, rgba(249, 115, 22, 0.1) 100%)',
+                          background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(59, 130, 246, 0.05) 50%, rgba(249, 115, 22, 0.1) 100%)',
                           boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
                         }}
                       >
@@ -671,7 +671,7 @@ const LithiumBattery = () => {
                             >
                               <th className="px-6 py-4 text-left">
                                 <div className="flex items-center gap-2">
-                                  <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse" />
+                                  <div className="w-2 h-2 bg-amber-400 rounded-full animate-pulse" />
                                   <span className="text-xs font-medium text-gray-300 uppercase tracking-wider">Format</span>
                                 </div>
                               </th>
@@ -718,10 +718,10 @@ const LithiumBattery = () => {
                                 className="hover:bg-white/5 transition-all duration-300 group"
                               >
                                 <motion.td
-                                  className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white group-hover:text-purple-200"
+                                  className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white group-hover:text-amber-200"
                                   whileHover={{ scale: 1.05 }}
                                 >
-                                  <div className="inline-block px-3 py-1 rounded-lg bg-purple-500/10 group-hover:bg-purple-500/20 transition-colors">
+                                  <div className="inline-block px-3 py-1 rounded-lg bg-amber-500/10 group-hover:bg-amber-500/20 transition-colors">
                                     {cell.format}
                                   </div>
                                 </motion.td>
@@ -797,13 +797,13 @@ const LithiumBattery = () => {
                       <div
                         className="absolute inset-0 pointer-events-none"
                         style={{
-                          background: 'linear-gradient(110deg, transparent 20%, rgba(168, 85, 247, 0.1) 50%, transparent 80%)',
+                          background: 'linear-gradient(110deg, transparent 20%, rgba(249, 115, 22, 0.1) 50%, transparent 80%)',
                           backgroundSize: '200% 100%',
                           animation: 'shimmer1 5s infinite'
                         }}
                       />
 
-                      <div className="bg-gradient-to-r from-purple-500 via-violet-500 to-purple-600 p-4 text-white relative overflow-hidden">
+                      <div className="bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 p-4 text-white relative overflow-hidden">
                         {/* Glass overlay */}
                         <div
                           className="absolute inset-0 pointer-events-none"
@@ -823,23 +823,23 @@ const LithiumBattery = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.4, delay: idx * 0.05 }}
-                            whileHover={{ backgroundColor: 'rgba(168, 85, 247, 0.1)', x: 5 }}
+                            whileHover={{ backgroundColor: 'rgba(249, 115, 22, 0.1)', x: 5 }}
                             className="p-4 transition-all duration-300 group relative"
                           >
                             {/* Glow effect on hover */}
                             <div
                               className="absolute inset-0 blur-lg opacity-0 group-hover:opacity-30 transition-all duration-500 pointer-events-none"
                               style={{
-                                background: 'rgba(168, 85, 247, 0.5)'
+                                background: 'rgba(249, 115, 22, 0.5)'
                               }}
                             />
 
                             <div className="relative z-10">
                               <div className="flex items-start justify-between mb-2">
-                                <h4 className="font-semibold text-white group-hover:text-purple-200 transition-colors">{feature.layer}</h4>
+                                <h4 className="font-semibold text-white group-hover:text-amber-200 transition-colors">{feature.layer}</h4>
                                 <motion.span
                                   whileHover={{ scale: 1.1 }}
-                                  className="text-xs bg-purple-500/20 text-purple-300 px-3 py-1 rounded-lg border border-purple-500/30 group-hover:bg-purple-500/30 transition-colors"
+                                  className="text-xs bg-amber-500/20 text-amber-300 px-3 py-1 rounded-lg border border-amber-500/30 group-hover:bg-amber-500/30 transition-colors"
                                 >
                                   {feature.response}
                                 </motion.span>
@@ -949,7 +949,7 @@ const LithiumBattery = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
 
                 {/* Manufacturing Process Timeline */}
@@ -988,13 +988,13 @@ const LithiumBattery = () => {
                         {manufacturingProcess.map((step, idx) => {
                           const gradients = [
                             { gradient: "from-blue-500 via-cyan-500 to-blue-600", glowColor: "rgba(59, 130, 246, 0.4)", borderColor: "border-blue-500/40", dotColor: "border-blue-500" },
-                            { gradient: "from-purple-500 via-violet-500 to-purple-600", glowColor: "rgba(168, 85, 247, 0.4)", borderColor: "border-purple-500/40", dotColor: "border-purple-500" },
+                            { gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", borderColor: "border-orange-500/40", dotColor: "border-orange-500" },
                             { gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", borderColor: "border-orange-500/40", dotColor: "border-orange-500" },
                             { gradient: "from-green-500 via-emerald-500 to-green-600", glowColor: "rgba(34, 197, 94, 0.4)", borderColor: "border-green-500/40", dotColor: "border-green-500" },
                             { gradient: "from-red-500 via-pink-500 to-red-600", glowColor: "rgba(239, 68, 68, 0.4)", borderColor: "border-red-500/40", dotColor: "border-red-500" },
                             { gradient: "from-blue-500 via-indigo-500 to-blue-600", glowColor: "rgba(59, 130, 246, 0.4)", borderColor: "border-blue-500/40", dotColor: "border-blue-500" },
                             { gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", borderColor: "border-orange-500/40", dotColor: "border-orange-500" },
-                            { gradient: "from-purple-500 via-violet-500 to-purple-600", glowColor: "rgba(168, 85, 247, 0.4)", borderColor: "border-purple-500/40", dotColor: "border-purple-500" }
+                            { gradient: "from-yellow-500 via-amber-500 to-yellow-600", glowColor: "rgba(234, 179, 8, 0.4)", borderColor: "border-yellow-500/40", dotColor: "border-yellow-500" }
                           ];
                           const style = gradients[idx % gradients.length];
 
@@ -1094,9 +1094,9 @@ const LithiumBattery = () => {
                 {/* Application Sectors with Detailed Specs */}
                 <div className="mb-16">
                   <div className="text-center mb-8">
-                    <p className="text-purple-400 font-semibold mb-2 uppercase tracking-wide">Market Applications</p>
+                    <p className="text-orange-400 font-semibold mb-2 uppercase tracking-wide">Market Applications</p>
                     <h2 className="text-4xl md:text-5xl font-bold text-white mb-3" style={{
-                      filter: 'drop-shadow(0 4px 20px rgba(139, 92, 246, 0.3))'
+                      filter: 'drop-shadow(0 4px 20px rgba(249, 115, 22, 0.3))'
                     }}>
                       Industry-Specific Solutions
                     </h2>
@@ -1131,7 +1131,7 @@ const LithiumBattery = () => {
                             }}
                           />
 
-                          <div className="card-elite glow-purple rounded-2xl overflow-hidden relative">
+                          <div className="card-elite glow-orange rounded-2xl overflow-hidden relative">
                             {/* Header with gradient */}
                             <div className={`bg-gradient-to-r ${style.headerGradient} p-4 text-white relative overflow-hidden`}>
                               {/* Glass overlay */}
@@ -1264,7 +1264,7 @@ const LithiumBattery = () => {
                         { gradient: "from-blue-500 via-indigo-500 to-blue-600", glowColor: "rgba(59, 130, 246, 0.4)", iconColor: "text-blue-300", borderColor: "border-blue-500/30" },
                         { gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", iconColor: "text-orange-300", borderColor: "border-orange-500/30" },
                         { gradient: "from-green-500 via-emerald-500 to-green-600", glowColor: "rgba(34, 197, 94, 0.4)", iconColor: "text-green-300", borderColor: "border-green-500/30" },
-                        { gradient: "from-purple-500 via-violet-500 to-purple-600", glowColor: "rgba(168, 85, 247, 0.4)", iconColor: "text-purple-300", borderColor: "border-purple-500/30" },
+                        { gradient: "from-yellow-500 via-amber-500 to-yellow-600", glowColor: "rgba(234, 179, 8, 0.4)", iconColor: "text-yellow-300", borderColor: "border-yellow-500/30" },
                         { gradient: "from-cyan-500 via-blue-500 to-cyan-600", glowColor: "rgba(6, 182, 212, 0.4)", iconColor: "text-cyan-300", borderColor: "border-cyan-500/30" }
                       ];
                       const style = gradients[idx % gradients.length];
@@ -1368,34 +1368,98 @@ const LithiumBattery = () => {
                   </div>
 
                   {/* Testing Procedures */}
-                  <div className="bg-red-900/20 rounded-2xl p-8 border border-red-500/30">
-                    <h3 className="text-xl font-bold mb-6 text-white flex items-center gap-2">
-                      <Flame className="h-6 w-6 text-red-400" /> Thermal Runaway Testing Protocol
+                  <motion.div
+                    className="bg-red-900/20 rounded-2xl p-8 border border-red-500/30 relative overflow-hidden"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    {/* Background shimmer */}
+                    <div
+                      className="absolute inset-0 pointer-events-none"
+                      style={{
+                        background: 'linear-gradient(110deg, transparent 20%, rgba(239, 68, 68, 0.1) 50%, transparent 80%)',
+                        backgroundSize: '200% 100%',
+                        animation: 'shimmer1 5s infinite'
+                      }}
+                    />
+
+                    <h3 className="text-xl font-bold mb-6 text-white flex items-center gap-2 relative z-10">
+                      <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }}>
+                        <Flame className="h-6 w-6 text-red-400" />
+                      </motion.div>
+                      Thermal Runaway Testing Protocol
                     </h3>
-                    <div className="grid md:grid-cols-3 gap-6">
-                      <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-4">
-                        <div className="flex items-center gap-2 mb-2">
-                          <Thermometer className="h-5 w-5 text-red-400" />
-                          <h4 className="font-semibold text-white">Temperature Test</h4>
-                        </div>
-                        <p className="text-sm text-gray-400">Cells heated to 200°C to verify no thermal runaway propagation</p>
-                      </div>
-                      <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-4">
-                        <div className="flex items-center gap-2 mb-2">
-                          <Zap className="h-5 w-5 text-yellow-400" />
-                          <h4 className="font-semibold text-white">Overcharge Test</h4>
-                        </div>
-                        <p className="text-sm text-gray-400">Charge to 200% SOC to verify BMS protection and safety</p>
-                      </div>
-                      <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-4">
-                        <div className="flex items-center gap-2 mb-2">
-                          <AlertTriangle className="h-5 w-5 text-orange-400" />
-                          <h4 className="font-semibold text-white">Penetration Test</h4>
-                        </div>
-                        <p className="text-sm text-gray-400">Nail penetration to simulate catastrophic damage scenarios</p>
-                      </div>
+                    <div className="grid md:grid-cols-3 gap-6 relative z-10">
+                      {[
+                        { icon: <Thermometer className="h-5 w-5" />, title: "Temperature Test", desc: "Cells heated to 200°C to verify no thermal runaway propagation", gradient: "from-red-500 via-orange-500 to-red-600", glowColor: "rgba(239, 68, 68, 0.4)", iconColor: "text-red-300" },
+                        { icon: <Zap className="h-5 w-5" />, title: "Overcharge Test", desc: "Charge to 200% SOC to verify BMS protection and safety", gradient: "from-yellow-500 via-amber-500 to-yellow-600", glowColor: "rgba(234, 179, 8, 0.4)", iconColor: "text-yellow-300" },
+                        { icon: <AlertTriangle className="h-5 w-5" />, title: "Penetration Test", desc: "Nail penetration to simulate catastrophic damage scenarios", gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", iconColor: "text-orange-300" }
+                      ].map((test, idx) => (
+                        <motion.div
+                          key={idx}
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.4, delay: idx * 0.1 }}
+                          whileHover={{ scale: 1.05, y: -5 }}
+                          className="relative group"
+                        >
+                          {/* Glow effect */}
+                          <div
+                            className="absolute inset-0 rounded-xl blur-lg opacity-40 group-hover:opacity-70 transition-all duration-500"
+                            style={{
+                              background: test.glowColor,
+                              animation: `pulse ${2 + idx * 0.3}s ease-in-out infinite`
+                            }}
+                          />
+
+                          {/* Card */}
+                          <div
+                            className={`relative bg-gradient-to-br ${test.gradient} backdrop-blur-sm border border-white/20 rounded-xl p-4 overflow-hidden`}
+                            style={{
+                              backdropFilter: 'blur(10px)',
+                              boxShadow: '0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+                            }}
+                          >
+                            {/* Glass overlay */}
+                            <div
+                              className="absolute inset-0 pointer-events-none"
+                              style={{
+                                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 50%)'
+                              }}
+                            />
+
+                            {/* Shimmer */}
+                            <div
+                              className="absolute inset-0 pointer-events-none"
+                              style={{
+                                background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.4) 50%, transparent 80%)',
+                                backgroundSize: '200% 100%',
+                                animation: `shimmer${idx + 1} ${3 + idx * 0.5}s infinite`,
+                                mixBlendMode: 'overlay'
+                              }}
+                            />
+
+                            <div className="relative z-10">
+                              <div className="flex items-center gap-2 mb-2">
+                                <motion.div
+                                  whileHover={{ rotate: 360 }}
+                                  transition={{ duration: 0.6 }}
+                                  className={test.iconColor}
+                                >
+                                  {test.icon}
+                                </motion.div>
+                                <h4 className="font-semibold text-white drop-shadow-md">{test.title}</h4>
+                              </div>
+                              <p className="text-sm text-white/90">{test.desc}</p>
+                            </div>
+                          </div>
+                        </motion.div>
+                      ))}
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
 
                 {/* Battery Metrics Education */}
@@ -1409,22 +1473,100 @@ const LithiumBattery = () => {
                     </h2>
                     <p className="text-gray-400 text-lg">Key performance indicators and what they mean for your system</p>
                   </div>
-                  <div className="card-elite glow-blue rounded-2xl overflow-hidden">
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 p-8">
-                      {batteryMetrics.map((metric, idx) => (
-                        <div key={idx} className="border-l-4 border-blue-500 pl-4">
-                          <h4 className="text-lg font-bold text-white mb-1">{metric.metric}</h4>
-                          <p className="text-sm text-gray-400 mb-2">{metric.definition}</p>
-                          <div className="text-xs bg-gray-700/50 rounded p-2 mb-1">
-                            <strong className="text-white">Example:</strong> <span className="text-gray-300">{metric.example}</span>
-                          </div>
-                          <p className="text-xs text-blue-400">
-                            <strong>Why it matters:</strong> {metric.importance}
-                          </p>
-                        </div>
-                      ))}
+                  <motion.div
+                    className="card-elite glow-blue rounded-2xl overflow-hidden relative"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    {/* Background shimmer */}
+                    <div
+                      className="absolute inset-0 pointer-events-none"
+                      style={{
+                        background: 'linear-gradient(110deg, transparent 20%, rgba(59, 130, 246, 0.1) 50%, transparent 80%)',
+                        backgroundSize: '200% 100%',
+                        animation: 'shimmer1 5s infinite'
+                      }}
+                    />
+
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 p-8 relative z-10">
+                      {batteryMetrics.map((metric, idx) => {
+                        const gradients = [
+                          { gradient: "from-blue-500 via-cyan-500 to-blue-600", glowColor: "rgba(59, 130, 246, 0.4)", borderColor: "border-blue-500" },
+                          { gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", borderColor: "border-orange-500" },
+                          { gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", borderColor: "border-orange-500" },
+                          { gradient: "from-green-500 via-emerald-500 to-green-600", glowColor: "rgba(34, 197, 94, 0.4)", borderColor: "border-green-500" },
+                          { gradient: "from-red-500 via-pink-500 to-red-600", glowColor: "rgba(239, 68, 68, 0.4)", borderColor: "border-red-500" },
+                          { gradient: "from-cyan-500 via-blue-500 to-cyan-600", glowColor: "rgba(6, 182, 212, 0.4)", borderColor: "border-cyan-500" }
+                        ];
+                        const style = gradients[idx % gradients.length];
+
+                        return (
+                          <motion.div
+                            key={idx}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: idx * 0.1 }}
+                            whileHover={{ scale: 1.05, y: -5 }}
+                            className="relative group"
+                          >
+                            {/* Glow effect */}
+                            <div
+                              className="absolute inset-0 blur-lg opacity-40 group-hover:opacity-70 transition-all duration-500"
+                              style={{
+                                background: style.glowColor,
+                                animation: `pulse ${2 + idx * 0.3}s ease-in-out infinite`
+                              }}
+                            />
+
+                            {/* Card */}
+                            <div
+                              className={`relative border-l-4 ${style.borderColor} pl-4 p-4 rounded-lg bg-gradient-to-br ${style.gradient} overflow-hidden`}
+                              style={{
+                                backdropFilter: 'blur(10px)',
+                                boxShadow: '0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+                              }}
+                            >
+                              {/* Glass overlay */}
+                              <div
+                                className="absolute inset-0 pointer-events-none"
+                                style={{
+                                  background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 50%)'
+                                }}
+                              />
+
+                              {/* Shimmer */}
+                              <div
+                                className="absolute inset-0 pointer-events-none"
+                                style={{
+                                  background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.4) 50%, transparent 80%)',
+                                  backgroundSize: '200% 100%',
+                                  animation: `shimmer${idx + 1} ${3 + idx * 0.5}s infinite`,
+                                  mixBlendMode: 'overlay'
+                                }}
+                              />
+
+                              <div className="relative z-10">
+                                <h4 className="text-lg font-bold text-white mb-1 drop-shadow-md">{metric.metric}</h4>
+                                <p className="text-sm text-white/80 mb-2">{metric.definition}</p>
+                                <motion.div
+                                  whileHover={{ scale: 1.02 }}
+                                  className="text-xs bg-white/20 backdrop-blur-sm rounded-lg p-2 mb-1 border border-white/20"
+                                >
+                                  <strong className="text-white">Example:</strong> <span className="text-white/90">{metric.example}</span>
+                                </motion.div>
+                                <p className="text-xs text-white/90">
+                                  <strong>Why it matters:</strong> {metric.importance}
+                                </p>
+                              </div>
+                            </div>
+                          </motion.div>
+                        );
+                      })}
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
 
                 {/* Recycling & Sustainability */}
@@ -1438,34 +1580,115 @@ const LithiumBattery = () => {
                     </h2>
                     <p className="text-gray-400 text-lg">Closing the loop with 95%+ material recovery rates</p>
                   </div>
-                  <div className="card-elite glow-green rounded-2xl p-8">
-                    <div className="grid lg:grid-cols-2 gap-8">
+                  <motion.div
+                    className="card-elite glow-green rounded-2xl p-8 relative overflow-hidden"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    {/* Background shimmer */}
+                    <div
+                      className="absolute inset-0 pointer-events-none"
+                      style={{
+                        background: 'linear-gradient(110deg, transparent 20%, rgba(34, 197, 94, 0.1) 50%, transparent 80%)',
+                        backgroundSize: '200% 100%',
+                        animation: 'shimmer1 5s infinite'
+                      }}
+                    />
+
+                    <div className="grid lg:grid-cols-2 gap-8 relative z-10">
                       {/* Recycling Process Flow */}
                       <div>
                         <h3 className="text-xl font-bold mb-4 text-white">Recycling Process Flow</h3>
                         <div className="space-y-3">
-                          {recyclingProcess.map((stage, idx) => (
-                            <div key={idx} className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-4">
-                              <div className="flex items-start gap-3">
-                                <div className="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
-                                  {idx + 1}
-                                </div>
-                                <div className="flex-1">
-                                  <div className="flex items-center justify-between mb-1">
-                                    <h4 className="font-semibold text-white">{stage.stage}</h4>
-                                    <span className="text-xs bg-blue-500/20 text-blue-300 px-2 py-1 rounded border border-blue-500/30">
-                                      {stage.recovery}
-                                    </span>
+                          {recyclingProcess.map((stage, idx) => {
+                            const gradients = [
+                              { gradient: "from-purple-500 via-violet-500 to-purple-600", glowColor: "rgba(168, 85, 247, 0.4)", numberBg: "bg-purple-500" },
+                              { gradient: "from-blue-500 via-indigo-500 to-blue-600", glowColor: "rgba(59, 130, 246, 0.4)", numberBg: "bg-blue-500" },
+                              { gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", numberBg: "bg-orange-500" },
+                              { gradient: "from-green-500 via-emerald-500 to-green-600", glowColor: "rgba(34, 197, 94, 0.4)", numberBg: "bg-green-500" },
+                              { gradient: "from-red-500 via-pink-500 to-red-600", glowColor: "rgba(239, 68, 68, 0.4)", numberBg: "bg-red-500" },
+                              { gradient: "from-cyan-500 via-blue-500 to-cyan-600", glowColor: "rgba(6, 182, 212, 0.4)", numberBg: "bg-cyan-500" },
+                              { gradient: "from-yellow-500 via-amber-500 to-yellow-600", glowColor: "rgba(234, 179, 8, 0.4)", numberBg: "bg-yellow-500" },
+                              { gradient: "from-pink-500 via-rose-500 to-pink-600", glowColor: "rgba(236, 72, 153, 0.4)", numberBg: "bg-pink-500" }
+                            ];
+                            const style = gradients[idx % gradients.length];
+
+                            return (
+                              <motion.div
+                                key={idx}
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.4, delay: idx * 0.05 }}
+                                whileHover={{ scale: 1.02, x: 5 }}
+                                className="relative group"
+                              >
+                                {/* Glow effect */}
+                                <div
+                                  className="absolute inset-0 rounded-xl blur-lg opacity-0 group-hover:opacity-50 transition-all duration-500"
+                                  style={{
+                                    background: style.glowColor
+                                  }}
+                                />
+
+                                {/* Card */}
+                                <div
+                                  className={`relative bg-gradient-to-br ${style.gradient} backdrop-blur-sm border border-white/20 rounded-xl p-4 overflow-hidden`}
+                                  style={{
+                                    backdropFilter: 'blur(10px)',
+                                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+                                  }}
+                                >
+                                  {/* Glass overlay */}
+                                  <div
+                                    className="absolute inset-0 pointer-events-none"
+                                    style={{
+                                      background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 50%)'
+                                    }}
+                                  />
+
+                                  {/* Shimmer */}
+                                  <div
+                                    className="absolute inset-0 pointer-events-none"
+                                    style={{
+                                      background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.4) 50%, transparent 80%)',
+                                      backgroundSize: '200% 100%',
+                                      animation: `shimmer${idx + 1} ${3 + idx * 0.5}s infinite`,
+                                      mixBlendMode: 'overlay'
+                                    }}
+                                  />
+
+                                  <div className="flex items-start gap-3 relative z-10">
+                                    <motion.div
+                                      whileHover={{ scale: 1.1, rotate: 360 }}
+                                      transition={{ duration: 0.6 }}
+                                      className={`w-8 h-8 ${style.numberBg} text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 shadow-lg`}
+                                    >
+                                      {idx + 1}
+                                    </motion.div>
+                                    <div className="flex-1">
+                                      <div className="flex items-center justify-between mb-1">
+                                        <h4 className="font-semibold text-white drop-shadow-md">{stage.stage}</h4>
+                                        <motion.span
+                                          whileHover={{ scale: 1.1 }}
+                                          className="text-xs bg-white/20 text-white px-2 py-1 rounded border border-white/30 backdrop-blur-sm"
+                                        >
+                                          {stage.recovery}
+                                        </motion.span>
+                                      </div>
+                                      <p className="text-sm text-white/90 mb-2">{stage.process}</p>
+                                      <div className="flex items-center gap-2 text-xs text-white/90">
+                                        <DollarSign className="h-3 w-3" />
+                                        <span>{stage.value}</span>
+                                      </div>
+                                    </div>
                                   </div>
-                                  <p className="text-sm text-gray-400 mb-2">{stage.process}</p>
-                                  <div className="flex items-center gap-2 text-xs text-orange-400">
-                                    <DollarSign className="h-3 w-3" />
-                                    <span>{stage.value}</span>
-                                  </div>
                                 </div>
-                              </div>
-                            </div>
-                          ))}
+                              </motion.div>
+                            );
+                          })}
                         </div>
                       </div>
 
@@ -1560,7 +1783,7 @@ const LithiumBattery = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
 
                 {/* Cost Analysis & ROI Calculator */}

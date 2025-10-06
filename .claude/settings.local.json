@@ -37,7 +37,8 @@
       "Read(//tmp/**)",
       "Bash(fuser:*)",
       "Bash(do echo \"=== $file.tsx ===\")",
-      "Bash(do)"
+      "Bash(do)",
+      "Bash(npx tsc:*)"
     ],
     "deny": [],
     "ask": []

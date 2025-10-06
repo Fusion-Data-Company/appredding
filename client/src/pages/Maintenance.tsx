@@ -514,44 +514,133 @@ const Maintenance = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            {realCustomerCases.map((case_, idx) => (
-              <div key={idx} className="card-elite glow-green p-6 group">
+            {realCustomerCases.map((case_, idx) => {
+              const colors = [
+                { gradient: "from-blue-500 via-cyan-500 to-blue-600", glowColor: "rgba(59, 130, 246, 0.4)", iconBg: "bg-blue-900/40", iconColor: "text-blue-300", borderColor: "border-blue-500/30" },
+                { gradient: "from-purple-500 via-violet-500 to-purple-600", glowColor: "rgba(168, 85, 247, 0.4)", iconBg: "bg-purple-900/40", iconColor: "text-purple-300", borderColor: "border-purple-500/30" },
+                { gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", iconBg: "bg-orange-900/40", iconColor: "text-orange-300", borderColor: "border-orange-500/30" }
+              ];
+              const color = colors[idx % colors.length];
+
+              return (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                whileHover={{ scale: 1.03, y: -5 }}
+                className="relative group"
+              >
+                {/* Glow effect */}
+                <div
+                  className="absolute inset-0 rounded-xl blur-lg opacity-50 group-hover:opacity-80 transition-all duration-500"
+                  style={{
+                    background: color.glowColor,
+                    animation: `pulse ${2.5 + idx * 0.3}s ease-in-out infinite`
+                  }}
+                />
+
+                {/* Card */}
+                <div
+                  className={`relative bg-gradient-to-br ${color.gradient} rounded-xl p-6 border ${color.borderColor} overflow-hidden transition-all duration-300`}
+                  style={{
+                    backdropFilter: 'blur(10px)',
+                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+                  }}
+                >
+                  {/* Glass overlay */}
+                  <div
+                    className="absolute inset-0 pointer-events-none opacity-60"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 60%)'
+                    }}
+                  />
+
+                  {/* Shimmer */}
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.5) 50%, transparent 80%)',
+                      backgroundSize: '200% 100%',
+                      animation: `shimmer${idx + 1} ${4 + idx * 0.5}s infinite`,
+                      mixBlendMode: 'overlay'
+                    }}
+                  />
+
+                  <div className="relative z-10">
                 <div className="flex items-start justify-between mb-4">
                   <div>
-                    <h3 className="font-bold text-gray-900 ">{case_.customer}</h3>
-                    <p className="text-sm text-gray-600 ">{case_.system}</p>
+                    <h3 className="font-bold text-white drop-shadow-md">{case_.customer}</h3>
+                    <p className="text-sm text-white/80 drop-shadow-sm">{case_.system}</p>
                   </div>
-                  <div className="icon-container-elite bg-purple-500/20 group-hover:bg-purple-500/30">
-                    <Award className="h-5 w-5 text-purple-500" />
-                  </div>
+                  <motion.div
+                    className={`p-2.5 ${color.iconBg} backdrop-blur-md rounded-lg ${color.iconColor} shadow-lg`}
+                    whileHover={{ rotate: 360, scale: 1.1 }}
+                    transition={{ duration: 0.6 }}
+                    style={{
+                      boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 4px 12px rgba(0, 0, 0, 0.3)'
+                    }}
+                  >
+                    <Award className="h-5 w-5" />
+                  </motion.div>
                 </div>
 
                 <div className="space-y-3 mb-4">
-                  <div className="bg-red-50 dark:bg-red-900/20 rounded-lg p-3">
-                    <p className="text-sm font-medium text-red-800 ">Issue:</p>
-                    <p className="text-sm text-red-600 ">{case_.issue}</p>
-                  </div>
+                  <motion.div
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 }}
+                    className="bg-white/10 backdrop-blur-md rounded-lg p-3 border border-white/20"
+                  >
+                    <p className="text-sm font-medium text-white drop-shadow-md">Issue:</p>
+                    <p className="text-sm text-white/90 drop-shadow-sm">{case_.issue}</p>
+                  </motion.div>
 
-                  <div className="bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-3">
-                    <p className="text-sm font-medium text-yellow-800 ">Diagnosis:</p>
-                    <p className="text-sm text-yellow-600 ">{case_.diagnosis}</p>
-                  </div>
+                  <motion.div
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3 }}
+                    className="bg-white/10 backdrop-blur-md rounded-lg p-3 border border-white/20"
+                  >
+                    <p className="text-sm font-medium text-white drop-shadow-md">Diagnosis:</p>
+                    <p className="text-sm text-white/90 drop-shadow-sm">{case_.diagnosis}</p>
+                  </motion.div>
 
-                  <div className="bg-orange-50 dark:bg-orange-900/20 rounded-lg p-3">
-                    <p className="text-sm font-medium text-orange-800 ">Result:</p>
-                    <p className="text-sm text-orange-600 ">{case_.result}</p>
-                  </div>
+                  <motion.div
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.4 }}
+                    className="bg-white/10 backdrop-blur-md rounded-lg p-3 border border-white/20"
+                  >
+                    <p className="text-sm font-medium text-white drop-shadow-md">Result:</p>
+                    <p className="text-sm text-white/90 drop-shadow-sm">{case_.result}</p>
+                  </motion.div>
                 </div>
 
-                <blockquote className="border-l-4 border-purple-500 pl-4 mb-3">
-                  <p className="text-sm italic text-gray-600 ">"{case_.testimonial}"</p>
+                <blockquote className="border-l-4 border-white/50 pl-4 mb-3 backdrop-blur-sm bg-white/5 py-2 rounded-r-lg">
+                  <p className="text-sm italic text-white/90 drop-shadow-sm">"{case_.testimonial}"</p>
                 </blockquote>
 
-                <div className="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-3">
-                  <p className="text-sm font-bold text-purple-800 ">{case_.roi}</p>
+                <div className="bg-white/20 backdrop-blur-md rounded-lg p-3 border border-white/30">
+                  <p className="text-sm font-bold text-white drop-shadow-md">{case_.roi}</p>
                 </div>
               </div>
-            ))}
+
+              {/* Bottom accent */}
+              <div
+                className="absolute bottom-0 left-0 right-0 h-1 opacity-50"
+                style={{
+                  background: `linear-gradient(90deg, transparent, ${color.glowColor}, transparent)`
+                }}
+              />
+              </div>
+              </motion.div>
+              );
+            })}
           </div>
         </div>
 
@@ -696,46 +785,125 @@ const Maintenance = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            {commonProblems.map((problem, idx) => (
-              <div key={idx} className="card-elite glow-orange p-6 group">
+            {commonProblems.map((problem, idx) => {
+              const colors = [
+                { gradient: "from-red-500 via-pink-500 to-rose-600", glowColor: "rgba(239, 68, 68, 0.4)", borderColor: "border-red-500/30" },
+                { gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", borderColor: "border-orange-500/30" },
+                { gradient: "from-yellow-500 via-amber-500 to-yellow-600", glowColor: "rgba(234, 179, 8, 0.4)", borderColor: "border-yellow-500/30" },
+                { gradient: "from-purple-500 via-violet-500 to-purple-600", glowColor: "rgba(168, 85, 247, 0.4)", borderColor: "border-purple-500/30" }
+              ];
+              const color = colors[idx % colors.length];
+
+              return (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                whileHover={{ scale: 1.03, y: -5 }}
+                className="relative group"
+              >
+                {/* Glow effect */}
+                <div
+                  className="absolute inset-0 rounded-xl blur-lg opacity-50 group-hover:opacity-80 transition-all duration-500"
+                  style={{
+                    background: color.glowColor,
+                    animation: `pulse ${2.5 + idx * 0.3}s ease-in-out infinite`
+                  }}
+                />
+
+                {/* Card */}
+                <div
+                  className={`relative bg-gradient-to-br ${color.gradient} rounded-xl p-6 border ${color.borderColor} overflow-hidden transition-all duration-300`}
+                  style={{
+                    backdropFilter: 'blur(10px)',
+                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+                  }}
+                >
+                  {/* Glass overlay */}
+                  <div
+                    className="absolute inset-0 pointer-events-none opacity-60"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 60%)'
+                    }}
+                  />
+
+                  {/* Shimmer */}
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.5) 50%, transparent 80%)',
+                      backgroundSize: '200% 100%',
+                      animation: `shimmer${idx + 1} ${4 + idx * 0.5}s infinite`,
+                      mixBlendMode: 'overlay'
+                    }}
+                  />
+
+                  <div className="relative z-10">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-lg font-bold text-gray-900 ">{problem.problem}</h3>
-                  <span className="text-sm bg-red-100 dark:bg-red-900 text-red-800  px-2 py-1 rounded">
+                  <h3 className="text-lg font-bold text-white drop-shadow-md">{problem.problem}</h3>
+                  <span className="text-sm bg-white/20 backdrop-blur-md text-white px-3 py-1 rounded-lg font-semibold border border-white/30">
                     {problem.frequency}
                   </span>
                 </div>
 
                 <div className="space-y-3">
-                  <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
-                    <p className="text-sm font-medium text-gray-700  mb-2">Causes:</p>
+                  <div className="bg-white/10 backdrop-blur-md rounded-lg p-3 border border-white/20">
+                    <p className="text-sm font-medium text-white mb-2 drop-shadow-md">Causes:</p>
                     <div className="space-y-1">
                       {problem.causes.map((cause, i) => (
-                        <div key={i} className="text-xs text-gray-600 ">• {cause}</div>
+                        <motion.div
+                          key={i}
+                          initial={{ opacity: 0, x: -10 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: i * 0.05 }}
+                          className="text-xs text-white/90 drop-shadow-sm"
+                        >• {cause}</motion.div>
                       ))}
                     </div>
                   </div>
 
-                  <div className="bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-3">
-                    <p className="text-sm font-medium text-yellow-800  mb-1">Symptoms:</p>
+                  <div className="bg-white/10 backdrop-blur-md rounded-lg p-3 border border-white/20">
+                    <p className="text-sm font-medium text-white mb-1 drop-shadow-md">Symptoms:</p>
                     <div className="space-y-1">
                       {problem.symptoms.map((symptom, i) => (
-                        <div key={i} className="text-xs text-yellow-600 ">• {symptom}</div>
+                        <motion.div
+                          key={i}
+                          initial={{ opacity: 0, x: -10 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: i * 0.05 }}
+                          className="text-xs text-white/90 drop-shadow-sm"
+                        >• {symptom}</motion.div>
                       ))}
                     </div>
                   </div>
 
-                  <div className="bg-orange-50 dark:bg-orange-900/20 rounded-lg p-3">
-                    <p className="text-sm font-medium text-orange-800  mb-1">Prevention:</p>
-                    <p className="text-xs text-orange-600 ">{problem.prevention}</p>
+                  <div className="bg-white/10 backdrop-blur-md rounded-lg p-3 border border-white/20">
+                    <p className="text-sm font-medium text-white mb-1 drop-shadow-md">Prevention:</p>
+                    <p className="text-xs text-white/90 drop-shadow-sm">{problem.prevention}</p>
                   </div>
 
-                  <div className="bg-red-50 dark:bg-red-900/20 rounded-lg p-3">
-                    <p className="text-sm font-medium text-red-800  mb-1">Cost if Ignored:</p>
-                    <p className="text-xs font-bold text-red-600 ">{problem.costIfIgnored}</p>
+                  <div className="bg-white/20 backdrop-blur-md rounded-lg p-3 border border-white/30">
+                    <p className="text-sm font-medium text-white mb-1 drop-shadow-md">Cost if Ignored:</p>
+                    <p className="text-xs font-bold text-white drop-shadow-md">{problem.costIfIgnored}</p>
                   </div>
                 </div>
               </div>
-            ))}
+
+              {/* Bottom accent */}
+              <div
+                className="absolute bottom-0 left-0 right-0 h-1 opacity-50"
+                style={{
+                  background: `linear-gradient(90deg, transparent, ${color.glowColor}, transparent)`
+                }}
+              />
+              </div>
+              </motion.div>
+              );
+            })}
           </div>
         </div>
 
@@ -748,39 +916,116 @@ const Maintenance = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {seasonalConsiderations.map((season, idx) => (
-              <div key={idx} className="card-elite glow-blue p-6 group">
+            {seasonalConsiderations.map((season, idx) => {
+              const colors = [
+                { gradient: "from-green-500 via-emerald-500 to-green-600", glowColor: "rgba(34, 197, 94, 0.4)", iconBg: "bg-green-900/40", iconColor: "text-green-300", borderColor: "border-green-500/30" },
+                { gradient: "from-yellow-500 via-amber-500 to-yellow-600", glowColor: "rgba(234, 179, 8, 0.4)", iconBg: "bg-yellow-900/40", iconColor: "text-yellow-300", borderColor: "border-yellow-500/30" },
+                { gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", iconBg: "bg-orange-900/40", iconColor: "text-orange-300", borderColor: "border-orange-500/30" },
+                { gradient: "from-blue-500 via-cyan-500 to-blue-600", glowColor: "rgba(59, 130, 246, 0.4)", iconBg: "bg-blue-900/40", iconColor: "text-blue-300", borderColor: "border-blue-500/30" }
+              ];
+              const color = colors[idx % colors.length];
+
+              return (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                whileHover={{ scale: 1.03, y: -5 }}
+                className="relative group"
+              >
+                {/* Glow effect */}
+                <div
+                  className="absolute inset-0 rounded-xl blur-lg opacity-50 group-hover:opacity-80 transition-all duration-500"
+                  style={{
+                    background: color.glowColor,
+                    animation: `pulse ${2.5 + idx * 0.3}s ease-in-out infinite`
+                  }}
+                />
+
+                {/* Card */}
+                <div
+                  className={`relative bg-gradient-to-br ${color.gradient} rounded-xl p-6 border ${color.borderColor} overflow-hidden transition-all duration-300`}
+                  style={{
+                    backdropFilter: 'blur(10px)',
+                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+                  }}
+                >
+                  {/* Glass overlay */}
+                  <div
+                    className="absolute inset-0 pointer-events-none opacity-60"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 60%)'
+                    }}
+                  />
+
+                  {/* Shimmer */}
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.5) 50%, transparent 80%)',
+                      backgroundSize: '200% 100%',
+                      animation: `shimmer${idx + 1} ${4 + idx * 0.5}s infinite`,
+                      mixBlendMode: 'overlay'
+                    }}
+                  />
+
+                  <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-4">
-                  {season.icon}
-                  <h3 className="text-lg font-bold text-gray-900 ">{season.season}</h3>
+                  <motion.div
+                    whileHover={{ rotate: 360, scale: 1.1 }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    {season.icon}
+                  </motion.div>
+                  <h3 className="text-lg font-bold text-white drop-shadow-md">{season.season}</h3>
                 </div>
 
                 <div className="space-y-3">
                   <div>
-                    <p className="text-sm font-medium text-gray-700  mb-1">Focus: {season.focus}</p>
+                    <p className="text-sm font-medium text-white mb-1 drop-shadow-md">Focus: {season.focus}</p>
                   </div>
 
-                  <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
-                    <p className="text-xs font-medium text-gray-600  mb-2">Key Tasks:</p>
+                  <div className="bg-white/10 backdrop-blur-md rounded-lg p-3 border border-white/20">
+                    <p className="text-xs font-medium text-white mb-2 drop-shadow-md">Key Tasks:</p>
                     <ul className="space-y-1">
                       {season.tasks.map((task, i) => (
-                        <li key={i} className="text-xs text-gray-600 ">• {task}</li>
+                        <motion.li
+                          key={i}
+                          initial={{ opacity: 0, x: -10 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: i * 0.05 }}
+                          className="text-xs text-white/90 drop-shadow-sm"
+                        >• {task}</motion.li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-3">
-                    <p className="text-xs text-yellow-600 ">{season.challenges}</p>
+                  <div className="bg-white/10 backdrop-blur-md rounded-lg p-3 border border-white/20">
+                    <p className="text-xs text-white/90 drop-shadow-sm">{season.challenges}</p>
                   </div>
 
-                  <div className="bg-orange-50 dark:bg-orange-900/20 rounded-lg p-3">
-                    <p className="text-xs font-medium text-orange-600 ">
+                  <div className="bg-white/20 backdrop-blur-md rounded-lg p-3 border border-white/30">
+                    <p className="text-xs font-medium text-white drop-shadow-md">
                       ✓ {season.recommendation}
                     </p>
                   </div>
                 </div>
               </div>
-            ))}
+
+              {/* Bottom accent */}
+              <div
+                className="absolute bottom-0 left-0 right-0 h-1 opacity-50"
+                style={{
+                  background: `linear-gradient(90deg, transparent, ${color.glowColor}, transparent)`
+                }}
+              />
+              </div>
+              </motion.div>
+              );
+            })}
           </div>
         </div>
 
@@ -805,42 +1050,119 @@ const Maintenance = () => {
             <p className="text-gray-600 ">Industry-leading tools for precise system analysis</p>
           </div>
 
-          <div className="card-elite glow-blue overflow-hidden group">
+          <motion.div
+            className="mb-8"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead className="bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
-                  <tr>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Test Type</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Equipment</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Detects</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Accuracy</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Frequency</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-                  {diagnosticTests.map((test, idx) => (
-                    <tr key={idx} className="hover:bg-gray-50 dark:hover:bg-gray-700">
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 ">
-                        {test.test}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 ">
-                        {test.equipment}
-                      </td>
-                      <td className="px-6 py-4 text-sm text-gray-700 ">
-                        {test.detects}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-orange-600 ">
-                        {test.accuracy}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 ">
-                        {test.frequency}
-                      </td>
+              <div className="relative rounded-2xl overflow-hidden border border-blue-500/20"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(168, 85, 247, 0.05) 50%, rgba(249, 115, 22, 0.1) 100%)',
+                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+                }}
+              >
+                {/* Animated shimmer overlay */}
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.15) 50%, transparent 80%)',
+                    backgroundSize: '200% 100%',
+                    animation: 'shimmer1 5s infinite',
+                    mixBlendMode: 'overlay'
+                  }}
+                />
+
+                <table className="w-full text-sm relative">
+                  <thead>
+                    <tr
+                      className="border-b border-gray-700/50"
+                      style={{
+                        background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%)',
+                        backdropFilter: 'blur(10px)'
+                      }}
+                    >
+                      <th className="text-left py-4 px-4">
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
+                          <span className="text-blue-300 font-bold">Test Type</span>
+                        </div>
+                      </th>
+                      <th className="text-left py-4 px-4">
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }} />
+                          <span className="text-purple-300 font-bold">Equipment</span>
+                        </div>
+                      </th>
+                      <th className="text-left py-4 px-4">
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }} />
+                          <span className="text-orange-300 font-bold">Detects</span>
+                        </div>
+                      </th>
+                      <th className="text-left py-4 px-4">
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" style={{ animationDelay: '0.6s' }} />
+                          <span className="text-green-300 font-bold">Accuracy</span>
+                        </div>
+                      </th>
+                      <th className="text-left py-4 px-4">
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse" style={{ animationDelay: '0.8s' }} />
+                          <span className="text-yellow-300 font-bold">Frequency</span>
+                        </div>
+                      </th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody className="divide-y divide-gray-700/30">
+                    {diagnosticTests.map((test, idx) => (
+                      <motion.tr
+                        key={idx}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: idx * 0.05 }}
+                        className="hover:bg-white/5 transition-all duration-300 group"
+                      >
+                        <td className="py-3 px-4 text-gray-200 font-semibold group-hover:text-white transition-colors">
+                          {test.test}
+                        </td>
+                        <motion.td
+                          className="py-3 px-4 font-mono text-purple-300 group-hover:text-purple-200 transition-colors"
+                          whileHover={{ scale: 1.05 }}
+                        >
+                          <div className="relative inline-block px-3 py-1 rounded-lg bg-purple-500/10 group-hover:bg-purple-500/20 transition-colors">
+                            {test.equipment}
+                          </div>
+                        </motion.td>
+                        <td className="py-3 px-4 text-gray-300 group-hover:text-white transition-colors">
+                          {test.detects}
+                        </td>
+                        <motion.td
+                          className="py-3 px-4 font-mono text-green-300 group-hover:text-green-200 transition-colors"
+                          whileHover={{ scale: 1.05 }}
+                        >
+                          <div className="relative inline-block px-3 py-1 rounded-lg bg-green-500/10 group-hover:bg-green-500/20 transition-colors">
+                            {test.accuracy}
+                          </div>
+                        </motion.td>
+                        <motion.td
+                          className="py-3 px-4 font-mono text-yellow-300 group-hover:text-yellow-200 transition-colors"
+                          whileHover={{ scale: 1.05 }}
+                        >
+                          <div className="relative inline-block px-3 py-1 rounded-lg bg-yellow-500/10 group-hover:bg-yellow-500/20 transition-colors">
+                            {test.frequency}
+                          </div>
+                        </motion.td>
+                      </motion.tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Warranty Protection */}
@@ -851,46 +1173,114 @@ const Maintenance = () => {
             <p className="text-gray-600 ">How maintenance affects warranty claims</p>
           </div>
 
-          <div className="card-elite glow-orange p-8 group">
-            <div className="grid md:grid-cols-2 gap-6">
-              {warrantyProtection.map((item, idx) => (
-                <div key={idx} className="spec-card-elite glow-green">
+          <div className="grid md:grid-cols-2 gap-6">
+            {warrantyProtection.map((item, idx) => {
+              const colors = [
+                { gradient: "from-blue-500 via-cyan-500 to-blue-600", glowColor: "rgba(59, 130, 246, 0.4)", iconBg: "bg-blue-900/40", iconColor: "text-blue-300", borderColor: "border-blue-500/30" },
+                { gradient: "from-purple-500 via-violet-500 to-purple-600", glowColor: "rgba(168, 85, 247, 0.4)", iconBg: "bg-purple-900/40", iconColor: "text-purple-300", borderColor: "border-purple-500/30" },
+                { gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", iconBg: "bg-orange-900/40", iconColor: "text-orange-300", borderColor: "border-orange-500/30" },
+                { gradient: "from-green-500 via-emerald-500 to-green-600", glowColor: "rgba(34, 197, 94, 0.4)", iconBg: "bg-green-900/40", iconColor: "text-green-300", borderColor: "border-green-500/30" }
+              ];
+              const color = colors[idx % colors.length];
+
+              return (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                whileHover={{ scale: 1.03, y: -5 }}
+                className="relative group"
+              >
+                {/* Glow effect */}
+                <div
+                  className="absolute inset-0 rounded-xl blur-lg opacity-50 group-hover:opacity-80 transition-all duration-500"
+                  style={{
+                    background: color.glowColor,
+                    animation: `pulse ${2.5 + idx * 0.3}s ease-in-out infinite`
+                  }}
+                />
+
+                {/* Card */}
+                <div
+                  className={`relative bg-gradient-to-br ${color.gradient} rounded-xl p-6 border ${color.borderColor} overflow-hidden transition-all duration-300`}
+                  style={{
+                    backdropFilter: 'blur(10px)',
+                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+                  }}
+                >
+                  {/* Glass overlay */}
+                  <div
+                    className="absolute inset-0 pointer-events-none opacity-60"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 60%)'
+                    }}
+                  />
+
+                  {/* Shimmer */}
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.5) 50%, transparent 80%)',
+                      backgroundSize: '200% 100%',
+                      animation: `shimmer${idx + 1} ${4 + idx * 0.5}s infinite`,
+                      mixBlendMode: 'overlay'
+                    }}
+                  />
+
+                  <div className="relative z-10">
                   <div className="flex items-start justify-between mb-4">
-                    <h3 className="font-bold text-gray-900 ">{item.component}</h3>
-                    <ShieldCheck className="h-6 w-6 text-orange-500" />
+                    <h3 className="font-bold text-white drop-shadow-md">{item.component}</h3>
+                    <motion.div
+                      whileHover={{ rotate: 360, scale: 1.1 }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      <ShieldCheck className="h-6 w-6 text-white/90" />
+                    </motion.div>
                   </div>
 
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
-                      <span className="text-gray-600 ">Standard:</span>
-                      <span className="font-medium">{item.standard}</span>
+                      <span className="text-white/70">Standard:</span>
+                      <span className="font-medium text-white">{item.standard}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600 ">Requirement:</span>
-                      <span className="font-medium text-purple-600">{item.requirement}</span>
+                      <span className="text-white/70">Requirement:</span>
+                      <span className="font-medium text-white">{item.requirement}</span>
                     </div>
                   </div>
 
                   <div className="grid grid-cols-2 gap-3 mt-4">
-                    <div className="bg-red-50 dark:bg-red-900/20 rounded-lg p-3">
-                      <p className="text-xs font-medium text-red-800  mb-1">Without Service:</p>
-                      <p className="text-xs text-red-600 ">{item.withoutMaintenance}</p>
+                    <div className="bg-white/10 backdrop-blur-md rounded-lg p-3 border border-white/20">
+                      <p className="text-xs font-medium text-white mb-1">Without Service:</p>
+                      <p className="text-xs text-white/80">{item.withoutMaintenance}</p>
                     </div>
-                    <div className="bg-orange-50 dark:bg-orange-900/20 rounded-lg p-3">
-                      <p className="text-xs font-medium text-orange-800  mb-1">With Service:</p>
-                      <p className="text-xs text-orange-600 ">{item.withMaintenance}</p>
+                    <div className="bg-white/10 backdrop-blur-md rounded-lg p-3 border border-white/20">
+                      <p className="text-xs font-medium text-white mb-1">With Service:</p>
+                      <p className="text-xs text-white/80">{item.withMaintenance}</p>
                     </div>
                   </div>
 
-                  <div className="mt-3 pt-3 border-t border-gray-200 dark:border-gray-700">
-                    <p className="text-xs font-bold text-purple-600 ">
+                  <div className="mt-3 pt-3 border-t border-white/20">
+                    <p className="text-xs font-bold text-white drop-shadow-md">
                       Claim Success: {item.claimSuccess}
                     </p>
                   </div>
                 </div>
-              ))}
+
+                {/* Bottom accent */}
+                <div
+                  className="absolute bottom-0 left-0 right-0 h-1 opacity-50"
+                  style={{
+                    background: `linear-gradient(90deg, transparent, ${color.glowColor}, transparent)`
+                  }}
+                />
+                </div>
+                </motion.div>
+                );
+              })}
             </div>
-          </div>
         </div>
 
         {/* Annual Maintenance Schedule */}
@@ -1013,58 +1403,163 @@ const Maintenance = () => {
             <p className="text-gray-600 ">20-year production value with different maintenance levels</p>
           </div>
 
-          <div className="card-elite glow-gold overflow-hidden group">
+          <motion.div
+            className="mb-8"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead className="bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
-                  <tr>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Maintenance Level</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">5 Year Value</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">10 Year Value</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">20 Year Value</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Efficiency</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Failures</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Warranty</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-                  {roiCalculation.map((scenario, idx) => (
-                    <tr key={idx} className={`hover:bg-gray-50 dark:hover:bg-gray-700 ${idx === 2 ? 'bg-purple-50 dark:bg-purple-900/20' : ''}`}>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 ">
-                        {scenario.scenario}
-                        {idx === 2 && <span className="ml-2 text-xs bg-purple-600 text-white px-2 py-1 rounded">Recommended</span>}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 ">
-                        {scenario.year5}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 ">
-                        {scenario.year10}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-orange-600 ">
-                        {scenario.year20}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-purple-600 ">
-                        {scenario.efficiency}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 ">
-                        {scenario.failures}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 ">
-                        {scenario.warranty}
-                      </td>
+              <div className="relative rounded-2xl overflow-hidden border border-green-500/20"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(249, 115, 22, 0.05) 50%, rgba(59, 130, 246, 0.1) 100%)',
+                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+                }}
+              >
+                {/* Animated shimmer overlay */}
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.15) 50%, transparent 80%)',
+                    backgroundSize: '200% 100%',
+                    animation: 'shimmer2 5s infinite',
+                    mixBlendMode: 'overlay'
+                  }}
+                />
+
+                <table className="w-full text-sm relative">
+                  <thead>
+                    <tr
+                      className="border-b border-gray-700/50"
+                      style={{
+                        background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%)',
+                        backdropFilter: 'blur(10px)'
+                      }}
+                    >
+                      <th className="text-left py-4 px-4">
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse" />
+                          <span className="text-purple-300 font-bold">Maintenance Level</span>
+                        </div>
+                      </th>
+                      <th className="text-left py-4 px-4">
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }} />
+                          <span className="text-blue-300 font-bold">5 Year Value</span>
+                        </div>
+                      </th>
+                      <th className="text-left py-4 px-4">
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }} />
+                          <span className="text-cyan-300 font-bold">10 Year Value</span>
+                        </div>
+                      </th>
+                      <th className="text-left py-4 px-4">
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }} />
+                          <span className="text-orange-300 font-bold">20 Year Value</span>
+                        </div>
+                      </th>
+                      <th className="text-left py-4 px-4">
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }} />
+                          <span className="text-green-300 font-bold">Efficiency</span>
+                        </div>
+                      </th>
+                      <th className="text-left py-4 px-4">
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse" style={{ animationDelay: '0.6s' }} />
+                          <span className="text-yellow-300 font-bold">Failures</span>
+                        </div>
+                      </th>
+                      <th className="text-left py-4 px-4">
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-pink-400 rounded-full animate-pulse" style={{ animationDelay: '0.7s' }} />
+                          <span className="text-pink-300 font-bold">Warranty</span>
+                        </div>
+                      </th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody className="divide-y divide-gray-700/30">
+                    {roiCalculation.map((scenario, idx) => (
+                      <motion.tr
+                        key={idx}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: idx * 0.05 }}
+                        className={`hover:bg-white/5 transition-all duration-300 group ${idx === 2 ? 'bg-purple-500/10' : ''}`}
+                      >
+                        <td className="py-3 px-4 text-gray-200 font-semibold group-hover:text-white transition-colors">
+                          {scenario.scenario}
+                          {idx === 2 && <span className="ml-2 text-xs bg-purple-600 text-white px-2 py-1 rounded">Recommended</span>}
+                        </td>
+                        <motion.td
+                          className="py-3 px-4 font-mono text-blue-300 group-hover:text-blue-200 transition-colors"
+                          whileHover={{ scale: 1.05 }}
+                        >
+                          <div className="relative inline-block px-3 py-1 rounded-lg bg-blue-500/10 group-hover:bg-blue-500/20 transition-colors">
+                            {scenario.year5}
+                          </div>
+                        </motion.td>
+                        <motion.td
+                          className="py-3 px-4 font-mono text-cyan-300 group-hover:text-cyan-200 transition-colors"
+                          whileHover={{ scale: 1.05 }}
+                        >
+                          <div className="relative inline-block px-3 py-1 rounded-lg bg-cyan-500/10 group-hover:bg-cyan-500/20 transition-colors">
+                            {scenario.year10}
+                          </div>
+                        </motion.td>
+                        <motion.td
+                          className="py-3 px-4 font-mono text-orange-300 group-hover:text-orange-200 font-bold transition-colors"
+                          whileHover={{ scale: 1.05 }}
+                        >
+                          <div className="relative inline-block px-3 py-1 rounded-lg bg-orange-500/10 group-hover:bg-orange-500/20 transition-colors">
+                            {scenario.year20}
+                          </div>
+                        </motion.td>
+                        <motion.td
+                          className="py-3 px-4 font-mono text-green-300 group-hover:text-green-200 transition-colors"
+                          whileHover={{ scale: 1.05 }}
+                        >
+                          <div className="relative inline-block px-3 py-1 rounded-lg bg-green-500/10 group-hover:bg-green-500/20 transition-colors">
+                            {scenario.efficiency}
+                          </div>
+                        </motion.td>
+                        <motion.td
+                          className="py-3 px-4 font-mono text-yellow-300 group-hover:text-yellow-200 transition-colors"
+                          whileHover={{ scale: 1.05 }}
+                        >
+                          <div className="relative inline-block px-3 py-1 rounded-lg bg-yellow-500/10 group-hover:bg-yellow-500/20 transition-colors">
+                            {scenario.failures}
+                          </div>
+                        </motion.td>
+                        <motion.td
+                          className="py-3 px-4 font-mono text-pink-300 group-hover:text-pink-200 transition-colors"
+                          whileHover={{ scale: 1.05 }}
+                        >
+                          <div className="relative inline-block px-3 py-1 rounded-lg bg-pink-500/10 group-hover:bg-pink-500/20 transition-colors">
+                            {scenario.warranty}
+                          </div>
+                        </motion.td>
+                      </motion.tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
 
-            <div className="p-6 bg-purple-50 dark:bg-purple-900/20">
-              <p className="text-sm text-gray-700 ">
-                <strong>Analysis:</strong> Professional maintenance increases 20-year energy production value by $16,000 (42%) compared to no maintenance,
+            <div className="mt-6 p-6 rounded-xl" style={{
+              background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(147, 51, 234, 0.1) 100%)',
+              border: '1px solid rgba(168, 85, 247, 0.3)'
+            }}>
+              <p className="text-sm text-gray-200">
+                <strong className="text-purple-300">Analysis:</strong> Professional maintenance increases 20-year energy production value by $16,000 (42%) compared to no maintenance,
                 with only $3,000-4,000 in total maintenance costs. ROI exceeds 400%.
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Professional Team Work Image 4 */}
@@ -1140,37 +1635,104 @@ const Maintenance = () => {
                 ],
                 best: false
               }
-            ].map((plan, idx) => (
-              <div key={idx} className={`card-elite ${plan.best ? 'glow-purple ring-2 ring-purple-500' : 'glow-blue'} p-6 group`}>
+            ].map((plan, idx) => {
+              const colors = [
+                { gradient: "from-blue-500 via-cyan-500 to-blue-600", glowColor: "rgba(59, 130, 246, 0.4)", borderColor: "border-blue-500/30" },
+                { gradient: "from-purple-500 via-violet-500 to-purple-600", glowColor: "rgba(168, 85, 247, 0.4)", borderColor: "border-purple-500/30" },
+                { gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", borderColor: "border-orange-500/30" }
+              ];
+              const color = colors[idx % colors.length];
+
+              return (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                whileHover={{ scale: 1.03, y: -5 }}
+                className="relative group"
+              >
+                {/* Glow effect */}
+                <div
+                  className="absolute inset-0 rounded-xl blur-lg opacity-50 group-hover:opacity-80 transition-all duration-500"
+                  style={{
+                    background: color.glowColor,
+                    animation: `pulse ${2.5 + idx * 0.3}s ease-in-out infinite`
+                  }}
+                />
+
+                {/* Card */}
+                <div
+                  className={`relative bg-gradient-to-br ${color.gradient} rounded-xl p-6 border ${color.borderColor} ${plan.best ? 'ring-2 ring-purple-300' : ''} overflow-hidden transition-all duration-300`}
+                  style={{
+                    backdropFilter: 'blur(10px)',
+                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+                  }}
+                >
+                  {/* Glass overlay */}
+                  <div
+                    className="absolute inset-0 pointer-events-none opacity-60"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 60%)'
+                    }}
+                  />
+
+                  {/* Shimmer */}
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.5) 50%, transparent 80%)',
+                      backgroundSize: '200% 100%',
+                      animation: `shimmer${idx + 1} ${4 + idx * 0.5}s infinite`,
+                      mixBlendMode: 'overlay'
+                    }}
+                  />
+
+                  <div className="relative z-10">
                 {plan.best && (
-                  <div className="bg-purple-600 text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-4">
+                  <div className="bg-white/20 backdrop-blur-md text-white text-xs font-bold px-3 py-2 rounded-full inline-block mb-4 border border-white/30">
                     MOST POPULAR - 85% OF CUSTOMERS
                   </div>
                 )}
-                <h3 className="text-2xl font-bold text-gray-900  mb-2">{plan.name}</h3>
+                <h3 className="text-2xl font-bold text-white drop-shadow-md mb-2">{plan.name}</h3>
                 <div className="mb-4">
-                  <span className="text-3xl font-bold text-purple-600 ">{plan.price}</span>
-                  <span className="text-sm text-orange-600  ml-2">{plan.savings}</span>
+                  <span className="text-3xl font-bold text-white drop-shadow-md">{plan.price}</span>
+                  <span className="text-sm text-white/90 ml-2 drop-shadow-sm">{plan.savings}</span>
                 </div>
 
                 <ul className="space-y-3 mb-6">
                   {plan.features.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-2 text-sm text-gray-700 ">
-                      <CheckCircle className="h-4 w-4 text-orange-500 flex-shrink-0" />
+                    <motion.li
+                      key={i}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.05 }}
+                      className="flex items-center gap-2 text-sm text-white/90"
+                    >
+                      <CheckCircle className="h-4 w-4 text-white flex-shrink-0" />
                       {feature}
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
 
-                <button className={`w-full px-4 py-3 rounded-xl font-semibold transition ${
-                  plan.best
-                    ? 'bg-purple-600 text-white hover:bg-purple-700'
-                    : 'bg-gray-100 dark:bg-gray-700 text-gray-700  hover:bg-gray-200 dark:hover:bg-gray-600'
-                }`}>
+                <button className="w-full px-4 py-3 rounded-xl font-semibold transition bg-white/20 backdrop-blur-md text-white border border-white/30 hover:bg-white/30">
                   Select Plan
                 </button>
               </div>
-            ))}
+
+              {/* Bottom accent */}
+              <div
+                className="absolute bottom-0 left-0 right-0 h-1 opacity-50"
+                style={{
+                  background: `linear-gradient(90deg, transparent, ${color.glowColor}, transparent)`
+                }}
+              />
+              </div>
+              </motion.div>
+              );
+            })}
           </div>
         </div>
 
@@ -1183,15 +1745,86 @@ const Maintenance = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            {faqItems.map((faq, idx) => (
-              <div key={idx} className="card-elite glow-purple p-6 group">
-                <h3 className="font-bold text-gray-900  mb-3 flex items-start gap-2">
-                  <HelpCircle className="h-5 w-5 text-purple-500 flex-shrink-0 mt-0.5" />
+            {faqItems.map((faq, idx) => {
+              const colors = [
+                { gradient: "from-purple-500 via-violet-500 to-purple-600", glowColor: "rgba(168, 85, 247, 0.4)", iconBg: "bg-purple-900/40", iconColor: "text-purple-300", borderColor: "border-purple-500/30" },
+                { gradient: "from-blue-500 via-cyan-500 to-blue-600", glowColor: "rgba(59, 130, 246, 0.4)", iconBg: "bg-blue-900/40", iconColor: "text-blue-300", borderColor: "border-blue-500/30" },
+                { gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", iconBg: "bg-orange-900/40", iconColor: "text-orange-300", borderColor: "border-orange-500/30" },
+                { gradient: "from-green-500 via-emerald-500 to-green-600", glowColor: "rgba(34, 197, 94, 0.4)", iconBg: "bg-green-900/40", iconColor: "text-green-300", borderColor: "border-green-500/30" }
+              ];
+              const color = colors[idx % colors.length];
+
+              return (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.05 }}
+                whileHover={{ scale: 1.02, y: -3 }}
+                className="relative group"
+              >
+                {/* Glow effect */}
+                <div
+                  className="absolute inset-0 rounded-xl blur-lg opacity-50 group-hover:opacity-80 transition-all duration-500"
+                  style={{
+                    background: color.glowColor,
+                    animation: `pulse ${2.5 + idx * 0.3}s ease-in-out infinite`
+                  }}
+                />
+
+                {/* Card */}
+                <div
+                  className={`relative bg-gradient-to-br ${color.gradient} rounded-xl p-6 border ${color.borderColor} overflow-hidden transition-all duration-300`}
+                  style={{
+                    backdropFilter: 'blur(10px)',
+                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+                  }}
+                >
+                  {/* Glass overlay */}
+                  <div
+                    className="absolute inset-0 pointer-events-none opacity-60"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 60%)'
+                    }}
+                  />
+
+                  {/* Shimmer */}
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.5) 50%, transparent 80%)',
+                      backgroundSize: '200% 100%',
+                      animation: `shimmer${idx + 1} ${4 + idx * 0.5}s infinite`,
+                      mixBlendMode: 'overlay'
+                    }}
+                  />
+
+                  <div className="relative z-10">
+                <h3 className="font-bold text-white drop-shadow-md mb-3 flex items-start gap-2">
+                  <motion.div
+                    whileHover={{ rotate: 360, scale: 1.1 }}
+                    transition={{ duration: 0.6 }}
+                    className="flex-shrink-0 mt-0.5"
+                  >
+                    <HelpCircle className="h-5 w-5 text-white" />
+                  </motion.div>
                   {faq.question}
                 </h3>
-                <p className="text-sm text-gray-600 ">{faq.answer}</p>
+                <p className="text-sm text-white/90 drop-shadow-sm">{faq.answer}</p>
               </div>
-            ))}
+
+              {/* Bottom accent */}
+              <div
+                className="absolute bottom-0 left-0 right-0 h-1 opacity-50"
+                style={{
+                  background: `linear-gradient(90deg, transparent, ${color.glowColor}, transparent)`
+                }}
+              />
+              </div>
+              </motion.div>
+              );
+            })}
           </div>
         </div>
 

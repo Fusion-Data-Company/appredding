@@ -18,17 +18,55 @@ import { useLocation } from 'wouter';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { useToast } from '@/hooks/use-toast';
 
 const SolarFooter: React.FC = () => {
   const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [, setLocation] = useLocation();
   const [showAdminDialog, setShowAdminDialog] = useState(false);
   const [adminCode, setAdminCode] = useState('');
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Newsletter signup:', email);
-    setEmail('');
+    if (!email) return;
+
+    setIsSubmitting(true);
+    try {
+      const res = await fetch('/api/newsletter/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          email, 
+          source: 'newsletter_form' 
+        })
+      });
+
+      const data = await res.json();
+      
+      if (data.success) {
+        toast({
+          title: "Successfully subscribed!",
+          description: "Thank you for subscribing to our newsletter.",
+        });
+        setEmail('');
+      } else {
+        toast({
+          title: "Subscription failed",
+          description: data.error || "Please try again later.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to subscribe. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleAdminAccess = () => {
@@ -73,9 +111,11 @@ const SolarFooter: React.FC = () => {
               />
               <button
                 type="submit"
-                className="px-6 py-3 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold hover:from-blue-600 hover:to-cyan-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 transition-all duration-300 shadow-lg shadow-blue-500/30 flex items-center justify-center gap-2 whitespace-nowrap"
+                disabled={isSubmitting}
+                className="px-6 py-3 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold hover:from-blue-600 hover:to-cyan-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 transition-all duration-300 shadow-lg shadow-blue-500/30 flex items-center justify-center gap-2 whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
+                data-testid="button-footer-newsletter-subscribe"
               >
-                Subscribe
+                {isSubmitting ? 'Subscribing...' : 'Subscribe'}
                 <Send className="h-4 w-4" />
               </button>
             </form>

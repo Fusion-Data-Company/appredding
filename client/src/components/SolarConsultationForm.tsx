@@ -9,6 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Checkbox } from '@/components/ui/checkbox';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2, CheckCircle2, Sun } from 'lucide-react';
 
@@ -38,6 +39,7 @@ const solarFormSchema = z.object({
   storageType: z.string().optional(),
   hasWaterPumping: z.string().optional(),
   marinaEnergyUsage: z.string().optional(),
+  subscribeToNewsletter: z.boolean().optional(),
 });
 
 type SolarFormValues = z.infer<typeof solarFormSchema>;
@@ -63,7 +65,21 @@ export default function SolarConsultationForm({ onSuccess }: SolarConsultationFo
 
   const submitMutation = useMutation({
     mutationFn: async (data: SolarFormValues) => {
-      return await apiRequest<any>('/api/solar-form', 'POST', data);
+      const solarResponse = await apiRequest<any>('/api/solar-form', 'POST', data);
+      
+      if (data.subscribeToNewsletter) {
+        try {
+          await apiRequest<any>('/api/newsletter/subscribe', 'POST', {
+            email: data.email,
+            name: data.customerName,
+            source: 'solar_consultation_form'
+          });
+        } catch (error) {
+          console.error('Newsletter subscription error:', error);
+        }
+      }
+      
+      return solarResponse;
     },
     onSuccess: () => {
       setIsSubmitted(true);
@@ -452,6 +468,19 @@ export default function SolarConsultationForm({ onSuccess }: SolarConsultationFo
               className="mt-1 min-h-32"
               placeholder="Tell us more about your solar energy needs..."
             />
+          </div>
+          <div className="flex items-center space-x-2 pt-2">
+            <Checkbox
+              id="subscribeToNewsletter"
+              data-testid="checkbox-newsletter"
+              onCheckedChange={(checked) => setValue('subscribeToNewsletter', checked as boolean)}
+            />
+            <Label
+              htmlFor="subscribeToNewsletter"
+              className="text-sm font-normal cursor-pointer"
+            >
+              Subscribe to our newsletter for solar tips and updates
+            </Label>
           </div>
         </div>
       ),

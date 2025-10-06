@@ -370,7 +370,94 @@ export async function sendSolarConsultationEmail(data: SolarConsultationData): P
   }
 }
 
+/**
+ * Send newsletter subscription notification email
+ */
+export async function sendNewsletterSubscriptionEmail(
+  email: string,
+  name: string | null,
+  source: string,
+  timestamp: Date
+): Promise<boolean> {
+  try {
+    const htmlContent = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <style>
+          body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+          .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+          .header { background: linear-gradient(135deg, #10b981, #059669); color: white; padding: 30px; text-align: center; border-radius: 8px 8px 0 0; }
+          .content { padding: 30px; background: #f9fafb; }
+          .detail-section { background: white; padding: 20px; margin: 15px 0; border-radius: 8px; border-left: 4px solid #10b981; }
+          .detail-row { display: flex; padding: 8px 0; border-bottom: 1px solid #e5e7eb; }
+          .detail-label { font-weight: bold; width: 150px; color: #6b7280; }
+          .detail-value { flex: 1; color: #111827; }
+          .footer { text-align: center; padding: 20px; color: #6b7280; font-size: 14px; }
+          .source-badge { display: inline-block; padding: 4px 12px; background: #3b82f6; color: white; border-radius: 4px; font-size: 12px; font-weight: bold; }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <div class="header">
+            <h1 style="margin: 0; font-size: 28px;">📧 New Newsletter Subscriber</h1>
+            <p style="margin: 10px 0 0 0; opacity: 0.9;">Advance Power Redding - Newsletter CRM</p>
+          </div>
+          
+          <div class="content">
+            <div class="detail-section">
+              <h2 style="margin-top: 0; color: #10b981;">Subscriber Information</h2>
+              <div class="detail-row">
+                <div class="detail-label">Email:</div>
+                <div class="detail-value"><a href="mailto:${email}">${email}</a></div>
+              </div>
+              ${name ? `
+              <div class="detail-row">
+                <div class="detail-label">Name:</div>
+                <div class="detail-value">${name}</div>
+              </div>` : ''}
+              <div class="detail-row">
+                <div class="detail-label">Source:</div>
+                <div class="detail-value"><span class="source-badge">${source === 'newsletter_form' ? 'Newsletter Form' : 'Solar Consultation Form'}</span></div>
+              </div>
+              <div class="detail-row">
+                <div class="detail-label">Subscribed:</div>
+                <div class="detail-value">${timestamp.toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' })}</div>
+              </div>
+            </div>
+
+            <div style="margin-top: 30px; padding: 20px; background: #d1fae5; border-radius: 8px; text-align: center;">
+              <p style="margin: 0; color: #065f46; font-weight: bold;">✅ Subscriber Added</p>
+              <p style="margin: 10px 0 0 0; color: #065f46;">This email has been added to your newsletter list</p>
+            </div>
+          </div>
+          
+          <div class="footer">
+            <p>This email was sent from the Advance Power Redding CRM System</p>
+            <p>&copy; ${new Date().getFullYear()} Advance Power Redding. All rights reserved.</p>
+          </div>
+        </div>
+      </body>
+      </html>
+    `;
+
+    await solarTransporter.sendMail({
+      from: '"Advance Power Redding CRM" <rob@fusiondataco.com>',
+      to: 'gtomsik@apredding.net',
+      subject: `New Newsletter Subscriber - ${email}`,
+      html: htmlContent
+    });
+
+    console.log(`✅ Newsletter subscription email sent for ${email}`);
+    return true;
+  } catch (error) {
+    console.error('❌ Newsletter subscription email sending error:', error);
+    return false;
+  }
+}
+
 export default {
   sendOrderConfirmation,
-  sendSolarConsultationEmail
+  sendSolarConsultationEmail,
+  sendNewsletterSubscriptionEmail
 };

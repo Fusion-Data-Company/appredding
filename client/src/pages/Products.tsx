@@ -90,7 +90,7 @@ export default function Products() {
             <div className="overflow-x-auto">
               <div className="relative rounded-2xl overflow-hidden border border-blue-500/20"
                 style={{
-                  background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(249, 115, 22, 0.05) 50%, rgba(168, 85, 247, 0.1) 100%)',
+                  background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(249, 115, 22, 0.05) 50%, rgba(249, 115, 22, 0.1) 100%)',
                   boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
                 }}
               >
@@ -129,8 +129,8 @@ export default function Products() {
                       </th>
                       <th className="text-center py-4 px-4">
                         <div className="flex items-center justify-center gap-2">
-                          <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse" style={{ animationDelay: '0.6s' }} />
-                          <span className="text-purple-300 font-bold">Sol-Ark 30K (3-phase)</span>
+                          <div className="w-2 h-2 bg-amber-400 rounded-full animate-pulse" style={{ animationDelay: '0.6s' }} />
+                          <span className="text-amber-300 font-bold">Sol-Ark 30K (3-phase)</span>
                         </div>
                       </th>
                     </tr>
@@ -175,10 +175,10 @@ export default function Products() {
                           </div>
                         </motion.td>
                         <motion.td
-                          className="text-center py-3 px-4 font-mono text-purple-300 group-hover:text-purple-200 transition-colors"
+                          className="text-center py-3 px-4 font-mono text-amber-300 group-hover:text-amber-200 transition-colors"
                           whileHover={{ scale: 1.05 }}
                         >
-                          <div className="relative inline-block px-3 py-1 rounded-lg bg-purple-500/10 group-hover:bg-purple-500/20 transition-colors">
+                          <div className="relative inline-block px-3 py-1 rounded-lg bg-amber-500/10 group-hover:bg-amber-500/20 transition-colors">
                             {row.col3}
                           </div>
                         </motion.td>
@@ -243,9 +243,9 @@ export default function Products() {
                 },
                 {
                   title: "EG4 LifePower4",
-                  gradient: "from-purple-500 via-violet-500 to-purple-600",
-                  glowColor: "rgba(168, 85, 247, 0.4)",
-                  textColor: "text-purple-300",
+                  gradient: "from-orange-500 via-amber-500 to-orange-600",
+                  glowColor: "rgba(249, 115, 22, 0.4)",
+                  textColor: "text-orange-300",
                   specs: [
                     { label: "Capacity:", value: "14.3kWh @ 95% DoD" },
                     { label: "Voltage:", value: "51.2V nominal" },
@@ -452,24 +452,105 @@ export default function Products() {
           </motion.div>
 
           {/* CTA Section */}
-          <div className="mt-16 bg-gradient-to-r from-amber-900/30 to-orange-900/30 border border-amber-500/30 rounded-2xl p-8 md:p-12 text-center">
-            <ShieldCheck className="h-12 w-12 text-amber-400 mx-auto mb-4" />
-            <h3 className="text-2xl font-bold mb-4 text-white">
-              Ready to Go Solar?
-            </h3>
-            <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-              Contact us today for a free consultation and quote. Our team of experts will help you design the perfect solar system for your needs with the latest technology.
-            </p>
-            <Link href="/contact">
-              <Button 
-                size="lg"
-                className="bg-amber-600 hover:bg-amber-700 text-white"
-                data-testid="button-get-consultation"
+          <motion.div
+            className="mt-16 relative overflow-hidden rounded-2xl p-8 md:p-12 text-center"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            style={{
+              background: 'linear-gradient(135deg, rgba(220, 38, 38, 0.2) 0%, rgba(239, 68, 68, 0.15) 50%, rgba(249, 115, 22, 0.2) 100%)',
+              border: '2px solid rgba(239, 68, 68, 0.3)',
+              boxShadow: '0 8px 32px rgba(220, 38, 38, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+            }}
+          >
+            {/* Glow effect */}
+            <div
+              className="absolute inset-0 blur-2xl opacity-50"
+              style={{
+                background: 'radial-gradient(ellipse at center, rgba(239, 68, 68, 0.5) 0%, transparent 70%)'
+              }}
+            />
+
+            {/* Glass overlay */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, transparent 60%)'
+              }}
+            />
+
+            {/* Shimmer */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.3) 50%, transparent 80%)',
+                backgroundSize: '200% 100%',
+                animation: 'shimmer1 6s infinite',
+                mixBlendMode: 'overlay'
+              }}
+            />
+
+            <div className="relative z-10">
+              <motion.div
+                whileHover={{ rotate: 360, scale: 1.2 }}
+                transition={{ duration: 0.6 }}
+                className="inline-block"
               >
-                Get Free Consultation
-              </Button>
-            </Link>
-          </div>
+                <ShieldCheck
+                  className="h-16 w-16 text-red-400 mx-auto mb-6"
+                  style={{
+                    filter: 'drop-shadow(0 0 20px rgba(239, 68, 68, 0.6))'
+                  }}
+                />
+              </motion.div>
+
+              <motion.h3
+                className="text-3xl md:text-4xl font-bold mb-6 text-white"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                style={{
+                  textShadow: '0 0 30px rgba(239, 68, 68, 0.6), 0 2px 10px rgba(0, 0, 0, 0.3)'
+                }}
+              >
+                Ready to Go Solar?
+              </motion.h3>
+
+              <motion.p
+                className="text-lg text-gray-100 mb-8 max-w-2xl mx-auto leading-relaxed"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
+                Contact us today for a free consultation and quote. Our team of experts will help you design the perfect solar system for your needs with the latest technology.
+              </motion.p>
+
+              <Link href="/contact">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                >
+                  <Button
+                    size="lg"
+                    className="bg-gradient-to-r from-red-600 via-red-500 to-orange-600 hover:from-red-700 hover:via-red-600 hover:to-orange-700 text-white font-bold px-8 py-6 text-lg shadow-2xl hover:shadow-red-500/50 transition-all duration-300"
+                    data-testid="button-get-consultation"
+                    style={{
+                      boxShadow: '0 10px 40px rgba(239, 68, 68, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
+                    }}
+                  >
+                    Get Free Consultation
+                  </Button>
+                </motion.div>
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </div>
     </MainLayout>

@@ -10,7 +10,7 @@ import reviewsRoutes from "./routes/reviews";
 import portfolioRoutes from "./routes/portfolio";
 import productsRoutes from "./routes/products";
 import ordersRoutes from "./routes/orders";
-import { sendSolarConsultationEmail } from "./services/emailService";
+import { sendSolarConsultationEmail, sendNewsletterSubscriptionEmail } from "./services/emailService";
 import { insertSolarFormSubmissionSchema } from "@shared/schema";
 
 // Simple in-memory rate limiting store
@@ -557,6 +557,63 @@ router.get("/api/admin/solar-submissions", async (req, res) => {
     res.json({ success: true, ...result });
   } catch (error) {
     console.error('Get solar submissions error:', error);
+    res.status(500).json({ success: false, error: "Internal server error" });
+  }
+});
+
+// Newsletter subscription endpoint
+router.post("/api/newsletter/subscribe", async (req, res) => {
+  try {
+    const subscriptionSchema = z.object({
+      email: z.string().email("Valid email is required"),
+      name: z.string().optional(),
+      source: z.string().min(1, "Source is required")
+    });
+
+    const validatedData = subscriptionSchema.parse(req.body);
+
+    const subscriber = await storage.addNewsletterSubscriber(
+      validatedData.email,
+      validatedData.name,
+      validatedData.source
+    );
+
+    // Send email notification only for newsletter form submissions (not solar form, as that has its own email)
+    if (validatedData.source === 'newsletter_form') {
+      await sendNewsletterSubscriptionEmail(
+        validatedData.email,
+        validatedData.name || null,
+        validatedData.source,
+        new Date()
+      );
+    }
+
+    res.json({ success: true, subscriber });
+  } catch (error) {
+    console.error('Newsletter subscription error:', error);
+    if (error instanceof z.ZodError) {
+      res.status(400).json({ success: false, error: "Validation error", details: error.errors });
+    } else {
+      res.status(500).json({ success: false, error: "Internal server error" });
+    }
+  }
+});
+
+// Get newsletter subscribers with admin code auth
+router.get("/api/admin/newsletter-subscribers", async (req, res) => {
+  try {
+    const { code } = req.query;
+    
+    const isValid = await storage.verifySolarAdminCode(code as string);
+    if (!isValid) {
+      return res.status(403).json({ success: false, error: "Invalid admin code" });
+    }
+
+    const subscribers = await storage.getAllNewsletterSubscribers();
+
+    res.json({ success: true, subscribers });
+  } catch (error) {
+    console.error('Get newsletter subscribers error:', error);
     res.status(500).json({ success: false, error: "Internal server error" });
   }
 });
