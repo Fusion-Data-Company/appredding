@@ -565,7 +565,7 @@ const LithiumBattery = () => {
                     <div className="mt-6 grid md:grid-cols-3 gap-4">
                       {[
                         { icon: <Thermometer className="h-5 w-5" />, label: "Operating Temperature", value: chemistryData[selectedChemistry].temp, gradient: "from-red-500 via-pink-500 to-red-600", glowColor: "rgba(239, 68, 68, 0.3)", iconColor: "text-red-400", borderColor: "border-red-500/30" },
-                        { icon: <DollarSign className="h-5 w-5" />, label: "Relative Cost", value: chemistryData[selectedChemistry].cost, gradient: "from-blue-500 via-indigo-500 to-blue-600", glowColor: "rgba(59, 130, 246, 0.3)", iconColor: "text-blue-400", borderColor: "border-blue-500/30" },
+                        { icon: <DollarSign className="h-5 w-5" />, label: "Relative Cost", value: chemistryData[selectedChemistry].cost, gradient: "from-blue-500 via-cyan-500 to-blue-600", glowColor: "rgba(59, 130, 246, 0.3)", iconColor: "text-blue-400", borderColor: "border-blue-500/30" },
                         { icon: <Award className="h-5 w-5" />, label: "Best Use Case", value: chemistryData[selectedChemistry].applications[0], gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.3)", iconColor: "text-orange-400", borderColor: "border-orange-500/30" }
                       ].map((item, idx) => (
                         <motion.div
@@ -997,7 +997,7 @@ const LithiumBattery = () => {
                             { gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", borderColor: "border-orange-500/40", dotColor: "border-orange-500" },
                             { gradient: "from-green-500 via-emerald-500 to-green-600", glowColor: "rgba(34, 197, 94, 0.4)", borderColor: "border-green-500/40", dotColor: "border-green-500" },
                             { gradient: "from-red-500 via-pink-500 to-red-600", glowColor: "rgba(239, 68, 68, 0.4)", borderColor: "border-red-500/40", dotColor: "border-red-500" },
-                            { gradient: "from-blue-500 via-indigo-500 to-blue-600", glowColor: "rgba(59, 130, 246, 0.4)", borderColor: "border-blue-500/40", dotColor: "border-blue-500" },
+                            { gradient: "from-blue-500 via-cyan-500 to-cyan-600", glowColor: "rgba(59, 130, 246, 0.4)", borderColor: "border-blue-500/40", dotColor: "border-blue-500" },
                             { gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", borderColor: "border-orange-500/40", dotColor: "border-orange-500" },
                             { gradient: "from-yellow-500 via-amber-500 to-yellow-600", glowColor: "rgba(234, 179, 8, 0.4)", borderColor: "border-yellow-500/40", dotColor: "border-yellow-500" }
                           ];
@@ -1112,7 +1112,7 @@ const LithiumBattery = () => {
                       const gradients = [
                         { gradient: "from-green-500 via-emerald-500 to-green-600", glowColor: "rgba(34, 197, 94, 0.4)", headerGradient: "from-green-500 to-emerald-600" },
                         { gradient: "from-red-500 via-pink-500 to-red-600", glowColor: "rgba(239, 68, 68, 0.4)", headerGradient: "from-red-500 to-pink-600" },
-                        { gradient: "from-blue-500 via-indigo-500 to-blue-600", glowColor: "rgba(59, 130, 246, 0.4)", headerGradient: "from-blue-500 to-indigo-600" },
+                        { gradient: "from-blue-500 via-cyan-500 to-blue-600", glowColor: "rgba(59, 130, 246, 0.4)", headerGradient: "from-blue-500 to-cyan-600" },
                         { gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", headerGradient: "from-orange-500 to-amber-600" }
                       ];
                       const style = gradients[idx % gradients.length];
@@ -1266,7 +1266,7 @@ const LithiumBattery = () => {
                     {safetyStandards.map((standard, idx) => {
                       const gradients = [
                         { gradient: "from-red-500 via-pink-500 to-red-600", glowColor: "rgba(239, 68, 68, 0.4)", iconColor: "text-red-300", borderColor: "border-red-500/30" },
-                        { gradient: "from-blue-500 via-indigo-500 to-blue-600", glowColor: "rgba(59, 130, 246, 0.4)", iconColor: "text-blue-300", borderColor: "border-blue-500/30" },
+                        { gradient: "from-blue-500 via-cyan-500 to-blue-600", glowColor: "rgba(59, 130, 246, 0.4)", iconColor: "text-blue-300", borderColor: "border-blue-500/30" },
                         { gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", iconColor: "text-orange-300", borderColor: "border-orange-500/30" },
                         { gradient: "from-green-500 via-emerald-500 to-green-600", glowColor: "rgba(34, 197, 94, 0.4)", iconColor: "text-green-300", borderColor: "border-green-500/30" },
                         { gradient: "from-yellow-500 via-amber-500 to-yellow-600", glowColor: "rgba(234, 179, 8, 0.4)", iconColor: "text-yellow-300", borderColor: "border-yellow-500/30" },
@@ -1610,7 +1610,7 @@ const LithiumBattery = () => {
                           {recyclingProcess.map((stage, idx) => {
                             const gradients = [
                               { gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", numberBg: "bg-orange-500" },
-                              { gradient: "from-blue-500 via-indigo-500 to-blue-600", glowColor: "rgba(59, 130, 246, 0.4)", numberBg: "bg-blue-500" },
+                              { gradient: "from-blue-500 via-cyan-500 to-blue-600", glowColor: "rgba(59, 130, 246, 0.4)", numberBg: "bg-blue-500" },
                               { gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", numberBg: "bg-orange-500" },
                               { gradient: "from-green-500 via-emerald-500 to-green-600", glowColor: "rgba(34, 197, 94, 0.4)", numberBg: "bg-green-500" },
                               { gradient: "from-red-500 via-pink-500 to-red-600", glowColor: "rgba(239, 68, 68, 0.4)", numberBg: "bg-red-500" },

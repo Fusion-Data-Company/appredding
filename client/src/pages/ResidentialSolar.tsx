@@ -305,15 +305,15 @@ const ResidentialSolar = () => {
             ),
           },
           {
-            id: 'action-purple',
+            id: 'action-orange',
             title: 'STAGE 4: Turnkey Installation & Grid Integration',
             description: 'Execution excellence: 2-day professional installation by C-46 crew, NFPA 855 battery safety compliance with thermal monitoring, PG&E Rule 21 smart inverter commissioning (Volt-VAR, Freq-Watt settings), real-time monitoring portal activation with API integration, SGIP Performance Based Incentive enrollment for 5-year payments, 24/7 NOC monitoring with 2-hour emergency response SLA, comprehensive 10-year system warranty package.',
-            color: 'from-purple-500 to-purple-600',
+            color: 'from-orange-500 to-orange-600',
             glowColor: 'rgba(168, 85, 247, 0.5)',
             icon: <CheckCircle className='h-8 w-8' />,
             metrics: (
               <div className="space-y-1">
-                <div className="text-purple-300 font-bold">14-21 Day PTO Average</div>
+                <div className="text-orange-300 font-bold">14-21 Day PTO Average</div>
                 <div className="text-xs text-gray-400">99.1% first-pass inspection</div>
                 <div className="text-xs text-gray-400">Same-day monitoring activation</div>
               </div>
@@ -649,46 +649,56 @@ const ResidentialSolar = () => {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-700/30">
-                <tr>
-                  <td className="py-3 px-4 text-gray-300">Export Credit Rate</td>
-                  <td className="text-right py-3 px-4 font-mono text-blue-300">$0.21-0.30/kWh</td>
-                  <td className="text-right py-3 px-4 font-mono text-yellow-300">$0.03-0.05/kWh</td>
-                  <td className="text-right py-3 px-4 font-mono text-orange-300">N/A (self-consume)</td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 text-gray-300">Monthly Bill (avg)</td>
-                  <td className="text-right py-3 px-4 font-mono text-blue-300">$15-25</td>
-                  <td className="text-right py-3 px-4 font-mono text-yellow-300">$120-180</td>
-                  <td className="text-right py-3 px-4 font-mono text-orange-300">$20-40</td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 text-gray-300">Payback Period</td>
-                  <td className="text-right py-3 px-4 font-mono text-blue-300">5-7 years</td>
-                  <td className="text-right py-3 px-4 font-mono text-yellow-300">10-12 years</td>
-                  <td className="text-right py-3 px-4 font-mono text-orange-300">6-8 years</td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 text-gray-300">10-Year Savings</td>
-                  <td className="text-right py-3 px-4 font-mono text-blue-300">$28,000-35,000</td>
-                  <td className="text-right py-3 px-4 font-mono text-yellow-300">$8,000-12,000</td>
-                  <td className="text-right py-3 px-4 font-mono text-orange-300">$24,000-32,000</td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 text-gray-300">System Cost (net)</td>
-                  <td className="text-right py-3 px-4 font-mono text-blue-300">$15,000</td>
-                  <td className="text-right py-3 px-4 font-mono text-yellow-300">$15,000</td>
-                  <td className="text-right py-3 px-4 font-mono text-orange-300">$18,000-22,000</td>
-                </tr>
-                <tr className="font-semibold">
-                  <td className="py-3 px-4 text-white">10-Year ROI</td>
-                  <td className="text-right py-3 px-4 text-blue-300">186%</td>
-                  <td className="text-right py-3 px-4 text-yellow-300">53%</td>
-                  <td className="text-right py-3 px-4 text-orange-300">145%</td>
-                </tr>
-              </tbody>
-            </table>
+                  {[
+                    { spec: "Export Credit Rate", nem2: "$0.21-0.30/kWh", nem3: "$0.03-0.05/kWh", battery: "N/A (self-consume)" },
+                    { spec: "Monthly Bill (avg)", nem2: "$15-25", nem3: "$120-180", battery: "$20-40" },
+                    { spec: "Payback Period", nem2: "5-7 years", nem3: "10-12 years", battery: "6-8 years" },
+                    { spec: "10-Year Savings", nem2: "$28,000-35,000", nem3: "$8,000-12,000", battery: "$24,000-32,000" },
+                    { spec: "System Cost (net)", nem2: "$15,000", nem3: "$15,000", battery: "$18,000-22,000" },
+                    { spec: "10-Year ROI", nem2: "186%", nem3: "53%", battery: "145%", bold: true }
+                  ].map((row, idx) => (
+                    <motion.tr
+                      key={idx}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: idx * 0.05 }}
+                      className={`hover:bg-white/5 transition-all duration-300 group ${row.bold ? 'font-semibold' : ''}`}
+                    >
+                      <td className={`py-3 px-4 ${row.bold ? 'text-white' : 'text-gray-200'} group-hover:text-white transition-colors`}>
+                        {row.spec}
+                      </td>
+                      <motion.td
+                        className="text-right py-3 px-4 font-mono text-blue-300 group-hover:text-blue-200 transition-colors"
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <div className="relative inline-block px-3 py-1 rounded-lg bg-blue-500/10 group-hover:bg-blue-500/20 transition-colors">
+                          {row.nem2}
+                        </div>
+                      </motion.td>
+                      <motion.td
+                        className="text-right py-3 px-4 font-mono text-yellow-300 group-hover:text-yellow-200 transition-colors"
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <div className="relative inline-block px-3 py-1 rounded-lg bg-yellow-500/10 group-hover:bg-yellow-500/20 transition-colors">
+                          {row.nem3}
+                        </div>
+                      </motion.td>
+                      <motion.td
+                        className="text-right py-3 px-4 font-mono text-orange-300 group-hover:text-orange-200 transition-colors"
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <div className="relative inline-block px-3 py-1 rounded-lg bg-orange-500/10 group-hover:bg-orange-500/20 transition-colors">
+                          {row.battery}
+                        </div>
+                      </motion.td>
+                    </motion.tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Critical Insights */}
         <div className="grid md:grid-cols-2 gap-6">
@@ -740,200 +750,234 @@ const ResidentialSolar = () => {
         backgroundColor="bg-gray-900"
       >
         {/* Sol-Ark Inverter Comparison */}
-        <div className="mb-8">
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <Cpu className="mr-3 h-6 w-6 text-orange-400" />
+            <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }}>
+              <Cpu className="mr-3 h-6 w-6 text-orange-400" />
+            </motion.div>
             Sol-Ark Hybrid Inverter Comparison Matrix
           </h3>
           <div className="overflow-x-auto">
-            <table className="w-full text-sm bg-gray-800/40 rounded-xl overflow-hidden">
-              <thead className="bg-gray-900/60">
-                <tr className="border-b border-gray-700">
-                  <th className="text-left py-3 px-4 text-gray-400">Specification</th>
-                  <th className="text-center py-3 px-4 text-blue-400">Sol-Ark 12K</th>
-                  <th className="text-center py-3 px-4 text-orange-400">Sol-Ark 15K</th>
-                  <th className="text-center py-3 px-4 text-purple-400">Sol-Ark 30K (3-phase)</th>
-                </tr>
-              </thead>
+            <div className="relative rounded-2xl overflow-hidden border border-orange-500/20"
+              style={{
+                background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(59, 130, 246, 0.05) 50%, rgba(249, 115, 22, 0.1) 100%)',
+                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+              }}
+            >
+              {/* Animated shimmer overlay */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.15) 50%, transparent 80%)',
+                  backgroundSize: '200% 100%',
+                  animation: 'shimmer2 5s infinite',
+                  mixBlendMode: 'overlay'
+                }}
+              />
+
+              <table className="w-full text-sm relative">
+                <thead>
+                  <tr
+                    className="border-b border-gray-700/50"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%)',
+                      backdropFilter: 'blur(10px)'
+                    }}
+                  >
+                    <th className="text-left py-3 px-4 text-gray-300 font-bold">Specification</th>
+                    <th className="text-center py-3 px-4">
+                      <div className="flex items-center justify-center gap-2">
+                        <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
+                        <span className="text-blue-300 font-bold">Sol-Ark 12K</span>
+                      </div>
+                    </th>
+                    <th className="text-center py-3 px-4">
+                      <div className="flex items-center justify-center gap-2">
+                        <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }} />
+                        <span className="text-orange-300 font-bold">Sol-Ark 15K</span>
+                      </div>
+                    </th>
+                    <th className="text-center py-3 px-4">
+                      <div className="flex items-center justify-center gap-2">
+                        <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" style={{ animationDelay: '0.6s' }} />
+                        <span className="text-orange-300 font-bold">Sol-Ark 30K (3-phase)</span>
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
               <tbody className="divide-y divide-gray-700/50">
                 <tr>
                   <td className="py-3 px-4 text-gray-300 font-semibold">Power Output</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">12kW continuous</td>
                   <td className="text-center py-3 px-4 font-mono text-orange-300">15kW continuous</td>
-                  <td className="text-center py-3 px-4 font-mono text-purple-300">30kW continuous</td>
+                  <td className="text-center py-3 px-4 font-mono text-orange-300">30kW continuous</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Peak Surge (5 sec)</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">20kW</td>
                   <td className="text-center py-3 px-4 font-mono text-orange-300">23kW</td>
-                  <td className="text-center py-3 px-4 font-mono text-purple-300">46kW</td>
+                  <td className="text-center py-3 px-4 font-mono text-orange-300">46kW</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Max PV Input</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">19.5kW</td>
                   <td className="text-center py-3 px-4 font-mono text-orange-300">19.5kW</td>
-                  <td className="text-center py-3 px-4 font-mono text-purple-300">39kW</td>
+                  <td className="text-center py-3 px-4 font-mono text-orange-300">39kW</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Battery Voltage Range</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">40-60VDC</td>
                   <td className="text-center py-3 px-4 font-mono text-orange-300">40-60VDC</td>
-                  <td className="text-center py-3 px-4 font-mono text-purple-300">120-500VDC</td>
+                  <td className="text-center py-3 px-4 font-mono text-orange-300">120-500VDC</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Max Charge Current</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">215A</td>
                   <td className="text-center py-3 px-4 font-mono text-orange-300">275A</td>
-                  <td className="text-center py-3 px-4 font-mono text-purple-300">200A</td>
+                  <td className="text-center py-3 px-4 font-mono text-orange-300">200A</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Grid-Tie Efficiency</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">97.6% CEC</td>
                   <td className="text-center py-3 px-4 font-mono text-orange-300">97.5% CEC</td>
-                  <td className="text-center py-3 px-4 font-mono text-purple-300">97.2% CEC</td>
+                  <td className="text-center py-3 px-4 font-mono text-orange-300">97.2% CEC</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Transfer Time</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">&lt;4ms UPS</td>
                   <td className="text-center py-3 px-4 font-mono text-orange-300">&lt;4ms UPS</td>
-                  <td className="text-center py-3 px-4 font-mono text-purple-300">&lt;10ms</td>
+                  <td className="text-center py-3 px-4 font-mono text-orange-300">&lt;10ms</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Warranty</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">10 years std</td>
                   <td className="text-center py-3 px-4 font-mono text-orange-300">10 years std</td>
-                  <td className="text-center py-3 px-4 font-mono text-purple-300">10 years std</td>
+                  <td className="text-center py-3 px-4 font-mono text-orange-300">10 years std</td>
                 </tr>
                 <tr className="bg-gray-900/40">
                   <td className="py-3 px-4 text-white font-semibold">Typical Application</td>
                   <td className="text-center py-3 px-4 text-blue-300">3-5BR homes</td>
                   <td className="text-center py-3 px-4 text-orange-300">5BR+/Estate</td>
-                  <td className="text-center py-3 px-4 text-purple-300">Commercial</td>
+                  <td className="text-center py-3 px-4 text-orange-300">Commercial</td>
                 </tr>
-              </tbody>
-            </table>
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Battery Technology Comparison */}
-        <div className="mb-8">
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <Battery className="mr-3 h-6 w-6 text-orange-400" />
+            <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }}>
+              <Battery className="mr-3 h-6 w-6 text-orange-400" />
+            </motion.div>
             LiFePO4 Battery Selection Guide
           </h3>
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="spec-card-elite glow-blue p-6">
-              <h4 className="text-xl font-bold text-white mb-4">SimpliPhi PHI 3.8</h4>
-              <div className="space-y-3 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Capacity:</span>
-                  <span className="text-blue-300 font-mono">3.8kWh @ 100% DoD</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Voltage:</span>
-                  <span className="text-blue-300 font-mono">51.2V nominal</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Max Discharge:</span>
-                  <span className="text-blue-300 font-mono">150A continuous</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Round-Trip:</span>
-                  <span className="text-blue-300 font-mono">96% efficiency</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Cycles:</span>
-                  <span className="text-blue-300 font-mono">10,000 @ 80% DoD</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Weight:</span>
-                  <span className="text-blue-300 font-mono">82 lbs</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Warranty:</span>
-                  <span className="text-blue-300 font-mono">10 years</span>
-                </div>
-                <div className="pt-3 border-t border-blue-500/30">
-                  <p className="text-gray-300">Ideal for: Modular expansion, critical loads backup</p>
-                </div>
-              </div>
-            </div>
+            {[
+              { name: "SimpliPhi PHI 3.8", capacity: "3.8kWh @ 100% DoD", voltage: "51.2V nominal", discharge: "150A continuous", efficiency: "96% efficiency", cycles: "10,000 @ 80% DoD", weight: "82 lbs", warranty: "10 years", ideal: "Ideal for: Modular expansion, critical loads backup", gradient: "from-blue-500 via-cyan-500 to-blue-600", glowColor: "rgba(59, 130, 246, 0.4)", borderColor: "border-blue-500/30" },
+              { name: "Fortress eVault Max", capacity: "18.5kWh @ 100% DoD", voltage: "51.2V nominal", discharge: "200A continuous", efficiency: "95% efficiency", cycles: "6,000 @ 80% DoD", weight: "408 lbs", warranty: "10 years", ideal: "Ideal for: Whole-home backup, TOU arbitrage", gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", borderColor: "border-orange-500/30" },
+              { name: "EG4 LifePower4", capacity: "14.3kWh @ 95% DoD", voltage: "51.2V nominal", discharge: "200A continuous", efficiency: "95% efficiency", cycles: "8,000 @ 80% DoD", weight: "330 lbs", warranty: "10 years", ideal: "Ideal for: Budget-conscious, server rack mount", gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", borderColor: "border-orange-500/30" }
+            ].map((battery, idx) => (
+              <motion.div
+                key={idx}
+                className="relative group"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.15 }}
+                whileHover={{ scale: 1.05, y: -8 }}
+              >
+                {/* Glow effect */}
+                <div
+                  className="absolute inset-0 rounded-xl blur-lg opacity-50 group-hover:opacity-80 transition-all duration-500"
+                  style={{
+                    background: battery.glowColor,
+                    animation: `pulse ${2 + idx * 0.3}s ease-in-out infinite`
+                  }}
+                />
 
-            <div className="spec-card-elite glow-green p-6">
-              <h4 className="text-xl font-bold text-white mb-4">Fortress eVault Max</h4>
-              <div className="space-y-3 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Capacity:</span>
-                  <span className="text-orange-300 font-mono">18.5kWh @ 100% DoD</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Voltage:</span>
-                  <span className="text-orange-300 font-mono">51.2V nominal</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Max Discharge:</span>
-                  <span className="text-orange-300 font-mono">200A continuous</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Round-Trip:</span>
-                  <span className="text-orange-300 font-mono">95% efficiency</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Cycles:</span>
-                  <span className="text-orange-300 font-mono">6,000 @ 80% DoD</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Weight:</span>
-                  <span className="text-orange-300 font-mono">408 lbs</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Warranty:</span>
-                  <span className="text-orange-300 font-mono">10 years</span>
-                </div>
-                <div className="pt-3 border-t border-green-500/30">
-                  <p className="text-gray-300">Ideal for: Whole-home backup, TOU arbitrage</p>
-                </div>
-              </div>
-            </div>
+                {/* Card */}
+                <div
+                  className={`relative bg-gradient-to-br ${battery.gradient} rounded-xl p-6 border ${battery.borderColor} overflow-hidden`}
+                  style={{
+                    backdropFilter: 'blur(10px)',
+                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+                  }}
+                >
+                  {/* Glass overlay */}
+                  <div
+                    className="absolute inset-0 pointer-events-none opacity-60"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 60%)'
+                    }}
+                  />
 
-            <div className="spec-card-elite glow-purple p-6">
-              <h4 className="text-xl font-bold text-white mb-4">EG4 LifePower4</h4>
-              <div className="space-y-3 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Capacity:</span>
-                  <span className="text-purple-300 font-mono">14.3kWh @ 95% DoD</span>
+                  {/* Shimmer */}
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.5) 50%, transparent 80%)',
+                      backgroundSize: '200% 100%',
+                      animation: `shimmer${idx + 1} ${4 + idx * 0.5}s infinite`,
+                      mixBlendMode: 'overlay'
+                    }}
+                  />
+
+                  <div className="relative z-10">
+                    <h4 className="text-xl font-bold text-white mb-4 drop-shadow-md">{battery.name}</h4>
+                    <div className="space-y-3 text-sm">
+                      <div className="flex justify-between">
+                        <span className="text-white/80">Capacity:</span>
+                        <span className="text-white font-mono font-semibold drop-shadow-sm">{battery.capacity}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-white/80">Voltage:</span>
+                        <span className="text-white font-mono font-semibold drop-shadow-sm">{battery.voltage}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-white/80">Max Discharge:</span>
+                        <span className="text-white font-mono font-semibold drop-shadow-sm">{battery.discharge}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-white/80">Round-Trip:</span>
+                        <span className="text-white font-mono font-semibold drop-shadow-sm">{battery.efficiency}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-white/80">Cycles:</span>
+                        <span className="text-white font-mono font-semibold drop-shadow-sm">{battery.cycles}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-white/80">Weight:</span>
+                        <span className="text-white font-mono font-semibold drop-shadow-sm">{battery.weight}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-white/80">Warranty:</span>
+                        <span className="text-white font-mono font-semibold drop-shadow-sm">{battery.warranty}</span>
+                      </div>
+                      <div className="pt-3 border-t border-white/20">
+                        <p className="text-white/90 text-sm drop-shadow-sm">{battery.ideal}</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Voltage:</span>
-                  <span className="text-purple-300 font-mono">51.2V nominal</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Max Discharge:</span>
-                  <span className="text-purple-300 font-mono">200A continuous</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Round-Trip:</span>
-                  <span className="text-purple-300 font-mono">95% efficiency</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Cycles:</span>
-                  <span className="text-purple-300 font-mono">8,000 @ 80% DoD</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Weight:</span>
-                  <span className="text-purple-300 font-mono">330 lbs</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Warranty:</span>
-                  <span className="text-purple-300 font-mono">10 years</span>
-                </div>
-                <div className="pt-3 border-t border-purple-500/30">
-                  <p className="text-gray-300">Ideal for: Budget-conscious, server rack mount</p>
-                </div>
-              </div>
-            </div>
+              </motion.div>
+            ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Solar Panel Technology */}
         <div className="card-elite glow-gold p-8">
@@ -1181,9 +1225,9 @@ const ResidentialSolar = () => {
         </div>
 
         {/* Energy Independence Calculator */}
-        <div className="card-elite glow-purple p-8">
+        <div className="card-elite glow-orange p-8">
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <LineChart className="mr-3 h-6 w-6 text-purple-400" />
+            <LineChart className="mr-3 h-6 w-6 text-orange-400" />
             Self-Sufficiency Analysis
           </h3>
           <div className="grid md:grid-cols-2 gap-8">
@@ -1225,7 +1269,7 @@ const ResidentialSolar = () => {
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-black/30 rounded-lg p-4">
                   <div className="text-xs text-gray-500 uppercase mb-1">Self-Sufficiency</div>
-                  <div className="text-2xl font-bold text-purple-400">85%</div>
+                  <div className="text-2xl font-bold text-orange-400">85%</div>
                 </div>
                 <div className="bg-black/30 rounded-lg p-4">
                   <div className="text-xs text-gray-500 uppercase mb-1">Solar Fraction</div>
@@ -1266,74 +1310,87 @@ const ResidentialSolar = () => {
         backgroundColor="bg-gray-900"
       >
         <div className="grid md:grid-cols-3 gap-6 mb-8">
-          <div className="spec-card-elite glow-purple group p-6">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="icon-container-elite bg-purple-500/20 group-hover:bg-purple-500/30">
-                <Award className="h-6 w-6 text-purple-400" />
-              </div>
-              <h3 className="text-xl font-bold text-white">Equity Budget</h3>
-            </div>
-            <div className="mb-4">
-              <div className="text-4xl font-bold text-purple-300 mb-2">$1,000/kWh</div>
-              <div className="text-sm text-gray-400">Up to $1,000,000 per project</div>
-            </div>
-            <div className="space-y-2 text-sm text-gray-300">
-              <p><strong>Eligibility:</strong></p>
-              <ul className="list-disc list-inside space-y-1 ml-2">
-                <li>CARE/FERA utility customers</li>
-                <li>Tribal lands installations</li>
-                <li>Affordable housing properties</li>
-                <li>Environmental justice communities</li>
-              </ul>
-              <p className="mt-3 text-purple-300 font-semibold">Priority application processing</p>
-            </div>
-          </div>
+          {[
+            { title: "Equity Budget", rate: "$1,000/kWh", max: "Up to $1,000,000 per project", eligibility: ["CARE/FERA utility customers", "Tribal lands installations", "Affordable housing properties", "Environmental justice communities"], note: "Priority application processing", gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", borderColor: "border-orange-500/30", icon: Award },
+            { title: "Equity Resiliency", rate: "$1,000/kWh", max: "Plus resiliency adder", eligibility: ["Tier 2/3 PSPS fire zones (Shasta County qualifies)", "Medical baseline customers", "Critical need verification", "Must demonstrate resiliency benefit"], note: "Highest rebate tier available", gradient: "from-blue-500 via-cyan-500 to-blue-600", glowColor: "rgba(59, 130, 246, 0.4)", borderColor: "border-blue-500/30", icon: Shield },
+            { title: "General Market", rate: "$200-300/kWh", max: "Step-down schedule applies", eligibility: ["Standard residential customers", "Commercial/industrial facilities", "Agricultural operations", "No special qualification needed"], note: "Still 20-30% cost offset", gradient: "from-green-500 via-emerald-500 to-green-600", glowColor: "rgba(34, 197, 94, 0.4)", borderColor: "border-green-500/30", icon: CircleDollarSign }
+          ].map((tier, idx) => (
+            <motion.div
+              key={idx}
+              className="relative group"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.15 }}
+              whileHover={{ scale: 1.05, y: -8 }}
+            >
+              {/* Glow effect */}
+              <div
+                className="absolute inset-0 rounded-xl blur-lg opacity-50 group-hover:opacity-80 transition-all duration-500"
+                style={{
+                  background: tier.glowColor,
+                  animation: `pulse ${2 + idx * 0.3}s ease-in-out infinite`
+                }}
+              />
 
-          <div className="spec-card-elite glow-blue group p-6">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="icon-container-elite bg-blue-500/20 group-hover:bg-blue-500/30">
-                <Shield className="h-6 w-6 text-blue-400" />
-              </div>
-              <h3 className="text-xl font-bold text-white">Equity Resiliency</h3>
-            </div>
-            <div className="mb-4">
-              <div className="text-4xl font-bold text-blue-300 mb-2">$1,000/kWh</div>
-              <div className="text-sm text-gray-400">Plus resiliency adder</div>
-            </div>
-            <div className="space-y-2 text-sm text-gray-300">
-              <p><strong>Eligibility:</strong></p>
-              <ul className="list-disc list-inside space-y-1 ml-2">
-                <li>Tier 2/3 PSPS fire zones (Shasta County qualifies)</li>
-                <li>Medical baseline customers</li>
-                <li>Critical need verification</li>
-                <li>Must demonstrate resiliency benefit</li>
-              </ul>
-              <p className="mt-3 text-blue-300 font-semibold">Highest rebate tier available</p>
-            </div>
-          </div>
+              {/* Card */}
+              <div
+                className={`relative bg-gradient-to-br ${tier.gradient} rounded-xl p-6 border ${tier.borderColor} overflow-hidden`}
+                style={{
+                  backdropFilter: 'blur(10px)',
+                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+                }}
+              >
+                {/* Glass overlay */}
+                <div
+                  className="absolute inset-0 pointer-events-none opacity-60"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 60%)'
+                  }}
+                />
 
-          <div className="spec-card-elite glow-green group p-6">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="icon-container-elite bg-orange-500/20 group-hover:bg-orange-500/30">
-                <CircleDollarSign className="h-6 w-6 text-orange-400" />
+                {/* Shimmer */}
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.5) 50%, transparent 80%)',
+                    backgroundSize: '200% 100%',
+                    animation: `shimmer${idx + 1} ${4 + idx * 0.5}s infinite`,
+                    mixBlendMode: 'overlay'
+                  }}
+                />
+
+                <div className="relative z-10">
+                  <div className="flex items-center gap-3 mb-4">
+                    <motion.div
+                      className="p-3 bg-black/30 backdrop-blur-md rounded-xl shadow-lg"
+                      whileHover={{ rotate: 360, scale: 1.1 }}
+                      transition={{ duration: 0.6 }}
+                      style={{
+                        boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 4px 12px rgba(0, 0, 0, 0.2)'
+                      }}
+                    >
+                      <tier.icon className="h-6 w-6 text-white" />
+                    </motion.div>
+                    <h3 className="text-xl font-bold text-white drop-shadow-md">{tier.title}</h3>
+                  </div>
+                  <div className="mb-4">
+                    <div className="text-4xl font-bold text-white mb-2 drop-shadow-lg">{tier.rate}</div>
+                    <div className="text-sm text-white/80 drop-shadow-sm">{tier.max}</div>
+                  </div>
+                  <div className="space-y-2 text-sm text-white/90">
+                    <p className="font-semibold drop-shadow-sm"><strong>Eligibility:</strong></p>
+                    <ul className="list-disc list-inside space-y-1 ml-2 drop-shadow-sm">
+                      {tier.eligibility.map((item, itemIdx) => (
+                        <li key={itemIdx}>{item}</li>
+                      ))}
+                    </ul>
+                    <p className="mt-3 text-white font-semibold drop-shadow-md">{tier.note}</p>
+                  </div>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-white">General Market</h3>
-            </div>
-            <div className="mb-4">
-              <div className="text-4xl font-bold text-orange-300 mb-2">$200-300/kWh</div>
-              <div className="text-sm text-gray-400">Step-down schedule applies</div>
-            </div>
-            <div className="space-y-2 text-sm text-gray-300">
-              <p><strong>Eligibility:</strong></p>
-              <ul className="list-disc list-inside space-y-1 ml-2">
-                <li>Standard residential customers</li>
-                <li>Commercial/industrial facilities</li>
-                <li>Agricultural operations</li>
-                <li>No special qualification needed</li>
-              </ul>
-              <p className="mt-3 text-orange-300 font-semibold">Still 20-30% cost offset</p>
-            </div>
-          </div>
+            </motion.div>
+          ))}
         </div>
 
         <div className="card-elite glow-orange p-8">
@@ -1539,34 +1596,87 @@ const ResidentialSolar = () => {
       >
         <div className="grid md:grid-cols-4 gap-6">
           {[
-            { 
-              step: "1", 
-              title: "Technical Site Assessment", 
-              desc: "Roof structural analysis, shading study, electrical panel evaluation, PG&E meter verification" 
+            {
+              step: "1",
+              title: "Technical Site Assessment",
+              desc: "Roof structural analysis, shading study, electrical panel evaluation, PG&E meter verification",
+              gradient: "from-blue-500 via-cyan-500 to-blue-600",
+              glowColor: "rgba(59, 130, 246, 0.5)"
             },
-            { 
-              step: "2", 
-              title: "Engineering & Permitting", 
-              desc: "AutoCAD system design, Title 24 compliance, structural PE stamp, Rule 21 interconnection application" 
+            {
+              step: "2",
+              title: "Engineering & Permitting",
+              desc: "AutoCAD system design, Title 24 compliance, structural PE stamp, Rule 21 interconnection application",
+              gradient: "from-orange-500 via-amber-500 to-orange-600",
+              glowColor: "rgba(249, 115, 22, 0.5)"
             },
-            { 
-              step: "3", 
-              title: "Professional Installation", 
-              desc: "C-46 licensed crew, code-compliant mounting, inverter/battery integration, final inspection" 
+            {
+              step: "3",
+              title: "Professional Installation",
+              desc: "C-46 licensed crew, code-compliant mounting, inverter/battery integration, final inspection",
+              gradient: "from-green-500 via-emerald-500 to-green-600",
+              glowColor: "rgba(34, 197, 94, 0.5)"
             },
-            { 
-              step: "4", 
-              title: "PTO & Monitoring", 
-              desc: "PG&E permission to operate, monitoring platform setup, load-shifting optimization, SGIP claim submission" 
+            {
+              step: "4",
+              title: "PTO & Monitoring",
+              desc: "PG&E permission to operate, monitoring platform setup, load-shifting optimization, SGIP claim submission",
+              gradient: "from-orange-500 via-amber-500 to-orange-600",
+              glowColor: "rgba(249, 115, 22, 0.5)"
             }
           ].map((item, index) => (
-            <div key={index} className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center text-2xl font-bold text-white">
-                {item.step}
-              </div>
-              <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
-              <p className="text-gray-400 text-sm">{item.desc}</p>
-            </div>
+            <motion.div
+              key={index}
+              className="text-center relative group"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.15 }}
+              whileHover={{ scale: 1.05, y: -8 }}
+            >
+              {/* Glow effect on number badge */}
+              <div
+                className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full blur-xl opacity-60 group-hover:opacity-100 transition-all duration-500"
+                style={{
+                  background: item.glowColor,
+                  animation: `pulse ${2 + index * 0.3}s ease-in-out infinite`
+                }}
+              />
+
+              <motion.div
+                className="relative w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center text-2xl font-bold overflow-hidden"
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.6 }}
+                style={{
+                  background: `linear-gradient(135deg, ${item.gradient})`,
+                  boxShadow: '0 4px 16px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
+                }}
+              >
+                {/* Glass overlay */}
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, transparent 60%)'
+                  }}
+                />
+
+                {/* Shimmer */}
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.6) 50%, transparent 80%)',
+                    backgroundSize: '200% 100%',
+                    animation: `shimmer${index + 1} ${3 + index * 0.5}s infinite`,
+                    mixBlendMode: 'overlay'
+                  }}
+                />
+
+                <span className="relative z-10 text-white drop-shadow-lg">{item.step}</span>
+              </motion.div>
+
+              <h3 className="text-lg font-semibold text-white mb-2 drop-shadow-md">{item.title}</h3>
+              <p className="text-gray-300 text-sm leading-relaxed">{item.desc}</p>
+            </motion.div>
           ))}
         </div>
       </ContentSection>

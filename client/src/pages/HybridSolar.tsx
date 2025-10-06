@@ -623,15 +623,15 @@ const HybridSolar = () => {
             ),
           },
           {
-            id: 'action-purple',
+            id: 'action-orange',
             title: 'STAGE 4: Seamless Integration & Activation',
             description: 'Professional installation with automatic transfer switch (ATS) wiring. Critical load panel separation and circuit prioritization. &lt;10ms UPS-grade transfer prevents computer/medical equipment disruption. Remote monitoring with grid status alerts and automatic mode switching. Generator integration testing and AGS programming.',
-            color: 'from-purple-500 to-purple-600',
-            glowColor: 'rgba(168, 85, 247, 0.5)',
+            color: 'from-orange-500 to-orange-600',
+            glowColor: 'rgba(251, 146, 60, 0.5)',
             icon: <CheckCircle className='h-8 w-8' />,
             metrics: (
               <div className="space-y-1">
-                <div className="text-purple-300 font-bold">&lt;10ms Transfer</div>
+                <div className="text-orange-300 font-bold">&lt;10ms Transfer</div>
                 <div className="text-xs text-gray-400">Zero interruption</div>
                 <div className="text-xs text-gray-400">UPS-grade switching</div>
               </div>
@@ -1158,7 +1158,7 @@ const HybridSolar = () => {
                 <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-3">
                   <div className="flex items-center gap-2 mb-1">
                     <span className="text-lg font-bold text-blue-300">4.</span>
-                    <Wifi className="h-5 w-5 text-purple-400" />
+                    <Wifi className="h-5 w-5 text-orange-400" />
                     <span className="text-white font-semibold">Grid (When Available)</span>
                   </div>
                   <p className="text-xs text-gray-400 ml-7">Off-peak charging, export excess solar (NEM)</p>
@@ -1494,49 +1494,49 @@ const HybridSolar = () => {
         </div>
 
         {/* SGIP Resiliency Incentive */}
-        <div className="bg-gradient-to-r from-purple-900/20 to-blue-900/20 border border-purple-500/30 rounded-2xl p-8">
+        <div className="bg-gradient-to-r from-orange-900/20 to-blue-900/20 border border-orange-500/30 rounded-2xl p-8">
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <Award className="mr-3 h-6 w-6 text-purple-400" />
+            <Award className="mr-3 h-6 w-6 text-orange-400" />
             SGIP Equity Resiliency Incentive for PSPS Zones
           </h3>
           <div className="grid md:grid-cols-3 gap-6">
             <div>
-              <h4 className="text-purple-400 font-semibold mb-3">Eligibility Requirements:</h4>
+              <h4 className="text-orange-400 font-semibold mb-3">Eligibility Requirements:</h4>
               <ul className="space-y-2 text-sm text-gray-300">
                 <li className="flex items-start gap-2">
-                  <ChevronRight className="h-4 w-4 text-purple-400 mt-0.5" />
+                  <ChevronRight className="h-4 w-4 text-orange-400 mt-0.5" />
                   <span>Located in Tier 2 or Tier 3 HFTD</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <ChevronRight className="h-4 w-4 text-purple-400 mt-0.5" />
+                  <ChevronRight className="h-4 w-4 text-orange-400 mt-0.5" />
                   <span>Experienced 2+ PSPS events</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <ChevronRight className="h-4 w-4 text-purple-400 mt-0.5" />
+                  <ChevronRight className="h-4 w-4 text-orange-400 mt-0.5" />
                   <span>Medical baseline customer (priority)</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <ChevronRight className="h-4 w-4 text-purple-400 mt-0.5" />
+                  <ChevronRight className="h-4 w-4 text-orange-400 mt-0.5" />
                   <span>Well pump for water (qualifies)</span>
                 </li>
               </ul>
             </div>
             <div>
-              <h4 className="text-purple-400 font-semibold mb-3">Incentive Amounts:</h4>
-              <div className="bg-purple-900/20 rounded-lg p-4 space-y-2">
+              <h4 className="text-orange-400 font-semibold mb-3">Incentive Amounts:</h4>
+              <div className="bg-orange-900/20 rounded-lg p-4 space-y-2">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-purple-300">$850-1,000</div>
+                  <div className="text-3xl font-bold text-orange-300">$850-1,000</div>
                   <div className="text-sm text-gray-400">per kWh installed</div>
                 </div>
-                <div className="border-t border-purple-500/30 pt-2 mt-2">
+                <div className="border-t border-orange-500/30 pt-2 mt-2">
                   <div className="text-sm text-gray-300">
-                    15kWh system = <span className="text-purple-300 font-bold">$12,750-15,000</span>
+                    15kWh system = <span className="text-orange-300 font-bold">$12,750-15,000</span>
                   </div>
                 </div>
               </div>
             </div>
             <div>
-              <h4 className="text-purple-400 font-semibold mb-3">Application Priority:</h4>
+              <h4 className="text-orange-400 font-semibold mb-3">Application Priority:</h4>
               <ol className="space-y-2 text-sm text-gray-300">
                 <li>1. Medical baseline customers</li>
                 <li>2. Low-income qualified (CARE/FERA)</li>

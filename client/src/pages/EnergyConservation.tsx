@@ -458,6 +458,7 @@ const EnergyConservation = () => {
                 </button>
               </div>
             </div>
+            </div>
           </motion.div>
         </div>
 
@@ -476,11 +477,16 @@ const EnergyConservation = () => {
 
         {/* Energy Audit Process */}
         <div className="mb-12">
-          <div className="text-center mb-8">
-            <p className="text-red-600 font-semibold mb-2">Diagnostic Assessment</p>
-            <h2 className="text-3xl font-bold text-gray-900  mb-3">Professional Energy Audit Process</h2>
-            <p className="text-gray-600 ">Comprehensive analysis using advanced building science techniques</p>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-8"
+          >
+            <p className="text-orange-600 font-semibold mb-2">Diagnostic Assessment</p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Professional Energy Audit Process</h2>
+            <p className="text-gray-600 dark:text-gray-400">Comprehensive analysis using advanced building science techniques</p>
+          </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Audit Steps */}
@@ -563,11 +569,16 @@ const EnergyConservation = () => {
 
         {/* Building Science Principles */}
         <div className="mb-12">
-          <div className="text-center mb-8">
-            <p className="text-red-600 font-semibold mb-2">Technical Foundation</p>
-            <h2 className="text-3xl font-bold text-gray-900  mb-3">Building Science Principles</h2>
-            <p className="text-gray-600 ">Understanding the physics of energy efficiency</p>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-8"
+          >
+            <p className="text-orange-600 font-semibold mb-2">Technical Foundation</p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Building Science Principles</h2>
+            <p className="text-gray-600 dark:text-gray-400">Understanding the physics of energy efficiency</p>
+          </motion.div>
 
           <div className="card-elite glow-blue p-8 group">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -593,11 +604,16 @@ const EnergyConservation = () => {
 
         {/* HVAC & Heat Pump Technology */}
         <div className="mb-12">
-          <div className="text-center mb-8">
-            <p className="text-red-600 font-semibold mb-2">Climate Control Efficiency</p>
-            <h2 className="text-3xl font-bold text-gray-900  mb-3">Advanced HVAC Solutions</h2>
-            <p className="text-gray-600 ">High-efficiency heating and cooling with heat pump technology</p>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-8"
+          >
+            <p className="text-orange-600 font-semibold mb-2">Climate Control Efficiency</p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Advanced HVAC Solutions</h2>
+            <p className="text-gray-600 dark:text-gray-400">High-efficiency heating and cooling with heat pump technology</p>
+          </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Heat Pump Specifications */}
@@ -671,39 +687,95 @@ const EnergyConservation = () => {
             </div>
 
             {/* Smart Controls */}
-            <div className="card-elite glow-purple p-8 group">
-              <h3 className="text-xl font-bold mb-6 text-gray-900  flex items-center gap-2">
-                <Settings className="h-6 w-6 text-purple-500" /> Smart HVAC Controls
-              </h3>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative overflow-hidden rounded-2xl p-8 group"
+              style={{
+                background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(249, 115, 22, 0.1) 50%, rgba(34, 197, 94, 0.15) 100%)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+                border: '1px solid rgba(59, 130, 246, 0.3)'
+              }}
+            >
+              {/* Shimmer effect */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.15) 50%, transparent 80%)',
+                  backgroundSize: '200% 100%',
+                  animation: 'shimmer3 6s infinite',
+                  mixBlendMode: 'overlay'
+                }}
+              />
 
-              <div className="space-y-4">
-                {[
-                  { feature: "Learning Thermostats", savings: "10-23%", desc: "AI-driven temperature optimization" },
-                  { feature: "Zoning Systems", savings: "20-35%", desc: "Room-by-room climate control" },
-                  { feature: "Variable Speed", savings: "15-25%", desc: "Inverter-driven compressor modulation" },
-                  { feature: "Demand Response", savings: "5-15%", desc: "Grid-interactive load management" },
-                  { feature: "Predictive Maintenance", savings: "10-20%", desc: "AI-based fault detection" }
-                ].map((item, idx) => (
-                  <div key={idx} className="spec-card-elite glow-purple">
-                    <div className="flex items-center justify-between mb-2">
-                      <h4 className="font-semibold text-gray-900 ">{item.feature}</h4>
-                      <span className="text-sm font-bold text-orange-600 ">{item.savings}</span>
-                    </div>
-                    <p className="text-sm text-gray-600 ">{item.desc}</p>
-                  </div>
-                ))}
+              <div className="relative z-10">
+                <h3 className="text-xl font-bold mb-6 text-gray-900 dark:text-white flex items-center gap-2">
+                  <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }}>
+                    <Settings className="h-6 w-6 text-orange-400" />
+                  </motion.div>
+                  Smart HVAC Controls
+                </h3>
+
+                <div className="space-y-4">
+                  {[
+                    { feature: "Learning Thermostats", savings: "10-23%", desc: "AI-driven temperature optimization", gradient: "from-blue-500 via-cyan-500 to-blue-600" },
+                    { feature: "Zoning Systems", savings: "20-35%", desc: "Room-by-room climate control", gradient: "from-orange-500 via-amber-500 to-orange-600" },
+                    { feature: "Variable Speed", savings: "15-25%", desc: "Inverter-driven compressor modulation", gradient: "from-green-500 via-emerald-500 to-green-600" },
+                    { feature: "Demand Response", savings: "5-15%", desc: "Grid-interactive load management", gradient: "from-yellow-500 via-amber-500 to-yellow-600" },
+                    { feature: "Predictive Maintenance", savings: "10-20%", desc: "AI-based fault detection", gradient: "from-red-500 via-orange-500 to-red-600" }
+                  ].map((item, idx) => (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: idx * 0.1 }}
+                      whileHover={{ scale: 1.02, y: -2 }}
+                      className="relative overflow-hidden rounded-xl p-4"
+                      style={{
+                        background: `linear-gradient(135deg, ${item.gradient})`,
+                        backdropFilter: 'blur(10px)',
+                        boxShadow: '0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+                        border: '1px solid rgba(255, 255, 255, 0.2)'
+                      }}
+                    >
+                      <div
+                        className="absolute inset-0 pointer-events-none"
+                        style={{
+                          background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 60%)'
+                        }}
+                      />
+                      <div className="relative z-10">
+                        <div className="flex items-center justify-between mb-2">
+                          <h4 className="font-semibold text-white">{item.feature}</h4>
+                          <span className="text-sm font-bold text-white bg-black/20 px-2 py-1 rounded">{item.savings}</span>
+                        </div>
+                        <p className="text-sm text-white/90">{item.desc}</p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
 
         {/* Insulation & Building Envelope */}
         <div className="mb-12">
-          <div className="text-center mb-8">
-            <p className="text-red-600 font-semibold mb-2">Building Envelope</p>
-            <h2 className="text-3xl font-bold text-gray-900  mb-3">Insulation & Air Sealing</h2>
-            <p className="text-gray-600 ">Creating an efficient thermal boundary for your building</p>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-8"
+          >
+            <p className="text-orange-600 font-semibold mb-2">Building Envelope</p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Insulation & Air Sealing</h2>
+            <p className="text-gray-600 dark:text-gray-400">Creating an efficient thermal boundary for your building</p>
+          </motion.div>
 
           <div className="card-elite glow-green p-8 group">
             <div className="grid md:grid-cols-2 gap-8 mb-8">
@@ -803,75 +875,207 @@ const EnergyConservation = () => {
 
         {/* Smart Home Energy Management */}
         <div className="mb-12">
-          <div className="text-center mb-8">
-            <p className="text-red-600 font-semibold mb-2">Automation & Control</p>
-            <h2 className="text-3xl font-bold text-gray-900  mb-3">Smart Home Energy Management</h2>
-            <p className="text-gray-600 ">Intelligent systems that optimize energy use automatically</p>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-8"
+          >
+            <p className="text-orange-600 font-semibold mb-2">Automation & Control</p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Smart Home Energy Management</h2>
+            <p className="text-gray-600 dark:text-gray-400">Intelligent systems that optimize energy use automatically</p>
+          </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {smartHomeIntegration.map((system, idx) => (
-              <div key={idx} className="card-elite glow-purple p-6 group">
-                <div className="flex items-start justify-between mb-3">
-                  <div className="icon-container-elite bg-purple-500/20 group-hover:bg-purple-500/30">
-                    <Component className="h-5 w-5 text-blue-500" />
+            {smartHomeIntegration.map((system, idx) => {
+              const gradients = [
+                { gradient: "from-blue-500 via-cyan-500 to-blue-600", glowColor: "rgba(59, 130, 246, 0.4)", iconBg: "bg-blue-900/40" },
+                { gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", iconBg: "bg-orange-900/40" },
+                { gradient: "from-green-500 via-emerald-500 to-green-600", glowColor: "rgba(34, 197, 94, 0.4)", iconBg: "bg-green-900/40" },
+                { gradient: "from-yellow-500 via-amber-500 to-yellow-600", glowColor: "rgba(234, 179, 8, 0.4)", iconBg: "bg-yellow-900/40" },
+                { gradient: "from-red-500 via-orange-500 to-red-600", glowColor: "rgba(239, 68, 68, 0.4)", iconBg: "bg-red-900/40" },
+                { gradient: "from-cyan-500 via-blue-500 to-cyan-600", glowColor: "rgba(6, 182, 212, 0.4)", iconBg: "bg-cyan-900/40" }
+              ];
+              const style = gradients[idx % gradients.length];
+
+              return (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  whileHover={{ scale: 1.03, y: -5 }}
+                  className="relative group"
+                >
+                  {/* Glow effect */}
+                  <div
+                    className="absolute inset-0 rounded-2xl blur-lg opacity-50 group-hover:opacity-80 transition-all duration-500"
+                    style={{
+                      background: style.glowColor,
+                      animation: `pulse ${2.5 + idx * 0.3}s ease-in-out infinite`
+                    }}
+                  />
+
+                  {/* Card */}
+                  <div
+                    className={`relative bg-gradient-to-br ${style.gradient} rounded-2xl p-6 overflow-hidden`}
+                    style={{
+                      backdropFilter: 'blur(10px)',
+                      boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
+                      border: '1px solid rgba(255, 255, 255, 0.2)'
+                    }}
+                  >
+                    {/* Glass overlay */}
+                    <div
+                      className="absolute inset-0 pointer-events-none"
+                      style={{
+                        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 60%)'
+                      }}
+                    />
+
+                    {/* Shimmer */}
+                    <div
+                      className="absolute inset-0 pointer-events-none"
+                      style={{
+                        background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.5) 50%, transparent 80%)',
+                        backgroundSize: '200% 100%',
+                        animation: `shimmer${idx + 1} ${4 + idx * 0.5}s infinite`,
+                        mixBlendMode: 'overlay'
+                      }}
+                    />
+
+                    <div className="relative z-10">
+                      <div className="flex items-start justify-between mb-3">
+                        <motion.div
+                          className={`p-3 ${style.iconBg} backdrop-blur-md rounded-xl shadow-lg`}
+                          whileHover={{ rotate: 360, scale: 1.1 }}
+                          transition={{ duration: 0.6 }}
+                          style={{
+                            boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 4px 12px rgba(0, 0, 0, 0.3)'
+                          }}
+                        >
+                          <Component className="h-5 w-5 text-white" />
+                        </motion.div>
+                        <span className="text-sm font-bold text-white bg-black/20 px-2 py-1 rounded">{system.savings} Savings</span>
+                      </div>
+                      <h3 className="text-lg font-bold text-white mb-3">{system.system}</h3>
+                      <ul className="space-y-2">
+                        {system.features.map((feature, i) => (
+                          <motion.li
+                            key={i}
+                            initial={{ opacity: 0, x: -10 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.05 }}
+                            className="text-sm text-white/90 flex items-center gap-2"
+                          >
+                            <CheckCircle className="h-3 w-3 text-white/80 flex-shrink-0" />
+                            {feature}
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                  <span className="text-sm font-bold text-orange-600 ">{system.savings} Savings</span>
-                </div>
-                <h3 className="text-lg font-bold text-gray-900  mb-3">{system.system}</h3>
-                <ul className="space-y-2">
-                  {system.features.map((feature, i) => (
-                    <li key={i} className="text-sm text-gray-600  flex items-center gap-2">
-                      <CheckCircle className="h-3 w-3 text-orange-500 flex-shrink-0" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
 
         {/* Efficiency Metrics & Standards */}
         <div className="mb-12">
-          <div className="text-center mb-8">
-            <p className="text-red-600 font-semibold mb-2">Performance Standards</p>
-            <h2 className="text-3xl font-bold text-gray-900  mb-3">Energy Efficiency Metrics</h2>
-            <p className="text-gray-600 ">Understanding efficiency ratings and certifications</p>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-8"
+          >
+            <p className="text-orange-600 font-semibold mb-2">Performance Standards</p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Energy Efficiency Metrics</h2>
+            <p className="text-gray-600 dark:text-gray-400">Understanding efficiency ratings and certifications</p>
+          </motion.div>
 
-          <div className="card-elite glow-blue overflow-hidden group">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative overflow-hidden rounded-2xl"
+            style={{
+              background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(249, 115, 22, 0.05) 50%, rgba(59, 130, 246, 0.1) 100%)',
+              backdropFilter: 'blur(12px)',
+              WebkitBackdropFilter: 'blur(12px)',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+              border: '1px solid rgba(59, 130, 246, 0.2)'
+            }}
+          >
+            {/* Shimmer effect */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.15) 50%, transparent 80%)',
+                backgroundSize: '200% 100%',
+                animation: 'shimmer1 5s infinite',
+                mixBlendMode: 'overlay'
+              }}
+            />
+
             <div className="overflow-x-auto">
               <table className="w-full">
-                <thead className="bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
-                  <tr>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Metric</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Definition</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Standard Efficiency</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">High Efficiency</th>
+                <thead
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.3) 100%)',
+                    backdropFilter: 'blur(10px)'
+                  }}
+                >
+                  <tr className="border-b border-white/10">
+                    <th className="px-6 py-4 text-left text-xs font-bold text-gray-200 uppercase tracking-wider">Metric</th>
+                    <th className="px-6 py-4 text-left text-xs font-bold text-gray-200 uppercase tracking-wider">Definition</th>
+                    <th className="px-6 py-4 text-left text-xs font-bold text-gray-200 uppercase tracking-wider">Standard Efficiency</th>
+                    <th className="px-6 py-4 text-left text-xs font-bold text-gray-200 uppercase tracking-wider">High Efficiency</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
+                <tbody className="divide-y divide-white/5">
                   {efficiencyMetrics.map((metric, idx) => (
-                    <tr key={idx} className="hover:bg-gray-50 dark:hover:bg-gray-700">
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 ">
+                    <motion.tr
+                      key={idx}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: idx * 0.05 }}
+                      whileHover={{ backgroundColor: 'rgba(255, 255, 255, 0.05)' }}
+                      className="transition-all duration-300"
+                    >
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
                         {metric.metric}
                       </td>
-                      <td className="px-6 py-4 text-sm text-gray-700 ">
+                      <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
                         {metric.definition}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 ">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
                         {metric.standard}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-orange-600 ">
-                        {metric.premium}
-                      </td>
-                    </tr>
+                      <motion.td
+                        whileHover={{ scale: 1.05 }}
+                        className="px-6 py-4 whitespace-nowrap text-sm font-medium"
+                      >
+                        <span
+                          className="inline-block px-3 py-1 rounded-lg text-white"
+                          style={{
+                            background: 'linear-gradient(135deg, #f97316 0%, #fb923c 50%, #ea580c 100%)',
+                            boxShadow: '0 2px 8px rgba(249, 115, 22, 0.3)'
+                          }}
+                        >
+                          {metric.premium}
+                        </span>
+                      </motion.td>
+                    </motion.tr>
                   ))}
                 </tbody>
               </table>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Rebate Programs */}
@@ -916,11 +1120,16 @@ const EnergyConservation = () => {
 
         {/* ROI Calculator Section */}
         <div className="mb-12">
-          <div className="text-center mb-8">
-            <p className="text-red-600 font-semibold mb-2">Investment Analysis</p>
-            <h2 className="text-3xl font-bold text-gray-900  mb-3">Energy Savings Calculator</h2>
-            <p className="text-gray-600 ">Calculate your potential savings and payback period</p>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-8"
+          >
+            <p className="text-orange-600 font-semibold mb-2">Investment Analysis</p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Energy Savings Calculator</h2>
+            <p className="text-gray-600 dark:text-gray-400">Calculate your potential savings and payback period</p>
+          </motion.div>
 
           <div className="card-elite glow-green p-8 group">
             <div className="grid lg:grid-cols-2 gap-8">
@@ -1011,11 +1220,16 @@ const EnergyConservation = () => {
 
         {/* Real Customer Case Studies */}
         <div className="mb-12">
-          <div className="text-center mb-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-8"
+          >
             <p className="text-orange-600 font-semibold mb-2">Success Stories</p>
-            <h2 className="text-3xl font-bold text-gray-900  mb-3">Real Energy Savings Achieved</h2>
-            <p className="text-gray-600 ">Actual results from Northern California properties</p>
-          </div>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Real Energy Savings Achieved</h2>
+            <p className="text-gray-600 dark:text-gray-400">Actual results from Northern California properties</p>
+          </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-8">
             {[
@@ -1354,24 +1568,58 @@ const EnergyConservation = () => {
 
         {/* Rebates and Incentives */}
         <div className="mb-12">
-          <div className="text-center mb-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-8"
+          >
             <p className="text-orange-600 font-semibold mb-2">Financial Incentives</p>
-            <h2 className="text-3xl font-bold text-gray-900  mb-3">Rebates & Incentive Programs</h2>
-            <p className="text-gray-600 ">Maximize your ROI with available funding</p>
-          </div>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Rebates & Incentive Programs</h2>
+            <p className="text-gray-600 dark:text-gray-400">Maximize your ROI with available funding</p>
+          </motion.div>
 
-          <div className="card-elite glow-gold overflow-hidden group">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative overflow-hidden rounded-2xl"
+            style={{
+              background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(251, 191, 36, 0.05) 50%, rgba(249, 115, 22, 0.1) 100%)',
+              backdropFilter: 'blur(12px)',
+              WebkitBackdropFilter: 'blur(12px)',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+              border: '1px solid rgba(249, 115, 22, 0.3)'
+            }}
+          >
+            {/* Shimmer effect */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.15) 50%, transparent 80%)',
+                backgroundSize: '200% 100%',
+                animation: 'shimmer2 5s infinite',
+                mixBlendMode: 'overlay'
+              }}
+            />
+
             <table className="w-full">
-              <thead className="bg-gray-50 dark:bg-gray-700">
-                <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500  uppercase">Program</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500  uppercase">Eligible Measures</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500  uppercase">Incentive Amount</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500  uppercase">Requirements</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500  uppercase">Application</th>
+              <thead
+                style={{
+                  background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.3) 100%)',
+                  backdropFilter: 'blur(10px)'
+                }}
+              >
+                <tr className="border-b border-white/10">
+                  <th className="px-6 py-3 text-left text-xs font-bold text-gray-200 uppercase">Program</th>
+                  <th className="px-6 py-3 text-left text-xs font-bold text-gray-200 uppercase">Eligible Measures</th>
+                  <th className="px-6 py-3 text-left text-xs font-bold text-gray-200 uppercase">Incentive Amount</th>
+                  <th className="px-6 py-3 text-left text-xs font-bold text-gray-200 uppercase">Requirements</th>
+                  <th className="px-6 py-3 text-left text-xs font-bold text-gray-200 uppercase">Application</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
+              <tbody className="divide-y divide-white/5">
                 {[
                   {
                     program: "PG&E Energy Efficiency",
@@ -1430,17 +1678,35 @@ const EnergyConservation = () => {
                     application: "Building dept"
                   }
                 ].map((program, idx) => (
-                  <tr key={idx} className="hover:bg-gray-50 dark:hover:bg-gray-700">
-                    <td className="px-6 py-4 text-sm font-medium text-gray-900 ">{program.program}</td>
-                    <td className="px-6 py-4 text-sm text-gray-700 ">{program.measures}</td>
-                    <td className="px-6 py-4 text-sm font-semibold text-orange-600 ">{program.incentive}</td>
-                    <td className="px-6 py-4 text-sm text-gray-700 ">{program.requirements}</td>
-                    <td className="px-6 py-4 text-sm text-gray-700 ">{program.application}</td>
-                  </tr>
+                  <motion.tr
+                    key={idx}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: idx * 0.05 }}
+                    whileHover={{ backgroundColor: 'rgba(255, 255, 255, 0.05)' }}
+                    className="transition-all duration-300"
+                  >
+                    <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">{program.program}</td>
+                    <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">{program.measures}</td>
+                    <motion.td whileHover={{ scale: 1.05 }} className="px-6 py-4 text-sm">
+                      <span
+                        className="inline-block px-3 py-1 rounded-lg font-semibold text-white"
+                        style={{
+                          background: 'linear-gradient(135deg, #f97316 0%, #fb923c 50%, #ea580c 100%)',
+                          boxShadow: '0 2px 8px rgba(249, 115, 22, 0.3)'
+                        }}
+                      >
+                        {program.incentive}
+                      </span>
+                    </motion.td>
+                    <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">{program.requirements}</td>
+                    <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">{program.application}</td>
+                  </motion.tr>
                 ))}
               </tbody>
             </table>
-          </div>
+          </motion.div>
         </div>
 
         {/* Measurement & Verification */}
@@ -1556,11 +1822,16 @@ const EnergyConservation = () => {
 
         {/* FAQ Section */}
         <div className="mb-12">
-          <div className="text-center mb-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-8"
+          >
             <p className="text-orange-600 font-semibold mb-2">Common Questions</p>
-            <h2 className="text-3xl font-bold text-gray-900  mb-3">Energy Conservation FAQs</h2>
-            <p className="text-gray-600 ">Everything you need to know about energy efficiency</p>
-          </div>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Energy Conservation FAQs</h2>
+            <p className="text-gray-600 dark:text-gray-400">Everything you need to know about energy efficiency</p>
+          </motion.div>
 
           <div className="grid md:grid-cols-2 gap-6">
             {[
@@ -1619,48 +1890,119 @@ const EnergyConservation = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="bg-gradient-to-r from-green-600 to-blue-700 rounded-3xl p-8 text-white text-center">
-          <h2 className="text-3xl font-bold mb-4">Start Saving Energy Today</h2>
-          <p className="text-xl mb-6 text-orange-100">
-            Get a professional energy audit and custom efficiency plan for your property
-          </p>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="relative overflow-hidden rounded-3xl p-8 text-white text-center"
+          style={{
+            background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.3) 0%, rgba(59, 130, 246, 0.25) 50%, rgba(249, 115, 22, 0.3) 100%)',
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+            border: '1px solid rgba(255, 255, 255, 0.2)'
+          }}
+        >
+          {/* Animated background shimmer */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.2) 50%, transparent 80%)',
+              backgroundSize: '200% 100%',
+              animation: 'shimmer1 6s infinite',
+              mixBlendMode: 'overlay'
+            }}
+          />
 
-          <div className="bg-white/10 backdrop-blur rounded-xl p-6 mb-6 max-w-3xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-              <div>
-                <div className="text-3xl font-bold">35%</div>
-                <div className="text-sm text-orange-200">Avg Energy Reduction</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold">2.3yr</div>
-                <div className="text-sm text-orange-200">Typical Payback</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold">$2.1M</div>
-                <div className="text-sm text-orange-200">Rebates Secured</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold">450+</div>
-                <div className="text-sm text-orange-200">Audits Completed</div>
+          <div className="relative z-10">
+            <h2 className="text-3xl font-bold mb-4">Start Saving Energy Today</h2>
+            <p className="text-xl mb-6 text-gray-100">
+              Get a professional energy audit and custom efficiency plan for your property
+            </p>
+
+            <div
+              className="relative overflow-hidden rounded-xl p-6 mb-6 max-w-3xl mx-auto"
+              style={{
+                background: 'rgba(255, 255, 255, 0.1)',
+                backdropFilter: 'blur(10px)',
+                boxShadow: '0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
+                border: '1px solid rgba(255, 255, 255, 0.2)'
+              }}
+            >
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                {[
+                  { value: "35%", label: "Avg Energy Reduction" },
+                  { value: "2.3yr", label: "Typical Payback" },
+                  { value: "$2.1M", label: "Rebates Secured" },
+                  { value: "450+", label: "Audits Completed" }
+                ].map((stat, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: idx * 0.1 }}
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    <div className="text-3xl font-bold text-white">{stat.value}</div>
+                    <div className="text-sm text-gray-200">{stat.label}</div>
+                  </motion.div>
+                ))}
               </div>
             </div>
-          </div>
 
-          <div className="flex flex-wrap gap-4 justify-center">
-            <button className="bg-white text-orange-600 px-8 py-4 rounded-xl font-semibold hover:bg-orange-50 transition flex items-center gap-2">
-              <Calendar className="h-5 w-5" /> Schedule Energy Audit
-            </button>
-            <button className="bg-white/20 backdrop-blur text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/30 transition flex items-center gap-2">
-              <Phone className="h-5 w-5" /> Call (530) 221-3331
-            </button>
-            <button className="bg-white/20 backdrop-blur text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/30 transition flex items-center gap-2">
-              <Calculator className="h-5 w-5" /> Get Free Quote
-            </button>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="relative overflow-hidden px-8 py-4 rounded-xl font-semibold flex items-center gap-2 text-white"
+                style={{
+                  background: 'linear-gradient(135deg, #f97316 0%, #fb923c 50%, #ea580c 100%)',
+                  boxShadow: '0 4px 20px rgba(249, 115, 22, 0.5), inset 0 2px 0 rgba(255, 255, 255, 0.3)',
+                  border: '1px solid rgba(255, 255, 255, 0.3)'
+                }}
+              >
+                <span className="relative z-10 flex items-center">
+                  <Calendar className="h-5 w-5 mr-2" /> Schedule Energy Audit
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-transparent opacity-50 pointer-events-none rounded-xl" />
+              </motion.button>
+
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="relative overflow-hidden px-8 py-4 rounded-xl font-semibold flex items-center gap-2 text-white"
+                style={{
+                  background: 'rgba(255, 255, 255, 0.15)',
+                  backdropFilter: 'blur(10px)',
+                  boxShadow: '0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)'
+                }}
+              >
+                <Phone className="h-5 w-5" /> Call (530) 221-3331
+              </motion.button>
+
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="relative overflow-hidden px-8 py-4 rounded-xl font-semibold flex items-center gap-2 text-white"
+                style={{
+                  background: 'rgba(255, 255, 255, 0.15)',
+                  backdropFilter: 'blur(10px)',
+                  boxShadow: '0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)'
+                }}
+              >
+                <Calculator className="h-5 w-5" /> Get Free Quote
+              </motion.button>
+            </div>
+
+            <div className="mt-6 text-sm text-gray-200">
+              BPI Certified • Title 24 Compliant • 25+ Years Experience • Licensed & Insured
+            </div>
           </div>
-          <div className="mt-6 text-sm text-orange-200">
-            BPI Certified • Title 24 Compliant • 25+ Years Experience • Licensed & Insured
-          </div>
-        </div>
+        </motion.div>
       </div>
     </div>
     </MainLayout>
