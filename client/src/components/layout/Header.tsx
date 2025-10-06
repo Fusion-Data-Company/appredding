@@ -102,18 +102,23 @@ const SolarCompanyHeader: React.FC = () => {
             index !== items.length - 1 && "mb-1"
           )}
           style={{
-            background: 'rgb(30, 41, 59)',
-            border: '1px solid rgb(51, 65, 85)'
+            background: 'linear-gradient(135deg, rgba(17, 24, 39, 0.8) 0%, rgba(31, 41, 55, 0.6) 100%)',
+            backdropFilter: 'blur(10px)',
+            WebkitBackdropFilter: 'blur(10px)',
+            border: '1px solid rgba(75, 85, 99, 0.4)',
+            boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.2)'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.background = `linear-gradient(135deg, ${item.bgColor} 0%, rgba(59,130,246,0.3) 100%)`;
+            e.currentTarget.style.background = `linear-gradient(135deg, ${item.bgColor}40 0%, rgba(59,130,246,0.2) 100%)`;
             e.currentTarget.style.transform = 'translateX(4px)';
-            e.currentTarget.style.borderColor = item.bgColor;
+            e.currentTarget.style.borderColor = `${item.bgColor}80`;
+            e.currentTarget.style.boxShadow = `0 0 20px ${item.bgColor}40, inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.3)`;
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.background = 'rgb(30, 41, 59)';
+            e.currentTarget.style.background = 'linear-gradient(135deg, rgba(17, 24, 39, 0.8) 0%, rgba(31, 41, 55, 0.6) 100%)';
             e.currentTarget.style.transform = 'translateX(0)';
-            e.currentTarget.style.borderColor = 'rgb(51, 65, 85)';
+            e.currentTarget.style.borderColor = 'rgba(75, 85, 99, 0.4)';
+            e.currentTarget.style.boxShadow = 'inset 0 1px 0 rgba(255, 255, 255, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.2)';
           }}
           onClick={() => {
             setActiveDropdown(null);
@@ -121,16 +126,19 @@ const SolarCompanyHeader: React.FC = () => {
           }}
         >
           <div 
-            className={cn("w-9 h-9 rounded-xl flex items-center justify-center mr-3 flex-shrink-0 group-hover:scale-110 transition-transform duration-200 relative", item.iconColor)}
+            className={cn("w-9 h-9 rounded-xl flex items-center justify-center mr-3 flex-shrink-0 group-hover:scale-110 transition-all duration-200 relative", item.iconColor)}
             style={{
-              background: `rgba(${item.bgColor.match(/\d+/g)?.join(', ')}, 0.2)`,
-              border: `1px solid ${item.bgColor}`
+              background: `linear-gradient(135deg, rgba(${item.bgColor.match(/\d+/g)?.join(', ')}, 0.25) 0%, rgba(${item.bgColor.match(/\d+/g)?.join(', ')}, 0.15) 100%)`,
+              backdropFilter: 'blur(8px)',
+              WebkitBackdropFilter: 'blur(8px)',
+              border: `1.5px solid ${item.bgColor}`,
+              boxShadow: `0 0 20px ${item.bgColor}60, 0 0 40px ${item.bgColor}30, inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.3)`
             }}
           >
             {item.icon}
           </div>
           <div className="flex-1 min-w-0">
-            <div className="font-semibold text-[16px] text-white leading-tight">{item.label}</div>
+            <div className="font-semibold text-[16px] text-white leading-tight" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)' }}>{item.label}</div>
             <div className="text-[13px] text-gray-400 mt-1 leading-tight">{item.description}</div>
           </div>
         </Link>
