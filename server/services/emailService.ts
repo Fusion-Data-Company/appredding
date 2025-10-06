@@ -1,26 +1,32 @@
 /**
- * Email Service for Order Confirmations
- * 
- * This service handles sending order confirmation emails to customers.
- * Currently configured with console.log for development/testing.
- * 
- * TO ENABLE EMAIL SENDING:
- * 
- * Option 1 - SendGrid:
- * 1. Install: npm install @sendgrid/mail
- * 2. Add SENDGRID_API_KEY to environment variables
- * 3. Uncomment the SendGrid implementation below
- * 
- * Option 2 - Mailgun:
- * 1. Install: npm install mailgun-js
- * 2. Add MAILGUN_API_KEY and MAILGUN_DOMAIN to environment variables
- * 3. Uncomment the Mailgun implementation below
- * 
- * Option 3 - SMTP (Nodemailer):
- * 1. Install: npm install nodemailer
- * 2. Add SMTP credentials to environment variables
- * 3. Uncomment the Nodemailer implementation below
+ * Email Service for Order Confirmations and Solar Consultations
  */
+
+import nodemailer from 'nodemailer';
+
+const solarTransporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'rob@fusiondataco.com',
+    pass: 'rwmd xptq npdd phhg'
+  }
+});
+
+interface SolarConsultationData {
+  customerName: string;
+  email: string;
+  phone: string;
+  address: string;
+  propertyType: string;
+  serviceNeeded: string;
+  currentElectricBill?: string;
+  roofType?: string;
+  roofAge?: string;
+  shadingIssues?: string;
+  systemSizePreference?: string;
+  timeline?: string;
+  additionalNotes?: string;
+}
 
 interface OrderConfirmationData {
   orderNumber: string;
@@ -236,6 +242,135 @@ function generateOrderEmailHTML(data: OrderConfirmationData): string {
   `;
 }
 
+/**
+ * Send solar consultation notification email
+ */
+export async function sendSolarConsultationEmail(data: SolarConsultationData): Promise<boolean> {
+  try {
+    const htmlContent = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <style>
+          body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+          .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+          .header { background: linear-gradient(135deg, #2563eb, #0ea5e9); color: white; padding: 30px; text-align: center; border-radius: 8px 8px 0 0; }
+          .content { padding: 30px; background: #f9fafb; }
+          .detail-section { background: white; padding: 20px; margin: 15px 0; border-radius: 8px; border-left: 4px solid #2563eb; }
+          .detail-row { display: flex; padding: 8px 0; border-bottom: 1px solid #e5e7eb; }
+          .detail-label { font-weight: bold; width: 200px; color: #6b7280; }
+          .detail-value { flex: 1; color: #111827; }
+          .footer { text-align: center; padding: 20px; color: #6b7280; font-size: 14px; }
+          .priority-badge { display: inline-block; padding: 4px 12px; background: #ef4444; color: white; border-radius: 4px; font-size: 12px; font-weight: bold; }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <div class="header">
+            <h1 style="margin: 0; font-size: 28px;">☀️ New Solar Consultation Request</h1>
+            <p style="margin: 10px 0 0 0; opacity: 0.9;">Advance Power Redding - CRM System</p>
+          </div>
+          
+          <div class="content">
+            <div class="detail-section">
+              <h2 style="margin-top: 0; color: #2563eb;">Customer Information</h2>
+              <div class="detail-row">
+                <div class="detail-label">Name:</div>
+                <div class="detail-value">${data.customerName}</div>
+              </div>
+              <div class="detail-row">
+                <div class="detail-label">Email:</div>
+                <div class="detail-value"><a href="mailto:${data.email}">${data.email}</a></div>
+              </div>
+              <div class="detail-row">
+                <div class="detail-label">Phone:</div>
+                <div class="detail-value"><a href="tel:${data.phone}">${data.phone}</a></div>
+              </div>
+              <div class="detail-row">
+                <div class="detail-label">Address:</div>
+                <div class="detail-value">${data.address}</div>
+              </div>
+            </div>
+
+            <div class="detail-section">
+              <h2 style="margin-top: 0; color: #2563eb;">Project Details</h2>
+              <div class="detail-row">
+                <div class="detail-label">Property Type:</div>
+                <div class="detail-value">${data.propertyType}</div>
+              </div>
+              <div class="detail-row">
+                <div class="detail-label">Service Needed:</div>
+                <div class="detail-value"><strong>${data.serviceNeeded}</strong></div>
+              </div>
+              ${data.currentElectricBill ? `
+              <div class="detail-row">
+                <div class="detail-label">Current Electric Bill:</div>
+                <div class="detail-value">${data.currentElectricBill}</div>
+              </div>` : ''}
+              ${data.roofType ? `
+              <div class="detail-row">
+                <div class="detail-label">Roof Type:</div>
+                <div class="detail-value">${data.roofType}</div>
+              </div>` : ''}
+              ${data.roofAge ? `
+              <div class="detail-row">
+                <div class="detail-label">Roof Age:</div>
+                <div class="detail-value">${data.roofAge}</div>
+              </div>` : ''}
+              ${data.shadingIssues ? `
+              <div class="detail-row">
+                <div class="detail-label">Shading Issues:</div>
+                <div class="detail-value">${data.shadingIssues}</div>
+              </div>` : ''}
+              ${data.systemSizePreference ? `
+              <div class="detail-row">
+                <div class="detail-label">System Size Preference:</div>
+                <div class="detail-value">${data.systemSizePreference}</div>
+              </div>` : ''}
+              ${data.timeline ? `
+              <div class="detail-row">
+                <div class="detail-label">Timeline:</div>
+                <div class="detail-value"><span class="priority-badge">${data.timeline}</span></div>
+              </div>` : ''}
+            </div>
+
+            ${data.additionalNotes ? `
+            <div class="detail-section">
+              <h2 style="margin-top: 0; color: #2563eb;">Additional Notes</h2>
+              <p style="margin: 0; white-space: pre-wrap;">${data.additionalNotes}</p>
+            </div>` : ''}
+
+            <div style="margin-top: 30px; padding: 20px; background: #dbeafe; border-radius: 8px; text-align: center;">
+              <p style="margin: 0; color: #1e40af; font-weight: bold;">⚡ Action Required</p>
+              <p style="margin: 10px 0 0 0; color: #1e40af;">Please follow up with this customer within 24 hours</p>
+            </div>
+          </div>
+          
+          <div class="footer">
+            <p>This email was sent from the Advance Power Redding CRM System</p>
+            <p>&copy; ${new Date().getFullYear()} Advance Power Redding. All rights reserved.</p>
+          </div>
+        </div>
+      </body>
+      </html>
+    `;
+
+    await solarTransporter.sendMail({
+      from: '"Advance Power Redding CRM" <rob@fusiondataco.com>',
+      to: 'gtomsik@apredding.net, office@apredding.net',
+      subject: `New Solar Consultation Request - ${data.customerName}`,
+      html: htmlContent
+    });
+
+    console.log(`✅ Solar consultation email sent for ${data.customerName}`);
+    return true;
+  } catch (error) {
+    console.error('❌ Solar consultation email sending error:', error);
+    return false;
+  }
+}
+
 export default {
-  sendOrderConfirmation
+  sendOrderConfirmation,
+  sendSolarConsultationEmail
 };

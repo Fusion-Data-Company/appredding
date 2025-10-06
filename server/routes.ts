@@ -1,4 +1,4 @@
-import { Router } from "express";
+import { Router, Request } from "express";
 import { storage } from "./storage";
 import { z } from "zod";
 import multer from "multer";
@@ -10,6 +10,28 @@ import reviewsRoutes from "./routes/reviews";
 import portfolioRoutes from "./routes/portfolio";
 import productsRoutes from "./routes/products";
 import ordersRoutes from "./routes/orders";
+import { sendSolarConsultationEmail } from "./services/emailService";
+import { insertSolarFormSubmissionSchema } from "@shared/schema";
+
+// Simple in-memory rate limiting store
+const rateLimitStore = new Map<string, { count: number; resetTime: number }>();
+
+function checkRateLimit(ip: string, maxRequests: number = 3, windowMs: number = 3600000): boolean {
+  const now = Date.now();
+  const record = rateLimitStore.get(ip);
+  
+  if (!record || now > record.resetTime) {
+    rateLimitStore.set(ip, { count: 1, resetTime: now + windowMs });
+    return true;
+  }
+  
+  if (record.count >= maxRequests) {
+    return false;
+  }
+  
+  record.count++;
+  return true;
+}
 
 // Configure multer for file uploads
 const upload = multer({ 
@@ -456,6 +478,85 @@ router.post("/api/crm/activities", async (req, res) => {
     res.json({ success: true, activity });
   } catch (error) {
     
+    res.status(500).json({ success: false, error: "Internal server error" });
+  }
+});
+
+// Solar Form Submission with rate limiting
+router.post("/api/solar-form", async (req, res) => {
+  try {
+    const ip = req.ip || req.socket.remoteAddress || 'unknown';
+    
+    // Check rate limit: 3 requests per hour per IP
+    if (!checkRateLimit(ip, 3, 3600000)) {
+      return res.status(429).json({ 
+        success: false, 
+        error: "Too many requests. Please try again later." 
+      });
+    }
+
+    // Validate request body
+    const validatedData = insertSolarFormSubmissionSchema.parse(req.body);
+    
+    // Capture IP and user agent
+    const submissionData = {
+      ...validatedData,
+      ipAddress: ip,
+      userAgent: req.headers['user-agent'] || 'unknown'
+    };
+
+    // Save to database
+    const submission = await storage.createSolarSubmission(submissionData);
+
+    // Send email notification
+    await sendSolarConsultationEmail({
+      customerName: validatedData.customerName,
+      email: validatedData.email,
+      phone: validatedData.phone,
+      address: validatedData.address,
+      propertyType: validatedData.propertyType,
+      serviceNeeded: validatedData.serviceNeeded,
+      currentElectricBill: validatedData.currentElectricBill,
+      roofType: validatedData.roofType,
+      roofAge: validatedData.roofAge,
+      shadingIssues: validatedData.shadingIssues,
+      systemSizePreference: validatedData.systemSizePreference,
+      timeline: validatedData.timeline,
+      additionalNotes: validatedData.additionalNotes
+    });
+
+    res.json({ success: true, submission });
+  } catch (error) {
+    console.error('Solar form submission error:', error);
+    if (error instanceof z.ZodError) {
+      res.status(400).json({ success: false, error: "Validation error", details: error.errors });
+    } else {
+      res.status(500).json({ success: false, error: "Internal server error" });
+    }
+  }
+});
+
+// Get solar form submissions with admin code auth
+router.get("/api/admin/solar-submissions", async (req, res) => {
+  try {
+    const { code, page, limit, search } = req.query;
+    
+    // Verify admin code
+    const isValid = await storage.verifySolarAdminCode(code as string);
+    if (!isValid) {
+      return res.status(403).json({ success: false, error: "Invalid admin code" });
+    }
+
+    // Get submissions with filters
+    const result = await storage.getAllSolarSubmissions({
+      page: page ? parseInt(page as string) : 1,
+      limit: limit ? parseInt(limit as string) : 50,
+      search: search as string
+    });
+
+    res.json({ success: true, ...result });
+  } catch (error) {
+    console.error('Get solar submissions error:', error);
     res.status(500).json({ success: false, error: "Internal server error" });
   }
 });

@@ -414,28 +414,106 @@ const SolarCompanyHeader: React.FC = () => {
       {/* Main navigation */}
       <div className="w-full px-6 lg:px-8">
         <div className="flex items-center justify-between h-[68px]">
-          {/* Logo - clean and clickable */}
-          <Link href="/" className="flex items-center group">
-            <img 
-              src="/advance-power-logo.jpg" 
-              alt="Advance Power Redding" 
-              className="h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.style.display = 'none';
-                const textLogo = document.createElement('div');
-                textLogo.className = 'flex flex-col';
-                textLogo.innerHTML = `
-                  <span class="text-xl font-bold bg-gradient-to-r from-orange-600 to-blue-600 bg-clip-text text-transparent">
-                    Advance Power
-                  </span>
-                  <span class="text-xs text-gray-600 font-medium">
-                    Redding Solar Solutions
-                  </span>
-                `;
-                target.parentElement?.appendChild(textLogo);
+          {/* Logo - with glass effects and ambient glow */}
+          <Link href="/" className="flex items-center group relative" style={{ width: 'fit-content', padding: '8px' }}>
+            {/* Ambient glow drop shadow behind logo */}
+            <div
+              className="absolute pointer-events-none transition-all duration-500"
+              style={{
+                left: '50%',
+                top: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '140%',
+                height: '140%',
+                background: 'radial-gradient(ellipse at center, rgba(249, 115, 22, 0.6) 0%, rgba(59, 130, 246, 0.5) 40%, transparent 70%)',
+                filter: 'blur(20px)',
+                opacity: 0.8,
+                zIndex: 0
               }}
             />
+
+            {/* Logo container with glass morphism */}
+            <div
+              className="relative rounded-lg overflow-hidden"
+              style={{
+                padding: '6px',
+                background: 'rgba(255, 255, 255, 0.05)',
+                backdropFilter: 'blur(10px)',
+                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.2)',
+                border: '1px solid rgba(255, 255, 255, 0.18)'
+              }}
+            >
+              <img
+                src="/advance-power-logo.jpg"
+                alt="Advance Power Redding"
+                className="h-11 w-auto object-contain transition-all duration-500 group-hover:scale-105 relative block"
+                style={{
+                  display: 'block',
+                  position: 'relative',
+                  zIndex: 1
+                }}
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  const textLogo = document.createElement('div');
+                  textLogo.className = 'flex flex-col';
+                  textLogo.innerHTML = `
+                    <span class="text-xl font-bold bg-gradient-to-r from-orange-600 to-blue-600 bg-clip-text text-transparent">
+                      Advance Power
+                    </span>
+                    <span class="text-xs text-gray-600 font-medium">
+                      Redding Solar Solutions
+                    </span>
+                  `;
+                  target.parentElement?.appendChild(textLogo);
+                }}
+              />
+
+              {/* Glass overlay on logo face - diagonal gradient */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 40%, transparent 60%, rgba(0, 0, 0, 0.1) 100%)',
+                  zIndex: 2
+                }}
+              />
+
+              {/* Shimmer effect - contained to logo only */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background: 'linear-gradient(110deg, transparent 0%, transparent 40%, rgba(255, 255, 255, 0.9) 50%, transparent 60%, transparent 100%)',
+                  backgroundSize: '200% 100%',
+                  animation: 'logoShimmer 4s ease-in-out infinite',
+                  zIndex: 3,
+                  mixBlendMode: 'overlay'
+                }}
+              />
+
+              {/* Additional specular highlight */}
+              <div
+                className="absolute top-0 left-0 right-0 h-1/3 pointer-events-none"
+                style={{
+                  background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, transparent 100%)',
+                  zIndex: 2
+                }}
+              />
+            </div>
+
+            {/* Add shimmer keyframes to the component */}
+            <style>{`
+              @keyframes logoShimmer {
+                0% {
+                  background-position: -200% 0;
+                }
+                50% {
+                  background-position: 200% 0;
+                }
+                100% {
+                  background-position: 200% 0;
+                }
+              }
+            `}</style>
           </Link>
 
           {/* Desktop Navigation */}

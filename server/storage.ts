@@ -1,4 +1,4 @@
-import { contacts, companies, opportunities, activities, tasks, orders, orderItems, products, productCategories, formSubmissions, portfolioProjects, type Contact, type Company, type Opportunity, type FormSubmission, type PortfolioProject, type Product, type ProductCategory } from "@shared/schema";
+import { contacts, companies, opportunities, activities, tasks, orders, orderItems, products, productCategories, formSubmissions, portfolioProjects, solarFormSubmissions, type Contact, type Company, type Opportunity, type FormSubmission, type PortfolioProject, type Product, type ProductCategory, type SolarFormSubmission } from "@shared/schema";
 import { db } from "./db";
 import { eq, desc, and, like, sql } from "drizzle-orm";
 
@@ -68,6 +68,11 @@ export interface IStorage {
   getOrdersByEmail(email: string): Promise<any[]>;
   updateOrderStatus(id: number, status: string): Promise<any>;
   updateOrderPaymentStatus(id: number, paymentStatus: string): Promise<any>;
+
+  // Solar form submissions
+  createSolarSubmission(data: any): Promise<SolarFormSubmission>;
+  getAllSolarSubmissions(filters?: { page?: number; limit?: number; search?: string }): Promise<{ submissions: SolarFormSubmission[]; total: number }>;
+  verifySolarAdminCode(code: string): Promise<boolean>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -682,6 +687,48 @@ export class DatabaseStorage implements IStorage {
       .returning();
 
     return order;
+  }
+
+  async createSolarSubmission(data: any): Promise<SolarFormSubmission> {
+    const [submission] = await db
+      .insert(solarFormSubmissions)
+      .values(data)
+      .returning();
+    return submission;
+  }
+
+  async getAllSolarSubmissions(filters?: { page?: number; limit?: number; search?: string }): Promise<{ submissions: SolarFormSubmission[]; total: number }> {
+    const page = filters?.page || 1;
+    const limit = filters?.limit || 50;
+    const offset = (page - 1) * limit;
+
+    let query = db.select().from(solarFormSubmissions);
+
+    if (filters?.search) {
+      query = query.where(
+        sql`LOWER(${solarFormSubmissions.customerName}) LIKE ${`%${filters.search.toLowerCase()}%`} OR 
+            LOWER(${solarFormSubmissions.email}) LIKE ${`%${filters.search.toLowerCase()}%`} OR 
+            LOWER(${solarFormSubmissions.phone}) LIKE ${`%${filters.search.toLowerCase()}%`}`
+      ) as any;
+    }
+
+    const submissions = await query
+      .orderBy(desc(solarFormSubmissions.submissionTimestamp))
+      .limit(limit)
+      .offset(offset);
+
+    const [countResult] = await db
+      .select({ count: sql<number>`count(*)` })
+      .from(solarFormSubmissions);
+
+    return {
+      submissions,
+      total: Number(countResult?.count || 0)
+    };
+  }
+
+  async verifySolarAdminCode(code: string): Promise<boolean> {
+    return code === '0843';
   }
 }
 

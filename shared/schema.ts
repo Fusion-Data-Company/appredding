@@ -1662,3 +1662,38 @@ export const insertServiceConsultationSchema = z.object({
 });
 
 export type ServiceConsultationFormValues = z.infer<typeof insertServiceConsultationSchema>;
+
+// Solar Form Submissions Enums
+export const propertyTypeEnum = pgEnum('property_type', ['Residential', 'Commercial', 'Industrial']);
+export const serviceNeededEnum = pgEnum('service_needed', ['New Solar Installation', 'Solar Repair', 'System Maintenance', 'Consultation']);
+export const shadingIssuesEnum = pgEnum('shading_issues', ['Yes', 'No']);
+export const timelineEnum = pgEnum('timeline', ['ASAP', '1-3 months', '3-6 months', 'Just exploring']);
+
+// Solar Form Submissions Table
+export const solarFormSubmissions = pgTable("solar_form_submissions", {
+  id: serial("id").primaryKey(),
+  submissionTimestamp: timestamp("submission_timestamp", { withTimezone: true }).notNull().defaultNow(),
+  customerName: text("customer_name").notNull(),
+  email: text("email").notNull(),
+  phone: text("phone").notNull(),
+  address: text("address").notNull(),
+  propertyType: propertyTypeEnum("property_type").notNull(),
+  serviceNeeded: serviceNeededEnum("service_needed").notNull(),
+  currentElectricBill: text("current_electric_bill"),
+  roofType: text("roof_type"),
+  roofAge: text("roof_age"),
+  shadingIssues: shadingIssuesEnum("shading_issues"),
+  systemSizePreference: text("system_size_preference"),
+  timeline: timelineEnum("timeline"),
+  additionalNotes: text("additional_notes"),
+  ipAddress: text("ip_address"),
+  userAgent: text("user_agent"),
+});
+
+// Insert schemas for Solar Form Submissions
+export const insertSolarFormSubmissionSchema = createInsertSchema(solarFormSubmissions).omit({ 
+  id: true, 
+  submissionTimestamp: true 
+});
+export type InsertSolarFormSubmission = z.infer<typeof insertSolarFormSubmissionSchema>;
+export type SolarFormSubmission = typeof solarFormSubmissions.$inferSelect;

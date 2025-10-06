@@ -219,54 +219,159 @@ const BatteryStorage = () => {
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12 w-full px-6 sm:px-12 max-w-7xl mx-auto"
             >
             {[
-              { 
-                title: "LiFePO4 Safety", 
-                value: "270°C", 
+              {
+                title: "LiFePO4 Safety",
+                value: "270°C",
                 description: "Thermal runaway temp",
-                icon: <Flame className="h-8 w-8" />
+                icon: <Flame className="h-8 w-8" />,
+                gradient: "from-red-500 via-orange-500 to-red-600",
+                glowColor: "rgba(239, 68, 68, 0.5)",
+                iconBg: "bg-red-900/30",
+                textColor: "text-white",
+                pulseColor: "bg-orange-400",
+                borderColor: "border-red-400/30 hover:border-red-300/60"
               },
-              { 
-                title: "Cycle Life", 
-                value: "10,000+", 
+              {
+                title: "Cycle Life",
+                value: "10,000+",
                 description: "@ 100% DOD cycles",
-                icon: <Activity className="h-8 w-8" />
+                icon: <Activity className="h-8 w-8" />,
+                gradient: "from-purple-500 via-purple-600 to-indigo-600",
+                glowColor: "rgba(168, 85, 247, 0.5)",
+                iconBg: "bg-purple-900/30",
+                textColor: "text-white",
+                pulseColor: "bg-purple-400",
+                borderColor: "border-purple-400/30 hover:border-purple-300/60"
               },
-              { 
-                title: "Round-Trip", 
-                value: "95-98%", 
+              {
+                title: "Round-Trip",
+                value: "95-98%",
                 description: "Energy efficiency",
-                icon: <Zap className="h-8 w-8" />
+                icon: <Zap className="h-8 w-8" />,
+                gradient: "from-blue-500 via-cyan-500 to-blue-600",
+                glowColor: "rgba(59, 130, 246, 0.5)",
+                iconBg: "bg-blue-900/30",
+                textColor: "text-white",
+                pulseColor: "bg-cyan-400",
+                borderColor: "border-blue-400/30 hover:border-blue-300/60"
               },
-              { 
-                title: "SGIP Rebate", 
-                value: "$1,000/kWh", 
+              {
+                title: "SGIP Rebate",
+                value: "$1,000/kWh",
                 description: "Max incentive available",
-                icon: <DollarSign className="h-8 w-8" />
+                icon: <DollarSign className="h-8 w-8" />,
+                gradient: "from-green-500 via-emerald-500 to-green-600",
+                glowColor: "rgba(34, 197, 94, 0.5)",
+                iconBg: "bg-green-900/30",
+                textColor: "text-white",
+                pulseColor: "bg-emerald-400",
+                borderColor: "border-green-400/30 hover:border-green-300/60"
               }
             ].map((card, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.8 + idx * 0.1 }}
-                className="relative group"
+                initial={{ opacity: 0, scale: 0.9, rotateY: -15 }}
+                animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.8 + idx * 0.15,
+                  type: "spring",
+                  stiffness: 100
+                }}
+                whileHover={{
+                  scale: 1.05,
+                  y: -8,
+                  transition: { duration: 0.2 }
+                }}
+                className="relative group perspective-1000"
                 data-testid={`card-feature-${idx}`}
               >
-                {/* Yellow Electric Gradient Background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/90 via-amber-500/90 to-yellow-600/90 rounded-2xl blur-sm group-hover:blur-md transition-all" />
-                
-                {/* Card Content */}
-                <div className="relative bg-gradient-to-br from-yellow-500 via-amber-500 to-yellow-600 rounded-2xl p-6 backdrop-blur-sm border border-yellow-400/30 hover:border-yellow-300/50 transition-all transform hover:scale-105">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="p-3 bg-black/20 backdrop-blur-sm rounded-xl text-black">
-                      {card.icon}
+                {/* Animated glow background */}
+                <div
+                  className="absolute inset-0 rounded-2xl blur-xl opacity-60 group-hover:opacity-100 transition-all duration-500"
+                  style={{
+                    background: card.glowColor,
+                    animation: `pulse ${2 + idx * 0.3}s ease-in-out infinite`
+                  }}
+                />
+
+                {/* Card Content with glassmorphism */}
+                <div
+                  className={`relative bg-gradient-to-br ${card.gradient} rounded-2xl p-6 backdrop-blur-sm border ${card.borderColor} transition-all duration-300 overflow-hidden`}
+                  style={{
+                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
+                  }}
+                >
+                  {/* Glass overlay */}
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%)'
+                    }}
+                  />
+
+                  {/* Animated shimmer */}
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background: 'linear-gradient(110deg, transparent 0%, transparent 40%, rgba(255, 255, 255, 0.6) 50%, transparent 60%, transparent 100%)',
+                      backgroundSize: '200% 100%',
+                      animation: `shimmer${idx + 1} ${3 + idx * 0.5}s infinite`,
+                      mixBlendMode: 'overlay'
+                    }}
+                  />
+
+                  <div className="relative z-10">
+                    <div className="flex items-start justify-between mb-4">
+                      {/* Icon with animation */}
+                      <motion.div
+                        className={`p-3 ${card.iconBg} backdrop-blur-md rounded-xl ${card.textColor} shadow-lg`}
+                        whileHover={{ rotate: [0, -10, 10, -10, 0], scale: 1.1 }}
+                        transition={{ duration: 0.5 }}
+                        style={{
+                          boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 4px 12px rgba(0, 0, 0, 0.2)'
+                        }}
+                      >
+                        {card.icon}
+                      </motion.div>
+
+                      {/* Status indicator */}
+                      <div className="flex items-center gap-2">
+                        <div className={`w-2 h-2 ${card.pulseColor} rounded-full animate-pulse shadow-lg`}
+                          style={{
+                            boxShadow: `0 0 10px ${card.glowColor}`,
+                            animation: `pulse ${1.5 + idx * 0.2}s ease-in-out infinite`
+                          }}
+                        />
+                        <div className={`w-1.5 h-1.5 ${card.pulseColor} rounded-full opacity-60`} />
+                      </div>
                     </div>
-                    <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse shadow-lg shadow-green-400/50" />
+
+                    <h3 className={`${card.textColor} font-bold text-sm mb-2 uppercase tracking-wide drop-shadow-md`}>
+                      {card.title}
+                    </h3>
+                    <motion.div
+                      className={`text-3xl font-black ${card.textColor} mb-1`}
+                      style={{
+                        textShadow: '0 2px 10px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.2)'
+                      }}
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ type: "spring", stiffness: 400 }}
+                    >
+                      {card.value}
+                    </motion.div>
+                    <p className={`${card.textColor} opacity-90 text-xs font-medium drop-shadow-sm`}>
+                      {card.description}
+                    </p>
                   </div>
-                  
-                  <h3 className="text-black/90 font-bold text-sm mb-2 uppercase tracking-wide">{card.title}</h3>
-                  <div className="text-3xl font-black text-black mb-1 drop-shadow-md">{card.value}</div>
-                  <p className="text-black/70 text-xs font-medium">{card.description}</p>
+
+                  {/* Bottom shine effect */}
+                  <div
+                    className="absolute bottom-0 left-0 right-0 h-1/4 pointer-events-none"
+                    style={{
+                      background: 'linear-gradient(to top, rgba(255, 255, 255, 0.15) 0%, transparent 100%)'
+                    }}
+                  />
                 </div>
               </motion.div>
             ))}
@@ -467,51 +572,160 @@ const BatteryStorage = () => {
               <Layers className="mr-3 h-6 w-6 text-purple-400" />
               Critical Battery Storage Applications
             </h3>
-            <div className="grid md:grid-cols-4 gap-4 text-sm">
-              <div className="category-card-elite">
-                <div className="flex items-center gap-2 mb-2">
-                  <TrendingDown className="h-5 w-5 text-red-400" />
-                  <h4 className="text-red-300 font-semibold">NEM 3.0 Arbitrage</h4>
-                </div>
-                <ul className="space-y-1 text-gray-400">
-                  <li>• Store solar at $0.04 export</li>
-                  <li>• Use during $0.51 peak</li>
-                  <li>• 12x value multiplier</li>
-                </ul>
-              </div>
-              <div className="category-card-elite">
-                <div className="flex items-center gap-2 mb-2">
-                  <Shield className="h-5 w-5 text-blue-400" />
-                  <h4 className="text-blue-300 font-semibold">Backup Power</h4>
-                </div>
-                <ul className="space-y-1 text-gray-400">
-                  <li>• PSPS protection</li>
-                  <li>• Medical equipment</li>
-                  <li>• Critical loads 24/7</li>
-                </ul>
-              </div>
-              <div className="category-card-elite">
-                <div className="flex items-center gap-2 mb-2">
-                  <CircleDollarSign className="h-5 w-5 text-orange-400" />
-                  <h4 className="text-orange-300 font-semibold">Demand Charge</h4>
-                </div>
-                <ul className="space-y-1 text-gray-400">
-                  <li>• Peak shaving 40-60%</li>
-                  <li>• Commercial savings</li>
-                  <li>• $8-18K/month reduction</li>
-                </ul>
-              </div>
-              <div className="category-card-elite">
-                <div className="flex items-center gap-2 mb-2">
-                  <Wifi className="h-5 w-5 text-purple-400" />
-                  <h4 className="text-purple-300 font-semibold">VPP Revenue</h4>
-                </div>
-                <ul className="space-y-1 text-gray-400">
-                  <li>• $2/kWh ELRP events</li>
-                  <li>• Grid services income</li>
-                  <li>• $200-500 annual</li>
-                </ul>
-              </div>
+            <div className="grid md:grid-cols-4 gap-6 text-sm">
+              {[
+                {
+                  icon: <TrendingDown className="h-6 w-6" />,
+                  title: "NEM 3.0 Arbitrage",
+                  items: [
+                    "Store solar at $0.04 export",
+                    "Use during $0.51 peak",
+                    "12x value multiplier"
+                  ],
+                  gradient: "from-red-500 via-pink-500 to-rose-600",
+                  iconBg: "bg-red-900/40",
+                  iconColor: "text-red-300",
+                  titleColor: "text-red-200",
+                  glowColor: "rgba(239, 68, 68, 0.4)",
+                  borderColor: "border-red-500/30"
+                },
+                {
+                  icon: <Shield className="h-6 w-6" />,
+                  title: "Backup Power",
+                  items: [
+                    "PSPS protection",
+                    "Medical equipment",
+                    "Critical loads 24/7"
+                  ],
+                  gradient: "from-blue-500 via-indigo-500 to-blue-600",
+                  iconBg: "bg-blue-900/40",
+                  iconColor: "text-blue-300",
+                  titleColor: "text-blue-200",
+                  glowColor: "rgba(59, 130, 246, 0.4)",
+                  borderColor: "border-blue-500/30"
+                },
+                {
+                  icon: <CircleDollarSign className="h-6 w-6" />,
+                  title: "Demand Charge",
+                  items: [
+                    "Peak shaving 40-60%",
+                    "Commercial savings",
+                    "$8-18K/month reduction"
+                  ],
+                  gradient: "from-orange-500 via-amber-500 to-orange-600",
+                  iconBg: "bg-orange-900/40",
+                  iconColor: "text-orange-300",
+                  titleColor: "text-orange-200",
+                  glowColor: "rgba(249, 115, 22, 0.4)",
+                  borderColor: "border-orange-500/30"
+                },
+                {
+                  icon: <Wifi className="h-6 w-6" />,
+                  title: "VPP Revenue",
+                  items: [
+                    "$2/kWh ELRP events",
+                    "Grid services income",
+                    "$200-500 annual"
+                  ],
+                  gradient: "from-purple-500 via-violet-500 to-purple-600",
+                  iconBg: "bg-purple-900/40",
+                  iconColor: "text-purple-300",
+                  titleColor: "text-purple-200",
+                  glowColor: "rgba(168, 85, 247, 0.4)",
+                  borderColor: "border-purple-500/30"
+                }
+              ].map((card, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  whileHover={{ scale: 1.03, y: -5 }}
+                  className="relative group"
+                >
+                  {/* Glow effect */}
+                  <div
+                    className="absolute inset-0 rounded-xl blur-lg opacity-50 group-hover:opacity-80 transition-all duration-500"
+                    style={{
+                      background: card.glowColor,
+                      animation: `pulse ${2.5 + idx * 0.3}s ease-in-out infinite`
+                    }}
+                  />
+
+                  {/* Card */}
+                  <div
+                    className={`relative bg-gradient-to-br ${card.gradient} rounded-xl p-5 border ${card.borderColor} overflow-hidden transition-all duration-300`}
+                    style={{
+                      backdropFilter: 'blur(10px)',
+                      boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+                    }}
+                  >
+                    {/* Glass overlay */}
+                    <div
+                      className="absolute inset-0 pointer-events-none opacity-60"
+                      style={{
+                        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 60%)'
+                      }}
+                    />
+
+                    {/* Shimmer */}
+                    <div
+                      className="absolute inset-0 pointer-events-none"
+                      style={{
+                        background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.5) 50%, transparent 80%)',
+                        backgroundSize: '200% 100%',
+                        animation: `shimmer${idx + 1} ${4 + idx * 0.5}s infinite`,
+                        mixBlendMode: 'overlay'
+                      }}
+                    />
+
+                    <div className="relative z-10">
+                      {/* Icon & Title */}
+                      <div className="flex items-center gap-3 mb-3">
+                        <motion.div
+                          className={`p-2.5 ${card.iconBg} backdrop-blur-md rounded-lg ${card.iconColor} shadow-lg`}
+                          whileHover={{ rotate: 360, scale: 1.1 }}
+                          transition={{ duration: 0.6 }}
+                          style={{
+                            boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 4px 12px rgba(0, 0, 0, 0.3)'
+                          }}
+                        >
+                          {card.icon}
+                        </motion.div>
+                        <h4 className={`${card.titleColor} font-bold text-base drop-shadow-md`}>
+                          {card.title}
+                        </h4>
+                      </div>
+
+                      {/* Content */}
+                      <ul className="space-y-2">
+                        {card.items.map((item, itemIdx) => (
+                          <motion.li
+                            key={itemIdx}
+                            initial={{ opacity: 0, x: -10 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.3, delay: idx * 0.1 + itemIdx * 0.05 }}
+                            className="text-white/90 text-sm flex items-start gap-2 drop-shadow-sm"
+                          >
+                            <span className={`${card.iconColor} mt-0.5`}>•</span>
+                            <span>{item}</span>
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Bottom accent */}
+                    <div
+                      className="absolute bottom-0 left-0 right-0 h-1 opacity-50"
+                      style={{
+                        background: `linear-gradient(90deg, transparent, ${card.glowColor}, transparent)`
+                      }}
+                    />
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
         </div>
@@ -617,86 +831,120 @@ const BatteryStorage = () => {
         description="Understanding the critical differences in battery technologies and why LiFePO4 dominates residential storage"
         backgroundColor="bg-gradient-to-br from-gray-900 to-black"
       >
-        <div className="mb-8">
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
             <Battery className="mr-3 h-6 w-6 text-purple-400" />
             Comprehensive Chemistry Comparison
           </h3>
           <div className="overflow-x-auto">
-            <table className="w-full text-sm bg-gray-800/40 rounded-xl overflow-hidden">
-              <thead className="bg-gray-900/60">
-                <tr className="border-b border-gray-700">
-                  <th className="text-left py-3 px-4 text-gray-400">Specification</th>
-                  <th className="text-center py-3 px-4 text-purple-400">LiFePO4 (LFP)</th>
-                  <th className="text-center py-3 px-4 text-blue-400">NMC/NCA</th>
-                  <th className="text-center py-3 px-4 text-orange-400">Lead Acid (AGM)</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-700/50">
-                <tr>
-                  <td className="py-3 px-4 text-gray-300 font-semibold">Cycle Life @ 80% DoD</td>
-                  <td className="text-center py-3 px-4 font-mono text-purple-300">6,000-10,000</td>
-                  <td className="text-center py-3 px-4 font-mono text-blue-300">3,000-5,000</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">500-1,000</td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 text-gray-300">Energy Density (Wh/kg)</td>
-                  <td className="text-center py-3 px-4 font-mono text-purple-300">90-120</td>
-                  <td className="text-center py-3 px-4 font-mono text-blue-300">150-250</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">30-40</td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 text-gray-300">Round-Trip Efficiency</td>
-                  <td className="text-center py-3 px-4 font-mono text-purple-300">95-98%</td>
-                  <td className="text-center py-3 px-4 font-mono text-blue-300">92-95%</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">80-85%</td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 text-gray-300">Thermal Runaway Temp</td>
-                  <td className="text-center py-3 px-4 font-mono text-purple-300">270°C</td>
-                  <td className="text-center py-3 px-4 font-mono text-blue-300">150°C</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">N/A</td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 text-gray-300">Max Discharge Rate</td>
-                  <td className="text-center py-3 px-4 font-mono text-purple-300">1C continuous</td>
-                  <td className="text-center py-3 px-4 font-mono text-blue-300">2C continuous</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">0.2C</td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 text-gray-300">Operating Temp Range</td>
-                  <td className="text-center py-3 px-4 font-mono text-purple-300">-20 to +60°C</td>
-                  <td className="text-center py-3 px-4 font-mono text-blue-300">-20 to +45°C</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">-15 to +40°C</td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 text-gray-300">Self-Discharge Rate</td>
-                  <td className="text-center py-3 px-4 font-mono text-purple-300">&lt;3%/month</td>
-                  <td className="text-center py-3 px-4 font-mono text-blue-300">&lt;5%/month</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">5-15%/month</td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 text-gray-300">Calendar Life</td>
-                  <td className="text-center py-3 px-4 font-mono text-purple-300">20+ years</td>
-                  <td className="text-center py-3 px-4 font-mono text-blue-300">10-15 years</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">3-5 years</td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 text-gray-300">Depth of Discharge</td>
-                  <td className="text-center py-3 px-4 font-mono text-purple-300">100% safe</td>
-                  <td className="text-center py-3 px-4 font-mono text-blue-300">80-90%</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">50% max</td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 text-gray-300">Toxicity/Environmental</td>
-                  <td className="text-center py-3 px-4 font-mono text-purple-300">Non-toxic</td>
-                  <td className="text-center py-3 px-4 font-mono text-blue-300">Cobalt concerns</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">Lead hazard</td>
-                </tr>
-              </tbody>
-            </table>
+            <div className="relative rounded-2xl overflow-hidden border border-purple-500/20"
+              style={{
+                background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(59, 130, 246, 0.05) 50%, rgba(249, 115, 22, 0.1) 100%)',
+                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+              }}
+            >
+              {/* Animated shimmer overlay */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.15) 50%, transparent 80%)',
+                  backgroundSize: '200% 100%',
+                  animation: 'shimmer1 5s infinite',
+                  mixBlendMode: 'overlay'
+                }}
+              />
+
+              <table className="w-full text-sm relative">
+                <thead>
+                  <tr
+                    className="border-b border-gray-700/50"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%)',
+                      backdropFilter: 'blur(10px)'
+                    }}
+                  >
+                    <th className="text-left py-4 px-4 text-gray-300 font-bold">Specification</th>
+                    <th className="text-center py-4 px-4">
+                      <div className="flex items-center justify-center gap-2">
+                        <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse" />
+                        <span className="text-purple-300 font-bold">LiFePO4 (LFP)</span>
+                      </div>
+                    </th>
+                    <th className="text-center py-4 px-4">
+                      <div className="flex items-center justify-center gap-2">
+                        <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }} />
+                        <span className="text-blue-300 font-bold">NMC/NCA</span>
+                      </div>
+                    </th>
+                    <th className="text-center py-4 px-4">
+                      <div className="flex items-center justify-center gap-2">
+                        <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" style={{ animationDelay: '0.6s' }} />
+                        <span className="text-orange-300 font-bold">Lead Acid (AGM)</span>
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-700/30">
+                  {[
+                    { spec: "Cycle Life @ 80% DoD", lfp: "6,000-10,000", nmc: "3,000-5,000", lead: "500-1,000" },
+                    { spec: "Energy Density (Wh/kg)", lfp: "90-120", nmc: "150-250", lead: "30-40" },
+                    { spec: "Round-Trip Efficiency", lfp: "95-98%", nmc: "92-95%", lead: "80-85%" },
+                    { spec: "Thermal Runaway Temp", lfp: "270°C", nmc: "150°C", lead: "N/A" },
+                    { spec: "Max Discharge Rate", lfp: "1C continuous", nmc: "2C continuous", lead: "0.2C" },
+                    { spec: "Operating Temp Range", lfp: "-20 to +60°C", nmc: "-20 to +45°C", lead: "-15 to +40°C" },
+                    { spec: "Self-Discharge Rate", lfp: "<3%/month", nmc: "<5%/month", lead: "5-15%/month" },
+                    { spec: "Calendar Life", lfp: "20+ years", nmc: "10-15 years", lead: "3-5 years" },
+                    { spec: "Depth of Discharge", lfp: "100% safe", nmc: "80-90%", lead: "50% max" },
+                    { spec: "Toxicity/Environmental", lfp: "Non-toxic", nmc: "Cobalt concerns", lead: "Lead hazard" }
+                  ].map((row, idx) => (
+                    <motion.tr
+                      key={idx}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: idx * 0.05 }}
+                      className="hover:bg-white/5 transition-all duration-300 group"
+                    >
+                      <td className="py-3 px-4 text-gray-200 font-semibold group-hover:text-white transition-colors">
+                        {row.spec}
+                      </td>
+                      <motion.td
+                        className="text-center py-3 px-4 font-mono text-purple-300 group-hover:text-purple-200 transition-colors relative"
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <div className="relative inline-block px-3 py-1 rounded-lg bg-purple-500/10 group-hover:bg-purple-500/20 transition-colors">
+                          {row.lfp}
+                        </div>
+                      </motion.td>
+                      <motion.td
+                        className="text-center py-3 px-4 font-mono text-blue-300 group-hover:text-blue-200 transition-colors"
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <div className="relative inline-block px-3 py-1 rounded-lg bg-blue-500/10 group-hover:bg-blue-500/20 transition-colors">
+                          {row.nmc}
+                        </div>
+                      </motion.td>
+                      <motion.td
+                        className="text-center py-3 px-4 font-mono text-orange-300 group-hover:text-orange-200 transition-colors"
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <div className="relative inline-block px-3 py-1 rounded-lg bg-orange-500/10 group-hover:bg-orange-500/20 transition-colors">
+                          {row.lead}
+                        </div>
+                      </motion.td>
+                    </motion.tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Why LiFePO4 Wins */}
         <div className="card-elite glow-purple p-8">

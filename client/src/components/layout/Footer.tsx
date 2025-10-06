@@ -11,16 +11,35 @@ import {
   Shield,
   Award,
   Zap,
-  Send
+  Send,
+  Lock
 } from 'lucide-react';
+import { useLocation } from 'wouter';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
 
 const SolarFooter: React.FC = () => {
   const [email, setEmail] = useState('');
+  const [, setLocation] = useLocation();
+  const [showAdminDialog, setShowAdminDialog] = useState(false);
+  const [adminCode, setAdminCode] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Newsletter signup:', email);
     setEmail('');
+  };
+
+  const handleAdminAccess = () => {
+    if (adminCode === '0843') {
+      sessionStorage.setItem('solarAdminCode', adminCode);
+      setShowAdminDialog(false);
+      setAdminCode('');
+      setLocation('/admin-crm');
+    } else {
+      alert('Invalid admin code');
+    }
   };
 
   return (
@@ -96,15 +115,19 @@ const SolarFooter: React.FC = () => {
             </div>
             <div className="flex space-x-3">
               {[
-                { icon: Facebook, href: "#" },
-                { icon: Twitter, href: "#" },
-                { icon: Linkedin, href: "#" },
-                { icon: Instagram, href: "#" }
+                { icon: Facebook, href: "https://www.facebook.com/advancepowerredding", label: "Facebook" },
+                { icon: Twitter, href: "https://twitter.com/advancepower", label: "Twitter" },
+                { icon: Linkedin, href: "https://www.linkedin.com/company/advance-power-redding", label: "LinkedIn" },
+                { icon: Instagram, href: "https://www.instagram.com/advancepowerredding", label: "Instagram" }
               ].map((social, idx) => (
                 <a 
                   key={idx}
-                  href={social.href} 
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
                   className="w-10 h-10 rounded-lg bg-slate-800/50 border border-slate-700/50 flex items-center justify-center text-slate-400 hover:bg-gradient-to-br hover:from-blue-500 hover:to-cyan-500 hover:text-white hover:border-transparent transition-all duration-300 shadow-sm hover:shadow-lg hover:shadow-blue-500/30"
+                  data-testid={`link-social-${social.label.toLowerCase()}`}
                 >
                   <social.icon size={18} />
                 </a>
@@ -198,7 +221,7 @@ const SolarFooter: React.FC = () => {
             <p className="text-slate-500 text-sm font-medium text-center md:text-left">
               © {new Date().getFullYear()} Advance Power Redding. All rights reserved. Licensed & Insured.
             </p>
-            <ul className="flex flex-wrap justify-center gap-6 text-sm">
+            <ul className="flex flex-wrap justify-center gap-6 text-sm items-center">
               {[
                 { name: "Privacy Policy", href: "#" },
                 { name: "Terms of Service", href: "#" },
@@ -211,10 +234,51 @@ const SolarFooter: React.FC = () => {
                   </a>
                 </li>
               ))}
+              <li>
+                <button
+                  onClick={() => setShowAdminDialog(true)}
+                  className="text-slate-600 hover:text-blue-400 transition-colors duration-300 flex items-center gap-1 text-xs"
+                  data-testid="button-admin-access"
+                >
+                  <Lock className="h-3 w-3" />
+                  Admin
+                </button>
+              </li>
             </ul>
           </div>
         </div>
       </div>
+
+      {/* Admin Code Dialog */}
+      <Dialog open={showAdminDialog} onOpenChange={setShowAdminDialog}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>Admin Access</DialogTitle>
+            <DialogDescription>
+              Enter your 4-digit admin code to access the CRM dashboard
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4 pt-4">
+            <Input
+              type="password"
+              placeholder="Enter admin code"
+              value={adminCode}
+              onChange={(e) => setAdminCode(e.target.value)}
+              onKeyPress={(e) => e.key === 'Enter' && handleAdminAccess()}
+              className="text-center text-2xl tracking-widest"
+              maxLength={4}
+              data-testid="input-footer-admin-code"
+            />
+            <Button 
+              onClick={handleAdminAccess} 
+              className="w-full bg-gradient-to-r from-blue-600 to-cyan-600"
+              data-testid="button-footer-admin-submit"
+            >
+              Access Dashboard
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </footer>
   );
 };

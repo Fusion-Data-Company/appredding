@@ -53,9 +53,11 @@ const InventoryPage = lazy(() => import('./pages/inventory'));
 const RAGDocumentsPage = lazy(() => import('./pages/rag-documents'));
 const ChatPage = lazy(() => import('./pages/chat'));
 const DocumentChatInterface = lazy(() => import('./pages/DocumentChatInterface'));
+const AdminCRM = lazy(() => import('./pages/AdminCRM'));
 import { AuthProvider } from "@/hooks/use-auth";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
 import { SmoothScrollWrapper } from "@/components/ui/smooth-scroll-wrapper";
+import { FormModalProvider } from "@/contexts/FormModalContext";
 
 function Router() {
   const [location] = useLocation();
@@ -402,6 +404,13 @@ function Router() {
         </Suspense>
       </Route>
       
+      {/* Solar CRM Admin Dashboard */}
+      <Route path="/admin-crm">
+        <Suspense fallback={<SuspenseFallback message="Loading Admin CRM..." operationName="admin-crm" />}>
+          <AdminCRM />
+        </Suspense>
+      </Route>
+      
       {/* Fallback to 404 */}
       <Route component={NotFound} />
     </Switch>
@@ -455,15 +464,17 @@ function App() {
     <ErrorBoundary>
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
-          <Toaster />
-          <NetworkStatus />
-          <AuthProvider>
-            <SmoothScrollWrapper disableOnRoutes={["/services/lithium-battery", "/lithium-battery"]}>
-              <RouteErrorBoundary>
-                <Router />
-              </RouteErrorBoundary>
-            </SmoothScrollWrapper>
-          </AuthProvider>
+          <FormModalProvider>
+            <Toaster />
+            <NetworkStatus />
+            <AuthProvider>
+              <SmoothScrollWrapper disableOnRoutes={["/services/lithium-battery", "/lithium-battery"]}>
+                <RouteErrorBoundary>
+                  <Router />
+                </RouteErrorBoundary>
+              </SmoothScrollWrapper>
+            </AuthProvider>
+          </FormModalProvider>
         </TooltipProvider>
       </QueryClientProvider>
     </ErrorBoundary>
