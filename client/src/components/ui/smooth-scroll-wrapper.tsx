@@ -25,14 +25,15 @@ export function SmoothScrollWrapper({ children, disableOnRoutes = [], enabled = 
       return;
     }
 
-    // Initialize Lenis with buttery smooth settings
+    // Initialize Lenis with optimized settings for buttery smooth scrolling
     const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      lerp: 0.1,
+      duration: 1.0,
+      easing: (t: number) => 1 - Math.pow(1 - t, 3),
+      lerp: 0.08,
       wheelMultiplier: 1,
       touchMultiplier: 2,
       infinite: false,
+      smoothWheel: true,
     });
 
     lenisRef.current = lenis;
