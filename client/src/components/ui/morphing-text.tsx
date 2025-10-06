@@ -17,15 +17,20 @@ const useMorphingText = (texts: string[]) => {
       const [current1, current2] = [text1Ref.current, text2Ref.current];
       if (!current1 || !current2 || !texts || texts.length === 0) return;
 
+      // Morphing text (appearing)
       current2.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
       current2.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
 
+      // Fading text (disappearing)
       const invertedFraction = 1 - fraction;
       current1.style.filter = `blur(${Math.min(8 / invertedFraction - 8, 100)}px)`;
       current1.style.opacity = `${Math.pow(invertedFraction, 0.4) * 100}%`;
 
-      current1.textContent = texts[textIndexRef.current % texts.length];
-      current2.textContent = texts[(textIndexRef.current + 1) % texts.length];
+      // Only update content during morph, not during cooldown
+      if (fraction > 0) {
+        current1.textContent = texts[textIndexRef.current % texts.length];
+        current2.textContent = texts[(textIndexRef.current + 1) % texts.length];
+      }
     },
     [texts],
   );
@@ -56,6 +61,7 @@ const useMorphingText = (texts: string[]) => {
       current2.style.opacity = "100%";
       current1.style.filter = "none";
       current1.style.opacity = "0%";
+      current1.textContent = ""; // Clear the old text completely
     }
   }, []);
 
@@ -89,16 +95,16 @@ interface MorphingTextProps {
   texts: string[];
 }
 
-const Texts: React.FC<Pick<MorphingTextProps, "texts">> = ({ texts }) => {
+const Texts: React.FC<Pick<MorphingTextProps, "texts"> & { className?: string }> = ({ texts, className }) => {
   const { text1Ref, text2Ref } = useMorphingText(texts);
   return (
     <>
       <span
-        className="absolute inset-x-0 top-0 m-auto inline-block w-full"
+        className={`absolute inset-x-0 top-0 m-auto inline-block w-full ${className || ''}`}
         ref={text1Ref}
       />
       <span
-        className="absolute inset-x-0 top-0 m-auto inline-block w-full"
+        className={`absolute inset-x-0 top-0 m-auto inline-block w-full ${className || ''}`}
         ref={text2Ref}
       />
     </>
@@ -124,9 +130,9 @@ const SvgFilters: React.FC = () => (
 
 export const MorphingText: React.FC<MorphingTextProps> = ({ texts, className }) => (
   <div
-    className={`relative mx-auto h-24 md:h-32 lg:h-40 w-full max-w-screen-lg text-center font-sans text-[60pt] md:text-[80pt] lg:text-[120pt] font-bold leading-none [filter:url(#threshold)_blur(0.6px)] ${className}`}
+    className="relative mx-auto h-16 w-full max-w-screen-md text-center font-sans text-[40pt] font-bold leading-none [filter:url(#threshold)_blur(0.6px)] md:h-24 lg:text-[6rem]"
   >
-    <Texts texts={texts} />
+    <Texts texts={texts} className={className} />
     <SvgFilters />
   </div>
 );

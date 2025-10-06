@@ -246,7 +246,7 @@ const ResidentialSolar = () => {
 
       {/* Enhanced Solar Engineering Funnel with Expanded Technical Details */}
       <SolarRescueTimelineSection
-        className="bg-gradient-to-br from-gray-950 via-gray-900 to-black !pt-0 !pb-20"
+        className="bg-gradient-to-br from-gray-950 via-gray-900 to-black !pt-0 !pb-20 -mt-32"
         stages={[
           {
             id: 'problem-red',

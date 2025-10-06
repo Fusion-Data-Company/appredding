@@ -234,7 +234,7 @@ const HybridSolarWaveHero: React.FC = () => {
                   animate={{ rotate: [0, 360] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
                 >
-                  <Battery className="w-4 h-4 text-orange-400" />
+                  <Sun className="w-4 h-4 text-orange-400" />
                 </motion.div>
                 <span>Next-Gen Energy Solutions</span>
               </div>
@@ -246,7 +246,7 @@ const HybridSolarWaveHero: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-5xl md:text-7xl lg:text-8xl font-bold text-center mb-6 leading-tight"
             >
-              <span className="font-extrabold bg-gradient-to-r from-white via-yellow-300 to-amber-400 bg-clip-text text-transparent preserve-text-color">
+              <span className="font-extrabold text-white">
                 Hybrid Solar
               </span>
               <br />

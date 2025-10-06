@@ -83,111 +83,94 @@ const BatteryStorage = () => {
         structuredData={structuredData}
       />
 
-      {/* WAVE BACKGROUND - Fixed to cover entire page */}
-      <div className="fixed inset-0 z-0">
-        <Waves
-          strokeColor="#fbbf24"
-          backgroundColor="transparent"
-          pointerSize={0.8}
-        />
-      </div>
+      {/* NEW HERO SECTION WITH INTERACTIVE WAVES */}
+      <section className="relative min-h-screen flex items-center bg-black">
+        {/* Interactive Wave Background */}
+        <div className="absolute inset-0 z-0">
+          <Waves
+            strokeColor="#fbbf24"
+            backgroundColor="#000000"
+            pointerSize={0.8}
+          />
+        </div>
 
-      {/* Gradient Overlay */}
-      <div className="fixed inset-0 z-[1] bg-gradient-to-b from-black/40 via-transparent to-black/80 pointer-events-none" />
-
-      {/* NEW HERO SECTION */}
-      <section className="relative min-h-screen flex items-center">
+        {/* Hero Content - No Card, Just Text Over Waves */}
         <div className="relative z-10 w-full">
-          {/* Glassomorphic Hero Card - Full Width Edge to Edge */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
             className="w-full"
           >
-            {/* Glassomorphic Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative backdrop-blur-md bg-gradient-to-br from-white/5 via-white/3 to-white/5 border-y border-white/20 p-12 md:p-16 lg:p-20 shadow-2xl"
-            >
-              {/* Glass Reflection Effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-30" />
+            {/* Content - No Card Background */}
+            <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-12 py-20 text-center">
+              {/* Static Title */}
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white mb-6"
+              >
+                Battery Storage
+              </motion.h1>
 
-              {/* Content */}
-              <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-12 text-center">
-                {/* Static Title */}
-                <motion.h1
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-4"
+              {/* Morphing Text Hero */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="mb-8"
+              >
+                <MorphingText
+                  texts={[
+                    "Solar Power",
+                    "Electric Energy",
+                    "Clean Future",
+                    "Sustainable",
+                    "Innovation",
+                  ]}
+                  className="text-orange-500"
+                />
+              </motion.div>
+
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="text-xl md:text-2xl lg:text-3xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed"
+              >
+                Harness the power of the sun with cutting-edge solar technology.
+                Transform your energy future today.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
+              >
+                {/* Premium CTA Button */}
+                <Button
+                  onClick={() => setShowConsultationForm(true)}
+                  className="bg-amber-500 hover:bg-amber-600 text-black font-bold px-8 py-6 text-lg rounded-full shadow-2xl shadow-amber-500/50 transition-all hover:scale-105"
+                  data-testid="button-calculate-battery"
                 >
-                  Battery Storage
-                </motion.h1>
+                  <Zap className="w-5 h-5 mr-2" />
+                  Calculate Battery Sizing & SGIP
+                </Button>
 
-                {/* Morphing Text Hero */}
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                  className="mb-8"
+                {/* Secondary Button */}
+                <Button
+                  variant="outline"
+                  className="border-2 border-amber-500 text-amber-400 hover:bg-amber-500/10 px-8 py-6 text-lg rounded-full backdrop-blur-sm"
+                  onClick={() => document.getElementById('battery-comparison')?.scrollIntoView({ behavior: 'smooth' })}
+                  data-testid="button-compare-batteries"
                 >
-                  <MorphingText
-                    texts={[
-                      "Solar Power",
-                      "Electric Energy",
-                      "Clean Future",
-                      "Sustainable",
-                      "Innovation",
-                    ]}
-                    className="text-amber-400"
-                  />
-                </motion.div>
-
-                <motion.p
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
-                  className="text-xl md:text-2xl lg:text-3xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed"
-                >
-                  Harness the power of the sun with cutting-edge solar technology.
-                  Transform your energy future today.
-                </motion.p>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.6 }}
-                  className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
-                >
-                  {/* Premium CTA Button */}
-                  <Button
-                    onClick={() => setShowConsultationForm(true)}
-                    className="bg-amber-500 hover:bg-amber-600 text-black font-bold px-8 py-6 text-lg rounded-full shadow-2xl shadow-amber-500/50 transition-all hover:scale-105"
-                    data-testid="button-calculate-battery"
-                  >
-                    <Zap className="w-5 h-5 mr-2" />
-                    Calculate Battery Sizing & SGIP
-                  </Button>
-
-                  {/* Secondary Button */}
-                  <Button
-                    variant="outline"
-                    className="border-2 border-amber-500 text-amber-400 hover:bg-amber-500/10 px-8 py-6 text-lg rounded-full backdrop-blur-sm"
-                    onClick={() => document.getElementById('battery-comparison')?.scrollIntoView({ behavior: 'smooth' })}
-                    data-testid="button-compare-batteries"
-                  >
-                    <Battery className="w-5 h-5 mr-2" />
-                    Learn More
-                  </Button>
-                </motion.div>
-              </div>
-              
-              {/* Bottom Shine */}
-              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent" />
-            </motion.div>
+                  <Battery className="w-5 h-5 mr-2" />
+                  Learn More
+                </Button>
+              </motion.div>
+            </div>
 
             {/* Stats Cards Below Glassomorphic Card */}
             <motion.div

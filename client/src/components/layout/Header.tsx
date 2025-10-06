@@ -291,171 +291,219 @@ const SolarCompanyHeader: React.FC = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-2">
             {/* Products Link */}
-            <Link 
-              href="/shop/products" 
+            <Link
+              href="/shop/products"
               className={cn(
-                "px-4 py-2 text-[15px] font-medium rounded-lg transition-all duration-200",
-                isActive("/shop/products") 
-                  ? "text-orange-600" 
-                  : "text-black hover:text-gray-900"
+                "px-5 py-2.5 text-[15px] font-semibold rounded-xl transition-all duration-300 relative overflow-hidden group",
+                isActive("/shop/products")
+                  ? "text-white"
+                  : "text-gray-800 hover:text-white"
               )}
               style={{
-                background: isActive("/shop/products") 
-                  ? 'rgba(249,115,22,0.08)' 
-                  : 'rgba(255,255,255,0.05)',
-                backdropFilter: 'blur(12px)',
-                WebkitBackdropFilter: 'blur(12px)',
-                border: '1px solid rgba(203,213,225,0.5)',
-                boxShadow: '0 0 20px rgba(249,115,22,0.15), 0 0 40px rgba(59,130,246,0.1)'
+                background: isActive("/shop/products")
+                  ? 'linear-gradient(135deg, rgba(249,115,22,0.95) 0%, rgba(251,146,60,0.9) 50%, rgba(234,88,12,0.95) 100%)'
+                  : 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(248,250,252,0.3) 100%)',
+                backdropFilter: 'blur(20px) saturate(180%)',
+                WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                border: isActive("/shop/products")
+                  ? '2px solid rgba(251,146,60,0.6)'
+                  : '2px solid rgba(203,213,225,0.4)',
+                boxShadow: isActive("/shop/products")
+                  ? '0 8px 32px rgba(249,115,22,0.4), 0 4px 16px rgba(234,88,12,0.3), inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -1px 0 rgba(0,0,0,0.2)'
+                  : '0 4px 20px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.6)',
+                textShadow: isActive("/shop/products") ? '0 2px 8px rgba(0,0,0,0.3)' : 'none'
               }}
               onMouseEnter={(e) => {
                 if (!isActive("/shop/products")) {
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
-                  e.currentTarget.style.borderColor = 'rgba(203,213,225,0.7)';
-                  e.currentTarget.style.boxShadow = '0 0 25px rgba(249,115,22,0.25), 0 0 50px rgba(59,130,246,0.15)';
+                  e.currentTarget.style.background = 'linear-gradient(135deg, rgba(249,115,22,0.85) 0%, rgba(251,146,60,0.8) 50%, rgba(59,130,246,0.85) 100%)';
+                  e.currentTarget.style.borderImage = 'linear-gradient(135deg, rgba(249,115,22,0.8), rgba(59,130,246,0.8)) 1';
+                  e.currentTarget.style.boxShadow = '0 12px 40px rgba(249,115,22,0.5), 0 6px 20px rgba(59,130,246,0.4), inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -2px 0 rgba(0,0,0,0.3)';
+                  e.currentTarget.style.transform = 'translateY(-2px) scale(1.05)';
+                  e.currentTarget.style.textShadow = '0 2px 12px rgba(0,0,0,0.4), 0 0 20px rgba(255,255,255,0.6)';
                 }
               }}
               onMouseLeave={(e) => {
                 if (!isActive("/shop/products")) {
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
-                  e.currentTarget.style.borderColor = 'rgba(203,213,225,0.5)';
-                  e.currentTarget.style.boxShadow = '0 0 20px rgba(249,115,22,0.15), 0 0 40px rgba(59,130,246,0.1)';
+                  e.currentTarget.style.background = 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(248,250,252,0.3) 100%)';
+                  e.currentTarget.style.borderImage = 'none';
+                  e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.6)';
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                  e.currentTarget.style.textShadow = 'none';
                 }
               }}
             >
-              Products
+              <span className="relative z-10">Products</span>
+              {!isActive("/shop/products") && (
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-500 via-amber-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl blur-xl" />
+              )}
             </Link>
 
             {/* Comparison Link */}
-            <Link 
-              href="/comparison" 
+            <Link
+              href="/comparison"
               className={cn(
-                "px-4 py-2 text-[15px] font-medium rounded-lg transition-all duration-200",
-                isActive("/comparison") 
-                  ? "text-orange-600" 
-                  : "text-black hover:text-gray-900"
+                "px-5 py-2.5 text-[15px] font-semibold rounded-xl transition-all duration-300 relative overflow-hidden group",
+                isActive("/comparison")
+                  ? "text-white"
+                  : "text-gray-800 hover:text-white"
               )}
               style={{
-                background: isActive("/comparison") 
-                  ? 'rgba(249,115,22,0.08)' 
-                  : 'rgba(255,255,255,0.05)',
-                backdropFilter: 'blur(12px)',
-                WebkitBackdropFilter: 'blur(12px)',
-                border: '1px solid rgba(203,213,225,0.5)',
-                boxShadow: '0 0 20px rgba(249,115,22,0.15), 0 0 40px rgba(59,130,246,0.1)'
+                background: isActive("/comparison")
+                  ? 'linear-gradient(135deg, rgba(249,115,22,0.95) 0%, rgba(251,146,60,0.9) 50%, rgba(234,88,12,0.95) 100%)'
+                  : 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(248,250,252,0.3) 100%)',
+                backdropFilter: 'blur(20px) saturate(180%)',
+                WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                border: isActive("/comparison")
+                  ? '2px solid rgba(251,146,60,0.6)'
+                  : '2px solid rgba(203,213,225,0.4)',
+                boxShadow: isActive("/comparison")
+                  ? '0 8px 32px rgba(249,115,22,0.4), 0 4px 16px rgba(234,88,12,0.3), inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -1px 0 rgba(0,0,0,0.2)'
+                  : '0 4px 20px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.6)',
+                textShadow: isActive("/comparison") ? '0 2px 8px rgba(0,0,0,0.3)' : 'none'
               }}
               onMouseEnter={(e) => {
                 if (!isActive("/comparison")) {
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
-                  e.currentTarget.style.borderColor = 'rgba(203,213,225,0.7)';
-                  e.currentTarget.style.boxShadow = '0 0 25px rgba(249,115,22,0.25), 0 0 50px rgba(59,130,246,0.15)';
+                  e.currentTarget.style.background = 'linear-gradient(135deg, rgba(249,115,22,0.85) 0%, rgba(251,146,60,0.8) 50%, rgba(59,130,246,0.85) 100%)';
+                  e.currentTarget.style.borderImage = 'linear-gradient(135deg, rgba(249,115,22,0.8), rgba(59,130,246,0.8)) 1';
+                  e.currentTarget.style.boxShadow = '0 12px 40px rgba(249,115,22,0.5), 0 6px 20px rgba(59,130,246,0.4), inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -2px 0 rgba(0,0,0,0.3)';
+                  e.currentTarget.style.transform = 'translateY(-2px) scale(1.05)';
+                  e.currentTarget.style.textShadow = '0 2px 12px rgba(0,0,0,0.4), 0 0 20px rgba(255,255,255,0.6)';
                 }
               }}
               onMouseLeave={(e) => {
                 if (!isActive("/comparison")) {
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
-                  e.currentTarget.style.borderColor = 'rgba(203,213,225,0.5)';
-                  e.currentTarget.style.boxShadow = '0 0 20px rgba(249,115,22,0.15), 0 0 40px rgba(59,130,246,0.1)';
+                  e.currentTarget.style.background = 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(248,250,252,0.3) 100%)';
+                  e.currentTarget.style.borderImage = 'none';
+                  e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.6)';
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                  e.currentTarget.style.textShadow = 'none';
                 }
               }}
             >
-              Comparison
+              <span className="relative z-10">Comparison</span>
+              {!isActive("/comparison") && (
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-500 via-amber-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl blur-xl" />
+              )}
             </Link>
 
             {/* Services Dropdown */}
-            <div 
-              className="relative" 
+            <div
+              className="relative group"
               ref={el => dropdownRefs.current['services'] = el}
               style={{ position: 'relative', zIndex: 10000 }}
             >
-              <button 
+              <button
                 onClick={() => setActiveDropdown(activeDropdown === 'services' ? null : 'services')}
                 className={cn(
-                  "flex items-center px-4 py-2 text-[15px] font-medium rounded-lg transition-all duration-200 relative z-10",
-                  activeDropdown === 'services' 
-                    ? "text-orange-600" 
-                    : "text-black hover:text-gray-900"
+                  "flex items-center px-5 py-2.5 text-[15px] font-semibold rounded-xl transition-all duration-300 relative z-10 overflow-hidden",
+                  activeDropdown === 'services'
+                    ? "text-white"
+                    : "text-gray-800 hover:text-white"
                 )}
                 style={{
-                  background: activeDropdown === 'services' 
-                    ? 'rgba(249,115,22,0.08)' 
-                    : 'rgba(255,255,255,0.05)',
-                  backdropFilter: 'blur(12px)',
-                  WebkitBackdropFilter: 'blur(12px)',
-                  border: '1px solid rgba(203,213,225,0.5)',
-                  boxShadow: '0 0 20px rgba(249,115,22,0.15), 0 0 40px rgba(59,130,246,0.1)'
+                  background: activeDropdown === 'services'
+                    ? 'linear-gradient(135deg, rgba(249,115,22,0.95) 0%, rgba(251,146,60,0.9) 50%, rgba(234,88,12,0.95) 100%)'
+                    : 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(248,250,252,0.3) 100%)',
+                  backdropFilter: 'blur(20px) saturate(180%)',
+                  WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                  border: activeDropdown === 'services'
+                    ? '2px solid rgba(251,146,60,0.6)'
+                    : '2px solid rgba(203,213,225,0.4)',
+                  boxShadow: activeDropdown === 'services'
+                    ? '0 8px 32px rgba(249,115,22,0.4), 0 4px 16px rgba(234,88,12,0.3), inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -1px 0 rgba(0,0,0,0.2)'
+                    : '0 4px 20px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.6)',
+                  textShadow: activeDropdown === 'services' ? '0 2px 8px rgba(0,0,0,0.3)' : 'none'
                 }}
                 onMouseEnter={(e) => {
                   if (activeDropdown !== 'services') {
-                    e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
-                    e.currentTarget.style.borderColor = 'rgba(203,213,225,0.7)';
-                    e.currentTarget.style.boxShadow = '0 0 25px rgba(249,115,22,0.25), 0 0 50px rgba(59,130,246,0.15)';
+                    e.currentTarget.style.background = 'linear-gradient(135deg, rgba(249,115,22,0.85) 0%, rgba(251,146,60,0.8) 50%, rgba(59,130,246,0.85) 100%)';
+                    e.currentTarget.style.borderImage = 'linear-gradient(135deg, rgba(249,115,22,0.8), rgba(59,130,246,0.8)) 1';
+                    e.currentTarget.style.boxShadow = '0 12px 40px rgba(249,115,22,0.5), 0 6px 20px rgba(59,130,246,0.4), inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -2px 0 rgba(0,0,0,0.3)';
+                    e.currentTarget.style.transform = 'translateY(-2px) scale(1.05)';
+                    e.currentTarget.style.textShadow = '0 2px 12px rgba(0,0,0,0.4), 0 0 20px rgba(255,255,255,0.6)';
                   }
                 }}
                 onMouseLeave={(e) => {
                   if (activeDropdown !== 'services') {
-                    e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
-                    e.currentTarget.style.borderColor = 'rgba(203,213,225,0.5)';
-                    e.currentTarget.style.boxShadow = '0 0 20px rgba(249,115,22,0.15), 0 0 40px rgba(59,130,246,0.1)';
+                    e.currentTarget.style.background = 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(248,250,252,0.3) 100%)';
+                    e.currentTarget.style.borderImage = 'none';
+                    e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.6)';
+                    e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                    e.currentTarget.style.textShadow = 'none';
                   }
                 }}
                 aria-expanded={activeDropdown === 'services'}
                 aria-haspopup="true"
               >
-                Services
+                <span className="relative z-10">Services</span>
                 <ChevronDown className={cn(
-                  "ml-1 w-4 h-4 transition-transform duration-200",
+                  "ml-1 w-4 h-4 transition-transform duration-200 relative z-10",
                   activeDropdown === 'services' ? "rotate-180" : ""
                 )} />
+                {activeDropdown !== 'services' && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-500 via-amber-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl blur-xl" />
+                )}
               </button>
               {activeDropdown === 'services' && <DropdownMenu items={servicesItems} dropdownKey="services" />}
             </div>
 
             {/* Company Dropdown */}
-            <div 
-              className="relative" 
+            <div
+              className="relative group"
               ref={el => dropdownRefs.current['company'] = el}
               style={{ position: 'relative', zIndex: 10000 }}
             >
-              <button 
+              <button
                 onClick={() => setActiveDropdown(activeDropdown === 'company' ? null : 'company')}
                 className={cn(
-                  "flex items-center px-4 py-2 text-[15px] font-medium rounded-lg transition-all duration-200 relative z-10",
-                  activeDropdown === 'company' 
-                    ? "text-orange-600" 
-                    : "text-black hover:text-gray-900"
+                  "flex items-center px-5 py-2.5 text-[15px] font-semibold rounded-xl transition-all duration-300 relative z-10 overflow-hidden",
+                  activeDropdown === 'company'
+                    ? "text-white"
+                    : "text-gray-800 hover:text-white"
                 )}
                 style={{
-                  background: activeDropdown === 'company' 
-                    ? 'rgba(249,115,22,0.08)' 
-                    : 'rgba(255,255,255,0.05)',
-                  backdropFilter: 'blur(12px)',
-                  WebkitBackdropFilter: 'blur(12px)',
-                  border: '1px solid rgba(203,213,225,0.5)',
-                  boxShadow: '0 0 20px rgba(249,115,22,0.15), 0 0 40px rgba(59,130,246,0.1)'
+                  background: activeDropdown === 'company'
+                    ? 'linear-gradient(135deg, rgba(249,115,22,0.95) 0%, rgba(251,146,60,0.9) 50%, rgba(234,88,12,0.95) 100%)'
+                    : 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(248,250,252,0.3) 100%)',
+                  backdropFilter: 'blur(20px) saturate(180%)',
+                  WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                  border: activeDropdown === 'company'
+                    ? '2px solid rgba(251,146,60,0.6)'
+                    : '2px solid rgba(203,213,225,0.4)',
+                  boxShadow: activeDropdown === 'company'
+                    ? '0 8px 32px rgba(249,115,22,0.4), 0 4px 16px rgba(234,88,12,0.3), inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -1px 0 rgba(0,0,0,0.2)'
+                    : '0 4px 20px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.6)',
+                  textShadow: activeDropdown === 'company' ? '0 2px 8px rgba(0,0,0,0.3)' : 'none'
                 }}
                 onMouseEnter={(e) => {
                   if (activeDropdown !== 'company') {
-                    e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
-                    e.currentTarget.style.borderColor = 'rgba(203,213,225,0.7)';
-                    e.currentTarget.style.boxShadow = '0 0 25px rgba(249,115,22,0.25), 0 0 50px rgba(59,130,246,0.15)';
+                    e.currentTarget.style.background = 'linear-gradient(135deg, rgba(249,115,22,0.85) 0%, rgba(251,146,60,0.8) 50%, rgba(59,130,246,0.85) 100%)';
+                    e.currentTarget.style.borderImage = 'linear-gradient(135deg, rgba(249,115,22,0.8), rgba(59,130,246,0.8)) 1';
+                    e.currentTarget.style.boxShadow = '0 12px 40px rgba(249,115,22,0.5), 0 6px 20px rgba(59,130,246,0.4), inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -2px 0 rgba(0,0,0,0.3)';
+                    e.currentTarget.style.transform = 'translateY(-2px) scale(1.05)';
+                    e.currentTarget.style.textShadow = '0 2px 12px rgba(0,0,0,0.4), 0 0 20px rgba(255,255,255,0.6)';
                   }
                 }}
                 onMouseLeave={(e) => {
                   if (activeDropdown !== 'company') {
-                    e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
-                    e.currentTarget.style.borderColor = 'rgba(203,213,225,0.5)';
-                    e.currentTarget.style.boxShadow = '0 0 20px rgba(249,115,22,0.15), 0 0 40px rgba(59,130,246,0.1)';
+                    e.currentTarget.style.background = 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(248,250,252,0.3) 100%)';
+                    e.currentTarget.style.borderImage = 'none';
+                    e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.6)';
+                    e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                    e.currentTarget.style.textShadow = 'none';
                   }
                 }}
                 aria-expanded={activeDropdown === 'company'}
                 aria-haspopup="true"
               >
-                Company
+                <span className="relative z-10">Company</span>
                 <ChevronDown className={cn(
-                  "ml-1 w-4 h-4 transition-transform duration-200",
+                  "ml-1 w-4 h-4 transition-transform duration-200 relative z-10",
                   activeDropdown === 'company' ? "rotate-180" : ""
                 )} />
+                {activeDropdown !== 'company' && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-500 via-amber-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl blur-xl" />
+                )}
               </button>
               {activeDropdown === 'company' && <DropdownMenu items={companyItems} dropdownKey="company" />}
             </div>
