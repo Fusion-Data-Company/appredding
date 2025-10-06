@@ -82,26 +82,26 @@ const BatteryStorage = () => {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <ShaderBackground />
         
-        <div className="relative z-10 w-full px-6 sm:px-12 lg:px-20 py-20">
+        <div className="relative z-10 w-full py-20">
           {/* Glassomorphic Hero Card - Full Width */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="max-w-[1600px] mx-auto"
+            className="w-full"
           >
             {/* Glassomorphic Card */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative backdrop-blur-2xl bg-gradient-to-br from-white/10 via-white/5 to-white/10 border border-white/20 rounded-3xl p-12 md:p-16 lg:p-20 shadow-2xl"
+              className="relative backdrop-blur-2xl bg-gradient-to-br from-white/10 via-white/5 to-white/10 border-y border-white/20 p-12 md:p-16 lg:p-20 shadow-2xl"
             >
               {/* Glass Reflection Effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent rounded-3xl opacity-50" />
+              <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-50" />
               
               {/* Content */}
-              <div className="relative z-10">
+              <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-12">
                 <motion.h1
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -185,7 +185,7 @@ const BatteryStorage = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.7 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12 max-w-7xl mx-auto px-6 sm:px-12"
             >
             {[
               { 
