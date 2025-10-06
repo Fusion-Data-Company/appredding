@@ -484,129 +484,95 @@ const LithiumBattery = () => {
           <AwardBadge type="customer-service-excellence" />
         </div>
 
-        {/* Main Content Section with Solar Background */}
-        <section className="relative min-h-screen">
-          <div className="absolute inset-0">
-            <SolarBackground />
-          </div>
-          
-          {/* Content Container - positioned above background */}
+        {/* Main Content Section */}
+        <section className="relative min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900">
+          {/* Content Container */}
           <div className="relative z-10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
               
-              {/* Chemistry Comparison Deep Dive - Phase 4 Ultra Premium */}
-              <div id="chemistry" className="mb-12" />
-              <RevealOnScroll direction="up" delay={0.2}>
-                <motion.div className="mb-12 relative">
+              {/* Chemistry Comparison Deep Dive */}
+              <div id="chemistry" className="mb-16">
+                <div className="text-center mb-8">
+                  <p className="text-orange-400 font-semibold mb-2 uppercase tracking-wide">Battery Chemistry Analysis</p>
+                  <h2 className="text-4xl md:text-5xl font-bold text-white mb-3" style={{
+                    filter: 'drop-shadow(0 4px 20px rgba(251, 146, 60, 0.3))'
+                  }}>
+                    Lithium Technology Comparison
+                  </h2>
+                  <p className="text-gray-400 text-lg">Comprehensive analysis of lithium battery chemistries for optimal application selection</p>
+                </div>
 
-                  <div className="text-center mb-8">
-                    <p className="text-red-600 font-semibold mb-2">Battery Chemistry Analysis</p>
-                    <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
-                      Lithium Technology Comparison
-                    </h2>
-                    <p className="text-gray-600 dark:text-gray-400">Comprehensive analysis of lithium battery chemistries for optimal application selection</p>
-                  </div>
+                <div className="flex flex-wrap gap-3 mb-6 justify-center">
+                  {Object.keys(chemistryData).map((chem) => (
+                    <button
+                      key={chem}
+                      onClick={() => setSelectedChemistry(chem)}
+                      className={`px-6 py-3 rounded-xl font-bold transition-all duration-300 ${
+                        selectedChemistry === chem
+                          ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-lg shadow-orange-500/50"
+                          : "bg-gray-800 text-gray-300 hover:bg-gray-700 border border-gray-700"
+                      }`}
+                    >
+                      {chem.toUpperCase()}
+                    </button>
+                  ))}
+                </div>
 
-                  <div className="flex flex-wrap gap-3 mb-6 justify-center">
-                    {Object.keys(chemistryData).map((chem) => (
-                      <button
-                        key={chem}
-                        onClick={() => setSelectedChemistry(chem)}
-                        className={`px-6 py-3 rounded-xl font-bold transition-all duration-300 ${
-                          selectedChemistry === chem
-                            ? "bg-blue-600 text-white shadow-lg"
-                            : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
-                        }`}
-                      >
-                        {chem.toUpperCase()}
-                      </button>
-                    ))}
-                  </div>
-
-                  <EnhancedCard
-                    hoverScale={1.01}
-                    hoverLift={true}
-                    glowColor="rgba(59, 130, 246, 0.3)"
+                <div className="card-elite glow-orange p-8 mb-6">
+                  <div className="relative"
+                    style={{
+                      filter: 'drop-shadow(0 4px 20px rgba(251, 146, 60, 0.2))'
+                    }}
                   >
-                    <NeonGradientCard
-                          borderRadius={24}
-                          borderSize={2}
-                          neonColors={{
-                            firstColor: "#3b82f6",
-                            secondColor: "#06b6d4"
-                          }}
-                          className="mb-6"
-                        >
-                          <motion.div
-                    className="relative bg-gradient-to-br from-white/90 via-gray-50/85 to-white/90 backdrop-blur-xl rounded-2xl p-8 overflow-hidden"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={defaultViewport}
-                  >
-                    {/* Animated Grid Pattern */}
-                    <motion.div
-                      className="absolute inset-0 opacity-5 pointer-events-none"
-                      animate={{
-                        backgroundPosition: ['0px 0px', '50px 50px']
-                      }}
-                      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                      style={{
-                        backgroundImage: `
-                          linear-gradient(rgba(59,130,246,0.1) 1px, transparent 1px),
-                          linear-gradient(90deg, rgba(59,130,246,0.1) 1px, transparent 1px)
-                        `,
-                        backgroundSize: '50px 50px'
-                      }}
-                    />
-                    <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+                    <h3 className="text-2xl font-bold mb-4 text-white">
                       {chemistryData[selectedChemistry].name}
                     </h3>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                      <div className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800 shadow-inner rounded-xl p-4">
-                        <Zap className="h-5 w-5 text-yellow-500 mb-2" />
-                        <div className="text-sm text-gray-600 dark:text-gray-400">Nominal Voltage</div>
-                        <div className="text-xl font-bold text-gray-900 dark:text-white">{chemistryData[selectedChemistry].voltage}</div>
+                      <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 border border-gray-700/50">
+                        <Zap className="h-5 w-5 text-yellow-400 mb-2" />
+                        <div className="text-sm text-gray-400">Nominal Voltage</div>
+                        <div className="text-xl font-bold text-white">{chemistryData[selectedChemistry].voltage}</div>
                       </div>
-                      <div className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800 shadow-inner rounded-xl p-4">
-                        <Battery className="h-5 w-5 text-orange-500 mb-2" />
-                        <div className="text-sm text-gray-600 dark:text-gray-400">Energy Density</div>
-                        <div className="text-xl font-bold text-gray-900 dark:text-white">{chemistryData[selectedChemistry].energy}</div>
+                      <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 border border-gray-700/50">
+                        <Battery className="h-5 w-5 text-orange-400 mb-2" />
+                        <div className="text-sm text-gray-400">Energy Density</div>
+                        <div className="text-xl font-bold text-white">{chemistryData[selectedChemistry].energy}</div>
                       </div>
-                      <div className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800 shadow-inner rounded-xl p-4">
-                        <Activity className="h-5 w-5 text-blue-500 mb-2" />
-                        <div className="text-sm text-gray-600 dark:text-gray-400">Cycle Life</div>
-                        <div className="text-xl font-bold text-gray-900 dark:text-white">{chemistryData[selectedChemistry].cycles}</div>
+                      <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 border border-gray-700/50">
+                        <Activity className="h-5 w-5 text-blue-400 mb-2" />
+                        <div className="text-sm text-gray-400">Cycle Life</div>
+                        <div className="text-xl font-bold text-white">{chemistryData[selectedChemistry].cycles}</div>
                       </div>
-                      <div className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800 shadow-inner rounded-xl p-4">
-                        <Shield className="h-5 w-5 text-cyan-500 mb-2" />
-                        <div className="text-sm text-gray-600 dark:text-gray-400">Safety Rating</div>
-                        <div className="text-xl font-bold text-gray-900 dark:text-white">{chemistryData[selectedChemistry].safety}</div>
+                      <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 border border-gray-700/50">
+                        <Shield className="h-5 w-5 text-cyan-400 mb-2" />
+                        <div className="text-sm text-gray-400">Safety Rating</div>
+                        <div className="text-xl font-bold text-white">{chemistryData[selectedChemistry].safety}</div>
                       </div>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
-                        <h4 className="font-semibold mb-3 flex items-center gap-2 text-gray-900 dark:text-white">
-                          <CheckCircle className="h-5 w-5 text-orange-500" /> Key Advantages
+                        <h4 className="font-semibold mb-3 flex items-center gap-2 text-white">
+                          <CheckCircle className="h-5 w-5 text-orange-400" /> Key Advantages
                         </h4>
                         <ul className="space-y-2">
                           {chemistryData[selectedChemistry].advantages.map((adv: string, idx: number) => (
-                            <li key={idx} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
-                              <ChevronRight className="h-4 w-4 text-blue-500 mt-0.5" />
+                            <li key={idx} className="flex items-start gap-2 text-gray-300">
+                              <ChevronRight className="h-4 w-4 text-orange-400 mt-0.5" />
                               <span>{adv}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
                       <div>
-                        <h4 className="font-semibold mb-3 flex items-center gap-2 text-gray-900 dark:text-white">
-                          <Factory className="h-5 w-5 text-blue-500" /> Applications
+                        <h4 className="font-semibold mb-3 flex items-center gap-2 text-white">
+                          <Factory className="h-5 w-5 text-blue-400" /> Applications
                         </h4>
                         <ul className="space-y-2">
                           {chemistryData[selectedChemistry].applications.map((app: string, idx: number) => (
-                            <li key={idx} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
-                              <ChevronRight className="h-4 w-4 text-orange-500 mt-0.5" />
+                            <li key={idx} className="flex items-start gap-2 text-gray-300">
+                              <ChevronRight className="h-4 w-4 text-blue-400 mt-0.5" />
                               <span>{app}</span>
                             </li>
                           ))}
@@ -616,80 +582,69 @@ const LithiumBattery = () => {
 
                     {/* Additional Chemistry Details */}
                     <div className="mt-6 grid md:grid-cols-3 gap-4">
-                      <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4">
-                        <Thermometer className="h-5 w-5 text-blue-500 mb-2" />
-                        <div className="text-sm text-gray-600 dark:text-gray-400">Operating Temperature</div>
-                        <div className="font-bold text-gray-900 dark:text-white">{chemistryData[selectedChemistry].temp}</div>
+                      <div className="bg-blue-900/20 rounded-xl p-4 border border-blue-500/30">
+                        <Thermometer className="h-5 w-5 text-blue-400 mb-2" />
+                        <div className="text-sm text-gray-400">Operating Temperature</div>
+                        <div className="font-bold text-white">{chemistryData[selectedChemistry].temp}</div>
                       </div>
-                      <div className="bg-orange-50 dark:bg-orange-900/20 rounded-xl p-4">
-                        <DollarSign className="h-5 w-5 text-orange-500 mb-2" />
-                        <div className="text-sm text-gray-600 dark:text-gray-400">Relative Cost</div>
-                        <div className="font-bold text-gray-900 dark:text-white">{chemistryData[selectedChemistry].cost}</div>
+                      <div className="bg-orange-900/20 rounded-xl p-4 border border-orange-500/30">
+                        <DollarSign className="h-5 w-5 text-orange-400 mb-2" />
+                        <div className="text-sm text-gray-400">Relative Cost</div>
+                        <div className="font-bold text-white">{chemistryData[selectedChemistry].cost}</div>
                       </div>
-                      <div className="bg-cyan-50 dark:bg-cyan-900/20 rounded-xl p-4">
-                        <Award className="h-5 w-5 text-cyan-500 mb-2" />
-                        <div className="text-sm text-gray-600 dark:text-gray-400">Best Use Case</div>
-                        <div className="font-bold text-gray-900 dark:text-white">{chemistryData[selectedChemistry].applications[0]}</div>
+                      <div className="bg-cyan-900/20 rounded-xl p-4 border border-cyan-500/30">
+                        <Award className="h-5 w-5 text-cyan-400 mb-2" />
+                        <div className="text-sm text-gray-400">Best Use Case</div>
+                        <div className="font-bold text-white">{chemistryData[selectedChemistry].applications[0]}</div>
                       </div>
                     </div>
-                          </motion.div>
-                        </NeonGradientCard>
-                    </EnhancedCard>
-                </motion.div>
-                </RevealOnScroll>
+                  </div>
+                </div>
+              </div>
 
                 {/* Cell Format Specifications */}
-                <RevealOnScroll direction="up" delay={0.1}>
-                <div className="mb-12">
-                  <PremiumSectionHeader
-                    title="Industry-Standard Cell Types"
-                    subtitle="Cell Formats & Standards"
-                    description="Comprehensive specifications for all standard lithium battery cell formats"
-                    icon={Battery}
-                    primaryColor="#f97316"
-                    secondaryColor="#facc15"
-                    bgGradient="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
-                  />
-                  <NeonGradientCard
-                    borderRadius={24}
-                    borderSize={2}
-                    neonColors={{
-                      firstColor: "#f97316",
-                      secondColor: "#eab308"
-                    }}
-                  >
-                  <div className="bg-gradient-to-br from-white/85 to-gray-100/80 backdrop-blur-xl dark:from-gray-800/85 dark:to-gray-900/80 rounded-2xl overflow-hidden">
+                <div className="mb-16">
+                  <div className="text-center mb-8">
+                    <p className="text-orange-400 font-semibold mb-2 uppercase tracking-wide">Cell Formats & Standards</p>
+                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-3" style={{
+                      filter: 'drop-shadow(0 4px 20px rgba(251, 146, 60, 0.3))'
+                    }}>
+                      Industry-Standard Cell Types
+                    </h2>
+                    <p className="text-gray-400 text-lg">Comprehensive specifications for all standard lithium battery cell formats</p>
+                  </div>
+                  <div className="card-elite glow-orange p-8 overflow-hidden">
                     <div className="overflow-x-auto">
                       <table className="w-full">
-                        <thead className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800 shadow-inner border-b border-gray-200 dark:border-gray-600">
+                        <thead className="bg-gray-800/60 border-b border-gray-700">
                           <tr>
-                            <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Format</th>
-                            <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Dimensions</th>
-                            <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Capacity</th>
-                            <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Voltage</th>
-                            <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Weight</th>
-                            <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Applications</th>
+                            <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Format</th>
+                            <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Dimensions</th>
+                            <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Capacity</th>
+                            <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Voltage</th>
+                            <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Weight</th>
+                            <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Applications</th>
                           </tr>
                         </thead>
-                        <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
+                        <tbody className="divide-y divide-gray-700/50">
                           {cellFormats.map((cell, idx) => (
-                            <tr key={idx} className="hover:bg-gray-50 dark:hover:bg-gray-700">
-                              <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
+                            <tr key={idx} className="hover:bg-gray-800/30 transition-colors">
+                              <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
                                 {cell.format}
                               </td>
-                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
                                 {cell.diameter} × {cell.length}
                               </td>
-                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
                                 {cell.capacity}
                               </td>
-                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
                                 {cell.voltage}
                               </td>
-                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
                                 {cell.weight}
                               </td>
-                              <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
+                              <td className="px-6 py-4 text-sm text-gray-300">
                                 {cell.applications}
                               </td>
                             </tr>
@@ -698,9 +653,7 @@ const LithiumBattery = () => {
                       </table>
                     </div>
                   </div>
-                  </NeonGradientCard>
                 </div>
-                </RevealOnScroll>
 
                 {/* BMS Technology Deep Dive */}
                 <div id="bms" />
