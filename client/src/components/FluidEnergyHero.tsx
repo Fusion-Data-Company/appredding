@@ -166,7 +166,7 @@ export default function FluidEnergyHero() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 pointer-events-none" />
 
       <motion.div
-        className="relative z-10 flex max-w-6xl flex-col items-center justify-center px-6 text-center"
+        className="relative z-[2] flex max-w-6xl flex-col items-center justify-center px-6 text-center"
         variants={containerVariants}
         initial="hidden"
         animate="visible"

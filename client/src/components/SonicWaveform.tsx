@@ -127,22 +127,25 @@ const SonicWaveformHero = () => {
             <SonicWaveformCanvas />
 
             {/* Subtle gradient to blend with content - mostly transparent */}
-            <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-transparent z-[1] pointer-events-none"></div>
 
             {/* Overlay Content - Battery Theme */}
-            <div className="absolute inset-0 flex items-center justify-center z-20">
+            <div className="absolute inset-0 flex items-center justify-center z-[2]">
             <div className="text-center p-6 max-w-6xl mx-auto">
                 <motion.div
                     custom={0}
                     variants={fadeUpVariants}
                     initial="hidden"
                     animate="visible"
-                    className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-cyan-500/20 mb-6 backdrop-blur-sm"
+                    className="badge-elite-metallic badge-electric mb-6"
                 >
-                    <Battery className="h-4 w-4 text-cyan-500" />
-                    <span className="text-sm font-medium text-gray-700">
-                        Real-Time Energy Flow Visualization
-                    </span>
+                    <motion.div
+                        animate={{ rotate: [0, 360] }}
+                        transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                    >
+                        <Battery className="w-4 h-4 text-cyan-400" />
+                    </motion.div>
+                    <span>Real-Time Energy Flow Visualization</span>
                 </motion.div>
 
                 <motion.h1
@@ -150,7 +153,7 @@ const SonicWaveformHero = () => {
                     variants={fadeUpVariants}
                     initial="hidden"
                     animate="visible"
-                    className="text-5xl md:text-7xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-white drop-shadow-[0_4px_24px_rgba(255,255,255,0.25)]"
+                    className="text-5xl md:text-7xl font-bold tracking-tight mb-6 text-white drop-shadow-[0_4px_24px_rgba(255,255,255,0.25)]"
                 >
                     Next-Generation Energy Storage
                 </motion.h1>
@@ -160,7 +163,7 @@ const SonicWaveformHero = () => {
                     variants={fadeUpVariants}
                     initial="hidden"
                     animate="visible"
-                    className="max-w-3xl mx-auto text-lg text-gray-200 mb-10"
+                    className="max-w-3xl mx-auto text-lg text-white mb-10"
                 >
                     Experience the power of advanced lithium battery technology.
                     Watch as energy flows visualize our 12,000+ cycle life systems with 95% efficiency and unmatched safety.
