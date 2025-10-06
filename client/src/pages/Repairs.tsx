@@ -668,59 +668,6 @@ const Repairs = () => {
           </div>
         </div>
 
-        {/* Service Plans */}
-        <div className="mb-12">
-          <div className="text-center mb-8">
-            <p className="text-red-600 font-semibold mb-2">Preventive Maintenance</p>
-            <h2 className="text-3xl font-bold text-gray-900  mb-3">Service Plan Options</h2>
-            <p className="text-gray-600 ">Keep your system running at peak performance</p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                plan: "Basic Monitoring",
-                price: "$15/month",
-                features: ["24/7 system monitoring", "Monthly performance reports", "Alert notifications", "Remote diagnostics"],
-                best_for: "New systems under warranty"
-              },
-              {
-                plan: "Maintenance Plus",
-                price: "$35/month",
-                features: ["Everything in Basic", "Annual cleaning", "Priority service", "Discounted repairs", "Performance guarantee"],
-                best_for: "Systems 3-10 years old"
-              },
-              {
-                plan: "Complete Care",
-                price: "$75/month",
-                features: ["Everything in Plus", "Unlimited service calls", "Parts included", "Inverter protection", "Production guarantee"],
-                best_for: "Systems out of warranty"
-              }
-            ].map((plan, idx) => (
-              <div key={idx} className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
-                <h3 className="text-xl font-bold text-gray-900  mb-2">{plan.plan}</h3>
-                <div className="text-3xl font-bold text-orange-600  mb-4">{plan.price}</div>
-
-                <ul className="space-y-2 mb-6">
-                  {plan.features.map((feature, i) => (
-                    <li key={i} className="text-sm text-gray-700  flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 text-orange-500 flex-shrink-0" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
-                  <p className="text-xs text-gray-600  mb-3">Best for: {plan.best_for}</p>
-                  <button className="w-full bg-red-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-red-700 transition">
-                    Get Started
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* Real Customer Case Studies Section */}
         <div className="mb-12">
           <div className="text-center mb-8">
