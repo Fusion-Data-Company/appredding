@@ -27,7 +27,8 @@
       "Bash(npm run check:*)",
       "Read(///**)",
       "Bash(wait)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(git log:*)"
     ],
     "deny": [],
     "ask": []

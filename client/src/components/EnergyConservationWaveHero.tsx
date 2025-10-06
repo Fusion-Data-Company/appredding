@@ -1,431 +1,202 @@
 "use client";
 
-import React, { useRef, useMemo, useEffect, useState } from 'react';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import * as THREE from 'three';
-import { useFBO } from '@react-three/drei';
-import { motion } from 'framer-motion';
-import { Leaf, ThermometerSun } from 'lucide-react';
-import { AwardBadge } from '@/components/ui/award-badge';
+import * as React from "react";
+import { motion, useScroll, useTransform, useMotionTemplate } from "framer-motion";
+import { ArrowRight, Zap, Sun, Leaf, ThermometerSun } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-const vertexShader = `
-  varying vec2 vUv;
-  void main() {
-    vUv = uv;
-    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+// GradientButton Component
+const GradientButton = React.forwardRef<
+  HTMLButtonElement,
+  React.ButtonHTMLAttributes<HTMLButtonElement> & {
+    variant?: "default" | "variant";
+    asChild?: boolean;
   }
-`;
-
-const fluidShader = `
-  uniform float iTime;
-  uniform vec2 iResolution;
-  uniform vec4 iMouse;
-  uniform int iFrame;
-  uniform sampler2D iPreviousFrame;
-  uniform float uBrushSize;
-  uniform float uBrushStrength;
-  uniform float uFluidDecay;
-  uniform float uTrailLength;
-  uniform float uStopDecay;
-  varying vec2 vUv;
-
-  vec2 ur, U;
-
-  float ln(vec2 p, vec2 a, vec2 b) {
-      return length(p-a-(b-a)*clamp(dot(p-a,b-a)/dot(b-a,b-a),0.,1.));
-  }
-
-  vec4 t(vec2 v, int a, int b) {
-      return texture2D(iPreviousFrame, fract((v+vec2(float(a),float(b)))/ur));
-  }
-
-  vec4 t(vec2 v) {
-      return texture2D(iPreviousFrame, fract(v/ur));
-  }
-
-  float area(vec2 a, vec2 b, vec2 c) {
-      float A = length(b-c), B = length(c-a), C = length(a-b), s = 0.5*(A+B+C);
-      return sqrt(s*(s-A)*(s-B)*(s-C));
-  }
-
-  void main() {
-      U = vUv * iResolution;
-      ur = iResolution.xy;
-
-      if (iFrame < 1) {
-          float w = 0.5+sin(0.2*U.x)*0.5;
-          float q = length(U-0.5*ur);
-          gl_FragColor = vec4(0.1*exp(-0.001*q*q),0,0,w);
-      } else {
-          vec2 v = U,
-               A = v + vec2( 1, 1),
-               B = v + vec2( 1,-1),
-               C = v + vec2(-1, 1),
-               D = v + vec2(-1,-1);
-
-          for (int i = 0; i < 8; i++) {
-              v -= t(v).xy;
-              A -= t(A).xy;
-              B -= t(B).xy;
-              C -= t(C).xy;
-              D -= t(D).xy;
-          }
-
-          vec4 me = t(v);
-          vec4 n = t(v, 0, 1),
-              e = t(v, 1, 0),
-              s = t(v, 0, -1),
-              w = t(v, -1, 0);
-          vec4 ne = .25*(n+e+s+w);
-          me = mix(t(v), ne, vec4(0.15,0.15,0.95,0.));
-          me.z = me.z - 0.01*((area(A,B,C)+area(B,C,D))-4.);
-
-          vec4 pr = vec4(e.z,w.z,n.z,s.z);
-          me.xy = me.xy + 100.*vec2(pr.x-pr.y, pr.z-pr.w)/ur;
-
-          me.xy *= uFluidDecay;
-          me.z *= uTrailLength;
-
-          if (iMouse.z > 0.0) {
-              vec2 mousePos = iMouse.xy;
-              vec2 mousePrev = iMouse.zw;
-              vec2 mouseVel = mousePos - mousePrev;
-              float velMagnitude = length(mouseVel);
-              float q = ln(U, mousePos, mousePrev);
-              vec2 m = mousePos - mousePrev;
-              float l = length(m);
-              if (l > 0.0) m = min(l, 10.0) * m / l;
-
-              float brushSizeFactor = 1e-4 / uBrushSize;
-              float strengthFactor = 0.03 * uBrushStrength;
-
-              float falloff = exp(-brushSizeFactor*q*q*q);
-              falloff = pow(falloff, 0.5);
-
-              me.xyw += strengthFactor * falloff * vec3(m, 10.);
-
-              if (velMagnitude < 2.0) {
-                  float distToCursor = length(U - mousePos);
-                  float influence = exp(-distToCursor * 0.01);
-                  float cursorDecay = mix(1.0, uStopDecay, influence);
-                  me.xy *= cursorDecay;
-                  me.z *= cursorDecay;
-              }
-          }
-
-          gl_FragColor = clamp(me, -0.4, 0.4);
-      }
-  }
-`;
-
-const displayShader = `
-  uniform float iTime;
-  uniform vec2 iResolution;
-  uniform sampler2D iFluid;
-  uniform float uDistortionAmount;
-  uniform vec3 uColor1;
-  uniform vec3 uColor2;
-  uniform vec3 uColor3;
-  uniform vec3 uColor4;
-  uniform float uColorIntensity;
-  uniform float uSoftness;
-  varying vec2 vUv;
-
-  void main() {
-    vec2 fragCoord = vUv * iResolution;
-
-    vec4 fluid = texture2D(iFluid, vUv);
-    vec2 fluidVel = fluid.xy;
-
-    float mr = min(iResolution.x, iResolution.y);
-    vec2 uv = (fragCoord * 2.0 - iResolution.xy) / mr;
-
-    uv += fluidVel * (0.5 * uDistortionAmount);
-
-    float d = -iTime * 0.5;
-    float a = 0.0;
-    for (float i = 0.0; i < 8.0; ++i) {
-      a += cos(i - d - a * uv.x);
-      d += sin(uv.y * i + a);
-    }
-    d += iTime * 0.5;
-
-    float mixer1 = cos(uv.x * d) * 0.5 + 0.5;
-    float mixer2 = cos(uv.y * a) * 0.5 + 0.5;
-    float mixer3 = sin(d + a) * 0.5 + 0.5;
-
-    float smoothAmount = clamp(uSoftness * 0.1, 0.0, 0.9);
-    mixer1 = mix(mixer1, 0.5, smoothAmount);
-    mixer2 = mix(mixer2, 0.5, smoothAmount);
-    mixer3 = mix(mixer3, 0.5, smoothAmount);
-
-    vec3 col = mix(uColor1, uColor2, mixer1);
-    col = mix(col, uColor3, mixer2);
-    col = mix(col, uColor4, mixer3 * 0.4);
-
-    col *= uColorIntensity;
-
-    gl_FragColor = vec4(col, 1.0);
-  }
-`;
-
-const config = {
-  brushSize: 25.0,
-  brushStrength: 0.5,
-  distortionAmount: 2.5,
-  fluidDecay: 0.98,
-  trailLength: 0.8,
-  stopDecay: 0.85,
-  color1: '#10B981',
-  color2: '#34D399',
-  color3: '#6EE7B7',
-  color4: '#059669',
-  colorIntensity: 1.2,
-  softness: 1.0,
-  lerpFactor: 0.1,
-};
-
-function hexToRgb(hex: string): [number, number, number] {
-  const r = parseInt(hex.slice(1, 3), 16) / 255;
-  const g = parseInt(hex.slice(3, 5), 16) / 255;
-  const b = parseInt(hex.slice(5, 7), 16) / 255;
-  return [r, g, b];
-}
-
-function FluidSimulation() {
-  const { size, gl, camera } = useThree();
-  const fluidMaterial = useRef<THREE.ShaderMaterial>(null);
-  const displayMaterial = useRef<THREE.ShaderMaterial>(null);
-  const fluidMeshRef = useRef<THREE.Mesh>(null);
-  const displayMeshRef = useRef<THREE.Mesh>(null);
-
-  const fluidTarget1 = useFBO(size.width, size.height, {
-    minFilter: THREE.LinearFilter,
-    magFilter: THREE.LinearFilter,
-    format: THREE.RGBAFormat,
-    type: THREE.FloatType,
-  });
-
-  const fluidTarget2 = useFBO(size.width, size.height, {
-    minFilter: THREE.LinearFilter,
-    magFilter: THREE.LinearFilter,
-    format: THREE.RGBAFormat,
-    type: THREE.FloatType,
-  });
-
-  const [currentFluidTarget, setCurrentFluidTarget] = useState(fluidTarget1);
-  const [previousFluidTarget, setPreviousFluidTarget] = useState(fluidTarget2);
-  const [frameCount, setFrameCount] = useState(0);
-
-  const mouse = useRef({ x: 0, y: 0, prevX: 0, prevY: 0 });
-  const targetMouse = useRef({ x: 0, y: 0 });
-  const smoothMouse = useRef({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const rect = gl.domElement.getBoundingClientRect();
-      targetMouse.current.x = e.clientX - rect.left;
-      targetMouse.current.y = rect.height - (e.clientY - rect.top);
-    };
-
-    gl.domElement.addEventListener('mousemove', handleMouseMove);
-
-    return () => {
-      gl.domElement.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, [gl.domElement]);
-
-  useFrame(({ gl, clock }) => {
-    const time = clock.getElapsedTime();
-
-    mouse.current.prevX = smoothMouse.current.x;
-    mouse.current.prevY = smoothMouse.current.y;
-
-    smoothMouse.current.x += (targetMouse.current.x - smoothMouse.current.x) * config.lerpFactor;
-    smoothMouse.current.y += (targetMouse.current.y - smoothMouse.current.y) * config.lerpFactor;
-
-    mouse.current.x = smoothMouse.current.x;
-    mouse.current.y = smoothMouse.current.y;
-
-    if (fluidMaterial.current) {
-      fluidMaterial.current.uniforms.iTime.value = time;
-      fluidMaterial.current.uniforms.iFrame.value = frameCount;
-      fluidMaterial.current.uniforms.iMouse.value.set(
-        mouse.current.x,
-        mouse.current.y,
-        mouse.current.prevX,
-        mouse.current.prevY
-      );
-
-      fluidMaterial.current.uniforms.uBrushSize.value = config.brushSize;
-      fluidMaterial.current.uniforms.uBrushStrength.value = config.brushStrength;
-      fluidMaterial.current.uniforms.uFluidDecay.value = config.fluidDecay;
-      fluidMaterial.current.uniforms.uTrailLength.value = config.trailLength;
-      fluidMaterial.current.uniforms.uStopDecay.value = config.stopDecay;
-    }
-
-    if (displayMaterial.current) {
-      displayMaterial.current.uniforms.iTime.value = time;
-      displayMaterial.current.uniforms.uDistortionAmount.value = config.distortionAmount;
-      displayMaterial.current.uniforms.uColorIntensity.value = config.colorIntensity;
-      displayMaterial.current.uniforms.uSoftness.value = config.softness;
-      displayMaterial.current.uniforms.uColor1.value.set(...hexToRgb(config.color1));
-      displayMaterial.current.uniforms.uColor2.value.set(...hexToRgb(config.color2));
-      displayMaterial.current.uniforms.uColor3.value.set(...hexToRgb(config.color3));
-      displayMaterial.current.uniforms.uColor4.value.set(...hexToRgb(config.color4));
-    }
-
-    if (fluidMaterial.current && fluidMeshRef.current) {
-        fluidMaterial.current.uniforms.iPreviousFrame.value = previousFluidTarget.texture;
-        gl.setRenderTarget(currentFluidTarget);
-        gl.render(fluidMeshRef.current, camera);
-    }
-
-    if (displayMaterial.current && displayMeshRef.current) {
-        displayMaterial.current.uniforms.iFluid.value = currentFluidTarget.texture;
-        gl.setRenderTarget(null);
-        gl.render(displayMeshRef.current, camera);
-    }
-
-    const temp = currentFluidTarget;
-    setCurrentFluidTarget(previousFluidTarget);
-    setPreviousFluidTarget(temp);
-
-    setFrameCount(prev => prev + 1);
-  });
-
-  const fluidPlane = useMemo(() => {
-    const aspect = size.width / size.height;
-    return (
-      <mesh ref={fluidMeshRef}>
-        <planeGeometry args={[2 * aspect, 2]} />
-        <shaderMaterial
-          ref={fluidMaterial}
-          uniforms={{
-            iTime: { value: 0 },
-            iResolution: { value: new THREE.Vector2(size.width, size.height) },
-            iMouse: { value: new THREE.Vector4(0, 0, 0, 0) },
-            iFrame: { value: 0 },
-            iPreviousFrame: { value: null },
-            uBrushSize: { value: config.brushSize },
-            uBrushStrength: { value: config.brushStrength },
-            uFluidDecay: { value: config.fluidDecay },
-            uTrailLength: { value: config.trailLength },
-            uStopDecay: { value: config.stopDecay },
-          }}
-          vertexShader={vertexShader}
-          fragmentShader={fluidShader}
-        />
-      </mesh>
-    );
-  }, [size]);
-
-  const displayPlane = useMemo(() => {
-    const aspect = size.width / size.height;
-    return (
-      <mesh ref={displayMeshRef}>
-        <planeGeometry args={[2 * aspect, 2]} />
-        <shaderMaterial
-          ref={displayMaterial}
-          uniforms={{
-            iTime: { value: 0 },
-            iResolution: { value: new THREE.Vector2(size.width, size.height) },
-            iFluid: { value: null },
-            uDistortionAmount: { value: config.distortionAmount },
-            uColor1: { value: new THREE.Vector3(...hexToRgb(config.color1)) },
-            uColor2: { value: new THREE.Vector3(...hexToRgb(config.color2)) },
-            uColor3: { value: new THREE.Vector3(...hexToRgb(config.color3)) },
-            uColor4: { value: new THREE.Vector3(...hexToRgb(config.color4)) },
-            uColorIntensity: { value: config.colorIntensity },
-            uSoftness: { value: config.softness },
-          }}
-          vertexShader={vertexShader}
-          fragmentShader={displayShader}
-        />
-      </mesh>
-    );
-  }, [size]);
-
-  useEffect(() => {
-    if (fluidMaterial.current) {
-      fluidMaterial.current.uniforms.iResolution.value.set(size.width, size.height);
-    }
-    if (displayMaterial.current) {
-      displayMaterial.current.uniforms.iResolution.value.set(size.width, size.height);
-    }
-    fluidTarget1.setSize(size.width, size.height);
-    fluidTarget2.setSize(size.width, size.height);
-    setFrameCount(0);
-  }, [size, fluidTarget1, fluidTarget2]);
-
+>(({ className, variant = "default", children, ...props }, ref) => {
   return (
-    <>
-      {fluidPlane}
-      {displayPlane}
-    </>
-  );
-}
-
-function OrthographicCameraSetup() {
-  const { size, set } = useThree();
-
-  useEffect(() => {
-    const aspect = size.width / size.height;
-    const camera = new THREE.OrthographicCamera(
-      -aspect, aspect, 1, -1, 0, 1
-    );
-    set({ camera });
-  }, [size, set]);
-
-  return null;
-}
-
-function FluidGradient() {
-  const [simKey, setSimKey] = useState(0);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setSimKey(prev => prev + 1);
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  return (
-    <Canvas
-     className='absolute inset-0'
-     gl={{ antialias: true }}
+    <button
+      ref={ref}
+      className={cn(
+        "gradient-button",
+        "inline-flex items-center justify-center",
+        "rounded-[11px] min-w-[132px] px-9 py-4",
+        "text-base leading-[19px] font-[500] text-white",
+        "font-sans font-bold",
+        "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring",
+        "disabled:pointer-events-none disabled:opacity-50",
+        variant === "variant" && "gradient-button-variant",
+        className
+      )}
+      {...props}
     >
-      <OrthographicCameraSetup />
-      <FluidSimulation key={simKey} />
-    </Canvas>
+      {children}
+    </button>
   );
-}
+});
+GradientButton.displayName = "GradientButton";
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.3,
-    },
-  },
+// InteractiveHoverButton Component
+const InteractiveHoverButton = React.forwardRef<
+  HTMLButtonElement,
+  React.ButtonHTMLAttributes<HTMLButtonElement> & {
+    text?: string;
+  }
+>(({ text = "Button", className, ...props }, ref) => {
+  return (
+    <button
+      ref={ref}
+      className={cn(
+        "group relative w-32 cursor-pointer overflow-hidden rounded-full border bg-background p-2 text-center font-semibold",
+        className
+      )}
+      {...props}
+    >
+      <span className="inline-block translate-x-1 transition-all duration-300 group-hover:translate-x-12 group-hover:opacity-0">
+        {text}
+      </span>
+      <div className="absolute top-0 z-10 flex h-full w-full translate-x-12 items-center justify-center gap-2 text-primary-foreground opacity-0 transition-all duration-300 group-hover:-translate-x-1 group-hover:opacity-100">
+        <span>{text}</span>
+        <ArrowRight />
+      </div>
+      <div className="absolute left-[20%] top-[40%] h-2 w-2 scale-[1] rounded-lg bg-primary transition-all duration-300 group-hover:left-[0%] group-hover:top-[0%] group-hover:h-full group-hover:w-full group-hover:scale-[1.8] group-hover:bg-primary"></div>
+    </button>
+  );
+});
+InteractiveHoverButton.displayName = "InteractiveHoverButton";
+
+// Animated Wave Background Component
+const AnimatedWaveBackground: React.FC = () => {
+  return (
+    <div className="absolute inset-0 overflow-hidden">
+      <svg
+        className="absolute w-full h-full"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+        viewBox="0 0 1440 800"
+      >
+        <defs>
+          <linearGradient id="energyGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#10B981" stopOpacity="0.3">
+              <animate
+                attributeName="stop-color"
+                values="#10B981; #059669; #047857; #10B981"
+                dur="8s"
+                repeatCount="indefinite"
+              />
+            </stop>
+            <stop offset="50%" stopColor="#059669" stopOpacity="0.2">
+              <animate
+                attributeName="stop-color"
+                values="#059669; #047857; #10B981; #059669"
+                dur="8s"
+                repeatCount="indefinite"
+              />
+            </stop>
+            <stop offset="100%" stopColor="#047857" stopOpacity="0.1">
+              <animate
+                attributeName="stop-color"
+                values="#047857; #10B981; #059669; #047857"
+                dur="8s"
+                repeatCount="indefinite"
+              />
+            </stop>
+          </linearGradient>
+          <linearGradient id="efficiencyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.4">
+              <animate
+                attributeName="stop-color"
+                values="#3B82F6; #1D4ED8; #1E40AF; #3B82F6"
+                dur="6s"
+                repeatCount="indefinite"
+              />
+            </stop>
+            <stop offset="100%" stopColor="#1E40AF" stopOpacity="0.2">
+              <animate
+                attributeName="stop-color"
+                values="#1E40AF; #3B82F6; #1D4ED8; #1E40AF"
+                dur="6s"
+                repeatCount="indefinite"
+              />
+            </stop>
+          </linearGradient>
+        </defs>
+        
+        <path
+          fill="url(#energyGradient1)"
+          d="M0,400 C320,300 420,500 720,400 C1020,300 1120,500 1440,400 L1440,800 L0,800 Z"
+        >
+          <animate
+            attributeName="d"
+            dur="10s"
+            repeatCount="indefinite"
+            values="
+              M0,400 C320,300 420,500 720,400 C1020,300 1120,500 1440,400 L1440,800 L0,800 Z;
+              M0,450 C320,350 420,550 720,450 C1020,350 1120,550 1440,450 L1440,800 L0,800 Z;
+              M0,400 C320,300 420,500 720,400 C1020,300 1120,500 1440,400 L1440,800 L0,800 Z
+            "
+          />
+        </path>
+        
+        <path
+          fill="url(#efficiencyGradient)"
+          d="M0,500 C360,400 480,600 840,500 C1200,400 1320,600 1440,500 L1440,800 L0,800 Z"
+        >
+          <animate
+            attributeName="d"
+            dur="12s"
+            repeatCount="indefinite"
+            values="
+              M0,500 C360,400 480,600 840,500 C1200,400 1320,600 1440,500 L1440,800 L0,800 Z;
+              M0,550 C360,450 480,650 840,550 C1200,450 1320,650 1440,550 L1440,800 L0,800 Z;
+              M0,500 C360,400 480,600 840,500 C1200,400 1320,600 1440,500 L1440,800 L0,800 Z
+            "
+          />
+        </path>
+      </svg>
+    </div>
+  );
 };
 
-const itemVariants = {
-  hidden: { y: 30, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
+// Floating Particles Component
+const FloatingParticles: React.FC = () => {
+  const particles = Array.from({ length: 20 });
+  
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {particles.map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute w-1 h-1 bg-green-400/30 rounded-full"
+          initial={{
+            x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1920),
+            y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 1080),
+          }}
+          animate={{
+            x: [
+              Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1920),
+              Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1920),
+              Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1920),
+            ],
+            y: [
+              Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 1080),
+              Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 1080),
+              Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 1080),
+            ],
+            scale: [1, 1.5, 1],
+            opacity: [0.3, 0.8, 0.3],
+          }}
+          transition={{
+            duration: 10 + Math.random() * 10,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+        />
+      ))}
+    </div>
+  );
 };
 
+// Main Energy Conservation Hero Component
 interface EnergyConservationWaveHeroProps {
   tagline?: string;
   title?: string;
@@ -439,81 +210,84 @@ interface EnergyConservationWaveHeroProps {
 const EnergyConservationWaveHero: React.FC<EnergyConservationWaveHeroProps> = ({
   tagline = "Professional Energy Efficiency Solutions",
   title = "Energy Conservation",
-  subtitle = "Transform your energy consumption with cutting-edge conservation technology. Our advanced systems deliver maximum efficiency while reducing your environmental footprint.",
+  subtitle = "Comprehensive energy conservation services to reduce your consumption by 30-50%. Our certified professionals provide energy audits, HVAC optimization, and smart home integration for maximum efficiency.",
   stats = [
-    { value: "40%", label: "Energy Savings" },
-    { value: "24/7", label: "Monitoring" },
-    { value: "100%", label: "ROI Guaranteed" },
+    { value: "30-50%", label: "Energy Savings" },
+    { value: "BPI", label: "Certified" },
+    { value: "25+", label: "Years Experience" },
   ]
 }) => {
+  const { scrollY } = useScroll();
+  
+  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+  const scale = useTransform(scrollY, [0, 300], [1, 0.8]);
+  const y = useTransform(scrollY, [0, 300], [0, 100]);
+
   return (
-    <section className="hero-section relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-black">
-      {/* Fluid Gradient Background */}
-      <FluidGradient />
-
+    <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-950 via-green-950 to-slate-900">
+      {/* Animated Background */}
+      <AnimatedWaveBackground />
+      
+      {/* Floating Particles */}
+      <FloatingParticles />
+      
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 pointer-events-none" />
-
-      {/* Award Badge - Top Right */}
-      <div className="absolute top-4 right-4 md:top-8 md:right-8 z-50">
-        <AwardBadge type="customer-service-excellence" data-testid="award-badge-energy" />
-      </div>
-
-      {/* Main Content */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-950/50 to-slate-950" />
+      
+      {/* Content */}
       <motion.div
-        className="relative z-10 flex max-w-6xl flex-col items-center justify-center px-6 text-center pt-24 md:pt-32"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
+        style={{ opacity, scale, y }}
+        className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 text-center"
       >
-        {/* Badge with Icons */}
+        {/* Icon Badge */}
         <motion.div
-          className="badge-elite-metallic badge-energy mx-auto"
-          variants={itemVariants}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mb-8 flex items-center gap-3 rounded-full border border-green-500/30 bg-green-500/10 px-6 py-3 backdrop-blur-sm"
         >
-          <motion.div
-            animate={{ rotate: [0, 360] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-          >
-            <Leaf className="h-5 w-5 text-green-400" />
-          </motion.div>
-          <span>{tagline}</span>
-          <motion.div
-            animate={{ rotate: [0, 360] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "linear", delay: 1.5 }}
-          >
-            <ThermometerSun className="h-5 w-5 text-blue-400" />
-          </motion.div>
+          <Leaf className="h-5 w-5 text-green-400" />
+          <span className="text-sm font-medium text-green-100">
+            {tagline}
+          </span>
+          <ThermometerSun className="h-5 w-5 text-blue-400" />
         </motion.div>
 
         {/* Main Heading */}
         <motion.h1
-          className="mb-6 max-w-5xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight mx-auto mt-8"
-          variants={itemVariants}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mb-6 max-w-5xl text-6xl font-bold leading-tight md:text-7xl lg:text-8xl"
         >
           The Future of{" "}
-          <span className="font-extrabold bg-gradient-to-r from-white via-emerald-300 to-green-400 bg-clip-text text-transparent preserve-text-color">
+          <span className="bg-gradient-to-r from-green-400 via-emerald-500 to-green-400 bg-clip-text text-transparent drop-shadow-2xl font-extrabold">
             Energy Conservation
           </span>
           <br />
           Meets{" "}
-          <span className="font-extrabold bg-gradient-to-r from-white via-cyan-300 to-blue-400 bg-clip-text text-transparent preserve-text-color">
+          <span className="bg-gradient-to-r from-blue-400 via-cyan-500 to-blue-400 bg-clip-text text-transparent drop-shadow-2xl font-extrabold">
             Efficiency Innovation
           </span>
         </motion.h1>
 
         {/* Subtitle */}
         <motion.p
-          className="mt-6 max-w-3xl text-lg leading-8 text-gray-200 md:text-xl lg:text-2xl"
-          variants={itemVariants}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="mb-12 max-w-2xl text-lg text-slate-300 md:text-xl"
         >
           {subtitle}
         </motion.p>
 
+
         {/* Stats Section */}
         <motion.div
-          className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto"
-          variants={itemVariants}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1 }}
+          className="mt-20 grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-12"
         >
           {stats.map((stat, index) => (
             <div
@@ -527,13 +301,9 @@ const EnergyConservationWaveHero: React.FC<EnergyConservationWaveHeroProps> = ({
         </motion.div>
       </motion.div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 rounded-full border-2 border-white/30 flex items-start justify-center p-2">
-          <div className="w-1.5 h-3 bg-white/50 rounded-full"></div>
-        </div>
-      </div>
-    </section>
+      {/* Bottom Gradient Fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-950 to-transparent" />
+    </div>
   );
 };
 

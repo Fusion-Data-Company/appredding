@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MainLayout from "@/components/layout/MainLayout";
 import { Button } from "@/components/ui/button";
-import EnergyConservationWaveHero from "@/components/EnergyConservationWaveHero";
+import FluidEnergyHero from "@/components/FluidEnergyHero";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
@@ -201,17 +201,8 @@ const EnergyConservation = () => {
         structuredData={structuredData}
       />
 
-      {/* Energy Conservation Wave Hero Section */}
-      <EnergyConservationWaveHero 
-        tagline="Professional Energy Efficiency Solutions"
-        title="Energy Conservation"
-        subtitle="Comprehensive energy conservation services to reduce your consumption by 30-50%. Our certified professionals provide energy audits, HVAC optimization, and smart home integration for maximum efficiency."
-        stats={[
-          { value: "30-50%", label: "Energy Savings" },
-          { value: "BPI", label: "Certified" },
-          { value: "25+", label: "Years Experience" }
-        ]}
-      />
+      {/* Fluid Energy Hero Section */}
+      <FluidEnergyHero />
 
       <div className="py-16 sm:py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
       {/* Live Metrics Section */}
