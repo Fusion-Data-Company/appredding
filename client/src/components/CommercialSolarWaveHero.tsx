@@ -275,35 +275,11 @@ const CommercialSolarWaveHero: React.FC<CommercialSolarWaveHeroProps> = ({
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
-            style={{
-              textShadow: '0 0 40px rgba(255, 255, 255, 0.9), 0 0 80px rgba(255, 255, 255, 0.6), 0 4px 20px rgba(255, 255, 255, 0.8), 0 8px 40px rgba(255, 255, 255, 0.5), 0 0 100px rgba(255, 255, 255, 0.4)'
-            }}
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight text-white"
           >
-            <span className="font-extrabold">
-              <span style={{
-                color: '#FF8C00',
-                filter: 'drop-shadow(0 0 20px rgba(255, 140, 0, 1)) drop-shadow(0 0 40px rgba(255, 140, 0, 0.8)) drop-shadow(0 4px 12px rgba(255, 140, 0, 0.9))',
-                WebkitTextStroke: '1px rgba(255, 140, 0, 0.5)',
-                textShadow: '0 0 40px rgba(255, 140, 0, 0.9), 0 0 80px rgba(255, 140, 0, 0.7), 0 4px 20px rgba(255, 140, 0, 0.8), 0 0 100px rgba(255, 140, 0, 0.6)'
-              }}>
-                Commercial Solar
-              </span>
-              <span style={{
-                color: '#FFFFFF',
-                filter: 'drop-shadow(0 0 20px rgba(255, 255, 255, 1)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.8)) drop-shadow(0 4px 12px rgba(255, 255, 255, 0.9))',
-                WebkitTextStroke: '1px rgba(255, 255, 255, 0.3)'
-              }}>
-                {' '}Installation
-              </span>
-            </span>
+            {title}
             <br />
-            <span className="font-extrabold tracking-wide text-white" style={{
-              filter: 'drop-shadow(0 0 20px rgba(255, 255, 255, 1)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.8)) drop-shadow(0 4px 12px rgba(255, 255, 255, 0.9))',
-              WebkitTextStroke: '1px rgba(255, 255, 255, 0.3)'
-            }}>
-              Advance Power Redding
-            </span>
+            Advance Power Redding
           </motion.h1>
 
           {/* Subtitle */}
