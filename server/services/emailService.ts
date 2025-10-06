@@ -82,7 +82,7 @@ export async function sendOrderConfirmation(data: OrderConfirmationData): Promis
 
     const msg = {
       to: data.email,
-      from: 'orders@advancepowerredding.com',
+      from: 'office@apredding.net',
       subject: `Order Confirmation - ${data.orderNumber}`,
       html: generateOrderEmailHTML(data)
     };
@@ -99,7 +99,7 @@ export async function sendOrderConfirmation(data: OrderConfirmationData): Promis
     });
 
     const emailData = {
-      from: 'Advance Power Redding <orders@advancepowerredding.com>',
+      from: 'Advance Power Redding <office@apredding.net>',
       to: data.email,
       subject: `Order Confirmation - ${data.orderNumber}`,
       html: generateOrderEmailHTML(data)
@@ -123,7 +123,7 @@ export async function sendOrderConfirmation(data: OrderConfirmationData): Promis
     });
 
     await transporter.sendMail({
-      from: '"Advance Power Redding" <orders@advancepowerredding.com>',
+      from: '"Advance Power Redding" <office@apredding.net>',
       to: data.email,
       subject: `Order Confirmation - ${data.orderNumber}`,
       html: generateOrderEmailHTML(data)
@@ -227,7 +227,7 @@ function generateOrderEmailHTML(data: OrderConfirmationData): string {
         </div>
         
         <div class="footer">
-          <p>Questions? Contact us at support@advancepowerredding.com</p>
+          <p>Questions? Contact us at office@apredding.net</p>
           <p>&copy; ${new Date().getFullYear()} Advance Power Redding. All rights reserved.</p>
         </div>
       </div>

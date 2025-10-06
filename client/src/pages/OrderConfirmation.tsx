@@ -290,7 +290,7 @@ export default function OrderConfirmation() {
               </div>
               <div className="flex items-start gap-2">
                 <CheckCircle2 className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
-                <p>Questions? Contact us at support@advancepowerredding.com or (555) 123-4567</p>
+                <p>Questions? Contact us at office@apredding.net or (555) 123-4567</p>
               </div>
             </CardContent>
           </Card>

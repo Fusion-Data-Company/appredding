@@ -14,11 +14,13 @@ const Contact = () => {
       "@type": "Organization",
       "name": "Advance Power Redding",
       "telephone": "+1-530-221-1234",
-      "email": "info@apredding.net",
+      "email": "office@apredding.net",
       "address": {
         "@type": "PostalAddress",
+        "streetAddress": "843 N. Market St.",
         "addressLocality": "Redding",
         "addressRegion": "CA",
+        "postalCode": "96001",
         "addressCountry": "US"
       }
     }

@@ -79,7 +79,7 @@ router.post("/generate-contract", async (req, res) => {
         license: "CA Contractor License #XXXXXX",
         address: "Redding, California",
         phone: "(530) XXX-XXXX",
-        email: "info@advancepowerredding.com"
+        email: "office@apredding.net"
       },
       
       // System Specifications

@@ -335,8 +335,8 @@ export function PremiumNavbar() {
         <div className="border-l border-gray-700 pl-4">
           <h4 className="font-bold text-white text-xs mb-1">Contact Information</h4>
           <p className="text-gray-200 text-xs mb-1">(530) 226-0701</p>
-          <a href="mailto:info@apredding.net" className="text-gray-200 text-xs hover:text-white block mb-3">
-            info@apredding.net
+          <a href="mailto:office@apredding.net" className="text-gray-200 text-xs hover:text-white block mb-3">
+            office@apredding.net
           </a>
           
           <Link 

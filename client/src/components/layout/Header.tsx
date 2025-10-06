@@ -350,9 +350,9 @@ const SolarCompanyHeader: React.FC = () => {
               <span className="font-semibold">(530) 226-0701</span>
             </a>
             <span className="text-white/30">•</span>
-            <a href="mailto:info@apredding.net" className="flex items-center hover:text-white/90 transition-colors duration-200">
+            <a href="mailto:office@apredding.net" className="flex items-center hover:text-white/90 transition-colors duration-200">
               <Mail className="w-3.5 h-3.5 mr-2" />
-              <span>info@apredding.net</span>
+              <span>office@apredding.net</span>
             </a>
             <span className="text-white/30">•</span>
             <span className="flex items-center">
@@ -383,9 +383,9 @@ const SolarCompanyHeader: React.FC = () => {
               <span className="font-semibold">(530) 226-0701</span>
             </a>
             <span className="text-white/30">•</span>
-            <a href="mailto:info@apredding.net" className="flex items-center hover:text-white/90 transition-colors duration-200">
+            <a href="mailto:office@apredding.net" className="flex items-center hover:text-white/90 transition-colors duration-200">
               <Mail className="w-3.5 h-3.5 mr-2" />
-              <span>info@apredding.net</span>
+              <span>office@apredding.net</span>
             </a>
             <span className="text-white/30">•</span>
             <span className="flex items-center">

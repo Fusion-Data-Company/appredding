@@ -312,8 +312,11 @@ const CommercialSolar = () => {
       "name": "Advance Power Redding",
       "address": {
         "@type": "PostalAddress",
+        "streetAddress": "843 N. Market St.",
         "addressLocality": "Redding",
-        "addressRegion": "CA"
+        "addressRegion": "CA",
+        "postalCode": "96001",
+        "addressCountry": "US"
       }
     },
     "description": pageDescription,

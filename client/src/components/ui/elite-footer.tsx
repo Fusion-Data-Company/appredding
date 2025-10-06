@@ -210,11 +210,11 @@ export const EliteFooter: React.FC = () => {
               </div>
               <div className="flex items-center text-gray-400">
                 <Mail className="w-4 h-4 text-orange-400 mr-3" />
-                <span>info@apredding.net</span>
+                <span>office@apredding.net</span>
               </div>
               <div className="flex items-start text-gray-400">
                 <MapPin className="w-4 h-4 text-orange-400 mr-3 mt-1" />
-                <span>Serving Northern California<br />Redding, Chico, Sacramento</span>
+                <span>843 N. Market St., Redding, CA<br />Serving Northern California</span>
               </div>
               <div className="flex items-center text-gray-400">
                 <Calendar className="w-4 h-4 text-orange-400 mr-3" />

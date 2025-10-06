@@ -82,8 +82,8 @@ export default function BookAppointment() {
                   <Mail className="h-5 w-5 text-orange-500 mt-1 flex-shrink-0" />
                   <div>
                     <p className="text-gray-400 text-sm">Email</p>
-                    <a href="mailto:info@advancepowerredding.com" className="text-white hover:text-orange-400 transition-colors break-all">
-                      info@advancepowerredding.com
+                    <a href="mailto:office@apredding.net" className="text-white hover:text-orange-400 transition-colors break-all">
+                      office@apredding.net
                     </a>
                   </div>
                 </div>

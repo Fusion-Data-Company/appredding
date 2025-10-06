@@ -35,7 +35,7 @@ const CTASection: React.FC<CTASectionProps> = ({
   secondaryButton,
   showContactInfo = true,
   phoneNumber = '(530) 226-0701',
-  email = 'info@apredding.net',
+  email = 'office@apredding.net',
   backgroundColor = 'bg-gradient-to-br from-gray-900 to-black',
   accentColor = 'orange'
 }) => {

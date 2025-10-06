@@ -35,7 +35,7 @@ export async function generateChatResponse(messages: { role: string; content: st
       - Founded: 1999 by Greg Tomsik
       - Location: Redding, California (serving Shasta County)
       - Services: Solar installations, battery storage systems, solar repairs, energy efficiency consultations
-      - Contact: (530) 241-5297 | info@advancepowerredding.com
+      - Contact: (530) 241-5297 | office@apredding.net
       - Specialties: Residential solar, commercial solar, hybrid systems, battery storage solutions
       
       Battery Financing Options:

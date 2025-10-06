@@ -43,15 +43,17 @@ const SEOHead = ({
     "description": "Northern California's premier solar installation company with 25+ years of experience",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "843 N. Market St.",
       "addressLocality": "Redding",
       "addressRegion": "CA",
+      "postalCode": "96001",
       "addressCountry": "US"
     },
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "Sales",
       "telephone": "+1-530-221-1234",
-      "email": "info@apredding.net"
+      "email": "office@apredding.net"
     },
     "sameAs": [
       "https://www.facebook.com/AdvancePowerRedding",
