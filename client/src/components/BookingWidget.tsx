@@ -222,7 +222,7 @@ export default function BookingWidget({ className }: BookingWidgetProps) {
                 className="block"
                 data-testid="link-download-ics"
               >
-                <Button variant="outline" className="w-full border-orange-500/30 text-white hover:bg-orange-500/10">
+                <Button variant="outline" className="w-full border-orange-500/30 text-white hover:bg-green-500/10">
                   Download Calendar Invite (.ics)
                 </Button>
               </a>
@@ -389,7 +389,7 @@ export default function BookingWidget({ className }: BookingWidgetProps) {
               </Label>
               {loadingSlots ? (
                 <div className="flex items-center justify-center py-8" data-testid="loading-slots">
-                  <Loader2 className="h-8 w-8 animate-spin text-orange-500" />
+                  <Loader2 className="h-8 w-8 animate-spin text-green-500" />
                 </div>
               ) : availableSlots.length > 0 ? (
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
@@ -402,7 +402,7 @@ export default function BookingWidget({ className }: BookingWidgetProps) {
                         "p-3 rounded-lg border-2 transition-all",
                         "hover:scale-105 active:scale-95",
                         watchedTime === slot.startTime
-                          ? "bg-orange-500 border-orange-500 text-white"
+                          ? "bg-green-500 border-orange-500 text-white"
                           : "bg-gray-800/50 border-gray-700 text-gray-300 hover:border-orange-500/50"
                       )}
                       data-testid={`time-slot-${slot.startTime}`}

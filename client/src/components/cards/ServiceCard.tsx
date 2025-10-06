@@ -30,8 +30,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 }) => {
   const accentStyles = {
     orange: {
-      icon: 'text-orange-400',
-      iconBg: 'bg-orange-500/10',
+      icon: 'text-green-400',
+      iconBg: 'bg-green-500/10',
       border: 'border-orange-500/30',
       button: 'from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700',
       highlight: 'from-orange-500/10 to-orange-600/10'

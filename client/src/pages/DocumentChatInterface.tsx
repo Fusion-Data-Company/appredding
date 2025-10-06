@@ -286,7 +286,7 @@ export default function DocumentChatInterface() {
       <div className="max-w-7xl mx-auto">
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-2">
-            <MessageCircle className="inline-block mr-3 text-orange-600" />
+            <MessageCircle className="inline-block mr-3 text-green-600" />
             Document Chat Interface
           </h1>
           <p className="text-lg text-gray-600">
@@ -300,7 +300,7 @@ export default function DocumentChatInterface() {
             {/* Upload Section */}
             <Card className="border-orange-200 shadow-lg">
               <CardHeader className="bg-gradient-to-r from-orange-100 to-yellow-100">
-                <CardTitle className="flex items-center text-orange-800">
+                <CardTitle className="flex items-center text-green-800">
                   <Upload className="mr-2" size={20} />
                   Upload Documents
                 </CardTitle>
@@ -309,7 +309,7 @@ export default function DocumentChatInterface() {
                 <div>
                   <Button 
                     onClick={() => fileInputRef.current?.click()}
-                    className="w-full bg-orange-600 hover:bg-orange-700"
+                    className="w-full bg-green-600 hover:bg-green-700"
                     disabled={isUploading}
                   >
                     <FileText className="mr-2" size={16} />
@@ -345,7 +345,7 @@ export default function DocumentChatInterface() {
                 {isUploading && (
                   <div className="w-full bg-gray-200 rounded-full h-2">
                     <div 
-                      className="bg-orange-600 h-2 rounded-full transition-all duration-300"
+                      className="bg-green-600 h-2 rounded-full transition-all duration-300"
                       style={{ width: `${uploadProgress}%` }}
                     />
                   </div>
@@ -479,7 +479,7 @@ export default function DocumentChatInterface() {
                       <div key={message.id} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                         <div className={`max-w-[80%] rounded-lg p-3 ${
                           message.role === 'user' 
-                            ? 'bg-orange-600 text-white' 
+                            ? 'bg-green-600 text-white' 
                             : 'bg-gray-100 text-gray-900'
                         }`}>
                           <div className="flex items-start gap-2">
@@ -532,7 +532,7 @@ export default function DocumentChatInterface() {
                     <Button 
                       onClick={handleSendMessage}
                       disabled={!currentMessage.trim() || documentChatMutation.isPending || searchChatMutation.isPending}
-                      className="bg-orange-600 hover:bg-orange-700"
+                      className="bg-green-600 hover:bg-green-700"
                     >
                       <Send size={16} />
                     </Button>

@@ -34,8 +34,8 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({
 
   const accentStyles = {
     orange: {
-      icon: 'text-orange-400',
-      iconBg: 'bg-orange-500/10',
+      icon: 'text-green-400',
+      iconBg: 'bg-green-500/10',
       border: 'border-orange-500/30',
       highlight: 'from-orange-500/20 to-orange-600/20',
       text: 'from-orange-400 to-orange-500'

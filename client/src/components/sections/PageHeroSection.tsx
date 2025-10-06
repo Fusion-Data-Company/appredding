@@ -42,7 +42,7 @@ const PageHeroSection: React.FC<PageHeroSectionProps> = ({
   const buttonColors = {
     orange: {
       primary: 'from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700',
-      secondary: 'border-orange-500 text-orange-400 hover:bg-orange-500 hover:text-white'
+      secondary: 'border-orange-500 text-green-400 hover:bg-green-500 hover:text-white'
     },
     blue: {
       primary: 'from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700',

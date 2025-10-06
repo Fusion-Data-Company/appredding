@@ -167,9 +167,9 @@ const HybridSolar = () => {
         {/* PSPS/Grid Failure Alert */}
         <div className="alert-elite mb-8 mt-8">
           <div className="flex items-center gap-3">
-            <WifiOff className="h-6 w-6 text-orange-400 animate-pulse" />
+            <WifiOff className="h-6 w-6 text-green-400 animate-pulse" />
             <div className="flex-1">
-              <p className="text-orange-300 font-semibold">CRITICAL: California PSPS Events Increasing 300% Year-Over-Year</p>
+              <p className="text-green-300 font-semibold">CRITICAL: California PSPS Events Increasing 300% Year-Over-Year</p>
               <p className="text-gray-400 text-sm mt-1">Tier 2/3 fire zones experience 48-72 hour power shutoffs • Grid-tied solar provides ZERO backup without batteries</p>
             </div>
           </div>
@@ -177,7 +177,7 @@ const HybridSolar = () => {
 
         <div className="text-center mb-12">
             <div className="badge-elite-metallic badge-solar mb-8">
-              <GitBranch className="h-4 w-4 text-orange-400" />
+              <GitBranch className="h-4 w-4 text-green-400" />
               <span>Grid-Tie + Off-Grid • Seamless Transfer • UL 1741-SA</span>
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
@@ -206,9 +206,9 @@ const HybridSolar = () => {
                 <span className="text-yellow-400 font-mono">85%</span>
               </div>
               <div className="status-badge-elite">
-                <Sun className="h-4 w-4 text-orange-400" />
+                <Sun className="h-4 w-4 text-green-400" />
                 <span className="text-gray-400">Solar Production:</span>
-                <span className="text-orange-400 font-mono">8.5kW</span>
+                <span className="text-green-400 font-mono">8.5kW</span>
               </div>
               <div className="status-badge-elite">
                 <Timer className="h-4 w-4 text-blue-400" />
@@ -302,31 +302,31 @@ const HybridSolar = () => {
 
             <div className="spec-card-elite glow-orange group">
               <div className="flex items-center gap-3 mb-4">
-                <div className="icon-container-elite bg-orange-500/20 group-hover:bg-orange-500/30">
-                  <HardDrive className="h-6 w-6 text-orange-400" />
+                <div className="icon-container-elite bg-green-500/20 group-hover:bg-green-500/30">
+                  <HardDrive className="h-6 w-6 text-green-400" />
                 </div>
                 <h3 className="text-lg font-bold text-white">Battery Backup</h3>
               </div>
               <div className="space-y-3">
                 <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Capacity:</span>
-                  <span className="text-orange-300 font-mono">15-30kWh</span>
+                  <span className="text-green-300 font-mono">15-30kWh</span>
                 </div>
                 <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Chemistry:</span>
-                  <span className="text-orange-300 font-mono">LiFePO4</span>
+                  <span className="text-green-300 font-mono">LiFePO4</span>
                 </div>
                 <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Runtime:</span>
-                  <span className="text-orange-300 font-mono">8-24hrs</span>
+                  <span className="text-green-300 font-mono">8-24hrs</span>
                 </div>
                 <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Cycles:</span>
-                  <span className="text-orange-300 font-mono">6000+</span>
+                  <span className="text-green-300 font-mono">6000+</span>
                 </div>
                 <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Warranty:</span>
-                  <span className="text-orange-300 font-mono">10 years</span>
+                  <span className="text-green-300 font-mono">10 years</span>
                 </div>
               </div>
             </div>
@@ -613,57 +613,57 @@ const HybridSolar = () => {
         {/* Sol-Ark Hybrid Advantage */}
         <div className="bg-gradient-to-r from-orange-900/20 to-red-900/20 border border-orange-500/30 rounded-2xl p-8">
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <Cpu className="mr-3 h-6 w-6 text-orange-400" />
+            <Cpu className="mr-3 h-6 w-6 text-green-400" />
             Sol-Ark: The Ultimate Hybrid Solution
           </h3>
           <div className="grid md:grid-cols-3 gap-6">
             <div>
-              <h4 className="text-orange-400 font-semibold mb-3">Dual Architecture Support</h4>
+              <h4 className="text-green-400 font-semibold mb-3">Dual Architecture Support</h4>
               <ul className="space-y-2 text-sm text-gray-300">
                 <li className="flex items-start gap-2">
-                  <ChevronRight className="h-4 w-4 text-orange-400 mt-0.5" />
+                  <ChevronRight className="h-4 w-4 text-green-400 mt-0.5" />
                   <span>AC-couple with any grid-tie inverter</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <ChevronRight className="h-4 w-4 text-orange-400 mt-0.5" />
+                  <ChevronRight className="h-4 w-4 text-green-400 mt-0.5" />
                   <span>DC-couple with built-in MPPT</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <ChevronRight className="h-4 w-4 text-orange-400 mt-0.5" />
+                  <ChevronRight className="h-4 w-4 text-green-400 mt-0.5" />
                   <span>AC + DC simultaneous operation</span>
                 </li>
               </ul>
             </div>
             <div>
-              <h4 className="text-orange-400 font-semibold mb-3">Seamless Transfer</h4>
+              <h4 className="text-green-400 font-semibold mb-3">Seamless Transfer</h4>
               <ul className="space-y-2 text-sm text-gray-300">
                 <li className="flex items-start gap-2">
-                  <ChevronRight className="h-4 w-4 text-orange-400 mt-0.5" />
+                  <ChevronRight className="h-4 w-4 text-green-400 mt-0.5" />
                   <span>&lt;4ms UPS-grade switching</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <ChevronRight className="h-4 w-4 text-orange-400 mt-0.5" />
+                  <ChevronRight className="h-4 w-4 text-green-400 mt-0.5" />
                   <span>No interruption to sensitive loads</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <ChevronRight className="h-4 w-4 text-orange-400 mt-0.5" />
+                  <ChevronRight className="h-4 w-4 text-green-400 mt-0.5" />
                   <span>Automatic grid detection/reconnection</span>
                 </li>
               </ul>
             </div>
             <div>
-              <h4 className="text-orange-400 font-semibold mb-3">Smart Features</h4>
+              <h4 className="text-green-400 font-semibold mb-3">Smart Features</h4>
               <ul className="space-y-2 text-sm text-gray-300">
                 <li className="flex items-start gap-2">
-                  <ChevronRight className="h-4 w-4 text-orange-400 mt-0.5" />
+                  <ChevronRight className="h-4 w-4 text-green-400 mt-0.5" />
                   <span>Time-of-use optimization</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <ChevronRight className="h-4 w-4 text-orange-400 mt-0.5" />
+                  <ChevronRight className="h-4 w-4 text-green-400 mt-0.5" />
                   <span>Generator auto-start (2-wire/3-wire)</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <ChevronRight className="h-4 w-4 text-orange-400 mt-0.5" />
+                  <ChevronRight className="h-4 w-4 text-green-400 mt-0.5" />
                   <span>Load management & prioritization</span>
                 </li>
               </ul>
@@ -763,23 +763,23 @@ const HybridSolar = () => {
               </div>
             </div>
 
-            <div className="bg-orange-900/20 border border-orange-500/30 rounded-lg p-4">
-              <h4 className="text-orange-400 font-semibold mb-2">Load Management Strategy</h4>
+            <div className="bg-green-900/20 border border-orange-500/30 rounded-lg p-4">
+              <h4 className="text-green-400 font-semibold mb-2">Load Management Strategy</h4>
               <ul className="space-y-2 text-sm text-gray-300">
                 <li className="flex items-start gap-2">
-                  <Timer className="h-4 w-4 text-orange-400 mt-0.5" />
+                  <Timer className="h-4 w-4 text-green-400 mt-0.5" />
                   <span>Automatic load shedding when battery &lt; 30%</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Timer className="h-4 w-4 text-orange-400 mt-0.5" />
+                  <Timer className="h-4 w-4 text-green-400 mt-0.5" />
                   <span>Time-based water heater control (off-peak only)</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Timer className="h-4 w-4 text-orange-400 mt-0.5" />
+                  <Timer className="h-4 w-4 text-green-400 mt-0.5" />
                   <span>HVAC cycling to maintain 50% runtime</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Timer className="h-4 w-4 text-orange-400 mt-0.5" />
+                  <Timer className="h-4 w-4 text-green-400 mt-0.5" />
                   <span>Generator auto-start at 20% SOC</span>
                 </li>
               </ul>
@@ -854,30 +854,30 @@ const HybridSolar = () => {
         <div className="grid lg:grid-cols-2 gap-8">
           <div className="card-elite glow-orange p-8">
             <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-              <Fuel className="mr-3 h-6 w-6 text-orange-400" />
+              <Fuel className="mr-3 h-6 w-6 text-green-400" />
               Automatic Generator Start (AGS)
             </h3>
             <div className="space-y-4 mb-6">
               <p className="text-gray-300 text-sm">
                 Sol-Ark inverters include built-in 2-wire and 3-wire generator start capabilities, enabling fully automatic backup power management without manual intervention.
               </p>
-              <div className="bg-orange-900/20 border border-orange-500/30 rounded-lg p-4">
-                <h4 className="text-orange-400 font-semibold mb-2">AGS Trigger Conditions:</h4>
+              <div className="bg-green-900/20 border border-orange-500/30 rounded-lg p-4">
+                <h4 className="text-green-400 font-semibold mb-2">AGS Trigger Conditions:</h4>
                 <ul className="space-y-2 text-sm text-gray-300">
                   <li className="flex items-start gap-2">
-                    <ChevronRight className="h-4 w-4 text-orange-400 mt-0.5" />
+                    <ChevronRight className="h-4 w-4 text-green-400 mt-0.5" />
                     <span>Battery SOC drops below set point (typically 20-30%)</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <ChevronRight className="h-4 w-4 text-orange-400 mt-0.5" />
+                    <ChevronRight className="h-4 w-4 text-green-400 mt-0.5" />
                     <span>Load demand exceeds inverter capacity</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <ChevronRight className="h-4 w-4 text-orange-400 mt-0.5" />
+                    <ChevronRight className="h-4 w-4 text-green-400 mt-0.5" />
                     <span>Extended grid outage (time-based trigger)</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <ChevronRight className="h-4 w-4 text-orange-400 mt-0.5" />
+                    <ChevronRight className="h-4 w-4 text-green-400 mt-0.5" />
                     <span>Low solar production + high demand</span>
                   </li>
                 </ul>
@@ -936,7 +936,7 @@ const HybridSolar = () => {
                 <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-3">
                   <div className="flex items-center gap-2 mb-1">
                     <span className="text-lg font-bold text-blue-300">3.</span>
-                    <Fuel className="h-5 w-5 text-orange-400" />
+                    <Fuel className="h-5 w-5 text-green-400" />
                     <span className="text-white font-semibold">Generator (Backup)</span>
                   </div>
                   <p className="text-xs text-gray-400 ml-7">Extended outages, battery recharge, high loads</p>
@@ -1008,7 +1008,7 @@ const HybridSolar = () => {
 
             <div className="flex gap-4">
               <div className="flex-shrink-0 w-24 text-right">
-                <span className="text-orange-400 font-mono text-sm">Hour 16-24</span>
+                <span className="text-green-400 font-mono text-sm">Hour 16-24</span>
               </div>
               <div className="flex-1">
                 <h4 className="text-white font-semibold mb-1">Evening Battery Operation</h4>
@@ -1074,13 +1074,13 @@ const HybridSolar = () => {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-400">Peak Season:</span>
-                    <span className="text-orange-400 font-mono">Sept-Nov</span>
+                    <span className="text-green-400 font-mono">Sept-Nov</span>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-orange-900/20 border border-orange-500/30 rounded-lg p-4">
-                <h4 className="text-orange-400 font-semibold mb-3">High-Risk Areas (Tier 2/3):</h4>
+              <div className="bg-green-900/20 border border-orange-500/30 rounded-lg p-4">
+                <h4 className="text-green-400 font-semibold mb-3">High-Risk Areas (Tier 2/3):</h4>
                 <ul className="space-y-1 text-sm text-gray-300">
                   <li>• Shasta County foothills</li>
                   <li>• Paradise/Magalia region</li>
@@ -1307,7 +1307,7 @@ const HybridSolar = () => {
         {/* Value Comparison Table */}
         <div className="card-elite glow-purple p-8">
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <PieChart className="mr-3 h-6 w-6 text-orange-400" />
+            <PieChart className="mr-3 h-6 w-6 text-green-400" />
             Backup Power Options Comparison
           </h3>
           <div className="overflow-x-auto">
@@ -1335,9 +1335,9 @@ const HybridSolar = () => {
                   <td className="py-3 px-4 text-gray-300 font-semibold">Standby Generator</td>
                   <td className="text-center py-3 px-4 font-mono text-gray-300">$8,000-15,000</td>
                   <td className="text-center py-3 px-4 text-green-300">Unlimited</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">$3,600</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">$500/yr</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-400">$54,000</td>
+                  <td className="text-center py-3 px-4 font-mono text-green-300">$3,600</td>
+                  <td className="text-center py-3 px-4 font-mono text-green-300">$500/yr</td>
+                  <td className="text-center py-3 px-4 font-mono text-green-400">$54,000</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300 font-semibold">Battery Only</td>

@@ -129,8 +129,8 @@ const ProductComparison = () => {
               </div>
               
               {/* Ambient glow effect - positioned away from text */}
-              <div className="absolute -top-60 -right-40 w-80 h-80 bg-orange-600/15 rounded-full filter blur-[100px] animate-pulse-slow-delayed"></div>
-              <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-orange-500/20 rounded-full filter blur-[120px] animate-pulse-slow"></div>
+              <div className="absolute -top-60 -right-40 w-80 h-80 bg-green-600/15 rounded-full filter blur-[100px] animate-pulse-slow-delayed"></div>
+              <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-green-500/20 rounded-full filter blur-[120px] animate-pulse-slow"></div>
               
               {/* Corner accent with gradient - top-right corner */}
               <div className="absolute top-0 right-0 w-32 h-32 opacity-20 z-10">
@@ -140,7 +140,7 @@ const ProductComparison = () => {
               {/* Additional corner accent lines */}
               <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10">
                 <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
-                <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                <div className="absolute top-0 left-0 w-3 h-3 bg-green-500/50 rounded-full blur-[2px]"></div>
               </div>
               <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none z-10">
                 <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-red-500/70 rounded-tr-lg"></div>
@@ -148,7 +148,7 @@ const ProductComparison = () => {
               </div>
               <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none z-10">
                 <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
-                <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                <div className="absolute bottom-0 left-0 w-3 h-3 bg-green-500/50 rounded-full blur-[2px]"></div>
               </div>
               <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none z-10">
                 <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-red-500/70 rounded-br-lg"></div>
@@ -163,7 +163,7 @@ const ProductComparison = () => {
                 {/* Heading with enhanced enterprise styling and shadows */}
                 <div className="shimmer-fire-text font-bold text-3xl md:text-4xl lg:text-5xl w-full tracking-tight relative z-10">
                   {/* Background glow for letter definition */}
-                  <div className="absolute inset-0 flex justify-center items-center text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110">
+                  <div className="absolute inset-0 flex justify-center items-center text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-green-900/10 blur-[5px] scale-110">
                     How Praetorian Outperforms the Competition
                   </div>
                   
@@ -179,7 +179,7 @@ const ProductComparison = () => {
                 </div>
                 
                 {/* Multiple text shadows for depth - reduced blur effects */}
-                <div className="absolute inset-0 flex items-center justify-center text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight opacity-10 blur-[3px] text-orange-700/30 -z-10 transform scale-105">
+                <div className="absolute inset-0 flex items-center justify-center text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight opacity-10 blur-[3px] text-green-700/30 -z-10 transform scale-105">
                   <span className="whitespace-nowrap">How Praetorian Outperforms the Competition</span>
                 </div>
                 <div className="absolute inset-0 flex items-center justify-center text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight opacity-20 blur-[1px] text-red-900/20 -z-10">
@@ -227,13 +227,13 @@ const ProductComparison = () => {
                 </div>
                 
                 {/* Ambient glow effects - positioned away from text */}
-                <div className="absolute -top-20 -right-20 w-60 h-60 bg-orange-600/15 rounded-full filter blur-[100px] animate-pulse-slow-delayed"></div>
+                <div className="absolute -top-20 -right-20 w-60 h-60 bg-green-600/15 rounded-full filter blur-[100px] animate-pulse-slow-delayed"></div>
                 <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-blue-500/20 rounded-full filter blur-[100px] animate-pulse-slow"></div>
                 
                 {/* Corner accent lines - with mixed theme */}
                 <div className="absolute top-0 left-0 w-8 h-8 pointer-events-none z-10">
                   <div className="absolute top-0 left-0 w-4 h-4 border-t-[1px] border-l-[1px] border-orange-500/70 rounded-tl-lg"></div>
-                  <div className="absolute top-0 left-0 w-1.5 h-1.5 bg-orange-500/50 rounded-full blur-[1px]"></div>
+                  <div className="absolute top-0 left-0 w-1.5 h-1.5 bg-green-500/50 rounded-full blur-[1px]"></div>
                 </div>
                 <div className="absolute top-0 right-0 w-8 h-8 pointer-events-none z-10">
                   <div className="absolute top-0 right-0 w-4 h-4 border-t-[1px] border-r-[1px] border-blue-500/70 rounded-tr-lg"></div>
@@ -241,7 +241,7 @@ const ProductComparison = () => {
                 </div>
                 <div className="absolute bottom-0 left-0 w-8 h-8 pointer-events-none z-10">
                   <div className="absolute bottom-0 left-0 w-4 h-4 border-b-[1px] border-l-[1px] border-orange-500/70 rounded-bl-lg"></div>
-                  <div className="absolute bottom-0 left-0 w-1.5 h-1.5 bg-orange-500/50 rounded-full blur-[1px]"></div>
+                  <div className="absolute bottom-0 left-0 w-1.5 h-1.5 bg-green-500/50 rounded-full blur-[1px]"></div>
                 </div>
                 <div className="absolute bottom-0 right-0 w-8 h-8 pointer-events-none z-10">
                   <div className="absolute bottom-0 right-0 w-4 h-4 border-b-[1px] border-r-[1px] border-blue-500/70 rounded-br-lg"></div>
@@ -301,13 +301,13 @@ const ProductComparison = () => {
                   </div>
                   
                   {/* Ambient glow effects - positioned away from text */}
-                  <div className="absolute -top-20 -right-20 w-60 h-60 bg-orange-600/15 rounded-full filter blur-[100px] animate-pulse-slow-delayed"></div>
+                  <div className="absolute -top-20 -right-20 w-60 h-60 bg-green-600/15 rounded-full filter blur-[100px] animate-pulse-slow-delayed"></div>
                   <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-blue-500/20 rounded-full filter blur-[100px] animate-pulse-slow"></div>
                   
                   {/* Corner accent lines - with mixed theme */}
                   <div className="absolute top-0 left-0 w-8 h-8 pointer-events-none z-10">
                     <div className="absolute top-0 left-0 w-4 h-4 border-t-[1px] border-l-[1px] border-orange-500/70 rounded-tl-lg"></div>
-                    <div className="absolute top-0 left-0 w-1.5 h-1.5 bg-orange-500/50 rounded-full blur-[1px]"></div>
+                    <div className="absolute top-0 left-0 w-1.5 h-1.5 bg-green-500/50 rounded-full blur-[1px]"></div>
                   </div>
                   <div className="absolute top-0 right-0 w-8 h-8 pointer-events-none z-10">
                     <div className="absolute top-0 right-0 w-4 h-4 border-t-[1px] border-r-[1px] border-blue-500/70 rounded-tr-lg"></div>
@@ -315,7 +315,7 @@ const ProductComparison = () => {
                   </div>
                   <div className="absolute bottom-0 left-0 w-8 h-8 pointer-events-none z-10">
                     <div className="absolute bottom-0 left-0 w-4 h-4 border-b-[1px] border-l-[1px] border-orange-500/70 rounded-bl-lg"></div>
-                    <div className="absolute bottom-0 left-0 w-1.5 h-1.5 bg-orange-500/50 rounded-full blur-[1px]"></div>
+                    <div className="absolute bottom-0 left-0 w-1.5 h-1.5 bg-green-500/50 rounded-full blur-[1px]"></div>
                   </div>
                   <div className="absolute bottom-0 right-0 w-8 h-8 pointer-events-none z-10">
                     <div className="absolute bottom-0 right-0 w-4 h-4 border-b-[1px] border-r-[1px] border-blue-500/70 rounded-br-lg"></div>
@@ -414,13 +414,13 @@ const ProductComparison = () => {
               </div>
               
               {/* Ambient glow effects - positioned away from text */}
-              <div className="absolute -top-20 -right-20 w-60 h-60 bg-orange-600/15 rounded-full filter blur-[100px] animate-pulse-slow-delayed"></div>
+              <div className="absolute -top-20 -right-20 w-60 h-60 bg-green-600/15 rounded-full filter blur-[100px] animate-pulse-slow-delayed"></div>
               <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-blue-500/20 rounded-full filter blur-[100px] animate-pulse-slow"></div>
               
               {/* Corner accent lines - with mixed theme */}
               <div className="absolute top-0 left-0 w-8 h-8 pointer-events-none z-10">
                 <div className="absolute top-0 left-0 w-4 h-4 border-t-[1px] border-l-[1px] border-orange-500/70 rounded-tl-lg"></div>
-                <div className="absolute top-0 left-0 w-1.5 h-1.5 bg-orange-500/50 rounded-full blur-[1px]"></div>
+                <div className="absolute top-0 left-0 w-1.5 h-1.5 bg-green-500/50 rounded-full blur-[1px]"></div>
               </div>
               <div className="absolute top-0 right-0 w-8 h-8 pointer-events-none z-10">
                 <div className="absolute top-0 right-0 w-4 h-4 border-t-[1px] border-r-[1px] border-blue-500/70 rounded-tr-lg"></div>
@@ -428,7 +428,7 @@ const ProductComparison = () => {
               </div>
               <div className="absolute bottom-0 left-0 w-8 h-8 pointer-events-none z-10">
                 <div className="absolute bottom-0 left-0 w-4 h-4 border-b-[1px] border-l-[1px] border-orange-500/70 rounded-bl-lg"></div>
-                <div className="absolute bottom-0 left-0 w-1.5 h-1.5 bg-orange-500/50 rounded-full blur-[1px]"></div>
+                <div className="absolute bottom-0 left-0 w-1.5 h-1.5 bg-green-500/50 rounded-full blur-[1px]"></div>
               </div>
               <div className="absolute bottom-0 right-0 w-8 h-8 pointer-events-none z-10">
                 <div className="absolute bottom-0 right-0 w-4 h-4 border-b-[1px] border-r-[1px] border-blue-500/70 rounded-br-lg"></div>
@@ -440,7 +440,7 @@ const ProductComparison = () => {
                 <div className="hidden md:block mr-3 relative">
                   {/* Icon with mixed glow effect */}
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-500/30 to-blue-500/30 blur-[10px] opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <Shield className="h-5 w-5 text-orange-400 relative z-20 group-hover:text-amber-300 transition-colors duration-300" />
+                  <Shield className="h-5 w-5 text-green-400 relative z-20 group-hover:text-amber-300 transition-colors duration-300" />
                 </div>
                 <p className="text-sm text-gray-200 relative z-20 font-medium">
                   Data based on independent laboratory testing comparing Advance Power to leading industry competitors.

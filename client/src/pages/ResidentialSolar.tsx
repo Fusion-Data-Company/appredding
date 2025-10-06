@@ -356,7 +356,7 @@ const ResidentialSolar = () => {
           {/* Detailed Export Value Calculator */}
           <div className="card-elite glow-orange p-8">
             <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-              <Calculator className="mr-3 h-6 w-6 text-orange-400" />
+              <Calculator className="mr-3 h-6 w-6 text-green-400" />
               NEM 3.0 Avoided Cost Calculator (ACC Plus)
             </h3>
             <div className="space-y-4">
@@ -522,14 +522,14 @@ const ResidentialSolar = () => {
         <div className="grid md:grid-cols-2 gap-6">
           <div className="card-elite glow-orange p-6">
             <h4 className="text-xl font-bold text-white mb-3 flex items-center">
-              <AlertTriangle className="mr-2 h-5 w-5 text-orange-400" />
+              <AlertTriangle className="mr-2 h-5 w-5 text-green-400" />
               AB 942: The Hidden Home Value Killer
             </h4>
             <p className="text-gray-300 mb-3">
-              <strong className="text-orange-400">Critical Alert:</strong> California Assembly Bill 942 terminates NEM 2.0 grandfathering upon property transfer. This creates a $20,000-40,000 instant value loss for homes with solar-only systems.
+              <strong className="text-green-400">Critical Alert:</strong> California Assembly Bill 942 terminates NEM 2.0 grandfathering upon property transfer. This creates a $20,000-40,000 instant value loss for homes with solar-only systems.
             </p>
             <div className="bg-black/30 rounded-lg p-4 mt-3">
-              <h5 className="text-orange-300 font-semibold mb-2">Mitigation Strategy:</h5>
+              <h5 className="text-green-300 font-semibold mb-2">Mitigation Strategy:</h5>
               <ul className="space-y-1 text-sm text-gray-400">
                 <li>• Add battery storage before listing (increases value $15-25k)</li>
                 <li>• Document SGIP rebates received (proves system economics)</li>
@@ -570,7 +570,7 @@ const ResidentialSolar = () => {
         {/* Sol-Ark Inverter Comparison */}
         <div className="mb-8">
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <Cpu className="mr-3 h-6 w-6 text-orange-400" />
+            <Cpu className="mr-3 h-6 w-6 text-green-400" />
             Sol-Ark Hybrid Inverter Comparison Matrix
           </h3>
           <div className="overflow-x-auto">
@@ -990,19 +990,19 @@ const ResidentialSolar = () => {
             <div className="space-y-3 text-sm">
               <div className="flex justify-between">
                 <span className="text-gray-400">Property Tax:</span>
-                <span className="text-orange-300 font-mono">+$208/mo</span>
+                <span className="text-green-300 font-mono">+$208/mo</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-400">Term:</span>
-                <span className="text-orange-300 font-mono">20 years</span>
+                <span className="text-green-300 font-mono">20 years</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-400">Net Savings/mo:</span>
-                <span className="text-orange-300 font-mono">$149</span>
+                <span className="text-green-300 font-mono">$149</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-400">Transferable:</span>
-                <span className="text-orange-300 font-mono">Yes</span>
+                <span className="text-green-300 font-mono">Yes</span>
               </div>
             </div>
           </div>
@@ -1065,7 +1065,7 @@ const ResidentialSolar = () => {
                 </div>
                 <div className="bg-black/30 rounded-lg p-4">
                   <div className="text-xs text-gray-500 uppercase mb-1">Backup Days</div>
-                  <div className="text-2xl font-bold text-orange-400">1.2</div>
+                  <div className="text-2xl font-bold text-green-400">1.2</div>
                 </div>
               </div>
             </div>
@@ -1153,7 +1153,7 @@ const ResidentialSolar = () => {
 
         <div className="card-elite glow-orange p-8">
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <FileCheck className="mr-3 h-6 w-6 text-orange-400" />
+            <FileCheck className="mr-3 h-6 w-6 text-green-400" />
             SGIP Application Strategy & Timeline
           </h3>
           <div className="grid md:grid-cols-2 gap-8">
@@ -1190,15 +1190,15 @@ const ResidentialSolar = () => {
               <h4 className="text-lg font-semibold text-white mb-4">Processing Timeline</h4>
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
-                  <div className="bg-orange-500/20 rounded-full px-3 py-1 text-sm font-semibold text-orange-400">Week 1-2</div>
+                  <div className="bg-green-500/20 rounded-full px-3 py-1 text-sm font-semibold text-green-400">Week 1-2</div>
                   <span className="text-gray-300 text-sm">Application submission & initial review</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="bg-orange-500/20 rounded-full px-3 py-1 text-sm font-semibold text-orange-400">Week 3-6</div>
+                  <div className="bg-green-500/20 rounded-full px-3 py-1 text-sm font-semibold text-green-400">Week 3-6</div>
                   <span className="text-gray-300 text-sm">Reservation confirmation from program administrator</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="bg-orange-500/20 rounded-full px-3 py-1 text-sm font-semibold text-orange-400">Week 7-10</div>
+                  <div className="bg-green-500/20 rounded-full px-3 py-1 text-sm font-semibold text-green-400">Week 7-10</div>
                   <span className="text-gray-300 text-sm">System installation & PG&E permission to operate</span>
                 </div>
                 <div className="flex items-center gap-3">
@@ -1206,9 +1206,9 @@ const ResidentialSolar = () => {
                   <span className="text-gray-300 text-sm">Final claim submission & incentive payment</span>
                 </div>
               </div>
-              <div className="mt-4 p-4 bg-orange-500/10 border border-orange-500/30 rounded-lg">
+              <div className="mt-4 p-4 bg-green-500/10 border border-orange-500/30 rounded-lg">
                 <p className="text-sm text-gray-300">
-                  <strong className="text-orange-400">APR handles 100% of SGIP paperwork</strong> - from initial application to final payment, ensuring maximum rebate capture and zero administrative burden on homeowners.
+                  <strong className="text-green-400">APR handles 100% of SGIP paperwork</strong> - from initial application to final payment, ensuring maximum rebate capture and zero administrative burden on homeowners.
                 </p>
               </div>
             </div>

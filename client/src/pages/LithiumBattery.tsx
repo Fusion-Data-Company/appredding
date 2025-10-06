@@ -627,13 +627,13 @@ const LithiumBattery = () => {
                         <div className="grid grid-cols-2 gap-4">
                           <div className="bg-gray-800 rounded-xl p-4">
                             <div className="flex items-center gap-2 mb-2">
-                              <Thermometer className="h-4 w-4 text-orange-400" />
+                              <Thermometer className="h-4 w-4 text-green-400" />
                               <span className="text-sm text-gray-400">Temperature Map</span>
                             </div>
                             <div className="grid grid-cols-3 gap-2">
                               {[25, 26, 24, 27, 25, 26].map((temp, i) => (
                                 <div key={i} className="text-center">
-                                  <div className={`text-lg font-bold ${temp > 26 ? 'text-orange-400' : 'text-green-400'}`}>
+                                  <div className={`text-lg font-bold ${temp > 26 ? 'text-green-400' : 'text-green-400'}`}>
                                     {temp}°C
                                   </div>
                                   <div className="text-xs text-gray-500">T{i+1}</div>
@@ -879,7 +879,7 @@ const LithiumBattery = () => {
                       </div>
                       <div className="bg-gradient-to-br from-white/85 to-gray-100/80 backdrop-blur-xl dark:from-gray-800/85 dark:to-gray-900/80 rounded-xl p-4">
                         <div className="flex items-center gap-2 mb-2">
-                          <AlertTriangle className="h-5 w-5 text-orange-500" />
+                          <AlertTriangle className="h-5 w-5 text-green-500" />
                           <h4 className="font-semibold text-gray-900 dark:text-white">Penetration Test</h4>
                         </div>
                         <p className="text-sm text-gray-600 dark:text-gray-400">Nail penetration to simulate catastrophic damage scenarios</p>

@@ -63,13 +63,13 @@ const applicationTypes = [
   { value: "pool", label: "Pool", color: "bg-green-500" },
   { value: "construction", label: "Construction", color: "bg-yellow-500" },
   { value: "mobile_home", label: "Mobile Home", color: "bg-purple-500" },
-  { value: "municipality", label: "Municipality", color: "bg-orange-500" },
+  { value: "municipality", label: "Municipality", color: "bg-green-500" },
   { value: "other", label: "Other", color: "bg-gray-500" },
 ];
 
 const statusColors = {
   lead: "bg-blue-500",
-  prospect: "bg-orange-500",
+  prospect: "bg-green-500",
   customer: "bg-green-500",
   inactive: "bg-gray-500",
 };
@@ -222,7 +222,7 @@ const ContactsTable = () => {
         
         return (
           <div className="inline-flex items-center px-2.5 py-1 rounded-md bg-black/60 border border-gray-800 text-white shadow-inner">
-            <div className="w-2 h-2 rounded-full bg-orange-500 mr-2 animate-pulse"></div>
+            <div className="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse"></div>
             <span className="font-medium">{record.company.name}</span>
           </div>
         );
@@ -467,7 +467,7 @@ const ContactsTable = () => {
             <Select value={filterSource} onValueChange={setFilterSource}>
               <SelectTrigger className="min-w-[130px] bg-black/80 border-gray-700 focus:border-orange-500 hover:bg-gray-800 focus:ring-1 focus:ring-orange-500/20 transition-all duration-300">
                 <div className="flex items-center">
-                  <div className="h-2 w-2 rounded-full mr-2 bg-orange-500 animate-pulse"></div>
+                  <div className="h-2 w-2 rounded-full mr-2 bg-green-500 animate-pulse"></div>
                   <SelectValue placeholder="Source" />
                 </div>
               </SelectTrigger>
@@ -547,7 +547,7 @@ const ContactsTable = () => {
                 >
                   <div className="flex flex-col items-center justify-center py-10">
                     <div className="relative w-24 h-24 mb-6">
-                      <div className="absolute inset-0 rounded-full bg-orange-500/10 animate-glow-pulse"></div>
+                      <div className="absolute inset-0 rounded-full bg-green-500/10 animate-glow-pulse"></div>
                       <div className="h-24 w-24 rounded-full bg-gradient-to-br from-orange-500 to-orange-700 flex items-center justify-center relative z-10 border border-orange-400/20 shadow-xl shadow-orange-500/10">
                         <UserX className="h-12 w-12 text-white/90" />
                       </div>

@@ -41,7 +41,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       `}
     >
       {/* Quote Icon */}
-      <div className="absolute top-6 right-6 text-orange-400/20">
+      <div className="absolute top-6 right-6 text-green-400/20">
         <Quote className="w-12 h-12" />
       </div>
       
@@ -93,8 +93,8 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       {/* Highlight Glow Effect */}
       {highlight && (
         <>
-          <div className="absolute -inset-4 bg-orange-500/20 rounded-2xl blur-xl opacity-50 animate-pulse-slow -z-10"></div>
-          <div className="absolute -inset-8 bg-orange-600/10 rounded-2xl blur-2xl opacity-30 -z-20"></div>
+          <div className="absolute -inset-4 bg-green-500/20 rounded-2xl blur-xl opacity-50 animate-pulse-slow -z-10"></div>
+          <div className="absolute -inset-8 bg-green-600/10 rounded-2xl blur-2xl opacity-30 -z-20"></div>
         </>
       )}
     </motion.div>

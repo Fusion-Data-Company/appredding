@@ -245,9 +245,9 @@ const EnergyConservation = () => {
                 <div className="text-sm text-yellow-200">Monthly Savings</div>
               </div>
               <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <ThermometerSun className="h-5 w-5 mb-2 text-orange-200" />
+                <ThermometerSun className="h-5 w-5 mb-2 text-green-200" />
                 <div className="text-2xl font-bold">{temperature.toFixed(0)}°F</div>
-                <div className="text-sm text-orange-200">Set Point</div>
+                <div className="text-sm text-green-200">Set Point</div>
               </div>
             </div>
 
@@ -425,7 +425,7 @@ const EnergyConservation = () => {
                   <p className="text-sm text-gray-600  mb-2">{concept.description}</p>
                   <div className="text-xs space-y-1">
                     <div className="flex items-center gap-1">
-                      <AlertTriangle className="h-3 w-3 text-orange-500" />
+                      <AlertTriangle className="h-3 w-3 text-green-500" />
                       <span className="text-gray-500">Impact: {concept.impact}</span>
                     </div>
                     <div className="flex items-center gap-1">
@@ -511,7 +511,7 @@ const EnergyConservation = () => {
                     <span>-15°F operation</span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <Flame className="h-4 w-4 text-orange-500" />
+                    <Flame className="h-4 w-4 text-green-500" />
                     <span>No backup heat needed</span>
                   </div>
                 </div>

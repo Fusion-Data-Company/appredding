@@ -30,7 +30,7 @@ export default function BookAppointment() {
         {/* Trust Indicators */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           <div className="flex flex-col items-center p-6 rounded-2xl bg-gradient-to-br from-gray-100 to-gray-50 dark:from-gray-800 dark:to-gray-900 border border-orange-200 dark:border-orange-500/20">
-            <Award className="h-12 w-12 text-orange-500 mb-4" />
+            <Award className="h-12 w-12 text-green-500 mb-4" />
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">25+ Years Experience</h3>
             <p className="text-gray-600 dark:text-gray-400 text-center">
               Trusted solar experts serving Northern California since 1999
@@ -38,7 +38,7 @@ export default function BookAppointment() {
           </div>
           
           <div className="flex flex-col items-center p-6 rounded-2xl bg-gradient-to-br from-gray-100 to-gray-50 dark:from-gray-800 dark:to-gray-900 border border-orange-200 dark:border-orange-500/20">
-            <Shield className="h-12 w-12 text-orange-500 mb-4" />
+            <Shield className="h-12 w-12 text-green-500 mb-4" />
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Licensed & Insured</h3>
             <p className="text-gray-600 dark:text-gray-400 text-center">
               Fully licensed contractors with comprehensive insurance coverage
@@ -46,7 +46,7 @@ export default function BookAppointment() {
           </div>
           
           <div className="flex flex-col items-center p-6 rounded-2xl bg-gradient-to-br from-gray-100 to-gray-50 dark:from-gray-800 dark:to-gray-900 border border-orange-200 dark:border-orange-500/20">
-            <Calendar className="h-12 w-12 text-orange-500 mb-4" />
+            <Calendar className="h-12 w-12 text-green-500 mb-4" />
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Free Consultation</h3>
             <p className="text-gray-600 dark:text-gray-400 text-center">
               No-obligation assessment of your solar potential and savings
@@ -69,27 +69,27 @@ export default function BookAppointment() {
               
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <Phone className="h-5 w-5 text-orange-500 mt-1 flex-shrink-0" />
+                  <Phone className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
                   <div>
                     <p className="text-gray-400 text-sm">Phone</p>
-                    <a href="tel:+15305551234" className="text-white hover:text-orange-400 transition-colors">
+                    <a href="tel:+15305551234" className="text-white hover:text-green-400 transition-colors">
                       (530) 555-1234
                     </a>
                   </div>
                 </div>
                 
                 <div className="flex items-start gap-3">
-                  <Mail className="h-5 w-5 text-orange-500 mt-1 flex-shrink-0" />
+                  <Mail className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
                   <div>
                     <p className="text-gray-400 text-sm">Email</p>
-                    <a href="mailto:info@advancepowerredding.com" className="text-white hover:text-orange-400 transition-colors break-all">
+                    <a href="mailto:info@advancepowerredding.com" className="text-white hover:text-green-400 transition-colors break-all">
                       info@advancepowerredding.com
                     </a>
                   </div>
                 </div>
                 
                 <div className="flex items-start gap-3">
-                  <MapPin className="h-5 w-5 text-orange-500 mt-1 flex-shrink-0" />
+                  <MapPin className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
                   <div>
                     <p className="text-gray-400 text-sm">Location</p>
                     <p className="text-white">
@@ -103,7 +103,7 @@ export default function BookAppointment() {
             {/* Business Hours Card */}
             <div className="relative overflow-hidden rounded-3xl p-8 bg-gradient-to-br from-gray-900/90 via-gray-800/80 to-gray-900/90 backdrop-blur-xl border border-orange-500/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)]">
               <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
-                <Clock className="h-6 w-6 text-orange-500" />
+                <Clock className="h-6 w-6 text-green-500" />
                 Business Hours
               </h3>
               
@@ -153,21 +153,21 @@ export default function BookAppointment() {
           <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">What Happens Next?</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
             <div>
-              <div className="bg-orange-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mb-3">1</div>
+              <div className="bg-green-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mb-3">1</div>
               <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Consultation Call</h4>
               <p className="text-gray-600 dark:text-gray-400">
                 We'll discuss your energy needs, roof specifications, and answer all your questions about solar.
               </p>
             </div>
             <div>
-              <div className="bg-orange-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mb-3">2</div>
+              <div className="bg-green-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mb-3">2</div>
               <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Site Assessment</h4>
               <p className="text-gray-600 dark:text-gray-400">
                 Our team will evaluate your property and design a custom solar solution tailored to your needs.
               </p>
             </div>
             <div>
-              <div className="bg-orange-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mb-3">3</div>
+              <div className="bg-green-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mb-3">3</div>
               <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Custom Proposal</h4>
               <p className="text-gray-600 dark:text-gray-400">
                 Receive a detailed proposal with system design, costs, savings projections, and financing options.

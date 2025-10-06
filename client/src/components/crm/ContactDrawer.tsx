@@ -58,7 +58,7 @@ const ContactDrawer = ({ contact, isOpen, onClose }: ContactDrawerProps) => {
       case "lead":
         return <Badge className="bg-blue-500 text-white">Lead</Badge>;
       case "prospect":
-        return <Badge className="bg-orange-500 text-white">Prospect</Badge>;
+        return <Badge className="bg-green-500 text-white">Prospect</Badge>;
       case "customer":
         return <Badge className="bg-green-500 text-white">Customer</Badge>;
       case "inactive":
@@ -277,7 +277,7 @@ const ContactDrawer = ({ contact, isOpen, onClose }: ContactDrawerProps) => {
                         pool: { label: "Pool", color: "bg-green-500" },
                         construction: { label: "Construction", color: "bg-yellow-500" },
                         mobile_home: { label: "Mobile Home", color: "bg-purple-500" },
-                        municipality: { label: "Municipality", color: "bg-orange-500" },
+                        municipality: { label: "Municipality", color: "bg-green-500" },
                       };
                       const appType = applicationTypes[app as keyof typeof applicationTypes] || { label: app, color: "bg-gray-500" };
                       
@@ -369,7 +369,7 @@ const applicationTypes = {
   pool: { label: "Pool", color: "bg-green-500" },
   construction: { label: "Construction", color: "bg-yellow-500" },
   mobile_home: { label: "Mobile Home", color: "bg-purple-500" },
-  municipality: { label: "Municipality", color: "bg-orange-500" },
+  municipality: { label: "Municipality", color: "bg-green-500" },
 };
 
 export default ContactDrawer;

@@ -148,7 +148,7 @@ const Navigation: React.FC = () => {
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <div className="relative">
-              <Sun className="w-8 h-8 text-orange-500" />
+              <Sun className="w-8 h-8 text-green-500" />
               <Zap className="w-4 h-4 text-yellow-400 absolute -bottom-1 -right-1" />
             </div>
             <span className="text-2xl font-bold bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-500 bg-clip-text text-transparent preserve-text-color">
@@ -265,7 +265,7 @@ const CommercialSolarWaveHero: React.FC<CommercialSolarWaveHeroProps> = ({
               animate={{ rotate: [0, 360] }}
               transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
             >
-              <Zap className="w-4 h-4 text-orange-400" />
+              <Zap className="w-4 h-4 text-green-400" />
             </motion.div>
             <span>{tagline}</span>
           </motion.div>
@@ -276,12 +276,30 @@ const CommercialSolarWaveHero: React.FC<CommercialSolarWaveHeroProps> = ({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
+            style={{
+              textShadow: '0 0 40px rgba(255, 255, 255, 0.9), 0 0 80px rgba(255, 255, 255, 0.6), 0 4px 20px rgba(255, 255, 255, 0.8), 0 8px 40px rgba(255, 255, 255, 0.5), 0 0 100px rgba(255, 255, 255, 0.4)'
+            }}
           >
-            <span className="font-extrabold bg-gradient-to-r from-white via-cyan-300 to-blue-400 bg-clip-text text-transparent preserve-text-color">
-              {title}
+            <span className="font-extrabold">
+              <span className="text-green-500" style={{
+                filter: 'drop-shadow(0 0 20px rgba(255, 165, 0, 1)) drop-shadow(0 0 40px rgba(255, 165, 0, 0.8)) drop-shadow(0 4px 12px rgba(255, 165, 0, 0.9))',
+                WebkitTextStroke: '1px rgba(255, 165, 0, 0.3)',
+                textShadow: '0 0 40px rgba(255, 165, 0, 0.9), 0 0 80px rgba(255, 165, 0, 0.6), 0 4px 20px rgba(255, 165, 0, 0.8)'
+              }}>
+                Commercial Solar
+              </span>
+              <span className="text-white" style={{
+                filter: 'drop-shadow(0 0 20px rgba(255, 255, 255, 1)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.8)) drop-shadow(0 4px 12px rgba(255, 255, 255, 0.9))',
+                WebkitTextStroke: '1px rgba(255, 255, 255, 0.3)'
+              }}>
+                {' '}Installation
+              </span>
             </span>
             <br />
-            <span className="font-extrabold tracking-wide bg-gradient-to-r from-white via-amber-300 to-orange-400 bg-clip-text text-transparent preserve-text-color">
+            <span className="font-extrabold tracking-wide text-white" style={{
+              filter: 'drop-shadow(0 0 20px rgba(255, 255, 255, 1)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.8)) drop-shadow(0 4px 12px rgba(255, 255, 255, 0.9))',
+              WebkitTextStroke: '1px rgba(255, 255, 255, 0.3)'
+            }}>
               Advance Power Redding
             </span>
           </motion.h1>
@@ -291,7 +309,11 @@ const CommercialSolarWaveHero: React.FC<CommercialSolarWaveHeroProps> = ({
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed"
+            className="text-lg sm:text-xl md:text-2xl text-white max-w-3xl mx-auto mb-12 leading-relaxed"
+            style={{
+              textShadow: '0 0 30px rgba(255, 255, 255, 0.8), 0 2px 10px rgba(255, 255, 255, 0.6), 0 4px 20px rgba(255, 255, 255, 0.4)',
+              filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.7))'
+            }}
           >
             {subtitle}
           </motion.p>
@@ -316,7 +338,7 @@ const CommercialSolarWaveHero: React.FC<CommercialSolarWaveHeroProps> = ({
       </motion.div>
 
       {/* Ambient Glow Effects */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-green-500/10 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
     </div>
   );

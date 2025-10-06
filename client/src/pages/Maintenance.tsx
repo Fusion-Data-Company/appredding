@@ -265,7 +265,7 @@ const Maintenance = () => {
     },
     {
       season: "Fall",
-      icon: <Wind className="h-6 w-6 text-orange-500" />,
+      icon: <Wind className="h-6 w-6 text-green-500" />,
       focus: "Debris & Preparation",
       tasks: ["Leaf removal", "Gutter cleaning", "Seal inspection", "Winter preparation"],
       challenges: "Falling leaves can reduce output 20%",
@@ -421,14 +421,14 @@ const Maintenance = () => {
               <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">Professional Solar Care</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">Live System Performance Metrics</h2>
-            <p className="text-lg mb-6 text-orange-100">Real-time monitoring • Predictive maintenance • Maximum efficiency</p>
+            <p className="text-lg mb-6 text-green-100">Real-time monitoring • Predictive maintenance • Maximum efficiency</p>
 
             {/* Enhanced Live System Metrics */}
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-6">
               <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <Activity className="h-5 w-5 mb-2 text-orange-200" />
+                <Activity className="h-5 w-5 mb-2 text-green-200" />
                 <div className="text-2xl font-bold">{efficiencyLevel.toFixed(1)}%</div>
-                <div className="text-sm text-orange-200">Efficiency</div>
+                <div className="text-sm text-green-200">Efficiency</div>
               </div>
               <div className="bg-white/10 backdrop-blur rounded-xl p-4">
                 <Gauge className="h-5 w-5 mb-2 text-amber-200" />
@@ -441,9 +441,9 @@ const Maintenance = () => {
                 <div className="text-sm text-yellow-200">Next Clean</div>
               </div>
               <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <TrendingDown className="h-5 w-5 mb-2 text-orange-300" />
+                <TrendingDown className="h-5 w-5 mb-2 text-green-300" />
                 <div className="text-2xl font-bold">{degradationRate.toFixed(1)}%</div>
-                <div className="text-sm text-orange-300">Degradation/yr</div>
+                <div className="text-sm text-green-300">Degradation/yr</div>
               </div>
               <div className="bg-white/10 backdrop-blur rounded-xl p-4">
                 <Shield className="h-5 w-5 mb-2 text-amber-300" />
@@ -458,7 +458,7 @@ const Maintenance = () => {
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <button className="bg-white text-orange-600 px-6 py-3 rounded-xl font-semibold hover:bg-orange-50 transition flex items-center gap-2">
+              <button className="bg-white text-green-600 px-6 py-3 rounded-xl font-semibold hover:bg-green-50 transition flex items-center gap-2">
                 Schedule Service <Calendar className="h-5 w-5" />
               </button>
               <button className="bg-white/20 backdrop-blur text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/30 transition flex items-center gap-2">
@@ -870,7 +870,7 @@ const Maintenance = () => {
                     <h4 className="font-bold text-gray-900 ">Month {item.month}</h4>
                     <span className={`text-xs px-2 py-1 rounded-full font-medium ${
                       item.priority === 'Critical' ? 'bg-red-100 text-red-800 dark:bg-red-900 ' :
-                      item.priority === 'High' ? 'bg-orange-100 text-orange-800 dark:bg-orange-900 ' :
+                      item.priority === 'High' ? 'bg-green-100 text-green-800 dark:bg-green-900 ' :
                       item.priority === 'Medium' ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 ' :
                       'bg-green-100 text-green-800 dark:bg-green-900 '
                     }`}>
@@ -1149,20 +1149,20 @@ const Maintenance = () => {
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div>
                 <h2 className="text-3xl font-bold mb-4">24/7 Emergency Service Available</h2>
-                <p className="text-lg mb-6 text-orange-100">
+                <p className="text-lg mb-6 text-green-100">
                   System down? Performance issues? Our certified technicians are on-call for urgent maintenance needs.
                 </p>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
-                    <Clock className="h-5 w-5 text-orange-200" />
+                    <Clock className="h-5 w-5 text-green-200" />
                     <span>2-hour response time for emergencies</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Shield className="h-5 w-5 text-orange-200" />
+                    <Shield className="h-5 w-5 text-green-200" />
                     <span>All work guaranteed and insured</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Award className="h-5 w-5 text-orange-200" />
+                    <Award className="h-5 w-5 text-green-200" />
                     <span>NABCEP certified technicians</span>
                   </div>
                 </div>
@@ -1174,7 +1174,7 @@ const Maintenance = () => {
                   <Phone className="h-6 w-6" />
                   (530) 226-0701
                 </button>
-                <p className="text-sm text-orange-100 mt-4 text-center">
+                <p className="text-sm text-green-100 mt-4 text-center">
                   Available 24/7 for system emergencies
                 </p>
               </div>

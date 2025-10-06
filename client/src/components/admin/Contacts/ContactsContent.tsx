@@ -101,7 +101,7 @@ const getTagColor = (tag: string) => {
   if (tag === "Marina") return "bg-blue-100 text-blue-800 border-blue-300";
   if (tag === "Pool") return "bg-cyan-100 text-cyan-800 border-cyan-300";
   if (tag === "Fire Prevention") return "bg-red-100 text-red-800 border-red-300";
-  if (tag === "Mobile Home") return "bg-orange-100 text-orange-800 border-orange-300";
+  if (tag === "Mobile Home") return "bg-green-100 text-green-800 border-orange-300";
   if (tag === "Government") return "bg-green-100 text-green-800 border-green-300";
   if (tag === "Recurring") return "bg-indigo-100 text-indigo-800 border-indigo-300";
   if (tag === "Interested") return "bg-pink-100 text-pink-800 border-pink-300";

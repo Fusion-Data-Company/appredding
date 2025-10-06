@@ -355,7 +355,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, isSelected, onToggle
     >
       <div className="absolute inset-0 bg-gradient-to-br from-amber-600/5 via-transparent to-orange-600/5 opacity-50" />
       <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-orange-500/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-green-500/5 rounded-full blur-3xl" />
       
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <GradientTracing
@@ -524,7 +524,7 @@ const getSpecIcon = (specName: string) => {
     "Max Efficiency": <Gauge className={`${iconClass} text-amber-700`} />,
     "CEC Weighted Efficiency": <Gauge className={`${iconClass} text-amber-700`} />,
     "Warranty": <Shield className={`${iconClass} text-amber-600`} />,
-    "Operating Temperature": <Thermometer className={`${iconClass} text-orange-600`} />,
+    "Operating Temperature": <Thermometer className={`${iconClass} text-green-600`} />,
     "Battery Type Support": <Battery className={`${iconClass} text-amber-600`} />,
     "Certifications": <Award className={`${iconClass} text-amber-700`} />,
     "Weight": <Package className={`${iconClass} text-amber-600`} />,
@@ -816,7 +816,7 @@ const ProductComparison = () => {
                 
                 <div className="absolute inset-0 bg-gradient-to-br from-amber-600/5 via-transparent to-orange-600/5" />
                 <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl" />
-                <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl" />
+                <div className="absolute bottom-0 left-0 w-96 h-96 bg-green-500/10 rounded-full blur-3xl" />
                 
                 <div className="absolute inset-0 opacity-20 pointer-events-none">
                   <GradientTracing

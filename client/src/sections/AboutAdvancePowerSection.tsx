@@ -63,8 +63,8 @@ const AboutAdvancePowerSection = () => {
     {
       icon: <Users className="w-6 h-6" />,
       title: "Local Expertise",
-      color: "text-orange-400",
-      bgColor: "bg-orange-500/20"
+      color: "text-green-400",
+      bgColor: "bg-green-500/20"
     },
     {
       icon: <FileCheck className="w-6 h-6" />,

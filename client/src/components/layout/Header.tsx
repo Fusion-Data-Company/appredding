@@ -125,7 +125,7 @@ const SolarCompanyHeader: React.FC = () => {
           }}
         >
           <div 
-            className="w-9 h-9 rounded-xl flex items-center justify-center text-orange-600 mr-3 flex-shrink-0 group-hover:scale-110 transition-transform duration-200 relative"
+            className="w-9 h-9 rounded-xl flex items-center justify-center text-green-600 mr-3 flex-shrink-0 group-hover:scale-110 transition-transform duration-200 relative"
             style={{
               background: 'linear-gradient(135deg, rgba(249,115,22,0.08) 0%, rgba(59,130,246,0.08) 100%)',
               boxShadow: 'inset 0 1px 2px rgba(249,115,22,0.1), inset 0 -1px 2px rgba(59,130,246,0.1)'
@@ -292,7 +292,7 @@ const SolarCompanyHeader: React.FC = () => {
               className={cn(
                 "px-4 py-2 text-[15px] font-medium rounded-lg transition-all duration-200",
                 isActive("/shop/products") 
-                  ? "text-orange-600" 
+                  ? "text-green-600" 
                   : "text-black hover:text-gray-900"
               )}
               style={{
@@ -328,7 +328,7 @@ const SolarCompanyHeader: React.FC = () => {
               className={cn(
                 "px-4 py-2 text-[15px] font-medium rounded-lg transition-all duration-200",
                 isActive("/comparison") 
-                  ? "text-orange-600" 
+                  ? "text-green-600" 
                   : "text-black hover:text-gray-900"
               )}
               style={{
@@ -369,7 +369,7 @@ const SolarCompanyHeader: React.FC = () => {
                 className={cn(
                   "flex items-center px-4 py-2 text-[15px] font-medium rounded-lg transition-all duration-200 relative z-10",
                   activeDropdown === 'services' 
-                    ? "text-orange-600" 
+                    ? "text-green-600" 
                     : "text-black hover:text-gray-900"
                 )}
                 style={{
@@ -418,7 +418,7 @@ const SolarCompanyHeader: React.FC = () => {
                 className={cn(
                   "flex items-center px-4 py-2 text-[15px] font-medium rounded-lg transition-all duration-200 relative z-10",
                   activeDropdown === 'company' 
-                    ? "text-orange-600" 
+                    ? "text-green-600" 
                     : "text-black hover:text-gray-900"
                 )}
                 style={{
@@ -520,10 +520,10 @@ const SolarCompanyHeader: React.FC = () => {
                   <Link 
                     key={item.href} 
                     href={item.href}
-                    className="flex items-center py-2.5 text-[15px] text-gray-700 hover:text-orange-600 transition-colors"
+                    className="flex items-center py-2.5 text-[15px] text-gray-700 hover:text-green-600 transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    <span className="mr-3 text-orange-500">{item.icon}</span>
+                    <span className="mr-3 text-green-500">{item.icon}</span>
                     {item.label}
                   </Link>
                 ))}
@@ -536,10 +536,10 @@ const SolarCompanyHeader: React.FC = () => {
                   <Link 
                     key={item.href} 
                     href={item.href}
-                    className="flex items-center py-2.5 text-[15px] text-gray-700 hover:text-orange-600 transition-colors"
+                    className="flex items-center py-2.5 text-[15px] text-gray-700 hover:text-green-600 transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    <span className="mr-3 text-orange-500">{item.icon}</span>
+                    <span className="mr-3 text-green-500">{item.icon}</span>
                     {item.label}
                   </Link>
                 ))}

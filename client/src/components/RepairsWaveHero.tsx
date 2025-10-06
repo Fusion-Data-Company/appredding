@@ -398,7 +398,7 @@ const RepairsWaveHero: React.FC<RepairsWaveHeroProps> = ({
                                     animate={{ rotate: [0, 360] }}
                                     transition={{ duration: 3, repeat: Infinity, ease: "linear", delay: 1.5 }}
                                 >
-                                    <AlertTriangle className="h-5 w-5 text-orange-400" />
+                                    <AlertTriangle className="h-5 w-5 text-green-400" />
                                 </motion.div>
                             </motion.div>
 
@@ -411,7 +411,7 @@ const RepairsWaveHero: React.FC<RepairsWaveHeroProps> = ({
                             >
                                 <Sun className="w-12 h-12 text-yellow-400 animate-pulse" />
                                 <Zap className="w-16 h-16 text-yellow-500" />
-                                <Battery className="w-12 h-12 text-orange-400 animate-pulse" />
+                                <Battery className="w-12 h-12 text-green-400 animate-pulse" />
                             </motion.div>
 
                             {/* Main Heading */}

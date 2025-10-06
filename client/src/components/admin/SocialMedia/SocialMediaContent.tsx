@@ -653,7 +653,7 @@ export default function SocialMediaContent() {
                 </div>
                 <div className="p-4 border rounded-lg">
                   <h3 className="font-medium mb-2">Scheduled</h3>
-                  <p className="text-2xl font-bold text-orange-600">
+                  <p className="text-2xl font-bold text-green-600">
                     {posts?.filter((p: any) => p.status === 'scheduled').length || 0}
                   </p>
                 </div>

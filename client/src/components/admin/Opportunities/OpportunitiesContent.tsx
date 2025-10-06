@@ -148,7 +148,7 @@ const getApplicationColor = (application: string) => {
   if (application === "Marina") return "bg-blue-100 text-blue-800 border-blue-300";
   if (application === "Fire Prevention") return "bg-red-100 text-red-800 border-red-300";
   if (application === "Construction") return "bg-amber-100 text-amber-800 border-amber-300";
-  if (application === "Mobile Home") return "bg-orange-100 text-orange-800 border-orange-300";
+  if (application === "Mobile Home") return "bg-green-100 text-green-800 border-orange-300";
   if (application === "Municipality") return "bg-green-100 text-green-800 border-green-300";
   return "bg-gray-100 text-gray-800 border-gray-300";
 };
@@ -521,7 +521,7 @@ export default function OpportunitiesContent() {
                   <div className="border rounded-md p-3 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800">
                     <p className="font-medium">Mobile Home Community Coating</p>
                     <div className="flex justify-between items-center mt-2">
-                      <Badge variant="outline" className="bg-orange-100 text-orange-800 border-orange-300">
+                      <Badge variant="outline" className="bg-green-100 text-green-800 border-orange-300">
                         Mobile Home
                       </Badge>
                       <p className="text-sm font-medium">$65,000</p>

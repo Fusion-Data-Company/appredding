@@ -90,7 +90,7 @@ export const EliteFooter: React.FC = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className="text-orange-400">{cert.icon}</div>
+                <div className="text-green-400">{cert.icon}</div>
                 <span className="font-semibold">{cert.label}</span>
               </motion.div>
             ))}
@@ -107,7 +107,7 @@ export const EliteFooter: React.FC = () => {
             viewport={{ once: true }}
           >
             <h4 className="text-xl font-black text-white mb-6 flex items-center">
-              <Zap className="w-5 h-5 text-orange-400 mr-2" />
+              <Zap className="w-5 h-5 text-green-400 mr-2" />
               Solar Services
             </h4>
             <ul className="space-y-3">
@@ -121,7 +121,7 @@ export const EliteFooter: React.FC = () => {
               ].map((service, index) => (
                 <motion.li
                   key={index}
-                  className="text-gray-400 hover:text-orange-400 transition-colors duration-300 cursor-pointer"
+                  className="text-gray-400 hover:text-green-400 transition-colors duration-300 cursor-pointer"
                   whileHover={{ x: 5 }}
                 >
                   {service}
@@ -138,7 +138,7 @@ export const EliteFooter: React.FC = () => {
             viewport={{ once: true }}
           >
             <h4 className="text-xl font-black text-white mb-6 flex items-center">
-              <Battery className="w-5 h-5 text-orange-400 mr-2" />
+              <Battery className="w-5 h-5 text-green-400 mr-2" />
               Products
             </h4>
             <ul className="space-y-3">
@@ -152,7 +152,7 @@ export const EliteFooter: React.FC = () => {
               ].map((product, index) => (
                 <motion.li
                   key={index}
-                  className="text-gray-400 hover:text-orange-400 transition-colors duration-300 cursor-pointer"
+                  className="text-gray-400 hover:text-green-400 transition-colors duration-300 cursor-pointer"
                   whileHover={{ x: 5 }}
                 >
                   {product}
@@ -169,7 +169,7 @@ export const EliteFooter: React.FC = () => {
             viewport={{ once: true }}
           >
             <h4 className="text-xl font-black text-white mb-6 flex items-center">
-              <Shield className="w-5 h-5 text-orange-400 mr-2" />
+              <Shield className="w-5 h-5 text-green-400 mr-2" />
               Company
             </h4>
             <ul className="space-y-3">
@@ -183,7 +183,7 @@ export const EliteFooter: React.FC = () => {
               ].map((item, index) => (
                 <motion.li
                   key={index}
-                  className="text-gray-400 hover:text-orange-400 transition-colors duration-300 cursor-pointer"
+                  className="text-gray-400 hover:text-green-400 transition-colors duration-300 cursor-pointer"
                   whileHover={{ x: 5 }}
                 >
                   {item}
@@ -200,24 +200,24 @@ export const EliteFooter: React.FC = () => {
             viewport={{ once: true }}
           >
             <h4 className="text-xl font-black text-white mb-6 flex items-center">
-              <Phone className="w-5 h-5 text-orange-400 mr-2" />
+              <Phone className="w-5 h-5 text-green-400 mr-2" />
               Contact Info
             </h4>
             <div className="space-y-4">
               <div className="flex items-center text-gray-400">
-                <Phone className="w-4 h-4 text-orange-400 mr-3" />
+                <Phone className="w-4 h-4 text-green-400 mr-3" />
                 <span>(530) 226-0701</span>
               </div>
               <div className="flex items-center text-gray-400">
-                <Mail className="w-4 h-4 text-orange-400 mr-3" />
+                <Mail className="w-4 h-4 text-green-400 mr-3" />
                 <span>info@apredding.net</span>
               </div>
               <div className="flex items-start text-gray-400">
-                <MapPin className="w-4 h-4 text-orange-400 mr-3 mt-1" />
+                <MapPin className="w-4 h-4 text-green-400 mr-3 mt-1" />
                 <span>Serving Northern California<br />Redding, Chico, Sacramento</span>
               </div>
               <div className="flex items-center text-gray-400">
-                <Calendar className="w-4 h-4 text-orange-400 mr-3" />
+                <Calendar className="w-4 h-4 text-green-400 mr-3" />
                 <span>Mon-Fri: 7AM-6PM</span>
               </div>
             </div>
@@ -237,9 +237,9 @@ export const EliteFooter: React.FC = () => {
               © 2024 Advance Power Redding. All rights reserved. | Licensed Solar Contractor #1234567
             </div>
             <div className="flex items-center space-x-6 text-sm text-gray-400">
-              <span className="hover:text-orange-400 transition-colors cursor-pointer">Privacy Policy</span>
-              <span className="hover:text-orange-400 transition-colors cursor-pointer">Terms of Service</span>
-              <span className="hover:text-orange-400 transition-colors cursor-pointer">Warranty</span>
+              <span className="hover:text-green-400 transition-colors cursor-pointer">Privacy Policy</span>
+              <span className="hover:text-green-400 transition-colors cursor-pointer">Terms of Service</span>
+              <span className="hover:text-green-400 transition-colors cursor-pointer">Warranty</span>
             </div>
           </div>
         </motion.div>

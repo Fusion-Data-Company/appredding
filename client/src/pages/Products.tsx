@@ -72,7 +72,7 @@ export default function Products() {
           {/* Sol-Ark Inverter Comparison Section */}
           <div className="mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 flex items-center">
-              <Cpu className="mr-3 h-8 w-8 text-orange-400" />
+              <Cpu className="mr-3 h-8 w-8 text-green-400" />
               Sol-Ark Hybrid Inverter Comparison Matrix
             </h2>
             <p className="text-gray-400 mb-8 max-w-3xl">

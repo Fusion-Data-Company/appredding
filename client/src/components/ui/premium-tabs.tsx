@@ -128,7 +128,7 @@ export function PremiumTabsContent({
         {/* Ambient glow behind card */}
         <div className="absolute -inset-4 rounded-xl opacity-70">
           <div className="absolute top-10 right-10 w-32 h-32 bg-blue-600/20 rounded-full filter blur-[80px] opacity-70"></div>
-          <div className="absolute bottom-10 left-10 w-32 h-32 bg-orange-600/20 rounded-full filter blur-[80px] opacity-70"></div>
+          <div className="absolute bottom-10 left-10 w-32 h-32 bg-green-600/20 rounded-full filter blur-[80px] opacity-70"></div>
         </div>
         
         {/* Content with premium styling */}
@@ -144,10 +144,10 @@ export function PremiumTabsContent({
           </div>
           
           {/* Corner accent points */}
-          <div className="absolute top-0 left-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px]"></div>
+          <div className="absolute top-0 left-0 w-2 h-2 bg-green-500/70 rounded-full blur-[1px]"></div>
           <div className="absolute top-0 right-0 w-2 h-2 bg-blue-500/70 rounded-full blur-[1px]"></div>
           <div className="absolute bottom-0 left-0 w-2 h-2 bg-blue-500/70 rounded-full blur-[1px]"></div>
-          <div className="absolute bottom-0 right-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px]"></div>
+          <div className="absolute bottom-0 right-0 w-2 h-2 bg-green-500/70 rounded-full blur-[1px]"></div>
           
           {/* Actual content */}
           <div className="relative z-10">

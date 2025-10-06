@@ -333,7 +333,7 @@ const TroubleshootingSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {troubleshootingGuide.map((item, index) => (
               <div key={index} className="bg-gray-700/50 rounded-xl p-6 border border-gray-600">
-                <h4 className="text-lg font-bold text-orange-400 mb-3">
+                <h4 className="text-lg font-bold text-green-400 mb-3">
                   {item.issue}
                 </h4>
                 <p className="text-gray-200 leading-relaxed">

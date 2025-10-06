@@ -290,9 +290,9 @@ const SpecificationsSection = () => {
                     </h3>
                     
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                      <div className="bg-orange-50 p-4 rounded-lg">
-                        <div className="text-sm text-orange-600 font-semibold">Output Power</div>
-                        <div className="text-xl font-bold text-orange-800">{model.outputPower}</div>
+                      <div className="bg-green-50 p-4 rounded-lg">
+                        <div className="text-sm text-green-600 font-semibold">Output Power</div>
+                        <div className="text-xl font-bold text-green-800">{model.outputPower}</div>
                       </div>
                       <div className="bg-yellow-50 p-4 rounded-lg">
                         <div className="text-sm text-yellow-600 font-semibold">PV Input</div>
@@ -302,9 +302,9 @@ const SpecificationsSection = () => {
                         <div className="text-sm text-purple-600 font-semibold">Battery Ports</div>
                         <div className="text-xl font-bold text-purple-800">{model.batteryPorts}</div>
                       </div>
-                      <div className="bg-orange-50 p-4 rounded-lg">
-                        <div className="text-sm text-orange-600 font-semibold">MPPT Inputs</div>
-                        <div className="text-xl font-bold text-orange-800">{model.mpptInputs}</div>
+                      <div className="bg-green-50 p-4 rounded-lg">
+                        <div className="text-sm text-green-600 font-semibold">MPPT Inputs</div>
+                        <div className="text-xl font-bold text-green-800">{model.mpptInputs}</div>
                       </div>
                     </div>
 
@@ -370,9 +370,9 @@ const SpecificationsSection = () => {
                         <div className="text-sm text-purple-600 font-semibold">Current</div>
                         <div className="text-xl font-bold text-purple-800">{battery.current}</div>
                       </div>
-                      <div className="bg-orange-50 p-4 rounded-lg">
-                        <div className="text-sm text-orange-600 font-semibold">Max Parallel</div>
-                        <div className="text-xl font-bold text-orange-800">{battery.maxParallel}</div>
+                      <div className="bg-green-50 p-4 rounded-lg">
+                        <div className="text-sm text-green-600 font-semibold">Max Parallel</div>
+                        <div className="text-xl font-bold text-green-800">{battery.maxParallel}</div>
                       </div>
                     </div>
 

@@ -38,7 +38,7 @@ export default function AnalyticsCard({
   
   const iconClasses = {
     cyan: 'bg-cyan-900/30 text-cyan-400',
-    orange: 'bg-orange-900/30 text-orange-400',
+    orange: 'bg-green-900/30 text-green-400',
     amber: 'bg-amber-900/30 text-amber-400',
     green: 'bg-green-900/30 text-green-400',
     red: 'bg-red-900/30 text-red-400',

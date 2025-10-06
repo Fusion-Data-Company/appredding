@@ -220,7 +220,7 @@ const HybridSolarWaveHero: React.FC = () => {
 
 
       {/* Hero Content */}
-      <div className="relative z-10 flex min-h-[calc(70vh-5rem)] items-start pt-24 md:pt-32">
+      <div className="relative z-[2] flex min-h-[calc(70vh-5rem)] items-start pt-24 md:pt-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full">
           <div className="mx-auto max-w-5xl">
             <motion.div
@@ -234,7 +234,7 @@ const HybridSolarWaveHero: React.FC = () => {
                   animate={{ rotate: [0, 360] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
                 >
-                  <Battery className="w-4 h-4 text-orange-400" />
+                  <Battery className="w-4 h-4 text-green-400" />
                 </motion.div>
                 <span>Next-Gen Energy Solutions</span>
               </div>
@@ -281,7 +281,7 @@ const HybridSolarWaveHero: React.FC = () => {
                   whileHover={{ scale: 1.05, y: -5 }}
                   className="rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 p-6 text-center transition-all hover:bg-white/10 hover:border-orange-500/30"
                 >
-                  <stat.icon className="h-8 w-8 text-orange-400 mx-auto mb-3" />
+                  <stat.icon className="h-8 w-8 text-green-400 mx-auto mb-3" />
                   <div className="text-2xl font-bold text-white mb-1">{stat.title}</div>
                   <div className="text-sm text-white/60">{stat.value}</div>
                 </motion.div>

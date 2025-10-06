@@ -234,7 +234,7 @@ export const SolarPanelFitEstimator: React.FC = () => {
                   <div className="text-sm text-gray-600">Roof Utilization</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-black text-orange-600">${results.annualSavings}</div>
+                  <div className="text-3xl font-black text-green-600">${results.annualSavings}</div>
                   <div className="text-sm text-gray-600">Annual Savings</div>
                 </div>
               </div>

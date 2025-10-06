@@ -187,7 +187,7 @@ const Repairs = () => {
               <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">24/7 Emergency Service</span>
             </div>
             <h1 className="text-4xl sm:text-5xl font-bold mb-4">Professional Solar Repair Services</h1>
-            <p className="text-xl mb-6 text-orange-100">7-day orphaned system rescue • Same-day inverter swaps • Expert diagnostics</p>
+            <p className="text-xl mb-6 text-green-100">7-day orphaned system rescue • Same-day inverter swaps • Expert diagnostics</p>
 
             {/* Live System Health Metrics */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
@@ -197,9 +197,9 @@ const Repairs = () => {
                 <div className="text-sm text-red-200">System Health</div>
               </div>
               <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <Gauge className="h-5 w-5 mb-2 text-orange-200" />
+                <Gauge className="h-5 w-5 mb-2 text-green-200" />
                 <div className="text-2xl font-bold">{productionLevel.toFixed(0)}%</div>
-                <div className="text-sm text-orange-200">Production</div>
+                <div className="text-sm text-green-200">Production</div>
               </div>
               <div className="bg-white/10 backdrop-blur rounded-xl p-4">
                 <AlertTriangle className="h-5 w-5 mb-2 text-yellow-200" />
@@ -257,7 +257,7 @@ const Repairs = () => {
                 <div className="flex items-center gap-4 mt-2">
                   <span className={`px-3 py-1 rounded-full text-sm font-medium ${
                     repairCategories[selectedIssue].urgency === "Critical" ? "bg-red-100 text-red-800 dark:bg-red-900 " :
-                    repairCategories[selectedIssue].urgency === "High" ? "bg-orange-100 text-orange-800 dark:bg-orange-900 " :
+                    repairCategories[selectedIssue].urgency === "High" ? "bg-green-100 text-green-800 dark:bg-green-900 " :
                     repairCategories[selectedIssue].urgency === "Moderate" ? "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 " :
                     "bg-green-100 text-green-800 dark:bg-green-900 "
                   }`}>
@@ -388,7 +388,7 @@ const Repairs = () => {
                 ))}
               </div>
 
-              <div className="mt-6 bg-orange-100 dark:bg-orange-900/30 rounded-xl p-4">
+              <div className="mt-6 bg-green-100 dark:bg-green-900/30 rounded-xl p-4">
                 <p className="text-sm text-gray-700 ">
                   <strong>Certified Technicians:</strong> NABCEP certified, manufacturer trained on all major brands
                 </p>
@@ -459,7 +459,7 @@ const Repairs = () => {
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-gray-600 ">Failure Rate</span>
-                    <span className="text-sm font-semibold text-orange-600 ">{component.failure_rate}</span>
+                    <span className="text-sm font-semibold text-green-600 ">{component.failure_rate}</span>
                   </div>
                 </div>
 
@@ -489,7 +489,7 @@ const Repairs = () => {
               <div key={idx} className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
                 <div className="flex items-start justify-between mb-4">
                   <h3 className="text-lg font-bold text-gray-900 ">{item.problem}</h3>
-                  <AlertTriangle className="h-5 w-5 text-orange-500" />
+                  <AlertTriangle className="h-5 w-5 text-green-500" />
                 </div>
 
                 <div className="space-y-3">
@@ -505,9 +505,9 @@ const Repairs = () => {
                     </ul>
                   </div>
 
-                  <div className="bg-orange-50 dark:bg-orange-900/20 rounded-lg p-3">
+                  <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-3">
                     <p className="text-sm">
-                      <strong className="text-orange-600 ">Likely Cause:</strong> {item.likely_cause}
+                      <strong className="text-green-600 ">Likely Cause:</strong> {item.likely_cause}
                     </p>
                   </div>
 
@@ -546,7 +546,7 @@ const Repairs = () => {
                         <h4 className="font-semibold">{item.priority}</h4>
                         <span className="text-sm bg-white/20 px-3 py-1 rounded-full">{item.time}</span>
                       </div>
-                      <p className="text-sm text-orange-100">{item.description}</p>
+                      <p className="text-sm text-green-100">{item.description}</p>
                     </div>
                   ))}
                 </div>
@@ -557,15 +557,15 @@ const Repairs = () => {
                 <div className="bg-white/10 backdrop-blur rounded-xl p-6">
                   <div className="space-y-3">
                     <div className="flex items-center gap-3">
-                      <MapPin className="h-5 w-5 text-orange-200" />
+                      <MapPin className="h-5 w-5 text-green-200" />
                       <span>Redding, CA - Immediate response</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <MapPin className="h-5 w-5 text-orange-200" />
+                      <MapPin className="h-5 w-5 text-green-200" />
                       <span>Shasta County - Same day service</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <MapPin className="h-5 w-5 text-orange-200" />
+                      <MapPin className="h-5 w-5 text-green-200" />
                       <span>North State Region - 24-48 hour response</span>
                     </div>
                   </div>
@@ -733,7 +733,7 @@ const Repairs = () => {
                     <p className="text-xs text-gray-500  mt-1">{case_study.timeline}</p>
                   </div>
                   <div>
-                    <h4 className="text-sm font-semibold text-orange-600 ">Diagnosis</h4>
+                    <h4 className="text-sm font-semibold text-green-600 ">Diagnosis</h4>
                     <p className="text-sm text-gray-700 ">{case_study.diagnosis}</p>
                   </div>
                   <div>
@@ -844,7 +844,7 @@ const Repairs = () => {
                     </div>
                   </div>
                   <h4 className="font-semibold text-gray-900  mb-1">{step.title}</h4>
-                  <p className="text-xs text-orange-600  mb-2">{step.duration}</p>
+                  <p className="text-xs text-green-600  mb-2">{step.duration}</p>
                   <p className="text-sm text-gray-600 ">{step.description}</p>
                 </div>
               );
@@ -943,7 +943,7 @@ const Repairs = () => {
                     <ul className="space-y-1">
                       {issue.causes.map((cause, i) => (
                         <li key={i} className="text-gray-600  flex items-center gap-2">
-                          <Triangle className="h-2 w-2 text-orange-500" />
+                          <Triangle className="h-2 w-2 text-green-500" />
                           {cause}
                         </li>
                       ))}
@@ -1012,7 +1012,7 @@ const Repairs = () => {
                   <div className="bg-white/20 rounded-full px-3 py-1 text-sm inline-block mb-3">
                     {level.response}
                   </div>
-                  <p className="text-sm text-orange-100">{level.examples}</p>
+                  <p className="text-sm text-green-100">{level.examples}</p>
                 </div>
               ))}
             </div>
@@ -1024,7 +1024,7 @@ const Repairs = () => {
                   Emergency Hotline
                 </h4>
                 <p className="text-2xl font-bold">(530) 226-0701</p>
-                <p className="text-sm text-orange-100">Available 24/7/365</p>
+                <p className="text-sm text-green-100">Available 24/7/365</p>
               </div>
               <div className="bg-white/10 backdrop-blur rounded-xl p-4">
                 <h4 className="font-semibold mb-2 flex items-center gap-2">
@@ -1032,7 +1032,7 @@ const Repairs = () => {
                   Service Area
                 </h4>
                 <p className="text-sm">Redding, Anderson, Shasta Lake</p>
-                <p className="text-sm text-orange-100">All of Northern California</p>
+                <p className="text-sm text-green-100">All of Northern California</p>
               </div>
               <div className="bg-white/10 backdrop-blur rounded-xl p-4">
                 <h4 className="font-semibold mb-2 flex items-center gap-2">
@@ -1040,7 +1040,7 @@ const Repairs = () => {
                   On-Call Team
                 </h4>
                 <p className="text-sm">12 certified technicians</p>
-                <p className="text-sm text-orange-100">3 emergency response vehicles</p>
+                <p className="text-sm text-green-100">3 emergency response vehicles</p>
               </div>
             </div>
           </div>
@@ -1183,7 +1183,7 @@ const Repairs = () => {
         {/* CTA Section */}
         <div className="bg-gradient-to-r from-red-600 to-orange-600 rounded-3xl p-8 text-white text-center">
           <h2 className="text-3xl font-bold mb-4">Get Your Solar System Fixed Today</h2>
-          <p className="text-xl mb-6 text-orange-100">
+          <p className="text-xl mb-6 text-green-100">
             Professional diagnostics and repairs for all solar systems • 24/7 Emergency Service
           </p>
 
@@ -1191,19 +1191,19 @@ const Repairs = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
               <div>
                 <div className="text-3xl font-bold">3,847</div>
-                <div className="text-sm text-orange-200">Repairs Completed</div>
+                <div className="text-sm text-green-200">Repairs Completed</div>
               </div>
               <div>
                 <div className="text-3xl font-bold">2.3hr</div>
-                <div className="text-sm text-orange-200">Avg Response</div>
+                <div className="text-sm text-green-200">Avg Response</div>
               </div>
               <div>
                 <div className="text-3xl font-bold">627</div>
-                <div className="text-sm text-orange-200">Orphan Rescues</div>
+                <div className="text-sm text-green-200">Orphan Rescues</div>
               </div>
               <div>
                 <div className="text-3xl font-bold">98.5%</div>
-                <div className="text-sm text-orange-200">Uptime Restored</div>
+                <div className="text-sm text-green-200">Uptime Restored</div>
               </div>
             </div>
           </div>
@@ -1219,7 +1219,7 @@ const Repairs = () => {
               <FileCheck className="h-5 w-5" /> Get Quote
             </button>
           </div>
-          <div className="mt-6 text-sm text-orange-200">
+          <div className="mt-6 text-sm text-green-200">
             7-Day Orphan System Rescue • Same-Day Emergency Service • All Brands Serviced • NABCEP Certified
           </div>
         </div>

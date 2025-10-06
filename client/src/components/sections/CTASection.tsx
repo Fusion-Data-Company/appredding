@@ -47,9 +47,9 @@ const CTASection: React.FC<CTASectionProps> = ({
   const accentStyles = {
     orange: {
       gradient: 'from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700',
-      text: 'text-orange-400',
+      text: 'text-green-400',
       border: 'border-orange-500',
-      hover: 'hover:bg-orange-500'
+      hover: 'hover:bg-green-500'
     },
     blue: {
       gradient: 'from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700',

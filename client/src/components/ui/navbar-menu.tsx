@@ -162,7 +162,7 @@ export const ProductItem = ({
       
       {/* Arrow indicator for navigation */}
       <div className="self-center opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300">
-        <ChevronRight className="h-4 w-4 text-orange-400" />
+        <ChevronRight className="h-4 w-4 text-green-400" />
       </div>
     </Link>
   );

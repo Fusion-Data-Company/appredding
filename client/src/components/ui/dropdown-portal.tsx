@@ -89,7 +89,7 @@ export const DropdownPortal = ({
           
           {/* Ambient glow effects */}
           <div className="absolute top-0 left-1/4 w-40 h-40 bg-blue-600/5 rounded-full filter blur-3xl opacity-50"></div>
-          <div className="absolute bottom-0 right-1/4 w-40 h-40 bg-orange-600/5 rounded-full filter blur-3xl opacity-50"></div>
+          <div className="absolute bottom-0 right-1/4 w-40 h-40 bg-green-600/5 rounded-full filter blur-3xl opacity-50"></div>
         </div>
         
         {/* Connection area for better UX when moving mouse */}

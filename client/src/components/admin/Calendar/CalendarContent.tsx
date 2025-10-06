@@ -88,7 +88,7 @@ const getEventTypeColor = (type: string) => {
     case "internal":
       return "bg-gray-100 text-gray-800 border-gray-300";
     case "site-visit":
-      return "bg-orange-100 text-orange-800 border-orange-300";
+      return "bg-green-100 text-green-800 border-orange-300";
     default:
       return "bg-gray-100 text-gray-800 border-gray-300";
   }

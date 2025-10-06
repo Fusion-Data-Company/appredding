@@ -139,7 +139,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
                   animate={{ rotate: [0, 360] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
                 >
-                  <Wrench className="h-4 w-4 fill-orange-600 text-orange-600" />
+                  <Wrench className="h-4 w-4 fill-orange-600 text-green-600" />
                 </motion.div>
                 {tagline}
               </motion.div>
@@ -253,10 +253,10 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
                 
                 <div className="relative z-10">
                   <div className="w-12 h-12 rounded-full bg-white/60 dark:bg-white/20 shadow-md flex items-center justify-center mb-4">
-                    <Phone className="w-6 h-6 text-orange-700 dark:text-orange-300" />
+                    <Phone className="w-6 h-6 text-green-700 dark:text-green-300" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2 text-orange-900 dark:text-orange-100">1. Contact Us</h3>
-                  <p className="text-orange-800 dark:text-orange-100 text-sm">
+                  <h3 className="text-xl font-semibold mb-2 text-green-900 dark:text-green-100">1. Contact Us</h3>
+                  <p className="text-green-800 dark:text-green-100 text-sm">
                     Call or schedule online. Our team responds within 2 hours for emergency repairs.
                   </p>
                   <div className="bg-current/40 mt-4 h-0.5 w-16 rounded opacity-60" />

@@ -391,31 +391,31 @@ const BatteryStorage = () => {
 
             <div className="spec-card-elite glow-orange group">
               <div className="flex items-center gap-3 mb-4">
-                <div className="icon-container-elite bg-orange-500/20 group-hover:bg-orange-500/30">
-                  <Shield className="h-6 w-6 text-orange-400" />
+                <div className="icon-container-elite bg-green-500/20 group-hover:bg-green-500/30">
+                  <Shield className="h-6 w-6 text-green-400" />
                 </div>
                 <h3 className="text-lg font-bold text-white">Safety/Code</h3>
               </div>
               <div className="space-y-3">
                 <div className="data-row-elite text-sm">
                   <span className="text-gray-400">UL:</span>
-                  <span className="text-orange-300 font-mono">9540A</span>
+                  <span className="text-green-300 font-mono">9540A</span>
                 </div>
                 <div className="data-row-elite text-sm">
                   <span className="text-gray-400">NFPA:</span>
-                  <span className="text-orange-300 font-mono">855</span>
+                  <span className="text-green-300 font-mono">855</span>
                 </div>
                 <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Fire:</span>
-                  <span className="text-orange-300 font-mono">2hr rated</span>
+                  <span className="text-green-300 font-mono">2hr rated</span>
                 </div>
                 <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Venting:</span>
-                  <span className="text-orange-300 font-mono">Sealed</span>
+                  <span className="text-green-300 font-mono">Sealed</span>
                 </div>
                 <div className="data-row-elite text-sm">
                   <span className="text-gray-400">IP Rating:</span>
-                  <span className="text-orange-300 font-mono">IP65</span>
+                  <span className="text-green-300 font-mono">IP65</span>
                 </div>
               </div>
             </div>
@@ -563,7 +563,7 @@ const BatteryStorage = () => {
                   <th className="text-left py-3 px-4 text-gray-400">Specification</th>
                   <th className="text-center py-3 px-4 text-purple-400">LiFePO4 (LFP)</th>
                   <th className="text-center py-3 px-4 text-blue-400">NMC/NCA</th>
-                  <th className="text-center py-3 px-4 text-orange-400">Lead Acid (AGM)</th>
+                  <th className="text-center py-3 px-4 text-green-400">Lead Acid (AGM)</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-700/50">
@@ -571,61 +571,61 @@ const BatteryStorage = () => {
                   <td className="py-3 px-4 text-gray-300 font-semibold">Cycle Life @ 80% DoD</td>
                   <td className="text-center py-3 px-4 font-mono text-purple-300">6,000-10,000</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">3,000-5,000</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">500-1,000</td>
+                  <td className="text-center py-3 px-4 font-mono text-green-300">500-1,000</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Energy Density (Wh/kg)</td>
                   <td className="text-center py-3 px-4 font-mono text-purple-300">90-120</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">150-250</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">30-40</td>
+                  <td className="text-center py-3 px-4 font-mono text-green-300">30-40</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Round-Trip Efficiency</td>
                   <td className="text-center py-3 px-4 font-mono text-purple-300">95-98%</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">92-95%</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">80-85%</td>
+                  <td className="text-center py-3 px-4 font-mono text-green-300">80-85%</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Thermal Runaway Temp</td>
                   <td className="text-center py-3 px-4 font-mono text-purple-300">270°C</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">150°C</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">N/A</td>
+                  <td className="text-center py-3 px-4 font-mono text-green-300">N/A</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Max Discharge Rate</td>
                   <td className="text-center py-3 px-4 font-mono text-purple-300">1C continuous</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">2C continuous</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">0.2C</td>
+                  <td className="text-center py-3 px-4 font-mono text-green-300">0.2C</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Operating Temp Range</td>
                   <td className="text-center py-3 px-4 font-mono text-purple-300">-20 to +60°C</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">-20 to +45°C</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">-15 to +40°C</td>
+                  <td className="text-center py-3 px-4 font-mono text-green-300">-15 to +40°C</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Self-Discharge Rate</td>
                   <td className="text-center py-3 px-4 font-mono text-purple-300">&lt;3%/month</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">&lt;5%/month</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">5-15%/month</td>
+                  <td className="text-center py-3 px-4 font-mono text-green-300">5-15%/month</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Calendar Life</td>
                   <td className="text-center py-3 px-4 font-mono text-purple-300">20+ years</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">10-15 years</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">3-5 years</td>
+                  <td className="text-center py-3 px-4 font-mono text-green-300">3-5 years</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Depth of Discharge</td>
                   <td className="text-center py-3 px-4 font-mono text-purple-300">100% safe</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">80-90%</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">50% max</td>
+                  <td className="text-center py-3 px-4 font-mono text-green-300">50% max</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Toxicity/Environmental</td>
                   <td className="text-center py-3 px-4 font-mono text-purple-300">Non-toxic</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">Cobalt concerns</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">Lead hazard</td>
+                  <td className="text-center py-3 px-4 font-mono text-green-300">Lead hazard</td>
                 </tr>
               </tbody>
             </table>

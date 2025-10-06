@@ -412,9 +412,9 @@ const EnterpriseCARM = () => {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600">Total Contacts</p>
-                  <p className="text-2xl font-bold text-orange-600">{dashboardStats.totalContacts}</p>
+                  <p className="text-2xl font-bold text-green-600">{dashboardStats.totalContacts}</p>
                 </div>
-                <Users className="w-8 h-8 text-orange-500" />
+                <Users className="w-8 h-8 text-green-500" />
               </div>
             </CardContent>
           </Card>
@@ -424,9 +424,9 @@ const EnterpriseCARM = () => {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600">Customers</p>
-                  <p className="text-2xl font-bold text-orange-600">{dashboardStats.totalCustomers}</p>
+                  <p className="text-2xl font-bold text-green-600">{dashboardStats.totalCustomers}</p>
                 </div>
-                <Database className="w-8 h-8 text-orange-500" />
+                <Database className="w-8 h-8 text-green-500" />
               </div>
             </CardContent>
           </Card>
@@ -436,9 +436,9 @@ const EnterpriseCARM = () => {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600">New Submissions</p>
-                  <p className="text-2xl font-bold text-orange-600">{dashboardStats.unprocessedSubmissions}</p>
+                  <p className="text-2xl font-bold text-green-600">{dashboardStats.unprocessedSubmissions}</p>
                 </div>
-                <FileText className="w-8 h-8 text-orange-500" />
+                <FileText className="w-8 h-8 text-green-500" />
               </div>
             </CardContent>
           </Card>
@@ -448,9 +448,9 @@ const EnterpriseCARM = () => {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600">Opportunities</p>
-                  <p className="text-2xl font-bold text-orange-600">{dashboardStats.totalOpportunities}</p>
+                  <p className="text-2xl font-bold text-green-600">{dashboardStats.totalOpportunities}</p>
                 </div>
-                <Target className="w-8 h-8 text-orange-500" />
+                <Target className="w-8 h-8 text-green-500" />
               </div>
             </CardContent>
           </Card>
@@ -460,9 +460,9 @@ const EnterpriseCARM = () => {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600">Documents</p>
-                  <p className="text-2xl font-bold text-orange-600">{dashboardStats.documentsProcessed}</p>
+                  <p className="text-2xl font-bold text-green-600">{dashboardStats.documentsProcessed}</p>
                 </div>
-                <FolderOpen className="w-8 h-8 text-orange-500" />
+                <FolderOpen className="w-8 h-8 text-green-500" />
               </div>
             </CardContent>
           </Card>
@@ -472,9 +472,9 @@ const EnterpriseCARM = () => {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600">Activities</p>
-                  <p className="text-2xl font-bold text-orange-600">{dashboardStats.recentActivityCount}</p>
+                  <p className="text-2xl font-bold text-green-600">{dashboardStats.recentActivityCount}</p>
                 </div>
-                <Activity className="w-8 h-8 text-orange-500" />
+                <Activity className="w-8 h-8 text-green-500" />
               </div>
             </CardContent>
           </Card>
@@ -537,8 +537,8 @@ const EnterpriseCARM = () => {
                   {activitiesData && activitiesData.length > 0 ? (
                     <div className="space-y-3">
                       {activitiesData.slice(0, 5).map((activity: any) => (
-                        <div key={activity.id} className="flex items-center space-x-3 p-2 rounded-lg bg-orange-50">
-                          <Activity className="w-4 h-4 text-orange-500" />
+                        <div key={activity.id} className="flex items-center space-x-3 p-2 rounded-lg bg-green-50">
+                          <Activity className="w-4 h-4 text-green-500" />
                           <div className="flex-1">
                             <p className="text-sm font-medium">{activity.subject}</p>
                             <p className="text-xs text-gray-500">
@@ -587,13 +587,13 @@ const EnterpriseCARM = () => {
           {/* Contacts Tab */}
           <TabsContent value="contacts" className="space-y-6">
             <div className="flex items-center justify-between">
-              <h2 className="text-2xl font-bold text-orange-700">Contacts Management</h2>
+              <h2 className="text-2xl font-bold text-green-700">Contacts Management</h2>
               <div className="flex items-center space-x-2">
                 <Button 
                   onClick={handleExportContacts}
                   variant="outline" 
                   size="sm"
-                  className="border-orange-200 hover:bg-orange-50"
+                  className="border-orange-200 hover:bg-green-50"
                 >
                   <Download className="w-4 h-4 mr-2" />
                   Export CSV
@@ -615,7 +615,7 @@ const EnterpriseCARM = () => {
 
             {contactsLoading ? (
               <div className="flex items-center justify-center py-8">
-                <Loader2 className="w-6 h-6 animate-spin text-orange-500" />
+                <Loader2 className="w-6 h-6 animate-spin text-green-500" />
                 <span className="ml-2 text-gray-600">Loading contacts...</span>
               </div>
             ) : contactsError ? (
@@ -630,7 +630,7 @@ const EnterpriseCARM = () => {
                 <CardContent className="p-0">
                   <Table>
                     <TableHeader>
-                      <TableRow className="bg-orange-50">
+                      <TableRow className="bg-green-50">
                         <TableHead>Name</TableHead>
                         <TableHead>Email</TableHead>
                         <TableHead>Phone</TableHead>
@@ -643,7 +643,7 @@ const EnterpriseCARM = () => {
                     <TableBody>
                       {contactsData?.contacts?.length > 0 ? (
                         contactsData.contacts.map((contact: Contact) => (
-                          <TableRow key={contact.id} className="hover:bg-orange-50">
+                          <TableRow key={contact.id} className="hover:bg-green-50">
                             <TableCell className="font-medium">
                               {contact.firstName} {contact.lastName}
                             </TableCell>
@@ -702,7 +702,7 @@ const EnterpriseCARM = () => {
           {/* Customers Tab */}
           <TabsContent value="customers" className="space-y-6">
             <div className="flex items-center justify-between">
-              <h2 className="text-2xl font-bold text-orange-700">Customer Database</h2>
+              <h2 className="text-2xl font-bold text-green-700">Customer Database</h2>
               <div className="flex items-center space-x-2">
                 <input
                   type="file"
@@ -721,7 +721,7 @@ const EnterpriseCARM = () => {
                   variant="outline" 
                   size="sm"
                   disabled={!selectedCustomer || isProcessingDocuments}
-                  className="border-orange-200 hover:bg-orange-50"
+                  className="border-orange-200 hover:bg-green-50"
                 >
                   <Upload className="w-4 h-4 mr-2" />
                   {isProcessingDocuments ? 'Processing...' : 'Upload Documents'}
@@ -742,7 +742,7 @@ const EnterpriseCARM = () => {
 
             {customersLoading ? (
               <div className="flex items-center justify-center py-8">
-                <Loader2 className="w-6 h-6 animate-spin text-orange-500" />
+                <Loader2 className="w-6 h-6 animate-spin text-green-500" />
                 <span className="ml-2 text-gray-600">Loading customers...</span>
               </div>
             ) : (
@@ -750,7 +750,7 @@ const EnterpriseCARM = () => {
                 <CardContent className="p-0">
                   <Table>
                     <TableHeader>
-                      <TableRow className="bg-orange-50">
+                      <TableRow className="bg-green-50">
                         <TableHead>Customer</TableHead>
                         <TableHead>Address</TableHead>
                         <TableHead>System Size</TableHead>
@@ -765,7 +765,7 @@ const EnterpriseCARM = () => {
                         customersData.customers.map((customer: Customer) => (
                           <TableRow 
                             key={customer.id} 
-                            className={`hover:bg-orange-50 cursor-pointer ${selectedCustomer?.id === customer.id ? 'bg-orange-100' : ''}`}
+                            className={`hover:bg-green-50 cursor-pointer ${selectedCustomer?.id === customer.id ? 'bg-green-100' : ''}`}
                             onClick={() => setSelectedCustomer(customer)}
                           >
                             <TableCell className="font-medium">
@@ -778,7 +778,7 @@ const EnterpriseCARM = () => {
                             <TableCell>{customer.installationYear || '-'}</TableCell>
                             <TableCell>
                               <div className="flex items-center space-x-2">
-                                <FolderOpen className="w-4 h-4 text-orange-500" />
+                                <FolderOpen className="w-4 h-4 text-green-500" />
                                 <span>{customer.totalDocuments}</span>
                               </div>
                             </TableCell>
@@ -814,15 +814,15 @@ const EnterpriseCARM = () => {
           {/* Form Submissions Tab */}
           <TabsContent value="submissions" className="space-y-6">
             <div className="flex items-center justify-between">
-              <h2 className="text-2xl font-bold text-orange-700">Form Submissions</h2>
-              <Badge variant="outline" className="border-orange-500 text-orange-700">
+              <h2 className="text-2xl font-bold text-green-700">Form Submissions</h2>
+              <Badge variant="outline" className="border-orange-500 text-green-700">
                 {dashboardStats.unprocessedSubmissions} Unprocessed
               </Badge>
             </div>
 
             {submissionsLoading ? (
               <div className="flex items-center justify-center py-8">
-                <Loader2 className="w-6 h-6 animate-spin text-orange-500" />
+                <Loader2 className="w-6 h-6 animate-spin text-green-500" />
                 <span className="ml-2 text-gray-600">Loading submissions...</span>
               </div>
             ) : (
@@ -830,7 +830,7 @@ const EnterpriseCARM = () => {
                 <CardContent className="p-0">
                   <Table>
                     <TableHeader>
-                      <TableRow className="bg-orange-50">
+                      <TableRow className="bg-green-50">
                         <TableHead>Name</TableHead>
                         <TableHead>Email</TableHead>
                         <TableHead>Form Type</TableHead>
@@ -843,7 +843,7 @@ const EnterpriseCARM = () => {
                     <TableBody>
                       {submissionsData?.submissions?.length > 0 ? (
                         submissionsData.submissions.map((submission: FormSubmission) => (
-                          <TableRow key={submission.id} className="hover:bg-orange-50">
+                          <TableRow key={submission.id} className="hover:bg-green-50">
                             <TableCell className="font-medium">
                               {submission.firstName} {submission.lastName}
                             </TableCell>
@@ -870,7 +870,7 @@ const EnterpriseCARM = () => {
                                   variant="outline"
                                   onClick={() => processSubmissionMutation.mutate(submission.id)}
                                   disabled={processSubmissionMutation.isPending}
-                                  className="border-orange-200 hover:bg-orange-50"
+                                  className="border-orange-200 hover:bg-green-50"
                                 >
                                   <Zap className="w-4 h-4 mr-1" />
                                   Process
@@ -896,11 +896,11 @@ const EnterpriseCARM = () => {
           {/* Opportunities Tab */}
           <TabsContent value="opportunities" className="space-y-6">
             <div className="flex items-center justify-between">
-              <h2 className="text-2xl font-bold text-orange-700">Sales Opportunities</h2>
+              <h2 className="text-2xl font-bold text-green-700">Sales Opportunities</h2>
               <Button 
                 variant="outline" 
                 size="sm"
-                className="border-orange-200 hover:bg-orange-50"
+                className="border-orange-200 hover:bg-green-50"
               >
                 <Plus className="w-4 h-4 mr-2" />
                 New Opportunity
@@ -909,7 +909,7 @@ const EnterpriseCARM = () => {
 
             {opportunitiesLoading ? (
               <div className="flex items-center justify-center py-8">
-                <Loader2 className="w-6 h-6 animate-spin text-orange-500" />
+                <Loader2 className="w-6 h-6 animate-spin text-green-500" />
                 <span className="ml-2 text-gray-600">Loading opportunities...</span>
               </div>
             ) : (
@@ -917,7 +917,7 @@ const EnterpriseCARM = () => {
                 <CardContent className="p-0">
                   <Table>
                     <TableHeader>
-                      <TableRow className="bg-orange-50">
+                      <TableRow className="bg-green-50">
                         <TableHead>Opportunity</TableHead>
                         <TableHead>Contact</TableHead>
                         <TableHead>Company</TableHead>
@@ -931,7 +931,7 @@ const EnterpriseCARM = () => {
                     <TableBody>
                       {opportunitiesData?.opportunities?.length > 0 ? (
                         opportunitiesData.opportunities.map((opportunity: Opportunity) => (
-                          <TableRow key={opportunity.id} className="hover:bg-orange-50">
+                          <TableRow key={opportunity.id} className="hover:bg-green-50">
                             <TableCell className="font-medium">{opportunity.name}</TableCell>
                             <TableCell>{opportunity.contactName || '-'}</TableCell>
                             <TableCell>{opportunity.companyName || '-'}</TableCell>
@@ -978,11 +978,11 @@ const EnterpriseCARM = () => {
           {/* Activities Tab */}
           <TabsContent value="activities" className="space-y-6">
             <div className="flex items-center justify-between">
-              <h2 className="text-2xl font-bold text-orange-700">Recent Activities</h2>
+              <h2 className="text-2xl font-bold text-green-700">Recent Activities</h2>
               <Button 
                 variant="outline" 
                 size="sm"
-                className="border-orange-200 hover:bg-orange-50"
+                className="border-orange-200 hover:bg-green-50"
               >
                 <Plus className="w-4 h-4 mr-2" />
                 Add Activity
@@ -994,9 +994,9 @@ const EnterpriseCARM = () => {
                 {activitiesData && activitiesData.length > 0 ? (
                   <div className="space-y-4">
                     {activitiesData.map((activity: any) => (
-                      <div key={activity.id} className="flex items-start space-x-4 p-4 rounded-lg bg-orange-50 border border-orange-100">
-                        <div className="w-10 h-10 rounded-full bg-orange-200 flex items-center justify-center">
-                          <Activity className="w-5 h-5 text-orange-600" />
+                      <div key={activity.id} className="flex items-start space-x-4 p-4 rounded-lg bg-green-50 border border-orange-100">
+                        <div className="w-10 h-10 rounded-full bg-green-200 flex items-center justify-center">
+                          <Activity className="w-5 h-5 text-green-600" />
                         </div>
                         <div className="flex-1">
                           <h3 className="font-medium text-gray-900">{activity.subject}</h3>

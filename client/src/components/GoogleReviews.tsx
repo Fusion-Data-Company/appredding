@@ -207,7 +207,7 @@ const GoogleReviews = () => {
               <div className="relative z-10">
                 {/* Quote Icon */}
                 <div className="absolute top-0 right-0">
-                  <Quote className="w-8 h-8 text-yellow-500/10 group-hover:text-orange-500/15 transition-colors duration-300" />
+                  <Quote className="w-8 h-8 text-yellow-500/10 group-hover:text-green-500/15 transition-colors duration-300" />
                 </div>
                 
                 {/* Star Rating */}
@@ -224,7 +224,7 @@ const GoogleReviews = () => {
                 {isTruncated && (
                   <button
                     onClick={() => toggleExpanded(index)}
-                    className="text-orange-600 hover:text-orange-700 font-semibold text-sm mb-4 transition-colors"
+                    className="text-green-600 hover:text-green-700 font-semibold text-sm mb-4 transition-colors"
                     data-testid={`button-read-more-${index}`}
                   >
                     {isExpanded ? 'Show Less' : 'Read More'}
@@ -319,7 +319,7 @@ const GoogleReviews = () => {
               </div>
               
               <div>
-                <div className="text-3xl font-bold text-orange-400" data-testid="badge-systems">1,000+</div>
+                <div className="text-3xl font-bold text-green-400" data-testid="badge-systems">1,000+</div>
                 <div className="text-gray-400 text-sm">Systems Installed</div>
               </div>
               
