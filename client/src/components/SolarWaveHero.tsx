@@ -316,25 +316,17 @@ const SolarWaveHero: React.FC<SolarWaveHeroProps> = ({
               transition={{ duration: 0.8, delay: 0.2 }}
               className="mb-6 text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl"
             >
-              <motion.span 
-                className="text-5xl sm:text-6xl lg:text-7xl font-bold bg-clip-text text-transparent"
-                initial={{ backgroundPosition: "200% center" }}
-                animate={{ backgroundPosition: "0% center" }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 3,
-                  ease: "linear",
-                }}
+              <span 
+                className="text-5xl sm:text-6xl lg:text-7xl font-bold preserve-text-color"
                 style={{ 
-                  backgroundImage: "linear-gradient(90deg, transparent 0%, transparent 33%, rgba(255, 255, 255, 0.8) 50%, transparent 66%, transparent 100%), linear-gradient(to right, #ff6b35, #fbbf24, #f59e0b, #ff8c42)",
-                  backgroundSize: "300% 100%, 100% 100%",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  filter: "drop-shadow(0 0 30px rgba(251, 191, 36, 0.7)) drop-shadow(0 0 60px rgba(255, 107, 53, 0.5))",
+                  color: '#fbbf24 !important',
+                  textShadow: '0 0 40px rgba(251, 191, 36, 0.6), 0 0 20px rgba(245, 158, 11, 0.4)',
+                  WebkitTextFillColor: '#fbbf24',
+                  filter: 'brightness(1.2)'
                 }}
               >
                 {title}
-              </motion.span>
+              </span>
               <br />
               <span className="font-extrabold tracking-wide text-white">
                 Advance Power Redding
