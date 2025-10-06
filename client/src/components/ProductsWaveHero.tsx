@@ -311,16 +311,20 @@ const ProductsWaveHero: React.FC<ProductsWaveHeroProps> = ({
               transition={{ duration: 0.8, delay: 0.2 }}
               className="mb-6 text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl"
             >
-              <span className="font-extrabold text-white">
-                Advance Power
-              </span>
-              <br />
-              <span className="text-5xl sm:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-white via-purple-300 to-violet-400 bg-clip-text text-transparent preserve-text-color">
+              <span
+                className="text-5xl sm:text-6xl lg:text-7xl font-bold"
+                style={{
+                  color: '#ff9933',
+                  textShadow: '0 0 40px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 153, 51, 0.6), 0 2px 4px rgba(0,0,0,0.3)',
+                  filter: 'brightness(1.3)',
+                  WebkitTextFillColor: '#ff9933'
+                }}
+              >
                 Solar Products
               </span>
               <br />
-              <span className="font-extrabold tracking-wide bg-gradient-to-r from-white via-amber-300 to-orange-400 bg-clip-text text-transparent preserve-text-color">
-                Redding
+              <span className="font-extrabold tracking-wide text-white">
+                Advance Power Redding
               </span>
             </motion.h1>
 
