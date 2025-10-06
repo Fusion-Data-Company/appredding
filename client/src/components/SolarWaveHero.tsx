@@ -319,10 +319,12 @@ const SolarWaveHero: React.FC<SolarWaveHeroProps> = ({
               <span 
                 className="text-5xl sm:text-6xl lg:text-7xl font-bold preserve-text-color"
                 style={{ 
-                  color: '#fbbf24 !important',
-                  textShadow: '0 0 40px rgba(251, 191, 36, 0.6), 0 0 20px rgba(245, 158, 11, 0.4)',
-                  WebkitTextFillColor: '#fbbf24',
-                  filter: 'brightness(1.2)'
+                  background: 'linear-gradient(to right, #ff9933, #fbbf24, #ffd700)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  textShadow: '0 0 40px rgba(251, 191, 36, 0.6), 0 0 20px rgba(255, 153, 51, 0.4)',
+                  filter: 'brightness(1.2) drop-shadow(0 0 30px rgba(255, 215, 0, 0.5))'
                 }}
               >
                 {title}
