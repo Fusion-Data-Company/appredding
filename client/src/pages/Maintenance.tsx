@@ -5,6 +5,10 @@ import MaintenanceWaveHero from "@/components/MaintenanceWaveHero";
 import MainLayout from "@/components/layout/MainLayout";
 import SEOHead from "@/components/SEOHead";
 import { AwardBadge } from "@/components/ui/award-badge";
+import gregWithPanelImg from "@assets/Greg-with-panel.jpg";
+import teamMaintenanceImg from "@assets/400617335_882191187089939_3988264444007076062_n-500x375.jpg";
+import onSiteServiceImg from "@assets/491844865_1271014964874224_7004732250107002194_n.jpg";
+import equipmentServicingImg from "@assets/20210121_103322-400x400.jpg";
 
 const Maintenance = () => {
   const maintenanceSchema = {
@@ -402,9 +406,18 @@ const Maintenance = () => {
         ]}
       />
 
-      {/* Excellence Award Badge */}
-      <div className="flex justify-center py-12 bg-gradient-to-b from-slate-950 to-gray-900">
-        <AwardBadge type="customer-service-excellence" />
+
+      {/* Professional Team Work Image 1 */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="rounded-xl overflow-hidden shadow-2xl">
+          <img 
+            src={gregWithPanelImg}
+            alt="Professional solar panel maintenance technician working on solar installation"
+            className="w-full h-64 md:h-80 lg:h-96 object-cover"
+            loading="lazy"
+            data-testid="img-maintenance-1"
+          />
+        </div>
       </div>
 
       {/* Enhanced Live System Metrics Section */}
@@ -539,6 +552,19 @@ const Maintenance = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Professional Team Work Image 2 */}
+        <div className="container mx-auto px-4 py-8">
+          <div className="rounded-xl overflow-hidden shadow-2xl">
+            <img 
+              src={teamMaintenanceImg}
+              alt="Team performing preventive maintenance on solar panel systems"
+              className="w-full h-64 md:h-80 lg:h-96 object-cover"
+              loading="lazy"
+              data-testid="img-maintenance-2"
+            />
           </div>
         </div>
 
@@ -755,6 +781,19 @@ const Maintenance = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Professional Team Work Image 3 */}
+        <div className="container mx-auto px-4 py-8">
+          <div className="rounded-xl overflow-hidden shadow-2xl">
+            <img 
+              src={onSiteServiceImg}
+              alt="On-site solar system servicing and equipment inspection"
+              className="w-full h-64 md:h-80 lg:h-96 object-cover"
+              loading="lazy"
+              data-testid="img-maintenance-3"
+            />
           </div>
         </div>
 
@@ -1025,6 +1064,19 @@ const Maintenance = () => {
                 with only $3,000-4,000 in total maintenance costs. ROI exceeds 400%.
               </p>
             </div>
+          </div>
+        </div>
+
+        {/* Professional Team Work Image 4 */}
+        <div className="container mx-auto px-4 py-8">
+          <div className="rounded-xl overflow-hidden shadow-2xl">
+            <img 
+              src={equipmentServicingImg}
+              alt="Professional equipment servicing and solar panel maintenance inspection"
+              className="w-full h-64 md:h-80 lg:h-96 object-cover"
+              loading="lazy"
+              data-testid="img-maintenance-4"
+            />
           </div>
         </div>
 

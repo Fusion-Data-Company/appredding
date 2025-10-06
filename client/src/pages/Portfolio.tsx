@@ -8,6 +8,10 @@ import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import type { PortfolioProject } from "@shared/schema";
 import SEOHead from "@/components/SEOHead";
+import rooftopInstallation from '@assets/360-rooftop-pool-im-sommer.jpg';
+import projectInstallation from '@assets/491844865_1271014964874224_7004732250107002194_n.jpg';
+import solarArrayImage from '@assets/andreas-gucklhorn-Ilpf2eUPpUE-unsplash-500x375.jpg';
+import teamWithPanel from '@assets/Greg-with-panel.jpg';
 
 type CategoryFilter = "all" | "residential" | "commercial" | "maintenance";
 
@@ -103,6 +107,19 @@ export default function Portfolio() {
           </div>
         </section>
 
+        {/* Featured Portfolio Image - Rooftop Installation */}
+        <div className="container mx-auto px-4 py-8">
+          <div className="rounded-xl overflow-hidden shadow-2xl">
+            <img 
+              src={rooftopInstallation}
+              alt="Completed rooftop solar installation with pool area"
+              className="w-full h-64 md:h-80 lg:h-96 object-cover"
+              loading="lazy"
+              data-testid="img-portfolio-1"
+            />
+          </div>
+        </div>
+
         {/* Filter Tabs */}
         <section className="container mx-auto px-4 mb-12">
           <div className="flex flex-wrap justify-center gap-3">
@@ -126,6 +143,19 @@ export default function Portfolio() {
             ))}
           </div>
         </section>
+
+        {/* Featured Portfolio Image - Solar Array */}
+        <div className="container mx-auto px-4 py-8">
+          <div className="rounded-xl overflow-hidden shadow-2xl">
+            <img 
+              src={solarArrayImage}
+              alt="Professional commercial solar array installation"
+              className="w-full h-64 md:h-80 lg:h-96 object-cover"
+              loading="lazy"
+              data-testid="img-portfolio-2"
+            />
+          </div>
+        </div>
 
         {/* Projects Grid */}
         <section className="container mx-auto px-4 pb-20">
@@ -238,6 +268,32 @@ export default function Portfolio() {
             </>
           )}
         </section>
+
+        {/* Featured Portfolio Image - Project Installation */}
+        <div className="container mx-auto px-4 py-8">
+          <div className="rounded-xl overflow-hidden shadow-2xl">
+            <img 
+              src={projectInstallation}
+              alt="Successful residential solar installation project in progress"
+              className="w-full h-64 md:h-80 lg:h-96 object-cover"
+              loading="lazy"
+              data-testid="img-portfolio-3"
+            />
+          </div>
+        </div>
+
+        {/* Featured Portfolio Image - Team with Panel */}
+        <div className="container mx-auto px-4 py-8">
+          <div className="rounded-xl overflow-hidden shadow-2xl">
+            <img 
+              src={teamWithPanel}
+              alt="APR team with completed solar installation project"
+              className="w-full h-64 md:h-80 lg:h-96 object-cover"
+              loading="lazy"
+              data-testid="img-portfolio-4"
+            />
+          </div>
+        </div>
 
         {/* Project Detail Modal */}
         <AnimatePresence>

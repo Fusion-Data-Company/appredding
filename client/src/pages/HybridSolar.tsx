@@ -69,6 +69,10 @@ import SolarRescueTimelineSection from "@/sections/SolarRescueTimelineSection";
 import ContentSection from "@/components/sections/ContentSection";
 import { GradientTracing } from '@/components/ui/gradient-tracing';
 import { AwardBadge } from "@/components/ui/award-badge";
+import gregWithPanel from '@assets/Greg-with-panel.jpg';
+import solarPanelsImage from '@assets/guillherme-schneider-ecIS-bfYSG8-unsplash-300x400.jpg';
+import installationWork from '@assets/Frame-5-500x282.webp';
+import solArkEquipment from '@assets/15K-new-1-e1719430674378-628x1024.webp';
 
 type HybridSolarFormValues = z.infer<typeof insertFirePreventionHomeownerSchema>;
 
@@ -149,9 +153,18 @@ const HybridSolar = () => {
       {/* Hybrid Solar Wave Hero Section */}
       <HybridSolarWaveHero />
 
-      {/* Excellence Award Badge */}
-      <div className="flex justify-center py-12 bg-gradient-to-b from-slate-950 to-gray-900">
-        <AwardBadge type="customer-service-excellence" />
+
+      {/* Professional Team Image 1 */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="rounded-xl overflow-hidden shadow-2xl">
+          <img 
+            src={gregWithPanel}
+            alt="Professional hybrid solar system installation expert with solar panel demonstrating grid-tie and off-grid backup capabilities"
+            className="w-full h-64 md:h-80 lg:h-96 object-cover"
+            loading="lazy"
+            data-testid="img-hybrid-solar-1"
+          />
+        </div>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-gradient-mesh pt-24">
@@ -475,6 +488,19 @@ const HybridSolar = () => {
           },
         ]}
       />
+
+      {/* Professional Team Image 2 */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="rounded-xl overflow-hidden shadow-2xl">
+          <img 
+            src={installationWork}
+            alt="Hybrid solar system installation work showing Sol-Ark inverter and battery integration for seamless grid-tie to off-grid transition"
+            className="w-full h-64 md:h-80 lg:h-96 object-cover"
+            loading="lazy"
+            data-testid="img-hybrid-solar-2"
+          />
+        </div>
+      </div>
 
       {/* Hybrid System Architecture Section */}
       <ContentSection
@@ -1030,6 +1056,19 @@ const HybridSolar = () => {
         </div>
       </ContentSection>
 
+      {/* Professional Team Image 3 */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="rounded-xl overflow-hidden shadow-2xl">
+          <img 
+            src={solarPanelsImage}
+            alt="High-efficiency solar panels for hybrid grid-tie and off-grid backup system with battery storage"
+            className="w-full h-64 md:h-80 lg:h-96 object-cover"
+            loading="lazy"
+            data-testid="img-hybrid-solar-3"
+          />
+        </div>
+      </div>
+
       {/* PSPS Zone Map and Statistics */}
       <ContentSection
         title="California PSPS Zones & Grid Resilience"
@@ -1354,6 +1393,19 @@ const HybridSolar = () => {
           </div>
         </div>
       </ContentSection>
+
+      {/* Professional Team Image 4 */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="rounded-xl overflow-hidden shadow-2xl">
+          <img 
+            src={solArkEquipment}
+            alt="Sol-Ark 15K hybrid inverter equipment installation for grid-tie and off-grid backup power system"
+            className="w-full h-64 md:h-80 lg:h-96 object-cover"
+            loading="lazy"
+            data-testid="img-hybrid-solar-4"
+          />
+        </div>
+      </div>
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-green-600 to-blue-600">

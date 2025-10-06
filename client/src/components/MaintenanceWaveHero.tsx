@@ -169,7 +169,6 @@ const MaintenanceWaveHero: React.FC<MaintenanceWaveHeroProps> = ({
       <div className="absolute top-4 right-4 md:top-8 md:right-8 z-50">
         <AwardBadge type="customer-service-excellence" data-testid="award-badge-maintenance" />
       </div>
-
       {/* Animated Background (Exact from demo) */}
       <SolarWaveBackground />
       <EnergyParticles />

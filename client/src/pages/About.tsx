@@ -4,6 +4,9 @@ import PageTransition from "@/components/ui/page-transition";
 import { GradientButton } from "@/components/ui/gradient-button";
 import AboutAdvancePowerSection from "@/sections/AboutAdvancePowerSection";
 import SEOHead from "@/components/SEOHead";
+import gregWithPanel from "@assets/Greg-with-panel.jpg";
+import teamPhoto from "@assets/400617335_882191187089939_3988264444007076062_n-500x375.jpg";
+import teamWorking from "@assets/491844865_1271014964874224_7004732250107002194_n.jpg";
 
 const About = () => {
   const aboutSchema = {
@@ -48,6 +51,18 @@ const About = () => {
                 Excellence in solar energy solutions since 1999, delivering innovative renewable energy systems for Northern California
                 with over 25 years of experience.
               </p>
+            </div>
+
+            <div className="container mx-auto px-4 py-8">
+              <div className="rounded-xl overflow-hidden shadow-2xl">
+                <img 
+                  src={gregWithPanel}
+                  alt="Advance Power Redding team member working with solar panel installation - Northern California solar experts"
+                  className="w-full h-64 md:h-80 lg:h-96 object-cover"
+                  loading="lazy"
+                  data-testid="img-about-1"
+                />
+              </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16">
@@ -105,6 +120,18 @@ const About = () => {
               </div>
             </div>
 
+            <div className="container mx-auto px-4 py-8">
+              <div className="rounded-xl overflow-hidden shadow-2xl">
+                <img 
+                  src={teamPhoto}
+                  alt="Advance Power Redding solar company team members - experienced installation team serving Northern California"
+                  className="w-full h-64 md:h-80 lg:h-96 object-cover"
+                  loading="lazy"
+                  data-testid="img-about-2"
+                />
+              </div>
+            </div>
+
             <div className="bg-gradient-to-b from-gray-100/70 to-gray-200/70 dark:from-gray-800/70 dark:to-gray-900/70 rounded-xl p-8 mb-16 shadow-xl dark:shadow-orange-600/5 border border-gray-200 dark:border-gray-700/50">
               <h2 className="text-white font-semibold text-3xl mb-6 font-heading text-center">Our Services</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -141,6 +168,18 @@ const About = () => {
                     Energy storage solutions for backup power and grid independence
                   </p>
                 </div>
+              </div>
+            </div>
+
+            <div className="container mx-auto px-4 py-8">
+              <div className="rounded-xl overflow-hidden shadow-2xl">
+                <img 
+                  src={teamWorking}
+                  alt="Experienced Advance Power Redding installation team at work - professional solar experts in Northern California"
+                  className="w-full h-64 md:h-80 lg:h-96 object-cover"
+                  loading="lazy"
+                  data-testid="img-about-3"
+                />
               </div>
             </div>
 

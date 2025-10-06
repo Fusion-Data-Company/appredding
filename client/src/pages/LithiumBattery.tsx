@@ -1,114 +1,14 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { Battery, Zap, Shield, Award, Activity, AlertTriangle, CheckCircle, TrendingUp, Cpu, Thermometer, Clock, ArrowRight, Beaker, Database, Lock, Gauge, Wrench, BarChart, DollarSign, Package, Truck, FileCheck, Phone, ChevronRight, AlertCircle, CircuitBoard, Flame, Snowflake, Droplets, Wind, Sun, Moon, Cloud, CloudRain, Timer, Settings, Info, Calculator, TrendingDown, Briefcase, Factory, Building2, Home, Car, Smartphone, Laptop, Server, HardDrive, Wifi, Radio, Microscope, TestTube, Scale, BookOpen, GraduationCap, Globe, MapPin, Navigation, Compass, Target, Crosshair, Eye, Search, Filter, Layers, Grid, Box, Hexagon, Triangle, Square, Circle, Star, Heart, ThumbsUp, Users, UserCheck, UserPlus, Mail, MessageSquare, Send, Bell, BellOff, Volume2, VolumeX, Mic, MicOff, Video, VideoOff, Camera, CameraOff, Image, Film, Music, Headphones, Speaker, Monitor, Tv, Projector, Watch, Tablet, Power, Leaf, Component } from "lucide-react";
 import { motion } from "framer-motion";
-import SolarBackground from "../components/SolarBackground";
-import { NeonGradientCard } from "../components/ui/neon-gradient-card";
 import Header from "../components/layout/Header";
-import { fadeInUp, defaultViewport } from "../utils/animations";
 import { MagneticButton } from "../components/ui/magnetic-button";
-import { EnhancedCard } from "../components/ui/enhanced-card";
 import { ScrollProgress } from "../components/ui/scroll-progress";
-import { shadows } from "../utils/theme";
 import { AnimatedCounter, LargeNumberCounter, PercentageCounter } from "../components/ui/animated-counter";
 import { AwardBadge } from "../components/ui/award-badge";
-import { RevealOnScroll, ScaleReveal } from "../components/ui/reveal-on-scroll";
-import { FloatingElement } from "../components/ui/floating-element";
 import ShaderBackground from "../components/ui/shader-background";
 import { Button } from "../components/ui/button";
 
-// Premium Section Header Component
-interface PremiumSectionHeaderProps {
-  title: string;
-  subtitle: string;
-  description: string;
-  icon: React.ElementType;
-  primaryColor: string;
-  secondaryColor: string;
-  bgGradient: string;
-}
-
-const PremiumSectionHeader = ({
-  title,
-  subtitle,
-  description,
-  icon: Icon,
-  primaryColor,
-  secondaryColor,
-  bgGradient
-}: PremiumSectionHeaderProps) => (
-  <NeonGradientCard
-    borderRadius={20}
-    borderSize={2}
-    neonColors={{
-      firstColor: primaryColor,
-      secondColor: secondaryColor
-    }}
-    className="mb-8"
-  >
-    <motion.div
-      className={`relative overflow-hidden ${bgGradient} text-center p-8 rounded-2xl`}
-      initial={{ opacity: 0, y: -20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-    >
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0 bg-gradient-to-r from-white/5 via-white/10 to-white/5 animate-shimmer" />
-      </div>
-
-      <div className="relative z-10">
-        <motion.div
-          initial={{ scale: 0, rotate: -180 }}
-          whileInView={{ scale: 1, rotate: 0 }}
-          transition={{ type: "spring", duration: 0.8 }}
-          className="inline-flex items-center justify-center w-16 h-16 mb-4 rounded-2xl shadow-2xl"
-          style={{
-            background: `linear-gradient(135deg, ${primaryColor}, ${secondaryColor})`,
-            boxShadow: `0 10px 40px ${primaryColor}66, inset 0 2px 4px rgba(255,255,255,0.3)`
-          }}
-        >
-          <Icon className="w-8 h-8 text-white" />
-        </motion.div>
-
-        <motion.p
-          className="font-bold mb-2 text-sm uppercase tracking-widest"
-          style={{ color: primaryColor }}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-        >
-          {subtitle}
-        </motion.p>
-
-        <motion.h2
-          className="text-4xl font-bold text-white mb-3"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.3 }}
-        >
-          <span className="bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
-            {title}
-          </span>
-        </motion.h2>
-
-        <motion.p
-          className="text-gray-300 max-w-2xl mx-auto"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-        >
-          {description}
-        </motion.p>
-
-        <motion.div
-          className="mt-4 h-1 bg-gradient-to-r from-transparent via-white/50 to-transparent"
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          transition={{ delay: 0.5, duration: 0.8 }}
-        />
-      </div>
-    </motion.div>
-  </NeonGradientCard>
-);
 
 const LithiumBattery = () => {
   const [activeTab, setActiveTab] = useState("overview");
@@ -479,10 +379,6 @@ const LithiumBattery = () => {
           </div>
         </section>
 
-        {/* Excellence Award Badge */}
-        <div className="flex justify-center py-12 bg-gradient-to-b from-gray-900 to-black">
-          <AwardBadge type="customer-service-excellence" />
-        </div>
 
         {/* Main Content Section */}
         <section className="relative min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900">
@@ -656,52 +552,41 @@ const LithiumBattery = () => {
                 </div>
 
                 {/* BMS Technology Deep Dive */}
-                <div id="bms" />
-                <RevealOnScroll direction="left" delay={0.15}>
-                <div className="mb-12">
-                  <PremiumSectionHeader
-                    title="8-Layer Protection Architecture"
-                    subtitle="Battery Management System"
-                    description="Advanced BMS technology ensuring safety, longevity, and optimal performance"
-                    icon={CircuitBoard}
-                    primaryColor="#06b6d4"
-                    secondaryColor="#3b82f6"
-                    bgGradient="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900"
-                  />
+                <div id="bms" className="mb-16">
+                  <div className="text-center mb-8">
+                    <p className="text-cyan-400 font-semibold mb-2 uppercase tracking-wide">Battery Management System</p>
+                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-3" style={{
+                      filter: 'drop-shadow(0 4px 20px rgba(6, 182, 212, 0.3))'
+                    }}>
+                      8-Layer Protection Architecture
+                    </h2>
+                    <p className="text-gray-400 text-lg">Advanced BMS technology ensuring safety, longevity, and optimal performance</p>
+                  </div>
                   <div className="grid lg:grid-cols-2 gap-8">
-                    <NeonGradientCard
-                      borderRadius={24}
-                      borderSize={2}
-                      neonColors={{
-                        firstColor: "#10b981",
-                        secondColor: "#06b6d4"
-                      }}
-                    >
-                    <div className="bg-gradient-to-br from-white/85 to-gray-100/80 backdrop-blur-xl dark:from-gray-800/85 dark:to-gray-900/80 rounded-2xl overflow-hidden">
+                    <div className="card-elite glow-blue rounded-2xl overflow-hidden">
                       <div className="bg-gradient-to-r from-blue-500 to-cyan-600 p-4 text-white">
                         <h3 className="text-xl font-bold flex items-center gap-2">
                           <CircuitBoard className="h-6 w-6" /> BMS Protection Layers
                         </h3>
                       </div>
-                      <div className="divide-y divide-gray-200 dark:divide-gray-700">
+                      <div className="divide-y divide-gray-700/50">
                         {bmsFeatures.map((feature, idx) => (
-                          <div key={idx} className="p-4 hover:bg-gray-50 dark:hover:bg-gray-700">
+                          <div key={idx} className="p-4 hover:bg-gray-800/30 transition-colors">
                             <div className="flex items-start justify-between mb-2">
-                              <h4 className="font-semibold text-gray-900 dark:text-white">{feature.layer}</h4>
-                              <span className="text-xs bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 px-2 py-1 rounded">
+                              <h4 className="font-semibold text-white">{feature.layer}</h4>
+                              <span className="text-xs bg-blue-500/20 text-blue-300 px-2 py-1 rounded border border-blue-500/30">
                                 {feature.response}
                               </span>
                             </div>
-                            <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{feature.function}</p>
+                            <p className="text-sm text-gray-400 mb-2">{feature.function}</p>
                             <div className="flex items-center justify-between text-xs">
-                              <span className="text-gray-500 dark:text-gray-500">Range: {feature.range}</span>
-                              <span className="text-orange-600 dark:text-orange-400">✓ {feature.protection}</span>
+                              <span className="text-gray-500">Range: {feature.range}</span>
+                              <span className="text-orange-400">✓ {feature.protection}</span>
                             </div>
                           </div>
                         ))}
                       </div>
                     </div>
-                    </NeonGradientCard>
 
                     {/* Real-time BMS Monitoring Visualization */}
                     <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-6 text-white">
@@ -796,21 +681,19 @@ const LithiumBattery = () => {
                     </div>
                   </div>
                 </div>
-                </RevealOnScroll>
 
                 {/* Manufacturing Process Timeline */}
-                <RevealOnScroll direction="up" delay={0.1}>
-                <div className="mb-12">
-                  <PremiumSectionHeader
-                    title="Battery Manufacturing Process"
-                    subtitle="Production Excellence"
-                    description="ISO 9001:2015 certified production with rigorous quality control"
-                    icon={Factory}
-                    primaryColor="#10b981"
-                    secondaryColor="#06b6d4"
-                    bgGradient="bg-gradient-to-br from-emerald-950 via-teal-900 to-emerald-950"
-                  />
-                  <div className="bg-gradient-to-br from-white/85 to-gray-100/80 backdrop-blur-xl dark:from-gray-800/85 dark:to-gray-900/80 rounded-2xl shadow-xl p-8">
+                <div className="mb-16">
+                  <div className="text-center mb-8">
+                    <p className="text-green-400 font-semibold mb-2 uppercase tracking-wide">Production Excellence</p>
+                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-3" style={{
+                      filter: 'drop-shadow(0 4px 20px rgba(16, 185, 129, 0.3))'
+                    }}>
+                      Battery Manufacturing Process
+                    </h2>
+                    <p className="text-gray-400 text-lg">ISO 9001:2015 certified production with rigorous quality control</p>
+                  </div>
+                  <div className="card-elite glow-green rounded-2xl p-8">
                     <div className="relative">
                       {/* Process Timeline */}
                       <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-cyan-500 to-green-500"></div>
@@ -818,32 +701,23 @@ const LithiumBattery = () => {
                       <div className="space-y-8">
                         {manufacturingProcess.map((step) => (
                           <div key={step.step} className="relative flex items-start gap-6">
-                            <div className="absolute left-6 w-4 h-4 bg-gradient-to-br from-white/85 to-gray-100/80 backdrop-blur-xl dark:from-gray-800/85 dark:to-gray-900/80 border-4 border-blue-500 rounded-full"></div>
+                            <div className="absolute left-6 w-4 h-4 bg-gray-800 border-4 border-blue-500 rounded-full"></div>
                             <div className="ml-16 flex-1">
-                              <NeonGradientCard
-                                borderRadius={12}
-                                borderSize={1.5}
-                                neonColors={{
-                                  firstColor: step.step <= 2 ? "#3b82f6" : step.step <= 4 ? "#10b981" : step.step <= 6 ? "#f59e0b" : "#ec4899",
-                                  secondColor: step.step <= 2 ? "#06b6d4" : step.step <= 4 ? "#06b6d4" : step.step <= 6 ? "#f97316" : "#8b5cf6"
-                                }}
-                              >
-                                <div className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800 shadow-inner rounded-xl p-6">
+                                <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-6">
                                   <div className="flex items-start justify-between mb-3">
-                                    <h4 className="text-lg font-bold text-gray-900 dark:text-white">
+                                    <h4 className="text-lg font-bold text-white">
                                       Step {step.step}: {step.process}
                                     </h4>
-                                    <span className="text-sm bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 px-3 py-1 rounded-full">
+                                    <span className="text-sm bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full border border-blue-500/30">
                                       {step.duration}
                                     </span>
                                   </div>
-                                  <p className="text-gray-600 dark:text-gray-400 mb-3">{step.description}</p>
+                                  <p className="text-gray-400 mb-3">{step.description}</p>
                                   <div className="flex items-center gap-2 text-sm">
-                                    <CheckCircle className="h-4 w-4 text-orange-500" />
-                                    <span className="text-gray-500 dark:text-gray-400">Quality Standard: {step.quality}</span>
+                                    <CheckCircle className="h-4 w-4 text-orange-400" />
+                                    <span className="text-gray-400">Quality Standard: {step.quality}</span>
                                   </div>
                                 </div>
-                              </NeonGradientCard>
                             </div>
                           </div>
                         ))}
@@ -851,23 +725,21 @@ const LithiumBattery = () => {
                     </div>
                   </div>
                 </div>
-                </RevealOnScroll>
 
                 {/* Application Sectors with Detailed Specs */}
-                <RevealOnScroll direction="right" delay={0.15}>
-                <div className="mb-12">
-                  <PremiumSectionHeader
-                    title="Industry-Specific Solutions"
-                    subtitle="Market Applications"
-                    description="Tailored lithium battery systems for every sector and use case"
-                    icon={Building2}
-                    primaryColor="#8b5cf6"
-                    secondaryColor="#ec4899"
-                    bgGradient="bg-gradient-to-br from-purple-950 via-pink-900 to-purple-950"
-                  />
+                <div className="mb-16">
+                  <div className="text-center mb-8">
+                    <p className="text-purple-400 font-semibold mb-2 uppercase tracking-wide">Market Applications</p>
+                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-3" style={{
+                      filter: 'drop-shadow(0 4px 20px rgba(139, 92, 246, 0.3))'
+                    }}>
+                      Industry-Specific Solutions
+                    </h2>
+                    <p className="text-gray-400 text-lg">Tailored lithium battery systems for every sector and use case</p>
+                  </div>
                   <div className="grid md:grid-cols-2 gap-8">
                     {applications.map((app, idx) => (
-                      <div key={idx} className="bg-gradient-to-br from-white/85 to-gray-100/80 backdrop-blur-xl dark:from-gray-800/85 dark:to-gray-900/80 rounded-2xl shadow-xl overflow-hidden">
+                      <div key={idx} className="card-elite glow-purple rounded-2xl overflow-hidden">
                         <div className="bg-gradient-to-r from-blue-500 to-cyan-600 p-4 text-white">
                           <div className="flex items-center justify-between">
                             <h3 className="text-xl font-bold">{app.sector}</h3>
@@ -877,20 +749,20 @@ const LithiumBattery = () => {
                         <div className="p-6">
                           <div className="grid grid-cols-2 gap-4 mb-4">
                             <div>
-                              <span className="text-xs text-gray-500 dark:text-gray-400">Voltage Range</span>
-                              <div className="font-semibold text-gray-900 dark:text-white">{app.voltage}</div>
+                              <span className="text-xs text-gray-400">Voltage Range</span>
+                              <div className="font-semibold text-white">{app.voltage}</div>
                             </div>
                             <div>
-                              <span className="text-xs text-gray-500 dark:text-gray-400">Chemistry</span>
-                              <div className="font-semibold text-gray-900 dark:text-white">{app.chemistry}</div>
+                              <span className="text-xs text-gray-400">Chemistry</span>
+                              <div className="font-semibold text-white">{app.chemistry}</div>
                             </div>
                           </div>
 
                           <div className="mb-4">
-                            <span className="text-xs text-gray-500 dark:text-gray-400">Leading Brands</span>
+                            <span className="text-xs text-gray-400">Leading Brands</span>
                             <div className="flex flex-wrap gap-2 mt-1">
                               {app.brands.map((brand, i) => (
-                                <span key={i} className="text-xs bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">
+                                <span key={i} className="text-xs bg-gray-700/50 text-gray-300 px-2 py-1 rounded border border-gray-600/30">
                                   {brand}
                                 </span>
                               ))}
@@ -898,132 +770,118 @@ const LithiumBattery = () => {
                           </div>
 
                           <div className="mb-4">
-                            <span className="text-xs text-gray-500 dark:text-gray-400">Key Features</span>
+                            <span className="text-xs text-gray-400">Key Features</span>
                             <div className="grid grid-cols-2 gap-2 mt-2">
                               {app.features.map((feature, i) => (
-                                <div key={i} className="flex items-center gap-1 text-xs text-gray-700 dark:text-gray-300">
-                                  <CheckCircle className="h-3 w-3 text-orange-500 flex-shrink-0" />
+                                <div key={i} className="flex items-center gap-1 text-xs text-gray-300">
+                                  <CheckCircle className="h-3 w-3 text-orange-400 flex-shrink-0" />
                                   {feature}
                                 </div>
                               ))}
                             </div>
                           </div>
 
-                          <div className="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700">
-                            <span className="text-sm text-gray-600 dark:text-gray-400">ROI Period</span>
-                            <span className="text-sm font-bold text-orange-600 dark:text-orange-400">{app.roi}</span>
+                          <div className="flex items-center justify-between pt-4 border-t border-gray-700">
+                            <span className="text-sm text-gray-400">ROI Period</span>
+                            <span className="text-sm font-bold text-orange-400">{app.roi}</span>
                           </div>
                         </div>
                       </div>
                     ))}
                   </div>
                 </div>
-                </RevealOnScroll>
 
                 {/* Safety Standards & Testing */}
-                <RevealOnScroll direction="up" delay={0.2}>
-                <div className="mb-12">
-                  <PremiumSectionHeader
-                    title="Rigorous Testing Standards"
-                    subtitle="Safety & Compliance"
-                    description="Meeting and exceeding global safety certifications"
-                    icon={Shield}
-                    primaryColor="#ef4444"
-                    secondaryColor="#f97316"
-                    bgGradient="bg-gradient-to-br from-red-950 via-orange-900 to-red-950"
-                  />
+                <div className="mb-16">
+                  <div className="text-center mb-8">
+                    <p className="text-red-400 font-semibold mb-2 uppercase tracking-wide">Safety & Compliance</p>
+                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-3" style={{
+                      filter: 'drop-shadow(0 4px 20px rgba(239, 68, 68, 0.3))'
+                    }}>
+                      Rigorous Testing Standards
+                    </h2>
+                    <p className="text-gray-400 text-lg">Meeting and exceeding global safety certifications</p>
+                  </div>
 
                   {/* Safety Standards Grid */}
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
                     {safetyStandards.map((standard, idx) => (
-                      <NeonGradientCard
-                        key={idx}
-                        borderRadius={20}
-                        borderSize={2}
-                        neonColors={{
-                          firstColor: idx % 2 === 0 ? "#8b5cf6" : "#ec4899",
-                          secondColor: idx % 2 === 0 ? "#06b6d4" : "#f59e0b"
-                        }}
-                      >
-                      <div className="bg-gradient-to-br from-white/85 to-gray-100/80 backdrop-blur-xl dark:from-gray-800/85 dark:to-gray-900/80 rounded-2xl p-6 h-full flex flex-col">
+                      <div key={idx} className="card-elite glow-red rounded-2xl p-6 h-full flex flex-col">
                         <div className="flex items-start justify-between mb-3">
-                          <Award className="h-8 w-8 text-blue-500" />
-                          <span className="text-sm font-bold text-blue-600 dark:text-blue-400">{standard.standard}</span>
+                          <Award className="h-8 w-8 text-blue-400" />
+                          <span className="text-sm font-bold text-blue-400">{standard.standard}</span>
                         </div>
-                        <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{standard.description}</h4>
+                        <h4 className="text-lg font-bold text-white mb-2">{standard.description}</h4>
                         <div className="mb-3 flex-grow">
-                          <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">Testing Requirements:</p>
+                          <p className="text-xs text-gray-400 mb-2">Testing Requirements:</p>
                           <ul className="space-y-1">
                             {standard.tests.map((test, i) => (
-                              <li key={i} className="text-xs text-gray-600 dark:text-gray-300 flex items-center gap-1">
-                                <ChevronRight className="h-3 w-3 text-orange-500" />
+                              <li key={i} className="text-xs text-gray-300 flex items-center gap-1">
+                                <ChevronRight className="h-3 w-3 text-orange-400" />
                                 {test}
                               </li>
                             ))}
                           </ul>
                         </div>
-                        <div className="pt-3 border-t border-gray-200 dark:border-gray-700 mt-auto">
-                          <p className="text-xs text-gray-500 dark:text-gray-400">{standard.compliance}</p>
+                        <div className="pt-3 border-t border-gray-700 mt-auto">
+                          <p className="text-xs text-gray-400">{standard.compliance}</p>
                         </div>
                       </div>
-                      </NeonGradientCard>
                     ))}
                   </div>
 
                   {/* Testing Procedures */}
-                  <div className="bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 rounded-2xl p-8">
-                    <h3 className="text-xl font-bold mb-6 text-gray-900 dark:text-white flex items-center gap-2">
-                      <Flame className="h-6 w-6 text-red-500" /> Thermal Runaway Testing Protocol
+                  <div className="bg-red-900/20 rounded-2xl p-8 border border-red-500/30">
+                    <h3 className="text-xl font-bold mb-6 text-white flex items-center gap-2">
+                      <Flame className="h-6 w-6 text-red-400" /> Thermal Runaway Testing Protocol
                     </h3>
                     <div className="grid md:grid-cols-3 gap-6">
-                      <div className="bg-gradient-to-br from-white/85 to-gray-100/80 backdrop-blur-xl dark:from-gray-800/85 dark:to-gray-900/80 rounded-xl p-4">
+                      <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-4">
                         <div className="flex items-center gap-2 mb-2">
-                          <Thermometer className="h-5 w-5 text-red-500" />
-                          <h4 className="font-semibold text-gray-900 dark:text-white">Temperature Test</h4>
+                          <Thermometer className="h-5 w-5 text-red-400" />
+                          <h4 className="font-semibold text-white">Temperature Test</h4>
                         </div>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">Cells heated to 200°C to verify no thermal runaway propagation</p>
+                        <p className="text-sm text-gray-400">Cells heated to 200°C to verify no thermal runaway propagation</p>
                       </div>
-                      <div className="bg-gradient-to-br from-white/85 to-gray-100/80 backdrop-blur-xl dark:from-gray-800/85 dark:to-gray-900/80 rounded-xl p-4">
+                      <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-4">
                         <div className="flex items-center gap-2 mb-2">
-                          <Zap className="h-5 w-5 text-yellow-500" />
-                          <h4 className="font-semibold text-gray-900 dark:text-white">Overcharge Test</h4>
+                          <Zap className="h-5 w-5 text-yellow-400" />
+                          <h4 className="font-semibold text-white">Overcharge Test</h4>
                         </div>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">Charge to 200% SOC to verify BMS protection and safety</p>
+                        <p className="text-sm text-gray-400">Charge to 200% SOC to verify BMS protection and safety</p>
                       </div>
-                      <div className="bg-gradient-to-br from-white/85 to-gray-100/80 backdrop-blur-xl dark:from-gray-800/85 dark:to-gray-900/80 rounded-xl p-4">
+                      <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-4">
                         <div className="flex items-center gap-2 mb-2">
-                          <AlertTriangle className="h-5 w-5 text-orange-500" />
-                          <h4 className="font-semibold text-gray-900 dark:text-white">Penetration Test</h4>
+                          <AlertTriangle className="h-5 w-5 text-orange-400" />
+                          <h4 className="font-semibold text-white">Penetration Test</h4>
                         </div>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">Nail penetration to simulate catastrophic damage scenarios</p>
+                        <p className="text-sm text-gray-400">Nail penetration to simulate catastrophic damage scenarios</p>
                       </div>
                     </div>
                   </div>
                 </div>
-                </RevealOnScroll>
 
                 {/* Battery Metrics Education */}
-                <RevealOnScroll direction="left" delay={0.15}>
-                <div className="mb-12">
-                  <PremiumSectionHeader
-                    title="Understanding Battery Metrics"
-                    subtitle="Technical Knowledge"
-                    description="Key performance indicators and what they mean for your system"
-                    icon={Gauge}
-                    primaryColor="#0ea5e9"
-                    secondaryColor="#3b82f6"
-                    bgGradient="bg-gradient-to-br from-sky-950 via-blue-900 to-sky-950"
-                  />
-                  <div className="bg-gradient-to-br from-white/85 to-gray-100/80 backdrop-blur-xl dark:from-gray-800/85 dark:to-gray-900/80 rounded-2xl shadow-xl overflow-hidden">
+                <div className="mb-16">
+                  <div className="text-center mb-8">
+                    <p className="text-sky-400 font-semibold mb-2 uppercase tracking-wide">Technical Knowledge</p>
+                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-3" style={{
+                      filter: 'drop-shadow(0 4px 20px rgba(14, 165, 233, 0.3))'
+                    }}>
+                      Understanding Battery Metrics
+                    </h2>
+                    <p className="text-gray-400 text-lg">Key performance indicators and what they mean for your system</p>
+                  </div>
+                  <div className="card-elite glow-blue rounded-2xl overflow-hidden">
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 p-8">
                       {batteryMetrics.map((metric, idx) => (
                         <div key={idx} className="border-l-4 border-blue-500 pl-4">
-                          <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-1">{metric.metric}</h4>
-                          <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{metric.definition}</p>
-                          <div className="text-xs bg-gray-100 dark:bg-gray-700 rounded p-2 mb-1">
-                            <strong>Example:</strong> {metric.example}
+                          <h4 className="text-lg font-bold text-white mb-1">{metric.metric}</h4>
+                          <p className="text-sm text-gray-400 mb-2">{metric.definition}</p>
+                          <div className="text-xs bg-gray-700/50 rounded p-2 mb-1">
+                            <strong className="text-white">Example:</strong> <span className="text-gray-300">{metric.example}</span>
                           </div>
-                          <p className="text-xs text-blue-600 dark:text-blue-400">
+                          <p className="text-xs text-blue-400">
                             <strong>Why it matters:</strong> {metric.importance}
                           </p>
                         </div>
@@ -1031,41 +889,39 @@ const LithiumBattery = () => {
                     </div>
                   </div>
                 </div>
-                </RevealOnScroll>
 
                 {/* Recycling & Sustainability */}
-                <RevealOnScroll direction="up" delay={0.2}>
-                <div className="mb-12">
-                  <PremiumSectionHeader
-                    title="Battery Recycling & Recovery"
-                    subtitle="Circular Economy"
-                    description="Closing the loop with 95%+ material recovery rates"
-                    icon={Leaf}
-                    primaryColor="#22c55e"
-                    secondaryColor="#10b981"
-                    bgGradient="bg-gradient-to-br from-green-950 via-emerald-900 to-green-950"
-                  />
-                  <div className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl p-8">
+                <div className="mb-16">
+                  <div className="text-center mb-8">
+                    <p className="text-green-400 font-semibold mb-2 uppercase tracking-wide">Circular Economy</p>
+                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-3" style={{
+                      filter: 'drop-shadow(0 4px 20px rgba(34, 197, 94, 0.3))'
+                    }}>
+                      Battery Recycling & Recovery
+                    </h2>
+                    <p className="text-gray-400 text-lg">Closing the loop with 95%+ material recovery rates</p>
+                  </div>
+                  <div className="card-elite glow-green rounded-2xl p-8">
                     <div className="grid lg:grid-cols-2 gap-8">
                       {/* Recycling Process Flow */}
                       <div>
-                        <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Recycling Process Flow</h3>
+                        <h3 className="text-xl font-bold mb-4 text-white">Recycling Process Flow</h3>
                         <div className="space-y-3">
                           {recyclingProcess.map((stage, idx) => (
-                            <div key={idx} className="bg-gradient-to-br from-white/85 to-gray-100/80 backdrop-blur-xl dark:from-gray-800/85 dark:to-gray-900/80 rounded-xl p-4 shadow">
+                            <div key={idx} className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-4">
                               <div className="flex items-start gap-3">
                                 <div className="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
                                   {idx + 1}
                                 </div>
                                 <div className="flex-1">
                                   <div className="flex items-center justify-between mb-1">
-                                    <h4 className="font-semibold text-gray-900 dark:text-white">{stage.stage}</h4>
-                                    <span className="text-xs bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 px-2 py-1 rounded">
+                                    <h4 className="font-semibold text-white">{stage.stage}</h4>
+                                    <span className="text-xs bg-blue-500/20 text-blue-300 px-2 py-1 rounded border border-blue-500/30">
                                       {stage.recovery}
                                     </span>
                                   </div>
-                                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{stage.process}</p>
-                                  <div className="flex items-center gap-2 text-xs text-orange-600 dark:text-orange-400">
+                                  <p className="text-sm text-gray-400 mb-2">{stage.process}</p>
+                                  <div className="flex items-center gap-2 text-xs text-orange-400">
                                     <DollarSign className="h-3 w-3" />
                                     <span>{stage.value}</span>
                                   </div>
@@ -1078,45 +934,45 @@ const LithiumBattery = () => {
 
                       {/* Environmental Impact */}
                       <div>
-                        <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Environmental Impact</h3>
+                        <h3 className="text-xl font-bold mb-4 text-white">Environmental Impact</h3>
 
                         {/* Carbon Footprint Comparison */}
-                        <div className="bg-gradient-to-br from-white/85 to-gray-100/80 backdrop-blur-xl dark:from-gray-800/85 dark:to-gray-900/80 rounded-xl p-6 shadow mb-4">
-                          <h4 className="font-semibold mb-3 flex items-center gap-2 text-gray-900 dark:text-white">
-                            <Leaf className="h-5 w-5 text-orange-500" /> Carbon Footprint Reduction
+                        <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-6 mb-4">
+                          <h4 className="font-semibold mb-3 flex items-center gap-2 text-white">
+                            <Leaf className="h-5 w-5 text-orange-400" /> Carbon Footprint Reduction
                           </h4>
                           <div className="space-y-3">
                             <div>
                               <div className="flex justify-between items-center mb-1">
-                                <span className="text-sm text-gray-600 dark:text-gray-400">Virgin Material Production</span>
-                                <span className="text-sm font-bold text-red-500">12.5 kg CO₂/kWh</span>
+                                <span className="text-sm text-gray-400">Virgin Material Production</span>
+                                <span className="text-sm font-bold text-red-400">12.5 kg CO₂/kWh</span>
                               </div>
-                              <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                              <div className="w-full bg-gray-700 rounded-full h-2">
                                 <div className="bg-red-500 h-2 rounded-full" style={{width: '100%'}}></div>
                               </div>
                             </div>
                             <div>
                               <div className="flex justify-between items-center mb-1">
-                                <span className="text-sm text-gray-600 dark:text-gray-400">Recycled Material Production</span>
-                                <span className="text-sm font-bold text-orange-500">3.8 kg CO₂/kWh</span>
+                                <span className="text-sm text-gray-400">Recycled Material Production</span>
+                                <span className="text-sm font-bold text-orange-400">3.8 kg CO₂/kWh</span>
                               </div>
-                              <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                              <div className="w-full bg-gray-700 rounded-full h-2">
                                 <div className="bg-orange-500 h-2 rounded-full" style={{width: '30%'}}></div>
                               </div>
                             </div>
-                            <div className="pt-3 border-t border-gray-200 dark:border-gray-700">
+                            <div className="pt-3 border-t border-gray-700">
                               <div className="flex justify-between items-center">
-                                <span className="font-semibold text-gray-900 dark:text-white">Carbon Savings</span>
-                                <span className="font-bold text-orange-600">70% Reduction</span>
+                                <span className="font-semibold text-white">Carbon Savings</span>
+                                <span className="font-bold text-orange-400">70% Reduction</span>
                               </div>
                             </div>
                           </div>
                         </div>
 
                         {/* Material Recovery Rates */}
-                        <div className="bg-gradient-to-br from-white/85 to-gray-100/80 backdrop-blur-xl dark:from-gray-800/85 dark:to-gray-900/80 rounded-xl p-6 shadow">
-                          <h4 className="font-semibold mb-3 flex items-center gap-2 text-gray-900 dark:text-white">
-                            <Package className="h-5 w-5 text-blue-500" /> Material Recovery Rates
+                        <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-6">
+                          <h4 className="font-semibold mb-3 flex items-center gap-2 text-white">
+                            <Package className="h-5 w-5 text-blue-400" /> Material Recovery Rates
                           </h4>
                           <div className="space-y-2">
                             {[
@@ -1128,11 +984,11 @@ const LithiumBattery = () => {
                               { material: "Graphite", rate: 90, color: "black" }
                             ].map((item, i) => (
                               <div key={i} className="flex items-center gap-2">
-                                <span className="text-sm text-gray-600 dark:text-gray-400 w-20">{item.material}</span>
-                                <div className="flex-1 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <span className="text-sm text-gray-400 w-20">{item.material}</span>
+                                <div className="flex-1 bg-gray-700 rounded-full h-2">
                                   <div className={`bg-${item.color}-500 h-2 rounded-full`} style={{width: `${item.rate}%`}}></div>
                                 </div>
-                                <span className="text-sm font-bold text-gray-900 dark:text-white">{item.rate}%</span>
+                                <span className="text-sm font-bold text-white">{item.rate}%</span>
                               </div>
                             ))}
                           </div>
@@ -1141,7 +997,7 @@ const LithiumBattery = () => {
                     </div>
 
                     {/* Sustainability Goals */}
-                    <div className="mt-8 bg-gradient-to-r from-blue-500 to-green-500 rounded-xl p-6 text-white">
+                    <div className="mt-8 bg-gradient-to-r from-blue-600 to-green-600 rounded-xl p-6 text-white border border-blue-500/30">
                       <h3 className="text-xl font-bold mb-4">2030 Sustainability Commitments</h3>
                       <div className="grid md:grid-cols-3 gap-4">
                         <div className="flex items-start gap-2">
@@ -1169,21 +1025,19 @@ const LithiumBattery = () => {
                     </div>
                   </div>
                 </div>
-                </RevealOnScroll>
 
                 {/* Cost Analysis & ROI Calculator */}
-                <RevealOnScroll direction="right" delay={0.15}>
-                <div className="mb-12">
-                  <PremiumSectionHeader
-                    title="Total Cost of Ownership"
-                    subtitle="Financial Analysis"
-                    description="Comprehensive cost comparison and ROI calculations"
-                    icon={DollarSign}
-                    primaryColor="#eab308"
-                    secondaryColor="#f59e0b"
-                    bgGradient="bg-gradient-to-br from-yellow-950 via-amber-900 to-yellow-950"
-                  />
-                  <div className="bg-gradient-to-br from-white/85 to-gray-100/80 backdrop-blur-xl dark:from-gray-800/85 dark:to-gray-900/80 rounded-2xl shadow-xl p-8">
+                <div className="mb-16">
+                  <div className="text-center mb-8">
+                    <p className="text-orange-400 font-semibold mb-2 uppercase tracking-wide">Financial Analysis</p>
+                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-3" style={{
+                      filter: 'drop-shadow(0 4px 20px rgba(251, 146, 60, 0.3))'
+                    }}>
+                      Total Cost of Ownership
+                    </h2>
+                    <p className="text-gray-400 text-lg">Comprehensive cost comparison and ROI calculations</p>
+                  </div>
+                  <div className="card-elite glow-orange rounded-2xl p-8">
                     <div className="grid lg:grid-cols-2 gap-8">
                       {/* Cost Comparison */}
                       <div>
@@ -1311,10 +1165,8 @@ const LithiumBattery = () => {
                     </div>
                   </div>
                 </div>
-                </RevealOnScroll>
 
-                {/* CTA Section - Phase 4 Ultra Premium */}
-                <ScaleReveal delay={0.3}>
+                {/* CTA Section */}
                 <div
                   className="relative rounded-3xl p-8 text-white text-center overflow-hidden"
                   style={{
@@ -1322,7 +1174,6 @@ const LithiumBattery = () => {
                     boxShadow: '0 20px 40px rgba(0,0,0,0.2)'
                   }}
                 >
-
                   <div className="relative z-10">
                     <h2 className="text-3xl md:text-4xl font-bold mb-4">
                       Ready to Upgrade to Lithium?
@@ -1379,7 +1230,6 @@ const LithiumBattery = () => {
                     </motion.div>
                   </div>
                 </div>
-                </ScaleReveal>
             </div>
           </div>
         </section>

@@ -25,6 +25,10 @@ import SEOHead from "@/components/SEOHead";
 import SolarRescueTimelineSection from "@/sections/SolarRescueTimelineSection";
 import ContentSection from "@/components/sections/ContentSection";
 import { AwardBadge } from "@/components/ui/award-badge";
+import energyConservationTechniquesImg from "@assets/Advance-Power-Redding-Energy-Conservation-Techniques.jpg";
+import gregWithPanelImg from "@assets/Greg-with-panel.jpg";
+import teamEnergyAuditImg from "@assets/400617335_882191187089939_3988264444007076062_n-500x375.jpg";
+import solarEfficiencyEquipmentImg from "@assets/guillherme-schneider-ecIS-bfYSG8-unsplash-300x400.jpg";
 
 type EnergyConservationFormValues = z.infer<typeof insertFirePreventionHomeownerSchema>;
 
@@ -205,9 +209,18 @@ const EnergyConservation = () => {
       {/* Fluid Energy Hero Section */}
       <FluidEnergyHero />
 
-      {/* Excellence Award Badge */}
-      <div className="flex justify-center py-12 bg-gradient-to-b from-black to-gray-900">
-        <AwardBadge type="customer-service-excellence" />
+
+      {/* Professional Energy Conservation Work Image */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="rounded-xl overflow-hidden shadow-2xl">
+          <img 
+            src={energyConservationTechniquesImg}
+            alt="Professional energy conservation techniques and efficiency audit in progress"
+            className="w-full h-64 md:h-80 lg:h-96 object-cover"
+            loading="lazy"
+            data-testid="img-energy-conservation-1"
+          />
+        </div>
       </div>
 
       <div className="py-16 sm:py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
@@ -335,6 +348,19 @@ const EnergyConservation = () => {
           </div>
         </div>
 
+        {/* Technician Working on Energy Systems Image */}
+        <div className="container mx-auto px-4 py-8">
+          <div className="rounded-xl overflow-hidden shadow-2xl">
+            <img 
+              src={gregWithPanelImg}
+              alt="Expert technician working on HVAC optimization and energy system upgrades"
+              className="w-full h-64 md:h-80 lg:h-96 object-cover"
+              loading="lazy"
+              data-testid="img-energy-conservation-2"
+            />
+          </div>
+        </div>
+
         {/* Energy Audit Process */}
         <div className="mb-12">
           <div className="text-center mb-8">
@@ -406,6 +432,19 @@ const EnergyConservation = () => {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Team Energy Audit Work Image */}
+        <div className="container mx-auto px-4 py-8">
+          <div className="rounded-xl overflow-hidden shadow-2xl">
+            <img 
+              src={teamEnergyAuditImg}
+              alt="Professional team conducting comprehensive energy efficiency audit and insulation upgrade assessment"
+              className="w-full h-64 md:h-80 lg:h-96 object-cover"
+              loading="lazy"
+              data-testid="img-energy-conservation-3"
+            />
           </div>
         </div>
 
@@ -1386,6 +1425,19 @@ const EnergyConservation = () => {
                 </div>
               );
             })}
+          </div>
+        </div>
+
+        {/* Solar and Efficiency Equipment Image */}
+        <div className="container mx-auto px-4 py-8">
+          <div className="rounded-xl overflow-hidden shadow-2xl">
+            <img 
+              src={solarEfficiencyEquipmentImg}
+              alt="Advanced solar panels and energy saving equipment for maximum efficiency"
+              className="w-full h-64 md:h-80 lg:h-96 object-cover"
+              loading="lazy"
+              data-testid="img-energy-conservation-4"
+            />
           </div>
         </div>
 

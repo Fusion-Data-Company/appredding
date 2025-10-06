@@ -5,6 +5,10 @@ import RepairsWaveHero from "@/components/RepairsWaveHero";
 import MainLayout from "@/components/layout/MainLayout";
 import SEOHead from "@/components/SEOHead";
 import { AwardBadge } from "@/components/ui/award-badge";
+import teamRepairImage from "@assets/98453708_3165453150160953_3940467511501258752_n-298x400.jpg";
+import troubleshootingImage from "@assets/400617335_882191187089939_3988264444007076062_n-500x375.jpg";
+import technicianWorkingImage from "@assets/Greg-with-panel.jpg";
+import solarEquipmentImage from "@assets/andreas-gucklhorn-Ilpf2eUPpUE-unsplash-500x375.jpg";
 
 const Repairs = () => {
   const repairsSchema = {
@@ -167,10 +171,6 @@ const Repairs = () => {
         ]}
       />
 
-      {/* Excellence Award Badge */}
-      <div className="flex justify-center py-12 bg-gradient-to-b from-slate-950 to-gray-900">
-        <AwardBadge type="customer-service-excellence" />
-      </div>
 
       <div className="py-16 sm:py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
       {/* Hero Section with Live System Status */}
@@ -324,6 +324,19 @@ const Repairs = () => {
           </div>
         </div>
 
+        {/* Team Repair Work Image */}
+        <div className="container mx-auto px-4 py-8">
+          <div className="rounded-xl overflow-hidden shadow-2xl">
+            <img 
+              src={teamRepairImage}
+              alt="Professional solar system repair team working on emergency inverter replacement and troubleshooting"
+              className="w-full h-64 md:h-80 lg:h-96 object-cover"
+              loading="lazy"
+              data-testid="img-repairs-1"
+            />
+          </div>
+        </div>
+
         {/* Diagnostic Process */}
         <div className="mb-12">
           <div className="text-center mb-8">
@@ -394,6 +407,19 @@ const Repairs = () => {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Troubleshooting Image */}
+        <div className="container mx-auto px-4 py-8">
+          <div className="rounded-xl overflow-hidden shadow-2xl">
+            <img 
+              src={troubleshootingImage}
+              alt="Expert technician performing inverter troubleshooting and diagnostic testing on solar panel system"
+              className="w-full h-64 md:h-80 lg:h-96 object-cover"
+              loading="lazy"
+              data-testid="img-repairs-2"
+            />
           </div>
         </div>
 
@@ -626,6 +652,19 @@ const Repairs = () => {
                 </tbody>
               </table>
             </div>
+          </div>
+        </div>
+
+        {/* Technician Working Image */}
+        <div className="container mx-auto px-4 py-8">
+          <div className="rounded-xl overflow-hidden shadow-2xl">
+            <img 
+              src={technicianWorkingImage}
+              alt="Certified technician fixing solar panel installation with expert emergency repair service"
+              className="w-full h-64 md:h-80 lg:h-96 object-cover"
+              loading="lazy"
+              data-testid="img-repairs-3"
+            />
           </div>
         </div>
 
@@ -1121,6 +1160,19 @@ const Repairs = () => {
             <p className="text-sm text-gray-600 ">
               * Service call fee: $150 (waived with repair) • Emergency service: +50% • Weekend service: +25%
             </p>
+          </div>
+        </div>
+
+        {/* Solar Equipment Image */}
+        <div className="container mx-auto px-4 py-8">
+          <div className="rounded-xl overflow-hidden shadow-2xl">
+            <img 
+              src={solarEquipmentImage}
+              alt="Professional solar equipment and panel maintenance for emergency repair services in Northern California"
+              className="w-full h-64 md:h-80 lg:h-96 object-cover"
+              loading="lazy"
+              data-testid="img-repairs-4"
+            />
           </div>
         </div>
 

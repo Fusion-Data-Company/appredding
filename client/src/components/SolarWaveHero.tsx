@@ -280,7 +280,6 @@ const SolarWaveHero: React.FC<SolarWaveHeroProps> = ({
       <div className="absolute top-4 right-4 md:top-8 md:right-8 z-50">
         <AwardBadge type="customer-service-excellence" data-testid="award-badge-residential-solar" />
       </div>
-
       {/* Animated Backgrounds */}
       <SolarWaveBackground />
       <ElectricParticles />

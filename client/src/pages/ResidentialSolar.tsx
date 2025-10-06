@@ -69,6 +69,11 @@ import ServiceCard from "@/components/cards/ServiceCard";
 import TestimonialCard from "@/components/cards/TestimonialCard";
 import { AwardBadge } from "@/components/ui/award-badge";
 
+import gregWithPanelImg from '@assets/Greg-with-panel.jpg';
+import teamInstallationImg from '@assets/491844865_1271014964874224_7004732250107002194_n.jpg';
+import batteryStorageImg from '@assets/Batt-3-300x400.jpg';
+import completedInstallationImg from '@assets/400617335_882191187089939_3988264444007076062_n-500x375.jpg';
+
 type ResidentialSolarFormValues = z.infer<typeof insertFirePreventionHomeownerSchema>;
 
 const ResidentialSolar = () => {
@@ -239,9 +244,18 @@ const ResidentialSolar = () => {
         ]}
       />
 
-      {/* Excellence Award Badge */}
-      <div className="flex justify-center py-12 bg-gradient-to-b from-slate-950 to-gray-900">
-        <AwardBadge type="customer-service-excellence" />
+
+      {/* Team Work Image 1 */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="rounded-xl overflow-hidden shadow-2xl">
+          <img 
+            src={gregWithPanelImg}
+            alt="Advance Power Redding team member installing residential solar panels in Northern California"
+            className="w-full h-64 md:h-80 lg:h-96 object-cover"
+            loading="lazy"
+            data-testid="img-residential-solar-1"
+          />
+        </div>
       </div>
 
       {/* Enhanced Solar Engineering Funnel with Expanded Technical Details */}
@@ -310,6 +324,19 @@ const ResidentialSolar = () => {
           },
         ]}
       />
+
+      {/* Team Work Image 2 */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="rounded-xl overflow-hidden shadow-2xl">
+          <img 
+            src={teamInstallationImg}
+            alt="Professional solar installation team working on residential rooftop system"
+            className="w-full h-64 md:h-80 lg:h-96 object-cover"
+            loading="lazy"
+            data-testid="img-residential-solar-2"
+          />
+        </div>
+      </div>
 
       {/* NEM 3.0 Technical Deep Dive - Massively Expanded */}
       <ContentSection
@@ -1073,6 +1100,19 @@ const ResidentialSolar = () => {
         </div>
       </ContentSection>
 
+      {/* Team Work Image 3 */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="rounded-xl overflow-hidden shadow-2xl">
+          <img 
+            src={batteryStorageImg}
+            alt="LiFePO4 battery storage system installation for residential solar"
+            className="w-full h-64 md:h-80 lg:h-96 object-cover"
+            loading="lazy"
+            data-testid="img-residential-solar-3"
+          />
+        </div>
+      </div>
+
       {/* SGIP Incentive Breakdown - Enhanced */}
       <ContentSection
         title="SGIP Battery Incentive Program: Complete Guide"
@@ -1385,6 +1425,19 @@ const ResidentialSolar = () => {
           ))}
         </div>
       </ContentSection>
+
+      {/* Team Work Image 4 */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="rounded-xl overflow-hidden shadow-2xl">
+          <img 
+            src={completedInstallationImg}
+            alt="Completed residential solar installation by Advance Power Redding team"
+            className="w-full h-64 md:h-80 lg:h-96 object-cover"
+            loading="lazy"
+            data-testid="img-residential-solar-4"
+          />
+        </div>
+      </div>
 
       {/* Consultation Form Modal */}
       {showConsultationForm && (

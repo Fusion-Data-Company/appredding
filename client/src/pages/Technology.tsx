@@ -8,6 +8,10 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { GradientTracing } from '@/components/ui/gradient-tracing';
+import solarPanelImage from '@assets/guillherme-schneider-ecIS-bfYSG8-unsplash-300x400.jpg';
+import batteryTechImage from '@assets/Batt-3-300x400.jpg';
+import solArkEquipmentImage from '@assets/15K-new-1-e1719430674378-628x1024.webp';
+import installationTechImage from '@assets/Frame-5-500x282.webp';
 
 const Technology = () => {
   return (
@@ -83,6 +87,19 @@ const Technology = () => {
           </div>
         </section>
         
+        {/* Solar Panel Technology Image */}
+        <div className="container mx-auto px-4 py-8">
+          <div className="rounded-xl overflow-hidden shadow-2xl">
+            <img 
+              src={solarPanelImage}
+              alt="Advanced solar panel technology with high-efficiency photovoltaic cells"
+              className="w-full h-64 md:h-80 lg:h-96 object-cover"
+              loading="lazy"
+              data-testid="img-technology-1"
+            />
+          </div>
+        </div>
+        
         {/* Solar Panels Section */}
         <section id="solar-panels" className="relative py-16 z-10 bg-gray-950/60 backdrop-blur-sm">
           <div className="container mx-auto px-4">
@@ -126,6 +143,19 @@ const Technology = () => {
             </div>
           </div>
         </section>
+
+        {/* Battery Technology Image */}
+        <div className="container mx-auto px-4 py-8">
+          <div className="rounded-xl overflow-hidden shadow-2xl">
+            <img 
+              src={batteryTechImage}
+              alt="Cutting-edge battery systems for reliable energy storage"
+              className="w-full h-64 md:h-80 lg:h-96 object-cover"
+              loading="lazy"
+              data-testid="img-technology-2"
+            />
+          </div>
+        </div>
 
         {/* Energy Storage Section */}
         <section id="energy-storage" className="relative py-16 z-10">
@@ -184,6 +214,19 @@ const Technology = () => {
             </div>
           </div>
         </section>
+        
+        {/* Sol-Ark Equipment Image */}
+        <div className="container mx-auto px-4 py-8">
+          <div className="rounded-xl overflow-hidden shadow-2xl">
+            <img 
+              src={solArkEquipmentImage}
+              alt="Sol-Ark inverter technology for maximum efficiency"
+              className="w-full h-64 md:h-80 lg:h-96 object-cover"
+              loading="lazy"
+              data-testid="img-technology-3"
+            />
+          </div>
+        </div>
         
         {/* Inverters Section */}
         <section id="inverters" className="relative py-16 z-10 bg-gray-950/60 backdrop-blur-sm">
@@ -244,6 +287,19 @@ const Technology = () => {
             </div>
           </div>
         </section>
+        
+        {/* Installation Technology Image */}
+        <div className="container mx-auto px-4 py-8">
+          <div className="rounded-xl overflow-hidden shadow-2xl">
+            <img 
+              src={installationTechImage}
+              alt="Modern solar equipment installation technology"
+              className="w-full h-64 md:h-80 lg:h-96 object-cover"
+              loading="lazy"
+              data-testid="img-technology-4"
+            />
+          </div>
+        </div>
         
         {/* Benefits Section */}
         <section id="benefits" className="relative py-16 z-10">

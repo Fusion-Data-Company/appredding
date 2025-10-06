@@ -50,6 +50,10 @@ import SolarRescueTimelineSection from "@/sections/SolarRescueTimelineSection";
 import ContentSection from "@/components/sections/ContentSection";
 import ShaderBackground from "@/components/ui/shader-background";
 import { AwardBadge } from "@/components/ui/award-badge";
+import batteryInstallImg from "@assets/Batt-3-300x400.jpg";
+import equipmentInstallImg from "@assets/13-500x500.jpg";
+import teamWorkImg from "@assets/456675C3-88B2-458A-9A1C-A4CDBA825653_4_5005_c.jpeg";
+import solarBatterySystemImg from "@assets/moritz-kindler-gD8IO0E4OZM-unsplash-267x400.jpg";
 
 const BatteryStorage = () => {
   const [showConsultationForm, setShowConsultationForm] = useState(false);
@@ -79,10 +83,10 @@ const BatteryStorage = () => {
       />
 
       {/* NEW HERO SECTION WITH SHADER BACKGROUND */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-start justify-center overflow-hidden pt-0">
         <ShaderBackground />
-        
-        <div className="relative z-10 w-full py-20">
+
+        <div className="relative z-10 w-full">
           {/* Glassomorphic Hero Card - Full Width */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -95,13 +99,13 @@ const BatteryStorage = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative backdrop-blur-2xl bg-gradient-to-br from-white/10 via-white/5 to-white/10 border-y border-white/20 p-12 md:p-16 lg:p-20 shadow-2xl"
+              className="relative backdrop-blur-2xl bg-gradient-to-br from-white/10 via-white/5 to-white/10 border-y border-white/20 p-12 md:p-16 lg:p-20 shadow-2xl w-full"
             >
               {/* Glass Reflection Effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-50" />
-              
+
               {/* Content */}
-              <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-12">
+              <div className="relative z-10 w-full px-6 sm:px-12 max-w-7xl mx-auto">
                 <motion.h1
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -185,7 +189,7 @@ const BatteryStorage = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.7 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12 max-w-7xl mx-auto px-6 sm:px-12"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12 w-full px-6 sm:px-12 max-w-7xl mx-auto"
             >
             {[
               { 
@@ -244,9 +248,18 @@ const BatteryStorage = () => {
         </div>
       </section>
 
-      {/* Excellence Award Badge */}
-      <div className="flex justify-center py-12 bg-gradient-to-b from-gray-900 to-black">
-        <AwardBadge type="customer-service-excellence" />
+
+      {/* Professional Battery Installation Image */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="rounded-xl overflow-hidden shadow-2xl">
+          <img 
+            src={batteryInstallImg}
+            alt="Professional battery storage installation featuring LiFePO4 technology by certified technicians"
+            className="w-full h-64 md:h-80 lg:h-96 object-cover"
+            loading="lazy"
+            data-testid="img-battery-storage-1"
+          />
+        </div>
       </div>
 
       {/* Energy Storage Crisis Alert */}
@@ -477,6 +490,19 @@ const BatteryStorage = () => {
         </div>
       </section>
 
+      {/* Team Work Installation Image */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="rounded-xl overflow-hidden shadow-2xl">
+          <img 
+            src={teamWorkImg}
+            alt="Expert team installing energy storage solution with professional battery backup power system"
+            className="w-full h-64 md:h-80 lg:h-96 object-cover"
+            loading="lazy"
+            data-testid="img-battery-storage-3"
+          />
+        </div>
+      </div>
+
       {/* Enhanced Battery Storage Funnel */}
       <SolarRescueTimelineSection
         className="bg-gradient-to-br from-gray-950 via-gray-900 to-black"
@@ -543,6 +569,19 @@ const BatteryStorage = () => {
           },
         ]}
       />
+
+      {/* Equipment Installation Image */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="rounded-xl overflow-hidden shadow-2xl">
+          <img 
+            src={equipmentInstallImg}
+            alt="LiFePO4 battery system equipment installation with smart BMS technology"
+            className="w-full h-64 md:h-80 lg:h-96 object-cover"
+            loading="lazy"
+            data-testid="img-battery-storage-2"
+          />
+        </div>
+      </div>
 
       {/* Comprehensive Battery Chemistry Comparison */}
       <ContentSection
@@ -998,6 +1037,19 @@ const BatteryStorage = () => {
           </div>
         </div>
       </ContentSection>
+
+      {/* Integrated Solar Battery System Image */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="rounded-xl overflow-hidden shadow-2xl">
+          <img 
+            src={solarBatterySystemImg}
+            alt="Integrated solar and battery backup power system for complete energy independence"
+            className="w-full h-64 md:h-80 lg:h-96 object-cover"
+            loading="lazy"
+            data-testid="img-battery-storage-4"
+          />
+        </div>
+      </div>
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-purple-600 to-blue-600">

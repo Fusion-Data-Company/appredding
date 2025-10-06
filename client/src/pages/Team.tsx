@@ -3,6 +3,10 @@ import { GradientHeading } from "@/components/ui/gradient-heading";
 import PageTransition from "@/components/ui/page-transition";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
+import gregWithPanel from "@assets/Greg-with-panel.jpg";
+import teamGroup from "@assets/400617335_882191187089939_3988264444007076062_n-500x375.jpg";
+import teamOnsite from "@assets/491844865_1271014964874224_7004732250107002194_n.jpg";
+import teamWorking from "@assets/98453708_3165453150160953_3940467511501258752_n-298x400.jpg";
 
 interface TeamMember {
   name: string;
@@ -75,6 +79,18 @@ const Team = () => {
               </p>
             </div>
 
+            <div className="container mx-auto px-4 py-8">
+              <div className="rounded-xl overflow-hidden shadow-2xl">
+                <img 
+                  src={gregWithPanel}
+                  alt="Advance Power Redding team member working with solar panel - certified solar installation professional"
+                  className="w-full h-64 md:h-80 lg:h-96 object-cover"
+                  loading="lazy"
+                  data-testid="img-team-1"
+                />
+              </div>
+            </div>
+
             <div className="flex flex-row items-center justify-center mb-10 w-full">
               <AnimatedTooltip items={teamMembers.map((member, idx) => ({
                 id: idx + 1,
@@ -82,6 +98,42 @@ const Team = () => {
                 designation: member.title,
                 image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80"
               }))} />
+            </div>
+
+            <div className="container mx-auto px-4 py-8">
+              <div className="rounded-xl overflow-hidden shadow-2xl">
+                <img 
+                  src={teamGroup}
+                  alt="Advance Power Redding team photo - dedicated solar professionals serving Northern California"
+                  className="w-full h-64 md:h-80 lg:h-96 object-cover"
+                  loading="lazy"
+                  data-testid="img-team-2"
+                />
+              </div>
+            </div>
+
+            <div className="container mx-auto px-4 py-8">
+              <div className="rounded-xl overflow-hidden shadow-2xl">
+                <img 
+                  src={teamOnsite}
+                  alt="Expert technicians at work - Advance Power Redding team on-site installation"
+                  className="w-full h-64 md:h-80 lg:h-96 object-cover"
+                  loading="lazy"
+                  data-testid="img-team-3"
+                />
+              </div>
+            </div>
+
+            <div className="container mx-auto px-4 py-8">
+              <div className="rounded-xl overflow-hidden shadow-2xl">
+                <img 
+                  src={teamWorking}
+                  alt="Certified solar installation professionals - Advance Power Redding team members at work"
+                  className="w-full h-64 md:h-80 lg:h-96 object-cover"
+                  loading="lazy"
+                  data-testid="img-team-4"
+                />
+              </div>
             </div>
           </div>
         </section>

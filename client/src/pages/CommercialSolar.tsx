@@ -72,6 +72,11 @@ import ServiceCard from "@/components/cards/ServiceCard";
 import TestimonialCard from "@/components/cards/TestimonialCard";
 import { AwardBadge } from "@/components/ui/award-badge";
 
+import teamPreparingEquipment from "@assets/20210121_103322-400x400.jpg";
+import rooftopSolarInstallation from "@assets/360-rooftop-pool-im-sommer.jpg";
+import threePhaseInstallation from "@assets/98453708_3165453150160953_3940467511501258752_n-298x400.jpg";
+import completedSolarArray from "@assets/andreas-gucklhorn-Ilpf2eUPpUE-unsplash-500x375.jpg";
+
 const commercialConsultationSchema = z.object({
   companyName: z.string().min(1, "Company name is required"),
   contactName: z.string().min(1, "Contact name is required"),
@@ -335,9 +340,17 @@ const CommercialSolar = () => {
         ]}
       />
 
-      {/* Excellence Award Badge */}
-      <div className="flex justify-center py-12 bg-gradient-to-b from-slate-950 to-gray-900">
-        <AwardBadge type="customer-service-excellence" />
+
+      <div className="container mx-auto px-4 py-8">
+        <div className="rounded-xl overflow-hidden shadow-2xl">
+          <img 
+            src={teamPreparingEquipment}
+            alt="Advance Power Redding commercial solar installation team preparing equipment"
+            className="w-full h-64 md:h-80 lg:h-96 object-cover"
+            loading="lazy"
+            data-testid="img-commercial-solar-1"
+          />
+        </div>
       </div>
 
       {/* Color-Coded Commercial Solar Funnel (RED → YELLOW → GREEN → PURPLE) */}
@@ -382,6 +395,18 @@ const CommercialSolar = () => {
           },
         ]}
       />
+
+      <div className="container mx-auto px-4 py-8">
+        <div className="rounded-xl overflow-hidden shadow-2xl">
+          <img 
+            src={rooftopSolarInstallation}
+            alt="Commercial rooftop solar installation on business facility in Northern California"
+            className="w-full h-64 md:h-80 lg:h-96 object-cover"
+            loading="lazy"
+            data-testid="img-commercial-solar-2"
+          />
+        </div>
+      </div>
 
       <section id="inverters" className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -523,6 +548,18 @@ const CommercialSolar = () => {
           </div>
         </div>
       </section>
+
+      <div className="container mx-auto px-4 py-8">
+        <div className="rounded-xl overflow-hidden shadow-2xl">
+          <img 
+            src={threePhaseInstallation}
+            alt="Professional team installing three-phase commercial solar system"
+            className="w-full h-64 md:h-80 lg:h-96 object-cover"
+            loading="lazy"
+            data-testid="img-commercial-solar-3"
+          />
+        </div>
+      </div>
 
       <section className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1050,6 +1087,18 @@ const CommercialSolar = () => {
           </div>
         </div>
       </section>
+
+      <div className="container mx-auto px-4 py-8">
+        <div className="rounded-xl overflow-hidden shadow-2xl">
+          <img 
+            src={completedSolarArray}
+            alt="Completed commercial solar panel array installation by Advance Power Redding"
+            className="w-full h-64 md:h-80 lg:h-96 object-cover"
+            loading="lazy"
+            data-testid="img-commercial-solar-4"
+          />
+        </div>
+      </div>
 
       <CTASection
         title="Ready to Reduce Demand Charges and Energy Costs?"
