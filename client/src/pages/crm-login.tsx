@@ -31,8 +31,12 @@ import ProfessionalHeader from "@/components/layout/Header";
 
 // Form validation schema
 const loginSchema = z.object({
-  email: z.string().email("Invalid email address"),
-  password: z.string().min(8, "Password must be at least 8 characters"),
+  email: z.string()
+    .min(1, "Please enter your email address")
+    .email("Please enter a valid email address (e.g., admin@example.com)"),
+  password: z.string()
+    .min(1, "Please enter your password")
+    .min(8, "Password must be at least 8 characters"),
 });
 
 type LoginFormValues = z.infer<typeof loginSchema>;

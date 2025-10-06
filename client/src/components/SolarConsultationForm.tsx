@@ -14,10 +14,12 @@ import { useToast } from '@/hooks/use-toast';
 import { Loader2, CheckCircle2, Sun } from 'lucide-react';
 
 const solarFormSchema = z.object({
-  customerName: z.string().min(1, 'Name is required'),
-  email: z.string().email('Valid email is required'),
-  phone: z.string().min(10, 'Valid phone number is required'),
-  address: z.string().min(1, 'Address is required'),
+  customerName: z.string().min(1, 'Please enter your full name'),
+  email: z.string().email('Please enter a valid email address (e.g., john@example.com)'),
+  phone: z.string()
+    .min(10, 'Please enter a valid phone number with at least 10 digits')
+    .regex(/^[\d\s\-\(\)\+]+$/, 'Phone number can only contain numbers, spaces, and symbols like () - +'),
+  address: z.string().min(1, 'Please enter your complete address'),
   propertyType: z.enum(['Residential', 'Commercial', 'Industrial', 'Agricultural', 'Marina']),
   serviceNeeded: z.enum(['New Solar Installation', 'Solar Repair', 'System Maintenance', 'Consultation']),
   currentElectricBill: z.string().optional(),

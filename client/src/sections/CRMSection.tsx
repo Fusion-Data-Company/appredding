@@ -23,6 +23,8 @@ import { InventoryTable } from '@/components/crm/InventoryTable';
 import { ActivityForm } from '@/components/crm/ActivityForm';
 import { CSVImportForm } from '@/components/crm/CSVImportForm';
 import RegistrationTabs from '@/components/crm/RegistrationTabs';
+import { ErrorState } from '@/components/ui/error-state';
+import { Loader2 } from 'lucide-react';
 
 export default function CRMSection() {
   // Modal states
@@ -72,7 +74,9 @@ export default function CRMSection() {
   // Fetch data for dropdowns in forms
   const { 
     data: contacts = [],
-    refetch: refetchContacts 
+    refetch: refetchContacts,
+    isError: contactsError,
+    isLoading: contactsLoading
   } = useQuery<Contact[]>({
     queryKey: ['/api/contacts'],
     staleTime: 5 * 60 * 1000, // 5 minutes
@@ -80,7 +84,9 @@ export default function CRMSection() {
   
   const { 
     data: companies = [],
-    refetch: refetchCompanies 
+    refetch: refetchCompanies,
+    isError: companiesError,
+    isLoading: companiesLoading
   } = useQuery<Company[]>({
     queryKey: ['/api/companies'],
     staleTime: 5 * 60 * 1000,
@@ -88,7 +94,9 @@ export default function CRMSection() {
   
   const { 
     data: opportunities = [],
-    refetch: refetchOpportunities 
+    refetch: refetchOpportunities,
+    isError: opportunitiesError,
+    isLoading: opportunitiesLoading
   } = useQuery<Opportunity[]>({
     queryKey: ['/api/opportunities'],
     staleTime: 5 * 60 * 1000,
@@ -190,12 +198,27 @@ export default function CRMSection() {
         </TabsContent>
 
         <TabsContent value="contacts" className="mt-6">
-          {contacts.length === 0 ? (
+          {contactsLoading ? (
+            <div className="card-premium p-8 flex items-center justify-center">
+              <Loader2 className="h-8 w-8 animate-spin text-cyan-500 mr-2" />
+              <span className="text-gray-400">Loading contacts...</span>
+            </div>
+          ) : contactsError ? (
+            <div className="card-premium p-8">
+              <ErrorState
+                title="Failed to Load Contacts"
+                message="There was an error loading your contacts. Please try again."
+                onRetry={() => refetchContacts()}
+                variant="inline"
+              />
+            </div>
+          ) : contacts.length === 0 ? (
             <div className="card-premium p-8 text-center">
               <h3 className="text-xl font-bold mb-4">No Contacts Yet</h3>
               <p className="text-gray-400 mb-6">Add your first contact to start building your network</p>
               <Button
                 onClick={() => setContactModalOpen(true)}
+                data-testid="button-add-first-contact"
               >
                 <PlusCircle size={16} className="mr-2" />
                 Add Contact
@@ -252,12 +275,27 @@ export default function CRMSection() {
         </TabsContent>
 
         <TabsContent value="companies" className="mt-6">
-          {companies.length === 0 ? (
+          {companiesLoading ? (
+            <div className="card-premium p-8 flex items-center justify-center">
+              <Loader2 className="h-8 w-8 animate-spin text-orange-500 mr-2" />
+              <span className="text-gray-400">Loading companies...</span>
+            </div>
+          ) : companiesError ? (
+            <div className="card-premium p-8">
+              <ErrorState
+                title="Failed to Load Companies"
+                message="There was an error loading your companies. Please try again."
+                onRetry={() => refetchCompanies()}
+                variant="inline"
+              />
+            </div>
+          ) : companies.length === 0 ? (
             <div className="card-premium p-8 text-center">
               <h3 className="text-xl font-bold mb-4">No Companies Yet</h3>
               <p className="text-gray-400 mb-6">Add your first company to start tracking business relationships</p>
               <Button
                 onClick={() => setCompanyModalOpen(true)}
+                data-testid="button-add-first-company"
               >
                 <PlusCircle size={16} className="mr-2" />
                 Add Company
@@ -303,12 +341,27 @@ export default function CRMSection() {
         </TabsContent>
 
         <TabsContent value="opportunities" className="mt-6">
-          {opportunities.length === 0 ? (
+          {opportunitiesLoading ? (
+            <div className="card-premium p-8 flex items-center justify-center">
+              <Loader2 className="h-8 w-8 animate-spin text-amber-500 mr-2" />
+              <span className="text-gray-400">Loading opportunities...</span>
+            </div>
+          ) : opportunitiesError ? (
+            <div className="card-premium p-8">
+              <ErrorState
+                title="Failed to Load Opportunities"
+                message="There was an error loading your opportunities. Please try again."
+                onRetry={() => refetchOpportunities()}
+                variant="inline"
+              />
+            </div>
+          ) : opportunities.length === 0 ? (
             <div className="card-premium p-8 text-center">
               <h3 className="text-xl font-bold mb-4">No Opportunities Yet</h3>
               <p className="text-gray-400 mb-6">Create your first opportunity to track potential deals</p>
               <Button
                 onClick={() => setOpportunityModalOpen(true)}
+                data-testid="button-add-first-opportunity"
               >
                 <PlusCircle size={16} className="mr-2" />
                 New Opportunity

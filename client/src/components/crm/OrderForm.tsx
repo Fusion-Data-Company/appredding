@@ -31,12 +31,17 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 
 // Order form schema
 const orderSchema = z.object({
-  productId: z.string().refine(val => !isNaN(parseInt(val)), {
-    message: "Please select a product",
-  }),
-  quantity: z.number().positive({
-    message: "Quantity must be positive",
-  }),
+  productId: z.string()
+    .min(1, { message: "Please select a product from the list" })
+    .refine(val => !isNaN(parseInt(val)), {
+      message: "Please select a valid product",
+    }),
+  quantity: z.number()
+    .min(1, { message: "Quantity must be at least 1" })
+    .positive({
+      message: "Please enter a positive quantity (1 or more)",
+    })
+    .int({ message: "Quantity must be a whole number" }),
   confirmed: z.boolean().default(false),
 });
 

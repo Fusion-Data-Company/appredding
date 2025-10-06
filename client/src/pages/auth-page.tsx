@@ -23,24 +23,43 @@ import {
 
 // Login form schema
 const loginSchema = z.object({
-  username: z.string().min(1, "Username is required"),
-  password: z.string().min(1, "Password is required"),
+  username: z.string().min(1, "Please enter your username"),
+  password: z.string().min(1, "Please enter your password"),
 });
 
 // Registration form schema
 const registerSchema = z
   .object({
-    firstName: z.string().min(1, "First name is required"),
-    lastName: z.string().min(1, "Last name is required"),
-    email: z.string().email("Invalid email address"),
-    username: z.string().min(3, "Username must be at least 3 characters"),
-    password: z.string().min(8, "Password must be at least 8 characters"),
-    confirmPassword: z.string().min(8, "Please confirm your password"),
+    firstName: z.string()
+      .min(1, "Please enter your first name")
+      .min(2, "First name must be at least 2 characters"),
+    lastName: z.string()
+      .min(1, "Please enter your last name")
+      .min(2, "Last name must be at least 2 characters"),
+    email: z.string()
+      .min(1, "Please enter your email address")
+      .email("Please enter a valid email address (e.g., john@example.com)"),
+    username: z.string()
+      .min(1, "Please choose a username")
+      .min(3, "Username must be at least 3 characters")
+      .regex(/^[a-zA-Z0-9_]+$/, "Username can only contain letters, numbers, and underscores"),
+    password: z.string()
+      .min(1, "Please create a password")
+      .min(8, "Password must be at least 8 characters for security")
+      .regex(/[A-Z]/, "Password must contain at least one uppercase letter")
+      .regex(/[a-z]/, "Password must contain at least one lowercase letter")
+      .regex(/[0-9]/, "Password must contain at least one number"),
+    confirmPassword: z.string().min(1, "Please confirm your password"),
     companyName: z.string().optional(),
-    phone: z.string().optional(),
+    phone: z.string()
+      .optional()
+      .refine(
+        (val) => !val || val.length === 0 || /^[\d\s\-\(\)\+]+$/.test(val),
+        "Phone number can only contain numbers, spaces, and symbols like () - +"
+      ),
   })
   .refine((data) => data.password === data.confirmPassword, {
-    message: "Passwords don't match",
+    message: "Passwords don't match. Please make sure both passwords are identical",
     path: ["confirmPassword"],
   });
 

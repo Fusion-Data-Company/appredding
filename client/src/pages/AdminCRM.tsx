@@ -18,9 +18,12 @@ import {
   Phone,
   MapPin,
   Calendar,
-  Settings
+  Settings,
+  Loader2,
+  AlertCircle
 } from 'lucide-react';
 import { useLocation } from 'wouter';
+import { ErrorState } from '@/components/ui/error-state';
 
 interface SolarSubmission {
   id: number;
@@ -384,11 +387,24 @@ export default function AdminCRM() {
               {/* Solar Submissions Table */}
               <Card className="bg-slate-900/50 backdrop-blur border-slate-700 overflow-hidden">
                 {isLoading ? (
-                  <div className="p-12 text-center text-slate-400">Loading submissions...</div>
+                  <div className="p-12 flex items-center justify-center text-slate-400">
+                    <Loader2 className="h-8 w-8 animate-spin mr-2" />
+                    Loading submissions...
+                  </div>
                 ) : error ? (
-                  <div className="p-12 text-center text-red-400">Error loading submissions</div>
+                  <div className="p-12">
+                    <ErrorState
+                      title="Failed to Load Submissions"
+                      message={error instanceof Error ? error.message : "There was an error loading solar consultation submissions. Please try again."}
+                      onRetry={() => window.location.reload()}
+                      variant="inline"
+                    />
+                  </div>
                 ) : !data?.submissions?.length ? (
-                  <div className="p-12 text-center text-slate-400">No submissions found</div>
+                  <div className="p-12 text-center">
+                    <AlertCircle className="h-12 w-12 text-slate-500 mx-auto mb-4" />
+                    <p className="text-slate-400">No submissions found</p>
+                  </div>
                 ) : (
             <>
               <div className="overflow-x-auto">
