@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import MaintenanceWaveHero from "@/components/MaintenanceWaveHero";
 import MainLayout from "@/components/layout/MainLayout";
 import SEOHead from "@/components/SEOHead";
+import { AwardBadge } from "@/components/ui/award-badge";
 
 const Maintenance = () => {
   const maintenanceSchema = {
@@ -401,6 +402,11 @@ const Maintenance = () => {
         ]}
       />
 
+      {/* Excellence Award Badge */}
+      <div className="flex justify-center py-12 bg-gradient-to-b from-slate-950 to-gray-900">
+        <AwardBadge type="customer-service-excellence" />
+      </div>
+
       {/* Enhanced Live System Metrics Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -490,8 +496,8 @@ const Maintenance = () => {
         <div className="mb-12">
           <div className="text-center mb-8">
             <p className="text-red-600 font-semibold mb-2">Proven Results</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Real Customer Success Stories</h2>
-            <p className="text-gray-600 dark:text-gray-400">How professional maintenance saved thousands for Northern California solar owners</p>
+            <h2 className="text-3xl font-bold text-gray-900  mb-3">Real Customer Success Stories</h2>
+            <p className="text-gray-600 ">How professional maintenance saved thousands for Northern California solar owners</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -499,8 +505,8 @@ const Maintenance = () => {
               <div key={idx} className="card-elite glow-green p-6 group">
                 <div className="flex items-start justify-between mb-4">
                   <div>
-                    <h3 className="font-bold text-gray-900 dark:text-white">{case_.customer}</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">{case_.system}</p>
+                    <h3 className="font-bold text-gray-900 ">{case_.customer}</h3>
+                    <p className="text-sm text-gray-600 ">{case_.system}</p>
                   </div>
                   <div className="icon-container-elite bg-purple-500/20 group-hover:bg-purple-500/30">
                     <Award className="h-5 w-5 text-purple-500" />
@@ -509,27 +515,27 @@ const Maintenance = () => {
 
                 <div className="space-y-3 mb-4">
                   <div className="bg-red-50 dark:bg-red-900/20 rounded-lg p-3">
-                    <p className="text-sm font-medium text-red-800 dark:text-red-200">Issue:</p>
-                    <p className="text-sm text-red-600 dark:text-red-400">{case_.issue}</p>
+                    <p className="text-sm font-medium text-red-800 ">Issue:</p>
+                    <p className="text-sm text-red-600 ">{case_.issue}</p>
                   </div>
 
                   <div className="bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-3">
-                    <p className="text-sm font-medium text-yellow-800 dark:text-yellow-200">Diagnosis:</p>
-                    <p className="text-sm text-yellow-600 dark:text-yellow-400">{case_.diagnosis}</p>
+                    <p className="text-sm font-medium text-yellow-800 ">Diagnosis:</p>
+                    <p className="text-sm text-yellow-600 ">{case_.diagnosis}</p>
                   </div>
 
                   <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-3">
-                    <p className="text-sm font-medium text-green-800 dark:text-green-200">Result:</p>
-                    <p className="text-sm text-green-600 dark:text-green-400">{case_.result}</p>
+                    <p className="text-sm font-medium text-green-800 ">Result:</p>
+                    <p className="text-sm text-green-600 ">{case_.result}</p>
                   </div>
                 </div>
 
                 <blockquote className="border-l-4 border-purple-500 pl-4 mb-3">
-                  <p className="text-sm italic text-gray-600 dark:text-gray-400">"{case_.testimonial}"</p>
+                  <p className="text-sm italic text-gray-600 ">"{case_.testimonial}"</p>
                 </blockquote>
 
                 <div className="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-3">
-                  <p className="text-sm font-bold text-purple-800 dark:text-purple-200">{case_.roi}</p>
+                  <p className="text-sm font-bold text-purple-800 ">{case_.roi}</p>
                 </div>
               </div>
             ))}
@@ -540,8 +546,8 @@ const Maintenance = () => {
         <div className="mb-12">
           <div className="text-center mb-8">
             <p className="text-red-600 font-semibold mb-2">Comprehensive Care</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Professional Maintenance Services</h2>
-            <p className="text-gray-600 dark:text-gray-400">Keep your solar investment performing at peak efficiency</p>
+            <h2 className="text-3xl font-bold text-gray-900  mb-3">Professional Maintenance Services</h2>
+            <p className="text-gray-600 ">Keep your solar investment performing at peak efficiency</p>
           </div>
 
           <div className="flex flex-wrap gap-2 mb-6">
@@ -552,7 +558,7 @@ const Maintenance = () => {
                 className={`px-4 py-2 rounded-lg font-medium transition ${
                   selectedService === service
                     ? "bg-purple-600 text-white"
-                    : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
+                    : "bg-gray-100 dark:bg-gray-700 text-gray-700  hover:bg-gray-200 dark:hover:bg-gray-600"
                 }`}
               >
                 {service.charAt(0).toUpperCase() + service.slice(1)}
@@ -563,31 +569,31 @@ const Maintenance = () => {
           <div className="card-elite glow-purple p-8 group">
             <div className="flex items-start justify-between mb-4">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                <h3 className="text-2xl font-bold text-gray-900 ">
                   {(maintenanceServices as any)[selectedService].name}
                 </h3>
                 <div className="flex items-center gap-4 mt-2">
-                  <span className="text-sm bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full">
+                  <span className="text-sm bg-purple-100 dark:bg-purple-900 text-purple-800  px-3 py-1 rounded-full">
                     {(maintenanceServices as any)[selectedService].frequency}
                   </span>
-                  <span className="text-sm text-gray-600 dark:text-gray-400">
+                  <span className="text-sm text-gray-600 ">
                     Duration: {(maintenanceServices as any)[selectedService].duration}
                   </span>
                 </div>
               </div>
-              <span className="text-xl font-bold text-purple-600 dark:text-purple-400">
+              <span className="text-xl font-bold text-purple-600 ">
                 {(maintenanceServices as any)[selectedService].price}
               </span>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h4 className="font-semibold mb-3 flex items-center gap-2 text-gray-900 dark:text-white">
+                <h4 className="font-semibold mb-3 flex items-center gap-2 text-gray-900 ">
                   <CheckCircle className="h-5 w-5 text-green-500" /> Service Includes
                 </h4>
                 <ul className="space-y-2">
                   {(maintenanceServices as any)[selectedService].includes.map((item: string, idx: number) => (
-                    <li key={idx} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
+                    <li key={idx} className="flex items-start gap-2 text-gray-700 ">
                       <ChevronRight className="h-4 w-4 text-purple-500 mt-0.5" />
                       <span>{item}</span>
                     </li>
@@ -596,12 +602,12 @@ const Maintenance = () => {
               </div>
 
               <div>
-                <h4 className="font-semibold mb-3 flex items-center gap-2 text-gray-900 dark:text-white">
+                <h4 className="font-semibold mb-3 flex items-center gap-2 text-gray-900 ">
                   <TrendingUp className="h-5 w-5 text-blue-500" /> Key Benefits
                 </h4>
                 <ul className="space-y-2">
                   {(maintenanceServices as any)[selectedService].benefits.map((benefit: string, idx: number) => (
-                    <li key={idx} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
+                    <li key={idx} className="flex items-start gap-2 text-gray-700 ">
                       <ChevronRight className="h-4 w-4 text-green-500 mt-0.5" />
                       <span>{benefit}</span>
                     </li>
@@ -622,8 +628,8 @@ const Maintenance = () => {
         <div className="mb-12">
           <div className="text-center mb-8">
             <p className="text-red-600 font-semibold mb-2">Our Process</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">8-Step Maintenance Workflow</h2>
-            <p className="text-gray-600 dark:text-gray-400">Systematic approach ensuring nothing is missed</p>
+            <h2 className="text-3xl font-bold text-gray-900  mb-3">8-Step Maintenance Workflow</h2>
+            <p className="text-gray-600 ">Systematic approach ensuring nothing is missed</p>
           </div>
 
           <div className="card-elite glow-purple p-8 group">
@@ -634,17 +640,17 @@ const Maintenance = () => {
                     {step.step}
                   </div>
                   <div className="category-card-elite p-4 pl-10">
-                    <h4 className="font-bold text-gray-900 dark:text-white mb-2">{step.phase}</h4>
+                    <h4 className="font-bold text-gray-900  mb-2">{step.phase}</h4>
                     <ul className="space-y-1">
                       {step.tasks.map((task, idx) => (
-                        <li key={idx} className="text-xs text-gray-600 dark:text-gray-400 flex items-center gap-1">
+                        <li key={idx} className="text-xs text-gray-600  flex items-center gap-1">
                           <Circle className="h-2 w-2" />
                           {task}
                         </li>
                       ))}
                     </ul>
                     <div className="mt-2 pt-2 border-t border-gray-200 dark:border-gray-700">
-                      <span className="text-xs text-purple-600 dark:text-purple-400 font-medium">
+                      <span className="text-xs text-purple-600  font-medium">
                         Time: {step.time}
                       </span>
                     </div>
@@ -659,47 +665,47 @@ const Maintenance = () => {
         <div className="mb-12">
           <div className="text-center mb-8">
             <p className="text-red-600 font-semibold mb-2">Problem Prevention</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Common Issues & Solutions</h2>
-            <p className="text-gray-600 dark:text-gray-400">Identifying and preventing the most frequent solar system problems</p>
+            <h2 className="text-3xl font-bold text-gray-900  mb-3">Common Issues & Solutions</h2>
+            <p className="text-gray-600 ">Identifying and preventing the most frequent solar system problems</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
             {commonProblems.map((problem, idx) => (
               <div key={idx} className="card-elite glow-orange p-6 group">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white">{problem.problem}</h3>
-                  <span className="text-sm bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-2 py-1 rounded">
+                  <h3 className="text-lg font-bold text-gray-900 ">{problem.problem}</h3>
+                  <span className="text-sm bg-red-100 dark:bg-red-900 text-red-800  px-2 py-1 rounded">
                     {problem.frequency}
                   </span>
                 </div>
 
                 <div className="space-y-3">
                   <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
-                    <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Causes:</p>
+                    <p className="text-sm font-medium text-gray-700  mb-2">Causes:</p>
                     <div className="space-y-1">
                       {problem.causes.map((cause, i) => (
-                        <div key={i} className="text-xs text-gray-600 dark:text-gray-400">• {cause}</div>
+                        <div key={i} className="text-xs text-gray-600 ">• {cause}</div>
                       ))}
                     </div>
                   </div>
 
                   <div className="bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-3">
-                    <p className="text-sm font-medium text-yellow-800 dark:text-yellow-200 mb-1">Symptoms:</p>
+                    <p className="text-sm font-medium text-yellow-800  mb-1">Symptoms:</p>
                     <div className="space-y-1">
                       {problem.symptoms.map((symptom, i) => (
-                        <div key={i} className="text-xs text-yellow-600 dark:text-yellow-400">• {symptom}</div>
+                        <div key={i} className="text-xs text-yellow-600 ">• {symptom}</div>
                       ))}
                     </div>
                   </div>
 
                   <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-3">
-                    <p className="text-sm font-medium text-green-800 dark:text-green-200 mb-1">Prevention:</p>
-                    <p className="text-xs text-green-600 dark:text-green-400">{problem.prevention}</p>
+                    <p className="text-sm font-medium text-green-800  mb-1">Prevention:</p>
+                    <p className="text-xs text-green-600 ">{problem.prevention}</p>
                   </div>
 
                   <div className="bg-red-50 dark:bg-red-900/20 rounded-lg p-3">
-                    <p className="text-sm font-medium text-red-800 dark:text-red-200 mb-1">Cost if Ignored:</p>
-                    <p className="text-xs font-bold text-red-600 dark:text-red-400">{problem.costIfIgnored}</p>
+                    <p className="text-sm font-medium text-red-800  mb-1">Cost if Ignored:</p>
+                    <p className="text-xs font-bold text-red-600 ">{problem.costIfIgnored}</p>
                   </div>
                 </div>
               </div>
@@ -711,8 +717,8 @@ const Maintenance = () => {
         <div className="mb-12">
           <div className="text-center mb-8">
             <p className="text-red-600 font-semibold mb-2">Year-Round Care</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Seasonal Maintenance Requirements</h2>
-            <p className="text-gray-600 dark:text-gray-400">Optimizing maintenance for Northern California's climate</p>
+            <h2 className="text-3xl font-bold text-gray-900  mb-3">Seasonal Maintenance Requirements</h2>
+            <p className="text-gray-600 ">Optimizing maintenance for Northern California's climate</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -720,29 +726,29 @@ const Maintenance = () => {
               <div key={idx} className="card-elite glow-blue p-6 group">
                 <div className="flex items-center gap-3 mb-4">
                   {season.icon}
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white">{season.season}</h3>
+                  <h3 className="text-lg font-bold text-gray-900 ">{season.season}</h3>
                 </div>
 
                 <div className="space-y-3">
                   <div>
-                    <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Focus: {season.focus}</p>
+                    <p className="text-sm font-medium text-gray-700  mb-1">Focus: {season.focus}</p>
                   </div>
 
                   <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
-                    <p className="text-xs font-medium text-gray-600 dark:text-gray-400 mb-2">Key Tasks:</p>
+                    <p className="text-xs font-medium text-gray-600  mb-2">Key Tasks:</p>
                     <ul className="space-y-1">
                       {season.tasks.map((task, i) => (
-                        <li key={i} className="text-xs text-gray-600 dark:text-gray-400">• {task}</li>
+                        <li key={i} className="text-xs text-gray-600 ">• {task}</li>
                       ))}
                     </ul>
                   </div>
 
                   <div className="bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-3">
-                    <p className="text-xs text-yellow-600 dark:text-yellow-400">{season.challenges}</p>
+                    <p className="text-xs text-yellow-600 ">{season.challenges}</p>
                   </div>
 
                   <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-3">
-                    <p className="text-xs font-medium text-green-600 dark:text-green-400">
+                    <p className="text-xs font-medium text-green-600 ">
                       ✓ {season.recommendation}
                     </p>
                   </div>
@@ -756,8 +762,8 @@ const Maintenance = () => {
         <div className="mb-12">
           <div className="text-center mb-8">
             <p className="text-red-600 font-semibold mb-2">Advanced Diagnostics</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Professional Testing Equipment</h2>
-            <p className="text-gray-600 dark:text-gray-400">Industry-leading tools for precise system analysis</p>
+            <h2 className="text-3xl font-bold text-gray-900  mb-3">Professional Testing Equipment</h2>
+            <p className="text-gray-600 ">Industry-leading tools for precise system analysis</p>
           </div>
 
           <div className="card-elite glow-blue overflow-hidden group">
@@ -765,29 +771,29 @@ const Maintenance = () => {
               <table className="w-full">
                 <thead className="bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
                   <tr>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Test Type</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Equipment</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Detects</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Accuracy</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Frequency</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Test Type</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Equipment</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Detects</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Accuracy</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Frequency</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
                   {diagnosticTests.map((test, idx) => (
                     <tr key={idx} className="hover:bg-gray-50 dark:hover:bg-gray-700">
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 ">
                         {test.test}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 ">
                         {test.equipment}
                       </td>
-                      <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
+                      <td className="px-6 py-4 text-sm text-gray-700 ">
                         {test.detects}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-green-600 dark:text-green-400">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-green-600 ">
                         {test.accuracy}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 ">
                         {test.frequency}
                       </td>
                     </tr>
@@ -802,8 +808,8 @@ const Maintenance = () => {
         <div className="mb-12">
           <div className="text-center mb-8">
             <p className="text-red-600 font-semibold mb-2">Warranty Preservation</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Protecting Your Coverage</h2>
-            <p className="text-gray-600 dark:text-gray-400">How maintenance affects warranty claims</p>
+            <h2 className="text-3xl font-bold text-gray-900  mb-3">Protecting Your Coverage</h2>
+            <p className="text-gray-600 ">How maintenance affects warranty claims</p>
           </div>
 
           <div className="card-elite glow-orange p-8 group">
@@ -811,34 +817,34 @@ const Maintenance = () => {
               {warrantyProtection.map((item, idx) => (
                 <div key={idx} className="spec-card-elite glow-green">
                   <div className="flex items-start justify-between mb-4">
-                    <h3 className="font-bold text-gray-900 dark:text-white">{item.component}</h3>
+                    <h3 className="font-bold text-gray-900 ">{item.component}</h3>
                     <ShieldCheck className="h-6 w-6 text-green-500" />
                   </div>
 
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
-                      <span className="text-gray-600 dark:text-gray-400">Standard:</span>
+                      <span className="text-gray-600 ">Standard:</span>
                       <span className="font-medium">{item.standard}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600 dark:text-gray-400">Requirement:</span>
+                      <span className="text-gray-600 ">Requirement:</span>
                       <span className="font-medium text-purple-600">{item.requirement}</span>
                     </div>
                   </div>
 
                   <div className="grid grid-cols-2 gap-3 mt-4">
                     <div className="bg-red-50 dark:bg-red-900/20 rounded-lg p-3">
-                      <p className="text-xs font-medium text-red-800 dark:text-red-200 mb-1">Without Service:</p>
-                      <p className="text-xs text-red-600 dark:text-red-400">{item.withoutMaintenance}</p>
+                      <p className="text-xs font-medium text-red-800  mb-1">Without Service:</p>
+                      <p className="text-xs text-red-600 ">{item.withoutMaintenance}</p>
                     </div>
                     <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-3">
-                      <p className="text-xs font-medium text-green-800 dark:text-green-200 mb-1">With Service:</p>
-                      <p className="text-xs text-green-600 dark:text-green-400">{item.withMaintenance}</p>
+                      <p className="text-xs font-medium text-green-800  mb-1">With Service:</p>
+                      <p className="text-xs text-green-600 ">{item.withMaintenance}</p>
                     </div>
                   </div>
 
                   <div className="mt-3 pt-3 border-t border-gray-200 dark:border-gray-700">
-                    <p className="text-xs font-bold text-purple-600 dark:text-purple-400">
+                    <p className="text-xs font-bold text-purple-600 ">
                       Claim Success: {item.claimSuccess}
                     </p>
                   </div>
@@ -852,8 +858,8 @@ const Maintenance = () => {
         <div className="mb-12">
           <div className="text-center mb-8">
             <p className="text-red-600 font-semibold mb-2">12-Month Calendar</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Complete Annual Maintenance Schedule</h2>
-            <p className="text-gray-600 dark:text-gray-400">Month-by-month service planning for optimal performance</p>
+            <h2 className="text-3xl font-bold text-gray-900  mb-3">Complete Annual Maintenance Schedule</h2>
+            <p className="text-gray-600 ">Month-by-month service planning for optimal performance</p>
           </div>
 
           <div className="card-elite glow-purple p-8 group">
@@ -861,18 +867,18 @@ const Maintenance = () => {
               {maintenanceSchedule.map((item) => (
                 <div key={item.month} className="category-card-elite p-4 hover:shadow-lg transition">
                   <div className="flex items-center justify-between mb-2">
-                    <h4 className="font-bold text-gray-900 dark:text-white">Month {item.month}</h4>
+                    <h4 className="font-bold text-gray-900 ">Month {item.month}</h4>
                     <span className={`text-xs px-2 py-1 rounded-full font-medium ${
-                      item.priority === 'Critical' ? 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200' :
-                      item.priority === 'High' ? 'bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200' :
-                      item.priority === 'Medium' ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200' :
-                      'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
+                      item.priority === 'Critical' ? 'bg-red-100 text-red-800 dark:bg-red-900 ' :
+                      item.priority === 'High' ? 'bg-orange-100 text-orange-800 dark:bg-orange-900 ' :
+                      item.priority === 'Medium' ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 ' :
+                      'bg-green-100 text-green-800 dark:bg-green-900 '
                     }`}>
                       {item.priority}
                     </span>
                   </div>
-                  <p className="text-sm font-medium text-purple-600 dark:text-purple-400 mb-2">{item.task}</p>
-                  <p className="text-xs text-gray-600 dark:text-gray-400">{item.details}</p>
+                  <p className="text-sm font-medium text-purple-600  mb-2">{item.task}</p>
+                  <p className="text-xs text-gray-600 ">{item.details}</p>
                 </div>
               ))}
             </div>
@@ -883,17 +889,17 @@ const Maintenance = () => {
         <div className="mb-12">
           <div className="text-center mb-8">
             <p className="text-red-600 font-semibold mb-2">Key Performance Indicators</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">System Health Metrics</h2>
-            <p className="text-gray-600 dark:text-gray-400">Critical measurements for optimal solar performance</p>
+            <h2 className="text-3xl font-bold text-gray-900  mb-3">System Health Metrics</h2>
+            <p className="text-gray-600 ">Critical measurements for optimal solar performance</p>
           </div>
 
           <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-4">
             {maintenanceMetrics.map((metric, idx) => (
               <div key={idx} className="spec-card-elite glow-blue">
-                <h4 className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">{metric.metric}</h4>
-                <div className="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-1">{metric.value}</div>
-                <div className="text-xs text-green-600 dark:text-green-400 mb-2">Target: {metric.target}</div>
-                <div className="text-xs text-gray-500 dark:text-gray-500">{metric.impact}</div>
+                <h4 className="text-sm font-medium text-gray-600  mb-2">{metric.metric}</h4>
+                <div className="text-2xl font-bold text-purple-600  mb-1">{metric.value}</div>
+                <div className="text-xs text-green-600  mb-2">Target: {metric.target}</div>
+                <div className="text-xs text-gray-500 ">{metric.impact}</div>
               </div>
             ))}
           </div>
@@ -903,8 +909,8 @@ const Maintenance = () => {
         <div className="mb-12">
           <div className="text-center mb-8">
             <p className="text-red-600 font-semibold mb-2">Qualified Professionals</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Industry Certifications & Training</h2>
-            <p className="text-gray-600 dark:text-gray-400">Our team's credentials and ongoing education</p>
+            <h2 className="text-3xl font-bold text-gray-900  mb-3">Industry Certifications & Training</h2>
+            <p className="text-gray-600 ">Our team's credentials and ongoing education</p>
           </div>
 
           <div className="card-elite glow-purple p-8 group">
@@ -914,8 +920,8 @@ const Maintenance = () => {
                   <div className="icon-container-elite bg-purple-500/20 group-hover:bg-purple-500/30 mb-3">
                     <BadgeCheck className="h-5 w-5 text-purple-500" />
                   </div>
-                  <h4 className="font-bold text-gray-900 dark:text-white text-sm mb-1">{cert.cert}</h4>
-                  <p className="text-xs text-gray-600 dark:text-gray-400 mb-2">{cert.description}</p>
+                  <h4 className="font-bold text-gray-900  text-sm mb-1">{cert.cert}</h4>
+                  <p className="text-xs text-gray-600  mb-2">{cert.description}</p>
                   <div className="space-y-1 text-xs">
                     <div className="flex justify-between">
                       <span className="text-gray-500">Staff:</span>
@@ -934,24 +940,24 @@ const Maintenance = () => {
             <div className="mt-8 card-elite glow-purple p-6 group">
               <div className="flex items-start gap-6">
                 <div className="w-20 h-20 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center">
-                  <Users className="h-10 w-10 text-purple-600 dark:text-purple-400" />
+                  <Users className="h-10 w-10 text-purple-600 " />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">{technicianProfile.lead.name}</h3>
-                  <p className="text-purple-600 dark:text-purple-400 font-medium mb-3">{technicianProfile.lead.role}</p>
+                  <h3 className="text-xl font-bold text-gray-900  mb-1">{technicianProfile.lead.name}</h3>
+                  <p className="text-purple-600  font-medium mb-3">{technicianProfile.lead.role}</p>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Certifications:</p>
+                      <p className="text-sm font-medium text-gray-700  mb-2">Certifications:</p>
                       <ul className="space-y-1">
                         {technicianProfile.lead.certifications.map((cert, i) => (
-                          <li key={i} className="text-xs text-gray-600 dark:text-gray-400">• {cert}</li>
+                          <li key={i} className="text-xs text-gray-600 ">• {cert}</li>
                         ))}
                       </ul>
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Experience:</p>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">{technicianProfile.lead.experience}</p>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">{technicianProfile.lead.systems}</p>
+                      <p className="text-sm font-medium text-gray-700  mb-2">Experience:</p>
+                      <p className="text-sm text-gray-600 ">{technicianProfile.lead.experience}</p>
+                      <p className="text-sm text-gray-600 ">{technicianProfile.lead.systems}</p>
                     </div>
                   </div>
                 </div>
@@ -964,8 +970,8 @@ const Maintenance = () => {
         <div className="mb-12">
           <div className="text-center mb-8">
             <p className="text-red-600 font-semibold mb-2">Financial Impact</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Maintenance ROI Analysis</h2>
-            <p className="text-gray-600 dark:text-gray-400">20-year production value with different maintenance levels</p>
+            <h2 className="text-3xl font-bold text-gray-900  mb-3">Maintenance ROI Analysis</h2>
+            <p className="text-gray-600 ">20-year production value with different maintenance levels</p>
           </div>
 
           <div className="card-elite glow-gold overflow-hidden group">
@@ -973,38 +979,38 @@ const Maintenance = () => {
               <table className="w-full">
                 <thead className="bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
                   <tr>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Maintenance Level</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">5 Year Value</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">10 Year Value</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">20 Year Value</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Efficiency</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Failures</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Warranty</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Maintenance Level</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">5 Year Value</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">10 Year Value</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">20 Year Value</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Efficiency</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Failures</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Warranty</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
                   {roiCalculation.map((scenario, idx) => (
                     <tr key={idx} className={`hover:bg-gray-50 dark:hover:bg-gray-700 ${idx === 2 ? 'bg-purple-50 dark:bg-purple-900/20' : ''}`}>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 ">
                         {scenario.scenario}
                         {idx === 2 && <span className="ml-2 text-xs bg-purple-600 text-white px-2 py-1 rounded">Recommended</span>}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 ">
                         {scenario.year5}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 ">
                         {scenario.year10}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-green-600 dark:text-green-400">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-green-600 ">
                         {scenario.year20}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-purple-600 dark:text-purple-400">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-purple-600 ">
                         {scenario.efficiency}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 ">
                         {scenario.failures}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 ">
                         {scenario.warranty}
                       </td>
                     </tr>
@@ -1014,7 +1020,7 @@ const Maintenance = () => {
             </div>
 
             <div className="p-6 bg-purple-50 dark:bg-purple-900/20">
-              <p className="text-sm text-gray-700 dark:text-gray-300">
+              <p className="text-sm text-gray-700 ">
                 <strong>Analysis:</strong> Professional maintenance increases 20-year energy production value by $16,000 (42%) compared to no maintenance,
                 with only $3,000-4,000 in total maintenance costs. ROI exceeds 400%.
               </p>
@@ -1026,8 +1032,8 @@ const Maintenance = () => {
         <div className="mb-12">
           <div className="text-center mb-8">
             <p className="text-red-600 font-semibold mb-2">Service Plans</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Choose Your Maintenance Program</h2>
-            <p className="text-gray-600 dark:text-gray-400">Tailored plans for every system and budget</p>
+            <h2 className="text-3xl font-bold text-gray-900  mb-3">Choose Your Maintenance Program</h2>
+            <p className="text-gray-600 ">Tailored plans for every system and budget</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -1089,15 +1095,15 @@ const Maintenance = () => {
                     MOST POPULAR - 85% OF CUSTOMERS
                   </div>
                 )}
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">{plan.name}</h3>
+                <h3 className="text-2xl font-bold text-gray-900  mb-2">{plan.name}</h3>
                 <div className="mb-4">
-                  <span className="text-3xl font-bold text-purple-600 dark:text-purple-400">{plan.price}</span>
-                  <span className="text-sm text-green-600 dark:text-green-400 ml-2">{plan.savings}</span>
+                  <span className="text-3xl font-bold text-purple-600 ">{plan.price}</span>
+                  <span className="text-sm text-green-600  ml-2">{plan.savings}</span>
                 </div>
 
                 <ul className="space-y-3 mb-6">
                   {plan.features.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+                    <li key={i} className="flex items-center gap-2 text-sm text-gray-700 ">
                       <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
                       {feature}
                     </li>
@@ -1107,7 +1113,7 @@ const Maintenance = () => {
                 <button className={`w-full px-4 py-3 rounded-xl font-semibold transition ${
                   plan.best
                     ? 'bg-purple-600 text-white hover:bg-purple-700'
-                    : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                    : 'bg-gray-100 dark:bg-gray-700 text-gray-700  hover:bg-gray-200 dark:hover:bg-gray-600'
                 }`}>
                   Select Plan
                 </button>
@@ -1120,18 +1126,18 @@ const Maintenance = () => {
         <div className="mb-12">
           <div className="text-center mb-8">
             <p className="text-red-600 font-semibold mb-2">Common Questions</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Maintenance FAQs</h2>
-            <p className="text-gray-600 dark:text-gray-400">Everything you need to know about solar maintenance</p>
+            <h2 className="text-3xl font-bold text-gray-900  mb-3">Maintenance FAQs</h2>
+            <p className="text-gray-600 ">Everything you need to know about solar maintenance</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
             {faqItems.map((faq, idx) => (
               <div key={idx} className="card-elite glow-purple p-6 group">
-                <h3 className="font-bold text-gray-900 dark:text-white mb-3 flex items-start gap-2">
+                <h3 className="font-bold text-gray-900  mb-3 flex items-start gap-2">
                   <HelpCircle className="h-5 w-5 text-purple-500 flex-shrink-0 mt-0.5" />
                   {faq.question}
                 </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400">{faq.answer}</p>
+                <p className="text-sm text-gray-600 ">{faq.answer}</p>
               </div>
             ))}
           </div>

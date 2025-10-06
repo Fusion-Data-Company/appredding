@@ -171,13 +171,18 @@ export default function FluidEnergyHero() {
         initial="hidden"
         animate="visible"
       >
-        <motion.div 
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/20 backdrop-blur-md border border-green-500/30 mb-8"
+        <motion.div
+          className="badge-elite-metallic badge-energy mb-8"
           variants={itemVariants}
           data-testid="badge-powered-by"
         >
-          <Leaf className="w-4 h-4 text-green-400" />
-          <span className="text-sm font-medium text-green-100">Professional Energy Efficiency Solutions</span>
+          <motion.div
+            animate={{ rotate: [0, 360] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+          >
+            <Leaf className="w-4 h-4 text-green-400" />
+          </motion.div>
+          <span>Professional Energy Efficiency Solutions</span>
         </motion.div>
 
         <motion.h1

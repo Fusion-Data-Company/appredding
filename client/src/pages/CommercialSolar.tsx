@@ -70,6 +70,7 @@ import CTASection from "@/components/sections/CTASection";
 import ContentSection from "@/components/sections/ContentSection";
 import ServiceCard from "@/components/cards/ServiceCard";
 import TestimonialCard from "@/components/cards/TestimonialCard";
+import { AwardBadge } from "@/components/ui/award-badge";
 
 const commercialConsultationSchema = z.object({
   companyName: z.string().min(1, "Company name is required"),
@@ -333,6 +334,11 @@ const CommercialSolar = () => {
           { value: "1.9yr", label: "Payback Period" }
         ]}
       />
+
+      {/* Excellence Award Badge */}
+      <div className="flex justify-center py-12 bg-gradient-to-b from-slate-950 to-gray-900">
+        <AwardBadge type="customer-service-excellence" />
+      </div>
 
       {/* Color-Coded Commercial Solar Funnel (RED → YELLOW → GREEN → PURPLE) */}
       <SolarRescueTimelineSection

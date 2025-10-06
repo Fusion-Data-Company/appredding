@@ -244,13 +244,15 @@ const EnergyConservationWaveHero: React.FC<EnergyConservationWaveHeroProps> = ({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-8 flex items-center gap-3 rounded-full border border-green-500/30 bg-green-500/10 px-6 py-3 backdrop-blur-sm"
+          className="badge-elite-metallic badge-energy mb-8"
         >
-          <Leaf className="h-5 w-5 text-green-400" />
-          <span className="text-sm font-medium text-green-100">
-            {tagline}
-          </span>
-          <ThermometerSun className="h-5 w-5 text-blue-400" />
+          <motion.div
+            animate={{ rotate: [0, 360] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+          >
+            <Leaf className="w-4 h-4 text-green-400" />
+          </motion.div>
+          <span>{tagline}</span>
         </motion.div>
 
         {/* Main Heading */}

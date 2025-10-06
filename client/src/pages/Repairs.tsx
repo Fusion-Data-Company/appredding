@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import RepairsWaveHero from "@/components/RepairsWaveHero";
 import MainLayout from "@/components/layout/MainLayout";
 import SEOHead from "@/components/SEOHead";
+import { AwardBadge } from "@/components/ui/award-badge";
 
 const Repairs = () => {
   const repairsSchema = {
@@ -166,6 +167,11 @@ const Repairs = () => {
         ]}
       />
 
+      {/* Excellence Award Badge */}
+      <div className="flex justify-center py-12 bg-gradient-to-b from-slate-950 to-gray-900">
+        <AwardBadge type="customer-service-excellence" />
+      </div>
+
       <div className="py-16 sm:py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
       {/* Hero Section with Live System Status */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -222,8 +228,8 @@ const Repairs = () => {
         <div className="mb-12">
           <div className="text-center mb-8">
             <p className="text-red-600 font-semibold mb-2">Common Solar Issues</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Repair Service Categories</h2>
-            <p className="text-gray-600 dark:text-gray-400">Fast, professional repairs for all solar system components</p>
+            <h2 className="text-3xl font-bold text-gray-900  mb-3">Repair Service Categories</h2>
+            <p className="text-gray-600 ">Fast, professional repairs for all solar system components</p>
           </div>
 
           <div className="flex flex-wrap gap-2 mb-6">
@@ -234,7 +240,7 @@ const Repairs = () => {
                 className={`px-4 py-2 rounded-lg font-medium transition ${
                   selectedIssue === category
                     ? "bg-red-600 text-white"
-                    : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
+                    : "bg-gray-100 dark:bg-gray-700 text-gray-700  hover:bg-gray-200 dark:hover:bg-gray-600"
                 }`}
               >
                 {repairCategories[category].name}
@@ -245,19 +251,19 @@ const Repairs = () => {
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
             <div className="flex items-start justify-between mb-4">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                <h3 className="text-2xl font-bold text-gray-900 ">
                   {repairCategories[selectedIssue].name}
                 </h3>
                 <div className="flex items-center gap-4 mt-2">
                   <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                    repairCategories[selectedIssue].urgency === "Critical" ? "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200" :
-                    repairCategories[selectedIssue].urgency === "High" ? "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200" :
-                    repairCategories[selectedIssue].urgency === "Moderate" ? "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200" :
-                    "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
+                    repairCategories[selectedIssue].urgency === "Critical" ? "bg-red-100 text-red-800 dark:bg-red-900 " :
+                    repairCategories[selectedIssue].urgency === "High" ? "bg-orange-100 text-orange-800 dark:bg-orange-900 " :
+                    repairCategories[selectedIssue].urgency === "Moderate" ? "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 " :
+                    "bg-green-100 text-green-800 dark:bg-green-900 "
                   }`}>
                     {repairCategories[selectedIssue].urgency} Priority
                   </span>
-                  <span className="text-sm text-gray-600 dark:text-gray-400">
+                  <span className="text-sm text-gray-600 ">
                     {repairCategories[selectedIssue].frequency}
                   </span>
                 </div>
@@ -266,12 +272,12 @@ const Repairs = () => {
 
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               <div>
-                <h4 className="font-semibold mb-3 flex items-center gap-2 text-gray-900 dark:text-white">
+                <h4 className="font-semibold mb-3 flex items-center gap-2 text-gray-900 ">
                   <AlertCircle className="h-5 w-5 text-red-500" /> Common Symptoms
                 </h4>
                 <ul className="space-y-2">
                   {repairCategories[selectedIssue].symptoms.map((symptom, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
+                    <li key={idx} className="flex items-start gap-2 text-gray-700 ">
                       <ChevronRight className="h-4 w-4 text-red-500 mt-0.5" />
                       <span>{symptom}</span>
                     </li>
@@ -280,12 +286,12 @@ const Repairs = () => {
               </div>
 
               <div>
-                <h4 className="font-semibold mb-3 flex items-center gap-2 text-gray-900 dark:text-white">
+                <h4 className="font-semibold mb-3 flex items-center gap-2 text-gray-900 ">
                   <CheckCircle className="h-5 w-5 text-green-500" /> Repair Solutions
                 </h4>
                 <ul className="space-y-2">
                   {repairCategories[selectedIssue].solutions.map((solution, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
+                    <li key={idx} className="flex items-start gap-2 text-gray-700 ">
                       <ChevronRight className="h-4 w-4 text-green-500 mt-0.5" />
                       <span>{solution}</span>
                     </li>
@@ -298,16 +304,16 @@ const Repairs = () => {
               <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4">
                 <div className="flex items-center gap-2 mb-1">
                   <Timer className="h-4 w-4 text-blue-500" />
-                  <span className="text-sm text-gray-600 dark:text-gray-400">Repair Time</span>
+                  <span className="text-sm text-gray-600 ">Repair Time</span>
                 </div>
-                <p className="font-bold text-gray-900 dark:text-white">{repairCategories[selectedIssue].timeframe}</p>
+                <p className="font-bold text-gray-900 ">{repairCategories[selectedIssue].timeframe}</p>
               </div>
               <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4">
                 <div className="flex items-center gap-2 mb-1">
                   <DollarSign className="h-4 w-4 text-green-500" />
-                  <span className="text-sm text-gray-600 dark:text-gray-400">Typical Cost</span>
+                  <span className="text-sm text-gray-600 ">Typical Cost</span>
                 </div>
-                <p className="font-bold text-gray-900 dark:text-white">{repairCategories[selectedIssue].cost}</p>
+                <p className="font-bold text-gray-900 ">{repairCategories[selectedIssue].cost}</p>
               </div>
               <div className="bg-red-50 dark:bg-red-900/20 rounded-xl p-4">
                 <button className="w-full bg-red-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-red-700 transition">
@@ -322,38 +328,38 @@ const Repairs = () => {
         <div className="mb-12">
           <div className="text-center mb-8">
             <p className="text-red-600 font-semibold mb-2">Professional Diagnostics</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Comprehensive System Analysis</h2>
-            <p className="text-gray-600 dark:text-gray-400">Advanced testing to identify and resolve all issues</p>
+            <h2 className="text-3xl font-bold text-gray-900  mb-3">Comprehensive System Analysis</h2>
+            <p className="text-gray-600 ">Advanced testing to identify and resolve all issues</p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Diagnostic Steps */}
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
-              <h3 className="text-xl font-bold mb-6 text-gray-900 dark:text-white flex items-center gap-2">
+              <h3 className="text-xl font-bold mb-6 text-gray-900  flex items-center gap-2">
                 <Search className="h-6 w-6 text-blue-500" /> Diagnostic Process
               </h3>
 
               <div className="space-y-4">
                 {diagnosticProcess.map((step, idx) => (
                   <div key={idx} className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center text-sm font-bold text-blue-600 dark:text-blue-300 flex-shrink-0">
+                    <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center text-sm font-bold text-blue-600  flex-shrink-0">
                       {idx + 1}
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center justify-between mb-1">
-                        <h4 className="font-semibold text-gray-900 dark:text-white">{step.step}</h4>
-                        <span className="text-xs bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded text-gray-600 dark:text-gray-400">
+                        <h4 className="font-semibold text-gray-900 ">{step.step}</h4>
+                        <span className="text-xs bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded text-gray-600 ">
                           {step.time}
                         </span>
                       </div>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">{step.description}</p>
+                      <p className="text-sm text-gray-600 ">{step.description}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
               <div className="mt-6 bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4">
-                <p className="text-sm text-gray-700 dark:text-gray-300">
+                <p className="text-sm text-gray-700 ">
                   <strong>Total Diagnostic Time:</strong> 2-3 hours typical • Same-day results • Detailed report provided
                 </p>
               </div>
@@ -361,7 +367,7 @@ const Repairs = () => {
 
             {/* Testing Equipment */}
             <div className="bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 rounded-2xl p-8">
-              <h3 className="text-xl font-bold mb-6 text-gray-900 dark:text-white flex items-center gap-2">
+              <h3 className="text-xl font-bold mb-6 text-gray-900  flex items-center gap-2">
                 <Cpu className="h-6 w-6 text-red-500" /> Diagnostic Equipment
               </h3>
 
@@ -375,15 +381,15 @@ const Repairs = () => {
                   { tool: "DC Clamp Meter", model: "Fluke 393 FC", function: "String current measurement" }
                 ].map((item, idx) => (
                   <div key={idx} className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow">
-                    <h4 className="font-semibold text-gray-900 dark:text-white text-sm">{item.tool}</h4>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">{item.model}</p>
-                    <p className="text-xs text-red-600 dark:text-red-400 mt-1">{item.function}</p>
+                    <h4 className="font-semibold text-gray-900  text-sm">{item.tool}</h4>
+                    <p className="text-xs text-gray-500 ">{item.model}</p>
+                    <p className="text-xs text-red-600  mt-1">{item.function}</p>
                   </div>
                 ))}
               </div>
 
               <div className="mt-6 bg-orange-100 dark:bg-orange-900/30 rounded-xl p-4">
-                <p className="text-sm text-gray-700 dark:text-gray-300">
+                <p className="text-sm text-gray-700 ">
                   <strong>Certified Technicians:</strong> NABCEP certified, manufacturer trained on all major brands
                 </p>
               </div>
@@ -395,8 +401,8 @@ const Repairs = () => {
         <div className="mb-12">
           <div className="text-center mb-8">
             <p className="text-red-600 font-semibold mb-2">Inverter Specialists</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">All Major Brands Serviced</h2>
-            <p className="text-gray-600 dark:text-gray-400">Factory-trained technicians for warranty and out-of-warranty repairs</p>
+            <h2 className="text-3xl font-bold text-gray-900  mb-3">All Major Brands Serviced</h2>
+            <p className="text-gray-600 ">Factory-trained technicians for warranty and out-of-warranty repairs</p>
           </div>
 
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
@@ -404,25 +410,25 @@ const Repairs = () => {
               <table className="w-full">
                 <thead className="bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
                   <tr>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Brand</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Models Serviced</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Common Issues</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Warranty</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Brand</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Models Serviced</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Common Issues</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Warranty</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
                   {inverterBrands.map((brand, idx) => (
                     <tr key={idx} className="hover:bg-gray-50 dark:hover:bg-gray-700">
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 ">
                         {brand.brand}
                       </td>
-                      <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
+                      <td className="px-6 py-4 text-sm text-gray-700 ">
                         {brand.models.join(", ")}
                       </td>
-                      <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
+                      <td className="px-6 py-4 text-sm text-gray-700 ">
                         {brand.issues}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 ">
                         {brand.warranty}
                       </td>
                     </tr>
@@ -437,31 +443,31 @@ const Repairs = () => {
         <div className="mb-12">
           <div className="text-center mb-8">
             <p className="text-red-600 font-semibold mb-2">Reliability Data</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Component Failure Analysis</h2>
-            <p className="text-gray-600 dark:text-gray-400">Understanding system reliability and maintenance needs</p>
+            <h2 className="text-3xl font-bold text-gray-900  mb-3">Component Failure Analysis</h2>
+            <p className="text-gray-600 ">Understanding system reliability and maintenance needs</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {commonFailures.map((component, idx) => (
               <div key={idx} className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
-                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-3">{component.component}</h3>
+                <h3 className="text-lg font-bold text-gray-900  mb-3">{component.component}</h3>
 
                 <div className="space-y-3 mb-4">
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600 dark:text-gray-400">MTBF</span>
-                    <span className="text-sm font-semibold text-gray-900 dark:text-white">{component.mtbf}</span>
+                    <span className="text-sm text-gray-600 ">MTBF</span>
+                    <span className="text-sm font-semibold text-gray-900 ">{component.mtbf}</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600 dark:text-gray-400">Failure Rate</span>
-                    <span className="text-sm font-semibold text-orange-600 dark:text-orange-400">{component.failure_rate}</span>
+                    <span className="text-sm text-gray-600 ">Failure Rate</span>
+                    <span className="text-sm font-semibold text-orange-600 ">{component.failure_rate}</span>
                   </div>
                 </div>
 
                 <div className="border-t border-gray-200 dark:border-gray-700 pt-3">
-                  <p className="text-xs text-gray-600 dark:text-gray-400 mb-2">
+                  <p className="text-xs text-gray-600  mb-2">
                     <strong>Symptoms:</strong> {component.symptoms}
                   </p>
-                  <p className="text-xs text-green-600 dark:text-green-400">
+                  <p className="text-xs text-green-600 ">
                     <strong>Repair:</strong> {component.repair}
                   </p>
                 </div>
@@ -474,24 +480,24 @@ const Repairs = () => {
         <div className="mb-12">
           <div className="text-center mb-8">
             <p className="text-red-600 font-semibold mb-2">Quick Reference</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Troubleshooting Guide</h2>
-            <p className="text-gray-600 dark:text-gray-400">Common problems and their solutions</p>
+            <h2 className="text-3xl font-bold text-gray-900  mb-3">Troubleshooting Guide</h2>
+            <p className="text-gray-600 ">Common problems and their solutions</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
             {troubleshootingGuide.map((item, idx) => (
               <div key={idx} className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white">{item.problem}</h3>
+                  <h3 className="text-lg font-bold text-gray-900 ">{item.problem}</h3>
                   <AlertTriangle className="h-5 w-5 text-orange-500" />
                 </div>
 
                 <div className="space-y-3">
                   <div>
-                    <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Diagnostic Checks:</h4>
+                    <h4 className="text-sm font-semibold text-gray-700  mb-2">Diagnostic Checks:</h4>
                     <ul className="space-y-1">
                       {item.checks.map((check, i) => (
-                        <li key={i} className="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-2">
+                        <li key={i} className="text-sm text-gray-600  flex items-center gap-2">
                           <Circle className="h-2 w-2 text-blue-500" />
                           {check}
                         </li>
@@ -501,13 +507,13 @@ const Repairs = () => {
 
                   <div className="bg-orange-50 dark:bg-orange-900/20 rounded-lg p-3">
                     <p className="text-sm">
-                      <strong className="text-orange-600 dark:text-orange-400">Likely Cause:</strong> {item.likely_cause}
+                      <strong className="text-orange-600 ">Likely Cause:</strong> {item.likely_cause}
                     </p>
                   </div>
 
                   <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-3">
                     <p className="text-sm">
-                      <strong className="text-green-600 dark:text-green-400">Solution:</strong> {item.solution}
+                      <strong className="text-green-600 ">Solution:</strong> {item.solution}
                     </p>
                   </div>
                 </div>
@@ -520,8 +526,8 @@ const Repairs = () => {
         <div className="mb-12">
           <div className="text-center mb-8">
             <p className="text-red-600 font-semibold mb-2">24/7 Availability</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Emergency Repair Service</h2>
-            <p className="text-gray-600 dark:text-gray-400">Rapid response for critical solar system failures</p>
+            <h2 className="text-3xl font-bold text-gray-900  mb-3">Emergency Repair Service</h2>
+            <p className="text-gray-600 ">Rapid response for critical solar system failures</p>
           </div>
 
           <div className="bg-gradient-to-r from-red-600 to-orange-600 rounded-2xl p-8 text-white">
@@ -581,8 +587,8 @@ const Repairs = () => {
         <div className="mb-12">
           <div className="text-center mb-8">
             <p className="text-red-600 font-semibold mb-2">Coverage Details</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Warranty & Service Agreements</h2>
-            <p className="text-gray-600 dark:text-gray-400">Understanding your coverage and repair options</p>
+            <h2 className="text-3xl font-bold text-gray-900  mb-3">Warranty & Service Agreements</h2>
+            <p className="text-gray-600 ">Understanding your coverage and repair options</p>
           </div>
 
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
@@ -590,29 +596,29 @@ const Repairs = () => {
               <table className="w-full">
                 <thead className="bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
                   <tr>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Warranty Type</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Product Coverage</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Performance</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">What's Covered</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Exclusions</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Warranty Type</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Product Coverage</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Performance</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">What's Covered</th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Exclusions</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
                   {warrantyInfo.map((warranty, idx) => (
                     <tr key={idx} className="hover:bg-gray-50 dark:hover:bg-gray-700">
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 ">
                         {warranty.type}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 ">
                         {warranty.product}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 ">
                         {warranty.power}
                       </td>
-                      <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
+                      <td className="px-6 py-4 text-sm text-gray-700 ">
                         {warranty.covers}
                       </td>
-                      <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
+                      <td className="px-6 py-4 text-sm text-gray-700 ">
                         {warranty.excludes}
                       </td>
                     </tr>
@@ -627,8 +633,8 @@ const Repairs = () => {
         <div className="mb-12">
           <div className="text-center mb-8">
             <p className="text-red-600 font-semibold mb-2">Preventive Maintenance</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Service Plan Options</h2>
-            <p className="text-gray-600 dark:text-gray-400">Keep your system running at peak performance</p>
+            <h2 className="text-3xl font-bold text-gray-900  mb-3">Service Plan Options</h2>
+            <p className="text-gray-600 ">Keep your system running at peak performance</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -653,12 +659,12 @@ const Repairs = () => {
               }
             ].map((plan, idx) => (
               <div key={idx} className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{plan.plan}</h3>
-                <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-4">{plan.price}</div>
+                <h3 className="text-xl font-bold text-gray-900  mb-2">{plan.plan}</h3>
+                <div className="text-3xl font-bold text-green-600  mb-4">{plan.price}</div>
 
                 <ul className="space-y-2 mb-6">
                   {plan.features.map((feature, i) => (
-                    <li key={i} className="text-sm text-gray-700 dark:text-gray-300 flex items-center gap-2">
+                    <li key={i} className="text-sm text-gray-700  flex items-center gap-2">
                       <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
                       {feature}
                     </li>
@@ -666,7 +672,7 @@ const Repairs = () => {
                 </ul>
 
                 <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
-                  <p className="text-xs text-gray-600 dark:text-gray-400 mb-3">Best for: {plan.best_for}</p>
+                  <p className="text-xs text-gray-600  mb-3">Best for: {plan.best_for}</p>
                   <button className="w-full bg-red-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-red-700 transition">
                     Get Started
                   </button>
@@ -680,8 +686,8 @@ const Repairs = () => {
         <div className="mb-12">
           <div className="text-center mb-8">
             <p className="text-red-600 font-semibold mb-2">Success Stories</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Real Solar System Rescues</h2>
-            <p className="text-gray-600 dark:text-gray-400">Actual repairs completed for Northern California customers</p>
+            <h2 className="text-3xl font-bold text-gray-900  mb-3">Real Solar System Rescues</h2>
+            <p className="text-gray-600 ">Actual repairs completed for Northern California customers</p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
@@ -715,44 +721,44 @@ const Repairs = () => {
             ].map((case_study, idx) => (
               <div key={idx} className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
                 <div className="mb-4">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">{case_study.customer}</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">{case_study.system}</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">Installed: {case_study.installed}</p>
+                  <h3 className="text-xl font-bold text-gray-900 ">{case_study.customer}</h3>
+                  <p className="text-sm text-gray-600 ">{case_study.system}</p>
+                  <p className="text-xs text-gray-500  mt-1">Installed: {case_study.installed}</p>
                 </div>
 
                 <div className="space-y-3 mb-4">
                   <div>
-                    <h4 className="text-sm font-semibold text-red-600 dark:text-red-400">Problem</h4>
-                    <p className="text-sm text-gray-700 dark:text-gray-300">{case_study.issue}</p>
-                    <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">{case_study.timeline}</p>
+                    <h4 className="text-sm font-semibold text-red-600 ">Problem</h4>
+                    <p className="text-sm text-gray-700 ">{case_study.issue}</p>
+                    <p className="text-xs text-gray-500  mt-1">{case_study.timeline}</p>
                   </div>
                   <div>
-                    <h4 className="text-sm font-semibold text-orange-600 dark:text-orange-400">Diagnosis</h4>
-                    <p className="text-sm text-gray-700 dark:text-gray-300">{case_study.diagnosis}</p>
+                    <h4 className="text-sm font-semibold text-orange-600 ">Diagnosis</h4>
+                    <p className="text-sm text-gray-700 ">{case_study.diagnosis}</p>
                   </div>
                   <div>
-                    <h4 className="text-sm font-semibold text-green-600 dark:text-green-400">Solution</h4>
-                    <p className="text-sm text-gray-700 dark:text-gray-300">{case_study.solution}</p>
+                    <h4 className="text-sm font-semibold text-green-600 ">Solution</h4>
+                    <p className="text-sm text-gray-700 ">{case_study.solution}</p>
                   </div>
                   <div>
-                    <h4 className="text-sm font-semibold text-blue-600 dark:text-blue-400">Result</h4>
-                    <p className="text-sm text-gray-700 dark:text-gray-300">{case_study.result}</p>
+                    <h4 className="text-sm font-semibold text-blue-600 ">Result</h4>
+                    <p className="text-sm text-gray-700 ">{case_study.result}</p>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-3 mb-4">
                   <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-3">
-                    <p className="text-xs text-gray-600 dark:text-gray-400">Savings Recovered</p>
-                    <p className="text-lg font-bold text-green-600 dark:text-green-400">{case_study.savings_recovered}</p>
+                    <p className="text-xs text-gray-600 ">Savings Recovered</p>
+                    <p className="text-lg font-bold text-green-600 ">{case_study.savings_recovered}</p>
                   </div>
                   <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-3">
-                    <p className="text-xs text-gray-600 dark:text-gray-400">ROI</p>
-                    <p className="text-sm font-bold text-blue-600 dark:text-blue-400">{case_study.roi}</p>
+                    <p className="text-xs text-gray-600 ">ROI</p>
+                    <p className="text-sm font-bold text-blue-600 ">{case_study.roi}</p>
                   </div>
                 </div>
 
                 <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3 border-l-4 border-green-500">
-                  <p className="text-sm italic text-gray-700 dark:text-gray-300">"{case_study.testimonial}"</p>
+                  <p className="text-sm italic text-gray-700 ">"{case_study.testimonial}"</p>
                 </div>
               </div>
             ))}
@@ -763,8 +769,8 @@ const Repairs = () => {
         <div className="mb-12">
           <div className="text-center mb-8">
             <p className="text-red-600 font-semibold mb-2">Our Process</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">8-Step Repair Workflow</h2>
-            <p className="text-gray-600 dark:text-gray-400">From emergency call to follow-up monitoring</p>
+            <h2 className="text-3xl font-bold text-gray-900  mb-3">8-Step Repair Workflow</h2>
+            <p className="text-gray-600 ">From emergency call to follow-up monitoring</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -831,15 +837,15 @@ const Repairs = () => {
                 <div key={idx} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-4">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-10 h-10 bg-red-100 dark:bg-red-900 rounded-full flex items-center justify-center">
-                      <Icon className="h-5 w-5 text-red-600 dark:text-red-400" />
+                      <Icon className="h-5 w-5 text-red-600 " />
                     </div>
-                    <div className="text-2xl font-bold text-gray-300 dark:text-gray-600">
+                    <div className="text-2xl font-bold text-gray-300 ">
                       {step.step.toString().padStart(2, '0')}
                     </div>
                   </div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white mb-1">{step.title}</h4>
-                  <p className="text-xs text-orange-600 dark:text-orange-400 mb-2">{step.duration}</p>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">{step.description}</p>
+                  <h4 className="font-semibold text-gray-900  mb-1">{step.title}</h4>
+                  <p className="text-xs text-orange-600  mb-2">{step.duration}</p>
+                  <p className="text-sm text-gray-600 ">{step.description}</p>
                 </div>
               );
             })}
@@ -850,8 +856,8 @@ const Repairs = () => {
         <div className="mb-12">
           <div className="text-center mb-8">
             <p className="text-red-600 font-semibold mb-2">Troubleshooting</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Common Solar Problems</h2>
-            <p className="text-gray-600 dark:text-gray-400">Quick diagnosis and solutions</p>
+            <h2 className="text-3xl font-bold text-gray-900  mb-3">Common Solar Problems</h2>
+            <p className="text-gray-600 ">Quick diagnosis and solutions</p>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-6">
@@ -913,18 +919,18 @@ const Repairs = () => {
             ].map((issue, idx) => (
               <div key={idx} className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
                 <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white">{issue.problem}</h3>
-                  <span className="text-sm bg-red-100 dark:bg-red-900 text-red-600 dark:text-red-400 px-2 py-1 rounded-full">
+                  <h3 className="text-lg font-bold text-gray-900 ">{issue.problem}</h3>
+                  <span className="text-sm bg-red-100 dark:bg-red-900 text-red-600  px-2 py-1 rounded-full">
                     {issue.frequency}
                   </span>
                 </div>
 
                 <div className="space-y-3 text-sm">
                   <div>
-                    <h4 className="font-semibold text-gray-700 dark:text-gray-300 mb-1">Symptoms</h4>
+                    <h4 className="font-semibold text-gray-700  mb-1">Symptoms</h4>
                     <ul className="space-y-1">
                       {issue.symptoms.map((symptom, i) => (
-                        <li key={i} className="text-gray-600 dark:text-gray-400 flex items-center gap-2">
+                        <li key={i} className="text-gray-600  flex items-center gap-2">
                           <Circle className="h-2 w-2 text-red-500" />
                           {symptom}
                         </li>
@@ -933,10 +939,10 @@ const Repairs = () => {
                   </div>
 
                   <div>
-                    <h4 className="font-semibold text-gray-700 dark:text-gray-300 mb-1">Common Causes</h4>
+                    <h4 className="font-semibold text-gray-700  mb-1">Common Causes</h4>
                     <ul className="space-y-1">
                       {issue.causes.map((cause, i) => (
-                        <li key={i} className="text-gray-600 dark:text-gray-400 flex items-center gap-2">
+                        <li key={i} className="text-gray-600  flex items-center gap-2">
                           <Triangle className="h-2 w-2 text-orange-500" />
                           {cause}
                         </li>
@@ -945,18 +951,18 @@ const Repairs = () => {
                   </div>
 
                   <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-3">
-                    <h4 className="font-semibold text-green-600 dark:text-green-400 mb-1">Solution</h4>
-                    <p className="text-gray-700 dark:text-gray-300">{issue.solution}</p>
+                    <h4 className="font-semibold text-green-600  mb-1">Solution</h4>
+                    <p className="text-gray-700 ">{issue.solution}</p>
                   </div>
 
                   <div className="grid grid-cols-2 gap-3">
                     <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-2">
-                      <p className="text-xs text-gray-600 dark:text-gray-400">Repair Time</p>
-                      <p className="text-sm font-semibold text-gray-900 dark:text-white">{issue.repair_time}</p>
+                      <p className="text-xs text-gray-600 ">Repair Time</p>
+                      <p className="text-sm font-semibold text-gray-900 ">{issue.repair_time}</p>
                     </div>
                     <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-2">
-                      <p className="text-xs text-gray-600 dark:text-gray-400">Cost Range</p>
-                      <p className="text-sm font-semibold text-green-600 dark:text-green-400">{issue.cost_range}</p>
+                      <p className="text-xs text-gray-600 ">Cost Range</p>
+                      <p className="text-sm font-semibold text-green-600 ">{issue.cost_range}</p>
                     </div>
                   </div>
                 </div>
@@ -969,8 +975,8 @@ const Repairs = () => {
         <div className="mb-12">
           <div className="text-center mb-8">
             <p className="text-red-600 font-semibold mb-2">24/7 Response</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Emergency Service Protocol</h2>
-            <p className="text-gray-600 dark:text-gray-400">Priority-based rapid response system</p>
+            <h2 className="text-3xl font-bold text-gray-900  mb-3">Emergency Service Protocol</h2>
+            <p className="text-gray-600 ">Priority-based rapid response system</p>
           </div>
 
           <div className="bg-gradient-to-r from-red-600 to-orange-600 rounded-2xl p-8 text-white">
@@ -1044,8 +1050,8 @@ const Repairs = () => {
         <div className="mb-12">
           <div className="text-center mb-8">
             <p className="text-red-600 font-semibold mb-2">Qualified Team</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Industry Certifications</h2>
-            <p className="text-gray-600 dark:text-gray-400">Our technicians hold the highest industry credentials</p>
+            <h2 className="text-3xl font-bold text-gray-900  mb-3">Industry Certifications</h2>
+            <p className="text-gray-600 ">Our technicians hold the highest industry credentials</p>
           </div>
 
           <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -1060,9 +1066,9 @@ const Repairs = () => {
               const Icon = cert.icon;
               return (
                 <div key={idx} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-4 text-center">
-                  <Icon className="h-8 w-8 mx-auto mb-2 text-red-600 dark:text-red-400" />
-                  <h4 className="text-sm font-semibold text-gray-900 dark:text-white">{cert.cert}</h4>
-                  <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">{cert.count}</p>
+                  <Icon className="h-8 w-8 mx-auto mb-2 text-red-600 " />
+                  <h4 className="text-sm font-semibold text-gray-900 ">{cert.cert}</h4>
+                  <p className="text-xs text-gray-600  mt-1">{cert.count}</p>
                 </div>
               );
             })}
@@ -1073,19 +1079,19 @@ const Repairs = () => {
         <div className="mb-12">
           <div className="text-center mb-8">
             <p className="text-red-600 font-semibold mb-2">Pricing Transparency</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Typical Repair Costs</h2>
-            <p className="text-gray-600 dark:text-gray-400">Upfront, honest pricing for common repairs</p>
+            <h2 className="text-3xl font-bold text-gray-900  mb-3">Typical Repair Costs</h2>
+            <p className="text-gray-600 ">Upfront, honest pricing for common repairs</p>
           </div>
 
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
             <table className="w-full">
               <thead className="bg-gray-50 dark:bg-gray-700">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Repair Type</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Parts Cost</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Labor Cost</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Total Range</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Time</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500  uppercase">Repair Type</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500  uppercase">Parts Cost</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500  uppercase">Labor Cost</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500  uppercase">Total Range</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500  uppercase">Time</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -1100,11 +1106,11 @@ const Repairs = () => {
                   { type: "Complete Rewire", parts: "$200-500", labor: "$500-1500", total: "$700-2,000", time: "4-12 hours" }
                 ].map((repair, idx) => (
                   <tr key={idx} className="hover:bg-gray-50 dark:hover:bg-gray-700">
-                    <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">{repair.type}</td>
-                    <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">{repair.parts}</td>
-                    <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">{repair.labor}</td>
-                    <td className="px-6 py-4 text-sm font-semibold text-green-600 dark:text-green-400">{repair.total}</td>
-                    <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">{repair.time}</td>
+                    <td className="px-6 py-4 text-sm font-medium text-gray-900 ">{repair.type}</td>
+                    <td className="px-6 py-4 text-sm text-gray-700 ">{repair.parts}</td>
+                    <td className="px-6 py-4 text-sm text-gray-700 ">{repair.labor}</td>
+                    <td className="px-6 py-4 text-sm font-semibold text-green-600 ">{repair.total}</td>
+                    <td className="px-6 py-4 text-sm text-gray-700 ">{repair.time}</td>
                   </tr>
                 ))}
               </tbody>
@@ -1112,7 +1118,7 @@ const Repairs = () => {
           </div>
 
           <div className="mt-4 text-center">
-            <p className="text-sm text-gray-600 dark:text-gray-400">
+            <p className="text-sm text-gray-600 ">
               * Service call fee: $150 (waived with repair) • Emergency service: +50% • Weekend service: +25%
             </p>
           </div>
@@ -1122,8 +1128,8 @@ const Repairs = () => {
         <div className="mb-12">
           <div className="text-center mb-8">
             <p className="text-red-600 font-semibold mb-2">Common Questions</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Solar Repair FAQs</h2>
-            <p className="text-gray-600 dark:text-gray-400">Everything you need to know about solar system repairs</p>
+            <h2 className="text-3xl font-bold text-gray-900  mb-3">Solar Repair FAQs</h2>
+            <p className="text-gray-600 ">Everything you need to know about solar system repairs</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
@@ -1162,11 +1168,11 @@ const Repairs = () => {
               }
             ].map((faq, idx) => (
               <div key={idx} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
-                <h3 className="font-bold text-gray-900 dark:text-white mb-3 flex items-start gap-2">
+                <h3 className="font-bold text-gray-900  mb-3 flex items-start gap-2">
                   <AlertCircle className="h-5 w-5 text-red-500 mt-0.5" />
                   {faq.q}
                 </h3>
-                <p className="text-gray-700 dark:text-gray-300 text-sm">
+                <p className="text-gray-700  text-sm">
                   {faq.a}
                 </p>
               </div>

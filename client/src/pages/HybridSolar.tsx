@@ -68,6 +68,7 @@ import SEOHead from "@/components/SEOHead";
 import SolarRescueTimelineSection from "@/sections/SolarRescueTimelineSection";
 import ContentSection from "@/components/sections/ContentSection";
 import { GradientTracing } from '@/components/ui/gradient-tracing';
+import { AwardBadge } from "@/components/ui/award-badge";
 
 type HybridSolarFormValues = z.infer<typeof insertFirePreventionHomeownerSchema>;
 
@@ -156,6 +157,11 @@ const HybridSolar = () => {
           { value: "25+", label: "Years Experience" }
         ]}
       />
+
+      {/* Excellence Award Badge */}
+      <div className="flex justify-center py-12 bg-gradient-to-b from-slate-950 to-gray-900">
+        <AwardBadge type="customer-service-excellence" />
+      </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-gradient-mesh pt-24">
         {/* PSPS/Grid Failure Alert */}

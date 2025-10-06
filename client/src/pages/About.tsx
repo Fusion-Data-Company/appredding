@@ -44,7 +44,7 @@ const About = () => {
               <GradientHeading level={1} className="text-4xl md:text-5xl mb-4" variant="mixed">
                 About Advance Power of Redding
               </GradientHeading>
-              <p className="text-lg dark:text-gray-300 text-gray-700 max-w-3xl mx-auto">
+              <p className="text-lg  text-gray-700 max-w-3xl mx-auto">
                 Excellence in solar energy solutions since 1999, delivering innovative renewable energy systems for Northern California
                 with over 25 years of experience.
               </p>

@@ -67,6 +67,7 @@ import StatsSection from "@/components/sections/StatsSection";
 import CTASection from "@/components/sections/CTASection";
 import ServiceCard from "@/components/cards/ServiceCard";
 import TestimonialCard from "@/components/cards/TestimonialCard";
+import { AwardBadge } from "@/components/ui/award-badge";
 
 type ResidentialSolarFormValues = z.infer<typeof insertFirePreventionHomeownerSchema>;
 
@@ -237,6 +238,12 @@ const ResidentialSolar = () => {
           { value: "25yr", label: "Warranty" }
         ]}
       />
+
+      {/* Excellence Award Badge */}
+      <div className="flex justify-center py-12 bg-gradient-to-b from-slate-950 to-gray-900">
+        <AwardBadge type="customer-service-excellence" />
+      </div>
+
       {/* Enhanced Solar Engineering Funnel with Expanded Technical Details */}
       <SolarRescueTimelineSection
         className="bg-gradient-to-br from-gray-950 via-gray-900 to-black"

@@ -69,7 +69,7 @@ const Team = () => {
               <GradientHeading level={1} className="text-4xl md:text-5xl mb-4" variant="mixed">
                 Our Team
               </GradientHeading>
-              <p className="text-lg dark:text-gray-300 text-gray-700 max-w-3xl mx-auto">
+              <p className="text-lg  text-gray-700 max-w-3xl mx-auto">
                 Meet the experts behind Advance Power Solutions, dedicated to innovation and excellence in
                 protective coating technology.
               </p>

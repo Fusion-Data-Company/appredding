@@ -11,6 +11,7 @@ import { EnhancedCard } from "../components/ui/enhanced-card";
 import { ScrollProgress } from "../components/ui/scroll-progress";
 import { shadows } from "../utils/theme";
 import { AnimatedCounter, LargeNumberCounter, PercentageCounter } from "../components/ui/animated-counter";
+import { AwardBadge } from "../components/ui/award-badge";
 import { RevealOnScroll, ScaleReveal } from "../components/ui/reveal-on-scroll";
 import { FloatingElement } from "../components/ui/floating-element";
 
@@ -317,6 +318,11 @@ const LithiumBattery = () => {
             <SonicWaveformHero />
           </div>
         </section>
+
+        {/* Excellence Award Badge */}
+        <div className="flex justify-center py-12 bg-gradient-to-b from-slate-900 to-gray-900">
+          <AwardBadge type="customer-service-excellence" />
+        </div>
 
         {/* Main Content Section with Solar Background */}
         <section className="relative min-h-screen">

@@ -41,9 +41,9 @@ export default function MainLayout({ children, className, fullWidth = false }: M
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       <SolarCompanyHeader />
       
-      <main 
+      <main
         className={cn(
-          "flex-1 pb-16 relative z-10 pt-20",
+          "flex-1 pb-16 relative z-10",
           "md:pb-12",
           className
         )}

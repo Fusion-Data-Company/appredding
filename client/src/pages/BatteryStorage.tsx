@@ -49,6 +49,7 @@ import SEOHead from "@/components/SEOHead";
 import SolarRescueTimelineSection from "@/sections/SolarRescueTimelineSection";
 import ContentSection from "@/components/sections/ContentSection";
 import ShaderBackground from "@/components/ui/shader-background";
+import { AwardBadge } from "@/components/ui/award-badge";
 
 const BatteryStorage = () => {
   const [showConsultationForm, setShowConsultationForm] = useState(false);
@@ -242,6 +243,11 @@ const BatteryStorage = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Excellence Award Badge */}
+      <div className="flex justify-center py-12 bg-gradient-to-b from-gray-900 to-black">
+        <AwardBadge type="customer-service-excellence" />
+      </div>
 
       {/* Energy Storage Crisis Alert */}
       <section className="relative bg-gradient-to-br from-gray-900 via-black to-gray-900 py-12">
