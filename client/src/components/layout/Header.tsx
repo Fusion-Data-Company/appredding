@@ -29,38 +29,9 @@ const SolarCompanyHeader: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [location, setLocation] = useLocation();
+  const [location] = useLocation();
   const dropdownRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
   const { openSolarForm } = useFormModal();
-
-  // Smooth scroll to section
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const offsetTop = element.offsetTop - 80; // Account for header height
-      window.scrollTo({
-        top: offsetTop,
-        behavior: 'smooth'
-      });
-      setActiveDropdown(null);
-      setIsMobileMenuOpen(false);
-    }
-  };
-
-  // Handle navigation - smooth scroll on homepage, regular navigation elsewhere
-  const handleNavigation = (href: string, sectionId?: string) => {
-    if (location === '/' && sectionId) {
-      scrollToSection(sectionId);
-    } else if (sectionId) {
-      // Navigate to home first, then scroll
-      setLocation('/');
-      setTimeout(() => scrollToSection(sectionId), 100);
-    } else {
-      setLocation(href);
-      setActiveDropdown(null);
-      setIsMobileMenuOpen(false);
-    }
-  };
 
   // Handle scroll effect with Apple-like threshold
   useEffect(() => {
@@ -789,22 +760,23 @@ const SolarCompanyHeader: React.FC = () => {
 
               {/* Mobile CTA */}
               <div className="pt-4 px-4">
-                <Link href="/contact">
-                  <Button
-                    size="lg"
-                    className={cn(
-                      "w-full",
-                      "bg-gradient-to-r from-orange-500 to-blue-600",
-                      "hover:from-orange-600 hover:to-blue-700",
-                      "text-white text-[15px] font-semibold",
-                      "shadow-lg shadow-orange-500/25",
-                      "transition-all duration-300"
-                    )}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Get Free Quote
-                  </Button>
-                </Link>
+                <Button
+                  size="lg"
+                  className={cn(
+                    "w-full",
+                    "bg-gradient-to-r from-orange-500 to-blue-600",
+                    "hover:from-orange-600 hover:to-blue-700",
+                    "text-white text-[15px] font-semibold",
+                    "shadow-lg shadow-orange-500/25",
+                    "transition-all duration-300"
+                  )}
+                  onClick={() => {
+                    openSolarForm();
+                    setIsMobileMenuOpen(false);
+                  }}
+                >
+                  Get Free Quote
+                </Button>
               </div>
             </nav>
           </div>
