@@ -204,7 +204,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
           </div>
         </div>
 
-        <div className="w-full h-48 sm:h-64 md:h-80 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]">
+        <div className="w-full h-48 sm:h-64 md:h-80 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)] mt-24 sm:mt-32 md:mt-40">
           <motion.div
             className="flex gap-3 sm:gap-4"
             animate={{
