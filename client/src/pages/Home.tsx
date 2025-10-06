@@ -1,11 +1,18 @@
+import { useFormModal } from "@/contexts/FormModalContext";
 import MainLayout from "@/components/layout/MainLayout";
-import HeroSection from "@/sections/HeroSection";
+import SolarRepairHero from "@/sections/SolarRepairHero";
+import SolarServicesSection from "@/sections/SolarServicesSection";
 import SolarBenefitsSection from "@/sections/SolarBenefitsSection";
+import PortfolioShowcase from "@/components/PortfolioShowcase";
+import { InteractiveToolsSection } from "@/sections/InteractiveToolsSection";
 import SolarTestimonialCarousel from "@/components/SolarTestimonialCarousel";
-import { LazySection } from "@/components/ui/lazy-section";
+import AboutAdvancePowerSection from "@/sections/AboutAdvancePowerSection";
+import ContactSection from "@/sections/ContactSection";
 import SEOHead from "@/components/SEOHead";
 
 const Home = () => {
+  const { openSolarForm } = useFormModal();
+
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -87,15 +94,50 @@ const Home = () => {
         structuredData={[organizationSchema, localBusinessSchema]}
       />
       <div className="flex-1 flex flex-col">
-        <HeroSection />
+        {/* Hero Section with CTA */}
+        <section id="hero">
+          <SolarRepairHero
+            ctaButtons={{
+              primary: { label: "Get Free Quote", onClick: openSolarForm },
+              secondary: { label: "Call (530) 226-0701", onClick: () => window.location.href = 'tel:+15302260701' }
+            }}
+          />
+        </section>
 
-        <LazySection className="min-h-[500px]">
+        {/* Services Section */}
+        <section id="services">
+          <SolarServicesSection />
+        </section>
+
+        {/* Benefits Section */}
+        <section id="benefits">
           <SolarBenefitsSection />
-        </LazySection>
+        </section>
 
-        <LazySection className="min-h-[500px]">
+        {/* Portfolio Section */}
+        <section id="portfolio">
+          <PortfolioShowcase />
+        </section>
+
+        {/* Interactive Tools Section */}
+        <section id="tools">
+          <InteractiveToolsSection />
+        </section>
+
+        {/* Testimonials Section */}
+        <section id="testimonials">
           <SolarTestimonialCarousel />
-        </LazySection>
+        </section>
+
+        {/* About Section */}
+        <section id="about">
+          <AboutAdvancePowerSection />
+        </section>
+
+        {/* Contact Section */}
+        <section id="contact">
+          <ContactSection />
+        </section>
       </div>
     </MainLayout>
   );

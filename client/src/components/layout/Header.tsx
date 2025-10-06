@@ -23,13 +23,44 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { useFormModal } from '@/contexts/FormModalContext';
 
 const SolarCompanyHeader: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [location] = useLocation();
+  const [location, setLocation] = useLocation();
   const dropdownRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+  const { openSolarForm } = useFormModal();
+
+  // Smooth scroll to section
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offsetTop = element.offsetTop - 80; // Account for header height
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+      setActiveDropdown(null);
+      setIsMobileMenuOpen(false);
+    }
+  };
+
+  // Handle navigation - smooth scroll on homepage, regular navigation elsewhere
+  const handleNavigation = (href: string, sectionId?: string) => {
+    if (location === '/' && sectionId) {
+      scrollToSection(sectionId);
+    } else if (sectionId) {
+      // Navigate to home first, then scroll
+      setLocation('/');
+      setTimeout(() => scrollToSection(sectionId), 100);
+    } else {
+      setLocation(href);
+      setActiveDropdown(null);
+      setIsMobileMenuOpen(false);
+    }
+  };
 
   // Handle scroll effect with Apple-like threshold
   useEffect(() => {
@@ -659,30 +690,29 @@ const SolarCompanyHeader: React.FC = () => {
 
           {/* CTA Button - Solid colorful with glass effects via shadows only */}
           <div className="hidden lg:flex items-center">
-            <Link href="/contact">
-              <button
-                className="px-5 py-2.5 rounded-lg text-white text-[15px] font-semibold transition-all duration-300 hover:scale-[1.02] relative overflow-hidden"
+            <button
+              onClick={openSolarForm}
+              className="px-5 py-2.5 rounded-lg text-white text-[15px] font-semibold transition-all duration-300 hover:scale-[1.02] relative overflow-hidden cursor-pointer"
+              style={{
+                background: 'linear-gradient(135deg, #f97316 0%, #fb923c 25%, #ea580c 50%, #f59e0b 75%, #3b82f6 100%)',
+                boxShadow: '0 4px 20px rgba(249,115,22,0.5), 0 2px 10px rgba(59,130,246,0.4), inset 0 2px 0 rgba(255,255,255,0.4), inset 0 -2px 0 rgba(0,0,0,0.2)',
+                border: '1px solid rgba(255,255,255,0.4)'
+              }}
+            >
+              <span className="relative z-10">Get Free Quote</span>
+              {/* Glass overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/35 via-white/10 to-transparent opacity-55 pointer-events-none rounded-lg" />
+              {/* Shimmer effect */}
+              <div
+                className="absolute inset-0 pointer-events-none rounded-lg"
                 style={{
-                  background: 'linear-gradient(135deg, #f97316 0%, #fb923c 25%, #ea580c 50%, #f59e0b 75%, #3b82f6 100%)',
-                  boxShadow: '0 4px 20px rgba(249,115,22,0.5), 0 2px 10px rgba(59,130,246,0.4), inset 0 2px 0 rgba(255,255,255,0.4), inset 0 -2px 0 rgba(0,0,0,0.2)',
-                  border: '1px solid rgba(255,255,255,0.4)'
+                  background: 'linear-gradient(120deg, transparent 45%, rgba(255, 255, 255, 0.85) 50%, transparent 55%)',
+                  backgroundSize: '200% 100%',
+                  animation: 'shimmer5 3.4s infinite 2s',
+                  mixBlendMode: 'overlay'
                 }}
-              >
-                <span className="relative z-10">Get Free Quote</span>
-                {/* Glass overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/35 via-white/10 to-transparent opacity-55 pointer-events-none rounded-lg" />
-                {/* Shimmer effect */}
-                <div
-                  className="absolute inset-0 pointer-events-none rounded-lg"
-                  style={{
-                    background: 'linear-gradient(120deg, transparent 45%, rgba(255, 255, 255, 0.85) 50%, transparent 55%)',
-                    backgroundSize: '200% 100%',
-                    animation: 'shimmer5 3.4s infinite 2s',
-                    mixBlendMode: 'overlay'
-                  }}
-                />
-              </button>
-            </Link>
+              />
+            </button>
           </div>
 
           {/* Mobile Menu Button */}

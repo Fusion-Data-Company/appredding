@@ -1120,50 +1120,171 @@ const BatteryStorage = () => {
         </div>
 
         {/* Installation Timeline */}
-        <div className="card-elite glow-blue p-8 mt-12">
-          <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <Calendar className="mr-3 h-6 w-6 text-blue-400" />
+        <motion.div
+          className="card-elite glow-blue p-8 mt-12 relative overflow-hidden"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          {/* Animated background shimmer */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: 'linear-gradient(110deg, transparent 20%, rgba(59, 130, 246, 0.1) 50%, transparent 80%)',
+              backgroundSize: '200% 100%',
+              animation: 'shimmer2 6s infinite'
+            }}
+          />
+
+          <h3 className="text-2xl font-bold text-white mb-6 flex items-center relative z-10">
+            <motion.div
+              whileHover={{ rotate: 360 }}
+              transition={{ duration: 0.6 }}
+            >
+              <Calendar className="mr-3 h-6 w-6 text-blue-400" />
+            </motion.div>
             Professional Installation Timeline
           </h3>
-          <div className="space-y-4">
-            <div className="flex gap-4">
-              <div className="flex-shrink-0 w-32 text-right">
-                <span className="text-blue-400 font-mono text-sm">Day 1 AM</span>
-              </div>
-              <div className="flex-1 bg-blue-900/20 border border-blue-500/30 rounded-lg p-3">
-                <h4 className="text-white font-semibold mb-1">Site Preparation</h4>
-                <p className="text-gray-400 text-sm">Electrical panel upgrade if needed, dedicated breaker installation, battery location preparation</p>
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <div className="flex-shrink-0 w-32 text-right">
-                <span className="text-blue-400 font-mono text-sm">Day 1 PM</span>
-              </div>
-              <div className="flex-1 bg-blue-900/20 border border-blue-500/30 rounded-lg p-3">
-                <h4 className="text-white font-semibold mb-1">Battery Installation</h4>
-                <p className="text-gray-400 text-sm">Rack mounting, DC wiring, BMS connections, grounding system</p>
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <div className="flex-shrink-0 w-32 text-right">
-                <span className="text-blue-400 font-mono text-sm">Day 2 AM</span>
-              </div>
-              <div className="flex-1 bg-blue-900/20 border border-blue-500/30 rounded-lg p-3">
-                <h4 className="text-white font-semibold mb-1">Inverter Integration</h4>
-                <p className="text-gray-400 text-sm">AC/DC coupling configuration, communication setup, firmware updates</p>
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <div className="flex-shrink-0 w-32 text-right">
-                <span className="text-blue-400 font-mono text-sm">Day 2 PM</span>
-              </div>
-              <div className="flex-1 bg-blue-900/20 border border-blue-500/30 rounded-lg p-3">
-                <h4 className="text-white font-semibold mb-1">Commissioning</h4>
-                <p className="text-gray-400 text-sm">System testing, monitoring setup, customer training, warranty registration</p>
-              </div>
-            </div>
+
+          <div className="space-y-6 relative">
+            {/* Vertical connecting line */}
+            <div className="absolute left-[7.5rem] top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-green-500 opacity-30" />
+
+            {[
+              {
+                time: "Day 1 AM",
+                title: "Site Preparation",
+                description: "Electrical panel upgrade if needed, dedicated breaker installation, battery location preparation",
+                gradient: "from-blue-500 to-cyan-600",
+                iconBg: "bg-blue-900/40",
+                glowColor: "rgba(59, 130, 246, 0.4)",
+                borderColor: "border-blue-500/40"
+              },
+              {
+                time: "Day 1 PM",
+                title: "Battery Installation",
+                description: "Rack mounting, DC wiring, BMS connections, grounding system",
+                gradient: "from-purple-500 to-pink-600",
+                iconBg: "bg-purple-900/40",
+                glowColor: "rgba(168, 85, 247, 0.4)",
+                borderColor: "border-purple-500/40"
+              },
+              {
+                time: "Day 2 AM",
+                title: "Inverter Integration",
+                description: "AC/DC coupling configuration, communication setup, firmware updates",
+                gradient: "from-orange-500 to-amber-600",
+                iconBg: "bg-orange-900/40",
+                glowColor: "rgba(249, 115, 22, 0.4)",
+                borderColor: "border-orange-500/40"
+              },
+              {
+                time: "Day 2 PM",
+                title: "Commissioning",
+                description: "System testing, monitoring setup, customer training, warranty registration",
+                gradient: "from-green-500 to-emerald-600",
+                iconBg: "bg-green-900/40",
+                glowColor: "rgba(34, 197, 94, 0.4)",
+                borderColor: "border-green-500/40"
+              }
+            ].map((step, idx) => (
+              <motion.div
+                key={idx}
+                className="flex gap-4 relative"
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.15 }}
+              >
+                {/* Time badge */}
+                <div className="flex-shrink-0 w-32 text-right relative">
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    className={`inline-block px-4 py-2 rounded-lg bg-gradient-to-r ${step.gradient} font-mono text-sm text-white font-bold shadow-lg relative overflow-hidden`}
+                    style={{
+                      boxShadow: `0 4px 16px ${step.glowColor}`
+                    }}
+                  >
+                    {/* Glass overlay */}
+                    <div
+                      className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-transparent opacity-50 pointer-events-none"
+                    />
+                    <span className="relative z-10">{step.time}</span>
+                  </motion.div>
+
+                  {/* Connection dot */}
+                  <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-[2.15rem] w-3 h-3 rounded-full bg-gradient-to-r ${step.gradient} shadow-lg z-10"
+                    style={{
+                      boxShadow: `0 0 12px ${step.glowColor}`
+                    }}
+                  />
+                </div>
+
+                {/* Content card */}
+                <motion.div
+                  className="flex-1 relative group"
+                  whileHover={{ y: -4, scale: 1.02 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  {/* Glow effect */}
+                  <div
+                    className="absolute inset-0 rounded-xl blur-lg opacity-0 group-hover:opacity-60 transition-all duration-500"
+                    style={{
+                      background: step.glowColor
+                    }}
+                  />
+
+                  {/* Card */}
+                  <div
+                    className={`relative bg-gradient-to-br ${step.gradient} border ${step.borderColor} rounded-xl p-4 overflow-hidden`}
+                    style={{
+                      backdropFilter: 'blur(10px)',
+                      boxShadow: '0 8px 24px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
+                    }}
+                  >
+                    {/* Glass overlay */}
+                    <div
+                      className="absolute inset-0 pointer-events-none"
+                      style={{
+                        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, transparent 60%)'
+                      }}
+                    />
+
+                    {/* Shimmer */}
+                    <div
+                      className="absolute inset-0 pointer-events-none"
+                      style={{
+                        background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.4) 50%, transparent 80%)',
+                        backgroundSize: '200% 100%',
+                        animation: `shimmer${idx + 1} ${4 + idx * 0.5}s infinite`,
+                        mixBlendMode: 'overlay'
+                      }}
+                    />
+
+                    <div className="relative z-10">
+                      <h4 className="text-white font-bold text-lg mb-2 drop-shadow-md flex items-center gap-2">
+                        <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
+                        {step.title}
+                      </h4>
+                      <p className="text-white/90 text-sm leading-relaxed drop-shadow-sm">
+                        {step.description}
+                      </p>
+                    </div>
+
+                    {/* Bottom accent */}
+                    <div
+                      className="absolute bottom-0 left-0 right-0 h-1"
+                      style={{
+                        background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent)'
+                      }}
+                    />
+                  </div>
+                </motion.div>
+              </motion.div>
+            ))}
           </div>
-        </div>
+        </motion.div>
       </ContentSection>
 
       {/* SGIP Incentive Details */}
@@ -1173,143 +1294,330 @@ const BatteryStorage = () => {
         description="Complete guide to California's Self-Generation Incentive Program and financial optimization strategies"
         backgroundColor="bg-gradient-to-br from-gray-900 to-black"
       >
-        <div className="card-elite glow-green p-8 mb-8">
-          <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <CircleDollarSign className="mr-3 h-6 w-6 text-orange-400" />
+        <motion.div
+          className="card-elite glow-green p-8 mb-8 relative overflow-hidden"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          {/* Background shimmer */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: 'linear-gradient(110deg, transparent 20%, rgba(34, 197, 94, 0.1) 50%, transparent 80%)',
+              backgroundSize: '200% 100%',
+              animation: 'shimmer3 6s infinite'
+            }}
+          />
+
+          <h3 className="text-2xl font-bold text-white mb-6 flex items-center relative z-10">
+            <motion.div whileHover={{ rotate: 360, scale: 1.2 }} transition={{ duration: 0.6 }}>
+              <CircleDollarSign className="mr-3 h-6 w-6 text-orange-400" />
+            </motion.div>
             SGIP Incentive Tiers (2024)
           </h3>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-gray-700">
-                  <th className="text-left py-3 px-4 text-gray-400">Customer Category</th>
-                  <th className="text-center py-3 px-4 text-gray-400">Incentive Rate</th>
-                  <th className="text-center py-3 px-4 text-gray-400">15kWh System</th>
-                  <th className="text-center py-3 px-4 text-gray-400">Requirements</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-700/50">
-                <tr>
-                  <td className="py-3 px-4 text-gray-300 font-semibold">Equity Budget</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">$850-1,000/kWh</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">$12,750-15,000</td>
-                  <td className="text-center py-3 px-4 text-gray-400 text-xs">CARE/FERA/Disadvantaged Community</td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 text-gray-300 font-semibold">Equity Resiliency</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">$850-1,000/kWh</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">$12,750-15,000</td>
-                  <td className="text-center py-3 px-4 text-gray-400 text-xs">Equity + HFTD Tier 2/3 or Medical</td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 text-gray-300 font-semibold">General Market</td>
-                  <td className="text-center py-3 px-4 font-mono text-blue-300">$200-250/kWh</td>
-                  <td className="text-center py-3 px-4 font-mono text-blue-300">$3,000-3,750</td>
-                  <td className="text-center py-3 px-4 text-gray-400 text-xs">All residential customers</td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 text-gray-300 font-semibold">Resiliency (Non-Equity)</td>
-                  <td className="text-center py-3 px-4 font-mono text-yellow-300">$200-300/kWh</td>
-                  <td className="text-center py-3 px-4 font-mono text-yellow-300">$3,000-4,500</td>
-                  <td className="text-center py-3 px-4 text-gray-400 text-xs">HFTD Tier 2/3 or 2+ PSPS events</td>
-                </tr>
-              </tbody>
-            </table>
+
+          <div className="overflow-x-auto relative z-10">
+            <div className="relative rounded-2xl overflow-hidden border border-green-500/20"
+              style={{
+                background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(249, 115, 22, 0.05) 50%, rgba(59, 130, 246, 0.1) 100%)',
+                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+              }}
+            >
+              <table className="w-full text-sm">
+                <thead>
+                  <tr
+                    className="border-b border-gray-700/50"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%)',
+                      backdropFilter: 'blur(10px)'
+                    }}
+                  >
+                    <th className="text-left py-4 px-4 text-gray-200 font-bold">Customer Category</th>
+                    <th className="text-center py-4 px-4 text-gray-200 font-bold">Incentive Rate</th>
+                    <th className="text-center py-4 px-4 text-gray-200 font-bold">15kWh System</th>
+                    <th className="text-center py-4 px-4 text-gray-200 font-bold">Requirements</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-700/30">
+                  {[
+                    { category: "Equity Budget", rate: "$850-1,000/kWh", total: "$12,750-15,000", req: "CARE/FERA/Disadvantaged Community", color: "orange" },
+                    { category: "Equity Resiliency", rate: "$850-1,000/kWh", total: "$12,750-15,000", req: "Equity + HFTD Tier 2/3 or Medical", color: "red" },
+                    { category: "General Market", rate: "$200-250/kWh", total: "$3,000-3,750", req: "All residential customers", color: "blue" },
+                    { category: "Resiliency (Non-Equity)", rate: "$200-300/kWh", total: "$3,000-4,500", req: "HFTD Tier 2/3 or 2+ PSPS events", color: "yellow" }
+                  ].map((row, idx) => (
+                    <motion.tr
+                      key={idx}
+                      initial={{ opacity: 0, x: -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: idx * 0.1 }}
+                      className="hover:bg-white/5 transition-all duration-300 group"
+                    >
+                      <td className="py-4 px-4 text-gray-200 font-bold group-hover:text-white transition-colors">
+                        <div className="flex items-center gap-2">
+                          <div className={`w-2 h-2 bg-${row.color}-400 rounded-full animate-pulse`} />
+                          {row.category}
+                        </div>
+                      </td>
+                      <motion.td
+                        className={`text-center py-4 px-4 font-mono text-${row.color}-300 group-hover:text-${row.color}-200 transition-colors`}
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <div className={`inline-block px-3 py-1.5 rounded-lg bg-${row.color}-500/10 group-hover:bg-${row.color}-500/20 transition-colors`}>
+                          {row.rate}
+                        </div>
+                      </motion.td>
+                      <motion.td
+                        className={`text-center py-4 px-4 font-mono text-${row.color}-300 group-hover:text-${row.color}-200 font-bold transition-colors`}
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <div className={`inline-block px-3 py-1.5 rounded-lg bg-${row.color}-500/10 group-hover:bg-${row.color}-500/20 transition-colors`}>
+                          {row.total}
+                        </div>
+                      </motion.td>
+                      <td className="text-center py-4 px-4 text-gray-300 text-xs group-hover:text-gray-200 transition-colors">
+                        {row.req}
+                      </td>
+                    </motion.tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Complete Financial Example */}
         <div className="grid lg:grid-cols-2 gap-8">
-          <div className="card-elite glow-purple p-8">
-            <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-              <Calculator className="mr-3 h-6 w-6 text-purple-400" />
+          <motion.div
+            className="card-elite glow-purple p-8 relative overflow-hidden"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            whileHover={{ scale: 1.02, y: -5 }}
+          >
+            {/* Background shimmer */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: 'linear-gradient(110deg, transparent 20%, rgba(168, 85, 247, 0.15) 50%, transparent 80%)',
+                backgroundSize: '200% 100%',
+                animation: 'shimmer1 5s infinite'
+              }}
+            />
+
+            <h3 className="text-2xl font-bold text-white mb-6 flex items-center relative z-10">
+              <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }}>
+                <Calculator className="mr-3 h-6 w-6 text-purple-400" />
+              </motion.div>
               Real Customer Example: 15.2kWh System
             </h3>
-            <div className="space-y-3 text-sm">
-              <h4 className="text-purple-400 font-semibold">System Components:</h4>
-              <div className="bg-purple-900/20 rounded-lg p-3 space-y-1">
-                <p className="text-gray-300">• 4 × SimpliPhi PHI 3.8 batteries</p>
-                <p className="text-gray-300">• Sol-Ark 12K inverter (existing)</p>
-                <p className="text-gray-300">• Critical load panel</p>
-                <p className="text-gray-300">• NFPA 855 compliant installation</p>
+
+            <div className="space-y-4 text-sm relative z-10">
+              <div>
+                <h4 className="text-purple-300 font-bold mb-3 flex items-center gap-2">
+                  <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse" />
+                  System Components:
+                </h4>
+                <div
+                  className="rounded-xl p-4 space-y-2 relative overflow-hidden"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(147, 51, 234, 0.1) 100%)',
+                    border: '1px solid rgba(168, 85, 247, 0.3)',
+                    boxShadow: '0 4px 16px rgba(168, 85, 247, 0.2)'
+                  }}
+                >
+                  {["4 × SimpliPhi PHI 3.8 batteries", "Sol-Ark 12K inverter (existing)", "Critical load panel", "NFPA 855 compliant installation"].map((item, idx) => (
+                    <motion.p
+                      key={idx}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: idx * 0.1 }}
+                      className="text-gray-200 flex items-center gap-2"
+                    >
+                      <span className="text-purple-400">•</span>
+                      {item}
+                    </motion.p>
+                  ))}
+                </div>
               </div>
 
-              <h4 className="text-purple-400 font-semibold mt-4">Cost Breakdown:</h4>
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Equipment:</span>
-                  <span className="text-white font-mono">$14,000</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Installation:</span>
-                  <span className="text-white font-mono">$4,500</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Permits/Inspection:</span>
-                  <span className="text-white font-mono">$500</span>
-                </div>
-                <div className="flex justify-between font-semibold border-t border-gray-700 pt-2">
-                  <span className="text-white">Gross Cost:</span>
-                  <span className="text-white font-mono">$19,000</span>
+              <div>
+                <h4 className="text-purple-300 font-bold mb-3 flex items-center gap-2">
+                  <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }} />
+                  Cost Breakdown:
+                </h4>
+                <div className="space-y-3">
+                  {[
+                    { label: "Equipment:", value: "$14,000", color: "text-gray-300" },
+                    { label: "Installation:", value: "$4,500", color: "text-gray-300" },
+                    { label: "Permits/Inspection:", value: "$500", color: "text-gray-300" }
+                  ].map((item, idx) => (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: idx * 0.1 }}
+                      className="flex justify-between items-center px-3 py-2 rounded-lg hover:bg-purple-500/10 transition-colors"
+                    >
+                      <span className={item.color}>{item.label}</span>
+                      <span className="text-white font-mono font-bold">{item.value}</span>
+                    </motion.div>
+                  ))}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    className="flex justify-between items-center px-4 py-3 rounded-xl mt-3"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(147, 51, 234, 0.15) 100%)',
+                      border: '1px solid rgba(168, 85, 247, 0.4)'
+                    }}
+                  >
+                    <span className="text-purple-200 font-bold">Gross Cost:</span>
+                    <span className="text-2xl font-black text-white font-mono">$19,000</span>
+                  </motion.div>
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="card-elite glow-green p-8">
-            <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-              <TrendingUp className="mr-3 h-6 w-6 text-orange-400" />
+          <motion.div
+            className="card-elite glow-green p-8 relative overflow-hidden"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            whileHover={{ scale: 1.02, y: -5 }}
+          >
+            {/* Background shimmer */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: 'linear-gradient(110deg, transparent 20%, rgba(34, 197, 94, 0.15) 50%, transparent 80%)',
+                backgroundSize: '200% 100%',
+                animation: 'shimmer2 5s infinite'
+              }}
+            />
+
+            <h3 className="text-2xl font-bold text-white mb-6 flex items-center relative z-10">
+              <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }}>
+                <TrendingUp className="mr-3 h-6 w-6 text-orange-400" />
+              </motion.div>
               Incentives & Net Cost
             </h3>
-            <div className="space-y-3 text-sm">
-              <h4 className="text-orange-400 font-semibold">Available Incentives:</h4>
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Federal ITC (30%):</span>
-                  <span className="text-orange-300 font-mono">-$5,700</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">SGIP General Market:</span>
-                  <span className="text-orange-300 font-mono">-$3,800</span>
-                </div>
-                <div className="flex justify-between font-semibold border-t border-gray-700 pt-2">
-                  <span className="text-white">Net Cost After Incentives:</span>
-                  <span className="text-orange-400 font-mono">$9,500</span>
+
+            <div className="space-y-4 text-sm relative z-10">
+              <div>
+                <h4 className="text-orange-300 font-bold mb-3 flex items-center gap-2">
+                  <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" />
+                  Available Incentives:
+                </h4>
+                <div className="space-y-3">
+                  {[
+                    { label: "Federal ITC (30%):", value: "-$5,700" },
+                    { label: "SGIP General Market:", value: "-$3,800" }
+                  ].map((item, idx) => (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: idx * 0.1 }}
+                      className="flex justify-between items-center px-3 py-2 rounded-lg hover:bg-orange-500/10 transition-colors"
+                    >
+                      <span className="text-gray-300">{item.label}</span>
+                      <span className="text-orange-300 font-mono font-bold">{item.value}</span>
+                    </motion.div>
+                  ))}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    className="flex justify-between items-center px-4 py-3 rounded-xl mt-3"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.2) 0%, rgba(234, 88, 12, 0.15) 100%)',
+                      border: '1px solid rgba(249, 115, 22, 0.4)'
+                    }}
+                  >
+                    <span className="text-orange-200 font-bold">Net Cost:</span>
+                    <span className="text-2xl font-black text-orange-400 font-mono">$9,500</span>
+                  </motion.div>
                 </div>
               </div>
 
-              <h4 className="text-orange-400 font-semibold mt-4">Monthly Savings:</h4>
-              <div className="bg-orange-900/20 rounded-lg p-3 space-y-2">
-                <div className="flex justify-between">
-                  <span className="text-gray-400">TOU Arbitrage:</span>
-                  <span className="text-orange-300 font-mono">$180/mo</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Demand Reduction:</span>
-                  <span className="text-orange-300 font-mono">$45/mo</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">VPP Revenue:</span>
-                  <span className="text-orange-300 font-mono">$20/mo</span>
-                </div>
-                <div className="flex justify-between font-semibold border-t border-green-500/30 pt-2">
-                  <span className="text-orange-400">Total Monthly Savings:</span>
-                  <span className="text-orange-400 font-mono">$245/mo</span>
+              <div>
+                <h4 className="text-orange-300 font-bold mb-3 flex items-center gap-2">
+                  <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }} />
+                  Monthly Savings:
+                </h4>
+                <div
+                  className="rounded-xl p-4 space-y-3"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(234, 88, 12, 0.1) 100%)',
+                    border: '1px solid rgba(249, 115, 22, 0.3)'
+                  }}
+                >
+                  {[
+                    { label: "TOU Arbitrage:", value: "$180/mo" },
+                    { label: "Demand Reduction:", value: "$45/mo" },
+                    { label: "VPP Revenue:", value: "$20/mo" }
+                  ].map((item, idx) => (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: idx * 0.1 }}
+                      className="flex justify-between"
+                    >
+                      <span className="text-gray-300">{item.label}</span>
+                      <span className="text-orange-300 font-mono font-bold">{item.value}</span>
+                    </motion.div>
+                  ))}
+                  <div className="flex justify-between pt-3 border-t border-orange-500/30">
+                    <span className="text-orange-200 font-bold">Total Monthly:</span>
+                    <span className="text-orange-400 font-mono font-black text-lg">$245/mo</span>
+                  </div>
                 </div>
               </div>
 
-              <div className="bg-blue-900/20 rounded-lg p-3 mt-4">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="rounded-xl p-4 space-y-3"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(37, 99, 235, 0.15) 100%)',
+                  border: '1px solid rgba(59, 130, 246, 0.4)',
+                  boxShadow: '0 4px 16px rgba(59, 130, 246, 0.3)'
+                }}
+              >
                 <div className="flex justify-between items-center">
-                  <span className="text-blue-400 font-semibold">Simple Payback:</span>
-                  <span className="text-2xl font-bold text-blue-300">3.2 years</span>
+                  <span className="text-blue-300 font-semibold">Simple Payback:</span>
+                  <motion.span
+                    className="text-3xl font-black text-blue-300"
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    3.2 years
+                  </motion.span>
                 </div>
-                <div className="flex justify-between items-center mt-2">
-                  <span className="text-blue-400 font-semibold">10-Year ROI:</span>
-                  <span className="text-2xl font-bold text-orange-400">209%</span>
+                <div className="flex justify-between items-center pt-2 border-t border-blue-500/30">
+                  <span className="text-blue-300 font-semibold">10-Year ROI:</span>
+                  <motion.span
+                    className="text-3xl font-black text-orange-400"
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    209%
+                  </motion.span>
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </ContentSection>
 

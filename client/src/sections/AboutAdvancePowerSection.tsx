@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { Award, Users, Calendar, Shield, Zap, CheckCircle, Star, Badge, Settings, Battery, Wifi, Wrench, FileCheck } from "lucide-react";
+import { useFormModal } from "@/contexts/FormModalContext";
 
 const AboutAdvancePowerSection = () => {
+  const { openSolarForm } = useFormModal();
   const achievements = [
     {
       icon: <Calendar className="w-8 h-8" />,
@@ -356,6 +358,7 @@ const AboutAdvancePowerSection = () => {
 
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <motion.button
+                  onClick={openSolarForm}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="px-12 py-6 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-400 hover:to-purple-400 text-white font-black rounded-xl text-xl shadow-2xl transition-all duration-300 hover:shadow-3xl"
@@ -364,6 +367,7 @@ const AboutAdvancePowerSection = () => {
                 </motion.button>
                 
                 <motion.button
+                  onClick={() => window.location.href = 'tel:+15302260701'}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="px-12 py-6 border-2 border-gray-400 text-gray-200 font-black rounded-xl text-xl hover:bg-white hover:text-gray-900 transition-all duration-300"

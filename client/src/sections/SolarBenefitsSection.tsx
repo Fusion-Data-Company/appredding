@@ -17,8 +17,10 @@ import {
   Home,
   ArrowUp
 } from 'lucide-react';
+import { useFormModal } from '@/contexts/FormModalContext';
 
 const SolarBenefitsSection: React.FC = () => {
+  const { openSolarForm } = useFormModal();
   const benefits = [
     {
       icon: <DollarSign className="w-5 h-5" />,
@@ -240,10 +242,16 @@ const SolarBenefitsSection: React.FC = () => {
               No obligation, just accurate projections for your home.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-blue-600 transition-all duration-300">
+              <button 
+                onClick={openSolarForm}
+                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-blue-600 transition-all duration-300"
+              >
                 Get Free Quote
               </button>
-              <button className="px-8 py-4 border border-blue-500 text-blue-400 font-semibold rounded-lg hover:bg-blue-500 hover:text-white transition-all duration-300">
+              <button 
+                onClick={openSolarForm}
+                className="px-8 py-4 border border-blue-500 text-blue-400 font-semibold rounded-lg hover:bg-blue-500 hover:text-white transition-all duration-300"
+              >
                 Schedule Consultation
               </button>
             </div>

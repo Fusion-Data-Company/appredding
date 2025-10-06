@@ -3,8 +3,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Calculator, Grid3X3, Wrench, TrendingUp, Sparkles, Zap, Battery, Sun } from "lucide-react";
 import { UtilitySavingsCalculator } from "@/components/UtilitySavingsCalculator";
 import { SolarPanelFitEstimator } from "@/components/SolarPanelFitEstimator";
+import { useFormModal } from "@/contexts/FormModalContext";
 
 export const InteractiveToolsSection: React.FC = () => {
+  const { openSolarForm } = useFormModal();
   const [activeTab, setActiveTab] = useState("calculator");
   const [ultraMode, setUltraMode] = useState(0);
 
@@ -210,6 +212,7 @@ export const InteractiveToolsSection: React.FC = () => {
               </p>
               
               <motion.button
+                onClick={openSolarForm}
                 className="button-primary px-12 py-4 text-xl font-bold rounded-2xl"
                 whileHover={{ scale: 1.05, y: -3 }}
                 whileTap={{ scale: 0.95 }}

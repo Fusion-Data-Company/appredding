@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock, MessageSquare, Calendar, Sun } from "lucide-react";
+import { useFormModal } from "@/contexts/FormModalContext";
 
 const ContactSection = () => {
+  const { openSolarForm } = useFormModal();
   const contactMethods = [
     {
       icon: <Phone className="w-8 h-8" />,
@@ -140,6 +142,7 @@ const ContactSection = () => {
 
                   {/* Elite Contact Button - Sophisticated Design */}
                   <motion.button
+                    onClick={openSolarForm}
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                     className="button-primary w-full px-8 py-4 font-bold rounded-xl text-lg"
@@ -261,6 +264,7 @@ const ContactSection = () => {
 
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <motion.button
+                  onClick={openSolarForm}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="px-12 py-6 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-400 hover:to-orange-400 text-white font-black rounded-xl text-xl shadow-2xl transition-all duration-300 hover:shadow-3xl"
