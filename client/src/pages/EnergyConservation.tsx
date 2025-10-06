@@ -210,7 +210,14 @@ const EnergyConservation = () => {
       />
 
       {/* Fluid Energy Hero Section */}
-      <FluidEnergyHero />
+      <div className="relative">
+        <FluidEnergyHero />
+        
+        {/* Excellence Award Badge - Top Right */}
+        <div className="absolute top-4 right-4 md:top-8 md:right-8 z-20">
+          <AwardBadge type="customer-service-excellence" />
+        </div>
+      </div>
 
 
       {/* Professional Energy Conservation Work Image */}

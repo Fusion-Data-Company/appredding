@@ -3,6 +3,7 @@ import { GradientHeading } from "@/components/ui/gradient-heading";
 import PageTransition from "@/components/ui/page-transition";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
+import { AwardBadge } from "@/components/ui/award-badge";
 import gregWithPanel from "@assets/Greg-with-panel.jpg";
 import teamGroup from "@assets/400617335_882191187089939_3988264444007076062_n-500x375.jpg";
 import teamOnsite from "@assets/491844865_1271014964874224_7004732250107002194_n.jpg";
@@ -68,6 +69,12 @@ const Team = () => {
         <main>
         <section className="relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-orange-500/10 pointer-events-none"></div>
+          
+          {/* Excellence Award Badge - Top Right */}
+          <div className="absolute top-4 right-4 md:top-8 md:right-8 z-20">
+            <AwardBadge type="customer-service-excellence" />
+          </div>
+          
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <GradientHeading level={1} className="text-4xl md:text-5xl mb-4" variant="mixed">

@@ -236,16 +236,23 @@ const ResidentialSolar = () => {
       />
 
       {/* Solar Wave Hero Section */}
-      <SolarWaveHero 
-        tagline="Powering the Future with Clean Energy"
-        title="Residential Solar Installation"
-        subtitle="Professional solar installations for Northern California homes. Our founder brings decades of expertise in renewable energy systems, helping Redding families achieve energy independence with premium solar solutions."
-        stats={[
-          { value: "25+", label: "Years Experience" },
-          { value: "1000+", label: "Homes Powered" },
-          { value: "25yr", label: "Warranty" }
-        ]}
-      />
+      <div className="relative">
+        <SolarWaveHero 
+          tagline="Powering the Future with Clean Energy"
+          title="Residential Solar Installation"
+          subtitle="Professional solar installations for Northern California homes. Our founder brings decades of expertise in renewable energy systems, helping Redding families achieve energy independence with premium solar solutions."
+          stats={[
+            { value: "25+", label: "Years Experience" },
+            { value: "1000+", label: "Homes Powered" },
+            { value: "25yr", label: "Warranty" }
+          ]}
+        />
+        
+        {/* Excellence Award Badge - Top Right */}
+        <div className="absolute top-4 right-4 md:top-8 md:right-8 z-20">
+          <AwardBadge type="customer-service-excellence" />
+        </div>
+      </div>
 
       {/* Enhanced Solar Engineering Funnel with Expanded Technical Details */}
       <SolarRescueTimelineSection

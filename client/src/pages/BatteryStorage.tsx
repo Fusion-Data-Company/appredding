@@ -94,6 +94,11 @@ const BatteryStorage = () => {
           />
         </div>
 
+        {/* Excellence Award Badge - Top Right */}
+        <div className="absolute top-4 right-4 md:top-8 md:right-8 z-20">
+          <AwardBadge type="customer-service-excellence" />
+        </div>
+
         {/* Hero Content - No Card, Just Text Over Waves */}
         <div className="relative z-10 w-full">
           <motion.div

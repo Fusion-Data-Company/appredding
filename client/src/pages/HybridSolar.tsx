@@ -154,7 +154,14 @@ const HybridSolar = () => {
       />
 
       {/* Hybrid Solar Wave Hero Section */}
-      <HybridSolarWaveHero />
+      <div className="relative">
+        <HybridSolarWaveHero />
+        
+        {/* Excellence Award Badge - Top Right */}
+        <div className="absolute top-4 right-4 md:top-8 md:right-8 z-20">
+          <AwardBadge type="customer-service-excellence" />
+        </div>
+      </div>
 
 
       {/* Professional Team Image 1 */}

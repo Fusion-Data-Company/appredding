@@ -332,16 +332,23 @@ const CommercialSolar = () => {
       />
       
       {/* Commercial Solar Wave Hero Section */}
-      <CommercialSolarWaveHero 
-        tagline="Next-Gen Energy Solutions"
-        title="Commercial Solar Installation"
-        subtitle="Transform your business with enterprise-grade solar solutions. Our advanced commercial systems deliver maximum ROI, reduce operational costs, and establish your company as a sustainability leader."
-        stats={[
-          { value: "500+", label: "Businesses Served" },
-          { value: "40-60%", label: "Peak Reduction" },
-          { value: "1.9yr", label: "Payback Period" }
-        ]}
-      />
+      <div className="relative">
+        <CommercialSolarWaveHero 
+          tagline="Next-Gen Energy Solutions"
+          title="Commercial Solar Installation"
+          subtitle="Transform your business with enterprise-grade solar solutions. Our advanced commercial systems deliver maximum ROI, reduce operational costs, and establish your company as a sustainability leader."
+          stats={[
+            { value: "500+", label: "Businesses Served" },
+            { value: "40-60%", label: "Peak Reduction" },
+            { value: "1.9yr", label: "Payback Period" }
+          ]}
+        />
+        
+        {/* Excellence Award Badge - Top Right */}
+        <div className="absolute top-4 right-4 md:top-8 md:right-8 z-20">
+          <AwardBadge type="customer-service-excellence" />
+        </div>
+      </div>
 
 
       <div className="container mx-auto px-4 py-8">

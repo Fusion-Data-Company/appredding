@@ -217,6 +217,11 @@ const LithiumBattery = () => {
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
           <ShaderBackground />
 
+          {/* Excellence Award Badge - Top Right */}
+          <div className="absolute top-4 right-4 md:top-8 md:right-8 z-20">
+            <AwardBadge type="customer-service-excellence" />
+          </div>
+
           <div className="relative z-10 w-full py-20">
             {/* Glassomorphic Hero Card */}
             <motion.div
@@ -1604,7 +1609,7 @@ const LithiumBattery = () => {
                         <div className="space-y-3">
                           {recyclingProcess.map((stage, idx) => {
                             const gradients = [
-                              { gradient: "from-purple-500 via-violet-500 to-purple-600", glowColor: "rgba(168, 85, 247, 0.4)", numberBg: "bg-purple-500" },
+                              { gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", numberBg: "bg-orange-500" },
                               { gradient: "from-blue-500 via-indigo-500 to-blue-600", glowColor: "rgba(59, 130, 246, 0.4)", numberBg: "bg-blue-500" },
                               { gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", numberBg: "bg-orange-500" },
                               { gradient: "from-green-500 via-emerald-500 to-green-600", glowColor: "rgba(34, 197, 94, 0.4)", numberBg: "bg-green-500" },

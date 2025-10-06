@@ -160,16 +160,23 @@ const Repairs = () => {
         structuredData={repairsSchema}
       />
       {/* Repairs Wave Hero Section */}
-      <RepairsWaveHero 
-        tagline="Emergency Solar & Electric Repair Services"
-        title="Solar System Repairs"
-        subtitle="Expert repair services for all solar and electrical systems. Our certified technicians provide fast, reliable solutions to get your system back online quickly."
-        stats={[
-          { value: "24hr", label: "Emergency Response" },
-          { value: "100%", label: "Repair Success Rate" },
-          { value: "25+", label: "Years Experience" }
-        ]}
-      />
+      <div className="relative">
+        <RepairsWaveHero 
+          tagline="Emergency Solar & Electric Repair Services"
+          title="Solar System Repairs"
+          subtitle="Expert repair services for all solar and electrical systems. Our certified technicians provide fast, reliable solutions to get your system back online quickly."
+          stats={[
+            { value: "24hr", label: "Emergency Response" },
+            { value: "100%", label: "Repair Success Rate" },
+            { value: "25+", label: "Years Experience" }
+          ]}
+        />
+        
+        {/* Excellence Award Badge - Top Right */}
+        <div className="absolute top-4 right-4 md:top-8 md:right-8 z-20">
+          <AwardBadge type="customer-service-excellence" />
+        </div>
+      </div>
 
 
       <div className="py-16 sm:py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
