@@ -59,23 +59,23 @@ const SolarCompanyHeader: React.FC = () => {
 
   // Services dropdown items
   const servicesItems = [
-    { label: "Residential Solar", href: "/services/residential-solar", icon: <Home className="w-4 h-4" />, description: "Custom solar solutions for homes" },
-    { label: "Commercial Solar", href: "/services/commercial-solar", icon: <Building2 className="w-4 h-4" />, description: "Business solar power systems" },
-    { label: "Hybrid Solar", href: "/services/hybrid-solar", icon: <Zap className="w-4 h-4" />, description: "Solar + battery storage solutions" },
-    { label: "Battery Storage", href: "/services/battery-storage", icon: <Battery className="w-4 h-4" />, description: "Energy storage systems" },
-    { label: "Maintenance", href: "/services/maintenance", icon: <Settings className="w-4 h-4" />, description: "Keep your system running optimally" },
-    { label: "Repairs", href: "/services/repairs", icon: <Wrench className="w-4 h-4" />, description: "Expert repair services" },
-    { label: "Energy Conservation", href: "/services/energy-conservation", icon: <ShieldCheck className="w-4 h-4" />, description: "Energy efficiency solutions" },
-    { label: "Lithium Battery", href: "/services/lithium-battery", icon: <Battery className="w-4 h-4" />, description: "Advanced lithium battery systems" },
+    { label: "Residential Solar", href: "/services/residential-solar", icon: <Home className="w-4 h-4" />, description: "Custom solar solutions for homes", iconColor: "text-orange-400", bgColor: "rgb(249, 115, 22)" },
+    { label: "Commercial Solar", href: "/services/commercial-solar", icon: <Building2 className="w-4 h-4" />, description: "Business solar power systems", iconColor: "text-blue-400", bgColor: "rgb(59, 130, 246)" },
+    { label: "Hybrid Solar", href: "/services/hybrid-solar", icon: <Zap className="w-4 h-4" />, description: "Solar + battery storage solutions", iconColor: "text-yellow-400", bgColor: "rgb(250, 204, 21)" },
+    { label: "Battery Storage", href: "/services/battery-storage", icon: <Battery className="w-4 h-4" />, description: "Energy storage systems", iconColor: "text-green-400", bgColor: "rgb(34, 197, 94)" },
+    { label: "Maintenance", href: "/services/maintenance", icon: <Settings className="w-4 h-4" />, description: "Keep your system running optimally", iconColor: "text-purple-400", bgColor: "rgb(168, 85, 247)" },
+    { label: "Repairs", href: "/services/repairs", icon: <Wrench className="w-4 h-4" />, description: "Expert repair services", iconColor: "text-red-400", bgColor: "rgb(248, 113, 113)" },
+    { label: "Energy Conservation", href: "/services/energy-conservation", icon: <ShieldCheck className="w-4 h-4" />, description: "Energy efficiency solutions", iconColor: "text-teal-400", bgColor: "rgb(45, 212, 191)" },
+    { label: "Lithium Battery", href: "/services/lithium-battery", icon: <Battery className="w-4 h-4" />, description: "Advanced lithium battery systems", iconColor: "text-cyan-400", bgColor: "rgb(34, 211, 238)" },
   ];
 
   // Company dropdown items
   const companyItems = [
-    { label: "About", href: "/about", icon: <Info className="w-4 h-4" />, description: "Learn about our company" },
-    { label: "Portfolio", href: "/portfolio", icon: <FolderOpen className="w-4 h-4" />, description: "View our projects" },
-    { label: "Technology", href: "/resources/technology", icon: <Code className="w-4 h-4" />, description: "Our innovative solutions" },
-    { label: "Team", href: "/team", icon: <Users className="w-4 h-4" />, description: "Meet our experts" },
-    { label: "Contact", href: "/contact", icon: <MessageSquare className="w-4 h-4" />, description: "Get in touch" },
+    { label: "About", href: "/about", icon: <Info className="w-4 h-4" />, description: "Learn about our company", iconColor: "text-indigo-400", bgColor: "rgb(129, 140, 248)" },
+    { label: "Portfolio", href: "/portfolio", icon: <FolderOpen className="w-4 h-4" />, description: "View our projects", iconColor: "text-pink-400", bgColor: "rgb(244, 114, 182)" },
+    { label: "Technology", href: "/resources/technology", icon: <Code className="w-4 h-4" />, description: "Our innovative solutions", iconColor: "text-violet-400", bgColor: "rgb(167, 139, 250)" },
+    { label: "Team", href: "/team", icon: <Users className="w-4 h-4" />, description: "Meet our experts", iconColor: "text-emerald-400", bgColor: "rgb(52, 211, 153)" },
+    { label: "Contact", href: "/contact", icon: <MessageSquare className="w-4 h-4" />, description: "Get in touch", iconColor: "text-amber-400", bgColor: "rgb(251, 191, 36)" },
   ];
 
   const isActive = (path: string) => location === path;
@@ -106,9 +106,9 @@ const SolarCompanyHeader: React.FC = () => {
             border: '1px solid rgb(51, 65, 85)'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.background = 'linear-gradient(135deg, rgb(249,115,22) 0%, rgb(59,130,246) 100%)';
+            e.currentTarget.style.background = `linear-gradient(135deg, ${item.bgColor} 0%, rgba(59,130,246,0.3) 100%)`;
             e.currentTarget.style.transform = 'translateX(4px)';
-            e.currentTarget.style.borderColor = 'rgb(249,115,22)';
+            e.currentTarget.style.borderColor = item.bgColor;
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.background = 'rgb(30, 41, 59)';
@@ -121,10 +121,10 @@ const SolarCompanyHeader: React.FC = () => {
           }}
         >
           <div 
-            className="w-9 h-9 rounded-xl flex items-center justify-center text-orange-400 mr-3 flex-shrink-0 group-hover:scale-110 transition-transform duration-200 relative"
+            className={cn("w-9 h-9 rounded-xl flex items-center justify-center mr-3 flex-shrink-0 group-hover:scale-110 transition-transform duration-200 relative", item.iconColor)}
             style={{
-              background: 'rgb(51, 65, 85)',
-              border: '1px solid rgb(71, 85, 105)'
+              background: `rgba(${item.bgColor.match(/\d+/g)?.join(', ')}, 0.2)`,
+              border: `1px solid ${item.bgColor}`
             }}
           >
             {item.icon}
