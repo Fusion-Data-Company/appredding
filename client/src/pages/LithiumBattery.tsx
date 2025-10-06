@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { Battery, Zap, Shield, Award, Activity, AlertTriangle, CheckCircle, TrendingUp, Cpu, Thermometer, Clock, ArrowRight, Beaker, Database, Lock, Gauge, Wrench, BarChart, DollarSign, Package, Truck, FileCheck, Phone, ChevronRight, AlertCircle, CircuitBoard, Flame, Snowflake, Droplets, Wind, Sun, Moon, Cloud, CloudRain, Timer, Settings, Info, Calculator, TrendingDown, Briefcase, Factory, Building2, Home, Car, Smartphone, Laptop, Server, HardDrive, Wifi, Radio, Microscope, TestTube, Scale, BookOpen, GraduationCap, Globe, MapPin, Navigation, Compass, Target, Crosshair, Eye, Search, Filter, Layers, Grid, Box, Hexagon, Triangle, Square, Circle, Star, Heart, ThumbsUp, Users, UserCheck, UserPlus, Mail, MessageSquare, Send, Bell, BellOff, Volume2, VolumeX, Mic, MicOff, Video, VideoOff, Camera, CameraOff, Image, Film, Music, Headphones, Speaker, Monitor, Tv, Projector, Watch, Tablet, Power, Leaf, Component } from "lucide-react";
 import { motion } from "framer-motion";
-import SonicWaveformHero from "../components/SonicWaveform";
 import SolarBackground from "../components/SolarBackground";
 import { NeonGradientCard } from "../components/ui/neon-gradient-card";
 import Header from "../components/layout/Header";
@@ -14,6 +13,8 @@ import { AnimatedCounter, LargeNumberCounter, PercentageCounter } from "../compo
 import { AwardBadge } from "../components/ui/award-badge";
 import { RevealOnScroll, ScaleReveal } from "../components/ui/reveal-on-scroll";
 import { FloatingElement } from "../components/ui/floating-element";
+import ShaderBackground from "../components/ui/shader-background";
+import { Button } from "../components/ui/button";
 
 // Premium Section Header Component
 interface PremiumSectionHeaderProps {
@@ -312,15 +313,171 @@ const LithiumBattery = () => {
       <ScrollProgress />
       <Header />
       <div className="min-h-screen bg-gray-50">
-        {/* Hero Section - Fixed height container */}
-        <section className="relative h-[70vh] max-h-[800px] w-full overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
-          <div className="absolute inset-0">
-            <SonicWaveformHero />
+        {/* Hero Section with Glassomorphic Card */}
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+          <ShaderBackground />
+
+          <div className="relative z-10 w-full py-20">
+            {/* Glassomorphic Hero Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="w-full"
+            >
+              {/* Glassomorphic Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="relative backdrop-blur-2xl bg-gradient-to-br from-white/10 via-white/5 to-white/10 border-y border-white/20 p-12 md:p-16 lg:p-20 shadow-2xl"
+              >
+                {/* Glass Reflection Effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-50" />
+
+                {/* Content */}
+                <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-12">
+                  <motion.h1
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                    className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black mb-8 leading-tight"
+                  >
+                    <span className="text-white drop-shadow-2xl">Lithium Battery</span>
+                    <br />
+                    <span className="bg-gradient-to-r from-yellow-300 via-amber-200 to-yellow-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(251,191,36,0.5)]">
+                      Technology Guide
+                    </span>
+                  </motion.h1>
+
+                  <motion.p
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                    className="text-xl md:text-2xl lg:text-3xl text-white/90 mb-6 leading-relaxed drop-shadow-lg"
+                  >
+                    Comprehensive analysis of lithium battery chemistries, applications, and technical specifications for optimal energy storage selection
+                  </motion.p>
+
+                  <motion.p
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.5 }}
+                    className="text-lg md:text-xl text-yellow-200/80 mb-12 leading-relaxed"
+                  >
+                    LiFePO4 • NMC • NCA • LTO Chemistries • BMS Technology • Safety Standards • Manufacturing • Recycling
+                  </motion.p>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.6 }}
+                    className="flex flex-wrap gap-4"
+                  >
+                    {/* Premium CTA Button */}
+                    <Button
+                      onClick={() => document.getElementById('chemistry')?.scrollIntoView({ behavior: 'smooth' })}
+                      className="group relative bg-gradient-to-r from-yellow-400 via-amber-500 to-yellow-500 hover:from-yellow-500 hover:via-amber-600 hover:to-yellow-600 text-black font-bold px-12 py-8 text-lg shadow-2xl shadow-yellow-500/50 transform hover:scale-105 transition-all rounded-xl overflow-hidden"
+                    >
+                      {/* Button Glow */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-yellow-300 to-amber-400 opacity-0 group-hover:opacity-30 blur-xl transition-opacity" />
+
+                      {/* Content */}
+                      <div className="relative flex items-center gap-3">
+                        <Battery className="h-6 w-6" />
+                        <span>Compare Battery Chemistries</span>
+                      </div>
+
+                      {/* Shine Effect */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700" />
+                    </Button>
+
+                    {/* Secondary Button */}
+                    <Button
+                      variant="outline"
+                      className="group relative border-2 border-white/30 bg-white/10 backdrop-blur-xl text-white hover:bg-white/20 hover:border-white/50 px-12 py-8 text-lg font-semibold rounded-xl overflow-hidden transition-all"
+                      onClick={() => document.getElementById('bms')?.scrollIntoView({ behavior: 'smooth' })}
+                    >
+                      {/* Button Glow */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                      <div className="relative flex items-center gap-3">
+                        <CircuitBoard className="h-6 w-6" />
+                        <span>BMS Technology Deep Dive</span>
+                      </div>
+                    </Button>
+                  </motion.div>
+                </div>
+
+                {/* Bottom Shine */}
+                <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent" />
+              </motion.div>
+
+              {/* Stats Cards Below Glassomorphic Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.7 }}
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12 max-w-7xl mx-auto px-6 sm:px-12"
+              >
+              {[
+                {
+                  title: "LiFePO4 Cycles",
+                  value: "10,000+",
+                  description: "@ 100% DOD lifespan",
+                  icon: <Activity className="h-8 w-8" />
+                },
+                {
+                  title: "Energy Density",
+                  value: "90-260",
+                  description: "Wh/kg by chemistry",
+                  icon: <Battery className="h-8 w-8" />
+                },
+                {
+                  title: "Round-Trip",
+                  value: "95-98%",
+                  description: "Energy efficiency",
+                  icon: <Zap className="h-8 w-8" />
+                },
+                {
+                  title: "Thermal Safety",
+                  value: "270°C",
+                  description: "LiFePO4 runaway temp",
+                  icon: <Flame className="h-8 w-8" />
+                }
+              ].map((card, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.8 + idx * 0.1 }}
+                  className="relative group"
+                >
+                  {/* Yellow Electric Gradient Background */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/90 via-amber-500/90 to-yellow-600/90 rounded-2xl blur-sm group-hover:blur-md transition-all" />
+
+                  {/* Card Content */}
+                  <div className="relative bg-gradient-to-br from-yellow-500 via-amber-500 to-yellow-600 rounded-2xl p-6 backdrop-blur-sm border border-yellow-400/30 hover:border-yellow-300/50 transition-all transform hover:scale-105">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="p-3 bg-black/20 backdrop-blur-sm rounded-xl text-black">
+                        {card.icon}
+                      </div>
+                      <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse shadow-lg shadow-orange-400/50" />
+                    </div>
+
+                    <h3 className="text-black/90 font-bold text-sm mb-2 uppercase tracking-wide">{card.title}</h3>
+                    <div className="text-3xl font-black text-black mb-1 drop-shadow-md">{card.value}</div>
+                    <p className="text-black/70 text-xs font-medium">{card.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+              </motion.div>
+            </motion.div>
           </div>
         </section>
 
         {/* Excellence Award Badge */}
-        <div className="flex justify-center py-12 bg-gradient-to-b from-slate-900 to-gray-900">
+        <div className="flex justify-center py-12 bg-gradient-to-b from-gray-900 to-black">
           <AwardBadge type="customer-service-excellence" />
         </div>
 
