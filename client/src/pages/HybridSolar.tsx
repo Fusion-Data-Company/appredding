@@ -147,16 +147,7 @@ const HybridSolar = () => {
       />
 
       {/* Hybrid Solar Wave Hero Section */}
-      <HybridSolarWaveHero 
-        tagline="Next-Gen Energy Solutions"
-        title="Hybrid Solar"
-        subtitle="Revolutionary hybrid solar systems with seamless grid-tie to off-grid transition. Sol-Ark inverters provide <10ms transfer time for uninterrupted power during PSPS events and grid outages."
-        stats={[
-          { value: "<10ms", label: "Transfer Time" },
-          { value: "UL 1741-SA", label: "Certified" },
-          { value: "25+", label: "Years Experience" }
-        ]}
-      />
+      <HybridSolarWaveHero />
 
       {/* Excellence Award Badge */}
       <div className="flex justify-center py-12 bg-gradient-to-b from-slate-950 to-gray-900">
@@ -181,7 +172,7 @@ const HybridSolar = () => {
               <span>Grid-Tie + Off-Grid • Seamless Transfer • UL 1741-SA</span>
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-orange-300 via-yellow-200 to-white bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(251,191,36,0.5)]">
+              <span className="text-gray-950 font-black [text-shadow:_0_0_5px_white,_0_0_10px_white,_0_0_20px_white,_0_0_35px_white,_0_0_50px_rgba(255,255,255,0.8),_0_0_75px_rgba(255,255,255,0.6),_0_0_100px_rgba(255,255,255,0.4),_0_0_150px_rgba(255,255,255,0.2),_-3px_0_0_white,_3px_0_0_white,_0_-3px_0_white,_0_3px_0_white,_-2px_-2px_0_white,_2px_2px_0_white,_2px_-2px_0_white,_-2px_2px_0_white]">
                 Hybrid Solar
               </span>
               <span className="text-white"> + Battery Systems</span>
