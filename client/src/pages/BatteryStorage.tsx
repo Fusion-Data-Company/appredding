@@ -241,12 +241,12 @@ const BatteryStorage = () => {
                 value: "10,000+",
                 description: "@ 100% DOD cycles",
                 icon: <Activity className="h-8 w-8" />,
-                gradient: "from-purple-500 via-purple-600 to-indigo-600",
-                glowColor: "rgba(168, 85, 247, 0.5)",
-                iconBg: "bg-purple-900/30",
+                gradient: "from-orange-500 via-amber-500 to-orange-600",
+                glowColor: "rgba(249, 115, 22, 0.5)",
+                iconBg: "bg-orange-900/30",
                 textColor: "text-white",
-                pulseColor: "bg-purple-400",
-                borderColor: "border-purple-400/30 hover:border-purple-300/60"
+                pulseColor: "bg-orange-400",
+                borderColor: "border-orange-400/30 hover:border-orange-300/60"
               },
               {
                 title: "Round-Trip",
@@ -404,9 +404,9 @@ const BatteryStorage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="alert-elite">
             <div className="flex items-center gap-4">
-              <TrendingDown className="h-8 w-8 text-purple-400 animate-pulse flex-shrink-0" />
+              <TrendingDown className="h-8 w-8 text-orange-400 animate-pulse flex-shrink-0" />
               <div className="flex-1">
-                <p className="text-purple-300 font-semibold text-lg mb-2">CRITICAL: NEM 3.0 Makes Battery Storage Mandatory for Positive ROI</p>
+                <p className="text-orange-300 font-semibold text-lg mb-2">CRITICAL: NEM 3.0 Makes Battery Storage Mandatory for Positive ROI</p>
                 <p className="text-gray-400">Without batteries: 10-12 year payback • With batteries + SGIP: 4-6 year payback • Time-shift arbitrage saves $150-300/month</p>
               </div>
             </div>
@@ -429,9 +429,9 @@ const BatteryStorage = () => {
               <span className="text-yellow-400 font-mono">6,000-10,000</span>
             </div>
             <div className="status-badge-elite" data-testid="metric-sgip">
-              <DollarSign className="h-4 w-4 text-purple-400" />
+              <DollarSign className="h-4 w-4 text-orange-400" />
               <span className="text-gray-400">SGIP Rebate:</span>
-              <span className="text-purple-400 font-mono">$200-1,000/kWh</span>
+              <span className="text-orange-400 font-mono">$200-1,000/kWh</span>
             </div>
             <div className="status-badge-elite" data-testid="metric-warranty">
               <Shield className="h-4 w-4 text-blue-400" />
@@ -446,33 +446,33 @@ const BatteryStorage = () => {
       <section className="bg-gradient-to-br from-gray-900 via-black to-gray-900 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-4 gap-4 mb-12">
-            <div className="spec-card-elite glow-purple group">
+            <div className="spec-card-elite glow-orange group">
               <div className="flex items-center gap-3 mb-4">
-                <div className="icon-container-elite bg-purple-500/20 group-hover:bg-purple-500/30">
-                  <Battery className="h-6 w-6 text-purple-400" />
+                <div className="icon-container-elite bg-orange-500/20 group-hover:bg-orange-500/30">
+                  <Battery className="h-6 w-6 text-orange-400" />
                 </div>
                 <h3 className="text-lg font-bold text-white">LiFePO4 Chemistry</h3>
               </div>
               <div className="space-y-3">
                 <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Safety:</span>
-                  <span className="text-purple-300 font-mono">Highest</span>
+                  <span className="text-orange-300 font-mono">Highest</span>
                 </div>
                 <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Thermal:</span>
-                  <span className="text-purple-300 font-mono">270°C</span>
+                  <span className="text-orange-300 font-mono">270°C</span>
                 </div>
                 <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Cycles:</span>
-                  <span className="text-purple-300 font-mono">10,000+</span>
+                  <span className="text-orange-300 font-mono">10,000+</span>
                 </div>
                 <div className="data-row-elite text-sm">
                   <span className="text-gray-400">DoD:</span>
-                  <span className="text-purple-300 font-mono">100%</span>
+                  <span className="text-orange-300 font-mono">100%</span>
                 </div>
                 <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Degrade:</span>
-                  <span className="text-purple-300 font-mono">0.5%/yr</span>
+                  <span className="text-orange-300 font-mono">0.5%/yr</span>
                 </div>
               </div>
             </div>
@@ -574,7 +574,7 @@ const BatteryStorage = () => {
           {/* Use Case Matrix */}
           <div className="matrix-elite">
             <h3 className="text-xl font-bold text-white mb-4 flex items-center">
-              <Layers className="mr-3 h-6 w-6 text-purple-400" />
+              <Layers className="mr-3 h-6 w-6 text-orange-400" />
               Critical Battery Storage Applications
             </h3>
             <div className="grid md:grid-cols-4 gap-6 text-sm">
