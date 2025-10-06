@@ -88,11 +88,11 @@ const SolarCompanyHeader: React.FC = () => {
         position: 'absolute',
         pointerEvents: 'auto',
         zIndex: 10001,
-        background: 'linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(249,250,251,0.96) 50%, rgba(243,244,246,0.97) 100%)',
+        background: 'linear-gradient(180deg, rgba(30,41,59,0.98) 0%, rgba(15,23,42,0.97) 50%, rgba(15,23,42,0.98) 100%)',
         backdropFilter: 'blur(32px) saturate(200%)',
         WebkitBackdropFilter: 'blur(32px) saturate(200%)',
-        border: '1px solid rgba(226, 232, 240, 0.6)',
-        boxShadow: '0 20px 60px rgba(0,0,0,0.12), 0 8px 24px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9), inset 0 0 0 1px rgba(255,255,255,0.5)'
+        border: '1px solid rgba(148, 163, 184, 0.3)',
+        boxShadow: '0 20px 60px rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1), inset 0 0 0 1px rgba(255,255,255,0.05)'
       }}
     >
       {/* Noise texture for dropdown */}
@@ -112,7 +112,7 @@ const SolarCompanyHeader: React.FC = () => {
             index !== items.length - 1 && "mb-1"
           )}
           onMouseEnter={(e) => {
-            e.currentTarget.style.background = 'linear-gradient(135deg, rgba(249,115,22,0.08) 0%, rgba(59,130,246,0.05) 100%)';
+            e.currentTarget.style.background = 'linear-gradient(135deg, rgba(249,115,22,0.25) 0%, rgba(59,130,246,0.20) 100%)';
             e.currentTarget.style.transform = 'translateX(4px)';
           }}
           onMouseLeave={(e) => {
@@ -125,17 +125,17 @@ const SolarCompanyHeader: React.FC = () => {
           }}
         >
           <div 
-            className="w-9 h-9 rounded-xl flex items-center justify-center text-orange-600 mr-3 flex-shrink-0 group-hover:scale-110 transition-transform duration-200 relative"
+            className="w-9 h-9 rounded-xl flex items-center justify-center text-orange-400 mr-3 flex-shrink-0 group-hover:scale-110 transition-transform duration-200 relative"
             style={{
-              background: 'linear-gradient(135deg, rgba(249,115,22,0.08) 0%, rgba(59,130,246,0.08) 100%)',
-              boxShadow: 'inset 0 1px 2px rgba(249,115,22,0.1), inset 0 -1px 2px rgba(59,130,246,0.1)'
+              background: 'linear-gradient(135deg, rgba(249,115,22,0.20) 0%, rgba(59,130,246,0.15) 100%)',
+              boxShadow: 'inset 0 1px 2px rgba(249,115,22,0.2), inset 0 -1px 2px rgba(59,130,246,0.2)'
             }}
           >
             {item.icon}
           </div>
           <div className="flex-1 min-w-0">
-            <div className="font-semibold text-[15px] text-gray-900 leading-tight">{item.label}</div>
-            <div className="text-[13px] text-gray-600 mt-0.5 leading-tight">{item.description}</div>
+            <div className="font-semibold text-[15px] text-white leading-tight">{item.label}</div>
+            <div className="text-[13px] text-gray-300 mt-0.5 leading-tight">{item.description}</div>
           </div>
         </Link>
       ))}

@@ -83,29 +83,29 @@ const BatteryStorage = () => {
       />
 
       {/* NEW HERO SECTION WITH SHADER BACKGROUND */}
-      <section className="relative min-h-screen flex items-start justify-center overflow-hidden pt-0">
+      <section className="relative min-h-screen flex items-start overflow-hidden -mt-16 pt-16">
         <ShaderBackground />
 
         <div className="relative z-10 w-full">
-          {/* Glassomorphic Hero Card - Full Width */}
+          {/* Glassomorphic Hero Card - Full Width Edge to Edge */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="w-full"
+            className="w-screen relative left-[50%] right-[50%] -mx-[50vw]"
           >
             {/* Glassomorphic Card */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative backdrop-blur-2xl bg-gradient-to-br from-white/10 via-white/5 to-white/10 border-y border-white/20 p-12 md:p-16 lg:p-20 shadow-2xl w-full"
+              className="relative backdrop-blur-2xl bg-gradient-to-br from-white/10 via-white/5 to-white/10 border-y border-white/20 p-12 md:p-16 lg:p-20 shadow-2xl"
             >
               {/* Glass Reflection Effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-50" />
 
               {/* Content */}
-              <div className="relative z-10 w-full px-6 sm:px-12 max-w-7xl mx-auto">
+              <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-12">
                 <motion.h1
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
