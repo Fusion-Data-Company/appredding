@@ -12,6 +12,7 @@ import productsRoutes from "./routes/products";
 import ordersRoutes from "./routes/orders";
 import { sendSolarConsultationEmail, sendNewsletterSubscriptionEmail } from "./services/emailService";
 import { insertSolarFormSubmissionSchema } from "@shared/schema";
+import { setupAuth } from "./auth";
 
 // Simple in-memory rate limiting store
 const rateLimitStore = new Map<string, { count: number; resetTime: number }>();
@@ -516,13 +517,13 @@ router.post("/api/solar-form", async (req, res) => {
       address: validatedData.address,
       propertyType: validatedData.propertyType,
       serviceNeeded: validatedData.serviceNeeded,
-      currentElectricBill: validatedData.currentElectricBill,
-      roofType: validatedData.roofType,
-      roofAge: validatedData.roofAge,
-      shadingIssues: validatedData.shadingIssues,
-      systemSizePreference: validatedData.systemSizePreference,
-      timeline: validatedData.timeline,
-      additionalNotes: validatedData.additionalNotes
+      currentElectricBill: validatedData.currentElectricBill || undefined,
+      roofType: validatedData.roofType || undefined,
+      roofAge: validatedData.roofAge || undefined,
+      shadingIssues: validatedData.shadingIssues || undefined,
+      systemSizePreference: validatedData.systemSizePreference || undefined,
+      timeline: validatedData.timeline || undefined,
+      additionalNotes: validatedData.additionalNotes || undefined
     });
 
     res.json({ success: true, submission });
@@ -619,6 +620,9 @@ router.get("/api/admin/newsletter-subscribers", async (req, res) => {
 });
 
 export function registerRoutes(app: any) {
+  // Setup authentication routes first
+  setupAuth(app);
+  
   app.use(router);
   app.use("/api/crm", crmRoutes);
 }

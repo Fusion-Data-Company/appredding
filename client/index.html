@@ -53,50 +53,35 @@
     
     <title>apredding.net | Premier Solar Solutions for Northern California</title>
     
-    <!-- Preconnect and DNS prefetch for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <!-- OPTIMIZED RESOURCE LOADING STRATEGY -->
     
-    <!-- Preconnect to Unsplash CDN for faster image loading -->
-    <link rel="preconnect" href="https://images.unsplash.com">
-    <link rel="dns-prefetch" href="https://images.unsplash.com">
-    
-    <!-- Font Awesome - preload for faster rendering -->
-    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Critical styles to prevent FOUC (Flash of Unstyled Content) -->
-    <link rel="preload" as="style" href="/src/index.css">
-    <link rel="stylesheet" href="/src/index.css">
-    
-    <!-- Preload critical JavaScript modules to reduce initial loading time -->
-    <link rel="modulepreload" href="/src/main.tsx">
-    <link rel="modulepreload" href="/src/App.tsx">
-    <link rel="modulepreload" href="/src/pages/Home.tsx">
-    
-    <!-- Preload hero image - highest priority for above-the-fold content -->
-    <link rel="preload" href="/src/assets_dir/images/optimized/new-praetorian-hero.png" as="image" 
-          fetchpriority="high" imagesizes="100vw">
-    
-    <!-- Video poster image preload - much faster than loading the video -->
-    <link rel="preload" href="/images/fire-water-gen4-turbo-poster.jpg" as="image" 
-          imagesizes="100vw">
-    
-    <!-- Preload only the smallest video file to improve initial load time -->
-    <link rel="preload" href="/videos/fire-water-gen4-turbo-small.mp4" as="fetch" 
-          type="video/mp4" crossorigin="anonymous">
-          
-    <!-- Add native lazy loading hint to browser for better performance -->
-    <meta name="loading" content="eager">
-    
-    <!-- Resource hints to improve loading performance -->
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-    
-    <!-- Preconnect to external resources to start handshakes early -->
+    <!-- 1. PRECONNECT - Start DNS+TCP+TLS for critical domains (highest priority) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    
+    <!-- 2. DNS PREFETCH - Resolve DNS for secondary domains -->
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+    <link rel="dns-prefetch" href="https://replit.com">
+    
+    <!-- 3. PRELOAD CRITICAL CSS - Blocking resources first -->
+    <link rel="preload" as="style" href="/src/index.css" fetchpriority="high">
+    <link rel="stylesheet" href="/src/index.css">
+    
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" fetchpriority="high">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- 4. PRELOAD CRITICAL JAVASCRIPT - Core modules only -->
+    <link rel="modulepreload" href="/src/main.tsx" fetchpriority="high">
+    <link rel="modulepreload" href="/src/App.tsx" fetchpriority="high">
+    <link rel="modulepreload" href="/src/pages/Home.tsx" fetchpriority="high">
+    
+    <!-- 5. PRELOAD LCP IMAGE - Only the hero image for fastest LCP -->
+    <link rel="preload" href="/src/assets_dir/images/optimized/new-praetorian-hero.png" as="image" 
+          fetchpriority="high" imagesizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px" crossorigin="anonymous">
+    
+    <!-- Note: Video and secondary images removed from preload to reduce initial payload -->
+    <!-- They will load on-demand using lazy loading and intersection observer -->
     
     <!-- Crucial metadata for improving video and image loading -->
     <meta http-equiv="Accept-CH" content="DPR, Width, Viewport-Width">
@@ -128,27 +113,124 @@
       .container { max-width: 1200px; margin: 0 auto; padding: 1rem; }
     </style>
     
-    <!-- Performance monitoring script -->
+    <!-- Enhanced Performance Monitoring Script -->
     <script>
-      // Add performance mark for page fully loaded
-      window.addEventListener('load', () => {
-        // Mark when page is fully loaded
-        if (window.performance && window.performance.mark) {
-          window.performance.mark('app_loaded');
+      // Core Web Vitals and performance monitoring
+      (function() {
+        // Track when DOMContentLoaded fires
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', () => {
+            if (window.performance && window.performance.mark) {
+              window.performance.mark('dom_content_loaded');
+            }
+          });
         }
         
-        // Remove loading class after a small delay to ensure smooth transitions
-        setTimeout(() => {
-          document.getElementById('root').classList.remove('loading');
-        }, 50);
-      });
-      
-      // Listen for errors to provide better UX for video loading issues
-      window.addEventListener('error', (e) => {
-        if (e.target && (e.target.tagName === 'VIDEO' || e.target.tagName === 'SOURCE')) {
-          console.warn('Video element error detected, using fallback image:', e);
+        // Track when page is fully loaded
+        window.addEventListener('load', () => {
+          if (window.performance && window.performance.mark) {
+            window.performance.mark('app_loaded');
+            
+            // Measure and report Core Web Vitals
+            setTimeout(() => {
+              const navigation = performance.getEntriesByType('navigation')[0];
+              if (navigation) {
+                const metrics = {
+                  dns: navigation.domainLookupEnd - navigation.domainLookupStart,
+                  tcp: navigation.connectEnd - navigation.connectStart,
+                  request: navigation.responseStart - navigation.requestStart,
+                  response: navigation.responseEnd - navigation.responseStart,
+                  dom: navigation.domContentLoadedEventEnd - navigation.domContentLoadedEventStart,
+                  load: navigation.loadEventEnd - navigation.loadEventStart,
+                  total: navigation.loadEventEnd - navigation.fetchStart
+                };
+                
+                // Only log in development
+                if (window.location.hostname === 'localhost' || window.location.hostname.includes('replit')) {
+                  console.log('⚡ Performance Metrics:', metrics);
+                }
+              }
+            }, 0);
+          }
+          
+          // Remove loading class after smooth transition
+          setTimeout(() => {
+            const root = document.getElementById('root');
+            if (root) root.classList.remove('loading');
+          }, 50);
+        });
+        
+        // Track Largest Contentful Paint (LCP)
+        if (window.PerformanceObserver) {
+          try {
+            const lcpObserver = new PerformanceObserver((list) => {
+              const entries = list.getEntries();
+              const lastEntry = entries[entries.length - 1];
+              const lcp = lastEntry.renderTime || lastEntry.loadTime;
+              
+              if (lcp > 4000) {
+                console.warn('⚠️ Slow LCP detected:', Math.round(lcp) + 'ms');
+              }
+              
+              // Disconnect after first meaningful paint
+              if (lcp > 0) lcpObserver.disconnect();
+            });
+            lcpObserver.observe({ type: 'largest-contentful-paint', buffered: true });
+          } catch (e) {
+            // LCP not supported
+          }
+          
+          // Track Cumulative Layout Shift (CLS)
+          try {
+            let clsValue = 0;
+            const clsObserver = new PerformanceObserver((list) => {
+              for (const entry of list.getEntries()) {
+                if (!entry.hadRecentInput) {
+                  clsValue += entry.value;
+                }
+              }
+              if (clsValue > 0.1) {
+                console.warn('⚠️ Layout shift detected:', clsValue.toFixed(3));
+              }
+            });
+            clsObserver.observe({ type: 'layout-shift', buffered: true });
+            
+            // Auto-disconnect after 10 seconds
+            setTimeout(() => clsObserver.disconnect(), 10000);
+          } catch (e) {
+            // CLS not supported
+          }
         }
-      }, true);
+        
+        // Enhanced error handling for media elements
+        window.addEventListener('error', (e) => {
+          if (e.target && (e.target.tagName === 'VIDEO' || e.target.tagName === 'SOURCE')) {
+            console.warn('Video element error detected, using fallback image:', e);
+          }
+          if (e.target && e.target.tagName === 'IMG') {
+            console.warn('Image load error:', e.target.src);
+          }
+        }, true);
+        
+        // Track First Input Delay (FID) - user interaction responsiveness
+        if (window.PerformanceObserver) {
+          try {
+            const fidObserver = new PerformanceObserver((list) => {
+              const entries = list.getEntries();
+              entries.forEach((entry) => {
+                const fid = entry.processingStart ? entry.processingStart - entry.startTime : entry.duration;
+                if (fid > 100) {
+                  console.warn('⚠️ Slow first input:', Math.round(fid) + 'ms');
+                }
+              });
+              fidObserver.disconnect();
+            });
+            fidObserver.observe({ type: 'first-input', buffered: true });
+          } catch (e) {
+            // FID not supported
+          }
+        }
+      })();
     </script>
     
     <!-- Load non-critical scripts asynchronously -->

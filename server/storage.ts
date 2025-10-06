@@ -1,6 +1,8 @@
-import { contacts, companies, opportunities, activities, tasks, orders, orderItems, products, productCategories, formSubmissions, portfolioProjects, solarFormSubmissions, newsletterSubscribers, type Contact, type Company, type Opportunity, type FormSubmission, type PortfolioProject, type Product, type ProductCategory, type SolarFormSubmission, type NewsletterSubscriber } from "@shared/schema";
-import { db } from "./db";
+import { contacts, companies, opportunities, activities, tasks, orders, orderItems, products, productCategories, formSubmissions, portfolioProjects, solarFormSubmissions, newsletterSubscribers, users, type Contact, type Company, type Opportunity, type FormSubmission, type PortfolioProject, type Product, type ProductCategory, type SolarFormSubmission, type NewsletterSubscriber, type User } from "@shared/schema";
+import { db, pool } from "./db";
 import { eq, desc, and, like, sql } from "drizzle-orm";
+import session from "express-session";
+import connectPgSimple from "connect-pg-simple";
 
 export interface IStorage {
   // Contact management
@@ -77,6 +79,13 @@ export interface IStorage {
   // Newsletter subscribers
   addNewsletterSubscriber(email: string, name: string | undefined, source: string): Promise<NewsletterSubscriber>;
   getAllNewsletterSubscribers(): Promise<NewsletterSubscriber[]>;
+
+  // User management
+  getUserByUsername(username: string): Promise<User | undefined>;
+  getUser(id: number): Promise<User | undefined>;
+  getUserByEmail(email: string): Promise<User | undefined>;
+  createUser(userData: any): Promise<User>;
+  updateUser(id: number, data: any): Promise<User>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -676,7 +685,7 @@ export class DatabaseStorage implements IStorage {
   async updateOrderStatus(id: number, status: string): Promise<any> {
     const [order] = await db
       .update(orders)
-      .set({ status, updatedAt: new Date() })
+      .set({ status: status as any, updatedAt: new Date() })
       .where(eq(orders.id, id))
       .returning();
 
@@ -686,7 +695,7 @@ export class DatabaseStorage implements IStorage {
   async updateOrderPaymentStatus(id: number, paymentStatus: string): Promise<any> {
     const [order] = await db
       .update(orders)
-      .set({ paymentStatus, updatedAt: new Date() })
+      .set({ paymentStatus: paymentStatus as any, updatedAt: new Date() })
       .where(eq(orders.id, id))
       .returning();
 
@@ -764,6 +773,69 @@ export class DatabaseStorage implements IStorage {
       .from(newsletterSubscribers)
       .orderBy(desc(newsletterSubscribers.subscribedAt));
   }
+
+  async getUserByUsername(username: string): Promise<User | undefined> {
+    const [user] = await db
+      .select()
+      .from(users)
+      .where(eq(users.username, username));
+    return user || undefined;
+  }
+
+  async getUser(id: number): Promise<User | undefined> {
+    const [user] = await db
+      .select()
+      .from(users)
+      .where(eq(users.id, id));
+    return user || undefined;
+  }
+
+  async getUserByEmail(email: string): Promise<User | undefined> {
+    const [user] = await db
+      .select()
+      .from(users)
+      .where(eq(users.email, email));
+    return user || undefined;
+  }
+
+  async createUser(userData: any): Promise<User> {
+    const [user] = await db
+      .insert(users)
+      .values({
+        username: userData.username,
+        password: userData.password,
+        email: userData.email,
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+        companyName: userData.companyName,
+        phone: userData.phone,
+        address: userData.address,
+        city: userData.city,
+        state: userData.state,
+        zipCode: userData.zipCode,
+        userType: userData.userType || 'client',
+        isActive: userData.isActive !== undefined ? userData.isActive : true,
+        jobTitle: userData.jobTitle,
+        department: userData.department,
+      })
+      .returning();
+    return user;
+  }
+
+  async updateUser(id: number, data: any): Promise<User> {
+    const [user] = await db
+      .update(users)
+      .set({ ...data, updatedAt: new Date() })
+      .where(eq(users.id, id))
+      .returning();
+    return user;
+  }
+
+  sessionStore = new (connectPgSimple(session))({
+    pool,
+    tableName: "session",
+    createTableIfMissing: true
+  });
 }
 
 export const storage = new DatabaseStorage();
