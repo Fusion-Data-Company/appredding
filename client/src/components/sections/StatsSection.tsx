@@ -42,7 +42,7 @@ const StatsSection: React.FC<StatsSectionProps> = ({
       text: 'from-orange-400 to-orange-500',
       border: 'border-orange-500/30',
       highlight: 'from-orange-500/10 to-orange-600/10',
-      icon: 'text-green-400'
+      icon: 'text-orange-400'
     },
     blue: {
       text: 'from-blue-400 to-blue-500',
@@ -54,7 +54,7 @@ const StatsSection: React.FC<StatsSectionProps> = ({
       text: 'from-green-400 to-green-500',
       border: 'border-green-500/30',
       highlight: 'from-green-500/10 to-green-600/10',
-      icon: 'text-green-400'
+      icon: 'text-orange-400'
     },
     purple: {
       text: 'from-purple-400 to-purple-500',

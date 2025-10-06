@@ -235,7 +235,7 @@ export default function CRMSection() {
                     <span className={`text-xs px-2 py-1 rounded-full ${
                       contact.status === 'lead' ? 'bg-blue-900/50 text-blue-400' :
                       contact.status === 'prospect' ? 'bg-amber-900/50 text-amber-400' :
-                      contact.status === 'customer' ? 'bg-green-900/50 text-green-400' :
+                      contact.status === 'customer' ? 'bg-orange-900/50 text-orange-400' :
                       'bg-gray-800 text-gray-400'
                     }`}>
                       {contact.status ? contact.status.charAt(0).toUpperCase() + contact.status.slice(1) : 'Lead'}
@@ -329,7 +329,7 @@ export default function CRMSection() {
                     <div className={`text-xs px-2 py-1 rounded-full ${
                       opportunity.status === 'pending' ? 'bg-yellow-900/50 text-yellow-300' :
                       opportunity.status === 'in_progress' ? 'bg-blue-900/50 text-blue-300' :
-                      opportunity.status === 'completed' ? 'bg-green-900/50 text-green-300' :
+                      opportunity.status === 'completed' ? 'bg-orange-900/50 text-orange-300' :
                       opportunity.status === 'cancelled' ? 'bg-red-900/50 text-red-300' :
                       'bg-gray-800 text-gray-300'
                     }`}>

@@ -72,7 +72,7 @@ const SolarRescueProcessSection: React.FC = () => {
       subtitle: 'Needs Analysis',
       description:
         'Dive into production loss, utility frustration, and resiliency concerns to surface the emotional drivers for rescue.',
-      color: 'bg-green-500',
+      color: 'bg-orange-500',
       glowColor: 'shadow-green-500/50',
       icon: <Zap className='h-8 w-8' />,
       metrics: [
@@ -222,7 +222,7 @@ const SolarRescueProcessSection: React.FC = () => {
           {[
             { icon: <Home className='h-5 w-5' />, value: '5,420', label: 'Homes Powered', color: 'text-red-500' },
             { icon: <Sun className='h-5 w-5' />, value: '12.8MW', label: 'Solar Installed', color: 'text-yellow-500' },
-            { icon: <Zap className='h-5 w-5' />, value: '89%', label: 'Satisfaction', color: 'text-green-500' },
+            { icon: <Zap className='h-5 w-5' />, value: '89%', label: 'Satisfaction', color: 'text-orange-500' },
             { icon: <TrendingUp className='h-5 w-5' />, value: '3.2x', label: 'ROI Average', color: 'text-purple-500' },
           ].map((stat) => (
             <div key={stat.label} className='rounded-lg border border-slate-800 bg-slate-900/60 p-4 text-center backdrop-blur-sm'>

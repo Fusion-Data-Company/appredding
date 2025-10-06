@@ -180,7 +180,7 @@ export default function FluidEnergyHero() {
             animate={{ rotate: [0, 360] }}
             transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
           >
-            <Leaf className="w-4 h-4 text-green-400" />
+            <Leaf className="w-4 h-4 text-orange-400" />
           </motion.div>
           <span>Professional Energy Efficiency Solutions</span>
         </motion.div>

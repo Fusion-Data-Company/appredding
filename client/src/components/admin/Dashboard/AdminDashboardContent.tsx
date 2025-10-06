@@ -122,7 +122,7 @@ export default function AdminDashboardContent() {
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-2">
-                    <div className="h-4 w-4 rounded-full bg-green-500" />
+                    <div className="h-4 w-4 rounded-full bg-orange-500" />
                     <span className="text-sm font-medium">Negotiation</span>
                   </div>
                   <span className="text-sm font-medium">16 ($80,000)</span>
@@ -245,7 +245,7 @@ export default function AdminDashboardContent() {
                 </div>
               </div>
               <div className="flex items-start space-x-3">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-100 text-green-700">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-100 text-orange-700">
                   <DollarSign className="h-4 w-4" />
                 </div>
                 <div>

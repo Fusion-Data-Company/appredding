@@ -115,8 +115,8 @@ const Technology = () => {
               </Card>
               
               <Card className="p-6 bg-gradient-to-br from-gray-900/90 to-gray-950/90 border-amber-500/30">
-                <div className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center mb-4">
-                  <Leaf className="h-6 w-6 text-green-500" />
+                <div className="w-12 h-12 rounded-full bg-orange-500/20 flex items-center justify-center mb-4">
+                  <Leaf className="h-6 w-6 text-orange-500" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">Durable Design</h3>
                 <p className="text-gray-400">
@@ -161,7 +161,7 @@ const Technology = () => {
               </Card>
               
               <Card className="p-6 bg-gradient-to-br from-gray-900/90 to-gray-950/90 border-blue-500/30">
-                <Zap className="h-8 w-8 text-green-500 mb-4" />
+                <Zap className="h-8 w-8 text-orange-500 mb-4" />
                 <h3 className="text-xl font-bold text-white mb-2">Smart Energy Management</h3>
                 <p className="text-gray-400 mb-4">
                   Intelligent systems automatically optimize when to use stored energy versus grid power for maximum cost savings.
@@ -257,7 +257,7 @@ const Technology = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
               <Card className="p-6 bg-gradient-to-br from-gray-900/90 to-gray-950/90 border-green-500/30">
-                <TrendingUp className="h-8 w-8 text-green-500 mb-3" />
+                <TrendingUp className="h-8 w-8 text-orange-500 mb-3" />
                 <h3 className="text-lg font-bold text-white mb-2">Lower Energy Bills</h3>
                 <p className="text-gray-400 text-sm">
                   Reduce or eliminate your monthly electricity costs with self-generated clean energy.
@@ -273,7 +273,7 @@ const Technology = () => {
               </Card>
               
               <Card className="p-6 bg-gradient-to-br from-gray-900/90 to-gray-950/90 border-amber-500/30">
-                <Leaf className="h-8 w-8 text-green-500 mb-3" />
+                <Leaf className="h-8 w-8 text-orange-500 mb-3" />
                 <h3 className="text-lg font-bold text-white mb-2">Environmental Impact</h3>
                 <p className="text-gray-400 text-sm">
                   Reduce your carbon footprint and contribute to a cleaner, sustainable future.

@@ -58,9 +58,9 @@ const ContactDrawer = ({ contact, isOpen, onClose }: ContactDrawerProps) => {
       case "lead":
         return <Badge className="bg-blue-500 text-white">Lead</Badge>;
       case "prospect":
-        return <Badge className="bg-green-500 text-white">Prospect</Badge>;
+        return <Badge className="bg-orange-500 text-white">Prospect</Badge>;
       case "customer":
-        return <Badge className="bg-green-500 text-white">Customer</Badge>;
+        return <Badge className="bg-orange-500 text-white">Customer</Badge>;
       case "inactive":
         return <Badge className="bg-gray-500 text-white">Inactive</Badge>;
       default:
@@ -73,7 +73,7 @@ const ContactDrawer = ({ contact, isOpen, onClose }: ContactDrawerProps) => {
       case "website":
         return <Badge className="bg-blue-500 text-white">Website</Badge>;
       case "referral":
-        return <Badge className="bg-green-500 text-white">Referral</Badge>;
+        return <Badge className="bg-orange-500 text-white">Referral</Badge>;
       case "social_media":
         return <Badge className="bg-purple-500 text-white">Social Media</Badge>;
       case "direct":
@@ -274,10 +274,10 @@ const ContactDrawer = ({ contact, isOpen, onClose }: ContactDrawerProps) => {
                         painter_network: { label: "Painter Network", color: "bg-blue-500" },
                         marina: { label: "Marina", color: "bg-cyan-500" },
                         fire_prevention: { label: "Fire Prevention", color: "bg-red-500" },
-                        pool: { label: "Pool", color: "bg-green-500" },
+                        pool: { label: "Pool", color: "bg-orange-500" },
                         construction: { label: "Construction", color: "bg-yellow-500" },
                         mobile_home: { label: "Mobile Home", color: "bg-purple-500" },
-                        municipality: { label: "Municipality", color: "bg-green-500" },
+                        municipality: { label: "Municipality", color: "bg-orange-500" },
                       };
                       const appType = applicationTypes[app as keyof typeof applicationTypes] || { label: app, color: "bg-gray-500" };
                       
@@ -366,10 +366,10 @@ const applicationTypes = {
   painter_network: { label: "Painter Network", color: "bg-blue-500" },
   marina: { label: "Marina", color: "bg-cyan-500" },
   fire_prevention: { label: "Fire Prevention", color: "bg-red-500" },
-  pool: { label: "Pool", color: "bg-green-500" },
+  pool: { label: "Pool", color: "bg-orange-500" },
   construction: { label: "Construction", color: "bg-yellow-500" },
   mobile_home: { label: "Mobile Home", color: "bg-purple-500" },
-  municipality: { label: "Municipality", color: "bg-green-500" },
+  municipality: { label: "Municipality", color: "bg-orange-500" },
 };
 
 export default ContactDrawer;

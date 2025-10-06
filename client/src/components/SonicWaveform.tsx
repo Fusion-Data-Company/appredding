@@ -188,7 +188,7 @@ const SonicWaveformHero = () => {
                         onClick={() => scrollToSection('bms')}
                         className="px-8 py-4 bg-white/80 backdrop-blur-sm text-gray-800 font-semibold rounded-xl shadow-lg hover:shadow-xl border border-gray-200 transform hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-2 hover:bg-white/90"
                     >
-                        <Activity className="h-5 w-5 text-green-600" />
+                        <Activity className="h-5 w-5 text-orange-600" />
                         View Live Metrics
                     </button>
                 </motion.div>

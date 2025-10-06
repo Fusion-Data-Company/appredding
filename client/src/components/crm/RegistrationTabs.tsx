@@ -179,7 +179,7 @@ export default function RegistrationTabs() {
                         <Badge 
                           variant={registration.status === 'verified' ? 'default' : 
                                  registration.status === 'rejected' ? 'destructive' : 'outline'}
-                          className={`text-white ${registration.status === 'verified' ? 'bg-green-600' : ''}`}
+                          className={`text-white ${registration.status === 'verified' ? 'bg-orange-600' : ''}`}
                         >
                           {registration.status || 'pending'}
                         </Badge>

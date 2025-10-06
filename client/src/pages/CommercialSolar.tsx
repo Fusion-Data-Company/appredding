@@ -485,15 +485,15 @@ const CommercialSolar = () => {
           </div>
 
           <div className="mt-12 card-elite glow-orange p-8">
-            <h4 className="text-2xl font-bold text-green-400 mb-6">CANbus Battery Integration</h4>
+            <h4 className="text-2xl font-bold text-orange-400 mb-6">CANbus Battery Integration</h4>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div>
                 <h5 className="text-lg font-semibold text-white mb-3">Supported Battery Systems</h5>
                 <ul className="space-y-2 text-gray-300 text-sm">
-                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-2" /> BYD Battery-Box Commercial</li>
-                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-2" /> Simpliphi AccESS HV</li>
-                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-2" /> Pytes E-Box Commercial</li>
-                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-2" /> EG4 Commercial Series</li>
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-orange-500 mr-2" /> BYD Battery-Box Commercial</li>
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-orange-500 mr-2" /> Simpliphi AccESS HV</li>
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-orange-500 mr-2" /> Pytes E-Box Commercial</li>
+                  <li className="flex items-center"><CheckCircle className="h-4 w-4 text-orange-500 mr-2" /> EG4 Commercial Series</li>
                 </ul>
               </div>
               <div>
@@ -508,9 +508,9 @@ const CommercialSolar = () => {
               <div>
                 <h5 className="text-lg font-semibold text-white mb-3">SGIP Rebate Calculator</h5>
                 <div className="space-y-3">
-                  <div className="bg-green-900/20 border border-green-700/30 rounded-lg p-3">
-                    <p className="text-xs text-green-300 mb-1">Standard Rebate</p>
-                    <p className="text-xl font-bold text-green-400">$200/kWh</p>
+                  <div className="bg-orange-900/20 border border-green-700/30 rounded-lg p-3">
+                    <p className="text-xs text-orange-300 mb-1">Standard Rebate</p>
+                    <p className="text-xl font-bold text-orange-400">$200/kWh</p>
                   </div>
                   <div className="bg-blue-900/20 border border-blue-700/30 rounded-lg p-3">
                     <p className="text-xs text-blue-300 mb-1">Equity Resiliency</p>
@@ -539,8 +539,8 @@ const CommercialSolar = () => {
             {rateStructures.map((rate, index) => (
               <div key={index} className="card-elite glow-orange p-6">
                 <div className="flex items-start mb-4">
-                  <div className="icon-container-elite bg-green-500/20 mr-4 flex-shrink-0">
-                    <rate.icon className="h-6 w-6 text-green-400" />
+                  <div className="icon-container-elite bg-orange-500/20 mr-4 flex-shrink-0">
+                    <rate.icon className="h-6 w-6 text-orange-400" />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-white mb-2">{rate.title}</h3>
@@ -552,7 +552,7 @@ const CommercialSolar = () => {
           </div>
 
           <div className="card-elite glow-red p-8">
-            <h3 className="text-2xl font-bold text-green-400 mb-6">Demand Charge Optimization Strategies</h3>
+            <h3 className="text-2xl font-bold text-orange-400 mb-6">Demand Charge Optimization Strategies</h3>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
               <div>
@@ -577,12 +577,12 @@ const CommercialSolar = () => {
                   Battery systems dispatch stored energy during peak demand periods, "shaving" your peak load to reduce demand charges 
                   by 40-60%. Advanced algorithms forecast demand and optimize battery discharge timing.
                 </p>
-                <div className="bg-green-900/20 border border-green-700/30 rounded-lg p-4">
-                  <p className="text-green-300 text-sm font-semibold">Example With Solar + 200kWh Battery:</p>
+                <div className="bg-orange-900/20 border border-green-700/30 rounded-lg p-4">
+                  <p className="text-orange-300 text-sm font-semibold">Example With Solar + 200kWh Battery:</p>
                   <p className="text-gray-300 text-sm mt-2">
                     Peak demand reduced: 450kW → 250kW (200kW shaved)<br/>
-                    New demand charge: 250kW × $20/kW = <span className="text-green-400 font-bold">$5,000/month</span><br/>
-                    Annual savings: <span className="text-green-400 font-bold">$48,000</span>
+                    New demand charge: 250kW × $20/kW = <span className="text-orange-400 font-bold">$5,000/month</span><br/>
+                    Annual savings: <span className="text-orange-400 font-bold">$48,000</span>
                   </p>
                 </div>
               </div>
@@ -601,7 +601,7 @@ const CommercialSolar = () => {
 
               <div className="category-card-elite">
                 <h5 className="text-white font-semibold mb-2 flex items-center">
-                  <Clock className="h-5 w-5 text-green-400 mr-2" />
+                  <Clock className="h-5 w-5 text-orange-400 mr-2" />
                   TOU Arbitrage
                 </h5>
                 <p className="text-gray-300 text-sm">
@@ -611,7 +611,7 @@ const CommercialSolar = () => {
 
               <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-4">
                 <h5 className="text-white font-semibold mb-2 flex items-center">
-                  <BarChart3 className="h-5 w-5 text-green-400 mr-2" />
+                  <BarChart3 className="h-5 w-5 text-orange-400 mr-2" />
                   Load Forecasting
                 </h5>
                 <p className="text-gray-300 text-sm">
@@ -637,31 +637,31 @@ const CommercialSolar = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <div className="bg-gradient-to-br from-green-900/20 to-green-950/20 border border-green-700/30 rounded-xl p-8">
               <div className="flex items-center mb-6">
-                <CheckCircle className="h-10 w-10 text-green-400 mr-4" />
+                <CheckCircle className="h-10 w-10 text-orange-400 mr-4" />
                 <div>
-                  <h3 className="text-2xl font-bold text-green-400">Rule 21 Fast Track</h3>
+                  <h3 className="text-2xl font-bold text-orange-400">Rule 21 Fast Track</h3>
                   <p className="text-gray-400">Expedited Process &lt;1MW</p>
                 </div>
               </div>
 
               <div className="space-y-4">
-                <div className="bg-green-900/20 border border-green-700/30 rounded-lg p-4">
+                <div className="bg-orange-900/20 border border-green-700/30 rounded-lg p-4">
                   <h4 className="text-white font-semibold mb-2">Eligibility Criteria</h4>
                   <ul className="space-y-2 text-gray-300 text-sm">
                     <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-orange-500 mr-2 mt-0.5 flex-shrink-0" />
                       <span>System ≤1,000kW (1MW) nameplate AC capacity</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-orange-500 mr-2 mt-0.5 flex-shrink-0" />
                       <span>Feeder capacity available (15% rule)</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-orange-500 mr-2 mt-0.5 flex-shrink-0" />
                       <span>UL 1741-SA certified inverters (Sol-Ark qualified)</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-orange-500 mr-2 mt-0.5 flex-shrink-0" />
                       <span>No system modifications to utility infrastructure</span>
                     </li>
                   </ul>
@@ -672,24 +672,24 @@ const CommercialSolar = () => {
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
                       <span className="text-gray-400">Application Review:</span>
-                      <span className="text-green-400 font-semibold">20-30 days</span>
+                      <span className="text-orange-400 font-semibold">20-30 days</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-400">Utility Study (if required):</span>
-                      <span className="text-green-400 font-semibold">30-45 days</span>
+                      <span className="text-orange-400 font-semibold">30-45 days</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-400">Final PTO Authorization:</span>
-                      <span className="text-green-400 font-semibold">10-15 days</span>
+                      <span className="text-orange-400 font-semibold">10-15 days</span>
                     </div>
                     <div className="flex justify-between border-t border-gray-700 pt-2 mt-2">
                       <span className="text-white font-semibold">Total Timeline:</span>
-                      <span className="text-green-400 font-bold">60-90 days</span>
+                      <span className="text-orange-400 font-bold">60-90 days</span>
                     </div>
                   </div>
                 </div>
 
-                <p className="text-green-300 text-sm">
+                <p className="text-orange-300 text-sm">
                   ✓ <strong>Advance Power Handled:</strong> Complete Fast Track application management, utility coordination, and NEM 3.0 enrollment included.
                 </p>
               </div>
@@ -697,31 +697,31 @@ const CommercialSolar = () => {
 
             <div className="bg-gradient-to-br from-orange-900/20 to-orange-950/20 border border-orange-700/30 rounded-xl p-8">
               <div className="flex items-center mb-6">
-                <AlertTriangle className="h-10 w-10 text-green-400 mr-4" />
+                <AlertTriangle className="h-10 w-10 text-orange-400 mr-4" />
                 <div>
-                  <h3 className="text-2xl font-bold text-green-400">Supplemental Review</h3>
+                  <h3 className="text-2xl font-bold text-orange-400">Supplemental Review</h3>
                   <p className="text-gray-400">Required for Systems &gt;1MW</p>
                 </div>
               </div>
 
               <div className="space-y-4">
-                <div className="bg-green-900/20 border border-orange-700/30 rounded-lg p-4">
+                <div className="bg-orange-900/20 border border-orange-700/30 rounded-lg p-4">
                   <h4 className="text-white font-semibold mb-2">When Required</h4>
                   <ul className="space-y-2 text-gray-300 text-sm">
                     <li className="flex items-start">
-                      <AlertTriangle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                      <AlertTriangle className="h-4 w-4 text-orange-500 mr-2 mt-0.5 flex-shrink-0" />
                       <span>System &gt;1,000kW nameplate capacity</span>
                     </li>
                     <li className="flex items-start">
-                      <AlertTriangle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                      <AlertTriangle className="h-4 w-4 text-orange-500 mr-2 mt-0.5 flex-shrink-0" />
                       <span>Feeder capacity constraints (failed 15% screen)</span>
                     </li>
                     <li className="flex items-start">
-                      <AlertTriangle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                      <AlertTriangle className="h-4 w-4 text-orange-500 mr-2 mt-0.5 flex-shrink-0" />
                       <span>Utility infrastructure upgrades needed</span>
                     </li>
                     <li className="flex items-start">
-                      <AlertTriangle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                      <AlertTriangle className="h-4 w-4 text-orange-500 mr-2 mt-0.5 flex-shrink-0" />
                       <span>Primary voltage interconnection (B-20 rate)</span>
                     </li>
                   </ul>
@@ -732,24 +732,24 @@ const CommercialSolar = () => {
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
                       <span className="text-gray-400">Initial Review:</span>
-                      <span className="text-green-400 font-semibold">45-60 days</span>
+                      <span className="text-orange-400 font-semibold">45-60 days</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-400">Detailed Study:</span>
-                      <span className="text-green-400 font-semibold">90-120 days</span>
+                      <span className="text-orange-400 font-semibold">90-120 days</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-400">Utility Upgrades (if needed):</span>
-                      <span className="text-green-400 font-semibold">6-12 months</span>
+                      <span className="text-orange-400 font-semibold">6-12 months</span>
                     </div>
                     <div className="flex justify-between border-t border-gray-700 pt-2 mt-2">
                       <span className="text-white font-semibold">Total Timeline:</span>
-                      <span className="text-green-400 font-bold">6-18 months</span>
+                      <span className="text-orange-400 font-bold">6-18 months</span>
                     </div>
                   </div>
                 </div>
 
-                <p className="text-green-300 text-sm">
+                <p className="text-orange-300 text-sm">
                   ⚠ <strong>Study Costs:</strong> Supplemental Review requires utility impact studies ($5K-25K). Upgrade costs are negotiated separately.
                 </p>
               </div>
@@ -816,12 +816,12 @@ const CommercialSolar = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             <div className="bg-gradient-to-br from-green-900/20 to-green-950/20 border border-green-700/30 rounded-xl p-8">
-              <h3 className="text-2xl font-bold text-green-400 mb-6">Federal Tax Incentives</h3>
+              <h3 className="text-2xl font-bold text-orange-400 mb-6">Federal Tax Incentives</h3>
               
               <div className="space-y-6">
                 <div>
                   <h4 className="text-lg font-semibold text-white mb-3 flex items-center">
-                    <DollarSign className="h-5 w-5 text-green-400 mr-2" />
+                    <DollarSign className="h-5 w-5 text-orange-400 mr-2" />
                     30% Investment Tax Credit (ITC)
                   </h4>
                   <p className="text-gray-300 text-sm mb-4">
@@ -836,7 +836,7 @@ const CommercialSolar = () => {
                       </div>
                       <div className="flex justify-between">
                         <span className="text-gray-400">ITC @ 30%:</span>
-                        <span className="text-green-400 font-semibold">-$150,000</span>
+                        <span className="text-orange-400 font-semibold">-$150,000</span>
                       </div>
                       <div className="flex justify-between border-t border-gray-700 pt-2">
                         <span className="text-white font-semibold">Net Cost After ITC:</span>
@@ -863,7 +863,7 @@ const CommercialSolar = () => {
                       </div>
                       <div className="flex justify-between">
                         <span className="text-gray-400">ITC Basis Reduction (50% of ITC):</span>
-                        <span className="text-green-400">-$75,000</span>
+                        <span className="text-orange-400">-$75,000</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-gray-400">Depreciable Basis:</span>
@@ -879,7 +879,7 @@ const CommercialSolar = () => {
                       </div>
                       <div className="flex justify-between border-t border-gray-700 pt-2 mt-2">
                         <span className="text-white font-bold">Total Year 1 Tax Benefits:</span>
-                        <span className="text-green-400 font-bold">$239,250</span>
+                        <span className="text-orange-400 font-bold">$239,250</span>
                       </div>
                     </div>
                   </div>
@@ -888,7 +888,7 @@ const CommercialSolar = () => {
             </div>
 
             <div className="bg-gradient-to-br from-orange-900/20 to-orange-950/20 border border-orange-700/30 rounded-xl p-8">
-              <h3 className="text-2xl font-bold text-green-400 mb-6">Complete ROI Analysis</h3>
+              <h3 className="text-2xl font-bold text-orange-400 mb-6">Complete ROI Analysis</h3>
               
               <div className="space-y-6">
                 <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
@@ -904,41 +904,41 @@ const CommercialSolar = () => {
                     </div>
                     
                     <div className="border-t border-gray-700 my-3"></div>
-                    <p className="text-green-400 font-semibold">Year 1 Cash Flows:</p>
+                    <p className="text-orange-400 font-semibold">Year 1 Cash Flows:</p>
                     
                     <div className="flex justify-between">
                       <span className="text-gray-400">30% ITC Credit:</span>
-                      <span className="text-green-400">-$150,000</span>
+                      <span className="text-orange-400">-$150,000</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-400">Bonus Depr. Tax Savings:</span>
-                      <span className="text-green-400">-$89,250</span>
+                      <span className="text-orange-400">-$89,250</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-400">SGIP Battery Rebate:</span>
-                      <span className="text-green-400">-$40,000</span>
+                      <span className="text-orange-400">-$40,000</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-400">Energy Cost Savings (Yr 1):</span>
-                      <span className="text-green-400">-$75,000</span>
+                      <span className="text-orange-400">-$75,000</span>
                     </div>
                     
                     <div className="border-t border-gray-700 my-3"></div>
                     <div className="flex justify-between text-base">
                       <span className="text-white font-bold">Total Year 1 Benefits:</span>
-                      <span className="text-green-400 font-bold">$354,250</span>
+                      <span className="text-orange-400 font-bold">$354,250</span>
                     </div>
                     
                     <div className="flex justify-between text-base">
                       <span className="text-white font-bold">Net Project Cost After Year 1:</span>
-                      <span className="text-green-400 font-bold">$145,750</span>
+                      <span className="text-orange-400 font-bold">$145,750</span>
                     </div>
 
                     <div className="border-t border-gray-700 my-3"></div>
-                    <div className="bg-green-900/20 border border-orange-700/30 rounded-lg p-3 mt-4">
+                    <div className="bg-orange-900/20 border border-orange-700/30 rounded-lg p-3 mt-4">
                       <div className="flex justify-between text-lg">
                         <span className="text-white font-bold">Payback Period:</span>
-                        <span className="text-green-400 font-bold">1.9 Years</span>
+                        <span className="text-orange-400 font-bold">1.9 Years</span>
                       </div>
                       <p className="text-xs text-gray-400 mt-2">Based on $75K annual energy savings + demand charge reduction</p>
                     </div>
@@ -950,15 +950,15 @@ const CommercialSolar = () => {
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
                       <span className="text-gray-400">Total Energy Savings (10yr):</span>
-                      <span className="text-green-400 font-semibold">$825,000</span>
+                      <span className="text-orange-400 font-semibold">$825,000</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-400">Total Tax Benefits:</span>
-                      <span className="text-green-400 font-semibold">$239,250</span>
+                      <span className="text-orange-400 font-semibold">$239,250</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-400">SGIP Rebates:</span>
-                      <span className="text-green-400 font-semibold">$40,000</span>
+                      <span className="text-orange-400 font-semibold">$40,000</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-400">System Cost:</span>
@@ -966,7 +966,7 @@ const CommercialSolar = () => {
                     </div>
                     <div className="flex justify-between border-t border-gray-700 pt-2 mt-2 text-base">
                       <span className="text-white font-bold">10-Year Net Benefit:</span>
-                      <span className="text-green-400 font-bold">$604,250</span>
+                      <span className="text-orange-400 font-bold">$604,250</span>
                     </div>
                   </div>
                 </div>
@@ -1003,11 +1003,11 @@ const CommercialSolar = () => {
                 <h4 className="text-white font-semibold mb-3">Depreciation Notes</h4>
                 <ul className="space-y-2 text-gray-300 text-sm">
                   <li className="flex items-start">
-                    <AlertTriangle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                    <AlertTriangle className="h-4 w-4 text-orange-500 mr-2 mt-0.5 flex-shrink-0" />
                     <span>Bonus depreciation reduced to 60% in 2024, 40% in 2025</span>
                   </li>
                   <li className="flex items-start">
-                    <AlertTriangle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                    <AlertTriangle className="h-4 w-4 text-orange-500 mr-2 mt-0.5 flex-shrink-0" />
                     <span>Must reduce basis by 50% of ITC amount claimed</span>
                   </li>
                   <li className="flex items-start">

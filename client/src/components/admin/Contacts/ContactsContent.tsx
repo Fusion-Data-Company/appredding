@@ -87,7 +87,7 @@ const getStatusColor = (status: string) => {
     case "prospect":
       return "bg-yellow-100 text-yellow-800 border-yellow-300";
     case "customer":
-      return "bg-green-100 text-green-800 border-green-300";
+      return "bg-orange-100 text-orange-800 border-green-300";
     case "inactive":
       return "bg-gray-100 text-gray-800 border-gray-300";
     default:
@@ -101,8 +101,8 @@ const getTagColor = (tag: string) => {
   if (tag === "Marina") return "bg-blue-100 text-blue-800 border-blue-300";
   if (tag === "Pool") return "bg-cyan-100 text-cyan-800 border-cyan-300";
   if (tag === "Fire Prevention") return "bg-red-100 text-red-800 border-red-300";
-  if (tag === "Mobile Home") return "bg-green-100 text-green-800 border-orange-300";
-  if (tag === "Government") return "bg-green-100 text-green-800 border-green-300";
+  if (tag === "Mobile Home") return "bg-orange-100 text-orange-800 border-orange-300";
+  if (tag === "Government") return "bg-orange-100 text-orange-800 border-green-300";
   if (tag === "Recurring") return "bg-indigo-100 text-indigo-800 border-indigo-300";
   if (tag === "Interested") return "bg-pink-100 text-pink-800 border-pink-300";
   return "bg-gray-100 text-gray-800 border-gray-300";

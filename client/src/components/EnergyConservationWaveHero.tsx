@@ -166,7 +166,7 @@ const FloatingParticles: React.FC = () => {
       {particles.map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-1 h-1 bg-green-400/30 rounded-full"
+          className="absolute w-1 h-1 bg-orange-400/30 rounded-full"
           initial={{
             x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1920),
             y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 1080),
@@ -250,7 +250,7 @@ const EnergyConservationWaveHero: React.FC<EnergyConservationWaveHeroProps> = ({
             animate={{ rotate: [0, 360] }}
             transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
           >
-            <Leaf className="w-4 h-4 text-green-400" />
+            <Leaf className="w-4 h-4 text-orange-400" />
           </motion.div>
           <span>{tagline}</span>
         </motion.div>

@@ -18,7 +18,7 @@ const TechnicalData = () => {
         <div className="relative py-20 px-4 text-center overflow-hidden">
           {/* Background Effects */}
           <div className="absolute inset-0 bg-gradient-to-r from-orange-900/20 via-blue-900/20 to-orange-900/20"></div>
-          <div className="absolute top-10 left-1/4 w-32 h-32 bg-green-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute top-10 left-1/4 w-32 h-32 bg-orange-500/10 rounded-full blur-3xl"></div>
           <div className="absolute bottom-10 right-1/4 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl"></div>
           
           <div className="relative z-10 max-w-6xl mx-auto">
@@ -48,7 +48,7 @@ const TechnicalData = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <FileText className="w-6 h-6 text-green-400 mx-auto mb-2 group-hover:text-green-300" />
+                  <FileText className="w-6 h-6 text-orange-400 mx-auto mb-2 group-hover:text-orange-300" />
                   <span className="text-sm text-gray-300 group-hover:text-white">Specifications</span>
                 </motion.a>
                 
@@ -68,7 +68,7 @@ const TechnicalData = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <Battery className="w-6 h-6 text-green-400 mx-auto mb-2 group-hover:text-green-300" />
+                  <Battery className="w-6 h-6 text-orange-400 mx-auto mb-2 group-hover:text-orange-300" />
                   <span className="text-sm text-gray-300 group-hover:text-white">Storage</span>
                 </motion.a>
                 

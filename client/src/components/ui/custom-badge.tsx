@@ -13,7 +13,7 @@ const customBadgeVariants = cva(
         secondary:
           "bg-gradient-to-r from-blue-700 to-orange-700 shadow-[0_0_25px_rgba(59,130,246,0.5)] border-blue-500/40",
         outline: 
-          "bg-transparent border-orange-500/40 text-green-500",
+          "bg-transparent border-orange-500/40 text-orange-500",
       },
       size: {
         default: "px-3 py-0.5 text-sm",

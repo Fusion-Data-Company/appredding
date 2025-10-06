@@ -230,7 +230,7 @@ const BatteryStorage = () => {
                     <div className="p-3 bg-black/20 backdrop-blur-sm rounded-xl text-black">
                       {card.icon}
                     </div>
-                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse shadow-lg shadow-green-400/50" />
+                    <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse shadow-lg shadow-green-400/50" />
                   </div>
                   
                   <h3 className="text-black/90 font-bold text-sm mb-2 uppercase tracking-wide">{card.title}</h3>
@@ -269,9 +269,9 @@ const BatteryStorage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center gap-4 text-sm">
             <div className="status-badge-elite" data-testid="metric-roundtrip">
-              <Activity className="h-4 w-4 text-green-400" />
+              <Activity className="h-4 w-4 text-orange-400" />
               <span className="text-gray-400">Round-Trip:</span>
-              <span className="text-green-400 font-mono">95-98%</span>
+              <span className="text-orange-400 font-mono">95-98%</span>
             </div>
             <div className="status-badge-elite" data-testid="metric-cycles">
               <Timer className="h-4 w-4 text-yellow-400" />
@@ -360,62 +360,62 @@ const BatteryStorage = () => {
 
             <div className="spec-card-elite glow-green group">
               <div className="flex items-center gap-3 mb-4">
-                <div className="icon-container-elite bg-green-500/20 group-hover:bg-green-500/30">
-                  <Gauge className="h-6 w-6 text-green-400" />
+                <div className="icon-container-elite bg-orange-500/20 group-hover:bg-orange-500/30">
+                  <Gauge className="h-6 w-6 text-orange-400" />
                 </div>
                 <h3 className="text-lg font-bold text-white">Performance</h3>
               </div>
               <div className="space-y-3">
                 <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Efficiency:</span>
-                  <span className="text-green-300 font-mono">95-98%</span>
+                  <span className="text-orange-300 font-mono">95-98%</span>
                 </div>
                 <div className="data-row-elite text-sm">
                   <span className="text-gray-400">C-Rate:</span>
-                  <span className="text-green-300 font-mono">1C cont</span>
+                  <span className="text-orange-300 font-mono">1C cont</span>
                 </div>
                 <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Response:</span>
-                  <span className="text-green-300 font-mono">&lt;20ms</span>
+                  <span className="text-orange-300 font-mono">&lt;20ms</span>
                 </div>
                 <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Voltage:</span>
-                  <span className="text-green-300 font-mono">48-51.2V</span>
+                  <span className="text-orange-300 font-mono">48-51.2V</span>
                 </div>
                 <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Scalable:</span>
-                  <span className="text-green-300 font-mono">200kWh+</span>
+                  <span className="text-orange-300 font-mono">200kWh+</span>
                 </div>
               </div>
             </div>
 
             <div className="spec-card-elite glow-orange group">
               <div className="flex items-center gap-3 mb-4">
-                <div className="icon-container-elite bg-green-500/20 group-hover:bg-green-500/30">
-                  <Shield className="h-6 w-6 text-green-400" />
+                <div className="icon-container-elite bg-orange-500/20 group-hover:bg-orange-500/30">
+                  <Shield className="h-6 w-6 text-orange-400" />
                 </div>
                 <h3 className="text-lg font-bold text-white">Safety/Code</h3>
               </div>
               <div className="space-y-3">
                 <div className="data-row-elite text-sm">
                   <span className="text-gray-400">UL:</span>
-                  <span className="text-green-300 font-mono">9540A</span>
+                  <span className="text-orange-300 font-mono">9540A</span>
                 </div>
                 <div className="data-row-elite text-sm">
                   <span className="text-gray-400">NFPA:</span>
-                  <span className="text-green-300 font-mono">855</span>
+                  <span className="text-orange-300 font-mono">855</span>
                 </div>
                 <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Fire:</span>
-                  <span className="text-green-300 font-mono">2hr rated</span>
+                  <span className="text-orange-300 font-mono">2hr rated</span>
                 </div>
                 <div className="data-row-elite text-sm">
                   <span className="text-gray-400">Venting:</span>
-                  <span className="text-green-300 font-mono">Sealed</span>
+                  <span className="text-orange-300 font-mono">Sealed</span>
                 </div>
                 <div className="data-row-elite text-sm">
                   <span className="text-gray-400">IP Rating:</span>
-                  <span className="text-green-300 font-mono">IP65</span>
+                  <span className="text-orange-300 font-mono">IP65</span>
                 </div>
               </div>
             </div>
@@ -452,8 +452,8 @@ const BatteryStorage = () => {
               </div>
               <div className="category-card-elite">
                 <div className="flex items-center gap-2 mb-2">
-                  <CircleDollarSign className="h-5 w-5 text-green-400" />
-                  <h4 className="text-green-300 font-semibold">Demand Charge</h4>
+                  <CircleDollarSign className="h-5 w-5 text-orange-400" />
+                  <h4 className="text-orange-300 font-semibold">Demand Charge</h4>
                 </div>
                 <ul className="space-y-1 text-gray-400">
                   <li>• Peak shaving 40-60%</li>
@@ -520,7 +520,7 @@ const BatteryStorage = () => {
             icon: <TrendingUp className='h-8 w-8' />,
             metrics: (
               <div className="space-y-1">
-                <div className="text-green-300 font-bold">4-6 Year Payback</div>
+                <div className="text-orange-300 font-bold">4-6 Year Payback</div>
                 <div className="text-xs text-gray-400">With SGIP + ITC</div>
                 <div className="text-xs text-gray-400">$250/mo savings avg</div>
               </div>
@@ -563,7 +563,7 @@ const BatteryStorage = () => {
                   <th className="text-left py-3 px-4 text-gray-400">Specification</th>
                   <th className="text-center py-3 px-4 text-purple-400">LiFePO4 (LFP)</th>
                   <th className="text-center py-3 px-4 text-blue-400">NMC/NCA</th>
-                  <th className="text-center py-3 px-4 text-green-400">Lead Acid (AGM)</th>
+                  <th className="text-center py-3 px-4 text-orange-400">Lead Acid (AGM)</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-700/50">
@@ -571,61 +571,61 @@ const BatteryStorage = () => {
                   <td className="py-3 px-4 text-gray-300 font-semibold">Cycle Life @ 80% DoD</td>
                   <td className="text-center py-3 px-4 font-mono text-purple-300">6,000-10,000</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">3,000-5,000</td>
-                  <td className="text-center py-3 px-4 font-mono text-green-300">500-1,000</td>
+                  <td className="text-center py-3 px-4 font-mono text-orange-300">500-1,000</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Energy Density (Wh/kg)</td>
                   <td className="text-center py-3 px-4 font-mono text-purple-300">90-120</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">150-250</td>
-                  <td className="text-center py-3 px-4 font-mono text-green-300">30-40</td>
+                  <td className="text-center py-3 px-4 font-mono text-orange-300">30-40</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Round-Trip Efficiency</td>
                   <td className="text-center py-3 px-4 font-mono text-purple-300">95-98%</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">92-95%</td>
-                  <td className="text-center py-3 px-4 font-mono text-green-300">80-85%</td>
+                  <td className="text-center py-3 px-4 font-mono text-orange-300">80-85%</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Thermal Runaway Temp</td>
                   <td className="text-center py-3 px-4 font-mono text-purple-300">270°C</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">150°C</td>
-                  <td className="text-center py-3 px-4 font-mono text-green-300">N/A</td>
+                  <td className="text-center py-3 px-4 font-mono text-orange-300">N/A</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Max Discharge Rate</td>
                   <td className="text-center py-3 px-4 font-mono text-purple-300">1C continuous</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">2C continuous</td>
-                  <td className="text-center py-3 px-4 font-mono text-green-300">0.2C</td>
+                  <td className="text-center py-3 px-4 font-mono text-orange-300">0.2C</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Operating Temp Range</td>
                   <td className="text-center py-3 px-4 font-mono text-purple-300">-20 to +60°C</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">-20 to +45°C</td>
-                  <td className="text-center py-3 px-4 font-mono text-green-300">-15 to +40°C</td>
+                  <td className="text-center py-3 px-4 font-mono text-orange-300">-15 to +40°C</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Self-Discharge Rate</td>
                   <td className="text-center py-3 px-4 font-mono text-purple-300">&lt;3%/month</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">&lt;5%/month</td>
-                  <td className="text-center py-3 px-4 font-mono text-green-300">5-15%/month</td>
+                  <td className="text-center py-3 px-4 font-mono text-orange-300">5-15%/month</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Calendar Life</td>
                   <td className="text-center py-3 px-4 font-mono text-purple-300">20+ years</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">10-15 years</td>
-                  <td className="text-center py-3 px-4 font-mono text-green-300">3-5 years</td>
+                  <td className="text-center py-3 px-4 font-mono text-orange-300">3-5 years</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Depth of Discharge</td>
                   <td className="text-center py-3 px-4 font-mono text-purple-300">100% safe</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">80-90%</td>
-                  <td className="text-center py-3 px-4 font-mono text-green-300">50% max</td>
+                  <td className="text-center py-3 px-4 font-mono text-orange-300">50% max</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Toxicity/Environmental</td>
                   <td className="text-center py-3 px-4 font-mono text-purple-300">Non-toxic</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">Cobalt concerns</td>
-                  <td className="text-center py-3 px-4 font-mono text-green-300">Lead hazard</td>
+                  <td className="text-center py-3 px-4 font-mono text-orange-300">Lead hazard</td>
                 </tr>
               </tbody>
             </table>
@@ -653,7 +653,7 @@ const BatteryStorage = () => {
             </div>
             <div className="category-card-elite">
               <div className="flex items-center gap-2 mb-3">
-                <Activity className="h-6 w-6 text-green-400" />
+                <Activity className="h-6 w-6 text-orange-400" />
                 <h4 className="text-white font-semibold">Superior Longevity</h4>
               </div>
               <p className="text-gray-400 text-sm mb-2">6,000-10,000 cycles at 100% DoD yields 20+ year lifespan. Degradation rate of only 0.5% annually maintains 90% capacity after 20 years.</p>
@@ -720,17 +720,17 @@ const BatteryStorage = () => {
             </div>
             <div className="bg-blue-900/20 rounded-lg p-3">
               <p className="text-xs text-gray-300"><strong className="text-blue-400">Best For:</strong> Modular scaling, premium quality</p>
-              <p className="text-xs text-green-400 mt-1">Price: $3,500-4,000/unit</p>
+              <p className="text-xs text-orange-400 mt-1">Price: $3,500-4,000/unit</p>
             </div>
           </div>
 
           <div className="card-elite glow-green p-6">
             <div className="flex items-center gap-3 mb-4">
-              <Package className="h-6 w-6 text-green-400" />
+              <Package className="h-6 w-6 text-orange-400" />
               <h3 className="text-xl font-bold text-white">Fortress Power</h3>
             </div>
             <div className="mb-4">
-              <h4 className="text-green-400 font-semibold mb-2">eVault Max 18.5kWh</h4>
+              <h4 className="text-orange-400 font-semibold mb-2">eVault Max 18.5kWh</h4>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
                   <span className="text-gray-400">Capacity:</span>
@@ -758,9 +758,9 @@ const BatteryStorage = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-green-900/20 rounded-lg p-3">
-              <p className="text-xs text-gray-300"><strong className="text-green-400">Best For:</strong> Whole-home backup, large systems</p>
-              <p className="text-xs text-green-400 mt-1">Price: $11,000-13,000/unit</p>
+            <div className="bg-orange-900/20 rounded-lg p-3">
+              <p className="text-xs text-gray-300"><strong className="text-orange-400">Best For:</strong> Whole-home backup, large systems</p>
+              <p className="text-xs text-orange-400 mt-1">Price: $11,000-13,000/unit</p>
             </div>
           </div>
 
@@ -800,7 +800,7 @@ const BatteryStorage = () => {
             </div>
             <div className="bg-purple-900/20 rounded-lg p-3">
               <p className="text-xs text-gray-300"><strong className="text-purple-400">Best For:</strong> Budget-conscious, server rack mount</p>
-              <p className="text-xs text-green-400 mt-1">Price: $7,500-8,500/unit</p>
+              <p className="text-xs text-orange-400 mt-1">Price: $7,500-8,500/unit</p>
             </div>
           </div>
         </div>
@@ -861,7 +861,7 @@ const BatteryStorage = () => {
       >
         <div className="card-elite glow-green p-8 mb-8">
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <CircleDollarSign className="mr-3 h-6 w-6 text-green-400" />
+            <CircleDollarSign className="mr-3 h-6 w-6 text-orange-400" />
             SGIP Incentive Tiers (2024)
           </h3>
           <div className="overflow-x-auto">
@@ -877,14 +877,14 @@ const BatteryStorage = () => {
               <tbody className="divide-y divide-gray-700/50">
                 <tr>
                   <td className="py-3 px-4 text-gray-300 font-semibold">Equity Budget</td>
-                  <td className="text-center py-3 px-4 font-mono text-green-300">$850-1,000/kWh</td>
-                  <td className="text-center py-3 px-4 font-mono text-green-300">$12,750-15,000</td>
+                  <td className="text-center py-3 px-4 font-mono text-orange-300">$850-1,000/kWh</td>
+                  <td className="text-center py-3 px-4 font-mono text-orange-300">$12,750-15,000</td>
                   <td className="text-center py-3 px-4 text-gray-400 text-xs">CARE/FERA/Disadvantaged Community</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300 font-semibold">Equity Resiliency</td>
-                  <td className="text-center py-3 px-4 font-mono text-green-300">$850-1,000/kWh</td>
-                  <td className="text-center py-3 px-4 font-mono text-green-300">$12,750-15,000</td>
+                  <td className="text-center py-3 px-4 font-mono text-orange-300">$850-1,000/kWh</td>
+                  <td className="text-center py-3 px-4 font-mono text-orange-300">$12,750-15,000</td>
                   <td className="text-center py-3 px-4 text-gray-400 text-xs">Equity + HFTD Tier 2/3 or Medical</td>
                 </tr>
                 <tr>
@@ -944,43 +944,43 @@ const BatteryStorage = () => {
 
           <div className="card-elite glow-green p-8">
             <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-              <TrendingUp className="mr-3 h-6 w-6 text-green-400" />
+              <TrendingUp className="mr-3 h-6 w-6 text-orange-400" />
               Incentives & Net Cost
             </h3>
             <div className="space-y-3 text-sm">
-              <h4 className="text-green-400 font-semibold">Available Incentives:</h4>
+              <h4 className="text-orange-400 font-semibold">Available Incentives:</h4>
               <div className="space-y-2">
                 <div className="flex justify-between">
                   <span className="text-gray-400">Federal ITC (30%):</span>
-                  <span className="text-green-300 font-mono">-$5,700</span>
+                  <span className="text-orange-300 font-mono">-$5,700</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-400">SGIP General Market:</span>
-                  <span className="text-green-300 font-mono">-$3,800</span>
+                  <span className="text-orange-300 font-mono">-$3,800</span>
                 </div>
                 <div className="flex justify-between font-semibold border-t border-gray-700 pt-2">
                   <span className="text-white">Net Cost After Incentives:</span>
-                  <span className="text-green-400 font-mono">$9,500</span>
+                  <span className="text-orange-400 font-mono">$9,500</span>
                 </div>
               </div>
 
-              <h4 className="text-green-400 font-semibold mt-4">Monthly Savings:</h4>
-              <div className="bg-green-900/20 rounded-lg p-3 space-y-2">
+              <h4 className="text-orange-400 font-semibold mt-4">Monthly Savings:</h4>
+              <div className="bg-orange-900/20 rounded-lg p-3 space-y-2">
                 <div className="flex justify-between">
                   <span className="text-gray-400">TOU Arbitrage:</span>
-                  <span className="text-green-300 font-mono">$180/mo</span>
+                  <span className="text-orange-300 font-mono">$180/mo</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-400">Demand Reduction:</span>
-                  <span className="text-green-300 font-mono">$45/mo</span>
+                  <span className="text-orange-300 font-mono">$45/mo</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-400">VPP Revenue:</span>
-                  <span className="text-green-300 font-mono">$20/mo</span>
+                  <span className="text-orange-300 font-mono">$20/mo</span>
                 </div>
                 <div className="flex justify-between font-semibold border-t border-green-500/30 pt-2">
-                  <span className="text-green-400">Total Monthly Savings:</span>
-                  <span className="text-green-400 font-mono">$245/mo</span>
+                  <span className="text-orange-400">Total Monthly Savings:</span>
+                  <span className="text-orange-400 font-mono">$245/mo</span>
                 </div>
               </div>
 
@@ -991,7 +991,7 @@ const BatteryStorage = () => {
                 </div>
                 <div className="flex justify-between items-center mt-2">
                   <span className="text-blue-400 font-semibold">10-Year ROI:</span>
-                  <span className="text-2xl font-bold text-green-400">209%</span>
+                  <span className="text-2xl font-bold text-orange-400">209%</span>
                 </div>
               </div>
             </div>

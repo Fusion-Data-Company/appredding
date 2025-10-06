@@ -103,7 +103,7 @@ const SolarTestimonialsSection = () => {
               <div className="relative z-10">
                 {/* Enhanced Quote Icon */}
                 <div className="absolute top-6 right-6">
-                  <Quote className="w-12 h-12 text-yellow-500/15 group-hover:text-green-500/20 transition-colors duration-500" />
+                  <Quote className="w-12 h-12 text-yellow-500/15 group-hover:text-orange-500/20 transition-colors duration-500" />
                 </div>
                 
                 {/* Premium Star Rating */}
@@ -155,7 +155,7 @@ const SolarTestimonialsSection = () => {
               </div>
               
               <div className="text-center">
-                <div className="text-4xl font-bold text-green-400 mb-2">1,000+</div>
+                <div className="text-4xl font-bold text-orange-400 mb-2">1,000+</div>
                 <div className="text-gray-300">Systems Installed</div>
               </div>
               
@@ -165,7 +165,7 @@ const SolarTestimonialsSection = () => {
               </div>
               
               <div className="text-center">
-                <div className="text-4xl font-bold text-green-400 mb-2">$2M+</div>
+                <div className="text-4xl font-bold text-orange-400 mb-2">$2M+</div>
                 <div className="text-gray-300">Customer Savings</div>
               </div>
             </div>

@@ -304,12 +304,12 @@ const TroubleshootingSection = () => {
                   <strong>Cause:</strong> {fault.description}
                 </p>
                 
-                <div className="bg-green-50 border border-green-200 rounded-lg p-3">
+                <div className="bg-orange-50 border border-green-200 rounded-lg p-3">
                   <div className="flex items-start gap-2">
-                    <Wrench className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                    <Wrench className="w-4 h-4 text-orange-600 mt-0.5 flex-shrink-0" />
                     <div>
-                      <strong className="text-green-800 text-sm">Solution:</strong>
-                      <p className="text-green-700 text-sm mt-1">{fault.remedy}</p>
+                      <strong className="text-orange-800 text-sm">Solution:</strong>
+                      <p className="text-orange-700 text-sm mt-1">{fault.remedy}</p>
                     </div>
                   </div>
                 </div>
@@ -333,7 +333,7 @@ const TroubleshootingSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {troubleshootingGuide.map((item, index) => (
               <div key={index} className="bg-gray-700/50 rounded-xl p-6 border border-gray-600">
-                <h4 className="text-lg font-bold text-green-400 mb-3">
+                <h4 className="text-lg font-bold text-orange-400 mb-3">
                   {item.issue}
                 </h4>
                 <p className="text-gray-200 leading-relaxed">

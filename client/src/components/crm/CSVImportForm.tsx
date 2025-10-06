@@ -516,7 +516,7 @@ export function CSVImportForm({ onSuccess }: CSVImportFormProps) {
             
             {importResult && (
               <div className={`p-4 rounded-lg ${
-                importResult.success ? 'bg-green-950/30 text-green-400' : 'bg-red-950/30 text-red-400'
+                importResult.success ? 'bg-orange-950/30 text-orange-400' : 'bg-red-950/30 text-red-400'
               }`}>
                 <div className="flex items-start space-x-2">
                   {importResult.success ? (

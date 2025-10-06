@@ -23,7 +23,7 @@ export function AmbientGlow({
   // Define color variations
   const colorVariants = {
     blue: 'bg-blue-600',
-    green: 'bg-green-600',
+    green: 'bg-orange-600',
     purple: 'bg-purple-600',
   };
 

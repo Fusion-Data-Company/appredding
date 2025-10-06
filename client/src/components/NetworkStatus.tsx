@@ -62,9 +62,9 @@ export function NetworkStatus() {
           exit={{ y: -100, opacity: 0 }}
           className="fixed top-0 left-0 right-0 z-50 p-4"
         >
-          <Alert className="max-w-2xl mx-auto bg-green-50 border-green-200" data-testid="online-banner">
-            <Wifi className="h-4 w-4 text-green-600" />
-            <AlertDescription className="text-green-800">
+          <Alert className="max-w-2xl mx-auto bg-orange-50 border-green-200" data-testid="online-banner">
+            <Wifi className="h-4 w-4 text-orange-600" />
+            <AlertDescription className="text-orange-800">
               Connection restored! You are back online.
             </AlertDescription>
           </Alert>

@@ -86,7 +86,7 @@ export const UltraRealisticHeader: React.FC = () => {
                 <motion.a
                   key={item.label}
                   href={`#${item.label.toLowerCase()}`}
-                  className="relative group flex items-center space-x-2 px-4 py-2 rounded-lg font-semibold text-gray-700 hover:text-green-600 transition-all duration-300"
+                  className="relative group flex items-center space-x-2 px-4 py-2 rounded-lg font-semibold text-gray-700 hover:text-orange-600 transition-all duration-300"
                   whileHover={{ y: -2 }}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -100,7 +100,7 @@ export const UltraRealisticHeader: React.FC = () => {
                   
                   <div className="relative z-10 flex items-center space-x-2">
                     <motion.div
-                      className="text-green-500"
+                      className="text-orange-500"
                       whileHover={{ rotate: 360 }}
                       transition={{ duration: 0.5 }}
                     >

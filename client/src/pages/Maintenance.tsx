@@ -249,7 +249,7 @@ const Maintenance = () => {
   const seasonalConsiderations = [
     {
       season: "Spring",
-      icon: <Leaf className="h-6 w-6 text-green-500" />,
+      icon: <Leaf className="h-6 w-6 text-orange-500" />,
       focus: "Pollen & Growth",
       tasks: ["Heavy cleaning for pollen", "Vegetation trimming", "Nesting bird management", "Rain damage inspection"],
       challenges: "Highest soiling season, 15-25% production loss possible",
@@ -265,7 +265,7 @@ const Maintenance = () => {
     },
     {
       season: "Fall",
-      icon: <Wind className="h-6 w-6 text-green-500" />,
+      icon: <Wind className="h-6 w-6 text-orange-500" />,
       focus: "Debris & Preparation",
       tasks: ["Leaf removal", "Gutter cleaning", "Seal inspection", "Winter preparation"],
       challenges: "Falling leaves can reduce output 20%",
@@ -421,14 +421,14 @@ const Maintenance = () => {
               <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">Professional Solar Care</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">Live System Performance Metrics</h2>
-            <p className="text-lg mb-6 text-green-100">Real-time monitoring • Predictive maintenance • Maximum efficiency</p>
+            <p className="text-lg mb-6 text-orange-100">Real-time monitoring • Predictive maintenance • Maximum efficiency</p>
 
             {/* Enhanced Live System Metrics */}
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-6">
               <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <Activity className="h-5 w-5 mb-2 text-green-200" />
+                <Activity className="h-5 w-5 mb-2 text-orange-200" />
                 <div className="text-2xl font-bold">{efficiencyLevel.toFixed(1)}%</div>
-                <div className="text-sm text-green-200">Efficiency</div>
+                <div className="text-sm text-orange-200">Efficiency</div>
               </div>
               <div className="bg-white/10 backdrop-blur rounded-xl p-4">
                 <Gauge className="h-5 w-5 mb-2 text-amber-200" />
@@ -441,9 +441,9 @@ const Maintenance = () => {
                 <div className="text-sm text-yellow-200">Next Clean</div>
               </div>
               <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <TrendingDown className="h-5 w-5 mb-2 text-green-300" />
+                <TrendingDown className="h-5 w-5 mb-2 text-orange-300" />
                 <div className="text-2xl font-bold">{degradationRate.toFixed(1)}%</div>
-                <div className="text-sm text-green-300">Degradation/yr</div>
+                <div className="text-sm text-orange-300">Degradation/yr</div>
               </div>
               <div className="bg-white/10 backdrop-blur rounded-xl p-4">
                 <Shield className="h-5 w-5 mb-2 text-amber-300" />
@@ -458,7 +458,7 @@ const Maintenance = () => {
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <button className="bg-white text-green-600 px-6 py-3 rounded-xl font-semibold hover:bg-green-50 transition flex items-center gap-2">
+              <button className="bg-white text-orange-600 px-6 py-3 rounded-xl font-semibold hover:bg-orange-50 transition flex items-center gap-2">
                 Schedule Service <Calendar className="h-5 w-5" />
               </button>
               <button className="bg-white/20 backdrop-blur text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/30 transition flex items-center gap-2">
@@ -524,9 +524,9 @@ const Maintenance = () => {
                     <p className="text-sm text-yellow-600 ">{case_.diagnosis}</p>
                   </div>
 
-                  <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-3">
-                    <p className="text-sm font-medium text-green-800 ">Result:</p>
-                    <p className="text-sm text-green-600 ">{case_.result}</p>
+                  <div className="bg-orange-50 dark:bg-orange-900/20 rounded-lg p-3">
+                    <p className="text-sm font-medium text-orange-800 ">Result:</p>
+                    <p className="text-sm text-orange-600 ">{case_.result}</p>
                   </div>
                 </div>
 
@@ -589,7 +589,7 @@ const Maintenance = () => {
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <h4 className="font-semibold mb-3 flex items-center gap-2 text-gray-900 ">
-                  <CheckCircle className="h-5 w-5 text-green-500" /> Service Includes
+                  <CheckCircle className="h-5 w-5 text-orange-500" /> Service Includes
                 </h4>
                 <ul className="space-y-2">
                   {(maintenanceServices as any)[selectedService].includes.map((item: string, idx: number) => (
@@ -608,7 +608,7 @@ const Maintenance = () => {
                 <ul className="space-y-2">
                   {(maintenanceServices as any)[selectedService].benefits.map((benefit: string, idx: number) => (
                     <li key={idx} className="flex items-start gap-2 text-gray-700 ">
-                      <ChevronRight className="h-4 w-4 text-green-500 mt-0.5" />
+                      <ChevronRight className="h-4 w-4 text-orange-500 mt-0.5" />
                       <span>{benefit}</span>
                     </li>
                   ))}
@@ -698,9 +698,9 @@ const Maintenance = () => {
                     </div>
                   </div>
 
-                  <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-3">
-                    <p className="text-sm font-medium text-green-800  mb-1">Prevention:</p>
-                    <p className="text-xs text-green-600 ">{problem.prevention}</p>
+                  <div className="bg-orange-50 dark:bg-orange-900/20 rounded-lg p-3">
+                    <p className="text-sm font-medium text-orange-800  mb-1">Prevention:</p>
+                    <p className="text-xs text-orange-600 ">{problem.prevention}</p>
                   </div>
 
                   <div className="bg-red-50 dark:bg-red-900/20 rounded-lg p-3">
@@ -747,8 +747,8 @@ const Maintenance = () => {
                     <p className="text-xs text-yellow-600 ">{season.challenges}</p>
                   </div>
 
-                  <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-3">
-                    <p className="text-xs font-medium text-green-600 ">
+                  <div className="bg-orange-50 dark:bg-orange-900/20 rounded-lg p-3">
+                    <p className="text-xs font-medium text-orange-600 ">
                       ✓ {season.recommendation}
                     </p>
                   </div>
@@ -790,7 +790,7 @@ const Maintenance = () => {
                       <td className="px-6 py-4 text-sm text-gray-700 ">
                         {test.detects}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-green-600 ">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-orange-600 ">
                         {test.accuracy}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 ">
@@ -818,7 +818,7 @@ const Maintenance = () => {
                 <div key={idx} className="spec-card-elite glow-green">
                   <div className="flex items-start justify-between mb-4">
                     <h3 className="font-bold text-gray-900 ">{item.component}</h3>
-                    <ShieldCheck className="h-6 w-6 text-green-500" />
+                    <ShieldCheck className="h-6 w-6 text-orange-500" />
                   </div>
 
                   <div className="space-y-2 text-sm">
@@ -837,9 +837,9 @@ const Maintenance = () => {
                       <p className="text-xs font-medium text-red-800  mb-1">Without Service:</p>
                       <p className="text-xs text-red-600 ">{item.withoutMaintenance}</p>
                     </div>
-                    <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-3">
-                      <p className="text-xs font-medium text-green-800  mb-1">With Service:</p>
-                      <p className="text-xs text-green-600 ">{item.withMaintenance}</p>
+                    <div className="bg-orange-50 dark:bg-orange-900/20 rounded-lg p-3">
+                      <p className="text-xs font-medium text-orange-800  mb-1">With Service:</p>
+                      <p className="text-xs text-orange-600 ">{item.withMaintenance}</p>
                     </div>
                   </div>
 
@@ -870,9 +870,9 @@ const Maintenance = () => {
                     <h4 className="font-bold text-gray-900 ">Month {item.month}</h4>
                     <span className={`text-xs px-2 py-1 rounded-full font-medium ${
                       item.priority === 'Critical' ? 'bg-red-100 text-red-800 dark:bg-red-900 ' :
-                      item.priority === 'High' ? 'bg-green-100 text-green-800 dark:bg-green-900 ' :
+                      item.priority === 'High' ? 'bg-orange-100 text-orange-800 dark:bg-orange-900 ' :
                       item.priority === 'Medium' ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 ' :
-                      'bg-green-100 text-green-800 dark:bg-green-900 '
+                      'bg-orange-100 text-orange-800 dark:bg-orange-900 '
                     }`}>
                       {item.priority}
                     </span>
@@ -898,7 +898,7 @@ const Maintenance = () => {
               <div key={idx} className="spec-card-elite glow-blue">
                 <h4 className="text-sm font-medium text-gray-600  mb-2">{metric.metric}</h4>
                 <div className="text-2xl font-bold text-purple-600  mb-1">{metric.value}</div>
-                <div className="text-xs text-green-600  mb-2">Target: {metric.target}</div>
+                <div className="text-xs text-orange-600  mb-2">Target: {metric.target}</div>
                 <div className="text-xs text-gray-500 ">{metric.impact}</div>
               </div>
             ))}
@@ -1001,7 +1001,7 @@ const Maintenance = () => {
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 ">
                         {scenario.year10}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-green-600 ">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-orange-600 ">
                         {scenario.year20}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-purple-600 ">
@@ -1098,13 +1098,13 @@ const Maintenance = () => {
                 <h3 className="text-2xl font-bold text-gray-900  mb-2">{plan.name}</h3>
                 <div className="mb-4">
                   <span className="text-3xl font-bold text-purple-600 ">{plan.price}</span>
-                  <span className="text-sm text-green-600  ml-2">{plan.savings}</span>
+                  <span className="text-sm text-orange-600  ml-2">{plan.savings}</span>
                 </div>
 
                 <ul className="space-y-3 mb-6">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-center gap-2 text-sm text-gray-700 ">
-                      <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-orange-500 flex-shrink-0" />
                       {feature}
                     </li>
                   ))}
@@ -1149,20 +1149,20 @@ const Maintenance = () => {
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div>
                 <h2 className="text-3xl font-bold mb-4">24/7 Emergency Service Available</h2>
-                <p className="text-lg mb-6 text-green-100">
+                <p className="text-lg mb-6 text-orange-100">
                   System down? Performance issues? Our certified technicians are on-call for urgent maintenance needs.
                 </p>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
-                    <Clock className="h-5 w-5 text-green-200" />
+                    <Clock className="h-5 w-5 text-orange-200" />
                     <span>2-hour response time for emergencies</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Shield className="h-5 w-5 text-green-200" />
+                    <Shield className="h-5 w-5 text-orange-200" />
                     <span>All work guaranteed and insured</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Award className="h-5 w-5 text-green-200" />
+                    <Award className="h-5 w-5 text-orange-200" />
                     <span>NABCEP certified technicians</span>
                   </div>
                 </div>
@@ -1174,7 +1174,7 @@ const Maintenance = () => {
                   <Phone className="h-6 w-6" />
                   (530) 226-0701
                 </button>
-                <p className="text-sm text-green-100 mt-4 text-center">
+                <p className="text-sm text-orange-100 mt-4 text-center">
                   Available 24/7 for system emergencies
                 </p>
               </div>

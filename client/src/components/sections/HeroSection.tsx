@@ -29,9 +29,9 @@ interface HeroSectionProps {
 
 const glowStyles = {
   orange: {
-    outer: 'bg-green-500/20',
-    middle: 'bg-green-600/10',
-    inner: 'bg-green-700/5',
+    outer: 'bg-orange-500/20',
+    middle: 'bg-orange-600/10',
+    inner: 'bg-orange-700/5',
     border: 'border-orange-700/30',
     primary: 'from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700',
     textGradient: 'from-orange-400 to-orange-500'
@@ -45,9 +45,9 @@ const glowStyles = {
     textGradient: 'from-blue-400 to-blue-500'
   },
   green: {
-    outer: 'bg-green-500/20',
-    middle: 'bg-green-600/10',
-    inner: 'bg-green-700/5',
+    outer: 'bg-orange-500/20',
+    middle: 'bg-orange-600/10',
+    inner: 'bg-orange-700/5',
     border: 'border-green-700/30',
     primary: 'from-green-500 to-green-600 hover:from-green-600 hover:to-green-700',
     textGradient: 'from-green-400 to-green-500'

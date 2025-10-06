@@ -48,7 +48,7 @@ export function PerformanceIndicator({
     const goodMetrics = Object.values(isGoodPerformance).filter(Boolean).length;
     const totalMetrics = Object.values(isGoodPerformance).length;
     
-    if (goodMetrics === totalMetrics) return 'text-green-500';
+    if (goodMetrics === totalMetrics) return 'text-orange-500';
     if (goodMetrics > totalMetrics / 2) return 'text-yellow-500';
     return 'text-red-500';
   };
@@ -93,25 +93,25 @@ export function PerformanceIndicator({
         )}
         
         {metrics.largestContentfulPaint && (
-          <div className={isGoodPerformance.lcp ? 'text-green-500' : 'text-red-500'}>
+          <div className={isGoodPerformance.lcp ? 'text-orange-500' : 'text-red-500'}>
             LCP: {Math.round(metrics.largestContentfulPaint)}ms
           </div>
         )}
         
         {metrics.firstInputDelay && (
-          <div className={isGoodPerformance.fid ? 'text-green-500' : 'text-red-500'}>
+          <div className={isGoodPerformance.fid ? 'text-orange-500' : 'text-red-500'}>
             FID: {Math.round(metrics.firstInputDelay)}ms
           </div>
         )}
         
         {metrics.cumulativeLayoutShift && (
-          <div className={isGoodPerformance.cls ? 'text-green-500' : 'text-red-500'}>
+          <div className={isGoodPerformance.cls ? 'text-orange-500' : 'text-red-500'}>
             CLS: {metrics.cumulativeLayoutShift.toFixed(3)}
           </div>
         )}
         
         {metrics.pageLoadTime && (
-          <div className={isGoodPerformance.pageLoad ? 'text-green-500' : 'text-red-500'}>
+          <div className={isGoodPerformance.pageLoad ? 'text-orange-500' : 'text-red-500'}>
             Load: {Math.round(metrics.pageLoadTime)}ms
           </div>
         )}

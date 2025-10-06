@@ -107,8 +107,8 @@ export default function OrderConfirmation() {
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="text-center mb-8">
             <div className="flex justify-center mb-4">
-              <div className="w-20 h-20 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center">
-                <CheckCircle2 className="w-12 h-12 text-green-600 dark:text-green-400" data-testid="icon-success" />
+              <div className="w-20 h-20 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center">
+                <CheckCircle2 className="w-12 h-12 text-orange-600 dark:text-orange-400" data-testid="icon-success" />
               </div>
             </div>
             <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2" data-testid="heading-confirmed">

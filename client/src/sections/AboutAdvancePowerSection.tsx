@@ -45,8 +45,8 @@ const AboutAdvancePowerSection = () => {
     {
       icon: <Award className="w-6 h-6" />,
       title: "Industry Certified",
-      color: "text-green-400",
-      bgColor: "bg-green-500/20"
+      color: "text-orange-400",
+      bgColor: "bg-orange-500/20"
     },
     {
       icon: <CheckCircle className="w-6 h-6" />,
@@ -63,8 +63,8 @@ const AboutAdvancePowerSection = () => {
     {
       icon: <Users className="w-6 h-6" />,
       title: "Local Expertise",
-      color: "text-green-400",
-      bgColor: "bg-green-500/20"
+      color: "text-orange-400",
+      bgColor: "bg-orange-500/20"
     },
     {
       icon: <FileCheck className="w-6 h-6" />,
@@ -181,22 +181,22 @@ const AboutAdvancePowerSection = () => {
               <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6">
                 Your Complete Solar Solution
               </h3>
-              <p className="text-2xl text-green-100 mb-8 max-w-4xl mx-auto leading-relaxed">
+              <p className="text-2xl text-orange-100 mb-8 max-w-4xl mx-auto leading-relaxed">
                 We provide comprehensive solar energy systems that power your home or business reliably and efficiently, 
                 backed by industry-leading warranties and expert local support.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-white">25+</div>
-                  <div className="text-green-200">Years of Service</div>
+                  <div className="text-orange-200">Years of Service</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-white">500+</div>
-                  <div className="text-green-200">Happy Customers</div>
+                  <div className="text-orange-200">Happy Customers</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-white">100%</div>
-                  <div className="text-green-200">Satisfaction Rate</div>
+                  <div className="text-orange-200">Satisfaction Rate</div>
                 </div>
               </div>
             </div>
@@ -287,8 +287,8 @@ const AboutAdvancePowerSection = () => {
                       
                       {/* Verification Badge */}
                       <div className="flex items-center">
-                        <Badge className="w-5 h-5 text-green-400 ml-2" />
-                        <span className="text-xs text-green-400 ml-1 font-medium">VERIFIED</span>
+                        <Badge className="w-5 h-5 text-orange-400 ml-2" />
+                        <span className="text-xs text-orange-400 ml-1 font-medium">VERIFIED</span>
                       </div>
                     </div>
                   </div>

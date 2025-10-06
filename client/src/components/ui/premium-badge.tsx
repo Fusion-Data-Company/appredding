@@ -29,7 +29,7 @@ export function PremiumBadge({ children, icon, className = '' }: PremiumBadgePro
       transform: 'translateX(-50%)',
       whiteSpace: 'nowrap',
       minWidth: '160px'
-    }} className="px-4 py-1.5 rounded-full border border-orange-500/40 bg-gradient-to-r from-orange-950/95 via-gray-950/95 to-blue-950/95 text-green-300 inline-flex items-center justify-center shadow-[0_0_15px_rgba(249,115,22,0.4)] transition-all duration-300 hover:shadow-[0_0_20px_rgba(249,115,22,0.6)]">
+    }} className="px-4 py-1.5 rounded-full border border-orange-500/40 bg-gradient-to-r from-orange-950/95 via-gray-950/95 to-blue-950/95 text-orange-300 inline-flex items-center justify-center shadow-[0_0_15px_rgba(249,115,22,0.4)] transition-all duration-300 hover:shadow-[0_0_20px_rgba(249,115,22,0.6)]">
       {icon || <ShieldIcon />}
       <span className={`text-sm font-medium ml-1 whitespace-nowrap ${className}`}>
         {children}

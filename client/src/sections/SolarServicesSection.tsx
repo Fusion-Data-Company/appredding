@@ -258,7 +258,7 @@ const SolarServicesSection = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-12 py-6 border-2 border-orange-400 text-white font-black rounded-xl text-xl hover:bg-green-500 hover:border-orange-500 transition-all duration-300 relative overflow-hidden"
+                  className="px-12 py-6 border-2 border-orange-400 text-white font-black rounded-xl text-xl hover:bg-orange-500 hover:border-orange-500 transition-all duration-300 relative overflow-hidden"
                 >
                   <span className="relative z-10">Call (530) 226-0701</span>
                   <div className="shine-effect"></div>

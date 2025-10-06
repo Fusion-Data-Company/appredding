@@ -140,9 +140,9 @@ const SolarHeroSection = () => {
                     Professional installation, repair, and maintenance services for homes and businesses.
                   </p>
                   <div className="mt-6 p-4 bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl">
-                    <p className="text-lg md:text-xl text-green-800 font-semibold">
+                    <p className="text-lg md:text-xl text-orange-800 font-semibold">
                       💰 Start saving on your energy bills immediately! Most customers see 
-                      <span className="text-green-600 font-bold px-2 py-1 bg-green-100 rounded-lg mx-2">30-70% reduction</span>
+                      <span className="text-orange-600 font-bold px-2 py-1 bg-orange-100 rounded-lg mx-2">30-70% reduction</span>
                       in their monthly electricity costs.
                     </p>
                   </div>
@@ -172,7 +172,7 @@ const SolarHeroSection = () => {
             <p className="text-2xl md:text-3xl lg:text-4xl text-gray-700 mb-4 max-w-4xl mx-auto leading-relaxed font-light tracking-wide">
               North State's leader in renewable energy design, installation, service & technical expertise
             </p>
-            <div className="flex items-center justify-center gap-4 text-lg md:text-xl text-green-700 font-medium">
+            <div className="flex items-center justify-center gap-4 text-lg md:text-xl text-orange-700 font-medium">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full animate-pulse"></div>
                 <span>20+ Years Experience</span>
@@ -270,12 +270,12 @@ const SolarHeroSection = () => {
             <div className="relative">
               {/* Icon */}
               <div className="w-16 h-16 bg-gradient-to-br from-orange-400/20 to-red-500/20 rounded-xl flex items-center justify-center mb-4 border border-orange-400/30">
-                <svg className="w-8 h-8 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-8 h-8 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                 </svg>
               </div>
               
-              <div className="text-3xl sm:text-4xl md:text-5xl font-black text-green-400 mb-2 sm:mb-3 leading-none">1000+</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl font-black text-orange-400 mb-2 sm:mb-3 leading-none">1000+</div>
               <div className="text-lg sm:text-xl text-gray-200 font-medium">Solar Installations</div>
               <div className="text-xs sm:text-sm text-gray-400 mt-2">Residential & commercial projects</div>
             </div>

@@ -167,7 +167,7 @@ const ConstructionROICalculator = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
               <div className="bg-gray-800/60 rounded-lg p-3 border border-gray-700/50">
                 <div className="text-sm text-gray-400">Annual Energy Savings</div>
-                <div className="text-xl font-bold text-green-400">${annualEnergySavings.toLocaleString('en-US', {maximumFractionDigits: 2})}</div>
+                <div className="text-xl font-bold text-orange-400">${annualEnergySavings.toLocaleString('en-US', {maximumFractionDigits: 2})}</div>
               </div>
               
               <div className="bg-gray-800/60 rounded-lg p-3 border border-gray-700/50">
@@ -177,12 +177,12 @@ const ConstructionROICalculator = () => {
               
               <div className="bg-gray-800/60 rounded-lg p-3 border border-gray-700/50">
                 <div className="text-sm text-gray-400">5-Year ROI</div>
-                <div className="text-xl font-bold text-green-400">${fiveYearROI.toLocaleString('en-US', {maximumFractionDigits: 0})}</div>
+                <div className="text-xl font-bold text-orange-400">${fiveYearROI.toLocaleString('en-US', {maximumFractionDigits: 0})}</div>
               </div>
               
               <div className="bg-gray-800/60 rounded-lg p-3 border border-gray-700/50">
                 <div className="text-sm text-gray-400">10-Year ROI</div>
-                <div className="text-xl font-bold text-green-400">${tenYearROI.toLocaleString('en-US', {maximumFractionDigits: 0})}</div>
+                <div className="text-xl font-bold text-orange-400">${tenYearROI.toLocaleString('en-US', {maximumFractionDigits: 0})}</div>
               </div>
             </div>
             

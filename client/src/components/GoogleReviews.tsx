@@ -170,7 +170,7 @@ const GoogleReviews = () => {
                 {reviewsData.reviewCount} Reviews
               </div>
               {reviewsData.source === 'google' && (
-                <div className="text-xs text-green-600 font-medium flex items-center gap-1 mt-1" data-testid="badge-google-verified">
+                <div className="text-xs text-orange-600 font-medium flex items-center gap-1 mt-1" data-testid="badge-google-verified">
                   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                   </svg>
@@ -207,7 +207,7 @@ const GoogleReviews = () => {
               <div className="relative z-10">
                 {/* Quote Icon */}
                 <div className="absolute top-0 right-0">
-                  <Quote className="w-8 h-8 text-yellow-500/10 group-hover:text-green-500/15 transition-colors duration-300" />
+                  <Quote className="w-8 h-8 text-yellow-500/10 group-hover:text-orange-500/15 transition-colors duration-300" />
                 </div>
                 
                 {/* Star Rating */}
@@ -224,7 +224,7 @@ const GoogleReviews = () => {
                 {isTruncated && (
                   <button
                     onClick={() => toggleExpanded(index)}
-                    className="text-green-600 hover:text-green-700 font-semibold text-sm mb-4 transition-colors"
+                    className="text-orange-600 hover:text-orange-700 font-semibold text-sm mb-4 transition-colors"
                     data-testid={`button-read-more-${index}`}
                   >
                     {isExpanded ? 'Show Less' : 'Read More'}
@@ -319,7 +319,7 @@ const GoogleReviews = () => {
               </div>
               
               <div>
-                <div className="text-3xl font-bold text-green-400" data-testid="badge-systems">1,000+</div>
+                <div className="text-3xl font-bold text-orange-400" data-testid="badge-systems">1,000+</div>
                 <div className="text-gray-400 text-sm">Systems Installed</div>
               </div>
               
@@ -329,7 +329,7 @@ const GoogleReviews = () => {
               </div>
               
               <div>
-                <div className="text-3xl font-bold text-green-400" data-testid="badge-licensed">Licensed</div>
+                <div className="text-3xl font-bold text-orange-400" data-testid="badge-licensed">Licensed</div>
                 <div className="text-gray-400 text-sm">Bonded & Insured</div>
               </div>
             </div>

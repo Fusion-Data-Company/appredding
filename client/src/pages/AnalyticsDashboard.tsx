@@ -177,7 +177,7 @@ export default function AnalyticsDashboard() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{totalCustomers.toLocaleString()}</div>
-              <p className="text-xs text-green-100">
+              <p className="text-xs text-orange-100">
                 Since 1999 • {activeCustomers} active
               </p>
             </CardContent>
@@ -203,7 +203,7 @@ export default function AnalyticsDashboard() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">${(totalRevenue / 1000000).toFixed(1)}M</div>
-              <p className="text-xs text-green-100">
+              <p className="text-xs text-orange-100">
                 Lifetime customer value
               </p>
             </CardContent>
@@ -396,7 +396,7 @@ export default function AnalyticsDashboard() {
                   {geoData.slice(0, 9).map((area: GeographicData) => (
                     <div key={area.zipCode} className="p-4 bg-white/5 rounded-lg border border-white/10">
                       <div className="flex items-center justify-between mb-2">
-                        <Badge variant="outline" className="bg-green-500/20 text-green-200 border-orange-500/30">
+                        <Badge variant="outline" className="bg-orange-500/20 text-orange-200 border-orange-500/30">
                           {area.zipCode}
                         </Badge>
                         <MapPin className="w-4 h-4 text-blue-300" />
@@ -404,7 +404,7 @@ export default function AnalyticsDashboard() {
                       <div className="space-y-1">
                         <div className="text-white font-semibold">{area.customerCount} customers</div>
                         <div className="text-blue-200 text-sm">{area.totalCapacity.toFixed(0)} kW total</div>
-                        <div className="text-green-200 text-sm">
+                        <div className="text-orange-200 text-sm">
                           ${area.averageSystemCost.toLocaleString()} avg cost
                         </div>
                         <div className="text-gray-300 text-xs">

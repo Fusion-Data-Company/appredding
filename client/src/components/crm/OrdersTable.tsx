@@ -134,7 +134,7 @@ export function OrdersTable({ userId, isAdmin }: OrdersTableProps) {
                 <TableCell className="text-right">{order.quantity}</TableCell>
                 <TableCell>
                   {order.confirmed ? (
-                    <Badge variant="default" className="bg-green-500 flex items-center gap-1">
+                    <Badge variant="default" className="bg-orange-500 flex items-center gap-1">
                       <CheckCircle2 className="h-3 w-3" />
                       Confirmed
                     </Badge>

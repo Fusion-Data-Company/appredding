@@ -90,7 +90,7 @@ const EnergyStorageSection = () => {
           {/* Premium Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
             <div className="text-center">
-              <div className="text-5xl font-black text-green-600 mb-2 drop-shadow-lg">229kWh</div>
+              <div className="text-5xl font-black text-orange-600 mb-2 drop-shadow-lg">229kWh</div>
               <div className="text-gray-700 text-lg font-bold">Maximum Capacity</div>
             </div>
             <div className="text-center">
@@ -181,15 +181,15 @@ const EnergyStorageSection = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-white">30-50%</div>
-                  <div className="text-green-200">More Solar Savings</div>
+                  <div className="text-orange-200">More Solar Savings</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-white">24/7</div>
-                  <div className="text-green-200">Backup Power</div>
+                  <div className="text-orange-200">Backup Power</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-white">$0</div>
-                  <div className="text-green-200">Down Payment</div>
+                  <div className="text-orange-200">Down Payment</div>
                 </div>
               </div>
             </div>
@@ -255,7 +255,7 @@ const EnergyStorageSection = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-12 py-6 border-2 border-orange-400 text-white font-black rounded-xl text-xl hover:bg-green-500 hover:border-orange-500 transition-all duration-300 relative overflow-hidden"
+                  className="px-12 py-6 border-2 border-orange-400 text-white font-black rounded-xl text-xl hover:bg-orange-500 hover:border-orange-500 transition-all duration-300 relative overflow-hidden"
                 >
                   <span className="relative z-10">Schedule Consultation</span>
                   <div className="shine-effect"></div>

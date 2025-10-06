@@ -86,19 +86,19 @@ const About = () => {
                 </p>
                 <ul className="space-y-2 text-gray-200">
                   <li className="flex items-center">
-                    <span className="w-2 h-2 bg-green-400 rounded-full mr-3"></span>
+                    <span className="w-2 h-2 bg-orange-400 rounded-full mr-3"></span>
                     Licensed and bonded solar contractors
                   </li>
                   <li className="flex items-center">
-                    <span className="w-2 h-2 bg-green-400 rounded-full mr-3"></span>
+                    <span className="w-2 h-2 bg-orange-400 rounded-full mr-3"></span>
                     NABCEP certified installation team
                   </li>
                   <li className="flex items-center">
-                    <span className="w-2 h-2 bg-green-400 rounded-full mr-3"></span>
+                    <span className="w-2 h-2 bg-orange-400 rounded-full mr-3"></span>
                     Local Redding business serving North State
                   </li>
                   <li className="flex items-center">
-                    <span className="w-2 h-2 bg-green-400 rounded-full mr-3"></span>
+                    <span className="w-2 h-2 bg-orange-400 rounded-full mr-3"></span>
                     Comprehensive warranty and support
                   </li>
                 </ul>
@@ -109,7 +109,7 @@ const About = () => {
               <h2 className="text-white font-semibold text-3xl mb-6 font-heading text-center">Our Services</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
                     <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 2L3 7v11a1 1 0 001 1h12a1 1 0 001-1V7l-7-5zM9 18v-6h2v6H9z" clipRule="evenodd"/>
                     </svg>
@@ -131,7 +131,7 @@ const About = () => {
                   </p>
                 </div>
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
                     <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"/>
                     </svg>

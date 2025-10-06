@@ -114,7 +114,7 @@ const getPriorityColor = (priority: string) => {
     case "medium":
       return "bg-yellow-100 text-yellow-800 border-yellow-300";
     case "low":
-      return "bg-green-100 text-green-800 border-green-300";
+      return "bg-orange-100 text-orange-800 border-green-300";
     case "urgent":
       return "bg-purple-100 text-purple-800 border-purple-300";
     default:
@@ -129,7 +129,7 @@ const getStatusColor = (status: string) => {
     case "in_progress":
       return "bg-yellow-100 text-yellow-800 border-yellow-300";
     case "completed":
-      return "bg-green-100 text-green-800 border-green-300";
+      return "bg-orange-100 text-orange-800 border-green-300";
     case "cancelled":
       return "bg-gray-100 text-gray-800 border-gray-300";
     case "overdue":

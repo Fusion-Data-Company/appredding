@@ -287,7 +287,7 @@ const ResidentialSolar = () => {
             icon: <Battery className='h-8 w-8' />,
             metrics: (
               <div className="space-y-1">
-                <div className="text-green-300 font-bold">$15,000-25,000 SGIP</div>
+                <div className="text-orange-300 font-bold">$15,000-25,000 SGIP</div>
                 <div className="text-xs text-gray-400">5-7 year payback with incentives</div>
                 <div className="text-xs text-gray-400">$200-400 monthly savings</div>
               </div>
@@ -339,9 +339,9 @@ const ResidentialSolar = () => {
             </div>
             <div className="category-card-elite p-4">
               <div className="text-xs text-gray-500 uppercase mb-1">Off-Peak (12am-3pm)</div>
-              <div className="text-2xl font-bold text-green-400">$0.40/kWh</div>
+              <div className="text-2xl font-bold text-orange-400">$0.40/kWh</div>
               <div className="text-xs text-gray-400 mt-1">Import Cost</div>
-              <div className="text-sm font-mono text-green-300">Export: $0.04</div>
+              <div className="text-sm font-mono text-orange-300">Export: $0.04</div>
             </div>
             <div className="category-card-elite p-4">
               <div className="text-xs text-gray-500 uppercase mb-1">Price Differential</div>
@@ -356,7 +356,7 @@ const ResidentialSolar = () => {
           {/* Detailed Export Value Calculator */}
           <div className="card-elite glow-orange p-8">
             <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-              <Calculator className="mr-3 h-6 w-6 text-green-400" />
+              <Calculator className="mr-3 h-6 w-6 text-orange-400" />
               NEM 3.0 Avoided Cost Calculator (ACC Plus)
             </h3>
             <div className="space-y-4">
@@ -429,7 +429,7 @@ const ResidentialSolar = () => {
           {/* Advanced Load-Shifting Strategy */}
           <div className="card-elite glow-green p-8">
             <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-              <LineChart className="mr-3 h-6 w-6 text-green-400" />
+              <LineChart className="mr-3 h-6 w-6 text-orange-400" />
               24-Hour Optimization Protocol
             </h3>
             <div className="space-y-3">
@@ -473,7 +473,7 @@ const ResidentialSolar = () => {
                   <th className="text-left py-3 px-4 text-gray-400">Metric</th>
                   <th className="text-right py-3 px-4 text-blue-400">NEM 2.0 (Legacy)</th>
                   <th className="text-right py-3 px-4 text-yellow-400">NEM 3.0 (Solar Only)</th>
-                  <th className="text-right py-3 px-4 text-green-400">NEM 3.0 + Battery</th>
+                  <th className="text-right py-3 px-4 text-orange-400">NEM 3.0 + Battery</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-700/50">
@@ -481,37 +481,37 @@ const ResidentialSolar = () => {
                   <td className="py-3 px-4 text-gray-300">Export Credit Rate</td>
                   <td className="text-right py-3 px-4 font-mono text-blue-300">$0.21-0.30/kWh</td>
                   <td className="text-right py-3 px-4 font-mono text-yellow-300">$0.03-0.05/kWh</td>
-                  <td className="text-right py-3 px-4 font-mono text-green-300">N/A (self-consume)</td>
+                  <td className="text-right py-3 px-4 font-mono text-orange-300">N/A (self-consume)</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Monthly Bill (avg)</td>
                   <td className="text-right py-3 px-4 font-mono text-blue-300">$15-25</td>
                   <td className="text-right py-3 px-4 font-mono text-yellow-300">$120-180</td>
-                  <td className="text-right py-3 px-4 font-mono text-green-300">$20-40</td>
+                  <td className="text-right py-3 px-4 font-mono text-orange-300">$20-40</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Payback Period</td>
                   <td className="text-right py-3 px-4 font-mono text-blue-300">5-7 years</td>
                   <td className="text-right py-3 px-4 font-mono text-yellow-300">10-12 years</td>
-                  <td className="text-right py-3 px-4 font-mono text-green-300">6-8 years</td>
+                  <td className="text-right py-3 px-4 font-mono text-orange-300">6-8 years</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">10-Year Savings</td>
                   <td className="text-right py-3 px-4 font-mono text-blue-300">$28,000-35,000</td>
                   <td className="text-right py-3 px-4 font-mono text-yellow-300">$8,000-12,000</td>
-                  <td className="text-right py-3 px-4 font-mono text-green-300">$24,000-32,000</td>
+                  <td className="text-right py-3 px-4 font-mono text-orange-300">$24,000-32,000</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">System Cost (net)</td>
                   <td className="text-right py-3 px-4 font-mono text-blue-300">$15,000</td>
                   <td className="text-right py-3 px-4 font-mono text-yellow-300">$15,000</td>
-                  <td className="text-right py-3 px-4 font-mono text-green-300">$18,000-22,000</td>
+                  <td className="text-right py-3 px-4 font-mono text-orange-300">$18,000-22,000</td>
                 </tr>
                 <tr className="font-semibold">
                   <td className="py-3 px-4 text-white">10-Year ROI</td>
                   <td className="text-right py-3 px-4 text-blue-300">186%</td>
                   <td className="text-right py-3 px-4 text-yellow-300">53%</td>
-                  <td className="text-right py-3 px-4 text-green-300">145%</td>
+                  <td className="text-right py-3 px-4 text-orange-300">145%</td>
                 </tr>
               </tbody>
             </table>
@@ -522,14 +522,14 @@ const ResidentialSolar = () => {
         <div className="grid md:grid-cols-2 gap-6">
           <div className="card-elite glow-orange p-6">
             <h4 className="text-xl font-bold text-white mb-3 flex items-center">
-              <AlertTriangle className="mr-2 h-5 w-5 text-green-400" />
+              <AlertTriangle className="mr-2 h-5 w-5 text-orange-400" />
               AB 942: The Hidden Home Value Killer
             </h4>
             <p className="text-gray-300 mb-3">
-              <strong className="text-green-400">Critical Alert:</strong> California Assembly Bill 942 terminates NEM 2.0 grandfathering upon property transfer. This creates a $20,000-40,000 instant value loss for homes with solar-only systems.
+              <strong className="text-orange-400">Critical Alert:</strong> California Assembly Bill 942 terminates NEM 2.0 grandfathering upon property transfer. This creates a $20,000-40,000 instant value loss for homes with solar-only systems.
             </p>
             <div className="bg-black/30 rounded-lg p-4 mt-3">
-              <h5 className="text-green-300 font-semibold mb-2">Mitigation Strategy:</h5>
+              <h5 className="text-orange-300 font-semibold mb-2">Mitigation Strategy:</h5>
               <ul className="space-y-1 text-sm text-gray-400">
                 <li>• Add battery storage before listing (increases value $15-25k)</li>
                 <li>• Document SGIP rebates received (proves system economics)</li>
@@ -541,14 +541,14 @@ const ResidentialSolar = () => {
 
           <div className="card-elite glow-green p-6">
             <h4 className="text-xl font-bold text-white mb-3 flex items-center">
-              <TrendingUp className="mr-2 h-5 w-5 text-green-400" />
+              <TrendingUp className="mr-2 h-5 w-5 text-orange-400" />
               Virtual Power Plant (VPP) Opportunity
             </h4>
             <p className="text-gray-300 mb-3">
-              <strong className="text-green-400">Revenue Stream:</strong> California's Emergency Load Reduction Program (ELRP) pays $2/kWh for battery discharge during grid emergencies. Average 5-10 events annually.
+              <strong className="text-orange-400">Revenue Stream:</strong> California's Emergency Load Reduction Program (ELRP) pays $2/kWh for battery discharge during grid emergencies. Average 5-10 events annually.
             </p>
             <div className="bg-black/30 rounded-lg p-4 mt-3">
-              <h5 className="text-green-300 font-semibold mb-2">VPP Revenue Potential:</h5>
+              <h5 className="text-orange-300 font-semibold mb-2">VPP Revenue Potential:</h5>
               <ul className="space-y-1 text-sm text-gray-400">
                 <li>• 15kWh battery × 80% DoD = 12kWh available</li>
                 <li>• 12kWh × $2/kWh = $24 per event</li>
@@ -570,7 +570,7 @@ const ResidentialSolar = () => {
         {/* Sol-Ark Inverter Comparison */}
         <div className="mb-8">
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <Cpu className="mr-3 h-6 w-6 text-green-400" />
+            <Cpu className="mr-3 h-6 w-6 text-orange-400" />
             Sol-Ark Hybrid Inverter Comparison Matrix
           </h3>
           <div className="overflow-x-auto">
@@ -579,7 +579,7 @@ const ResidentialSolar = () => {
                 <tr className="border-b border-gray-700">
                   <th className="text-left py-3 px-4 text-gray-400">Specification</th>
                   <th className="text-center py-3 px-4 text-blue-400">Sol-Ark 12K</th>
-                  <th className="text-center py-3 px-4 text-green-400">Sol-Ark 15K</th>
+                  <th className="text-center py-3 px-4 text-orange-400">Sol-Ark 15K</th>
                   <th className="text-center py-3 px-4 text-purple-400">Sol-Ark 30K (3-phase)</th>
                 </tr>
               </thead>
@@ -587,55 +587,55 @@ const ResidentialSolar = () => {
                 <tr>
                   <td className="py-3 px-4 text-gray-300 font-semibold">Power Output</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">12kW continuous</td>
-                  <td className="text-center py-3 px-4 font-mono text-green-300">15kW continuous</td>
+                  <td className="text-center py-3 px-4 font-mono text-orange-300">15kW continuous</td>
                   <td className="text-center py-3 px-4 font-mono text-purple-300">30kW continuous</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Peak Surge (5 sec)</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">20kW</td>
-                  <td className="text-center py-3 px-4 font-mono text-green-300">23kW</td>
+                  <td className="text-center py-3 px-4 font-mono text-orange-300">23kW</td>
                   <td className="text-center py-3 px-4 font-mono text-purple-300">46kW</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Max PV Input</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">19.5kW</td>
-                  <td className="text-center py-3 px-4 font-mono text-green-300">19.5kW</td>
+                  <td className="text-center py-3 px-4 font-mono text-orange-300">19.5kW</td>
                   <td className="text-center py-3 px-4 font-mono text-purple-300">39kW</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Battery Voltage Range</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">40-60VDC</td>
-                  <td className="text-center py-3 px-4 font-mono text-green-300">40-60VDC</td>
+                  <td className="text-center py-3 px-4 font-mono text-orange-300">40-60VDC</td>
                   <td className="text-center py-3 px-4 font-mono text-purple-300">120-500VDC</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Max Charge Current</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">215A</td>
-                  <td className="text-center py-3 px-4 font-mono text-green-300">275A</td>
+                  <td className="text-center py-3 px-4 font-mono text-orange-300">275A</td>
                   <td className="text-center py-3 px-4 font-mono text-purple-300">200A</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Grid-Tie Efficiency</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">97.6% CEC</td>
-                  <td className="text-center py-3 px-4 font-mono text-green-300">97.5% CEC</td>
+                  <td className="text-center py-3 px-4 font-mono text-orange-300">97.5% CEC</td>
                   <td className="text-center py-3 px-4 font-mono text-purple-300">97.2% CEC</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Transfer Time</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">&lt;4ms UPS</td>
-                  <td className="text-center py-3 px-4 font-mono text-green-300">&lt;4ms UPS</td>
+                  <td className="text-center py-3 px-4 font-mono text-orange-300">&lt;4ms UPS</td>
                   <td className="text-center py-3 px-4 font-mono text-purple-300">&lt;10ms</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Warranty</td>
                   <td className="text-center py-3 px-4 font-mono text-blue-300">10 years std</td>
-                  <td className="text-center py-3 px-4 font-mono text-green-300">10 years std</td>
+                  <td className="text-center py-3 px-4 font-mono text-orange-300">10 years std</td>
                   <td className="text-center py-3 px-4 font-mono text-purple-300">10 years std</td>
                 </tr>
                 <tr className="bg-gray-900/40">
                   <td className="py-3 px-4 text-white font-semibold">Typical Application</td>
                   <td className="text-center py-3 px-4 text-blue-300">3-5BR homes</td>
-                  <td className="text-center py-3 px-4 text-green-300">5BR+/Estate</td>
+                  <td className="text-center py-3 px-4 text-orange-300">5BR+/Estate</td>
                   <td className="text-center py-3 px-4 text-purple-300">Commercial</td>
                 </tr>
               </tbody>
@@ -646,7 +646,7 @@ const ResidentialSolar = () => {
         {/* Battery Technology Comparison */}
         <div className="mb-8">
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <Battery className="mr-3 h-6 w-6 text-green-400" />
+            <Battery className="mr-3 h-6 w-6 text-orange-400" />
             LiFePO4 Battery Selection Guide
           </h3>
           <div className="grid md:grid-cols-3 gap-6">
@@ -692,31 +692,31 @@ const ResidentialSolar = () => {
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
                   <span className="text-gray-400">Capacity:</span>
-                  <span className="text-green-300 font-mono">18.5kWh @ 100% DoD</span>
+                  <span className="text-orange-300 font-mono">18.5kWh @ 100% DoD</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-400">Voltage:</span>
-                  <span className="text-green-300 font-mono">51.2V nominal</span>
+                  <span className="text-orange-300 font-mono">51.2V nominal</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-400">Max Discharge:</span>
-                  <span className="text-green-300 font-mono">200A continuous</span>
+                  <span className="text-orange-300 font-mono">200A continuous</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-400">Round-Trip:</span>
-                  <span className="text-green-300 font-mono">95% efficiency</span>
+                  <span className="text-orange-300 font-mono">95% efficiency</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-400">Cycles:</span>
-                  <span className="text-green-300 font-mono">6,000 @ 80% DoD</span>
+                  <span className="text-orange-300 font-mono">6,000 @ 80% DoD</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-400">Weight:</span>
-                  <span className="text-green-300 font-mono">408 lbs</span>
+                  <span className="text-orange-300 font-mono">408 lbs</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-400">Warranty:</span>
-                  <span className="text-green-300 font-mono">10 years</span>
+                  <span className="text-orange-300 font-mono">10 years</span>
                 </div>
                 <div className="pt-3 border-t border-green-500/30">
                   <p className="text-gray-300">Ideal for: Whole-home backup, TOU arbitrage</p>
@@ -833,32 +833,32 @@ const ResidentialSolar = () => {
       >
         <div className="card-elite glow-green p-8 mb-8">
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <DollarSign className="mr-3 h-6 w-6 text-green-400" />
+            <DollarSign className="mr-3 h-6 w-6 text-orange-400" />
             Case Study: 4BR Redding Home (2,400 sq ft)
           </h3>
           <div className="grid lg:grid-cols-3 gap-6">
             <div className="spec-card-elite glow-green p-6">
-              <h4 className="text-lg font-semibold text-green-400 mb-4">System Configuration</h4>
+              <h4 className="text-lg font-semibold text-orange-400 mb-4">System Configuration</h4>
               <ul className="space-y-2 text-sm text-gray-300">
                 <li className="flex justify-between">
                   <span>Solar Array:</span>
-                  <span className="font-mono text-green-300">9.6kW (20×480W)</span>
+                  <span className="font-mono text-orange-300">9.6kW (20×480W)</span>
                 </li>
                 <li className="flex justify-between">
                   <span>Inverter:</span>
-                  <span className="font-mono text-green-300">Sol-Ark 15K</span>
+                  <span className="font-mono text-orange-300">Sol-Ark 15K</span>
                 </li>
                 <li className="flex justify-between">
                   <span>Battery:</span>
-                  <span className="font-mono text-green-300">15.2kWh (4×PHI 3.8)</span>
+                  <span className="font-mono text-orange-300">15.2kWh (4×PHI 3.8)</span>
                 </li>
                 <li className="flex justify-between">
                   <span>Install Date:</span>
-                  <span className="font-mono text-green-300">Oct 2024</span>
+                  <span className="font-mono text-orange-300">Oct 2024</span>
                 </li>
                 <li className="flex justify-between">
                   <span>Gross Cost:</span>
-                  <span className="font-mono text-green-300">$42,000</span>
+                  <span className="font-mono text-orange-300">$42,000</span>
                 </li>
               </ul>
             </div>
@@ -898,7 +898,7 @@ const ResidentialSolar = () => {
                 </li>
                 <li className="flex justify-between">
                   <span>New Bill:</span>
-                  <span className="font-mono text-green-300">$28/mo</span>
+                  <span className="font-mono text-orange-300">$28/mo</span>
                 </li>
                 <li className="flex justify-between">
                   <span>Loan Payment:</span>
@@ -906,22 +906,22 @@ const ResidentialSolar = () => {
                 </li>
                 <li className="flex justify-between">
                   <span>Net Savings:</span>
-                  <span className="font-mono text-green-300">$122/mo</span>
+                  <span className="font-mono text-orange-300">$122/mo</span>
                 </li>
                 <li className="flex justify-between">
                   <span>Payback:</span>
-                  <span className="font-mono text-green-300">6.1 years</span>
+                  <span className="font-mono text-orange-300">6.1 years</span>
                 </li>
               </ul>
             </div>
           </div>
 
           <div className="mt-6 bg-black/30 rounded-lg p-4">
-            <h5 className="text-green-300 font-semibold mb-2">20-Year Financial Projection</h5>
+            <h5 className="text-orange-300 font-semibold mb-2">20-Year Financial Projection</h5>
             <div className="grid md:grid-cols-4 gap-4 text-sm">
               <div>
                 <span className="text-gray-400">Total Energy Savings:</span>
-                <div className="text-2xl font-bold text-green-400 font-mono">$112,400</div>
+                <div className="text-2xl font-bold text-orange-400 font-mono">$112,400</div>
               </div>
               <div>
                 <span className="text-gray-400">Total System Cost:</span>
@@ -929,7 +929,7 @@ const ResidentialSolar = () => {
               </div>
               <div>
                 <span className="text-gray-400">Net Profit:</span>
-                <div className="text-2xl font-bold text-green-400 font-mono">$81,180</div>
+                <div className="text-2xl font-bold text-orange-400 font-mono">$81,180</div>
               </div>
               <div>
                 <span className="text-gray-400">IRR:</span>
@@ -946,19 +946,19 @@ const ResidentialSolar = () => {
             <div className="space-y-3 text-sm">
               <div className="flex justify-between">
                 <span className="text-gray-400">Upfront Cost:</span>
-                <span className="text-green-300 font-mono">$25,100</span>
+                <span className="text-orange-300 font-mono">$25,100</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-400">Monthly Savings:</span>
-                <span className="text-green-300 font-mono">$357</span>
+                <span className="text-orange-300 font-mono">$357</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-400">Payback:</span>
-                <span className="text-green-300 font-mono">5.9 years</span>
+                <span className="text-orange-300 font-mono">5.9 years</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-400">20-Year ROI:</span>
-                <span className="text-green-300 font-mono">324%</span>
+                <span className="text-orange-300 font-mono">324%</span>
               </div>
             </div>
           </div>
@@ -990,19 +990,19 @@ const ResidentialSolar = () => {
             <div className="space-y-3 text-sm">
               <div className="flex justify-between">
                 <span className="text-gray-400">Property Tax:</span>
-                <span className="text-green-300 font-mono">+$208/mo</span>
+                <span className="text-orange-300 font-mono">+$208/mo</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-400">Term:</span>
-                <span className="text-green-300 font-mono">20 years</span>
+                <span className="text-orange-300 font-mono">20 years</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-400">Net Savings/mo:</span>
-                <span className="text-green-300 font-mono">$149</span>
+                <span className="text-orange-300 font-mono">$149</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-400">Transferable:</span>
-                <span className="text-green-300 font-mono">Yes</span>
+                <span className="text-orange-300 font-mono">Yes</span>
               </div>
             </div>
           </div>
@@ -1044,7 +1044,7 @@ const ResidentialSolar = () => {
                   <div className="flex-1 mx-4 bg-gray-700 rounded-full h-4 relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-green-600" style={{width: '20%'}}></div>
                   </div>
-                  <span className="font-mono text-green-300">2,400 kWh</span>
+                  <span className="font-mono text-orange-300">2,400 kWh</span>
                 </div>
               </div>
             </div>
@@ -1061,11 +1061,11 @@ const ResidentialSolar = () => {
                 </div>
                 <div className="bg-black/30 rounded-lg p-4">
                   <div className="text-xs text-gray-500 uppercase mb-1">Peak Offset</div>
-                  <div className="text-2xl font-bold text-green-400">100%</div>
+                  <div className="text-2xl font-bold text-orange-400">100%</div>
                 </div>
                 <div className="bg-black/30 rounded-lg p-4">
                   <div className="text-xs text-gray-500 uppercase mb-1">Backup Days</div>
-                  <div className="text-2xl font-bold text-green-400">1.2</div>
+                  <div className="text-2xl font-bold text-orange-400">1.2</div>
                 </div>
               </div>
             </div>
@@ -1129,13 +1129,13 @@ const ResidentialSolar = () => {
 
           <div className="spec-card-elite glow-green group p-6">
             <div className="flex items-center gap-3 mb-4">
-              <div className="icon-container-elite bg-green-500/20 group-hover:bg-green-500/30">
-                <CircleDollarSign className="h-6 w-6 text-green-400" />
+              <div className="icon-container-elite bg-orange-500/20 group-hover:bg-orange-500/30">
+                <CircleDollarSign className="h-6 w-6 text-orange-400" />
               </div>
               <h3 className="text-xl font-bold text-white">General Market</h3>
             </div>
             <div className="mb-4">
-              <div className="text-4xl font-bold text-green-300 mb-2">$200-300/kWh</div>
+              <div className="text-4xl font-bold text-orange-300 mb-2">$200-300/kWh</div>
               <div className="text-sm text-gray-400">Step-down schedule applies</div>
             </div>
             <div className="space-y-2 text-sm text-gray-300">
@@ -1146,14 +1146,14 @@ const ResidentialSolar = () => {
                 <li>Agricultural operations</li>
                 <li>No special qualification needed</li>
               </ul>
-              <p className="mt-3 text-green-300 font-semibold">Still 20-30% cost offset</p>
+              <p className="mt-3 text-orange-300 font-semibold">Still 20-30% cost offset</p>
             </div>
           </div>
         </div>
 
         <div className="card-elite glow-orange p-8">
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <FileCheck className="mr-3 h-6 w-6 text-green-400" />
+            <FileCheck className="mr-3 h-6 w-6 text-orange-400" />
             SGIP Application Strategy & Timeline
           </h3>
           <div className="grid md:grid-cols-2 gap-8">
@@ -1161,27 +1161,27 @@ const ResidentialSolar = () => {
               <h4 className="text-lg font-semibold text-white mb-4">Required Documentation</h4>
               <ul className="space-y-2 text-gray-300 text-sm">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="h-5 w-5 text-green-400 mt-0.5 flex-shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-orange-400 mt-0.5 flex-shrink-0" />
                   <span>Interconnection Agreement (PG&E Rule 21)</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="h-5 w-5 text-green-400 mt-0.5 flex-shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-orange-400 mt-0.5 flex-shrink-0" />
                   <span>Battery system specification sheets (kWh capacity, power rating)</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="h-5 w-5 text-green-400 mt-0.5 flex-shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-orange-400 mt-0.5 flex-shrink-0" />
                   <span>Installer C-46 contractor license verification</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="h-5 w-5 text-green-400 mt-0.5 flex-shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-orange-400 mt-0.5 flex-shrink-0" />
                   <span>Proof of utility account (for Equity tiers)</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="h-5 w-5 text-green-400 mt-0.5 flex-shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-orange-400 mt-0.5 flex-shrink-0" />
                   <span>PSPS zone verification (for Resiliency tier)</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="h-5 w-5 text-green-400 mt-0.5 flex-shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-orange-400 mt-0.5 flex-shrink-0" />
                   <span>Installation photos and commissioning report</span>
                 </li>
               </ul>
@@ -1190,25 +1190,25 @@ const ResidentialSolar = () => {
               <h4 className="text-lg font-semibold text-white mb-4">Processing Timeline</h4>
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
-                  <div className="bg-green-500/20 rounded-full px-3 py-1 text-sm font-semibold text-green-400">Week 1-2</div>
+                  <div className="bg-orange-500/20 rounded-full px-3 py-1 text-sm font-semibold text-orange-400">Week 1-2</div>
                   <span className="text-gray-300 text-sm">Application submission & initial review</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="bg-green-500/20 rounded-full px-3 py-1 text-sm font-semibold text-green-400">Week 3-6</div>
+                  <div className="bg-orange-500/20 rounded-full px-3 py-1 text-sm font-semibold text-orange-400">Week 3-6</div>
                   <span className="text-gray-300 text-sm">Reservation confirmation from program administrator</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="bg-green-500/20 rounded-full px-3 py-1 text-sm font-semibold text-green-400">Week 7-10</div>
+                  <div className="bg-orange-500/20 rounded-full px-3 py-1 text-sm font-semibold text-orange-400">Week 7-10</div>
                   <span className="text-gray-300 text-sm">System installation & PG&E permission to operate</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="bg-green-500/20 rounded-full px-3 py-1 text-sm font-semibold text-green-400">Week 11-24</div>
+                  <div className="bg-orange-500/20 rounded-full px-3 py-1 text-sm font-semibold text-orange-400">Week 11-24</div>
                   <span className="text-gray-300 text-sm">Final claim submission & incentive payment</span>
                 </div>
               </div>
-              <div className="mt-4 p-4 bg-green-500/10 border border-orange-500/30 rounded-lg">
+              <div className="mt-4 p-4 bg-orange-500/10 border border-orange-500/30 rounded-lg">
                 <p className="text-sm text-gray-300">
-                  <strong className="text-green-400">APR handles 100% of SGIP paperwork</strong> - from initial application to final payment, ensuring maximum rebate capture and zero administrative burden on homeowners.
+                  <strong className="text-orange-400">APR handles 100% of SGIP paperwork</strong> - from initial application to final payment, ensuring maximum rebate capture and zero administrative burden on homeowners.
                 </p>
               </div>
             </div>
@@ -1262,7 +1262,7 @@ const ResidentialSolar = () => {
 
           <div className="card-elite glow-green p-8">
             <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-              <FileCheck className="mr-3 h-6 w-6 text-green-400" />
+              <FileCheck className="mr-3 h-6 w-6 text-orange-400" />
               Title 24 Building Code
             </h3>
             <div className="space-y-4 text-gray-300 text-sm">

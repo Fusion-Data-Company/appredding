@@ -409,7 +409,7 @@ const LithiumBattery = () => {
                         <div className="text-xl font-bold text-gray-900 dark:text-white">{chemistryData[selectedChemistry].voltage}</div>
                       </div>
                       <div className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800 shadow-inner rounded-xl p-4">
-                        <Battery className="h-5 w-5 text-green-500 mb-2" />
+                        <Battery className="h-5 w-5 text-orange-500 mb-2" />
                         <div className="text-sm text-gray-600 dark:text-gray-400">Energy Density</div>
                         <div className="text-xl font-bold text-gray-900 dark:text-white">{chemistryData[selectedChemistry].energy}</div>
                       </div>
@@ -428,7 +428,7 @@ const LithiumBattery = () => {
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
                         <h4 className="font-semibold mb-3 flex items-center gap-2 text-gray-900 dark:text-white">
-                          <CheckCircle className="h-5 w-5 text-green-500" /> Key Advantages
+                          <CheckCircle className="h-5 w-5 text-orange-500" /> Key Advantages
                         </h4>
                         <ul className="space-y-2">
                           {chemistryData[selectedChemistry].advantages.map((adv: string, idx: number) => (
@@ -446,7 +446,7 @@ const LithiumBattery = () => {
                         <ul className="space-y-2">
                           {chemistryData[selectedChemistry].applications.map((app: string, idx: number) => (
                             <li key={idx} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
-                              <ChevronRight className="h-4 w-4 text-green-500 mt-0.5" />
+                              <ChevronRight className="h-4 w-4 text-orange-500 mt-0.5" />
                               <span>{app}</span>
                             </li>
                           ))}
@@ -461,8 +461,8 @@ const LithiumBattery = () => {
                         <div className="text-sm text-gray-600 dark:text-gray-400">Operating Temperature</div>
                         <div className="font-bold text-gray-900 dark:text-white">{chemistryData[selectedChemistry].temp}</div>
                       </div>
-                      <div className="bg-green-50 dark:bg-green-900/20 rounded-xl p-4">
-                        <DollarSign className="h-5 w-5 text-green-500 mb-2" />
+                      <div className="bg-orange-50 dark:bg-orange-900/20 rounded-xl p-4">
+                        <DollarSign className="h-5 w-5 text-orange-500 mb-2" />
                         <div className="text-sm text-gray-600 dark:text-gray-400">Relative Cost</div>
                         <div className="font-bold text-gray-900 dark:text-white">{chemistryData[selectedChemistry].cost}</div>
                       </div>
@@ -582,7 +582,7 @@ const LithiumBattery = () => {
                             <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{feature.function}</p>
                             <div className="flex items-center justify-between text-xs">
                               <span className="text-gray-500 dark:text-gray-500">Range: {feature.range}</span>
-                              <span className="text-green-600 dark:text-green-400">✓ {feature.protection}</span>
+                              <span className="text-orange-600 dark:text-orange-400">✓ {feature.protection}</span>
                             </div>
                           </div>
                         ))}
@@ -593,14 +593,14 @@ const LithiumBattery = () => {
                     {/* Real-time BMS Monitoring Visualization */}
                     <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-6 text-white">
                       <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                        <Activity className="h-6 w-6 text-green-400" /> Live BMS Monitoring
+                        <Activity className="h-6 w-6 text-orange-400" /> Live BMS Monitoring
                       </h3>
                       <div className="space-y-4">
                         {/* Cell Voltage Visualization */}
                         <div className="bg-gray-800 rounded-xl p-4">
                           <div className="flex justify-between items-center mb-2">
                             <span className="text-sm text-gray-400">Cell Voltages (16S Configuration)</span>
-                            <span className="text-xs text-green-400">All Balanced</span>
+                            <span className="text-xs text-orange-400">All Balanced</span>
                           </div>
                           <div className="grid grid-cols-8 gap-1">
                             {[...Array(16)].map((_, i) => (
@@ -627,13 +627,13 @@ const LithiumBattery = () => {
                         <div className="grid grid-cols-2 gap-4">
                           <div className="bg-gray-800 rounded-xl p-4">
                             <div className="flex items-center gap-2 mb-2">
-                              <Thermometer className="h-4 w-4 text-green-400" />
+                              <Thermometer className="h-4 w-4 text-orange-400" />
                               <span className="text-sm text-gray-400">Temperature Map</span>
                             </div>
                             <div className="grid grid-cols-3 gap-2">
                               {[25, 26, 24, 27, 25, 26].map((temp, i) => (
                                 <div key={i} className="text-center">
-                                  <div className={`text-lg font-bold ${temp > 26 ? 'text-green-400' : 'text-green-400'}`}>
+                                  <div className={`text-lg font-bold ${temp > 26 ? 'text-orange-400' : 'text-orange-400'}`}>
                                     {temp}°C
                                   </div>
                                   <div className="text-xs text-gray-500">T{i+1}</div>
@@ -650,7 +650,7 @@ const LithiumBattery = () => {
                             <div className="space-y-2">
                               <div className="flex justify-between items-center">
                                 <span className="text-xs text-gray-500">Current</span>
-                                <span className="text-sm font-bold text-green-400">{currentFlow.toFixed(1)}A</span>
+                                <span className="text-sm font-bold text-orange-400">{currentFlow.toFixed(1)}A</span>
                               </div>
                               <div className="flex justify-between items-center">
                                 <span className="text-xs text-gray-500">Voltage</span>
@@ -668,12 +668,12 @@ const LithiumBattery = () => {
                         <div className="bg-gray-800 rounded-xl p-4">
                           <div className="flex justify-between items-center mb-2">
                             <span className="text-sm text-gray-400">Protection Status</span>
-                            <span className="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded">All Systems Normal</span>
+                            <span className="text-xs bg-orange-500/20 text-orange-400 px-2 py-1 rounded">All Systems Normal</span>
                           </div>
                           <div className="grid grid-cols-4 gap-2 text-xs">
                             {['OVP', 'UVP', 'OCP', 'OTP', 'SCP', 'Cell Balance', 'Isolation', 'Communication'].map((protection, i) => (
                               <div key={i} className="flex items-center gap-1">
-                                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                                <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
                                 <span className="text-gray-400">{protection}</span>
                               </div>
                             ))}
@@ -726,7 +726,7 @@ const LithiumBattery = () => {
                                   </div>
                                   <p className="text-gray-600 dark:text-gray-400 mb-3">{step.description}</p>
                                   <div className="flex items-center gap-2 text-sm">
-                                    <CheckCircle className="h-4 w-4 text-green-500" />
+                                    <CheckCircle className="h-4 w-4 text-orange-500" />
                                     <span className="text-gray-500 dark:text-gray-400">Quality Standard: {step.quality}</span>
                                   </div>
                                 </div>
@@ -789,7 +789,7 @@ const LithiumBattery = () => {
                             <div className="grid grid-cols-2 gap-2 mt-2">
                               {app.features.map((feature, i) => (
                                 <div key={i} className="flex items-center gap-1 text-xs text-gray-700 dark:text-gray-300">
-                                  <CheckCircle className="h-3 w-3 text-green-500 flex-shrink-0" />
+                                  <CheckCircle className="h-3 w-3 text-orange-500 flex-shrink-0" />
                                   {feature}
                                 </div>
                               ))}
@@ -798,7 +798,7 @@ const LithiumBattery = () => {
 
                           <div className="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700">
                             <span className="text-sm text-gray-600 dark:text-gray-400">ROI Period</span>
-                            <span className="text-sm font-bold text-green-600 dark:text-green-400">{app.roi}</span>
+                            <span className="text-sm font-bold text-orange-600 dark:text-orange-400">{app.roi}</span>
                           </div>
                         </div>
                       </div>
@@ -843,7 +843,7 @@ const LithiumBattery = () => {
                           <ul className="space-y-1">
                             {standard.tests.map((test, i) => (
                               <li key={i} className="text-xs text-gray-600 dark:text-gray-300 flex items-center gap-1">
-                                <ChevronRight className="h-3 w-3 text-green-500" />
+                                <ChevronRight className="h-3 w-3 text-orange-500" />
                                 {test}
                               </li>
                             ))}
@@ -879,7 +879,7 @@ const LithiumBattery = () => {
                       </div>
                       <div className="bg-gradient-to-br from-white/85 to-gray-100/80 backdrop-blur-xl dark:from-gray-800/85 dark:to-gray-900/80 rounded-xl p-4">
                         <div className="flex items-center gap-2 mb-2">
-                          <AlertTriangle className="h-5 w-5 text-green-500" />
+                          <AlertTriangle className="h-5 w-5 text-orange-500" />
                           <h4 className="font-semibold text-gray-900 dark:text-white">Penetration Test</h4>
                         </div>
                         <p className="text-sm text-gray-600 dark:text-gray-400">Nail penetration to simulate catastrophic damage scenarios</p>
@@ -941,7 +941,7 @@ const LithiumBattery = () => {
                           {recyclingProcess.map((stage, idx) => (
                             <div key={idx} className="bg-gradient-to-br from-white/85 to-gray-100/80 backdrop-blur-xl dark:from-gray-800/85 dark:to-gray-900/80 rounded-xl p-4 shadow">
                               <div className="flex items-start gap-3">
-                                <div className="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
+                                <div className="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
                                   {idx + 1}
                                 </div>
                                 <div className="flex-1">
@@ -952,7 +952,7 @@ const LithiumBattery = () => {
                                     </span>
                                   </div>
                                   <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{stage.process}</p>
-                                  <div className="flex items-center gap-2 text-xs text-green-600 dark:text-green-400">
+                                  <div className="flex items-center gap-2 text-xs text-orange-600 dark:text-orange-400">
                                     <DollarSign className="h-3 w-3" />
                                     <span>{stage.value}</span>
                                   </div>
@@ -970,7 +970,7 @@ const LithiumBattery = () => {
                         {/* Carbon Footprint Comparison */}
                         <div className="bg-gradient-to-br from-white/85 to-gray-100/80 backdrop-blur-xl dark:from-gray-800/85 dark:to-gray-900/80 rounded-xl p-6 shadow mb-4">
                           <h4 className="font-semibold mb-3 flex items-center gap-2 text-gray-900 dark:text-white">
-                            <Leaf className="h-5 w-5 text-green-500" /> Carbon Footprint Reduction
+                            <Leaf className="h-5 w-5 text-orange-500" /> Carbon Footprint Reduction
                           </h4>
                           <div className="space-y-3">
                             <div>
@@ -985,16 +985,16 @@ const LithiumBattery = () => {
                             <div>
                               <div className="flex justify-between items-center mb-1">
                                 <span className="text-sm text-gray-600 dark:text-gray-400">Recycled Material Production</span>
-                                <span className="text-sm font-bold text-green-500">3.8 kg CO₂/kWh</span>
+                                <span className="text-sm font-bold text-orange-500">3.8 kg CO₂/kWh</span>
                               </div>
                               <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                <div className="bg-green-500 h-2 rounded-full" style={{width: '30%'}}></div>
+                                <div className="bg-orange-500 h-2 rounded-full" style={{width: '30%'}}></div>
                               </div>
                             </div>
                             <div className="pt-3 border-t border-gray-200 dark:border-gray-700">
                               <div className="flex justify-between items-center">
                                 <span className="font-semibold text-gray-900 dark:text-white">Carbon Savings</span>
-                                <span className="font-bold text-green-600">70% Reduction</span>
+                                <span className="font-bold text-orange-600">70% Reduction</span>
                               </div>
                             </div>
                           </div>
@@ -1123,15 +1123,15 @@ const LithiumBattery = () => {
                               </div>
                               <div className="flex justify-between pt-2 border-t border-gray-300 dark:border-gray-600">
                                 <span className="font-semibold text-gray-900 dark:text-white">Total 10-Year Cost</span>
-                                <span className="font-bold text-green-600">$8,600</span>
+                                <span className="font-bold text-orange-600">$8,600</span>
                               </div>
                             </div>
                           </div>
 
-                          <div className="bg-green-50 dark:bg-green-900/20 rounded-xl p-4">
+                          <div className="bg-orange-50 dark:bg-orange-900/20 rounded-xl p-4">
                             <div className="flex justify-between items-center">
                               <span className="font-bold text-gray-900 dark:text-white">10-Year Savings with Lithium</span>
-                              <span className="text-2xl font-bold text-green-600">$9,400</span>
+                              <span className="text-2xl font-bold text-orange-600">$9,400</span>
                             </div>
                           </div>
                         </div>
@@ -1176,11 +1176,11 @@ const LithiumBattery = () => {
                               <div className="grid grid-cols-2 gap-4 text-sm">
                                 <div>
                                   <p className="text-gray-600 dark:text-gray-400">Monthly Savings</p>
-                                  <p className="text-xl font-bold text-green-600">$144</p>
+                                  <p className="text-xl font-bold text-orange-600">$144</p>
                                 </div>
                                 <div>
                                   <p className="text-gray-600 dark:text-gray-400">Annual Savings</p>
-                                  <p className="text-xl font-bold text-green-600">$1,728</p>
+                                  <p className="text-xl font-bold text-orange-600">$1,728</p>
                                 </div>
                                 <div>
                                   <p className="text-gray-600 dark:text-gray-400">Payback Period</p>

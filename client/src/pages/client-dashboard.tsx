@@ -33,7 +33,7 @@ export default function ClientDashboard() {
       case "in_progress":
         return <Badge variant="outline" className="bg-blue-900/20 text-blue-500 border-blue-800">In Progress</Badge>;
       case "completed":
-        return <Badge variant="outline" className="bg-green-900/20 text-green-500 border-green-800">Completed</Badge>;
+        return <Badge variant="outline" className="bg-orange-900/20 text-orange-500 border-green-800">Completed</Badge>;
       case "cancelled":
         return <Badge variant="outline" className="bg-red-900/20 text-red-500 border-red-800">Cancelled</Badge>;
       default:

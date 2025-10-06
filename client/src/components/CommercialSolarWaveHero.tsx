@@ -148,7 +148,7 @@ const Navigation: React.FC = () => {
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <div className="relative">
-              <Sun className="w-8 h-8 text-green-500" />
+              <Sun className="w-8 h-8 text-orange-500" />
               <Zap className="w-4 h-4 text-yellow-400 absolute -bottom-1 -right-1" />
             </div>
             <span className="text-2xl font-bold bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-500 bg-clip-text text-transparent preserve-text-color">
@@ -265,7 +265,7 @@ const CommercialSolarWaveHero: React.FC<CommercialSolarWaveHeroProps> = ({
               animate={{ rotate: [0, 360] }}
               transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
             >
-              <Zap className="w-4 h-4 text-green-400" />
+              <Zap className="w-4 h-4 text-orange-400" />
             </motion.div>
             <span>{tagline}</span>
           </motion.div>
@@ -281,7 +281,7 @@ const CommercialSolarWaveHero: React.FC<CommercialSolarWaveHeroProps> = ({
             }}
           >
             <span className="font-extrabold">
-              <span className="text-green-500" style={{
+              <span className="text-orange-500" style={{
                 filter: 'drop-shadow(0 0 20px rgba(255, 165, 0, 1)) drop-shadow(0 0 40px rgba(255, 165, 0, 0.8)) drop-shadow(0 4px 12px rgba(255, 165, 0, 0.9))',
                 WebkitTextStroke: '1px rgba(255, 165, 0, 0.3)',
                 textShadow: '0 0 40px rgba(255, 165, 0, 0.9), 0 0 80px rgba(255, 165, 0, 0.6), 0 4px 20px rgba(255, 165, 0, 0.8)'
@@ -338,7 +338,7 @@ const CommercialSolarWaveHero: React.FC<CommercialSolarWaveHeroProps> = ({
       </motion.div>
 
       {/* Ambient Glow Effects */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-green-500/10 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
     </div>
   );

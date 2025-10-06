@@ -56,11 +56,11 @@ const StatCard = ({
       </div>
       <div className="flex items-center mt-4">
         {change > 0 ? (
-          <TrendingUp className="h-4 w-4 text-green-500 mr-1" />
+          <TrendingUp className="h-4 w-4 text-orange-500 mr-1" />
         ) : (
           <TrendingDown className="h-4 w-4 text-red-500 mr-1" />
         )}
-        <span className={`text-sm ${change > 0 ? 'text-green-500' : 'text-red-500'}`}>
+        <span className={`text-sm ${change > 0 ? 'text-orange-500' : 'text-red-500'}`}>
           {change > 0 ? '+' : ''}{change}% from last month
         </span>
       </div>
@@ -205,7 +205,7 @@ export default function AnalyticsContent() {
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
-                        <div className="h-2 w-2 rounded-full bg-green-500" />
+                        <div className="h-2 w-2 rounded-full bg-orange-500" />
                         <span className="text-sm font-medium">Sarah Johnson</span>
                       </div>
                       <span className="text-sm font-medium">$18,750</span>

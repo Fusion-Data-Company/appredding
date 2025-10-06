@@ -182,7 +182,7 @@ export default function BookingWidget({ className }: BookingWidgetProps) {
       )} data-testid="booking-confirmation">
         <div className="relative z-10 text-center">
           <div className="mb-6 flex justify-center">
-            <CheckCircle2 className="h-20 w-20 text-green-500" data-testid="success-icon" />
+            <CheckCircle2 className="h-20 w-20 text-orange-500" data-testid="success-icon" />
           </div>
           <h2 className="text-3xl font-bold text-white mb-4" data-testid="confirmation-title">
             Appointment Confirmed!
@@ -222,7 +222,7 @@ export default function BookingWidget({ className }: BookingWidgetProps) {
                 className="block"
                 data-testid="link-download-ics"
               >
-                <Button variant="outline" className="w-full border-orange-500/30 text-white hover:bg-green-500/10">
+                <Button variant="outline" className="w-full border-orange-500/30 text-white hover:bg-orange-500/10">
                   Download Calendar Invite (.ics)
                 </Button>
               </a>
@@ -389,7 +389,7 @@ export default function BookingWidget({ className }: BookingWidgetProps) {
               </Label>
               {loadingSlots ? (
                 <div className="flex items-center justify-center py-8" data-testid="loading-slots">
-                  <Loader2 className="h-8 w-8 animate-spin text-green-500" />
+                  <Loader2 className="h-8 w-8 animate-spin text-orange-500" />
                 </div>
               ) : availableSlots.length > 0 ? (
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
@@ -402,7 +402,7 @@ export default function BookingWidget({ className }: BookingWidgetProps) {
                         "p-3 rounded-lg border-2 transition-all",
                         "hover:scale-105 active:scale-95",
                         watchedTime === slot.startTime
-                          ? "bg-green-500 border-orange-500 text-white"
+                          ? "bg-orange-500 border-orange-500 text-white"
                           : "bg-gray-800/50 border-gray-700 text-gray-300 hover:border-orange-500/50"
                       )}
                       data-testid={`time-slot-${slot.startTime}`}

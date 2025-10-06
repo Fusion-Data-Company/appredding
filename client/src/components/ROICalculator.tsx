@@ -99,24 +99,24 @@ const ROICalculator: React.FC<ROICalculatorProps> = ({ onCalculate }) => {
         </Button>
         
         {results && (
-          <div className="space-y-3 p-4 bg-green-50 dark:bg-green-950 rounded-lg">
-            <div className="flex items-center gap-2 text-green-700 dark:text-green-300">
+          <div className="space-y-3 p-4 bg-orange-50 dark:bg-orange-950 rounded-lg">
+            <div className="flex items-center gap-2 text-orange-700 dark:text-orange-300">
               <TrendingUp className="w-4 h-4" />
               <span className="font-semibold">ROI: {results.roiPercentage.toFixed(1)}%</span>
             </div>
             
             <div className="grid grid-cols-2 gap-2 text-sm">
               <div>
-                <span className="text-green-600 dark:text-green-400">Payback:</span>
+                <span className="text-orange-600 dark:text-orange-400">Payback:</span>
                 <div className="font-semibold">{results.paybackPeriod.toFixed(1)} years</div>
               </div>
               <div>
-                <span className="text-green-600 dark:text-green-400">25-Year Savings:</span>
+                <span className="text-orange-600 dark:text-orange-400">25-Year Savings:</span>
                 <div className="font-semibold">${results.netSavings.toLocaleString()}</div>
               </div>
             </div>
             
-            <div className="text-xs text-green-600 dark:text-green-400">
+            <div className="text-xs text-orange-600 dark:text-orange-400">
               Based on NEM 3.0 rates and California incentives
             </div>
           </div>

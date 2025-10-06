@@ -110,7 +110,7 @@ interface MarketingCampaign {
 const getStatusColor = (status: string) => {
   switch (status) {
     case "published":
-      return "bg-green-100 text-green-800 border-green-300";
+      return "bg-orange-100 text-orange-800 border-green-300";
     case "scheduled":
       return "bg-blue-100 text-blue-800 border-blue-300";
     case "draft":
@@ -647,13 +647,13 @@ export default function SocialMediaContent() {
                 </div>
                 <div className="p-4 border rounded-lg">
                   <h3 className="font-medium mb-2">Published</h3>
-                  <p className="text-2xl font-bold text-green-600">
+                  <p className="text-2xl font-bold text-orange-600">
                     {posts?.filter((p: any) => p.status === 'published').length || 0}
                   </p>
                 </div>
                 <div className="p-4 border rounded-lg">
                   <h3 className="font-medium mb-2">Scheduled</h3>
-                  <p className="text-2xl font-bold text-green-600">
+                  <p className="text-2xl font-bold text-orange-600">
                     {posts?.filter((p: any) => p.status === 'scheduled').length || 0}
                   </p>
                 </div>

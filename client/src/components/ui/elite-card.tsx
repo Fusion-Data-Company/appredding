@@ -54,7 +54,7 @@ export const EliteCard: React.FC<EliteCardProps> = ({
           {[...Array(64)].map((_, i) => (
             <motion.div 
               key={i} 
-              className="bg-green-500 rounded-sm"
+              className="bg-orange-500 rounded-sm"
               animate={{ opacity: [0.1, 0.3, 0.1] }}
               transition={{ duration: 4, repeat: Infinity, delay: i * 0.05 }}
             />

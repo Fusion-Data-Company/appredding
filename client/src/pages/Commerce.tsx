@@ -85,7 +85,7 @@ const Commerce = () => {
                     </div>
                     <div className="flex justify-between">
                       <span>Annual Savings:</span>
-                      <span className="font-semibold text-green-400">${roiData.annualSavings.toLocaleString()}</span>
+                      <span className="font-semibold text-orange-400">${roiData.annualSavings.toLocaleString()}</span>
                     </div>
                   </div>
                 </CardContent>
@@ -110,7 +110,7 @@ const Commerce = () => {
                   <div className="text-sm text-slate-400">Shipping Cost</div>
                 </div>
                 <div>
-                  <Calculator className="w-8 h-8 mx-auto mb-2 text-green-400" />
+                  <Calculator className="w-8 h-8 mx-auto mb-2 text-orange-400" />
                   <div className="text-2xl font-bold text-white">
                     {roiData ? `${roiData.roiPercentage.toFixed(1)}%` : 'N/A'}
                   </div>

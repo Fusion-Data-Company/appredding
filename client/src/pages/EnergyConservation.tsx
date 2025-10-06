@@ -225,14 +225,14 @@ const EnergyConservation = () => {
               <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">Energy Efficiency Solutions</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">Live Energy Metrics</h2>
-            <p className="text-lg mb-6 text-green-100">Real-time monitoring of your energy consumption and savings potential</p>
+            <p className="text-lg mb-6 text-orange-100">Real-time monitoring of your energy consumption and savings potential</p>
 
             {/* Live Energy Metrics */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
               <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <Activity className="h-5 w-5 mb-2 text-green-200" />
+                <Activity className="h-5 w-5 mb-2 text-orange-200" />
                 <div className="text-2xl font-bold">{energyUsage.toFixed(0)}</div>
-                <div className="text-sm text-green-200">kWh Usage</div>
+                <div className="text-sm text-orange-200">kWh Usage</div>
               </div>
               <div className="bg-white/10 backdrop-blur rounded-xl p-4">
                 <Gauge className="h-5 w-5 mb-2 text-blue-200" />
@@ -245,14 +245,14 @@ const EnergyConservation = () => {
                 <div className="text-sm text-yellow-200">Monthly Savings</div>
               </div>
               <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <ThermometerSun className="h-5 w-5 mb-2 text-green-200" />
+                <ThermometerSun className="h-5 w-5 mb-2 text-orange-200" />
                 <div className="text-2xl font-bold">{temperature.toFixed(0)}°F</div>
-                <div className="text-sm text-green-200">Set Point</div>
+                <div className="text-sm text-orange-200">Set Point</div>
               </div>
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <button className="bg-white text-green-600 px-6 py-3 rounded-xl font-semibold hover:bg-green-50 transition flex items-center gap-2">
+              <button className="bg-white text-orange-600 px-6 py-3 rounded-xl font-semibold hover:bg-orange-50 transition flex items-center gap-2">
                 Schedule Energy Audit <ArrowRight className="h-5 w-5" />
               </button>
               <button className="bg-white/20 backdrop-blur text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/30 transition flex items-center gap-2">
@@ -277,7 +277,7 @@ const EnergyConservation = () => {
                 onClick={() => setSelectedService(service)}
                 className={`px-4 py-2 rounded-lg font-medium transition ${
                   selectedService === service
-                    ? "bg-green-600 text-white"
+                    ? "bg-orange-600 text-white"
                     : "bg-gray-100 dark:bg-gray-700 text-gray-700  hover:bg-gray-200 dark:hover:bg-gray-600"
                 }`}
               >
@@ -291,7 +291,7 @@ const EnergyConservation = () => {
               <h3 className="text-2xl font-bold text-gray-900 ">
                 {conservationServices[selectedService as keyof typeof conservationServices].name}
               </h3>
-              <span className="bg-green-100 dark:bg-green-900 text-green-800  px-3 py-1 rounded-full text-sm font-medium">
+              <span className="bg-orange-100 dark:bg-orange-900 text-orange-800  px-3 py-1 rounded-full text-sm font-medium">
                 {conservationServices[selectedService as keyof typeof conservationServices].savings} Savings
               </span>
             </div>
@@ -303,12 +303,12 @@ const EnergyConservation = () => {
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               <div>
                 <h4 className="font-semibold mb-3 flex items-center gap-2 text-gray-900 ">
-                  <CheckCircle className="h-5 w-5 text-green-500" /> Key Features
+                  <CheckCircle className="h-5 w-5 text-orange-500" /> Key Features
                 </h4>
                 <ul className="space-y-2">
                   {conservationServices[selectedService as keyof typeof conservationServices].features.map((feature: string, idx: number) => (
                     <li key={idx} className="flex items-start gap-2 text-gray-700 ">
-                      <ChevronRight className="h-4 w-4 text-green-500 mt-0.5" />
+                      <ChevronRight className="h-4 w-4 text-orange-500 mt-0.5" />
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -323,11 +323,11 @@ const EnergyConservation = () => {
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-gray-600 ">Investment Range</span>
-                    <span className="font-bold text-green-600 ">{conservationServices[selectedService as keyof typeof conservationServices].price}</span>
+                    <span className="font-bold text-orange-600 ">{conservationServices[selectedService as keyof typeof conservationServices].price}</span>
                   </div>
                 </div>
 
-                <button className="w-full bg-green-600 text-white px-4 py-3 rounded-xl font-semibold hover:bg-green-700 transition">
+                <button className="w-full bg-orange-600 text-white px-4 py-3 rounded-xl font-semibold hover:bg-orange-700 transition">
                   Get Free Quote
                 </button>
               </div>
@@ -380,7 +380,7 @@ const EnergyConservation = () => {
             {/* Diagnostic Equipment */}
             <div className="card-elite glow-blue p-8 group">
               <h3 className="text-xl font-bold mb-6 text-gray-900  flex items-center gap-2">
-                <Cpu className="h-6 w-6 text-green-500" /> Diagnostic Equipment
+                <Cpu className="h-6 w-6 text-orange-500" /> Diagnostic Equipment
               </h3>
 
               <div className="grid grid-cols-2 gap-4">
@@ -395,7 +395,7 @@ const EnergyConservation = () => {
                   <div key={idx} className="spec-card-elite glow-blue">
                     <h4 className="font-semibold text-gray-900  text-sm">{item.tool}</h4>
                     <p className="text-xs text-gray-500 ">{item.spec}</p>
-                    <p className="text-xs text-green-600  mt-1">Measures: {item.measure}</p>
+                    <p className="text-xs text-orange-600  mt-1">Measures: {item.measure}</p>
                   </div>
                 ))}
               </div>
@@ -425,11 +425,11 @@ const EnergyConservation = () => {
                   <p className="text-sm text-gray-600  mb-2">{concept.description}</p>
                   <div className="text-xs space-y-1">
                     <div className="flex items-center gap-1">
-                      <AlertTriangle className="h-3 w-3 text-green-500" />
+                      <AlertTriangle className="h-3 w-3 text-orange-500" />
                       <span className="text-gray-500">Impact: {concept.impact}</span>
                     </div>
                     <div className="flex items-center gap-1">
-                      <CheckCircle className="h-3 w-3 text-green-500" />
+                      <CheckCircle className="h-3 w-3 text-orange-500" />
                       <span className="text-gray-500">Solution: {concept.solution}</span>
                     </div>
                   </div>
@@ -477,10 +477,10 @@ const EnergyConservation = () => {
                   </div>
                 </div>
 
-                <div className="bg-green-50 dark:bg-green-900/20 rounded-xl p-4">
+                <div className="bg-orange-50 dark:bg-orange-900/20 rounded-xl p-4">
                   <div className="flex justify-between items-center mb-2">
                     <span className="font-semibold text-gray-900 ">Ground-Source (Geothermal)</span>
-                    <span className="text-sm bg-green-100 dark:bg-green-900 text-green-600  px-2 py-1 rounded">
+                    <span className="text-sm bg-orange-100 dark:bg-orange-900 text-orange-600  px-2 py-1 rounded">
                       400-600% Efficient
                     </span>
                   </div>
@@ -511,7 +511,7 @@ const EnergyConservation = () => {
                     <span>-15°F operation</span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <Flame className="h-4 w-4 text-green-500" />
+                    <Flame className="h-4 w-4 text-orange-500" />
                     <span>No backup heat needed</span>
                   </div>
                 </div>
@@ -535,7 +535,7 @@ const EnergyConservation = () => {
                   <div key={idx} className="spec-card-elite glow-purple">
                     <div className="flex items-center justify-between mb-2">
                       <h4 className="font-semibold text-gray-900 ">{item.feature}</h4>
-                      <span className="text-sm font-bold text-green-600 ">{item.savings}</span>
+                      <span className="text-sm font-bold text-orange-600 ">{item.savings}</span>
                     </div>
                     <p className="text-sm text-gray-600 ">{item.desc}</p>
                   </div>
@@ -558,7 +558,7 @@ const EnergyConservation = () => {
               {/* R-Value Requirements */}
               <div>
                 <h3 className="text-lg font-bold mb-4 text-gray-900  flex items-center gap-2">
-                  <Home className="h-5 w-5 text-green-500" /> Insulation R-Values (Climate Zone 3)
+                  <Home className="h-5 w-5 text-orange-500" /> Insulation R-Values (Climate Zone 3)
                 </h3>
                 <div className="space-y-3">
                   {[
@@ -572,7 +572,7 @@ const EnergyConservation = () => {
                     <div key={idx} className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
                       <div className="flex justify-between items-start mb-1">
                         <span className="font-medium text-gray-900 ">{item.area}</span>
-                        <span className="text-xs bg-green-100 dark:bg-green-900 text-green-600  px-2 py-1 rounded">
+                        <span className="text-xs bg-orange-100 dark:bg-orange-900 text-orange-600  px-2 py-1 rounded">
                           {item.savings}
                         </span>
                       </div>
@@ -583,7 +583,7 @@ const EnergyConservation = () => {
                         </div>
                         <div>
                           <span className="text-gray-500">Target:</span>
-                          <span className="text-green-600  font-medium"> {item.recommended}</span>
+                          <span className="text-orange-600  font-medium"> {item.recommended}</span>
                         </div>
                       </div>
                     </div>
@@ -611,7 +611,7 @@ const EnergyConservation = () => {
                         <span className={`text-xs px-2 py-1 rounded ${
                           item.leakage === "High" ? "bg-red-100 text-red-600 dark:bg-red-900 " :
                           item.leakage === "Medium" ? "bg-yellow-100 text-yellow-600 dark:bg-yellow-900 " :
-                          "bg-green-100 text-green-600 dark:bg-green-900 "
+                          "bg-orange-100 text-orange-600 dark:bg-orange-900 "
                         }`}>
                           {item.leakage} Priority
                         </span>
@@ -636,7 +636,7 @@ const EnergyConservation = () => {
                   <div className="text-xs text-gray-600 ">Average</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-green-600">3-7</div>
+                  <div className="text-2xl font-bold text-orange-600">3-7</div>
                   <div className="text-xs text-gray-600 ">Efficient</div>
                 </div>
                 <div>
@@ -664,13 +664,13 @@ const EnergyConservation = () => {
                   <div className="icon-container-elite bg-purple-500/20 group-hover:bg-purple-500/30">
                     <Component className="h-5 w-5 text-blue-500" />
                   </div>
-                  <span className="text-sm font-bold text-green-600 ">{system.savings} Savings</span>
+                  <span className="text-sm font-bold text-orange-600 ">{system.savings} Savings</span>
                 </div>
                 <h3 className="text-lg font-bold text-gray-900  mb-3">{system.system}</h3>
                 <ul className="space-y-2">
                   {system.features.map((feature, i) => (
                     <li key={i} className="text-sm text-gray-600  flex items-center gap-2">
-                      <CheckCircle className="h-3 w-3 text-green-500 flex-shrink-0" />
+                      <CheckCircle className="h-3 w-3 text-orange-500 flex-shrink-0" />
                       {feature}
                     </li>
                   ))}
@@ -711,7 +711,7 @@ const EnergyConservation = () => {
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 ">
                         {metric.standard}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-green-600 ">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-orange-600 ">
                         {metric.premium}
                       </td>
                     </tr>
@@ -735,14 +735,14 @@ const EnergyConservation = () => {
               <div key={idx} className="card-elite glow-gold p-6 group">
                 <div className="flex items-start justify-between mb-3">
                   <div className="icon-container-elite bg-yellow-500/20 group-hover:bg-yellow-500/30">
-                    <DollarSign className="h-5 w-5 text-green-500" />
+                    <DollarSign className="h-5 w-5 text-orange-500" />
                   </div>
-                  <span className="text-sm bg-green-100 dark:bg-green-900 text-green-800  px-2 py-1 rounded">
+                  <span className="text-sm bg-orange-100 dark:bg-orange-900 text-orange-800  px-2 py-1 rounded">
                     {program.type}
                   </span>
                 </div>
                 <h3 className="text-lg font-bold text-gray-900  mb-2">{program.program}</h3>
-                <div className="text-2xl font-bold text-green-600  mb-2">{program.amount}</div>
+                <div className="text-2xl font-bold text-orange-600  mb-2">{program.amount}</div>
                 <p className="text-sm text-gray-600 ">{program.requirements}</p>
               </div>
             ))}
@@ -785,7 +785,7 @@ const EnergyConservation = () => {
                     <div key={idx} className="spec-card-elite glow-gold">
                       <div className="flex justify-between items-start mb-2">
                         <h4 className="font-semibold text-gray-900 ">{item.upgrade}</h4>
-                        <span className="text-sm font-bold text-green-600">{item.roi} ROI</span>
+                        <span className="text-sm font-bold text-orange-600">{item.roi} ROI</span>
                       </div>
                       <div className="grid grid-cols-3 gap-2 text-sm">
                         <div>
@@ -794,7 +794,7 @@ const EnergyConservation = () => {
                         </div>
                         <div>
                           <span className="text-gray-500">Savings:</span>
-                          <div className="font-medium text-green-600">{item.savings}</div>
+                          <div className="font-medium text-orange-600">{item.savings}</div>
                         </div>
                         <div>
                           <span className="text-gray-500">Payback:</span>
@@ -834,11 +834,11 @@ const EnergyConservation = () => {
                       <div className="grid grid-cols-2 gap-4 text-sm">
                         <div>
                           <p className="text-gray-600 ">Monthly Savings</p>
-                          <p className="text-2xl font-bold text-green-600">$87</p>
+                          <p className="text-2xl font-bold text-orange-600">$87</p>
                         </div>
                         <div>
                           <p className="text-gray-600 ">Annual Savings</p>
-                          <p className="text-2xl font-bold text-green-600">$1,044</p>
+                          <p className="text-2xl font-bold text-orange-600">$1,044</p>
                         </div>
                         <div>
                           <p className="text-gray-600 ">10-Year Savings</p>
@@ -846,7 +846,7 @@ const EnergyConservation = () => {
                         </div>
                         <div>
                           <p className="text-gray-600 ">CO₂ Reduction</p>
-                          <p className="text-2xl font-bold text-green-600">3.2 tons/yr</p>
+                          <p className="text-2xl font-bold text-orange-600">3.2 tons/yr</p>
                         </div>
                       </div>
                     </div>
@@ -860,7 +860,7 @@ const EnergyConservation = () => {
         {/* Real Customer Case Studies */}
         <div className="mb-12">
           <div className="text-center mb-8">
-            <p className="text-green-600 font-semibold mb-2">Success Stories</p>
+            <p className="text-orange-600 font-semibold mb-2">Success Stories</p>
             <h2 className="text-3xl font-bold text-gray-900  mb-3">Real Energy Savings Achieved</h2>
             <p className="text-gray-600 ">Actual results from Northern California properties</p>
           </div>
@@ -937,7 +937,7 @@ const EnergyConservation = () => {
                     <p className="text-sm text-gray-700 ">{study.solutions}</p>
                   </div>
                   <div>
-                    <h4 className="text-sm font-semibold text-green-600 ">Results Achieved</h4>
+                    <h4 className="text-sm font-semibold text-orange-600 ">Results Achieved</h4>
                     <p className="text-sm text-gray-700 ">{study.results}</p>
                   </div>
                 </div>
@@ -947,9 +947,9 @@ const EnergyConservation = () => {
                     <p className="text-xs text-gray-600 ">Investment</p>
                     <p className="text-sm font-bold text-gray-900 ">{study.investment}</p>
                   </div>
-                  <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-2">
+                  <div className="bg-orange-50 dark:bg-orange-900/20 rounded-lg p-2">
                     <p className="text-xs text-gray-600 ">Annual Savings</p>
-                    <p className="text-sm font-bold text-green-600 ">{study.annual_savings}</p>
+                    <p className="text-sm font-bold text-orange-600 ">{study.annual_savings}</p>
                   </div>
                   <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-2">
                     <p className="text-xs text-gray-600 ">Payback</p>
@@ -972,7 +972,7 @@ const EnergyConservation = () => {
         {/* Comprehensive Energy Audit Process */}
         <div className="mb-12">
           <div className="text-center mb-8">
-            <p className="text-green-600 font-semibold mb-2">ASHRAE Level II Audits</p>
+            <p className="text-orange-600 font-semibold mb-2">ASHRAE Level II Audits</p>
             <h2 className="text-3xl font-bold text-gray-900  mb-3">Professional Energy Audit Process</h2>
             <p className="text-gray-600 ">Investment-grade analysis for maximum savings</p>
           </div>
@@ -1034,20 +1034,20 @@ const EnergyConservation = () => {
               return (
                 <div key={idx} className="card-elite glow-blue p-4 group">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center">
-                      <Icon className="h-5 w-5 text-green-600 " />
+                    <div className="w-10 h-10 bg-orange-100 dark:bg-orange-900 rounded-full flex items-center justify-center">
+                      <Icon className="h-5 w-5 text-orange-600 " />
                     </div>
                     <span className="text-lg font-bold text-gray-300 ">
                       {(idx + 1).toString().padStart(2, '0')}
                     </span>
                   </div>
                   <h3 className="font-semibold text-gray-900  mb-2">{phase.phase}</h3>
-                  <p className="text-xs text-green-600  mb-3">{phase.duration}</p>
+                  <p className="text-xs text-orange-600  mb-3">{phase.duration}</p>
 
                   <ul className="space-y-1 mb-3">
                     {phase.activities.map((activity, i) => (
                       <li key={i} className="text-xs text-gray-600  flex items-start gap-1">
-                        <Circle className="h-2 w-2 text-green-500 mt-1" />
+                        <Circle className="h-2 w-2 text-orange-500 mt-1" />
                         {activity}
                       </li>
                     ))}
@@ -1077,7 +1077,7 @@ const EnergyConservation = () => {
                 <div key={idx} className="category-card-elite p-3">
                   <h4 className="text-sm font-semibold text-gray-900 ">{item.tool}</h4>
                   <p className="text-xs text-gray-600  mt-1">{item.purpose}</p>
-                  <p className="text-xs text-green-600  mt-1">Investment: {item.value}</p>
+                  <p className="text-xs text-orange-600  mt-1">Investment: {item.value}</p>
                 </div>
               ))}
             </div>
@@ -1087,7 +1087,7 @@ const EnergyConservation = () => {
         {/* Energy Conservation Measures (ECMs) */}
         <div className="mb-12">
           <div className="text-center mb-8">
-            <p className="text-green-600 font-semibold mb-2">Conservation Strategies</p>
+            <p className="text-orange-600 font-semibold mb-2">Conservation Strategies</p>
             <h2 className="text-3xl font-bold text-gray-900  mb-3">Top Energy Conservation Measures</h2>
             <p className="text-gray-600 ">Proven solutions with highest ROI</p>
           </div>
@@ -1170,7 +1170,7 @@ const EnergyConservation = () => {
               <div key={idx} className="card-elite glow-green p-6 group">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-lg font-bold text-gray-900 ">{category.category}</h3>
-                  <span className="bg-green-100 dark:bg-green-900 text-green-800  px-3 py-1 rounded-full text-sm font-medium">
+                  <span className="bg-orange-100 dark:bg-orange-900 text-orange-800  px-3 py-1 rounded-full text-sm font-medium">
                     {category.savings_potential} Savings
                   </span>
                 </div>
@@ -1181,7 +1181,7 @@ const EnergyConservation = () => {
                       <div className="flex-1">
                         <p className="text-sm font-medium text-gray-900 ">{item.measure}</p>
                         <div className="flex gap-4 mt-1">
-                          <span className="text-xs text-green-600 ">Save {item.savings}</span>
+                          <span className="text-xs text-orange-600 ">Save {item.savings}</span>
                           <span className="text-xs text-blue-600 ">ROI {item.payback}</span>
                         </div>
                       </div>
@@ -1203,7 +1203,7 @@ const EnergyConservation = () => {
         {/* Rebates and Incentives */}
         <div className="mb-12">
           <div className="text-center mb-8">
-            <p className="text-green-600 font-semibold mb-2">Financial Incentives</p>
+            <p className="text-orange-600 font-semibold mb-2">Financial Incentives</p>
             <h2 className="text-3xl font-bold text-gray-900  mb-3">Rebates & Incentive Programs</h2>
             <p className="text-gray-600 ">Maximize your ROI with available funding</p>
           </div>
@@ -1281,7 +1281,7 @@ const EnergyConservation = () => {
                   <tr key={idx} className="hover:bg-gray-50 dark:hover:bg-gray-700">
                     <td className="px-6 py-4 text-sm font-medium text-gray-900 ">{program.program}</td>
                     <td className="px-6 py-4 text-sm text-gray-700 ">{program.measures}</td>
-                    <td className="px-6 py-4 text-sm font-semibold text-green-600 ">{program.incentive}</td>
+                    <td className="px-6 py-4 text-sm font-semibold text-orange-600 ">{program.incentive}</td>
                     <td className="px-6 py-4 text-sm text-gray-700 ">{program.requirements}</td>
                     <td className="px-6 py-4 text-sm text-gray-700 ">{program.application}</td>
                   </tr>
@@ -1294,7 +1294,7 @@ const EnergyConservation = () => {
         {/* Measurement & Verification */}
         <div className="mb-12">
           <div className="text-center mb-8">
-            <p className="text-green-600 font-semibold mb-2">Performance Tracking</p>
+            <p className="text-orange-600 font-semibold mb-2">Performance Tracking</p>
             <h2 className="text-3xl font-bold text-gray-900  mb-3">Measurement & Verification (M&V)</h2>
             <p className="text-gray-600 ">Ensure savings persist with continuous monitoring</p>
           </div>
@@ -1312,7 +1312,7 @@ const EnergyConservation = () => {
                   <div key={idx} className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
                     <div className="flex items-center justify-between mb-1">
                       <h4 className="font-semibold text-gray-900 ">{option.option}: {option.name}</h4>
-                      <span className="text-xs bg-green-100 dark:bg-green-900 text-green-800  px-2 py-1 rounded">
+                      <span className="text-xs bg-orange-100 dark:bg-orange-900 text-orange-800  px-2 py-1 rounded">
                         {option.accuracy}
                       </span>
                     </div>
@@ -1339,7 +1339,7 @@ const EnergyConservation = () => {
                   return (
                     <div key={idx} className="flex items-start gap-3">
                       <div className="w-8 h-8 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center flex-shrink-0">
-                        <Icon className="h-4 w-4 text-green-600 " />
+                        <Icon className="h-4 w-4 text-orange-600 " />
                       </div>
                       <div>
                         <h4 className="text-sm font-semibold text-gray-900 ">{step.step}</h4>
@@ -1356,7 +1356,7 @@ const EnergyConservation = () => {
         {/* Industry Certifications */}
         <div className="mb-12">
           <div className="text-center mb-8">
-            <p className="text-green-600 font-semibold mb-2">Professional Credentials</p>
+            <p className="text-orange-600 font-semibold mb-2">Professional Credentials</p>
             <h2 className="text-3xl font-bold text-gray-900  mb-3">Our Certifications & Expertise</h2>
             <p className="text-gray-600 ">Qualified professionals for every project</p>
           </div>
@@ -1375,12 +1375,12 @@ const EnergyConservation = () => {
               const Icon = cert.icon;
               return (
                 <div key={idx} className="card-elite glow-green p-4 text-center group">
-                  <div className="icon-container-elite bg-green-500/20 group-hover:bg-green-500/30 mx-auto mb-2">
-                    <Icon className="h-5 w-5 text-green-600 " />
+                  <div className="icon-container-elite bg-orange-500/20 group-hover:bg-orange-500/30 mx-auto mb-2">
+                    <Icon className="h-5 w-5 text-orange-600 " />
                   </div>
                   <h4 className="text-sm font-semibold text-gray-900 ">{cert.cert}</h4>
                   <p className="text-xs text-gray-600  mt-1">{cert.org}</p>
-                  <p className="text-xs text-green-600  mt-1">
+                  <p className="text-xs text-orange-600  mt-1">
                     {cert.professionals} {typeof cert.professionals === 'number' ? 'Certified' : ''}
                   </p>
                 </div>
@@ -1392,7 +1392,7 @@ const EnergyConservation = () => {
         {/* FAQ Section */}
         <div className="mb-12">
           <div className="text-center mb-8">
-            <p className="text-green-600 font-semibold mb-2">Common Questions</p>
+            <p className="text-orange-600 font-semibold mb-2">Common Questions</p>
             <h2 className="text-3xl font-bold text-gray-900  mb-3">Energy Conservation FAQs</h2>
             <p className="text-gray-600 ">Everything you need to know about energy efficiency</p>
           </div>
@@ -1442,7 +1442,7 @@ const EnergyConservation = () => {
             ].map((faq, idx) => (
               <div key={idx} className="card-elite glow-blue p-6 group">
                 <h3 className="font-bold text-gray-900  mb-3 flex items-start gap-2">
-                  <HelpCircle className="h-5 w-5 text-green-500 mt-0.5" />
+                  <HelpCircle className="h-5 w-5 text-orange-500 mt-0.5" />
                   {faq.q}
                 </h3>
                 <p className="text-gray-700  text-sm">
@@ -1456,7 +1456,7 @@ const EnergyConservation = () => {
         {/* CTA Section */}
         <div className="bg-gradient-to-r from-green-600 to-blue-700 rounded-3xl p-8 text-white text-center">
           <h2 className="text-3xl font-bold mb-4">Start Saving Energy Today</h2>
-          <p className="text-xl mb-6 text-green-100">
+          <p className="text-xl mb-6 text-orange-100">
             Get a professional energy audit and custom efficiency plan for your property
           </p>
 
@@ -1464,25 +1464,25 @@ const EnergyConservation = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
               <div>
                 <div className="text-3xl font-bold">35%</div>
-                <div className="text-sm text-green-200">Avg Energy Reduction</div>
+                <div className="text-sm text-orange-200">Avg Energy Reduction</div>
               </div>
               <div>
                 <div className="text-3xl font-bold">2.3yr</div>
-                <div className="text-sm text-green-200">Typical Payback</div>
+                <div className="text-sm text-orange-200">Typical Payback</div>
               </div>
               <div>
                 <div className="text-3xl font-bold">$2.1M</div>
-                <div className="text-sm text-green-200">Rebates Secured</div>
+                <div className="text-sm text-orange-200">Rebates Secured</div>
               </div>
               <div>
                 <div className="text-3xl font-bold">450+</div>
-                <div className="text-sm text-green-200">Audits Completed</div>
+                <div className="text-sm text-orange-200">Audits Completed</div>
               </div>
             </div>
           </div>
 
           <div className="flex flex-wrap gap-4 justify-center">
-            <button className="bg-white text-green-600 px-8 py-4 rounded-xl font-semibold hover:bg-green-50 transition flex items-center gap-2">
+            <button className="bg-white text-orange-600 px-8 py-4 rounded-xl font-semibold hover:bg-orange-50 transition flex items-center gap-2">
               <Calendar className="h-5 w-5" /> Schedule Energy Audit
             </button>
             <button className="bg-white/20 backdrop-blur text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/30 transition flex items-center gap-2">
@@ -1492,7 +1492,7 @@ const EnergyConservation = () => {
               <Calculator className="h-5 w-5" /> Get Free Quote
             </button>
           </div>
-          <div className="mt-6 text-sm text-green-200">
+          <div className="mt-6 text-sm text-orange-200">
             BPI Certified • Title 24 Compliant • 25+ Years Experience • Licensed & Insured
           </div>
         </div>

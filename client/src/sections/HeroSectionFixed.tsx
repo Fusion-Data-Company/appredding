@@ -31,8 +31,8 @@ const HeroSectionFixed = () => {
                 <span className="text-white font-medium">Energy Storage</span>
               </div>
               <div className="flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center mb-3">
-                  <Zap className="h-8 w-8 text-green-500" />
+                <div className="w-16 h-16 rounded-full bg-orange-500/20 flex items-center justify-center mb-3">
+                  <Zap className="h-8 w-8 text-orange-500" />
                 </div>
                 <span className="text-white font-medium">Inverters</span>
               </div>

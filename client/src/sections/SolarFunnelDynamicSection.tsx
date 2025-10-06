@@ -101,13 +101,13 @@ const colorConfig = {
     ambient: 'bg-yellow-500/20',
   },
   green: {
-    bg: 'bg-green-500/10',
+    bg: 'bg-orange-500/10',
     border: 'border-green-500/30',
-    text: 'text-green-400',
+    text: 'text-orange-400',
     glow: 'shadow-green-500/50',
     gradient: 'from-green-500/20 to-green-600/5',
     ring: 'ring-green-500/30',
-    ambient: 'bg-green-500/20',
+    ambient: 'bg-orange-500/20',
   },
   purple: {
     bg: 'bg-purple-500/10',
@@ -211,7 +211,7 @@ export function SolarFunnel({
         style={{ animationDelay: '1s' }}
       />
       <div
-        className='absolute bottom-40 left-1/4 h-96 w-96 animate-pulse rounded-full bg-green-500/10 blur-[120px]'
+        className='absolute bottom-40 left-1/4 h-96 w-96 animate-pulse rounded-full bg-orange-500/10 blur-[120px]'
         style={{ animationDelay: '2s' }}
       />
       <div

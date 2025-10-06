@@ -72,7 +72,7 @@ export default function Products() {
           {/* Sol-Ark Inverter Comparison Section */}
           <div className="mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 flex items-center">
-              <Cpu className="mr-3 h-8 w-8 text-green-400" />
+              <Cpu className="mr-3 h-8 w-8 text-orange-400" />
               Sol-Ark Hybrid Inverter Comparison Matrix
             </h2>
             <p className="text-gray-400 mb-8 max-w-3xl">
@@ -84,7 +84,7 @@ export default function Products() {
                   <tr className="border-b border-gray-700">
                     <th className="text-left py-3 px-4 text-gray-400">Specification</th>
                     <th className="text-center py-3 px-4 text-blue-400">Sol-Ark 12K</th>
-                    <th className="text-center py-3 px-4 text-green-400">Sol-Ark 15K</th>
+                    <th className="text-center py-3 px-4 text-orange-400">Sol-Ark 15K</th>
                     <th className="text-center py-3 px-4 text-purple-400">Sol-Ark 30K (3-phase)</th>
                   </tr>
                 </thead>
@@ -92,55 +92,55 @@ export default function Products() {
                   <tr>
                     <td className="py-3 px-4 text-gray-300 font-semibold">Power Output</td>
                     <td className="text-center py-3 px-4 font-mono text-blue-300">12kW continuous</td>
-                    <td className="text-center py-3 px-4 font-mono text-green-300">15kW continuous</td>
+                    <td className="text-center py-3 px-4 font-mono text-orange-300">15kW continuous</td>
                     <td className="text-center py-3 px-4 font-mono text-purple-300">30kW continuous</td>
                   </tr>
                   <tr>
                     <td className="py-3 px-4 text-gray-300">Peak Surge (5 sec)</td>
                     <td className="text-center py-3 px-4 font-mono text-blue-300">20kW</td>
-                    <td className="text-center py-3 px-4 font-mono text-green-300">23kW</td>
+                    <td className="text-center py-3 px-4 font-mono text-orange-300">23kW</td>
                     <td className="text-center py-3 px-4 font-mono text-purple-300">46kW</td>
                   </tr>
                   <tr>
                     <td className="py-3 px-4 text-gray-300">Max PV Input</td>
                     <td className="text-center py-3 px-4 font-mono text-blue-300">19.5kW</td>
-                    <td className="text-center py-3 px-4 font-mono text-green-300">19.5kW</td>
+                    <td className="text-center py-3 px-4 font-mono text-orange-300">19.5kW</td>
                     <td className="text-center py-3 px-4 font-mono text-purple-300">39kW</td>
                   </tr>
                   <tr>
                     <td className="py-3 px-4 text-gray-300">Battery Voltage Range</td>
                     <td className="text-center py-3 px-4 font-mono text-blue-300">40-60VDC</td>
-                    <td className="text-center py-3 px-4 font-mono text-green-300">40-60VDC</td>
+                    <td className="text-center py-3 px-4 font-mono text-orange-300">40-60VDC</td>
                     <td className="text-center py-3 px-4 font-mono text-purple-300">120-500VDC</td>
                   </tr>
                   <tr>
                     <td className="py-3 px-4 text-gray-300">Max Charge Current</td>
                     <td className="text-center py-3 px-4 font-mono text-blue-300">215A</td>
-                    <td className="text-center py-3 px-4 font-mono text-green-300">275A</td>
+                    <td className="text-center py-3 px-4 font-mono text-orange-300">275A</td>
                     <td className="text-center py-3 px-4 font-mono text-purple-300">200A</td>
                   </tr>
                   <tr>
                     <td className="py-3 px-4 text-gray-300">Grid-Tie Efficiency</td>
                     <td className="text-center py-3 px-4 font-mono text-blue-300">97.6% CEC</td>
-                    <td className="text-center py-3 px-4 font-mono text-green-300">97.5% CEC</td>
+                    <td className="text-center py-3 px-4 font-mono text-orange-300">97.5% CEC</td>
                     <td className="text-center py-3 px-4 font-mono text-purple-300">97.2% CEC</td>
                   </tr>
                   <tr>
                     <td className="py-3 px-4 text-gray-300">Transfer Time</td>
                     <td className="text-center py-3 px-4 font-mono text-blue-300">&lt;4ms UPS</td>
-                    <td className="text-center py-3 px-4 font-mono text-green-300">&lt;4ms UPS</td>
+                    <td className="text-center py-3 px-4 font-mono text-orange-300">&lt;4ms UPS</td>
                     <td className="text-center py-3 px-4 font-mono text-purple-300">&lt;10ms</td>
                   </tr>
                   <tr>
                     <td className="py-3 px-4 text-gray-300">Warranty</td>
                     <td className="text-center py-3 px-4 font-mono text-blue-300">10 years std</td>
-                    <td className="text-center py-3 px-4 font-mono text-green-300">10 years std</td>
+                    <td className="text-center py-3 px-4 font-mono text-orange-300">10 years std</td>
                     <td className="text-center py-3 px-4 font-mono text-purple-300">10 years std</td>
                   </tr>
                   <tr className="bg-gray-900/40">
                     <td className="py-3 px-4 text-white font-semibold">Typical Application</td>
                     <td className="text-center py-3 px-4 text-blue-300">3-5BR homes</td>
-                    <td className="text-center py-3 px-4 text-green-300">5BR+/Estate</td>
+                    <td className="text-center py-3 px-4 text-orange-300">5BR+/Estate</td>
                     <td className="text-center py-3 px-4 text-purple-300">Commercial</td>
                   </tr>
                 </tbody>
@@ -151,7 +151,7 @@ export default function Products() {
           {/* LiFePO4 Battery Technology Section */}
           <div className="mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 flex items-center">
-              <Battery className="mr-3 h-8 w-8 text-green-400" />
+              <Battery className="mr-3 h-8 w-8 text-orange-400" />
               LiFePO4 Battery Selection Guide
             </h2>
             <p className="text-gray-400 mb-8 max-w-3xl">
@@ -200,31 +200,31 @@ export default function Products() {
                 <div className="space-y-3 text-sm">
                   <div className="flex justify-between">
                     <span className="text-gray-400">Capacity:</span>
-                    <span className="text-green-300 font-mono">18.5kWh @ 100% DoD</span>
+                    <span className="text-orange-300 font-mono">18.5kWh @ 100% DoD</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-400">Voltage:</span>
-                    <span className="text-green-300 font-mono">51.2V nominal</span>
+                    <span className="text-orange-300 font-mono">51.2V nominal</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-400">Max Discharge:</span>
-                    <span className="text-green-300 font-mono">200A continuous</span>
+                    <span className="text-orange-300 font-mono">200A continuous</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-400">Round-Trip:</span>
-                    <span className="text-green-300 font-mono">95% efficiency</span>
+                    <span className="text-orange-300 font-mono">95% efficiency</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-400">Cycles:</span>
-                    <span className="text-green-300 font-mono">6,000 @ 80% DoD</span>
+                    <span className="text-orange-300 font-mono">6,000 @ 80% DoD</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-400">Weight:</span>
-                    <span className="text-green-300 font-mono">408 lbs</span>
+                    <span className="text-orange-300 font-mono">408 lbs</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-400">Warranty:</span>
-                    <span className="text-green-300 font-mono">10 years</span>
+                    <span className="text-orange-300 font-mono">10 years</span>
                   </div>
                   <div className="pt-3 border-t border-green-500/30">
                     <p className="text-gray-300">Ideal for: Whole-home backup, TOU arbitrage</p>

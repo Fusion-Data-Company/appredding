@@ -97,7 +97,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
           <ul className="space-y-1 mb-4">
             {features.slice(0, 3).map((feature, index) => (
               <li key={index} className="text-sm text-gray-400 flex items-start">
-                <span className="text-green-400 mr-2">•</span>
+                <span className="text-orange-400 mr-2">•</span>
                 {feature}
               </li>
             ))}

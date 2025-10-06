@@ -45,7 +45,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
             <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-12 px-12 z-10 border border-orange-500/30 overflow-hidden group hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500">
               
               {/* Enhanced ambient glow */}
-              <div className="absolute -top-20 -right-20 w-72 h-72 bg-green-500/20 rounded-full filter blur-[100px] opacity-70 animate-pulse-slow"></div>
+              <div className="absolute -top-20 -right-20 w-72 h-72 bg-orange-500/20 rounded-full filter blur-[100px] opacity-70 animate-pulse-slow"></div>
               <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-blue-500/25 rounded-full filter blur-[100px] opacity-70 animate-pulse-slow-delayed"></div>
               
               {/* Corner accent elements - matching "What Our Clients Say" */}
@@ -75,7 +75,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
               </div>
               
               {/* Background blur text */}
-              <div className="absolute inset-0 flex justify-center items-center text-5xl font-bold tracking-tight text-green-900/10 blur-[5px] scale-110 pointer-events-none">
+              <div className="absolute inset-0 flex justify-center items-center text-5xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110 pointer-events-none">
                 Frequently Asked Questions
               </div>
               
@@ -88,7 +88,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
               </h2>
               
               {/* Multiple text shadows for depth */}
-              <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-10 blur-[3px] text-green-700/30 z-10 transform scale-105 pointer-events-none">
+              <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-10 blur-[3px] text-orange-700/30 z-10 transform scale-105 pointer-events-none">
                 Frequently Asked Questions
               </div>
               
@@ -106,7 +106,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
             return (
               <div key={categoryIdx} className="group relative h-full">
                 {/* Enhanced ambient glow - placed BEHIND the card with pointer-events-none */}
-                <div className="absolute -top-10 -right-10 w-48 h-48 bg-green-600/25 rounded-full filter blur-[70px] opacity-70 animate-pulse-slow pointer-events-none"></div>
+                <div className="absolute -top-10 -right-10 w-48 h-48 bg-orange-600/25 rounded-full filter blur-[70px] opacity-70 animate-pulse-slow pointer-events-none"></div>
                 <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-blue-600/30 rounded-full filter blur-[70px] opacity-70 animate-pulse-slow-delayed pointer-events-none"></div>
                   
                 {/* Central glow - placed BEHIND the card with pointer-events-none */}
@@ -179,7 +179,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
                           >
                             {/* Premium styled question button with enhanced hover effects */}
                             {/* Enhanced ambient glow effects - BEHIND button with pointer-events-none */}
-                            <div className="absolute -top-5 -right-5 w-24 h-24 bg-green-600/20 rounded-full filter blur-[30px] opacity-0 group-hover/faq:opacity-70 transition-opacity duration-500 pointer-events-none"></div>
+                            <div className="absolute -top-5 -right-5 w-24 h-24 bg-orange-600/20 rounded-full filter blur-[30px] opacity-0 group-hover/faq:opacity-70 transition-opacity duration-500 pointer-events-none"></div>
                             <div className="absolute -bottom-5 -left-5 w-24 h-24 bg-blue-600/25 rounded-full filter blur-[30px] opacity-0 group-hover/faq:opacity-70 transition-opacity duration-500 pointer-events-none"></div>
                               
                             {/* Central glow - BEHIND button with pointer-events-none */}
