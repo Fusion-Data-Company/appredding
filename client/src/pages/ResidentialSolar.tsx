@@ -246,7 +246,7 @@ const ResidentialSolar = () => {
 
 
       {/* Team Work Image 1 */}
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 pt-8 pb-4">
         <div className="rounded-xl overflow-hidden shadow-2xl">
           <img 
             src={gregWithPanelImg}
@@ -260,7 +260,7 @@ const ResidentialSolar = () => {
 
       {/* Enhanced Solar Engineering Funnel with Expanded Technical Details */}
       <SolarRescueTimelineSection
-        className="bg-gradient-to-br from-gray-950 via-gray-900 to-black"
+        className="bg-gradient-to-br from-gray-950 via-gray-900 to-black pt-8 pb-20"
         stages={[
           {
             id: 'problem-red',
