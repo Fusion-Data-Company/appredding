@@ -17,7 +17,7 @@ const solarFormSchema = z.object({
   email: z.string().email('Valid email is required'),
   phone: z.string().min(10, 'Valid phone number is required'),
   address: z.string().min(1, 'Address is required'),
-  propertyType: z.enum(['Residential', 'Commercial', 'Industrial']),
+  propertyType: z.enum(['Residential', 'Commercial', 'Industrial', 'Agricultural', 'Marina']),
   serviceNeeded: z.enum(['New Solar Installation', 'Solar Repair', 'System Maintenance', 'Consultation']),
   currentElectricBill: z.string().optional(),
   roofType: z.string().optional(),
@@ -26,6 +26,18 @@ const solarFormSchema = z.object({
   systemSizePreference: z.string().optional(),
   timeline: z.enum(['ASAP', '1-3 months', '3-6 months', 'Just exploring']).optional(),
   additionalNotes: z.string().optional(),
+  landSizeAcres: z.string().optional(),
+  primaryCrop: z.string().optional(),
+  irrigationSystem: z.string().optional(),
+  numberOfBarns: z.string().optional(),
+  livestockOperations: z.string().optional(),
+  agriculturalEnergyUsage: z.string().optional(),
+  numberOfBoatSlips: z.string().optional(),
+  dockLength: z.string().optional(),
+  hasFuelStation: z.string().optional(),
+  storageType: z.string().optional(),
+  hasWaterPumping: z.string().optional(),
+  marinaEnergyUsage: z.string().optional(),
 });
 
 type SolarFormValues = z.infer<typeof solarFormSchema>;
@@ -51,11 +63,7 @@ export default function SolarConsultationForm({ onSuccess }: SolarConsultationFo
 
   const submitMutation = useMutation({
     mutationFn: async (data: SolarFormValues) => {
-      return await apiRequest('/api/solar-form', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: { 'Content-Type': 'application/json' }
-      });
+      return await apiRequest<any>('/api/solar-form', 'POST', data);
     },
     onSuccess: () => {
       setIsSubmitted(true);
@@ -155,6 +163,8 @@ export default function SolarConsultationForm({ onSuccess }: SolarConsultationFo
                 <SelectItem value="Residential">Residential</SelectItem>
                 <SelectItem value="Commercial">Commercial</SelectItem>
                 <SelectItem value="Industrial">Industrial</SelectItem>
+                <SelectItem value="Agricultural">Agricultural</SelectItem>
+                <SelectItem value="Marina">Marina</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -203,6 +213,176 @@ export default function SolarConsultationForm({ onSuccess }: SolarConsultationFo
               </SelectContent>
             </Select>
           </div>
+
+          {watch('propertyType') === 'Agricultural' && (
+            <>
+              <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
+                <h4 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">Agricultural Property Details</h4>
+              </div>
+              <div>
+                <Label htmlFor="landSizeAcres">Land Size (acres)</Label>
+                <Input
+                  id="landSizeAcres"
+                  type="number"
+                  data-testid="input-land-size"
+                  {...register('landSizeAcres')}
+                  className="mt-1"
+                  placeholder="100"
+                />
+              </div>
+              <div>
+                <Label htmlFor="primaryCrop">Primary Crop/Use</Label>
+                <Input
+                  id="primaryCrop"
+                  data-testid="input-primary-crop"
+                  {...register('primaryCrop')}
+                  className="mt-1"
+                  placeholder="e.g., Vineyards, Row crops, Dairy"
+                />
+              </div>
+              <div>
+                <Label htmlFor="irrigationSystem">Irrigation System</Label>
+                <Select
+                  onValueChange={(value) => setValue('irrigationSystem', value)}
+                >
+                  <SelectTrigger className="mt-1" data-testid="select-irrigation">
+                    <SelectValue placeholder="Select irrigation system" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="None">None</SelectItem>
+                    <SelectItem value="Drip">Drip</SelectItem>
+                    <SelectItem value="Sprinkler">Sprinkler</SelectItem>
+                    <SelectItem value="Flood">Flood</SelectItem>
+                    <SelectItem value="Other">Other</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div>
+                <Label htmlFor="numberOfBarns">Number of Barns/Outbuildings</Label>
+                <Input
+                  id="numberOfBarns"
+                  type="number"
+                  data-testid="input-barns"
+                  {...register('numberOfBarns')}
+                  className="mt-1"
+                  placeholder="0"
+                />
+              </div>
+              <div>
+                <Label htmlFor="livestockOperations">Livestock Operations</Label>
+                <Select
+                  onValueChange={(value) => setValue('livestockOperations', value)}
+                >
+                  <SelectTrigger className="mt-1" data-testid="select-livestock">
+                    <SelectValue placeholder="Select livestock operations" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="None">None</SelectItem>
+                    <SelectItem value="Cattle">Cattle</SelectItem>
+                    <SelectItem value="Poultry">Poultry</SelectItem>
+                    <SelectItem value="Dairy">Dairy</SelectItem>
+                    <SelectItem value="Other">Other</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div>
+                <Label htmlFor="agriculturalEnergyUsage">Current Agricultural Energy Usage (kWh/month)</Label>
+                <Input
+                  id="agriculturalEnergyUsage"
+                  type="number"
+                  data-testid="input-ag-energy"
+                  {...register('agriculturalEnergyUsage')}
+                  className="mt-1"
+                  placeholder="5000"
+                />
+              </div>
+            </>
+          )}
+
+          {watch('propertyType') === 'Marina' && (
+            <>
+              <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
+                <h4 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">Marina Property Details</h4>
+              </div>
+              <div>
+                <Label htmlFor="numberOfBoatSlips">Number of Boat Slips</Label>
+                <Input
+                  id="numberOfBoatSlips"
+                  type="number"
+                  data-testid="input-boat-slips"
+                  {...register('numberOfBoatSlips')}
+                  className="mt-1"
+                  placeholder="50"
+                />
+              </div>
+              <div>
+                <Label htmlFor="dockLength">Dock/Pier Length (feet)</Label>
+                <Input
+                  id="dockLength"
+                  type="number"
+                  data-testid="input-dock-length"
+                  {...register('dockLength')}
+                  className="mt-1"
+                  placeholder="500"
+                />
+              </div>
+              <div>
+                <Label htmlFor="hasFuelStation">Fuel Station</Label>
+                <Select
+                  onValueChange={(value) => setValue('hasFuelStation', value)}
+                >
+                  <SelectTrigger className="mt-1" data-testid="select-fuel-station">
+                    <SelectValue placeholder="Select fuel station availability" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="Yes">Yes</SelectItem>
+                    <SelectItem value="No">No</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div>
+                <Label htmlFor="storageType">Storage Type</Label>
+                <Select
+                  onValueChange={(value) => setValue('storageType', value)}
+                >
+                  <SelectTrigger className="mt-1" data-testid="select-storage-type">
+                    <SelectValue placeholder="Select storage type" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="Indoor">Indoor</SelectItem>
+                    <SelectItem value="Outdoor">Outdoor</SelectItem>
+                    <SelectItem value="Both">Both</SelectItem>
+                    <SelectItem value="None">None</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div>
+                <Label htmlFor="hasWaterPumping">Water Pumping Systems</Label>
+                <Select
+                  onValueChange={(value) => setValue('hasWaterPumping', value)}
+                >
+                  <SelectTrigger className="mt-1" data-testid="select-water-pumping">
+                    <SelectValue placeholder="Select water pumping availability" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="Yes">Yes</SelectItem>
+                    <SelectItem value="No">No</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div>
+                <Label htmlFor="marinaEnergyUsage">Current Marina Energy Usage (kWh/month)</Label>
+                <Input
+                  id="marinaEnergyUsage"
+                  type="number"
+                  data-testid="input-marina-energy"
+                  {...register('marinaEnergyUsage')}
+                  className="mt-1"
+                  placeholder="10000"
+                />
+              </div>
+            </>
+          )}
         </div>
       ),
     },

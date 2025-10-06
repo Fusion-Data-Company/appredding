@@ -39,6 +39,18 @@ interface SolarSubmission {
   additionalNotes?: string;
   ipAddress?: string;
   userAgent?: string;
+  landSizeAcres?: string;
+  primaryCrop?: string;
+  irrigationSystem?: string;
+  numberOfBarns?: number;
+  livestockOperations?: string;
+  agriculturalEnergyUsage?: string;
+  numberOfBoatSlips?: number;
+  dockLength?: string;
+  hasFuelStation?: boolean;
+  storageType?: string;
+  hasWaterPumping?: boolean;
+  marinaEnergyUsage?: string;
 }
 
 export default function AdminCRM() {
@@ -99,7 +111,9 @@ export default function AdminCRM() {
     const headers = [
       'ID', 'Date', 'Customer Name', 'Email', 'Phone', 'Address', 
       'Property Type', 'Service Needed', 'Electric Bill', 'Roof Type', 
-      'Roof Age', 'Shading Issues', 'System Size', 'Timeline', 'Notes'
+      'Roof Age', 'Shading Issues', 'System Size', 'Timeline', 'Notes',
+      'Land Size (acres)', 'Primary Crop', 'Irrigation', 'Barns', 'Livestock', 'Ag Energy',
+      'Boat Slips', 'Dock Length', 'Fuel Station', 'Storage Type', 'Water Pumping', 'Marina Energy'
     ];
 
     const rows = data.submissions.map((sub: SolarSubmission) => [
@@ -117,12 +131,24 @@ export default function AdminCRM() {
       sub.shadingIssues || '',
       sub.systemSizePreference || '',
       sub.timeline || '',
-      sub.additionalNotes || ''
+      sub.additionalNotes || '',
+      sub.landSizeAcres || '',
+      sub.primaryCrop || '',
+      sub.irrigationSystem || '',
+      sub.numberOfBarns || '',
+      sub.livestockOperations || '',
+      sub.agriculturalEnergyUsage || '',
+      sub.numberOfBoatSlips || '',
+      sub.dockLength || '',
+      sub.hasFuelStation ? 'Yes' : 'No',
+      sub.storageType || '',
+      sub.hasWaterPumping ? 'Yes' : 'No',
+      sub.marinaEnergyUsage || ''
     ]);
 
     const csvContent = [
       headers.join(','),
-      ...rows.map(row => row.map(cell => `"${cell}"`).join(','))
+      ...rows.map((row: any[]) => row.map((cell: any) => `"${cell}"`).join(','))
     ].join('\n');
 
     const blob = new Blob([csvContent], { type: 'text/csv' });
@@ -360,6 +386,35 @@ export default function AdminCRM() {
                                     {submission.systemSizePreference && <div><span className="text-slate-400">System Size:</span> {submission.systemSizePreference}</div>}
                                   </div>
                                 </div>
+                                
+                                {submission.propertyType === 'Agricultural' && (
+                                  <div className="md:col-span-2">
+                                    <h4 className="text-sm font-semibold text-white mb-3">Agricultural Property Details</h4>
+                                    <div className="grid grid-cols-2 gap-4 text-sm text-slate-300">
+                                      {submission.landSizeAcres && <div><span className="text-slate-400">Land Size:</span> {submission.landSizeAcres} acres</div>}
+                                      {submission.primaryCrop && <div><span className="text-slate-400">Primary Crop/Use:</span> {submission.primaryCrop}</div>}
+                                      {submission.irrigationSystem && <div><span className="text-slate-400">Irrigation System:</span> {submission.irrigationSystem}</div>}
+                                      {submission.numberOfBarns !== undefined && <div><span className="text-slate-400">Number of Barns:</span> {submission.numberOfBarns}</div>}
+                                      {submission.livestockOperations && <div><span className="text-slate-400">Livestock Operations:</span> {submission.livestockOperations}</div>}
+                                      {submission.agriculturalEnergyUsage && <div><span className="text-slate-400">Ag Energy Usage:</span> {submission.agriculturalEnergyUsage} kWh/month</div>}
+                                    </div>
+                                  </div>
+                                )}
+
+                                {submission.propertyType === 'Marina' && (
+                                  <div className="md:col-span-2">
+                                    <h4 className="text-sm font-semibold text-white mb-3">Marina Property Details</h4>
+                                    <div className="grid grid-cols-2 gap-4 text-sm text-slate-300">
+                                      {submission.numberOfBoatSlips !== undefined && <div><span className="text-slate-400">Boat Slips:</span> {submission.numberOfBoatSlips}</div>}
+                                      {submission.dockLength && <div><span className="text-slate-400">Dock/Pier Length:</span> {submission.dockLength} feet</div>}
+                                      {submission.hasFuelStation !== undefined && <div><span className="text-slate-400">Fuel Station:</span> {submission.hasFuelStation ? 'Yes' : 'No'}</div>}
+                                      {submission.storageType && <div><span className="text-slate-400">Storage Type:</span> {submission.storageType}</div>}
+                                      {submission.hasWaterPumping !== undefined && <div><span className="text-slate-400">Water Pumping:</span> {submission.hasWaterPumping ? 'Yes' : 'No'}</div>}
+                                      {submission.marinaEnergyUsage && <div><span className="text-slate-400">Marina Energy Usage:</span> {submission.marinaEnergyUsage} kWh/month</div>}
+                                    </div>
+                                  </div>
+                                )}
+
                                 {submission.additionalNotes && (
                                   <div className="md:col-span-2">
                                     <h4 className="text-sm font-semibold text-white mb-3">Additional Notes</h4>

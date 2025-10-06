@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, ReactNode } from 'react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import SolarConsultationForm from '@/components/SolarConsultationForm';
 
 interface FormModalContextType {
@@ -19,11 +19,14 @@ export function FormModalProvider({ children }: { children: ReactNode }) {
     <FormModalContext.Provider value={{ openSolarForm, closeSolarForm }}>
       {children}
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle className="sr-only">Solar Consultation Request Form</DialogTitle>
+        <DialogContent className="max-w-4xl max-h-[90vh] p-0 gap-0 flex flex-col">
+          <DialogHeader className="sr-only">
+            <DialogTitle>Solar Consultation Request Form</DialogTitle>
+            <DialogDescription>Fill out the form below to request a solar consultation</DialogDescription>
           </DialogHeader>
-          <SolarConsultationForm onSuccess={closeSolarForm} />
+          <div className="overflow-y-auto flex-1 p-6">
+            <SolarConsultationForm onSuccess={closeSolarForm} />
+          </div>
         </DialogContent>
       </Dialog>
     </FormModalContext.Provider>

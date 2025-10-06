@@ -1664,7 +1664,7 @@ export const insertServiceConsultationSchema = z.object({
 export type ServiceConsultationFormValues = z.infer<typeof insertServiceConsultationSchema>;
 
 // Solar Form Submissions Enums
-export const propertyTypeEnum = pgEnum('property_type', ['Residential', 'Commercial', 'Industrial']);
+export const propertyTypeEnum = pgEnum('property_type', ['Residential', 'Commercial', 'Industrial', 'Agricultural', 'Marina']);
 export const serviceNeededEnum = pgEnum('service_needed', ['New Solar Installation', 'Solar Repair', 'System Maintenance', 'Consultation']);
 export const shadingIssuesEnum = pgEnum('shading_issues', ['Yes', 'No']);
 export const timelineEnum = pgEnum('timeline', ['ASAP', '1-3 months', '3-6 months', 'Just exploring']);
@@ -1688,6 +1688,18 @@ export const solarFormSubmissions = pgTable("solar_form_submissions", {
   additionalNotes: text("additional_notes"),
   ipAddress: text("ip_address"),
   userAgent: text("user_agent"),
+  landSizeAcres: decimal("land_size_acres", { precision: 10, scale: 2 }),
+  primaryCrop: text("primary_crop"),
+  irrigationSystem: text("irrigation_system"),
+  numberOfBarns: integer("number_of_barns"),
+  livestockOperations: text("livestock_operations"),
+  agriculturalEnergyUsage: decimal("agricultural_energy_usage", { precision: 10, scale: 2 }),
+  numberOfBoatSlips: integer("number_of_boat_slips"),
+  dockLength: decimal("dock_length", { precision: 10, scale: 2 }),
+  hasFuelStation: boolean("has_fuel_station"),
+  storageType: text("storage_type"),
+  hasWaterPumping: boolean("has_water_pumping"),
+  marinaEnergyUsage: decimal("marina_energy_usage", { precision: 10, scale: 2 }),
 });
 
 // Insert schemas for Solar Form Submissions

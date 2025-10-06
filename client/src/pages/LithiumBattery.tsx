@@ -414,7 +414,23 @@ const LithiumBattery = () => {
                   ))}
                 </div>
 
-                <div className="card-elite glow-orange p-8 mb-6">
+                <motion.div
+                  className="card-elite glow-orange p-8 mb-6 relative overflow-hidden"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                >
+                  {/* Background shimmer */}
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background: 'linear-gradient(110deg, transparent 20%, rgba(251, 146, 60, 0.15) 50%, transparent 80%)',
+                      backgroundSize: '200% 100%',
+                      animation: 'shimmer1 5s infinite'
+                    }}
+                  />
+
                   <div className="relative"
                     style={{
                       filter: 'drop-shadow(0 4px 20px rgba(251, 146, 60, 0.2))'
@@ -425,26 +441,76 @@ const LithiumBattery = () => {
                     </h3>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                      <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 border border-gray-700/50">
-                        <Zap className="h-5 w-5 text-yellow-400 mb-2" />
-                        <div className="text-sm text-gray-400">Nominal Voltage</div>
-                        <div className="text-xl font-bold text-white">{chemistryData[selectedChemistry].voltage}</div>
-                      </div>
-                      <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 border border-gray-700/50">
-                        <Battery className="h-5 w-5 text-orange-400 mb-2" />
-                        <div className="text-sm text-gray-400">Energy Density</div>
-                        <div className="text-xl font-bold text-white">{chemistryData[selectedChemistry].energy}</div>
-                      </div>
-                      <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 border border-gray-700/50">
-                        <Activity className="h-5 w-5 text-blue-400 mb-2" />
-                        <div className="text-sm text-gray-400">Cycle Life</div>
-                        <div className="text-xl font-bold text-white">{chemistryData[selectedChemistry].cycles}</div>
-                      </div>
-                      <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 border border-gray-700/50">
-                        <Shield className="h-5 w-5 text-cyan-400 mb-2" />
-                        <div className="text-sm text-gray-400">Safety Rating</div>
-                        <div className="text-xl font-bold text-white">{chemistryData[selectedChemistry].safety}</div>
-                      </div>
+                      {[
+                        { icon: <Zap className="h-5 w-5" />, label: "Nominal Voltage", value: chemistryData[selectedChemistry].voltage, gradient: "from-blue-500 via-cyan-500 to-blue-600", glowColor: "rgba(59, 130, 246, 0.4)", iconColor: "text-blue-300" },
+                        { icon: <Battery className="h-5 w-5" />, label: "Energy Density", value: chemistryData[selectedChemistry].energy, gradient: "from-purple-500 via-violet-500 to-purple-600", glowColor: "rgba(168, 85, 247, 0.4)", iconColor: "text-purple-300" },
+                        { icon: <Activity className="h-5 w-5" />, label: "Cycle Life", value: chemistryData[selectedChemistry].cycles, gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", iconColor: "text-orange-300" },
+                        { icon: <Shield className="h-5 w-5" />, label: "Safety Rating", value: chemistryData[selectedChemistry].safety, gradient: "from-green-500 via-emerald-500 to-green-600", glowColor: "rgba(34, 197, 94, 0.4)", iconColor: "text-green-300" }
+                      ].map((item, idx) => (
+                        <motion.div
+                          key={idx}
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.5, delay: idx * 0.1 }}
+                          whileHover={{ scale: 1.05, y: -5 }}
+                          className="relative group"
+                        >
+                          {/* Glow effect */}
+                          <div
+                            className="absolute inset-0 rounded-xl blur-lg opacity-50 group-hover:opacity-80 transition-all duration-500"
+                            style={{
+                              background: item.glowColor,
+                              animation: `pulse ${2.5 + idx * 0.3}s ease-in-out infinite`
+                            }}
+                          />
+
+                          {/* Card */}
+                          <div
+                            className={`relative bg-gradient-to-br ${item.gradient} rounded-xl p-4 border border-white/20 overflow-hidden`}
+                            style={{
+                              backdropFilter: 'blur(10px)',
+                              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
+                            }}
+                          >
+                            {/* Glass overlay */}
+                            <div
+                              className="absolute inset-0 pointer-events-none opacity-60"
+                              style={{
+                                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 60%)'
+                              }}
+                            />
+
+                            {/* Shimmer */}
+                            <div
+                              className="absolute inset-0 pointer-events-none"
+                              style={{
+                                background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.5) 50%, transparent 80%)',
+                                backgroundSize: '200% 100%',
+                                animation: `shimmer${idx + 1} ${4 + idx * 0.5}s infinite`,
+                                mixBlendMode: 'overlay'
+                              }}
+                            />
+
+                            <div className="relative z-10">
+                              <motion.div
+                                whileHover={{ rotate: 360 }}
+                                transition={{ duration: 0.6 }}
+                                className={`${item.iconColor} mb-2`}
+                              >
+                                {item.icon}
+                              </motion.div>
+                              <div className="text-sm text-white/80 mb-1">{item.label}</div>
+                              <motion.div
+                                className="text-xl font-bold text-white"
+                                whileHover={{ scale: 1.1 }}
+                              >
+                                {item.value}
+                              </motion.div>
+                            </div>
+                          </div>
+                        </motion.div>
+                      ))}
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-6">
@@ -454,10 +520,17 @@ const LithiumBattery = () => {
                         </h4>
                         <ul className="space-y-2">
                           {chemistryData[selectedChemistry].advantages.map((adv: string, idx: number) => (
-                            <li key={idx} className="flex items-start gap-2 text-gray-300">
+                            <motion.li
+                              key={idx}
+                              initial={{ opacity: 0, x: -10 }}
+                              whileInView={{ opacity: 1, x: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.3, delay: idx * 0.05 }}
+                              className="flex items-start gap-2 text-gray-300"
+                            >
                               <ChevronRight className="h-4 w-4 text-orange-400 mt-0.5" />
                               <span>{adv}</span>
-                            </li>
+                            </motion.li>
                           ))}
                         </ul>
                       </div>
@@ -467,10 +540,17 @@ const LithiumBattery = () => {
                         </h4>
                         <ul className="space-y-2">
                           {chemistryData[selectedChemistry].applications.map((app: string, idx: number) => (
-                            <li key={idx} className="flex items-start gap-2 text-gray-300">
+                            <motion.li
+                              key={idx}
+                              initial={{ opacity: 0, x: -10 }}
+                              whileInView={{ opacity: 1, x: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.3, delay: idx * 0.05 }}
+                              className="flex items-start gap-2 text-gray-300"
+                            >
                               <ChevronRight className="h-4 w-4 text-blue-400 mt-0.5" />
                               <span>{app}</span>
-                            </li>
+                            </motion.li>
                           ))}
                         </ul>
                       </div>
@@ -478,24 +558,60 @@ const LithiumBattery = () => {
 
                     {/* Additional Chemistry Details */}
                     <div className="mt-6 grid md:grid-cols-3 gap-4">
-                      <div className="bg-blue-900/20 rounded-xl p-4 border border-blue-500/30">
-                        <Thermometer className="h-5 w-5 text-blue-400 mb-2" />
-                        <div className="text-sm text-gray-400">Operating Temperature</div>
-                        <div className="font-bold text-white">{chemistryData[selectedChemistry].temp}</div>
-                      </div>
-                      <div className="bg-orange-900/20 rounded-xl p-4 border border-orange-500/30">
-                        <DollarSign className="h-5 w-5 text-orange-400 mb-2" />
-                        <div className="text-sm text-gray-400">Relative Cost</div>
-                        <div className="font-bold text-white">{chemistryData[selectedChemistry].cost}</div>
-                      </div>
-                      <div className="bg-cyan-900/20 rounded-xl p-4 border border-cyan-500/30">
-                        <Award className="h-5 w-5 text-cyan-400 mb-2" />
-                        <div className="text-sm text-gray-400">Best Use Case</div>
-                        <div className="font-bold text-white">{chemistryData[selectedChemistry].applications[0]}</div>
-                      </div>
+                      {[
+                        { icon: <Thermometer className="h-5 w-5" />, label: "Operating Temperature", value: chemistryData[selectedChemistry].temp, gradient: "from-red-500 via-pink-500 to-red-600", glowColor: "rgba(239, 68, 68, 0.3)", iconColor: "text-red-400", borderColor: "border-red-500/30" },
+                        { icon: <DollarSign className="h-5 w-5" />, label: "Relative Cost", value: chemistryData[selectedChemistry].cost, gradient: "from-blue-500 via-indigo-500 to-blue-600", glowColor: "rgba(59, 130, 246, 0.3)", iconColor: "text-blue-400", borderColor: "border-blue-500/30" },
+                        { icon: <Award className="h-5 w-5" />, label: "Best Use Case", value: chemistryData[selectedChemistry].applications[0], gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.3)", iconColor: "text-orange-400", borderColor: "border-orange-500/30" }
+                      ].map((item, idx) => (
+                        <motion.div
+                          key={idx}
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.4, delay: idx * 0.1 }}
+                          whileHover={{ scale: 1.05 }}
+                          className="relative group"
+                        >
+                          {/* Glow effect */}
+                          <div
+                            className="absolute inset-0 rounded-xl blur-lg opacity-40 group-hover:opacity-70 transition-all duration-500"
+                            style={{
+                              background: item.glowColor,
+                              animation: `pulse ${2 + idx * 0.3}s ease-in-out infinite`
+                            }}
+                          />
+
+                          <div className={`relative bg-gradient-to-br ${item.gradient} rounded-xl p-4 border ${item.borderColor} overflow-hidden`}
+                            style={{
+                              backdropFilter: 'blur(10px)',
+                              boxShadow: '0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+                            }}
+                          >
+                            {/* Glass overlay */}
+                            <div
+                              className="absolute inset-0 pointer-events-none"
+                              style={{
+                                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 50%)'
+                              }}
+                            />
+
+                            <div className="relative z-10">
+                              <motion.div
+                                whileHover={{ rotate: 360 }}
+                                transition={{ duration: 0.6 }}
+                                className={`${item.iconColor} mb-2`}
+                              >
+                                {item.icon}
+                              </motion.div>
+                              <div className="text-sm text-white/80">{item.label}</div>
+                              <div className="font-bold text-white">{item.value}</div>
+                            </div>
+                          </div>
+                        </motion.div>
+                      ))}
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </div>
 
                 {/* Cell Format Specifications */}
@@ -509,46 +625,153 @@ const LithiumBattery = () => {
                     </h2>
                     <p className="text-gray-400 text-lg">Comprehensive specifications for all standard lithium battery cell formats</p>
                   </div>
-                  <div className="card-elite glow-orange p-8 overflow-hidden">
-                    <div className="overflow-x-auto">
-                      <table className="w-full">
-                        <thead className="bg-gray-800/60 border-b border-gray-700">
-                          <tr>
-                            <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Format</th>
-                            <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Dimensions</th>
-                            <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Capacity</th>
-                            <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Voltage</th>
-                            <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Weight</th>
-                            <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Applications</th>
-                          </tr>
-                        </thead>
-                        <tbody className="divide-y divide-gray-700/50">
-                          {cellFormats.map((cell, idx) => (
-                            <tr key={idx} className="hover:bg-gray-800/30 transition-colors">
-                              <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
-                                {cell.format}
-                              </td>
-                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
-                                {cell.diameter} × {cell.length}
-                              </td>
-                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
-                                {cell.capacity}
-                              </td>
-                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
-                                {cell.voltage}
-                              </td>
-                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
-                                {cell.weight}
-                              </td>
-                              <td className="px-6 py-4 text-sm text-gray-300">
-                                {cell.applications}
-                              </td>
+                  <motion.div
+                    className="card-elite glow-orange p-8 overflow-hidden relative"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    {/* Background shimmer */}
+                    <div
+                      className="absolute inset-0 pointer-events-none"
+                      style={{
+                        background: 'linear-gradient(110deg, transparent 20%, rgba(251, 146, 60, 0.1) 50%, transparent 80%)',
+                        backgroundSize: '200% 100%',
+                        animation: 'shimmer2 6s infinite'
+                      }}
+                    />
+
+                    <div className="overflow-x-auto relative">
+                      <div className="relative rounded-2xl overflow-hidden border border-purple-500/20"
+                        style={{
+                          background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(59, 130, 246, 0.05) 50%, rgba(249, 115, 22, 0.1) 100%)',
+                          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+                        }}
+                      >
+                        {/* Shimmer overlay */}
+                        <div
+                          className="absolute inset-0 pointer-events-none"
+                          style={{
+                            background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.15) 50%, transparent 80%)',
+                            backgroundSize: '200% 100%',
+                            animation: 'shimmer1 5s infinite',
+                            mixBlendMode: 'overlay'
+                          }}
+                        />
+
+                        <table className="w-full text-sm relative">
+                          <thead>
+                            <tr
+                              className="border-b border-gray-700/50"
+                              style={{
+                                background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%)',
+                                backdropFilter: 'blur(10px)'
+                              }}
+                            >
+                              <th className="px-6 py-4 text-left">
+                                <div className="flex items-center gap-2">
+                                  <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse" />
+                                  <span className="text-xs font-medium text-gray-300 uppercase tracking-wider">Format</span>
+                                </div>
+                              </th>
+                              <th className="px-6 py-4 text-left">
+                                <div className="flex items-center gap-2">
+                                  <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }} />
+                                  <span className="text-xs font-medium text-gray-300 uppercase tracking-wider">Dimensions</span>
+                                </div>
+                              </th>
+                              <th className="px-6 py-4 text-left">
+                                <div className="flex items-center gap-2">
+                                  <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }} />
+                                  <span className="text-xs font-medium text-gray-300 uppercase tracking-wider">Capacity</span>
+                                </div>
+                              </th>
+                              <th className="px-6 py-4 text-left">
+                                <div className="flex items-center gap-2">
+                                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" style={{ animationDelay: '0.6s' }} />
+                                  <span className="text-xs font-medium text-gray-300 uppercase tracking-wider">Voltage</span>
+                                </div>
+                              </th>
+                              <th className="px-6 py-4 text-left">
+                                <div className="flex items-center gap-2">
+                                  <div className="w-2 h-2 bg-red-400 rounded-full animate-pulse" style={{ animationDelay: '0.8s' }} />
+                                  <span className="text-xs font-medium text-gray-300 uppercase tracking-wider">Weight</span>
+                                </div>
+                              </th>
+                              <th className="px-6 py-4 text-left">
+                                <div className="flex items-center gap-2">
+                                  <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
+                                  <span className="text-xs font-medium text-gray-300 uppercase tracking-wider">Applications</span>
+                                </div>
+                              </th>
                             </tr>
-                          ))}
-                        </tbody>
-                      </table>
+                          </thead>
+                          <tbody className="divide-y divide-gray-700/30">
+                            {cellFormats.map((cell, idx) => (
+                              <motion.tr
+                                key={idx}
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.4, delay: idx * 0.05 }}
+                                className="hover:bg-white/5 transition-all duration-300 group"
+                              >
+                                <motion.td
+                                  className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white group-hover:text-purple-200"
+                                  whileHover={{ scale: 1.05 }}
+                                >
+                                  <div className="inline-block px-3 py-1 rounded-lg bg-purple-500/10 group-hover:bg-purple-500/20 transition-colors">
+                                    {cell.format}
+                                  </div>
+                                </motion.td>
+                                <motion.td
+                                  className="px-6 py-4 whitespace-nowrap text-sm text-gray-300 group-hover:text-blue-200"
+                                  whileHover={{ scale: 1.05 }}
+                                >
+                                  <div className="inline-block px-3 py-1 rounded-lg bg-blue-500/10 group-hover:bg-blue-500/20 transition-colors">
+                                    {cell.diameter} × {cell.length}
+                                  </div>
+                                </motion.td>
+                                <motion.td
+                                  className="px-6 py-4 whitespace-nowrap text-sm text-gray-300 group-hover:text-orange-200"
+                                  whileHover={{ scale: 1.05 }}
+                                >
+                                  <div className="inline-block px-3 py-1 rounded-lg bg-orange-500/10 group-hover:bg-orange-500/20 transition-colors">
+                                    {cell.capacity}
+                                  </div>
+                                </motion.td>
+                                <motion.td
+                                  className="px-6 py-4 whitespace-nowrap text-sm text-gray-300 group-hover:text-green-200"
+                                  whileHover={{ scale: 1.05 }}
+                                >
+                                  <div className="inline-block px-3 py-1 rounded-lg bg-green-500/10 group-hover:bg-green-500/20 transition-colors">
+                                    {cell.voltage}
+                                  </div>
+                                </motion.td>
+                                <motion.td
+                                  className="px-6 py-4 whitespace-nowrap text-sm text-gray-300 group-hover:text-red-200"
+                                  whileHover={{ scale: 1.05 }}
+                                >
+                                  <div className="inline-block px-3 py-1 rounded-lg bg-red-500/10 group-hover:bg-red-500/20 transition-colors">
+                                    {cell.weight}
+                                  </div>
+                                </motion.td>
+                                <motion.td
+                                  className="px-6 py-4 text-sm text-gray-300 group-hover:text-cyan-200"
+                                  whileHover={{ scale: 1.02 }}
+                                >
+                                  <div className="px-3 py-1 rounded-lg bg-cyan-500/10 group-hover:bg-cyan-500/20 transition-colors">
+                                    {cell.applications}
+                                  </div>
+                                </motion.td>
+                              </motion.tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
 
                 {/* BMS Technology Deep Dive */}
@@ -562,28 +785,75 @@ const LithiumBattery = () => {
                     </h2>
                     <p className="text-gray-400 text-lg">Advanced BMS technology ensuring safety, longevity, and optimal performance</p>
                   </div>
-                  <div className="grid lg:grid-cols-2 gap-8">
-                    <div className="card-elite glow-blue rounded-2xl overflow-hidden">
-                      <div className="bg-gradient-to-r from-blue-500 to-cyan-600 p-4 text-white">
-                        <h3 className="text-xl font-bold flex items-center gap-2">
+                  <motion.div
+                    className="grid lg:grid-cols-2 gap-8"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <div className="card-elite glow-blue rounded-2xl overflow-hidden relative">
+                      {/* Background shimmer */}
+                      <div
+                        className="absolute inset-0 pointer-events-none"
+                        style={{
+                          background: 'linear-gradient(110deg, transparent 20%, rgba(168, 85, 247, 0.1) 50%, transparent 80%)',
+                          backgroundSize: '200% 100%',
+                          animation: 'shimmer1 5s infinite'
+                        }}
+                      />
+
+                      <div className="bg-gradient-to-r from-purple-500 via-violet-500 to-purple-600 p-4 text-white relative overflow-hidden">
+                        {/* Glass overlay */}
+                        <div
+                          className="absolute inset-0 pointer-events-none"
+                          style={{
+                            background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 50%)'
+                          }}
+                        />
+                        <h3 className="text-xl font-bold flex items-center gap-2 relative z-10">
                           <CircuitBoard className="h-6 w-6" /> BMS Protection Layers
                         </h3>
                       </div>
-                      <div className="divide-y divide-gray-700/50">
+                      <div className="divide-y divide-gray-700/50 relative">
                         {bmsFeatures.map((feature, idx) => (
-                          <div key={idx} className="p-4 hover:bg-gray-800/30 transition-colors">
-                            <div className="flex items-start justify-between mb-2">
-                              <h4 className="font-semibold text-white">{feature.layer}</h4>
-                              <span className="text-xs bg-blue-500/20 text-blue-300 px-2 py-1 rounded border border-blue-500/30">
-                                {feature.response}
-                              </span>
+                          <motion.div
+                            key={idx}
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.4, delay: idx * 0.05 }}
+                            whileHover={{ backgroundColor: 'rgba(168, 85, 247, 0.1)', x: 5 }}
+                            className="p-4 transition-all duration-300 group relative"
+                          >
+                            {/* Glow effect on hover */}
+                            <div
+                              className="absolute inset-0 blur-lg opacity-0 group-hover:opacity-30 transition-all duration-500 pointer-events-none"
+                              style={{
+                                background: 'rgba(168, 85, 247, 0.5)'
+                              }}
+                            />
+
+                            <div className="relative z-10">
+                              <div className="flex items-start justify-between mb-2">
+                                <h4 className="font-semibold text-white group-hover:text-purple-200 transition-colors">{feature.layer}</h4>
+                                <motion.span
+                                  whileHover={{ scale: 1.1 }}
+                                  className="text-xs bg-purple-500/20 text-purple-300 px-3 py-1 rounded-lg border border-purple-500/30 group-hover:bg-purple-500/30 transition-colors"
+                                >
+                                  {feature.response}
+                                </motion.span>
+                              </div>
+                              <p className="text-sm text-gray-400 mb-2 group-hover:text-gray-300 transition-colors">{feature.function}</p>
+                              <div className="flex items-center justify-between text-xs">
+                                <span className="text-gray-500 group-hover:text-gray-400 transition-colors">Range: {feature.range}</span>
+                                <span className="text-orange-400 group-hover:text-orange-300 transition-colors flex items-center gap-1">
+                                  <div className="w-1.5 h-1.5 bg-orange-400 rounded-full animate-pulse" />
+                                  {feature.protection}
+                                </span>
+                              </div>
                             </div>
-                            <p className="text-sm text-gray-400 mb-2">{feature.function}</p>
-                            <div className="flex items-center justify-between text-xs">
-                              <span className="text-gray-500">Range: {feature.range}</span>
-                              <span className="text-orange-400">✓ {feature.protection}</span>
-                            </div>
-                          </div>
+                          </motion.div>
                         ))}
                       </div>
                     </div>
@@ -693,37 +963,132 @@ const LithiumBattery = () => {
                     </h2>
                     <p className="text-gray-400 text-lg">ISO 9001:2015 certified production with rigorous quality control</p>
                   </div>
-                  <div className="card-elite glow-green rounded-2xl p-8">
+                  <motion.div
+                    className="card-elite glow-green rounded-2xl p-8 relative overflow-hidden"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    {/* Background shimmer */}
+                    <div
+                      className="absolute inset-0 pointer-events-none"
+                      style={{
+                        background: 'linear-gradient(110deg, transparent 20%, rgba(249, 115, 22, 0.1) 50%, transparent 80%)',
+                        backgroundSize: '200% 100%',
+                        animation: 'shimmer2 6s infinite'
+                      }}
+                    />
+
                     <div className="relative">
                       {/* Process Timeline */}
-                      <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-cyan-500 to-green-500"></div>
+                      <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-orange-500 via-amber-500 to-orange-600"></div>
 
                       <div className="space-y-8">
-                        {manufacturingProcess.map((step) => (
-                          <div key={step.step} className="relative flex items-start gap-6">
-                            <div className="absolute left-6 w-4 h-4 bg-gray-800 border-4 border-blue-500 rounded-full"></div>
-                            <div className="ml-16 flex-1">
-                                <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-6">
-                                  <div className="flex items-start justify-between mb-3">
-                                    <h4 className="text-lg font-bold text-white">
-                                      Step {step.step}: {step.process}
-                                    </h4>
-                                    <span className="text-sm bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full border border-blue-500/30">
-                                      {step.duration}
-                                    </span>
+                        {manufacturingProcess.map((step, idx) => {
+                          const gradients = [
+                            { gradient: "from-blue-500 via-cyan-500 to-blue-600", glowColor: "rgba(59, 130, 246, 0.4)", borderColor: "border-blue-500/40", dotColor: "border-blue-500" },
+                            { gradient: "from-purple-500 via-violet-500 to-purple-600", glowColor: "rgba(168, 85, 247, 0.4)", borderColor: "border-purple-500/40", dotColor: "border-purple-500" },
+                            { gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", borderColor: "border-orange-500/40", dotColor: "border-orange-500" },
+                            { gradient: "from-green-500 via-emerald-500 to-green-600", glowColor: "rgba(34, 197, 94, 0.4)", borderColor: "border-green-500/40", dotColor: "border-green-500" },
+                            { gradient: "from-red-500 via-pink-500 to-red-600", glowColor: "rgba(239, 68, 68, 0.4)", borderColor: "border-red-500/40", dotColor: "border-red-500" },
+                            { gradient: "from-blue-500 via-indigo-500 to-blue-600", glowColor: "rgba(59, 130, 246, 0.4)", borderColor: "border-blue-500/40", dotColor: "border-blue-500" },
+                            { gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", borderColor: "border-orange-500/40", dotColor: "border-orange-500" },
+                            { gradient: "from-purple-500 via-violet-500 to-purple-600", glowColor: "rgba(168, 85, 247, 0.4)", borderColor: "border-purple-500/40", dotColor: "border-purple-500" }
+                          ];
+                          const style = gradients[idx % gradients.length];
+
+                          return (
+                            <motion.div
+                              key={step.step}
+                              initial={{ opacity: 0, x: -30 }}
+                              whileInView={{ opacity: 1, x: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.5, delay: idx * 0.1 }}
+                              className="relative flex items-start gap-6"
+                            >
+                              <div className={`absolute left-6 w-4 h-4 bg-gray-800 border-4 ${style.dotColor} rounded-full shadow-lg`}
+                                style={{
+                                  boxShadow: `0 0 12px ${style.glowColor}`
+                                }}
+                              />
+                              <div className="ml-16 flex-1">
+                                <motion.div
+                                  whileHover={{ scale: 1.02, y: -5 }}
+                                  className="relative group"
+                                >
+                                  {/* Glow effect */}
+                                  <div
+                                    className="absolute inset-0 rounded-xl blur-lg opacity-0 group-hover:opacity-60 transition-all duration-500"
+                                    style={{
+                                      background: style.glowColor
+                                    }}
+                                  />
+
+                                  {/* Card */}
+                                  <div
+                                    className={`relative bg-gradient-to-br ${style.gradient} border ${style.borderColor} rounded-xl p-6 overflow-hidden`}
+                                    style={{
+                                      backdropFilter: 'blur(10px)',
+                                      boxShadow: '0 8px 24px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
+                                    }}
+                                  >
+                                    {/* Glass overlay */}
+                                    <div
+                                      className="absolute inset-0 pointer-events-none"
+                                      style={{
+                                        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, transparent 60%)'
+                                      }}
+                                    />
+
+                                    {/* Shimmer */}
+                                    <div
+                                      className="absolute inset-0 pointer-events-none"
+                                      style={{
+                                        background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.4) 50%, transparent 80%)',
+                                        backgroundSize: '200% 100%',
+                                        animation: `shimmer${idx + 1} ${4 + idx * 0.5}s infinite`,
+                                        mixBlendMode: 'overlay'
+                                      }}
+                                    />
+
+                                    <div className="relative z-10">
+                                      <div className="flex items-start justify-between mb-3">
+                                        <h4 className="text-lg font-bold text-white drop-shadow-md">
+                                          Step {step.step}: {step.process}
+                                        </h4>
+                                        <motion.span
+                                          whileHover={{ scale: 1.1 }}
+                                          className="text-sm bg-white/20 text-white px-3 py-1 rounded-full border border-white/30 backdrop-blur-sm"
+                                        >
+                                          {step.duration}
+                                        </motion.span>
+                                      </div>
+                                      <p className="text-white/90 mb-3 drop-shadow-sm">{step.description}</p>
+                                      <div className="flex items-center gap-2 text-sm">
+                                        <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }}>
+                                          <CheckCircle className="h-4 w-4 text-white" />
+                                        </motion.div>
+                                        <span className="text-white/80">Quality Standard: {step.quality}</span>
+                                      </div>
+                                    </div>
+
+                                    {/* Bottom accent */}
+                                    <div
+                                      className="absolute bottom-0 left-0 right-0 h-1"
+                                      style={{
+                                        background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent)'
+                                      }}
+                                    />
                                   </div>
-                                  <p className="text-gray-400 mb-3">{step.description}</p>
-                                  <div className="flex items-center gap-2 text-sm">
-                                    <CheckCircle className="h-4 w-4 text-orange-400" />
-                                    <span className="text-gray-400">Quality Standard: {step.quality}</span>
-                                  </div>
-                                </div>
-                            </div>
-                          </div>
-                        ))}
+                                </motion.div>
+                              </div>
+                            </motion.div>
+                          );
+                        })}
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
 
                 {/* Application Sectors with Detailed Specs */}
@@ -738,56 +1103,144 @@ const LithiumBattery = () => {
                     <p className="text-gray-400 text-lg">Tailored lithium battery systems for every sector and use case</p>
                   </div>
                   <div className="grid md:grid-cols-2 gap-8">
-                    {applications.map((app, idx) => (
-                      <div key={idx} className="card-elite glow-purple rounded-2xl overflow-hidden">
-                        <div className="bg-gradient-to-r from-blue-500 to-cyan-600 p-4 text-white">
-                          <div className="flex items-center justify-between">
-                            <h3 className="text-xl font-bold">{app.sector}</h3>
-                            <span className="text-sm bg-white/20 px-3 py-1 rounded-full">{app.power}</span>
-                          </div>
-                        </div>
-                        <div className="p-6">
-                          <div className="grid grid-cols-2 gap-4 mb-4">
-                            <div>
-                              <span className="text-xs text-gray-400">Voltage Range</span>
-                              <div className="font-semibold text-white">{app.voltage}</div>
-                            </div>
-                            <div>
-                              <span className="text-xs text-gray-400">Chemistry</span>
-                              <div className="font-semibold text-white">{app.chemistry}</div>
-                            </div>
-                          </div>
+                    {applications.map((app, idx) => {
+                      const gradients = [
+                        { gradient: "from-green-500 via-emerald-500 to-green-600", glowColor: "rgba(34, 197, 94, 0.4)", headerGradient: "from-green-500 to-emerald-600" },
+                        { gradient: "from-red-500 via-pink-500 to-red-600", glowColor: "rgba(239, 68, 68, 0.4)", headerGradient: "from-red-500 to-pink-600" },
+                        { gradient: "from-blue-500 via-indigo-500 to-blue-600", glowColor: "rgba(59, 130, 246, 0.4)", headerGradient: "from-blue-500 to-indigo-600" },
+                        { gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", headerGradient: "from-orange-500 to-amber-600" }
+                      ];
+                      const style = gradients[idx % gradients.length];
 
-                          <div className="mb-4">
-                            <span className="text-xs text-gray-400">Leading Brands</span>
-                            <div className="flex flex-wrap gap-2 mt-1">
-                              {app.brands.map((brand, i) => (
-                                <span key={i} className="text-xs bg-gray-700/50 text-gray-300 px-2 py-1 rounded border border-gray-600/30">
-                                  {brand}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
+                      return (
+                        <motion.div
+                          key={idx}
+                          initial={{ opacity: 0, y: 30 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.5, delay: idx * 0.1 }}
+                          whileHover={{ scale: 1.03, y: -5 }}
+                          className="relative group"
+                        >
+                          {/* Glow effect */}
+                          <div
+                            className="absolute inset-0 rounded-2xl blur-lg opacity-50 group-hover:opacity-80 transition-all duration-500"
+                            style={{
+                              background: style.glowColor,
+                              animation: `pulse ${2.5 + idx * 0.3}s ease-in-out infinite`
+                            }}
+                          />
 
-                          <div className="mb-4">
-                            <span className="text-xs text-gray-400">Key Features</span>
-                            <div className="grid grid-cols-2 gap-2 mt-2">
-                              {app.features.map((feature, i) => (
-                                <div key={i} className="flex items-center gap-1 text-xs text-gray-300">
-                                  <CheckCircle className="h-3 w-3 text-orange-400 flex-shrink-0" />
-                                  {feature}
+                          <div className="card-elite glow-purple rounded-2xl overflow-hidden relative">
+                            {/* Header with gradient */}
+                            <div className={`bg-gradient-to-r ${style.headerGradient} p-4 text-white relative overflow-hidden`}>
+                              {/* Glass overlay */}
+                              <div
+                                className="absolute inset-0 pointer-events-none"
+                                style={{
+                                  background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 50%)'
+                                }}
+                              />
+                              {/* Shimmer */}
+                              <div
+                                className="absolute inset-0 pointer-events-none"
+                                style={{
+                                  background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.5) 50%, transparent 80%)',
+                                  backgroundSize: '200% 100%',
+                                  animation: `shimmer${idx + 1} ${4 + idx * 0.5}s infinite`,
+                                  mixBlendMode: 'overlay'
+                                }}
+                              />
+                              <div className="flex items-center justify-between relative z-10">
+                                <h3 className="text-xl font-bold drop-shadow-md">{app.sector}</h3>
+                                <motion.span
+                                  whileHover={{ scale: 1.1 }}
+                                  className="text-sm bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm"
+                                >
+                                  {app.power}
+                                </motion.span>
+                              </div>
+                            </div>
+
+                            {/* Card body */}
+                            <div className="p-6 relative">
+                              {/* Background shimmer */}
+                              <div
+                                className="absolute inset-0 pointer-events-none"
+                                style={{
+                                  background: `linear-gradient(110deg, transparent 20%, ${style.glowColor.replace('0.4', '0.05')} 50%, transparent 80%)`,
+                                  backgroundSize: '200% 100%',
+                                  animation: 'shimmer2 6s infinite'
+                                }}
+                              />
+
+                              <div className="relative z-10">
+                                <div className="grid grid-cols-2 gap-4 mb-4">
+                                  <motion.div
+                                    whileHover={{ scale: 1.05 }}
+                                    className={`p-3 rounded-lg bg-gradient-to-br ${style.gradient} border border-white/20`}
+                                  >
+                                    <span className="text-xs text-white/80">Voltage Range</span>
+                                    <div className="font-semibold text-white">{app.voltage}</div>
+                                  </motion.div>
+                                  <motion.div
+                                    whileHover={{ scale: 1.05 }}
+                                    className={`p-3 rounded-lg bg-gradient-to-br ${style.gradient} border border-white/20`}
+                                  >
+                                    <span className="text-xs text-white/80">Chemistry</span>
+                                    <div className="font-semibold text-white">{app.chemistry}</div>
+                                  </motion.div>
                                 </div>
-                              ))}
+
+                                <div className="mb-4">
+                                  <span className="text-xs text-gray-400">Leading Brands</span>
+                                  <div className="flex flex-wrap gap-2 mt-1">
+                                    {app.brands.map((brand, i) => (
+                                      <motion.span
+                                        key={i}
+                                        whileHover={{ scale: 1.1, backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
+                                        className="text-xs bg-gray-700/50 text-gray-300 px-2 py-1 rounded border border-gray-600/30 transition-colors"
+                                      >
+                                        {brand}
+                                      </motion.span>
+                                    ))}
+                                  </div>
+                                </div>
+
+                                <div className="mb-4">
+                                  <span className="text-xs text-gray-400">Key Features</span>
+                                  <div className="grid grid-cols-2 gap-2 mt-2">
+                                    {app.features.map((feature, i) => (
+                                      <motion.div
+                                        key={i}
+                                        initial={{ opacity: 0, x: -10 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.3, delay: i * 0.05 }}
+                                        className="flex items-center gap-1 text-xs text-gray-300"
+                                      >
+                                        <CheckCircle className="h-3 w-3 text-orange-400 flex-shrink-0" />
+                                        {feature}
+                                      </motion.div>
+                                    ))}
+                                  </div>
+                                </div>
+
+                                <div className="flex items-center justify-between pt-4 border-t border-gray-700">
+                                  <span className="text-sm text-gray-400">ROI Period</span>
+                                  <motion.span
+                                    whileHover={{ scale: 1.1 }}
+                                    className="text-sm font-bold text-orange-400"
+                                  >
+                                    {app.roi}
+                                  </motion.span>
+                                </div>
+                              </div>
                             </div>
                           </div>
-
-                          <div className="flex items-center justify-between pt-4 border-t border-gray-700">
-                            <span className="text-sm text-gray-400">ROI Period</span>
-                            <span className="text-sm font-bold text-orange-400">{app.roi}</span>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
+                        </motion.div>
+                      );
+                    })}
                   </div>
                 </div>
 
@@ -805,29 +1258,113 @@ const LithiumBattery = () => {
 
                   {/* Safety Standards Grid */}
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-                    {safetyStandards.map((standard, idx) => (
-                      <div key={idx} className="card-elite glow-red rounded-2xl p-6 h-full flex flex-col">
-                        <div className="flex items-start justify-between mb-3">
-                          <Award className="h-8 w-8 text-blue-400" />
-                          <span className="text-sm font-bold text-blue-400">{standard.standard}</span>
-                        </div>
-                        <h4 className="text-lg font-bold text-white mb-2">{standard.description}</h4>
-                        <div className="mb-3 flex-grow">
-                          <p className="text-xs text-gray-400 mb-2">Testing Requirements:</p>
-                          <ul className="space-y-1">
-                            {standard.tests.map((test, i) => (
-                              <li key={i} className="text-xs text-gray-300 flex items-center gap-1">
-                                <ChevronRight className="h-3 w-3 text-orange-400" />
-                                {test}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div className="pt-3 border-t border-gray-700 mt-auto">
-                          <p className="text-xs text-gray-400">{standard.compliance}</p>
-                        </div>
-                      </div>
-                    ))}
+                    {safetyStandards.map((standard, idx) => {
+                      const gradients = [
+                        { gradient: "from-red-500 via-pink-500 to-red-600", glowColor: "rgba(239, 68, 68, 0.4)", iconColor: "text-red-300", borderColor: "border-red-500/30" },
+                        { gradient: "from-blue-500 via-indigo-500 to-blue-600", glowColor: "rgba(59, 130, 246, 0.4)", iconColor: "text-blue-300", borderColor: "border-blue-500/30" },
+                        { gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", iconColor: "text-orange-300", borderColor: "border-orange-500/30" },
+                        { gradient: "from-green-500 via-emerald-500 to-green-600", glowColor: "rgba(34, 197, 94, 0.4)", iconColor: "text-green-300", borderColor: "border-green-500/30" },
+                        { gradient: "from-purple-500 via-violet-500 to-purple-600", glowColor: "rgba(168, 85, 247, 0.4)", iconColor: "text-purple-300", borderColor: "border-purple-500/30" },
+                        { gradient: "from-cyan-500 via-blue-500 to-cyan-600", glowColor: "rgba(6, 182, 212, 0.4)", iconColor: "text-cyan-300", borderColor: "border-cyan-500/30" }
+                      ];
+                      const style = gradients[idx % gradients.length];
+
+                      return (
+                        <motion.div
+                          key={idx}
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.5, delay: idx * 0.1 }}
+                          whileHover={{ scale: 1.05, y: -8 }}
+                          className="relative group h-full"
+                        >
+                          {/* Glow effect */}
+                          <div
+                            className="absolute inset-0 rounded-2xl blur-lg opacity-50 group-hover:opacity-80 transition-all duration-500"
+                            style={{
+                              background: style.glowColor,
+                              animation: `pulse ${2 + idx * 0.3}s ease-in-out infinite`
+                            }}
+                          />
+
+                          {/* Card */}
+                          <div
+                            className={`card-elite glow-red rounded-2xl p-6 h-full flex flex-col relative overflow-hidden bg-gradient-to-br ${style.gradient} border ${style.borderColor}`}
+                            style={{
+                              backdropFilter: 'blur(10px)',
+                              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
+                            }}
+                          >
+                            {/* Glass overlay */}
+                            <div
+                              className="absolute inset-0 pointer-events-none opacity-60"
+                              style={{
+                                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 60%)'
+                              }}
+                            />
+
+                            {/* Shimmer */}
+                            <div
+                              className="absolute inset-0 pointer-events-none"
+                              style={{
+                                background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.5) 50%, transparent 80%)',
+                                backgroundSize: '200% 100%',
+                                animation: `shimmer${idx + 1} ${4 + idx * 0.5}s infinite`,
+                                mixBlendMode: 'overlay'
+                              }}
+                            />
+
+                            <div className="relative z-10 h-full flex flex-col">
+                              <div className="flex items-start justify-between mb-3">
+                                <motion.div
+                                  whileHover={{ rotate: 360 }}
+                                  transition={{ duration: 0.6 }}
+                                >
+                                  <Award className={`h-8 w-8 ${style.iconColor}`} />
+                                </motion.div>
+                                <motion.span
+                                  whileHover={{ scale: 1.1 }}
+                                  className="text-sm font-bold text-white bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm"
+                                >
+                                  {standard.standard}
+                                </motion.span>
+                              </div>
+                              <h4 className="text-lg font-bold text-white mb-2 drop-shadow-md">{standard.description}</h4>
+                              <div className="mb-3 flex-grow">
+                                <p className="text-xs text-white/80 mb-2">Testing Requirements:</p>
+                                <ul className="space-y-1">
+                                  {standard.tests.map((test, i) => (
+                                    <motion.li
+                                      key={i}
+                                      initial={{ opacity: 0, x: -10 }}
+                                      whileInView={{ opacity: 1, x: 0 }}
+                                      viewport={{ once: true }}
+                                      transition={{ duration: 0.3, delay: i * 0.05 }}
+                                      className="text-xs text-white/90 flex items-center gap-1"
+                                    >
+                                      <ChevronRight className="h-3 w-3 text-white" />
+                                      {test}
+                                    </motion.li>
+                                  ))}
+                                </ul>
+                              </div>
+                              <div className="pt-3 border-t border-white/20 mt-auto">
+                                <p className="text-xs text-white/80">{standard.compliance}</p>
+                              </div>
+                            </div>
+
+                            {/* Bottom accent */}
+                            <div
+                              className="absolute bottom-0 left-0 right-0 h-1"
+                              style={{
+                                background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent)'
+                              }}
+                            />
+                          </div>
+                        </motion.div>
+                      );
+                    })}
                   </div>
 
                   {/* Testing Procedures */}
