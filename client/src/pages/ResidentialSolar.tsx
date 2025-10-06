@@ -244,23 +244,9 @@ const ResidentialSolar = () => {
         ]}
       />
 
-
-      {/* Team Work Image 1 */}
-      <div className="container mx-auto px-4 pt-8 pb-4">
-        <div className="rounded-xl overflow-hidden shadow-2xl">
-          <img 
-            src={gregWithPanelImg}
-            alt="Advance Power Redding team member installing residential solar panels in Northern California"
-            className="w-full h-64 md:h-80 lg:h-96 object-cover"
-            loading="lazy"
-            data-testid="img-residential-solar-1"
-          />
-        </div>
-      </div>
-
       {/* Enhanced Solar Engineering Funnel with Expanded Technical Details */}
       <SolarRescueTimelineSection
-        className="bg-gradient-to-br from-gray-950 via-gray-900 to-black pt-8 pb-20"
+        className="bg-gradient-to-br from-gray-950 via-gray-900 to-black !pt-0 !pb-20"
         stages={[
           {
             id: 'problem-red',
