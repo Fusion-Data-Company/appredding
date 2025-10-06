@@ -281,14 +281,16 @@ const CommercialSolarWaveHero: React.FC<CommercialSolarWaveHeroProps> = ({
             }}
           >
             <span className="font-extrabold">
-              <span className="text-orange-500" style={{
-                filter: 'drop-shadow(0 0 20px rgba(255, 165, 0, 1)) drop-shadow(0 0 40px rgba(255, 165, 0, 0.8)) drop-shadow(0 4px 12px rgba(255, 165, 0, 0.9))',
-                WebkitTextStroke: '1px rgba(255, 165, 0, 0.3)',
-                textShadow: '0 0 40px rgba(255, 165, 0, 0.9), 0 0 80px rgba(255, 165, 0, 0.6), 0 4px 20px rgba(255, 165, 0, 0.8)'
+              <span style={{
+                color: '#FF8C00',
+                filter: 'drop-shadow(0 0 20px rgba(255, 140, 0, 1)) drop-shadow(0 0 40px rgba(255, 140, 0, 0.8)) drop-shadow(0 4px 12px rgba(255, 140, 0, 0.9))',
+                WebkitTextStroke: '1px rgba(255, 140, 0, 0.5)',
+                textShadow: '0 0 40px rgba(255, 140, 0, 0.9), 0 0 80px rgba(255, 140, 0, 0.7), 0 4px 20px rgba(255, 140, 0, 0.8), 0 0 100px rgba(255, 140, 0, 0.6)'
               }}>
                 Commercial Solar
               </span>
-              <span className="text-white" style={{
+              <span style={{
+                color: '#FFFFFF',
                 filter: 'drop-shadow(0 0 20px rgba(255, 255, 255, 1)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.8)) drop-shadow(0 4px 12px rgba(255, 255, 255, 0.9))',
                 WebkitTextStroke: '1px rgba(255, 255, 255, 0.3)'
               }}>
