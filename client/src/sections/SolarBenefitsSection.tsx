@@ -94,7 +94,7 @@ const SolarBenefitsSection: React.FC = () => {
     <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
       <div className="absolute inset-0 opacity-30 pointer-events-none">
         <GradientTracing
-          gradientColors={["#3b82f6", "#06b6d4", "#8b5cf6"]}
+          gradientColors={["#3b82f6", "#06b6d4", "#f97316"]}
           animationDuration={3}
           strokeWidth={3}
         />

@@ -24,6 +24,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { useFormModal } from '@/contexts/FormModalContext';
+import MobileMenu from '@/components/MobileMenu';
 
 const SolarCompanyHeader: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -85,10 +86,17 @@ const SolarCompanyHeader: React.FC = () => {
   const DropdownMenu = ({ items, dropdownKey }: { items: any[], dropdownKey: string }) => (
     <div 
       ref={el => dropdownRefs.current[dropdownKey] = el}
-      className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 rounded-2xl py-3 overflow-hidden"
+      className="w-72 rounded-2xl py-3 overflow-hidden"
       style={{
         position: 'absolute',
-        pointerEvents: 'auto',
+        top: '100%',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        marginTop: '12px',
+        pointerEvents: activeDropdown === dropdownKey ? 'auto' : 'none',
+        opacity: activeDropdown === dropdownKey ? 1 : 0,
+        visibility: activeDropdown === dropdownKey ? 'visible' : 'hidden',
+        transition: 'opacity 0.2s ease, visibility 0.2s ease',
         zIndex: 10001,
         background: 'rgb(15, 23, 42)',
         border: '2px solid rgb(71, 85, 105)',
@@ -112,13 +120,13 @@ const SolarCompanyHeader: React.FC = () => {
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.background = `linear-gradient(135deg, ${item.bgColor}40 0%, rgba(59,130,246,0.2) 100%)`;
-            e.currentTarget.style.transform = 'translateX(4px)';
+            e.currentTarget.style.transform = 'scale(1.02)';
             e.currentTarget.style.borderColor = `${item.bgColor}80`;
             e.currentTarget.style.boxShadow = `0 0 20px ${item.bgColor}40, inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.3)`;
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.background = 'linear-gradient(135deg, rgba(17, 24, 39, 0.8) 0%, rgba(31, 41, 55, 0.6) 100%)';
-            e.currentTarget.style.transform = 'translateX(0)';
+            e.currentTarget.style.transform = 'scale(1)';
             e.currentTarget.style.borderColor = 'rgba(75, 85, 99, 0.4)';
             e.currentTarget.style.boxShadow = 'inset 0 1px 0 rgba(255, 255, 255, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.2)';
           }}
@@ -614,7 +622,7 @@ const SolarCompanyHeader: React.FC = () => {
                   }}
                 />
               </button>
-              {activeDropdown === 'services' && <DropdownMenu items={servicesItems} dropdownKey="services" />}
+              <DropdownMenu items={servicesItems} dropdownKey="services" />
             </div>
 
             {/* Company Dropdown */}
@@ -655,7 +663,7 @@ const SolarCompanyHeader: React.FC = () => {
                   }}
                 />
               </button>
-              {activeDropdown === 'company' && <DropdownMenu items={companyItems} dropdownKey="company" />}
+              <DropdownMenu items={companyItems} dropdownKey="company" />
             </div>
           </nav>
 
@@ -690,98 +698,30 @@ const SolarCompanyHeader: React.FC = () => {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className={cn(
-              "lg:hidden p-2 rounded-lg",
-              "text-gray-700 hover:text-gray-900",
-              "hover:bg-gray-100/50 transition-all duration-200"
+              "lg:hidden p-2.5 rounded-lg transition-all duration-200",
+              "text-white hover:text-white/90",
+              "hover:bg-white/10 active:scale-95"
             )}
             aria-label="Toggle menu"
+            aria-expanded={isMobileMenuOpen}
           >
-            {isMobileMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
+            <div className="relative w-6 h-6">
+              {isMobileMenuOpen ? (
+                <X className="h-6 w-6 transition-transform duration-200" />
+              ) : (
+                <Menu className="h-6 w-6 transition-transform duration-200" />
+              )}
+            </div>
           </button>
         </div>
-
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-gray-100">
-            <nav className="flex flex-col space-y-1">
-              {/* Mobile Products Link */}
-              <Link 
-                href="/shop/products"
-                className="px-4 py-3 text-[15px] font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100/80 rounded-lg transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Products
-              </Link>
-
-              {/* Mobile Comparison Link */}
-              <Link 
-                href="/comparison"
-                className="px-4 py-3 text-[15px] font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100/80 rounded-lg transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Comparison
-              </Link>
-
-              {/* Mobile Services */}
-              <div className="px-4 py-2 mt-2">
-                <div className="text-[13px] font-semibold text-gray-500 uppercase tracking-wider mb-2">Services</div>
-                {servicesItems.map((item) => (
-                  <Link 
-                    key={item.href} 
-                    href={item.href}
-                    className="flex items-center py-2.5 text-[15px] text-gray-700 hover:text-orange-600 transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    <span className="mr-3 text-orange-500">{item.icon}</span>
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-
-              {/* Mobile Company */}
-              <div className="px-4 py-2 mt-2">
-                <div className="text-[13px] font-semibold text-gray-500 uppercase tracking-wider mb-2">Company</div>
-                {companyItems.map((item) => (
-                  <Link 
-                    key={item.href} 
-                    href={item.href}
-                    className="flex items-center py-2.5 text-[15px] text-gray-700 hover:text-orange-600 transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    <span className="mr-3 text-orange-500">{item.icon}</span>
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-
-              {/* Mobile CTA */}
-              <div className="pt-4 px-4">
-                <Button
-                  size="lg"
-                  className={cn(
-                    "w-full",
-                    "bg-gradient-to-r from-orange-500 to-blue-600",
-                    "hover:from-orange-600 hover:to-blue-700",
-                    "text-white text-[15px] font-semibold",
-                    "shadow-lg shadow-orange-500/25",
-                    "transition-all duration-300"
-                  )}
-                  onClick={() => {
-                    openSolarForm();
-                    setIsMobileMenuOpen(false);
-                  }}
-                >
-                  Get Free Quote
-                </Button>
-              </div>
-            </nav>
-          </div>
-        )}
       </div>
+
+      {/* Mobile Menu Component */}
+      <MobileMenu 
+        isOpen={isMobileMenuOpen} 
+        onClose={() => setIsMobileMenuOpen(false)}
+        isHomePage={location === '/'}
+      />
     </header>
   );
 };

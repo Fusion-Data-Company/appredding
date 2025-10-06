@@ -348,15 +348,15 @@ const RepairsWaveHero: React.FC<RepairsWaveHeroProps> = ({
     }, [])
 
     return (
-        <div className="hero-section relative min-h-screen w-full bg-black overflow-hidden" style={{ position: 'relative' }}>
+        <div className="hero-section relative min-h-screen w-full bg-black overflow-hidden" style={{ position: 'relative', zIndex: 1 }}>
             {/* Award Badge */}
             <div className="absolute top-4 right-4 md:top-8 md:right-8 z-50">
                 <AwardBadge type="customer-service-excellence" data-testid="award-badge-repairs" />
             </div>
             {/* Wave Background */}
             <div className="absolute inset-0 z-0">
-                <Waves 
-                    strokeColor="#FFD700" 
+                <Waves
+                    strokeColor="#FFD700"
                     backgroundColor="#000000"
                     pointerSize={0.8}
                 />

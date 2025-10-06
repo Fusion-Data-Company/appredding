@@ -214,7 +214,7 @@ const LithiumBattery = () => {
       <Header />
       <div className="min-h-screen bg-gray-50">
         {/* Hero Section with Glassomorphic Card */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ zIndex: 1 }}>
           <ShaderBackground />
 
           {/* Excellence Award Badge - Top Right */}

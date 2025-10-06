@@ -164,7 +164,7 @@ const MaintenanceWaveHero: React.FC<MaintenanceWaveHeroProps> = ({
   const scale = useTransform(scrollY, [0, 500], [1, 0.8]);
 
   return (
-    <div className="hero-section relative min-h-screen w-full overflow-hidden bg-black" style={{ position: 'relative' }}>
+    <div className="hero-section relative min-h-screen w-full overflow-hidden bg-black" style={{ position: 'relative', zIndex: 1 }}>
       {/* Award Badge */}
       <div className="absolute top-4 right-4 md:top-8 md:right-8 z-50">
         <AwardBadge type="customer-service-excellence" data-testid="award-badge-maintenance" />

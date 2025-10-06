@@ -160,9 +160,9 @@ function FluidGradientCanvas() {
 
 export default function FluidEnergyHero() {
   return (
-    <section className="relative flex h-screen min-h-[700px] w-full items-center justify-center overflow-hidden bg-black">
+    <section className="relative flex h-screen min-h-[700px] w-full items-center justify-center overflow-hidden bg-black" style={{ zIndex: 1 }}>
       <FluidGradientCanvas />
-      
+
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 pointer-events-none" />
 
       <motion.div

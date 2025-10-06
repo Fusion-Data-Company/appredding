@@ -10,7 +10,6 @@ import {
   Sun, 
   Moon,
   Lock, 
-  PanelRight,
   GraduationCap,
   Droplets,
   Anchor,
@@ -18,8 +17,17 @@ import {
   Building,
   Home as HomeIcon,
   Building2,
-  Menu as MenuIcon
+  Battery,
+  Settings,
+  Wrench,
+  Zap,
+  ShieldCheck,
+  Info,
+  FolderOpen,
+  Code,
+  MessageSquare
 } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -29,272 +37,340 @@ interface MobileMenuProps {
 
 const MobileMenu = ({ isOpen, onClose, isHomePage = true }: MobileMenuProps) => {
   const { theme, setTheme } = useTheme();
-  const [applicationMenuOpen, setApplicationMenuOpen] = useState(false);
+  const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
+  const [companyMenuOpen, setCompanyMenuOpen] = useState(false);
   const [portalsMenuOpen, setPortalsMenuOpen] = useState(false);
   
   useEffect(() => {
-    // Add event listeners to close menu when clicking on links
-    const handleLinkClick = () => {
-      onClose();
-    };
-
-    const links = document.querySelectorAll(".mobile-menu-link");
-    links.forEach((link) => {
-      link.addEventListener("click", handleLinkClick);
-    });
-
     // Disable body scroll when menu is open
     if (isOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
       // Reset all expanding menus when mobile menu closes
-      setApplicationMenuOpen(false);
+      setServicesMenuOpen(false);
+      setCompanyMenuOpen(false);
       setPortalsMenuOpen(false);
     }
 
     return () => {
-      links.forEach((link) => {
-        link.removeEventListener("click", handleLinkClick);
-      });
       document.body.style.overflow = "";
     };
-  }, [onClose, isOpen]);
+  }, [isOpen]);
+
+  // Services menu items matching desktop
+  const servicesItems = [
+    { label: "Residential Solar", href: "/services/residential-solar", icon: <Home className="h-4 w-4" />, iconColor: "text-orange-400" },
+    { label: "Commercial Solar", href: "/services/commercial-solar", icon: <Building2 className="h-4 w-4" />, iconColor: "text-blue-400" },
+    { label: "Hybrid Solar", href: "/services/hybrid-solar", icon: <Zap className="h-4 w-4" />, iconColor: "text-yellow-400" },
+    { label: "Battery Storage", href: "/services/battery-storage", icon: <Battery className="h-4 w-4" />, iconColor: "text-green-400" },
+    { label: "Maintenance", href: "/services/maintenance", icon: <Settings className="h-4 w-4" />, iconColor: "text-purple-400" },
+    { label: "Repairs", href: "/services/repairs", icon: <Wrench className="h-4 w-4" />, iconColor: "text-red-400" },
+    { label: "Energy Conservation", href: "/services/energy-conservation", icon: <ShieldCheck className="h-4 w-4" />, iconColor: "text-teal-400" },
+    { label: "Lithium Battery", href: "/services/lithium-battery", icon: <Battery className="h-4 w-4" />, iconColor: "text-cyan-400" },
+  ];
+
+  // Company menu items matching desktop
+  const companyItems = [
+    { label: "About", href: "/about", icon: <Info className="h-4 w-4" />, iconColor: "text-indigo-400" },
+    { label: "Portfolio", href: "/portfolio", icon: <FolderOpen className="h-4 w-4" />, iconColor: "text-pink-400" },
+    { label: "Technology", href: "/resources/technology", icon: <Code className="h-4 w-4" />, iconColor: "text-violet-400" },
+    { label: "Team", href: "/team", icon: <Users className="h-4 w-4" />, iconColor: "text-emerald-400" },
+    { label: "Contact", href: "/contact", icon: <MessageSquare className="h-4 w-4" />, iconColor: "text-amber-400" },
+  ];
+
+  const handleLinkClick = () => {
+    onClose();
+  };
 
   return (
-    <div
-      id="mobile-menu"
-      className={`lg:hidden fixed top-[112px] bg-white/95 dark:bg-gray-900/95 w-full max-h-[85vh] overflow-y-auto z-50 transform transition-all duration-300 ease-in-out
-      backdrop-blur-lg shadow-lg ${
-        isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
-      } border-t border-amber-800/20 dark:border-amber-700/20`}
-      style={{ maxHeight: "85vh", overflowY: "auto" }}
-    >
-      <div className="container mx-auto py-4 px-4">
-        {/* Theme toggle at the top right */}
-        <div className="absolute top-3 right-3">
-          <button
-            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            className="p-2 rounded-full bg-amber-100 dark:bg-amber-900 text-amber-800 dark:text-amber-200"
-            aria-label="Toggle theme"
-          >
-            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
+    <>
+      {/* Backdrop overlay */}
+      <div
+        className={cn(
+          "lg:hidden fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ease-in-out",
+          isOpen ? "opacity-100 z-[9998]" : "opacity-0 pointer-events-none"
+        )}
+        onClick={onClose}
+        style={{
+          willChange: isOpen ? 'opacity' : 'auto'
+        }}
+      />
+
+      {/* Mobile menu panel */}
+      <div
+        id="mobile-menu"
+        className={cn(
+          "lg:hidden fixed w-full z-[9999] transition-all duration-300 ease-out",
+          isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
+        )}
+        style={{
+          top: '112px',
+          maxHeight: 'calc(100vh - 112px)',
+          background: 'linear-gradient(180deg, rgba(255, 214, 153, 0.98) 0%, rgba(255, 204, 102, 0.98) 30%, rgba(153, 204, 255, 0.98) 100%)',
+          backdropFilter: 'blur(20px) saturate(140%)',
+          WebkitBackdropFilter: 'blur(20px) saturate(140%)',
+          borderBottom: '1px solid rgba(251, 146, 60, 0.5)',
+          boxShadow: '0 8px 32px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.3)',
+          willChange: isOpen ? 'transform, opacity' : 'auto',
+          transform: isOpen ? 'translate3d(0, 0, 0)' : 'translate3d(0, -100%, 0)',
+        }}
+      >
+        <div className="h-full overflow-y-auto overscroll-contain" style={{ maxHeight: 'calc(100vh - 112px)' }}>
+          <div className="container mx-auto py-4 px-4">
+            {/* Theme toggle at the top right */}
+            <div className="absolute top-3 right-3 z-10">
+              <button
+                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                className="p-2.5 rounded-lg transition-all duration-200 hover:scale-105 active:scale-95"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.9) 0%, rgba(59, 130, 246, 0.9) 100%)',
+                  boxShadow: '0 4px 12px rgba(249, 115, 22, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3)',
+                  border: '1px solid rgba(255, 255, 255, 0.3)'
+                }}
+                aria-label="Toggle theme"
+              >
+                {theme === 'dark' ? (
+                  <Sun size={18} className="text-white" />
+                ) : (
+                  <Moon size={18} className="text-white" />
+                )}
+              </button>
+            </div>
+            
+            {/* Main navigation items */}
+            <nav className="mt-2">
+              <ul className="space-y-2">
+                {/* Products Link */}
+                <li>
+                  <Link
+                    href="/shop/products"
+                    onClick={handleLinkClick}
+                    className="mobile-menu-link flex items-center space-x-3 min-h-[44px] px-4 py-3 w-full rounded-lg 
+                    transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(59, 130, 246, 0.15) 100%)',
+                      border: '1px solid rgba(255, 255, 255, 0.3)',
+                      boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.2)'
+                    }}
+                  >
+                    <Home className="h-5 w-5 text-orange-600" />
+                    <span className="font-semibold text-gray-900">Products</span>
+                  </Link>
+                </li>
+
+                {/* Comparison Link */}
+                <li>
+                  <Link
+                    href="/comparison"
+                    onClick={handleLinkClick}
+                    className="mobile-menu-link flex items-center space-x-3 min-h-[44px] px-4 py-3 w-full rounded-lg 
+                    transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(59, 130, 246, 0.15) 100%)',
+                      border: '1px solid rgba(255, 255, 255, 0.3)',
+                      boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.2)'
+                    }}
+                  >
+                    <Building2 className="h-5 w-5 text-blue-600" />
+                    <span className="font-semibold text-gray-900">Comparison</span>
+                  </Link>
+                </li>
+
+                {/* Services with dropdown */}
+                <li>
+                  <button
+                    onClick={() => setServicesMenuOpen(!servicesMenuOpen)}
+                    className="flex items-center justify-between space-x-3 min-h-[44px] px-4 py-3 w-full rounded-lg 
+                    transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.2) 0%, rgba(59, 130, 246, 0.2) 100%)',
+                      border: '1px solid rgba(255, 255, 255, 0.4)',
+                      boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.25)'
+                    }}
+                  >
+                    <div className="flex items-center space-x-3">
+                      <Zap className="h-5 w-5 text-orange-600" />
+                      <span className="font-semibold text-gray-900">Services</span>
+                    </div>
+                    <ChevronDown 
+                      className={cn(
+                        "h-4 w-4 text-gray-900 transition-transform duration-200",
+                        servicesMenuOpen ? "rotate-180" : ""
+                      )} 
+                    />
+                  </button>
+
+                  {/* Services submenu */}
+                  <div 
+                    className={cn(
+                      "overflow-hidden transition-all duration-300 ease-in-out",
+                      servicesMenuOpen ? "max-h-[600px] opacity-100 mt-2" : "max-h-0 opacity-0"
+                    )}
+                  >
+                    <ul className="space-y-1.5 pl-4">
+                      {servicesItems.map((item) => (
+                        <li key={item.href}>
+                          <Link
+                            href={item.href}
+                            onClick={handleLinkClick}
+                            className="mobile-menu-link flex items-center space-x-3 min-h-[44px] px-4 py-2.5 rounded-lg 
+                            transition-all duration-150 hover:scale-[1.01] active:scale-[0.99]"
+                            style={{
+                              background: 'rgba(255, 255, 255, 0.4)',
+                              border: '1px solid rgba(255, 255, 255, 0.5)',
+                              boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.3)'
+                            }}
+                          >
+                            <span className={item.iconColor}>{item.icon}</span>
+                            <span className="text-gray-900 font-medium text-sm">{item.label}</span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </li>
+
+                {/* Company with dropdown */}
+                <li>
+                  <button
+                    onClick={() => setCompanyMenuOpen(!companyMenuOpen)}
+                    className="flex items-center justify-between space-x-3 min-h-[44px] px-4 py-3 w-full rounded-lg 
+                    transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.2) 0%, rgba(59, 130, 246, 0.2) 100%)',
+                      border: '1px solid rgba(255, 255, 255, 0.4)',
+                      boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.25)'
+                    }}
+                  >
+                    <div className="flex items-center space-x-3">
+                      <Info className="h-5 w-5 text-blue-600" />
+                      <span className="font-semibold text-gray-900">Company</span>
+                    </div>
+                    <ChevronDown 
+                      className={cn(
+                        "h-4 w-4 text-gray-900 transition-transform duration-200",
+                        companyMenuOpen ? "rotate-180" : ""
+                      )} 
+                    />
+                  </button>
+
+                  {/* Company submenu */}
+                  <div 
+                    className={cn(
+                      "overflow-hidden transition-all duration-300 ease-in-out",
+                      companyMenuOpen ? "max-h-[400px] opacity-100 mt-2" : "max-h-0 opacity-0"
+                    )}
+                  >
+                    <ul className="space-y-1.5 pl-4">
+                      {companyItems.map((item) => (
+                        <li key={item.href}>
+                          <Link
+                            href={item.href}
+                            onClick={handleLinkClick}
+                            className="mobile-menu-link flex items-center space-x-3 min-h-[44px] px-4 py-2.5 rounded-lg 
+                            transition-all duration-150 hover:scale-[1.01] active:scale-[0.99]"
+                            style={{
+                              background: 'rgba(255, 255, 255, 0.4)',
+                              border: '1px solid rgba(255, 255, 255, 0.5)',
+                              boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.3)'
+                            }}
+                          >
+                            <span className={item.iconColor}>{item.icon}</span>
+                            <span className="text-gray-900 font-medium text-sm">{item.label}</span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </li>
+
+                {/* Portals with dropdown */}
+                <li className="mt-3 pt-3" style={{ borderTop: '1px solid rgba(255, 255, 255, 0.4)' }}>
+                  <button
+                    onClick={() => setPortalsMenuOpen(!portalsMenuOpen)}
+                    className="flex items-center justify-between space-x-3 min-h-[44px] px-4 py-3 w-full rounded-lg 
+                    transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.25) 0%, rgba(59, 130, 246, 0.25) 100%)',
+                      border: '1px solid rgba(255, 255, 255, 0.4)',
+                      boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.3)'
+                    }}
+                  >
+                    <div className="flex items-center space-x-3">
+                      <Lock className="h-5 w-5 text-orange-600" />
+                      <span className="font-semibold text-gray-900">Access Portals</span>
+                    </div>
+                    <ChevronDown 
+                      className={cn(
+                        "h-4 w-4 text-gray-900 transition-transform duration-200",
+                        portalsMenuOpen ? "rotate-180" : ""
+                      )} 
+                    />
+                  </button>
+
+                  {/* Portals submenu */}
+                  <div 
+                    className={cn(
+                      "overflow-hidden transition-all duration-300 ease-in-out",
+                      portalsMenuOpen ? "max-h-[400px] opacity-100 mt-2" : "max-h-0 opacity-0"
+                    )}
+                  >
+                    <ul className="space-y-1.5 pl-4">
+                      <li>
+                        <Link
+                          href="/client-dashboard"
+                          onClick={handleLinkClick}
+                          className="mobile-menu-link flex items-center space-x-3 min-h-[44px] px-4 py-2.5 rounded-lg 
+                          transition-all duration-150 hover:scale-[1.01] active:scale-[0.99]"
+                          style={{
+                            background: 'rgba(255, 255, 255, 0.5)',
+                            border: '1px solid rgba(255, 255, 255, 0.6)',
+                            boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.4)'
+                          }}
+                        >
+                          <span className="text-gray-900 font-medium text-sm">Client Dashboard</span>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href="/admin-dashboard"
+                          onClick={handleLinkClick}
+                          className="mobile-menu-link flex items-center space-x-3 min-h-[44px] px-4 py-2.5 rounded-lg 
+                          transition-all duration-150 hover:scale-[1.01] active:scale-[0.99]"
+                          style={{
+                            background: 'rgba(255, 255, 255, 0.5)',
+                            border: '1px solid rgba(255, 255, 255, 0.6)',
+                            boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.4)'
+                          }}
+                        >
+                          <span className="text-gray-900 font-medium text-sm">Admin Dashboard</span>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href="/crm"
+                          onClick={handleLinkClick}
+                          className="mobile-menu-link flex items-center space-x-3 min-h-[44px] px-4 py-2.5 rounded-lg 
+                          transition-all duration-150 hover:scale-[1.01] active:scale-[0.99]"
+                          style={{
+                            background: 'rgba(255, 255, 255, 0.5)',
+                            border: '1px solid rgba(255, 255, 255, 0.6)',
+                            boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.4)'
+                          }}
+                        >
+                          <span className="text-gray-900 font-medium text-sm">CRM Dashboard</span>
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </nav>
+          </div>
         </div>
-        
-        {/* Main navigation items */}
-        <nav className="mt-2">
-          <ul className="space-y-1">
-            {/* Home */}
-            <li>
-              <Link
-                href="/"
-                className="mobile-menu-link flex items-center space-x-3 py-3 px-4 w-full rounded-md 
-                text-amber-900 dark:text-amber-300 hover:bg-amber-100/50 dark:hover:bg-amber-900/40
-                transition-colors duration-150"
-              >
-                <Home className="h-5 w-5" />
-                <span className="font-medium">Home</span>
-              </Link>
-            </li>
-
-            {/* Applications with dropdown */}
-            <li>
-              <button
-                onClick={() => setApplicationMenuOpen(!applicationMenuOpen)}
-                className="flex items-center justify-between space-x-3 py-3 px-4 w-full rounded-md 
-                text-amber-900 dark:text-amber-300 hover:bg-amber-100/50 dark:hover:bg-amber-900/40
-                transition-colors duration-150"
-              >
-                <div className="flex items-center space-x-3">
-                  <GraduationCap className="h-5 w-5" />
-                  <span className="font-medium">Applications</span>
-                </div>
-                {applicationMenuOpen ? 
-                  <ChevronDown className="h-4 w-4" /> : 
-                  <ChevronRight className="h-4 w-4" />
-                }
-              </button>
-
-              {/* Application submenu */}
-              {applicationMenuOpen && (
-                <ul className="pl-6 mt-1 space-y-1 border-l-2 border-amber-300/30 dark:border-amber-700/30 ml-5">
-                  <li>
-                    <Link
-                      href="/pools"
-                      className="mobile-menu-link flex items-center space-x-3 py-2 px-4 rounded-md 
-                      text-amber-800 dark:text-amber-400 hover:bg-amber-100/40 dark:hover:bg-amber-900/30
-                      transition-colors duration-150"
-                    >
-                      <Droplets className="h-4 w-4" />
-                      <span>Pools</span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/marinas"
-                      className="mobile-menu-link flex items-center space-x-3 py-2 px-4 rounded-md 
-                      text-amber-800 dark:text-amber-400 hover:bg-amber-100/40 dark:hover:bg-amber-900/30
-                      transition-colors duration-150"
-                    >
-                      <Anchor className="h-4 w-4" />
-                      <span>Marinas</span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/fire-prevention"
-                      className="mobile-menu-link flex items-center space-x-3 py-2 px-4 rounded-md 
-                      text-amber-800 dark:text-amber-400 hover:bg-amber-100/40 dark:hover:bg-amber-900/30
-                      transition-colors duration-150"
-                    >
-                      <Flame className="h-4 w-4" />
-                      <span>Fire Prevention</span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/construction"
-                      className="mobile-menu-link flex items-center space-x-3 py-2 px-4 rounded-md 
-                      text-amber-800 dark:text-amber-400 hover:bg-amber-100/40 dark:hover:bg-amber-900/30
-                      transition-colors duration-150"
-                    >
-                      <Building className="h-4 w-4" />
-                      <span>Construction</span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/mobile-home"
-                      className="mobile-menu-link flex items-center space-x-3 py-2 px-4 rounded-md 
-                      text-amber-800 dark:text-amber-400 hover:bg-amber-100/40 dark:hover:bg-amber-900/30
-                      transition-colors duration-150"
-                    >
-                      <HomeIcon className="h-4 w-4" />
-                      <span>Mobile Home</span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/municipality"
-                      className="mobile-menu-link flex items-center space-x-3 py-2 px-4 rounded-md 
-                      text-amber-800 dark:text-amber-400 hover:bg-amber-100/40 dark:hover:bg-amber-900/30
-                      transition-colors duration-150"
-                    >
-                      <Building2 className="h-4 w-4" />
-                      <span>Municipality</span>
-                    </Link>
-                  </li>
-                </ul>
-              )}
-            </li>
-
-            {/* Painters */}
-            <li>
-              <Link
-                href="/painters"
-                className="mobile-menu-link flex items-center space-x-3 py-3 px-4 w-full rounded-md 
-                text-amber-900 dark:text-amber-300 hover:bg-amber-100/50 dark:hover:bg-amber-900/40
-                transition-colors duration-150"
-              >
-                <Users className="h-5 w-5" />
-                <span className="font-medium">Painters</span>
-              </Link>
-            </li>
-
-            {/* Contact */}
-            {isHomePage && (
-              <li>
-                <a
-                  href="#contact"
-                  className="mobile-menu-link flex items-center space-x-3 py-3 px-4 w-full rounded-md 
-                  text-amber-900 dark:text-amber-300 hover:bg-amber-100/50 dark:hover:bg-amber-900/40
-                  transition-colors duration-150"
-                >
-                  <Phone className="h-5 w-5" />
-                  <span className="font-medium">Contact</span>
-                </a>
-              </li>
-            )}
-
-            {/* Portals with dropdown */}
-            <li className="mt-2 border-t border-amber-200/30 dark:border-amber-800/30 pt-2">
-              <button
-                onClick={() => setPortalsMenuOpen(!portalsMenuOpen)}
-                className="flex items-center justify-between space-x-3 py-3 px-4 w-full rounded-md 
-                text-amber-900 dark:text-amber-300 hover:bg-amber-100/50 dark:hover:bg-amber-900/40
-                transition-colors duration-150"
-              >
-                <div className="flex items-center space-x-3">
-                  <Lock className="h-5 w-5" />
-                  <span className="font-medium">Access Portals</span>
-                </div>
-                {portalsMenuOpen ? 
-                  <ChevronDown className="h-4 w-4" /> : 
-                  <ChevronRight className="h-4 w-4" />
-                }
-              </button>
-
-              {/* Portals submenu */}
-              {portalsMenuOpen && (
-                <ul className="pl-6 mt-1 space-y-2 border-l-2 border-amber-300/30 dark:border-amber-700/30 ml-5">
-                  <li>
-                    <Link
-                      href="/client-dashboard"
-                      className="mobile-menu-link flex items-center space-x-3 py-2 px-4 rounded-md 
-                      text-amber-800 dark:text-amber-400 bg-amber-100/30 dark:bg-amber-900/40 hover:bg-amber-100/50 dark:hover:bg-amber-800/50
-                      transition-colors duration-150"
-                    >
-                      <span>Client Dashboard</span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/admin-dashboard"
-                      className="mobile-menu-link flex items-center space-x-3 py-2 px-4 rounded-md 
-                      text-amber-800 dark:text-amber-400 bg-amber-100/30 dark:bg-amber-900/40 hover:bg-amber-100/50 dark:hover:bg-amber-800/50
-                      transition-colors duration-150"
-                    >
-                      <span>Admin Dashboard</span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/crm"
-                      className="mobile-menu-link flex items-center space-x-3 py-2 px-4 rounded-md 
-                      text-amber-800 dark:text-amber-400 bg-amber-100/30 dark:bg-amber-900/40 hover:bg-amber-100/50 dark:hover:bg-amber-800/50
-                      transition-colors duration-150"
-                    >
-                      <span>CRM Dashboard</span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/inventory"
-                      className="mobile-menu-link flex items-center space-x-3 py-2 px-4 rounded-md 
-                      text-amber-800 dark:text-amber-400 bg-amber-100/30 dark:bg-amber-900/40 hover:bg-amber-100/50 dark:hover:bg-amber-800/50
-                      transition-colors duration-150"
-                    >
-                      <span>Inventory Management</span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/crm-login"
-                      className="mobile-menu-link flex items-center space-x-3 py-2 px-4 rounded-md 
-                      text-amber-800 dark:text-amber-400 bg-amber-100/30 dark:bg-amber-900/40 hover:bg-amber-100/50 dark:hover:bg-amber-800/50
-                      transition-colors duration-150"
-                    >
-                      <span>CRM Admin Login</span>
-                    </Link>
-                  </li>
-                </ul>
-              )}
-            </li>
-          </ul>
-        </nav>
       </div>
-    </div>
+    </>
   );
 };
 
