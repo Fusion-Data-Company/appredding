@@ -342,10 +342,13 @@ const LithiumBattery = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.3 }}
                     className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black mb-8 leading-tight"
+                    style={{
+                      filter: 'drop-shadow(0 10px 30px rgba(0, 0, 0, 0.8)) drop-shadow(0 4px 10px rgba(0, 0, 0, 0.6))'
+                    }}
                   >
-                    <span className="text-white drop-shadow-2xl">Lithium Battery</span>
+                    <span className="text-white">Lithium Battery</span>
                     <br />
-                    <span className="bg-gradient-to-r from-yellow-300 via-amber-200 to-yellow-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(251,191,36,0.5)]">
+                    <span className="bg-gradient-to-r from-yellow-300 via-amber-200 to-yellow-400 bg-clip-text text-transparent">
                       Technology Guide
                     </span>
                   </motion.h1>
