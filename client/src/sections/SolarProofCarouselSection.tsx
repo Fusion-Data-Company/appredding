@@ -116,7 +116,7 @@ function CarouselNavigation({ className, classNameButton, alwaysShow }: Carousel
   return (
     <div
       className={cn(
-        'pointer-events-none absolute left-[-12.5%] top-1/2 flex w-[125%] -translate-y-1/2 justify-between px-2',
+        'pointer-events-none absolute left-0 top-1/2 flex w-full -translate-y-1/2 justify-between px-2 md:left-[-12.5%] md:w-[125%]',
         className,
       )}
     >

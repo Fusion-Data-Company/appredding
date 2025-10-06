@@ -206,7 +206,7 @@ const HybridSolarWaveHero: React.FC = () => {
   const borderGlow = useMotionTemplate`0 0 20px ${color}40`;
 
   return (
-    <div className="relative min-h-[70vh] w-full overflow-hidden bg-black -mb-20">
+    <div className="relative min-h-[600px] sm:min-h-[70vh] w-full overflow-hidden bg-black -mb-20">
       {/* Background Layers */}
       <SolarWaveBackground />
       <Sparkles particleColor="#FFA500" particleDensity={60} />
@@ -220,7 +220,7 @@ const HybridSolarWaveHero: React.FC = () => {
 
 
       {/* Hero Content */}
-      <div className="relative z-[2] flex min-h-[calc(70vh-5rem)] items-start pt-24 md:pt-32">
+      <div className="relative z-[2] flex min-h-[500px] sm:min-h-[calc(70vh-5rem)] items-start pt-24 md:pt-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full">
           <div className="mx-auto max-w-5xl">
             <motion.div

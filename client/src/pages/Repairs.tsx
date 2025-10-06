@@ -31,13 +31,24 @@ const Repairs = () => {
   const [temperature, setTemperature] = useState(45);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setSystemHealth(65 + Math.sin(Date.now() / 3000) * 10);
-      setProductionLevel(72 + Math.sin(Date.now() / 2500) * 8);
-      setErrorCount(Math.floor(3 + Math.sin(Date.now() / 4000) * 2));
-      setTemperature(45 + Math.sin(Date.now() / 3500) * 5);
-    }, 100);
-    return () => clearInterval(interval);
+    let animationFrameId: number;
+    let lastUpdate = Date.now();
+
+    const animate = () => {
+      const now = Date.now();
+      // Only update every 500ms instead of 100ms to reduce re-renders
+      if (now - lastUpdate >= 500) {
+        setSystemHealth(65 + Math.sin(Date.now() / 3000) * 10);
+        setProductionLevel(72 + Math.sin(Date.now() / 2500) * 8);
+        setErrorCount(Math.floor(3 + Math.sin(Date.now() / 4000) * 2));
+        setTemperature(45 + Math.sin(Date.now() / 3500) * 5);
+        lastUpdate = now;
+      }
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    animationFrameId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationFrameId);
   }, []);
 
   const repairCategories = {

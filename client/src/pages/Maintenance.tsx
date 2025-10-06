@@ -33,14 +33,25 @@ const Maintenance = () => {
   const [uptime, setUptime] = useState(99.7);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setEfficiencyLevel(92 + Math.sin(Date.now() / 3000) * 3);
-      setPerformanceRatio(0.84 + Math.sin(Date.now() / 2500) * 0.05);
-      setCleaningDue(prev => prev > 0 ? prev - 0.1 : 90);
-      setDegradationRate(0.5 + Math.sin(Date.now() / 4000) * 0.1);
-      setUptime(99.7 + Math.sin(Date.now() / 3500) * 0.2);
-    }, 100);
-    return () => clearInterval(interval);
+    let animationFrameId: number;
+    let lastUpdate = Date.now();
+
+    const animate = () => {
+      const now = Date.now();
+      // Only update every 500ms instead of 100ms to reduce re-renders
+      if (now - lastUpdate >= 500) {
+        setEfficiencyLevel(92 + Math.sin(now / 3000) * 3);
+        setPerformanceRatio(0.84 + Math.sin(now / 2500) * 0.05);
+        setCleaningDue(prev => prev > 0 ? prev - 0.5 : 90);
+        setDegradationRate(0.5 + Math.sin(now / 4000) * 0.1);
+        setUptime(99.7 + Math.sin(now / 3500) * 0.2);
+        lastUpdate = now;
+      }
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    animationFrameId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationFrameId);
   }, []);
 
   const criticalAlert = {

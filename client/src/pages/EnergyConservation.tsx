@@ -105,13 +105,24 @@ const EnergyConservation = () => {
   };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setEnergyUsage(3500 + Math.sin(Date.now() / 2000) * 200);
-      setEfficiency(65 + Math.sin(Date.now() / 3000) * 5);
-      setSavings(prev => (prev + 0.5) % 1000);
-      setTemperature(72 + Math.sin(Date.now() / 4000) * 2);
-    }, 100);
-    return () => clearInterval(interval);
+    let animationFrameId: number;
+    let lastUpdate = Date.now();
+
+    const animate = () => {
+      const now = Date.now();
+      // Only update every 500ms instead of 100ms to reduce re-renders
+      if (now - lastUpdate >= 500) {
+        setEnergyUsage(3500 + Math.sin(Date.now() / 2000) * 200);
+        setEfficiency(65 + Math.sin(Date.now() / 3000) * 5);
+        setSavings(prev => (prev + 0.5) % 1000);
+        setTemperature(72 + Math.sin(Date.now() / 4000) * 2);
+        lastUpdate = now;
+      }
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    animationFrameId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationFrameId);
   }, []);
 
   const conservationServices = {

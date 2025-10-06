@@ -46,19 +46,29 @@ const SolarCompanyHeader: React.FC = () => {
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Node;
+
+      // Check if click is inside any dropdown or its trigger button
       const isClickInsideAnyDropdown = Object.values(dropdownRefs.current).some(
-        ref => ref && ref.contains(event.target as Node)
+        ref => ref && ref.contains(target)
       );
-      if (!isClickInsideAnyDropdown) {
+
+      // Check if click is on a dropdown trigger button
+      const isClickOnTrigger = (target as HTMLElement).closest('[aria-haspopup="true"]');
+
+      if (!isClickInsideAnyDropdown && !isClickOnTrigger) {
         setActiveDropdown(null);
       }
     };
 
-    if (activeDropdown) {
-      document.addEventListener('mousedown', handleClickOutside);
-      return () => document.removeEventListener('mousedown', handleClickOutside);
-    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [activeDropdown]);
+
+  // Close dropdown on route change
+  useEffect(() => {
+    setActiveDropdown(null);
+  }, [location]);
 
   // Services dropdown items
   const servicesItems = [
@@ -83,58 +93,62 @@ const SolarCompanyHeader: React.FC = () => {
 
   const isActive = (path: string) => location === path;
 
-  const DropdownMenu = ({ items, dropdownKey }: { items: any[], dropdownKey: string }) => (
-    <div 
-      ref={el => dropdownRefs.current[dropdownKey] = el}
-      className="w-72 rounded-2xl py-3 overflow-hidden"
-      style={{
-        position: 'absolute',
-        top: '100%',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        marginTop: '12px',
-        pointerEvents: activeDropdown === dropdownKey ? 'auto' : 'none',
-        opacity: activeDropdown === dropdownKey ? 1 : 0,
-        visibility: activeDropdown === dropdownKey ? 'visible' : 'hidden',
-        transition: 'opacity 0.2s ease, visibility 0.2s ease',
-        zIndex: 10001,
-        background: 'rgb(15, 23, 42)',
-        border: '2px solid rgb(71, 85, 105)',
-        boxShadow: '0 20px 60px rgba(0,0,0,0.6), 0 8px 24px rgba(0,0,0,0.4)'
-      }}
-    >
-      {items.map((item, index) => (
-        <Link 
-          key={item.href} 
-          href={item.href}
-          className={cn(
-            "flex items-start px-4 py-3 mx-2 rounded-xl transition-all duration-200 cursor-pointer group relative",
-            index !== items.length - 1 && "mb-1"
-          )}
-          style={{
-            background: 'linear-gradient(135deg, rgba(17, 24, 39, 0.8) 0%, rgba(31, 41, 55, 0.6) 100%)',
-            backdropFilter: 'blur(10px)',
-            WebkitBackdropFilter: 'blur(10px)',
-            border: '1px solid rgba(75, 85, 99, 0.4)',
-            boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.2)'
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.background = `linear-gradient(135deg, ${item.bgColor}40 0%, rgba(59,130,246,0.2) 100%)`;
-            e.currentTarget.style.transform = 'scale(1.02)';
-            e.currentTarget.style.borderColor = `${item.bgColor}80`;
-            e.currentTarget.style.boxShadow = `0 0 20px ${item.bgColor}40, inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.3)`;
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.background = 'linear-gradient(135deg, rgba(17, 24, 39, 0.8) 0%, rgba(31, 41, 55, 0.6) 100%)';
-            e.currentTarget.style.transform = 'scale(1)';
-            e.currentTarget.style.borderColor = 'rgba(75, 85, 99, 0.4)';
-            e.currentTarget.style.boxShadow = 'inset 0 1px 0 rgba(255, 255, 255, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.2)';
-          }}
-          onClick={() => {
-            setActiveDropdown(null);
-            setIsMobileMenuOpen(false);
-          }}
-        >
+  const DropdownMenu = React.memo(({ items, dropdownKey }: { items: any[], dropdownKey: string }) => {
+    const isOpen = activeDropdown === dropdownKey;
+
+    if (!isOpen) return null;
+
+    return (
+      <div
+        ref={el => dropdownRefs.current[dropdownKey] = el}
+        className="w-72 rounded-2xl py-3 overflow-hidden"
+        style={{
+          position: 'absolute',
+          top: '100%',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          marginTop: '12px',
+          pointerEvents: 'auto',
+          opacity: 1,
+          transition: 'opacity 0.2s ease',
+          zIndex: 10001,
+          background: 'rgb(15, 23, 42)',
+          border: '2px solid rgb(71, 85, 105)',
+          boxShadow: '0 20px 60px rgba(0,0,0,0.6), 0 8px 24px rgba(0,0,0,0.4)'
+        }}
+      >
+        {items.map((item, index) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            className={cn(
+              "flex items-start px-4 py-3 mx-2 rounded-xl transition-all duration-200 cursor-pointer group relative",
+              index !== items.length - 1 && "mb-1"
+            )}
+            style={{
+              background: 'linear-gradient(135deg, rgba(17, 24, 39, 0.8) 0%, rgba(31, 41, 55, 0.6) 100%)',
+              backdropFilter: 'blur(10px)',
+              WebkitBackdropFilter: 'blur(10px)',
+              border: '1px solid rgba(75, 85, 99, 0.4)',
+              boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.2)'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = `linear-gradient(135deg, ${item.bgColor}40 0%, rgba(59,130,246,0.2) 100%)`;
+              e.currentTarget.style.transform = 'scale(1.02)';
+              e.currentTarget.style.borderColor = `${item.bgColor}80`;
+              e.currentTarget.style.boxShadow = `0 0 20px ${item.bgColor}40, inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.3)`;
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'linear-gradient(135deg, rgba(17, 24, 39, 0.8) 0%, rgba(31, 41, 55, 0.6) 100%)';
+              e.currentTarget.style.transform = 'scale(1)';
+              e.currentTarget.style.borderColor = 'rgba(75, 85, 99, 0.4)';
+              e.currentTarget.style.boxShadow = 'inset 0 1px 0 rgba(255, 255, 255, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.2)';
+            }}
+            onClick={() => {
+              setActiveDropdown(null);
+              setIsMobileMenuOpen(false);
+            }}
+          >
           <div 
             className={cn("w-9 h-9 rounded-xl flex items-center justify-center mr-3 flex-shrink-0 group-hover:scale-110 transition-all duration-200 relative", item.iconColor)}
             style={{
@@ -152,9 +166,10 @@ const SolarCompanyHeader: React.FC = () => {
             <div className="text-[13px] text-gray-400 mt-1 leading-tight">{item.description}</div>
           </div>
         </Link>
-      ))}
-    </div>
-  );
+        ))}
+      </div>
+    );
+  });
 
   return (
     <header

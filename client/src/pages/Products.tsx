@@ -105,7 +105,7 @@ export default function Products() {
                   }}
                 />
 
-                <table className="w-full text-sm relative">
+                <table className="w-full text-sm relative min-w-[600px]">
                   <thead>
                     <tr
                       className="border-b border-gray-700/50"
@@ -114,7 +114,7 @@ export default function Products() {
                         backdropFilter: 'blur(10px)'
                       }}
                     >
-                      <th className="text-left py-4 px-4 text-gray-200 font-bold">Specification</th>
+                      <th className="text-left py-4 px-2 sm:px-4 text-gray-200 font-bold whitespace-nowrap">Specification</th>
                       <th className="text-center py-4 px-4">
                         <div className="flex items-center justify-center gap-2">
                           <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
