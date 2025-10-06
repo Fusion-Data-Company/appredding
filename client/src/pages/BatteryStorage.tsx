@@ -602,7 +602,7 @@ const BatteryStorage = () => {
                     "Medical equipment",
                     "Critical loads 24/7"
                   ],
-                  gradient: "from-blue-500 via-indigo-500 to-blue-600",
+                  gradient: "from-blue-500 via-cyan-500 to-blue-600",
                   iconBg: "bg-blue-900/40",
                   iconColor: "text-blue-300",
                   titleColor: "text-blue-200",
@@ -632,12 +632,12 @@ const BatteryStorage = () => {
                     "Grid services income",
                     "$200-500 annual"
                   ],
-                  gradient: "from-purple-500 via-violet-500 to-purple-600",
-                  iconBg: "bg-purple-900/40",
-                  iconColor: "text-purple-300",
-                  titleColor: "text-purple-200",
-                  glowColor: "rgba(168, 85, 247, 0.4)",
-                  borderColor: "border-purple-500/30"
+                  gradient: "from-orange-500 via-amber-500 to-orange-600",
+                  iconBg: "bg-orange-900/40",
+                  iconColor: "text-orange-300",
+                  titleColor: "text-orange-200",
+                  glowColor: "rgba(249, 115, 22, 0.4)",
+                  borderColor: "border-orange-500/30"
                 }
               ].map((card, idx) => (
                 <motion.div
@@ -799,15 +799,15 @@ const BatteryStorage = () => {
             ),
           },
           {
-            id: 'action-purple',
+            id: 'action-orange',
             title: 'STAGE 4: Professional Installation & Commissioning',
             description: 'NFPA 855 compliant installation with proper ventilation and fire separation. Smart BMS programming for optimal charge/discharge curves. Integration with existing solar via AC or DC coupling. Remote monitoring setup with real-time alerts. SGIP application submission and PTO coordination. 10-year warranty activation with 24/7 support.',
-            color: 'from-purple-500 to-purple-600',
-            glowColor: 'rgba(168, 85, 247, 0.5)',
+            color: 'from-orange-500 to-orange-600',
+            glowColor: 'rgba(249, 115, 22, 0.5)',
             icon: <CheckCircle className='h-8 w-8' />,
             metrics: (
               <div className="space-y-1">
-                <div className="text-purple-300 font-bold">2-Day Install</div>
+                <div className="text-orange-300 font-bold">2-Day Install</div>
                 <div className="text-xs text-gray-400">Same-day backup</div>
                 <div className="text-xs text-gray-400">Remote monitoring live</div>
               </div>
@@ -844,13 +844,13 @@ const BatteryStorage = () => {
           transition={{ duration: 0.6 }}
         >
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <Battery className="mr-3 h-6 w-6 text-purple-400" />
+            <Battery className="mr-3 h-6 w-6 text-orange-400" />
             Comprehensive Chemistry Comparison
           </h3>
           <div className="overflow-x-auto">
-            <div className="relative rounded-2xl overflow-hidden border border-purple-500/20"
+            <div className="relative rounded-2xl overflow-hidden border border-orange-500/20"
               style={{
-                background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(59, 130, 246, 0.05) 50%, rgba(249, 115, 22, 0.1) 100%)',
+                background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(59, 130, 246, 0.05) 50%, rgba(249, 115, 22, 0.1) 100%)',
                 boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
               }}
             >
@@ -877,8 +877,8 @@ const BatteryStorage = () => {
                     <th className="text-left py-4 px-4 text-gray-300 font-bold">Specification</th>
                     <th className="text-center py-4 px-4">
                       <div className="flex items-center justify-center gap-2">
-                        <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse" />
-                        <span className="text-purple-300 font-bold">LiFePO4 (LFP)</span>
+                        <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" />
+                        <span className="text-orange-300 font-bold">LiFePO4 (LFP)</span>
                       </div>
                     </th>
                     <th className="text-center py-4 px-4">
@@ -920,10 +920,10 @@ const BatteryStorage = () => {
                         {row.spec}
                       </td>
                       <motion.td
-                        className="text-center py-3 px-4 font-mono text-purple-300 group-hover:text-purple-200 transition-colors relative"
+                        className="text-center py-3 px-4 font-mono text-orange-300 group-hover:text-orange-200 transition-colors relative"
                         whileHover={{ scale: 1.05 }}
                       >
-                        <div className="relative inline-block px-3 py-1 rounded-lg bg-purple-500/10 group-hover:bg-purple-500/20 transition-colors">
+                        <div className="relative inline-block px-3 py-1 rounded-lg bg-orange-500/10 group-hover:bg-orange-500/20 transition-colors">
                           {row.lfp}
                         </div>
                       </motion.td>
@@ -952,9 +952,9 @@ const BatteryStorage = () => {
         </motion.div>
 
         {/* Why LiFePO4 Wins */}
-        <div className="card-elite glow-purple p-8">
+        <div className="card-elite glow-orange p-8">
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <Award className="mr-3 h-6 w-6 text-purple-400" />
+            <Award className="mr-3 h-6 w-6 text-orange-400" />
             Why LiFePO4 Dominates Residential Storage
           </h3>
           <div className="grid md:grid-cols-3 gap-6">
@@ -1083,13 +1083,13 @@ const BatteryStorage = () => {
             </div>
           </div>
 
-          <div className="card-elite glow-purple p-6">
+          <div className="card-elite glow-orange p-6">
             <div className="flex items-center gap-3 mb-4">
-              <Package className="h-6 w-6 text-purple-400" />
+              <Package className="h-6 w-6 text-orange-400" />
               <h3 className="text-xl font-bold text-white">EG4 Electronics</h3>
             </div>
             <div className="mb-4">
-              <h4 className="text-purple-400 font-semibold mb-2">LifePower4 14.3kWh</h4>
+              <h4 className="text-orange-400 font-semibold mb-2">LifePower4 14.3kWh</h4>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
                   <span className="text-gray-400">Capacity:</span>
@@ -1117,8 +1117,8 @@ const BatteryStorage = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-purple-900/20 rounded-lg p-3">
-              <p className="text-xs text-gray-300"><strong className="text-purple-400">Best For:</strong> Budget-conscious, server rack mount</p>
+            <div className="bg-orange-900/20 rounded-lg p-3">
+              <p className="text-xs text-gray-300"><strong className="text-orange-400">Best For:</strong> Budget-conscious, server rack mount</p>
               <p className="text-xs text-orange-400 mt-1">Price: $7,500-8,500/unit</p>
             </div>
           </div>
@@ -1154,7 +1154,7 @@ const BatteryStorage = () => {
 
           <div className="space-y-6 relative">
             {/* Vertical connecting line */}
-            <div className="absolute left-[7.5rem] top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-green-500 opacity-30" />
+            <div className="absolute left-[7.5rem] top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-orange-500 to-green-500 opacity-30" />
 
             {[
               {
@@ -1170,10 +1170,10 @@ const BatteryStorage = () => {
                 time: "Day 1 PM",
                 title: "Battery Installation",
                 description: "Rack mounting, DC wiring, BMS connections, grounding system",
-                gradient: "from-purple-500 to-pink-600",
-                iconBg: "bg-purple-900/40",
-                glowColor: "rgba(168, 85, 247, 0.4)",
-                borderColor: "border-purple-500/40"
+                gradient: "from-orange-500 to-amber-600",
+                iconBg: "bg-orange-900/40",
+                glowColor: "rgba(249, 115, 22, 0.4)",
+                borderColor: "border-orange-500/40"
               },
               {
                 time: "Day 2 AM",
@@ -1396,7 +1396,7 @@ const BatteryStorage = () => {
         {/* Complete Financial Example */}
         <div className="grid lg:grid-cols-2 gap-8">
           <motion.div
-            className="card-elite glow-purple p-8 relative overflow-hidden"
+            className="card-elite glow-orange p-8 relative overflow-hidden"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -1407,7 +1407,7 @@ const BatteryStorage = () => {
             <div
               className="absolute inset-0 pointer-events-none"
               style={{
-                background: 'linear-gradient(110deg, transparent 20%, rgba(168, 85, 247, 0.15) 50%, transparent 80%)',
+                background: 'linear-gradient(110deg, transparent 20%, rgba(249, 115, 22, 0.15) 50%, transparent 80%)',
                 backgroundSize: '200% 100%',
                 animation: 'shimmer1 5s infinite'
               }}
@@ -1415,23 +1415,23 @@ const BatteryStorage = () => {
 
             <h3 className="text-2xl font-bold text-white mb-6 flex items-center relative z-10">
               <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }}>
-                <Calculator className="mr-3 h-6 w-6 text-purple-400" />
+                <Calculator className="mr-3 h-6 w-6 text-orange-400" />
               </motion.div>
               Real Customer Example: 15.2kWh System
             </h3>
 
             <div className="space-y-4 text-sm relative z-10">
               <div>
-                <h4 className="text-purple-300 font-bold mb-3 flex items-center gap-2">
-                  <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse" />
+                <h4 className="text-orange-300 font-bold mb-3 flex items-center gap-2">
+                  <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" />
                   System Components:
                 </h4>
                 <div
                   className="rounded-xl p-4 space-y-2 relative overflow-hidden"
                   style={{
-                    background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(147, 51, 234, 0.1) 100%)',
-                    border: '1px solid rgba(168, 85, 247, 0.3)',
-                    boxShadow: '0 4px 16px rgba(168, 85, 247, 0.2)'
+                    background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(234, 88, 12, 0.1) 100%)',
+                    border: '1px solid rgba(249, 115, 22, 0.3)',
+                    boxShadow: '0 4px 16px rgba(249, 115, 22, 0.2)'
                   }}
                 >
                   {["4 × SimpliPhi PHI 3.8 batteries", "Sol-Ark 12K inverter (existing)", "Critical load panel", "NFPA 855 compliant installation"].map((item, idx) => (
@@ -1443,7 +1443,7 @@ const BatteryStorage = () => {
                       transition={{ delay: idx * 0.1 }}
                       className="text-gray-200 flex items-center gap-2"
                     >
-                      <span className="text-purple-400">•</span>
+                      <span className="text-orange-400">•</span>
                       {item}
                     </motion.p>
                   ))}
@@ -1451,8 +1451,8 @@ const BatteryStorage = () => {
               </div>
 
               <div>
-                <h4 className="text-purple-300 font-bold mb-3 flex items-center gap-2">
-                  <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }} />
+                <h4 className="text-orange-300 font-bold mb-3 flex items-center gap-2">
+                  <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }} />
                   Cost Breakdown:
                 </h4>
                 <div className="space-y-3">
@@ -1467,7 +1467,7 @@ const BatteryStorage = () => {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: idx * 0.1 }}
-                      className="flex justify-between items-center px-3 py-2 rounded-lg hover:bg-purple-500/10 transition-colors"
+                      className="flex justify-between items-center px-3 py-2 rounded-lg hover:bg-orange-500/10 transition-colors"
                     >
                       <span className={item.color}>{item.label}</span>
                       <span className="text-white font-mono font-bold">{item.value}</span>
@@ -1479,11 +1479,11 @@ const BatteryStorage = () => {
                     viewport={{ once: true }}
                     className="flex justify-between items-center px-4 py-3 rounded-xl mt-3"
                     style={{
-                      background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(147, 51, 234, 0.15) 100%)',
-                      border: '1px solid rgba(168, 85, 247, 0.4)'
+                      background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.2) 0%, rgba(234, 88, 12, 0.15) 100%)',
+                      border: '1px solid rgba(249, 115, 22, 0.4)'
                     }}
                   >
-                    <span className="text-purple-200 font-bold">Gross Cost:</span>
+                    <span className="text-orange-200 font-bold">Gross Cost:</span>
                     <span className="text-2xl font-black text-white font-mono">$19,000</span>
                   </motion.div>
                 </div>
@@ -1640,7 +1640,7 @@ const BatteryStorage = () => {
       </div>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-purple-600 to-blue-600">
+      <section className="py-20 bg-gradient-to-r from-orange-600 to-blue-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -1657,7 +1657,7 @@ const BatteryStorage = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
-                className="bg-white text-purple-600 hover:bg-gray-100 font-bold py-4 px-8 rounded-lg shadow-lg"
+                className="bg-white text-orange-600 hover:bg-gray-100 font-bold py-4 px-8 rounded-lg shadow-lg"
                 onClick={() => window.location.href = '/contact'}
                 data-testid="button-free-analysis"
               >
@@ -1665,7 +1665,7 @@ const BatteryStorage = () => {
               </Button>
               <Button
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-purple-600 py-4 px-8 rounded-lg"
+                className="border-white text-white hover:bg-white hover:text-orange-600 py-4 px-8 rounded-lg"
                 onClick={() => window.location.href = 'tel:5302260701'}
                 data-testid="button-call"
               >

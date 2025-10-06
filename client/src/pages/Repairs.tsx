@@ -198,26 +198,48 @@ const Repairs = () => {
 
             {/* Live System Health Metrics */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
-              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <Activity className="h-5 w-5 mb-2 text-red-200" />
-                <div className="text-2xl font-bold">{systemHealth.toFixed(0)}%</div>
-                <div className="text-sm text-red-200">System Health</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <Gauge className="h-5 w-5 mb-2 text-orange-200" />
-                <div className="text-2xl font-bold">{productionLevel.toFixed(0)}%</div>
-                <div className="text-sm text-orange-200">Production</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <AlertTriangle className="h-5 w-5 mb-2 text-yellow-200" />
-                <div className="text-2xl font-bold">{errorCount}</div>
-                <div className="text-sm text-yellow-200">Active Alerts</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <ThermometerSun className="h-5 w-5 mb-2 text-pink-200" />
-                <div className="text-2xl font-bold">{temperature.toFixed(0)}°C</div>
-                <div className="text-sm text-pink-200">Inverter Temp</div>
-              </div>
+              {[
+                { icon: <Activity className="h-5 w-5" />, value: systemHealth.toFixed(0) + '%', label: 'System Health', gradient: 'from-red-500 via-orange-500 to-red-600', glowColor: 'rgba(239, 68, 68, 0.5)', iconBg: 'bg-red-900/30', pulseColor: 'bg-orange-400' },
+                { icon: <Gauge className="h-5 w-5" />, value: productionLevel.toFixed(0) + '%', label: 'Production', gradient: 'from-orange-500 via-amber-500 to-orange-600', glowColor: 'rgba(249, 115, 22, 0.5)', iconBg: 'bg-orange-900/30', pulseColor: 'bg-orange-400' },
+                { icon: <AlertTriangle className="h-5 w-5" />, value: errorCount.toString(), label: 'Active Alerts', gradient: 'from-yellow-500 via-amber-500 to-yellow-600', glowColor: 'rgba(234, 179, 8, 0.5)', iconBg: 'bg-yellow-900/30', pulseColor: 'bg-yellow-400' },
+                { icon: <ThermometerSun className="h-5 w-5" />, value: temperature.toFixed(0) + '°C', label: 'Inverter Temp', gradient: 'from-red-500 via-pink-500 to-red-600', glowColor: 'rgba(236, 72, 153, 0.5)', iconBg: 'bg-pink-900/30', pulseColor: 'bg-pink-400' }
+              ].map((card, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: idx * 0.1 }}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  className="relative group"
+                >
+                  {/* Glow background */}
+                  <div
+                    className="absolute inset-0 rounded-xl blur-lg opacity-60 group-hover:opacity-100 transition-all duration-500"
+                    style={{ background: card.glowColor, animation: `pulse ${2 + idx * 0.3}s ease-in-out infinite` }}
+                  />
+
+                  {/* Card content */}
+                  <div
+                    className={`relative bg-gradient-to-br ${card.gradient} rounded-xl p-4 backdrop-blur-sm border border-white/20 transition-all duration-300 overflow-hidden`}
+                    style={{ boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)' }}
+                  >
+                    {/* Glass overlay */}
+                    <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%)' }} />
+
+                    {/* Shimmer */}
+                    <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(110deg, transparent 0%, transparent 40%, rgba(255, 255, 255, 0.6) 50%, transparent 60%, transparent 100%)', backgroundSize: '200% 100%', animation: `shimmer${idx + 1} ${3 + idx * 0.5}s infinite`, mixBlendMode: 'overlay' }} />
+
+                    <div className="relative z-10">
+                      <motion.div className={`p-2 ${card.iconBg} backdrop-blur-md rounded-lg text-white shadow-lg mb-2 inline-block`} whileHover={{ rotate: [0, -10, 10, -10, 0] }} transition={{ duration: 0.5 }}>
+                        {card.icon}
+                      </motion.div>
+                      <div className="text-2xl font-bold text-white" style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 0.3)' }}>{card.value}</div>
+                      <div className="text-sm text-white/90 font-medium">{card.label}</div>
+                      <div className={`w-2 h-2 ${card.pulseColor} rounded-full absolute top-2 right-2`} style={{ animation: `pulse ${1.5 + idx * 0.2}s ease-in-out infinite` }} />
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
             </div>
 
             <div className="flex flex-wrap gap-4">
@@ -239,24 +261,47 @@ const Repairs = () => {
             <p className="text-gray-600 ">Fast, professional repairs for all solar system components</p>
           </div>
 
-          <div className="flex flex-wrap gap-2 mb-6">
-            {Object.keys(repairCategories).map((category) => (
-              <button
+          <div className="flex flex-wrap gap-3 mb-6">
+            {Object.keys(repairCategories).map((category, idx) => (
+              <motion.button
                 key={category}
                 onClick={() => setSelectedIssue(category)}
-                className={`px-4 py-2 rounded-lg font-medium transition ${
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: idx * 0.05 }}
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className={`relative px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 overflow-hidden ${
                   selectedIssue === category
-                    ? "bg-red-600 text-white"
-                    : "bg-gray-100 dark:bg-gray-700 text-gray-700  hover:bg-gray-200 dark:hover:bg-gray-600"
+                    ? "text-white"
+                    : "bg-gray-100/80 dark:bg-gray-700/80 text-gray-700 dark:text-gray-200 hover:bg-gray-200/80 dark:hover:bg-gray-600/80"
                 }`}
+                style={selectedIssue === category ? {
+                  background: 'linear-gradient(135deg, #f97316 0%, #fb923c 50%, #ea580c 100%)',
+                  boxShadow: '0 4px 20px rgba(249, 115, 22, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3)'
+                } : {}}
               >
+                {selectedIssue === category && (
+                  <>
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-60 pointer-events-none" />
+                    <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(110deg, transparent 40%, rgba(255, 255, 255, 0.6) 50%, transparent 60%)', backgroundSize: '200% 100%', animation: 'shimmer1 3s infinite', mixBlendMode: 'overlay' }} />
+                  </>
+                )}
                 {repairCategories[category].name}
-              </button>
+              </motion.button>
             ))}
           </div>
 
-          <div className="card-elite glow-orange p-8">
-            <div className="flex items-start justify-between mb-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="card-elite glow-orange p-8 relative overflow-hidden"
+          >
+            {/* Background shimmer */}
+            <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(110deg, transparent 20%, rgba(249, 115, 22, 0.1) 50%, transparent 80%)', backgroundSize: '200% 100%', animation: 'shimmer2 5s infinite' }} />
+
+            <div className="flex items-start justify-between mb-4 relative z-10">
               <div>
                 <h3 className="text-2xl font-bold text-white">
                   {repairCategories[selectedIssue].name}
@@ -270,65 +315,105 @@ const Repairs = () => {
                   }`}>
                     {repairCategories[selectedIssue].urgency} Priority
                   </span>
-                  <span className="text-sm text-gray-600 ">
+                  <span className="text-sm text-gray-400">
                     {repairCategories[selectedIssue].frequency}
                   </span>
                 </div>
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
+            <div className="grid md:grid-cols-2 gap-6 mb-6 relative z-10">
               <div>
-                <h4 className="font-semibold mb-3 flex items-center gap-2 text-gray-900 ">
-                  <AlertCircle className="h-5 w-5 text-red-500" /> Common Symptoms
+                <h4 className="font-semibold mb-3 flex items-center gap-2 text-white">
+                  <AlertCircle className="h-5 w-5 text-red-400" /> Common Symptoms
                 </h4>
                 <ul className="space-y-2">
                   {repairCategories[selectedIssue].symptoms.map((symptom, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-gray-700 ">
-                      <ChevronRight className="h-4 w-4 text-red-500 mt-0.5" />
+                    <motion.li
+                      key={idx}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: idx * 0.05 }}
+                      className="flex items-start gap-2 text-gray-200"
+                    >
+                      <ChevronRight className="h-4 w-4 text-red-400 mt-0.5 flex-shrink-0" />
                       <span>{symptom}</span>
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
               </div>
 
               <div>
-                <h4 className="font-semibold mb-3 flex items-center gap-2 text-gray-900 ">
-                  <CheckCircle className="h-5 w-5 text-orange-500" /> Repair Solutions
+                <h4 className="font-semibold mb-3 flex items-center gap-2 text-white">
+                  <CheckCircle className="h-5 w-5 text-orange-400" /> Repair Solutions
                 </h4>
                 <ul className="space-y-2">
                   {repairCategories[selectedIssue].solutions.map((solution, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-gray-700 ">
-                      <ChevronRight className="h-4 w-4 text-orange-500 mt-0.5" />
+                    <motion.li
+                      key={idx}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: idx * 0.05 }}
+                      className="flex items-start gap-2 text-gray-200"
+                    >
+                      <ChevronRight className="h-4 w-4 text-orange-400 mt-0.5 flex-shrink-0" />
                       <span>{solution}</span>
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
               </div>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-4">
-              <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4">
+            <div className="grid md:grid-cols-3 gap-4 relative z-10">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, delay: 0.1 }}
+                className="rounded-xl p-4 relative overflow-hidden"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(37, 99, 235, 0.1) 100%)',
+                  border: '1px solid rgba(59, 130, 246, 0.3)'
+                }}
+              >
                 <div className="flex items-center gap-2 mb-1">
-                  <Timer className="h-4 w-4 text-blue-500" />
-                  <span className="text-sm text-gray-600 ">Repair Time</span>
+                  <Timer className="h-4 w-4 text-blue-400" />
+                  <span className="text-sm text-gray-300">Repair Time</span>
                 </div>
-                <p className="font-bold text-gray-900 ">{repairCategories[selectedIssue].timeframe}</p>
-              </div>
-              <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4">
+                <p className="font-bold text-white">{repairCategories[selectedIssue].timeframe}</p>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, delay: 0.2 }}
+                className="rounded-xl p-4 relative overflow-hidden"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(234, 88, 12, 0.1) 100%)',
+                  border: '1px solid rgba(249, 115, 22, 0.3)'
+                }}
+              >
                 <div className="flex items-center gap-2 mb-1">
-                  <DollarSign className="h-4 w-4 text-orange-500" />
-                  <span className="text-sm text-gray-600 ">Typical Cost</span>
+                  <DollarSign className="h-4 w-4 text-orange-400" />
+                  <span className="text-sm text-gray-300">Typical Cost</span>
                 </div>
-                <p className="font-bold text-gray-900 ">{repairCategories[selectedIssue].cost}</p>
-              </div>
-              <div className="bg-red-50 dark:bg-red-900/20 rounded-xl p-4">
-                <button className="w-full bg-red-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-red-700 transition">
-                  Get Emergency Service
+                <p className="font-bold text-white">{repairCategories[selectedIssue].cost}</p>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, delay: 0.3 }}
+                className="rounded-xl p-4"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(220, 38, 38, 0.1) 100%)',
+                  border: '1px solid rgba(239, 68, 68, 0.3)'
+                }}
+              >
+                <button className="w-full bg-gradient-to-r from-red-500 to-orange-500 text-white px-4 py-2 rounded-lg font-semibold hover:from-red-600 hover:to-orange-600 transition-all shadow-lg relative overflow-hidden group">
+                  <span className="relative z-10">Get Emergency Service</span>
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-0 group-hover:opacity-60 transition-opacity" />
                 </button>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Team Repair Work Image */}
@@ -354,66 +439,133 @@ const Repairs = () => {
 
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Diagnostic Steps */}
-            <div className="card-elite glow-blue p-8">
-              <h3 className="text-xl font-bold mb-6 text-white flex items-center gap-2">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="card-elite glow-blue p-8 relative overflow-hidden"
+            >
+              {/* Background shimmer */}
+              <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(110deg, transparent 20%, rgba(59, 130, 246, 0.1) 50%, transparent 80%)', backgroundSize: '200% 100%', animation: 'shimmer1 5s infinite' }} />
+
+              <h3 className="text-xl font-bold mb-6 text-white flex items-center gap-2 relative z-10">
                 <Search className="h-6 w-6 text-blue-400" /> Diagnostic Process
               </h3>
 
-              <div className="space-y-4">
+              <div className="space-y-4 relative z-10">
+                {/* Vertical connecting line */}
+                <div className="absolute left-5 top-0 bottom-12 w-0.5 bg-gradient-to-b from-blue-500 via-cyan-500 to-blue-600 opacity-30" />
+
                 {diagnosticProcess.map((step, idx) => (
-                  <div key={idx} className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center text-sm font-bold text-blue-600  flex-shrink-0">
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: idx * 0.1 }}
+                    className="flex items-start gap-4 relative"
+                  >
+                    <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-full flex items-center justify-center text-sm font-bold text-white flex-shrink-0 shadow-lg z-10" style={{ boxShadow: '0 0 20px rgba(59, 130, 246, 0.5)' }}>
                       {idx + 1}
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center justify-between mb-1">
-                        <h4 className="font-semibold text-gray-900 ">{step.step}</h4>
-                        <span className="text-xs bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded text-gray-600 ">
+                        <h4 className="font-semibold text-white">{step.step}</h4>
+                        <span className="text-xs px-2 py-1 rounded font-mono text-cyan-300" style={{ background: 'rgba(34, 211, 238, 0.15)', border: '1px solid rgba(34, 211, 238, 0.3)' }}>
                           {step.time}
                         </span>
                       </div>
-                      <p className="text-sm text-gray-600 ">{step.description}</p>
+                      <p className="text-sm text-gray-300">{step.description}</p>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
 
-              <div className="mt-6 bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4">
-                <p className="text-sm text-gray-700 ">
-                  <strong>Total Diagnostic Time:</strong> 2-3 hours typical • Same-day results • Detailed report provided
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.6 }}
+                className="mt-6 rounded-xl p-4 relative z-10"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(37, 99, 235, 0.1) 100%)',
+                  border: '1px solid rgba(59, 130, 246, 0.3)'
+                }}
+              >
+                <p className="text-sm text-gray-200">
+                  <strong className="text-blue-300">Total Diagnostic Time:</strong> 2-3 hours typical • Same-day results • Detailed report provided
                 </p>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
             {/* Testing Equipment */}
-            <div className="card-elite glow-red p-8">
-              <h3 className="text-xl font-bold mb-6 text-white flex items-center gap-2">
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="card-elite glow-red p-8 relative overflow-hidden"
+            >
+              {/* Background shimmer */}
+              <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(110deg, transparent 20%, rgba(239, 68, 68, 0.1) 50%, transparent 80%)', backgroundSize: '200% 100%', animation: 'shimmer2 5s infinite' }} />
+
+              <h3 className="text-xl font-bold mb-6 text-white flex items-center gap-2 relative z-10">
                 <Cpu className="h-6 w-6 text-red-400" /> Diagnostic Equipment
               </h3>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-4 relative z-10">
                 {[
-                  { tool: "IV Curve Tracer", model: "Solmetric PVA-1500", function: "Panel performance testing" },
-                  { tool: "Thermal Camera", model: "FLIR E8-XT", function: "Hot spot detection" },
-                  { tool: "Irradiance Meter", model: "Solar-100", function: "Solar radiation measurement" },
-                  { tool: "Insulation Tester", model: "Fluke 1587", function: "Ground fault detection" },
-                  { tool: "Power Analyzer", model: "Fluke 435-II", function: "Power quality analysis" },
-                  { tool: "DC Clamp Meter", model: "Fluke 393 FC", function: "String current measurement" }
+                  { tool: "IV Curve Tracer", model: "Solmetric PVA-1500", function: "Panel performance testing", gradient: "from-orange-500 via-red-500 to-orange-600", glow: "rgba(249, 115, 22, 0.4)" },
+                  { tool: "Thermal Camera", model: "FLIR E8-XT", function: "Hot spot detection", gradient: "from-red-500 via-orange-500 to-red-600", glow: "rgba(239, 68, 68, 0.4)" },
+                  { tool: "Irradiance Meter", model: "Solar-100", function: "Solar radiation measurement", gradient: "from-yellow-500 via-orange-500 to-yellow-600", glow: "rgba(234, 179, 8, 0.4)" },
+                  { tool: "Insulation Tester", model: "Fluke 1587", function: "Ground fault detection", gradient: "from-blue-500 via-cyan-500 to-blue-600", glow: "rgba(59, 130, 246, 0.4)" },
+                  { tool: "Power Analyzer", model: "Fluke 435-II", function: "Power quality analysis", gradient: "from-orange-500 via-amber-500 to-orange-600", glow: "rgba(249, 115, 22, 0.4)" },
+                  { tool: "DC Clamp Meter", model: "Fluke 393 FC", function: "String current measurement", gradient: "from-green-500 via-emerald-500 to-green-600", glow: "rgba(34, 197, 94, 0.4)" }
                 ].map((item, idx) => (
-                  <div key={idx} className="spec-card-elite glow-orange p-4">
-                    <h4 className="font-semibold text-white text-sm">{item.tool}</h4>
-                    <p className="text-xs text-gray-400">{item.model}</p>
-                    <p className="text-xs text-orange-400 mt-1">{item.function}</p>
-                  </div>
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: idx * 0.1 }}
+                    whileHover={{ scale: 1.05, y: -5 }}
+                    className="relative group"
+                  >
+                    {/* Glow */}
+                    <div className="absolute inset-0 rounded-xl blur-lg opacity-0 group-hover:opacity-60 transition-all duration-500" style={{ background: item.glow }} />
+
+                    {/* Card */}
+                    <div className={`relative spec-card-elite bg-gradient-to-br ${item.gradient} p-4 overflow-hidden`} style={{ boxShadow: '0 4px 16px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)' }}>
+                      {/* Glass overlay */}
+                      <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 60%)' }} />
+
+                      <div className="relative z-10">
+                        <h4 className="font-semibold text-white text-sm mb-1">{item.tool}</h4>
+                        <p className="text-xs text-gray-200 opacity-80">{item.model}</p>
+                        <p className="text-xs text-white/90 mt-1 font-medium">{item.function}</p>
+                      </div>
+                    </div>
+                  </motion.div>
                 ))}
               </div>
 
-              <div className="mt-6 bg-orange-100 dark:bg-orange-900/30 rounded-xl p-4">
-                <p className="text-sm text-gray-700 ">
-                  <strong>Certified Technicians:</strong> NABCEP certified, manufacturer trained on all major brands
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.6 }}
+                className="mt-6 rounded-xl p-4 relative z-10"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(234, 88, 12, 0.1) 100%)',
+                  border: '1px solid rgba(249, 115, 22, 0.3)'
+                }}
+              >
+                <p className="text-sm text-gray-200">
+                  <strong className="text-orange-300">Certified Technicians:</strong> NABCEP certified, manufacturer trained on all major brands
                 </p>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
 
@@ -438,38 +590,68 @@ const Repairs = () => {
             <p className="text-gray-600 ">Factory-trained technicians for warranty and out-of-warranty repairs</p>
           </div>
 
-          <div className="card-elite glow-orange overflow-hidden">
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead className="bg-gray-800/50 border-b border-gray-700">
-                  <tr>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Brand</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Models Serviced</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Common Issues</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Warranty</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-                  {inverterBrands.map((brand, idx) => (
-                    <tr key={idx} className="hover:bg-gray-50 dark:hover:bg-gray-700">
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 ">
-                        {brand.brand}
-                      </td>
-                      <td className="px-6 py-4 text-sm text-gray-700 ">
-                        {brand.models.join(", ")}
-                      </td>
-                      <td className="px-6 py-4 text-sm text-gray-700 ">
-                        {brand.issues}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 ">
-                        {brand.warranty}
-                      </td>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="card-elite glow-orange overflow-hidden relative"
+          >
+            {/* Background shimmer */}
+            <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(110deg, transparent 20%, rgba(249, 115, 22, 0.1) 50%, transparent 80%)', backgroundSize: '200% 100%', animation: 'shimmer3 6s infinite' }} />
+
+            <div className="overflow-x-auto relative z-10">
+              <div className="relative rounded-2xl overflow-hidden border border-orange-500/20"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(59, 130, 246, 0.05) 50%, rgba(249, 115, 22, 0.1) 100%)',
+                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+                }}
+              >
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-gray-700/50" style={{ background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%)', backdropFilter: 'blur(10px)' }}>
+                      <th className="px-6 py-4 text-left text-xs font-bold text-orange-300 uppercase tracking-wider">
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" />
+                          Brand
+                        </div>
+                      </th>
+                      <th className="px-6 py-4 text-left text-xs font-bold text-gray-300 uppercase tracking-wider">Models Serviced</th>
+                      <th className="px-6 py-4 text-left text-xs font-bold text-gray-300 uppercase tracking-wider">Common Issues</th>
+                      <th className="px-6 py-4 text-left text-xs font-bold text-gray-300 uppercase tracking-wider">Warranty</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody className="divide-y divide-gray-700/30">
+                    {inverterBrands.map((brand, idx) => (
+                      <motion.tr
+                        key={idx}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: idx * 0.05 }}
+                        className="hover:bg-white/5 transition-all duration-300 group"
+                      >
+                        <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-orange-300 group-hover:text-orange-200 transition-colors">
+                          {brand.brand}
+                        </td>
+                        <td className="px-6 py-4 text-sm text-gray-300 group-hover:text-gray-200 transition-colors">
+                          {brand.models.join(", ")}
+                        </td>
+                        <td className="px-6 py-4 text-sm text-gray-300 group-hover:text-gray-200 transition-colors">
+                          {brand.issues}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm">
+                          <span className="px-2 py-1 rounded-lg text-blue-300 font-mono" style={{ background: 'rgba(59, 130, 246, 0.15)', border: '1px solid rgba(59, 130, 246, 0.3)' }}>
+                            {brand.warranty}
+                          </span>
+                        </td>
+                      </motion.tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Component Failure Rates */}
@@ -482,29 +664,59 @@ const Repairs = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {commonFailures.map((component, idx) => (
-              <div key={idx} className="card-elite glow-orange p-6">
-                <h3 className="text-lg font-bold text-white mb-3">{component.component}</h3>
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                whileHover={{ scale: 1.03, y: -5 }}
+                className="relative group"
+              >
+                {/* Glow effect */}
+                <div className="absolute inset-0 rounded-xl blur-lg opacity-50 group-hover:opacity-80 transition-all duration-500"
+                  style={{ background: 'rgba(249, 115, 22, 0.4)', animation: `pulse ${2.5 + idx * 0.3}s ease-in-out infinite` }}
+                />
 
-                <div className="space-y-3 mb-4">
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600 ">MTBF</span>
-                    <span className="text-sm font-semibold text-gray-900 ">{component.mtbf}</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600 ">Failure Rate</span>
-                    <span className="text-sm font-semibold text-orange-600 ">{component.failure_rate}</span>
-                  </div>
-                </div>
+                {/* Card */}
+                <div className="relative card-elite glow-orange p-6 overflow-hidden" style={{ backdropFilter: 'blur(10px)', boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15)' }}>
+                  {/* Glass overlay */}
+                  <div className="absolute inset-0 pointer-events-none opacity-60" style={{ background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 60%)' }} />
 
-                <div className="border-t border-gray-200 dark:border-gray-700 pt-3">
-                  <p className="text-xs text-gray-600  mb-2">
-                    <strong>Symptoms:</strong> {component.symptoms}
-                  </p>
-                  <p className="text-xs text-orange-600 ">
-                    <strong>Repair:</strong> {component.repair}
-                  </p>
+                  {/* Shimmer */}
+                  <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.5) 50%, transparent 80%)', backgroundSize: '200% 100%', animation: `shimmer${idx + 1} ${4 + idx * 0.5}s infinite`, mixBlendMode: 'overlay' }} />
+
+                  <div className="relative z-10">
+                    <h3 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                      <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" />
+                      {component.component}
+                    </h3>
+
+                    <div className="space-y-3 mb-4">
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm text-gray-300">MTBF</span>
+                        <span className="text-sm font-semibold text-white">{component.mtbf}</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm text-gray-300">Failure Rate</span>
+                        <span className="text-sm font-semibold text-orange-300">{component.failure_rate}</span>
+                      </div>
+                    </div>
+
+                    <div className="border-t border-orange-500/30 pt-3">
+                      <p className="text-xs text-gray-200 mb-2">
+                        <strong className="text-white">Symptoms:</strong> {component.symptoms}
+                      </p>
+                      <p className="text-xs text-orange-300">
+                        <strong>Repair:</strong> {component.repair}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Bottom accent */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1 opacity-50" style={{ background: 'linear-gradient(90deg, transparent, rgba(249, 115, 22, 0.6), transparent)' }} />
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -624,42 +836,70 @@ const Repairs = () => {
             <p className="text-gray-600 ">Understanding your coverage and repair options</p>
           </div>
 
-          <div className="card-elite glow-green overflow-hidden">
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead className="bg-gray-800/50 border-b border-gray-700">
-                  <tr>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Warranty Type</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Product Coverage</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Performance</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">What's Covered</th>
-                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500  uppercase tracking-wider">Exclusions</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-                  {warrantyInfo.map((warranty, idx) => (
-                    <tr key={idx} className="hover:bg-gray-50 dark:hover:bg-gray-700">
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 ">
-                        {warranty.type}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 ">
-                        {warranty.product}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 ">
-                        {warranty.power}
-                      </td>
-                      <td className="px-6 py-4 text-sm text-gray-700 ">
-                        {warranty.covers}
-                      </td>
-                      <td className="px-6 py-4 text-sm text-gray-700 ">
-                        {warranty.excludes}
-                      </td>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="card-elite glow-green overflow-hidden relative"
+          >
+            {/* Background shimmer */}
+            <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(110deg, transparent 20%, rgba(34, 197, 94, 0.1) 50%, transparent 80%)', backgroundSize: '200% 100%', animation: 'shimmer1 5s infinite' }} />
+
+            <div className="overflow-x-auto relative z-10">
+              <div className="relative rounded-2xl overflow-hidden border border-green-500/20"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(249, 115, 22, 0.05) 50%, rgba(34, 197, 94, 0.1) 100%)',
+                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+                }}
+              >
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-gray-700/50" style={{ background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%)', backdropFilter: 'blur(10px)' }}>
+                      <th className="px-6 py-4 text-left text-xs font-bold text-green-300 uppercase tracking-wider">
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                          Warranty Type
+                        </div>
+                      </th>
+                      <th className="px-6 py-4 text-left text-xs font-bold text-gray-300 uppercase tracking-wider">Product Coverage</th>
+                      <th className="px-6 py-4 text-left text-xs font-bold text-gray-300 uppercase tracking-wider">Performance</th>
+                      <th className="px-6 py-4 text-left text-xs font-bold text-gray-300 uppercase tracking-wider">What's Covered</th>
+                      <th className="px-6 py-4 text-left text-xs font-bold text-gray-300 uppercase tracking-wider">Exclusions</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody className="divide-y divide-gray-700/30">
+                    {warrantyInfo.map((warranty, idx) => (
+                      <motion.tr
+                        key={idx}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: idx * 0.05 }}
+                        className="hover:bg-white/5 transition-all duration-300 group"
+                      >
+                        <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-green-300 group-hover:text-green-200 transition-colors">
+                          {warranty.type}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300 group-hover:text-gray-200 transition-colors">
+                          {warranty.product}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300 group-hover:text-gray-200 transition-colors">
+                          {warranty.power}
+                        </td>
+                        <td className="px-6 py-4 text-sm text-gray-300 group-hover:text-gray-200 transition-colors">
+                          {warranty.covers}
+                        </td>
+                        <td className="px-6 py-4 text-sm text-gray-300 group-hover:text-gray-200 transition-colors">
+                          {warranty.excludes}
+                        </td>
+                      </motion.tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Technician Working Image */}
@@ -910,56 +1150,84 @@ const Repairs = () => {
                 cost_range: "$500-$2,000"
               }
             ].map((issue, idx) => (
-              <div key={idx} className="card-elite glow-purple p-6">
-                <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-lg font-bold text-white">{issue.problem}</h3>
-                  <span className="text-sm bg-red-100 dark:bg-red-900 text-red-600  px-2 py-1 rounded-full">
-                    {issue.frequency}
-                  </span>
-                </div>
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                whileHover={{ scale: 1.03, y: -5 }}
+                className="relative group"
+              >
+                {/* Glow effect */}
+                <div className="absolute inset-0 rounded-xl blur-lg opacity-50 group-hover:opacity-80 transition-all duration-500"
+                  style={{ background: 'rgba(249, 115, 22, 0.4)', animation: `pulse ${2.5 + idx * 0.3}s ease-in-out infinite` }}
+                />
 
-                <div className="space-y-3 text-sm">
-                  <div>
-                    <h4 className="font-semibold text-gray-700  mb-1">Symptoms</h4>
-                    <ul className="space-y-1">
-                      {issue.symptoms.map((symptom, i) => (
-                        <li key={i} className="text-gray-600  flex items-center gap-2">
-                          <Circle className="h-2 w-2 text-red-500" />
-                          {symptom}
-                        </li>
-                      ))}
-                    </ul>
+                {/* Card */}
+                <div className="relative card-elite glow-orange p-6 overflow-hidden" style={{ backdropFilter: 'blur(10px)', boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15)' }}>
+                  {/* Glass overlay */}
+                  <div className="absolute inset-0 pointer-events-none opacity-60" style={{ background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 60%)' }} />
+
+                  {/* Shimmer */}
+                  <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.5) 50%, transparent 80%)', backgroundSize: '200% 100%', animation: `shimmer${idx + 1} ${4 + idx * 0.5}s infinite`, mixBlendMode: 'overlay' }} />
+
+                  <div className="flex items-start justify-between mb-3 relative z-10">
+                    <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                      <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" />
+                      {issue.problem}
+                    </h3>
+                    <span className="text-sm px-2 py-1 rounded-full text-red-300 font-semibold" style={{ background: 'rgba(239, 68, 68, 0.2)', border: '1px solid rgba(239, 68, 68, 0.4)' }}>
+                      {issue.frequency}
+                    </span>
                   </div>
 
-                  <div>
-                    <h4 className="font-semibold text-gray-700  mb-1">Common Causes</h4>
-                    <ul className="space-y-1">
-                      {issue.causes.map((cause, i) => (
-                        <li key={i} className="text-gray-600  flex items-center gap-2">
-                          <Triangle className="h-2 w-2 text-orange-500" />
-                          {cause}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="bg-orange-50 dark:bg-orange-900/20 rounded-lg p-3">
-                    <h4 className="font-semibold text-orange-600  mb-1">Solution</h4>
-                    <p className="text-gray-700 ">{issue.solution}</p>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-2">
-                      <p className="text-xs text-gray-600 ">Repair Time</p>
-                      <p className="text-sm font-semibold text-gray-900 ">{issue.repair_time}</p>
+                  <div className="space-y-3 text-sm relative z-10">
+                    <div>
+                      <h4 className="font-semibold text-white mb-1">Symptoms</h4>
+                      <ul className="space-y-1">
+                        {issue.symptoms.map((symptom, i) => (
+                          <li key={i} className="text-gray-200 flex items-center gap-2">
+                            <Circle className="h-2 w-2 text-red-400 flex-shrink-0" />
+                            {symptom}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                    <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-2">
-                      <p className="text-xs text-gray-600 ">Cost Range</p>
-                      <p className="text-sm font-semibold text-orange-600 ">{issue.cost_range}</p>
+
+                    <div>
+                      <h4 className="font-semibold text-white mb-1">Common Causes</h4>
+                      <ul className="space-y-1">
+                        {issue.causes.map((cause, i) => (
+                          <li key={i} className="text-gray-200 flex items-center gap-2">
+                            <Triangle className="h-2 w-2 text-orange-400 flex-shrink-0" />
+                            {cause}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="rounded-lg p-3" style={{ background: 'rgba(249, 115, 22, 0.15)', border: '1px solid rgba(249, 115, 22, 0.3)' }}>
+                      <h4 className="font-semibold text-orange-300 mb-1">Solution</h4>
+                      <p className="text-gray-200">{issue.solution}</p>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="rounded-lg p-2" style={{ background: 'rgba(59, 130, 246, 0.15)', border: '1px solid rgba(59, 130, 246, 0.3)' }}>
+                        <p className="text-xs text-gray-300">Repair Time</p>
+                        <p className="text-sm font-semibold text-white">{issue.repair_time}</p>
+                      </div>
+                      <div className="rounded-lg p-2" style={{ background: 'rgba(249, 115, 22, 0.15)', border: '1px solid rgba(249, 115, 22, 0.3)' }}>
+                        <p className="text-xs text-gray-300">Cost Range</p>
+                        <p className="text-sm font-semibold text-orange-300">{issue.cost_range}</p>
+                      </div>
                     </div>
                   </div>
+
+                  {/* Bottom accent */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1 opacity-50" style={{ background: 'linear-gradient(90deg, transparent, rgba(249, 115, 22, 0.6), transparent)' }} />
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -1076,39 +1344,73 @@ const Repairs = () => {
             <p className="text-gray-600 ">Upfront, honest pricing for common repairs</p>
           </div>
 
-          <div className="card-elite glow-blue overflow-hidden">
-            <table className="w-full">
-              <thead className="bg-gray-800/50">
-                <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase">Repair Type</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500  uppercase">Parts Cost</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500  uppercase">Labor Cost</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500  uppercase">Total Range</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500  uppercase">Time</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-                {[
-                  { type: "Optimizer Replacement", parts: "$120-180", labor: "$125-250", total: "$245-430", time: "1-2 hours" },
-                  { type: "Microinverter Swap", parts: "$200-350", labor: "$125-250", total: "$325-600", time: "1-2 hours" },
-                  { type: "String Inverter Repair", parts: "$800-2000", labor: "$375-750", total: "$1,175-2,750", time: "3-6 hours" },
-                  { type: "Panel Replacement", parts: "$280-450", labor: "$250-500", total: "$530-950", time: "2-4 hours" },
-                  { type: "Arc Fault Resolution", parts: "$50-200", labor: "$250-500", total: "$300-700", time: "2-4 hours" },
-                  { type: "Ground Fault Repair", parts: "$100-300", labor: "$375-750", total: "$475-1,050", time: "3-6 hours" },
-                  { type: "Monitoring Gateway", parts: "$350-500", labor: "$125-250", total: "$475-750", time: "1-2 hours" },
-                  { type: "Complete Rewire", parts: "$200-500", labor: "$500-1500", total: "$700-2,000", time: "4-12 hours" }
-                ].map((repair, idx) => (
-                  <tr key={idx} className="hover:bg-gray-50 dark:hover:bg-gray-700">
-                    <td className="px-6 py-4 text-sm font-medium text-gray-900 ">{repair.type}</td>
-                    <td className="px-6 py-4 text-sm text-gray-700 ">{repair.parts}</td>
-                    <td className="px-6 py-4 text-sm text-gray-700 ">{repair.labor}</td>
-                    <td className="px-6 py-4 text-sm font-semibold text-orange-600 ">{repair.total}</td>
-                    <td className="px-6 py-4 text-sm text-gray-700 ">{repair.time}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="card-elite glow-blue overflow-hidden relative"
+          >
+            {/* Background shimmer */}
+            <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(110deg, transparent 20%, rgba(59, 130, 246, 0.1) 50%, transparent 80%)', backgroundSize: '200% 100%', animation: 'shimmer2 5s infinite' }} />
+
+            <div className="overflow-x-auto relative z-10">
+              <div className="relative rounded-2xl overflow-hidden border border-blue-500/20"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(249, 115, 22, 0.05) 50%, rgba(59, 130, 246, 0.1) 100%)',
+                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+                }}
+              >
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-gray-700/50" style={{ background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%)', backdropFilter: 'blur(10px)' }}>
+                      <th className="px-6 py-3 text-left text-xs font-bold text-blue-300 uppercase">
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
+                          Repair Type
+                        </div>
+                      </th>
+                      <th className="px-6 py-3 text-left text-xs font-bold text-gray-300 uppercase">Parts Cost</th>
+                      <th className="px-6 py-3 text-left text-xs font-bold text-gray-300 uppercase">Labor Cost</th>
+                      <th className="px-6 py-3 text-left text-xs font-bold text-gray-300 uppercase">Total Range</th>
+                      <th className="px-6 py-3 text-left text-xs font-bold text-gray-300 uppercase">Time</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-700/30">
+                    {[
+                      { type: "Optimizer Replacement", parts: "$120-180", labor: "$125-250", total: "$245-430", time: "1-2 hours" },
+                      { type: "Microinverter Swap", parts: "$200-350", labor: "$125-250", total: "$325-600", time: "1-2 hours" },
+                      { type: "String Inverter Repair", parts: "$800-2000", labor: "$375-750", total: "$1,175-2,750", time: "3-6 hours" },
+                      { type: "Panel Replacement", parts: "$280-450", labor: "$250-500", total: "$530-950", time: "2-4 hours" },
+                      { type: "Arc Fault Resolution", parts: "$50-200", labor: "$250-500", total: "$300-700", time: "2-4 hours" },
+                      { type: "Ground Fault Repair", parts: "$100-300", labor: "$375-750", total: "$475-1,050", time: "3-6 hours" },
+                      { type: "Monitoring Gateway", parts: "$350-500", labor: "$125-250", total: "$475-750", time: "1-2 hours" },
+                      { type: "Complete Rewire", parts: "$200-500", labor: "$500-1500", total: "$700-2,000", time: "4-12 hours" }
+                    ].map((repair, idx) => (
+                      <motion.tr
+                        key={idx}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: idx * 0.05 }}
+                        className="hover:bg-white/5 transition-all duration-300 group"
+                      >
+                        <td className="px-6 py-4 text-sm font-bold text-white group-hover:text-blue-200 transition-colors">{repair.type}</td>
+                        <td className="px-6 py-4 text-sm text-gray-300 group-hover:text-gray-200 transition-colors">{repair.parts}</td>
+                        <td className="px-6 py-4 text-sm text-gray-300 group-hover:text-gray-200 transition-colors">{repair.labor}</td>
+                        <td className="px-6 py-4 text-sm font-semibold text-orange-300 group-hover:text-orange-200 transition-colors">{repair.total}</td>
+                        <td className="px-6 py-4 text-sm">
+                          <span className="px-2 py-1 rounded-lg text-cyan-300 font-mono" style={{ background: 'rgba(34, 211, 238, 0.15)', border: '1px solid rgba(34, 211, 238, 0.3)' }}>
+                            {repair.time}
+                          </span>
+                        </td>
+                      </motion.tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </motion.div>
 
           <div className="mt-4 text-center">
             <p className="text-sm text-gray-600 ">

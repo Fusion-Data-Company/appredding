@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import MainLayout from "@/components/layout/MainLayout";
 import SolarWaveHero from "@/components/SolarWaveHero";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -342,44 +343,117 @@ const ResidentialSolar = () => {
         backgroundColor="bg-gradient-to-br from-gray-900 to-black"
       >
         {/* Real-Time Rate Monitor */}
-        <div className="card-elite glow-blue p-6 mb-8">
-          <h3 className="text-xl font-bold text-white mb-4 flex items-center">
-            <Activity className="mr-3 h-6 w-6 text-blue-400" />
+        <motion.div
+          className="card-elite glow-blue p-6 mb-8 relative overflow-hidden"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          {/* Background shimmer */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: 'linear-gradient(110deg, transparent 20%, rgba(59, 130, 246, 0.1) 50%, transparent 80%)',
+              backgroundSize: '200% 100%',
+              animation: 'shimmer1 5s infinite'
+            }}
+          />
+
+          <h3 className="text-xl font-bold text-white mb-4 flex items-center relative z-10">
+            <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }}>
+              <Activity className="mr-3 h-6 w-6 text-blue-400" />
+            </motion.div>
             Live PG&E TOU-C Rate Schedule (Winter 2024)
           </h3>
-          <div className="grid md:grid-cols-4 gap-4">
-            <div className="category-card-elite p-4">
-              <div className="text-xs text-gray-500 uppercase mb-1">Peak (4-9pm)</div>
-              <div className="text-2xl font-bold text-red-400">$0.51/kWh</div>
-              <div className="text-xs text-gray-400 mt-1">Import Cost</div>
-              <div className="text-sm font-mono text-red-300">Export: $0.08</div>
-            </div>
-            <div className="category-card-elite p-4">
-              <div className="text-xs text-gray-500 uppercase mb-1">Partial Peak (3-4pm, 9-12am)</div>
-              <div className="text-2xl font-bold text-yellow-400">$0.42/kWh</div>
-              <div className="text-xs text-gray-400 mt-1">Import Cost</div>
-              <div className="text-sm font-mono text-yellow-300">Export: $0.06</div>
-            </div>
-            <div className="category-card-elite p-4">
-              <div className="text-xs text-gray-500 uppercase mb-1">Off-Peak (12am-3pm)</div>
-              <div className="text-2xl font-bold text-orange-400">$0.40/kWh</div>
-              <div className="text-xs text-gray-400 mt-1">Import Cost</div>
-              <div className="text-sm font-mono text-orange-300">Export: $0.04</div>
-            </div>
-            <div className="category-card-elite p-4">
-              <div className="text-xs text-gray-500 uppercase mb-1">Price Differential</div>
-              <div className="text-2xl font-bold text-purple-400">12.75x</div>
-              <div className="text-xs text-gray-400 mt-1">Import/Export Ratio</div>
-              <div className="text-sm font-mono text-purple-300">Peak Period</div>
-            </div>
+          <div className="grid md:grid-cols-4 gap-4 relative z-10">
+            {[
+              { title: "Peak (4-9pm)", value: "$0.51/kWh", desc: "Import Cost", export: "Export: $0.08", gradient: "from-red-500 via-pink-500 to-red-600", glowColor: "rgba(239, 68, 68, 0.4)", borderColor: "border-red-500/30" },
+              { title: "Partial Peak (3-4pm, 9-12am)", value: "$0.42/kWh", desc: "Import Cost", export: "Export: $0.06", gradient: "from-yellow-500 via-amber-500 to-yellow-600", glowColor: "rgba(234, 179, 8, 0.4)", borderColor: "border-yellow-500/30" },
+              { title: "Off-Peak (12am-3pm)", value: "$0.40/kWh", desc: "Import Cost", export: "Export: $0.04", gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", borderColor: "border-orange-500/30" },
+              { title: "Price Differential", value: "12.75x", desc: "Import/Export Ratio", export: "Peak Period", gradient: "from-orange-500 via-amber-500 to-orange-600", glowColor: "rgba(249, 115, 22, 0.4)", borderColor: "border-orange-500/30" }
+            ].map((card, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="relative group"
+              >
+                {/* Glow effect */}
+                <div
+                  className="absolute inset-0 rounded-xl blur-lg opacity-50 group-hover:opacity-80 transition-all duration-500"
+                  style={{
+                    background: card.glowColor,
+                    animation: `pulse ${2 + idx * 0.3}s ease-in-out infinite`
+                  }}
+                />
+
+                {/* Card */}
+                <div
+                  className={`relative bg-gradient-to-br ${card.gradient} rounded-xl p-4 border ${card.borderColor} overflow-hidden`}
+                  style={{
+                    backdropFilter: 'blur(10px)',
+                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+                  }}
+                >
+                  {/* Glass overlay */}
+                  <div
+                    className="absolute inset-0 pointer-events-none opacity-60"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 60%)'
+                    }}
+                  />
+
+                  {/* Shimmer */}
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.5) 50%, transparent 80%)',
+                      backgroundSize: '200% 100%',
+                      animation: `shimmer${idx + 1} ${4 + idx * 0.5}s infinite`,
+                      mixBlendMode: 'overlay'
+                    }}
+                  />
+
+                  <div className="relative z-10">
+                    <div className="text-xs text-white/80 uppercase mb-1 font-semibold drop-shadow-sm">{card.title}</div>
+                    <div className="text-2xl font-bold text-white mb-1 drop-shadow-md">{card.value}</div>
+                    <div className="text-xs text-white/70 mt-1 drop-shadow-sm">{card.desc}</div>
+                    <div className="text-sm font-mono text-white/90 font-semibold drop-shadow-sm">{card.export}</div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
-        </div>
+        </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-8 mb-8">
           {/* Detailed Export Value Calculator */}
-          <div className="card-elite glow-orange p-8">
-            <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-              <Calculator className="mr-3 h-6 w-6 text-orange-400" />
+          <motion.div
+            className="card-elite glow-orange p-8 relative overflow-hidden"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            whileHover={{ scale: 1.02, y: -5 }}
+          >
+            {/* Background shimmer */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: 'linear-gradient(110deg, transparent 20%, rgba(249, 115, 22, 0.15) 50%, transparent 80%)',
+                backgroundSize: '200% 100%',
+                animation: 'shimmer1 5s infinite'
+              }}
+            />
+
+            <h3 className="text-2xl font-bold text-white mb-6 flex items-center relative z-10">
+              <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }}>
+                <Calculator className="mr-3 h-6 w-6 text-orange-400" />
+              </motion.div>
               NEM 3.0 Avoided Cost Calculator (ACC Plus)
             </h3>
             <div className="space-y-4">
@@ -447,12 +521,31 @@ const ResidentialSolar = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Advanced Load-Shifting Strategy */}
-          <div className="card-elite glow-green p-8">
-            <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-              <LineChart className="mr-3 h-6 w-6 text-orange-400" />
+          <motion.div
+            className="card-elite glow-green p-8 relative overflow-hidden"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            whileHover={{ scale: 1.02, y: -5 }}
+          >
+            {/* Background shimmer */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: 'linear-gradient(110deg, transparent 20%, rgba(34, 197, 94, 0.15) 50%, transparent 80%)',
+                backgroundSize: '200% 100%',
+                animation: 'shimmer2 5s infinite'
+              }}
+            />
+
+            <h3 className="text-2xl font-bold text-white mb-6 flex items-center relative z-10">
+              <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }}>
+                <LineChart className="mr-3 h-6 w-6 text-orange-400" />
+              </motion.div>
               24-Hour Optimization Protocol
             </h3>
             <div className="space-y-3">
@@ -480,26 +573,82 @@ const ResidentialSolar = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Comparative Analysis Table */}
-        <div className="card-elite glow-purple p-8 mb-8">
-          <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <PieChart className="mr-3 h-6 w-6 text-purple-400" />
+        <motion.div
+          className="card-elite glow-orange p-8 mb-8 relative overflow-hidden"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          {/* Background shimmer */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: 'linear-gradient(110deg, transparent 20%, rgba(249, 115, 22, 0.1) 50%, transparent 80%)',
+              backgroundSize: '200% 100%',
+              animation: 'shimmer3 6s infinite'
+            }}
+          />
+
+          <h3 className="text-2xl font-bold text-white mb-6 flex items-center relative z-10">
+            <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }}>
+              <PieChart className="mr-3 h-6 w-6 text-orange-400" />
+            </motion.div>
             NEM 2.0 vs NEM 3.0: 10-Year Financial Impact Analysis
           </h3>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-gray-700">
-                  <th className="text-left py-3 px-4 text-gray-400">Metric</th>
-                  <th className="text-right py-3 px-4 text-blue-400">NEM 2.0 (Legacy)</th>
-                  <th className="text-right py-3 px-4 text-yellow-400">NEM 3.0 (Solar Only)</th>
-                  <th className="text-right py-3 px-4 text-orange-400">NEM 3.0 + Battery</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-700/50">
+          <div className="overflow-x-auto relative z-10">
+            <div className="relative rounded-2xl overflow-hidden border border-orange-500/20"
+              style={{
+                background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(59, 130, 246, 0.05) 50%, rgba(249, 115, 22, 0.1) 100%)',
+                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+              }}
+            >
+              {/* Animated shimmer overlay */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.15) 50%, transparent 80%)',
+                  backgroundSize: '200% 100%',
+                  animation: 'shimmer1 5s infinite',
+                  mixBlendMode: 'overlay'
+                }}
+              />
+
+              <table className="w-full text-sm relative">
+                <thead>
+                  <tr
+                    className="border-b border-gray-700/50"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%)',
+                      backdropFilter: 'blur(10px)'
+                    }}
+                  >
+                    <th className="text-left py-3 px-4 text-gray-300 font-bold">Metric</th>
+                    <th className="text-right py-3 px-4">
+                      <div className="flex items-center justify-end gap-2">
+                        <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
+                        <span className="text-blue-300 font-bold">NEM 2.0 (Legacy)</span>
+                      </div>
+                    </th>
+                    <th className="text-right py-3 px-4">
+                      <div className="flex items-center justify-end gap-2">
+                        <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }} />
+                        <span className="text-yellow-300 font-bold">NEM 3.0 (Solar Only)</span>
+                      </div>
+                    </th>
+                    <th className="text-right py-3 px-4">
+                      <div className="flex items-center justify-end gap-2">
+                        <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" style={{ animationDelay: '0.6s' }} />
+                        <span className="text-orange-300 font-bold">NEM 3.0 + Battery</span>
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-700/30">
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Export Credit Rate</td>
                   <td className="text-right py-3 px-4 font-mono text-blue-300">$0.21-0.30/kWh</td>

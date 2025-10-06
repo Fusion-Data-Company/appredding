@@ -239,47 +239,112 @@ const EnergyConservation = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-gradient-to-r from-green-600 to-blue-700 rounded-3xl p-8 mb-12 text-white relative overflow-hidden"
+          className="relative overflow-hidden rounded-3xl p-8 mb-12 text-white"
+          style={{
+            background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.2) 0%, rgba(59, 130, 246, 0.15) 50%, rgba(249, 115, 22, 0.2) 100%)',
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+            border: '1px solid rgba(249, 115, 22, 0.3)'
+          }}
         >
-          <div className="absolute inset-0 bg-circuit-pattern opacity-10"></div>
+          {/* Shimmer effect */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.15) 50%, transparent 80%)',
+              backgroundSize: '200% 100%',
+              animation: 'shimmer1 5s infinite',
+              mixBlendMode: 'overlay'
+            }}
+          />
+
           <div className="relative z-10">
             <div className="flex items-center gap-2 mb-4">
-              <Leaf className="h-8 w-8" />
-              <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">Energy Efficiency Solutions</span>
+              <motion.div
+                whileHover={{ rotate: 360, scale: 1.2 }}
+                transition={{ duration: 0.6 }}
+              >
+                <Leaf className="h-8 w-8 text-orange-400" />
+              </motion.div>
+              <span className="text-sm font-semibold bg-white/20 backdrop-blur px-3 py-1 rounded-full border border-white/30">Energy Efficiency Solutions</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">Live Energy Metrics</h2>
-            <p className="text-lg mb-6 text-orange-100">Real-time monitoring of your energy consumption and savings potential</p>
+            <p className="text-lg mb-6 text-gray-100">Real-time monitoring of your energy consumption and savings potential</p>
 
             {/* Live Energy Metrics */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
-              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <Activity className="h-5 w-5 mb-2 text-orange-200" />
-                <div className="text-2xl font-bold">{energyUsage.toFixed(0)}</div>
-                <div className="text-sm text-orange-200">kWh Usage</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <Gauge className="h-5 w-5 mb-2 text-blue-200" />
-                <div className="text-2xl font-bold">{efficiency.toFixed(0)}%</div>
-                <div className="text-sm text-blue-200">Efficiency</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <DollarSign className="h-5 w-5 mb-2 text-yellow-200" />
-                <div className="text-2xl font-bold">${savings.toFixed(0)}</div>
-                <div className="text-sm text-yellow-200">Monthly Savings</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <ThermometerSun className="h-5 w-5 mb-2 text-orange-200" />
-                <div className="text-2xl font-bold">{temperature.toFixed(0)}°F</div>
-                <div className="text-sm text-orange-200">Set Point</div>
-              </div>
+              {[
+                { icon: Activity, value: energyUsage.toFixed(0), label: "kWh Usage", gradient: "from-orange-500 via-amber-500 to-orange-600", iconColor: "text-orange-300" },
+                { icon: Gauge, value: `${efficiency.toFixed(0)}%`, label: "Efficiency", gradient: "from-blue-500 via-cyan-500 to-blue-600", iconColor: "text-blue-300" },
+                { icon: DollarSign, value: `$${savings.toFixed(0)}`, label: "Monthly Savings", gradient: "from-orange-500 via-yellow-500 to-amber-600", iconColor: "text-yellow-300" },
+                { icon: ThermometerSun, value: `${temperature.toFixed(0)}°F`, label: "Set Point", gradient: "from-red-500 via-orange-500 to-red-600", iconColor: "text-orange-300" }
+              ].map((metric, idx) => {
+                const Icon = metric.icon;
+                return (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: idx * 0.1 }}
+                    whileHover={{ scale: 1.05, y: -5 }}
+                    className="relative group"
+                  >
+                    <div
+                      className="absolute inset-0 rounded-xl blur-lg opacity-50 group-hover:opacity-80 transition-all"
+                      style={{
+                        background: `linear-gradient(135deg, ${metric.gradient})`,
+                        animation: `pulse ${2 + idx * 0.3}s ease-in-out infinite`
+                      }}
+                    />
+                    <div
+                      className={`relative bg-gradient-to-br ${metric.gradient} rounded-xl p-4 border border-white/20 overflow-hidden`}
+                      style={{
+                        backdropFilter: 'blur(10px)',
+                        boxShadow: '0 4px 16px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
+                      }}
+                    >
+                      <div
+                        className="absolute inset-0 pointer-events-none"
+                        style={{
+                          background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 60%)'
+                        }}
+                      />
+                      <Icon className={`h-5 w-5 mb-2 ${metric.iconColor}`} />
+                      <div className="text-2xl font-bold text-white">{metric.value}</div>
+                      <div className="text-sm text-white/90">{metric.label}</div>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <button className="bg-white text-orange-600 px-6 py-3 rounded-xl font-semibold hover:bg-orange-50 transition flex items-center gap-2">
-                Schedule Energy Audit <ArrowRight className="h-5 w-5" />
+              <button
+                className="relative overflow-hidden px-6 py-3 rounded-xl font-semibold transition-all hover:scale-105 text-white group"
+                style={{
+                  background: 'linear-gradient(135deg, #f97316 0%, #fb923c 50%, #ea580c 100%)',
+                  boxShadow: '0 4px 20px rgba(249,115,22,0.5), inset 0 2px 0 rgba(255,255,255,0.3)',
+                  border: '1px solid rgba(255,255,255,0.3)'
+                }}
+              >
+                <span className="relative z-10 flex items-center">
+                  Schedule Energy Audit <ArrowRight className="h-5 w-5 ml-2" />
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-transparent opacity-50 pointer-events-none rounded-xl" />
               </button>
-              <button className="bg-white/20 backdrop-blur text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/30 transition flex items-center gap-2">
-                <Calculator className="h-5 w-5" /> Calculate Savings
+              <button
+                className="relative overflow-hidden px-6 py-3 rounded-xl font-semibold transition-all hover:scale-105 text-white"
+                style={{
+                  background: 'rgba(255, 255, 255, 0.1)',
+                  backdropFilter: 'blur(12px)',
+                  boxShadow: '0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)'
+                }}
+              >
+                <span className="relative z-10 flex items-center">
+                  <Calculator className="h-5 w-5 mr-2" /> Calculate Savings
+                </span>
               </button>
             </div>
           </div>
@@ -309,19 +374,49 @@ const EnergyConservation = () => {
             ))}
           </div>
 
-          <div className="card-elite glow-green p-8 group">
-            <div className="flex items-start justify-between mb-4">
-              <h3 className="text-2xl font-bold text-gray-900 ">
-                {conservationServices[selectedService as keyof typeof conservationServices].name}
-              </h3>
-              <span className="bg-orange-100 dark:bg-orange-900 text-orange-800  px-3 py-1 rounded-full text-sm font-medium">
-                {conservationServices[selectedService as keyof typeof conservationServices].savings} Savings
-              </span>
-            </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="relative overflow-hidden rounded-2xl p-8 group"
+            style={{
+              background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(249, 115, 22, 0.1) 50%, rgba(59, 130, 246, 0.15) 100%)',
+              backdropFilter: 'blur(12px)',
+              WebkitBackdropFilter: 'blur(12px)',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+              border: '1px solid rgba(34, 197, 94, 0.3)'
+            }}
+          >
+            {/* Animated shimmer */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.15) 50%, transparent 80%)',
+                backgroundSize: '200% 100%',
+                animation: 'shimmer2 5s infinite',
+                mixBlendMode: 'overlay'
+              }}
+            />
 
-            <p className="text-gray-600  mb-6">
-              {conservationServices[selectedService as keyof typeof conservationServices].description}
-            </p>
+            <div className="relative z-10">
+              <div className="flex items-start justify-between mb-4">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                  {conservationServices[selectedService as keyof typeof conservationServices].name}
+                </h3>
+                <span
+                  className="px-3 py-1 rounded-full text-sm font-medium text-white"
+                  style={{
+                    background: 'linear-gradient(135deg, #f97316 0%, #fb923c 50%, #ea580c 100%)',
+                    boxShadow: '0 2px 8px rgba(249, 115, 22, 0.3)'
+                  }}
+                >
+                  {conservationServices[selectedService as keyof typeof conservationServices].savings} Savings
+                </span>
+              </div>
+
+              <p className="text-gray-600 dark:text-gray-300 mb-6">
+                {conservationServices[selectedService as keyof typeof conservationServices].description}
+              </p>
 
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               <div>
@@ -350,12 +445,20 @@ const EnergyConservation = () => {
                   </div>
                 </div>
 
-                <button className="w-full bg-orange-600 text-white px-4 py-3 rounded-xl font-semibold hover:bg-orange-700 transition">
-                  Get Free Quote
+                <button
+                  className="w-full relative overflow-hidden px-4 py-3 rounded-xl font-semibold transition-all hover:scale-105 text-white"
+                  style={{
+                    background: 'linear-gradient(135deg, #f97316 0%, #fb923c 50%, #ea580c 100%)',
+                    boxShadow: '0 4px 16px rgba(249, 115, 22, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+                    border: '1px solid rgba(255, 255, 255, 0.2)'
+                  }}
+                >
+                  <span className="relative z-10">Get Free Quote</span>
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-50 pointer-events-none rounded-xl" />
                 </button>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Technician Working on Energy Systems Image */}

@@ -252,129 +252,161 @@ const HybridSolar = () => {
 
           {/* Enhanced Technical Specifications Grid */}
           <div className="grid lg:grid-cols-4 gap-4 mb-12">
-            <div className="spec-card-elite glow-green group">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="icon-container-elite bg-orange-500/20 group-hover:bg-orange-500/30">
-                  <Cpu className="h-6 w-6 text-orange-400" />
-                </div>
-                <h3 className="text-lg font-bold text-white">Sol-Ark Hybrid</h3>
-              </div>
-              <div className="space-y-3">
-                <div className="data-row-elite text-sm">
-                  <span className="text-gray-400">Model:</span>
-                  <span className="text-orange-300 font-mono">12K/15K</span>
-                </div>
-                <div className="data-row-elite text-sm">
-                  <span className="text-gray-400">Grid-Tie:</span>
-                  <span className="text-orange-300 font-mono">12/15kW</span>
-                </div>
-                <div className="data-row-elite text-sm">
-                  <span className="text-gray-400">Off-Grid:</span>
-                  <span className="text-orange-300 font-mono">9/12kW</span>
-                </div>
-                <div className="data-row-elite text-sm">
-                  <span className="text-gray-400">Surge:</span>
-                  <span className="text-orange-300 font-mono">20/23kW</span>
-                </div>
-                <div className="data-row-elite text-sm">
-                  <span className="text-gray-400">Transfer:</span>
-                  <span className="text-orange-300 font-mono">&lt;4ms UPS</span>
-                </div>
-              </div>
-            </div>
+            {[
+              {
+                title: "Sol-Ark Hybrid",
+                icon: <Cpu className="h-6 w-6 text-orange-400" />,
+                specs: [
+                  { label: "Model:", value: "12K/15K" },
+                  { label: "Grid-Tie:", value: "12/15kW" },
+                  { label: "Off-Grid:", value: "9/12kW" },
+                  { label: "Surge:", value: "20/23kW" },
+                  { label: "Transfer:", value: "<4ms UPS" }
+                ],
+                gradient: "from-orange-500 via-amber-500 to-orange-600",
+                glowColor: "rgba(249, 115, 22, 0.5)",
+                iconBg: "bg-orange-900/30",
+                textColor: "text-orange-300",
+                borderColor: "border-orange-400/30 hover:border-orange-300/60"
+              },
+              {
+                title: "Auto Transfer",
+                icon: <ToggleRight className="h-6 w-6 text-blue-400" />,
+                specs: [
+                  { label: "Detection:", value: "<100ms" },
+                  { label: "Switch:", value: "<10ms" },
+                  { label: "Mode:", value: "Seamless" },
+                  { label: "Priority:", value: "Critical" },
+                  { label: "Gen Start:", value: "Auto AGS" }
+                ],
+                gradient: "from-blue-500 via-cyan-500 to-blue-600",
+                glowColor: "rgba(59, 130, 246, 0.5)",
+                iconBg: "bg-blue-900/30",
+                textColor: "text-blue-300",
+                borderColor: "border-blue-400/30 hover:border-blue-300/60"
+              },
+              {
+                title: "Battery Backup",
+                icon: <HardDrive className="h-6 w-6 text-orange-400" />,
+                specs: [
+                  { label: "Capacity:", value: "15-30kWh" },
+                  { label: "Chemistry:", value: "LiFePO4" },
+                  { label: "Runtime:", value: "8-24hrs" },
+                  { label: "Cycles:", value: "6000+" },
+                  { label: "Warranty:", value: "10 years" }
+                ],
+                gradient: "from-orange-500 via-amber-500 to-orange-600",
+                glowColor: "rgba(249, 115, 22, 0.5)",
+                iconBg: "bg-orange-900/30",
+                textColor: "text-orange-300",
+                borderColor: "border-orange-400/30 hover:border-orange-300/60"
+              },
+              {
+                title: "Smart Control",
+                icon: <Monitor className="h-6 w-6 text-orange-400" />,
+                specs: [
+                  { label: "Monitor:", value: "24/7 App" },
+                  { label: "Loads:", value: "Priority" },
+                  { label: "TOU:", value: "Optimized" },
+                  { label: "Remote:", value: "Full Control" },
+                  { label: "Updates:", value: "OTA" }
+                ],
+                gradient: "from-yellow-500 via-amber-500 to-orange-600",
+                glowColor: "rgba(234, 179, 8, 0.5)",
+                iconBg: "bg-yellow-900/30",
+                textColor: "text-yellow-300",
+                borderColor: "border-yellow-400/30 hover:border-yellow-300/60"
+              }
+            ].map((card, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.9, rotateY: -15 }}
+                animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+                transition={{
+                  duration: 0.6,
+                  delay: idx * 0.15,
+                  type: "spring",
+                  stiffness: 100
+                }}
+                whileHover={{
+                  scale: 1.05,
+                  y: -8,
+                  transition: { duration: 0.2 }
+                }}
+                className="relative group perspective-1000"
+              >
+                {/* Animated glow background */}
+                <div
+                  className="absolute inset-0 rounded-2xl blur-xl opacity-60 group-hover:opacity-100 transition-all duration-500"
+                  style={{
+                    background: card.glowColor,
+                    animation: `pulse ${2 + idx * 0.3}s ease-in-out infinite`
+                  }}
+                />
 
-            <div className="spec-card-elite glow-blue group">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="icon-container-elite bg-blue-500/20 group-hover:bg-blue-500/30">
-                  <ToggleRight className="h-6 w-6 text-blue-400" />
-                </div>
-                <h3 className="text-lg font-bold text-white">Auto Transfer</h3>
-              </div>
-              <div className="space-y-3">
-                <div className="data-row-elite text-sm">
-                  <span className="text-gray-400">Detection:</span>
-                  <span className="text-blue-300 font-mono">&lt;100ms</span>
-                </div>
-                <div className="data-row-elite text-sm">
-                  <span className="text-gray-400">Switch:</span>
-                  <span className="text-blue-300 font-mono">&lt;10ms</span>
-                </div>
-                <div className="data-row-elite text-sm">
-                  <span className="text-gray-400">Mode:</span>
-                  <span className="text-blue-300 font-mono">Seamless</span>
-                </div>
-                <div className="data-row-elite text-sm">
-                  <span className="text-gray-400">Priority:</span>
-                  <span className="text-blue-300 font-mono">Critical</span>
-                </div>
-                <div className="data-row-elite text-sm">
-                  <span className="text-gray-400">Gen Start:</span>
-                  <span className="text-blue-300 font-mono">Auto AGS</span>
-                </div>
-              </div>
-            </div>
+                {/* Card Content with glassmorphism */}
+                <div
+                  className={`relative bg-gradient-to-br ${card.gradient} rounded-2xl p-6 backdrop-blur-sm border ${card.borderColor} transition-all duration-300 overflow-hidden`}
+                  style={{
+                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
+                  }}
+                >
+                  {/* Glass overlay */}
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%)'
+                    }}
+                  />
 
-            <div className="spec-card-elite glow-orange group">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="icon-container-elite bg-orange-500/20 group-hover:bg-orange-500/30">
-                  <HardDrive className="h-6 w-6 text-orange-400" />
-                </div>
-                <h3 className="text-lg font-bold text-white">Battery Backup</h3>
-              </div>
-              <div className="space-y-3">
-                <div className="data-row-elite text-sm">
-                  <span className="text-gray-400">Capacity:</span>
-                  <span className="text-orange-300 font-mono">15-30kWh</span>
-                </div>
-                <div className="data-row-elite text-sm">
-                  <span className="text-gray-400">Chemistry:</span>
-                  <span className="text-orange-300 font-mono">LiFePO4</span>
-                </div>
-                <div className="data-row-elite text-sm">
-                  <span className="text-gray-400">Runtime:</span>
-                  <span className="text-orange-300 font-mono">8-24hrs</span>
-                </div>
-                <div className="data-row-elite text-sm">
-                  <span className="text-gray-400">Cycles:</span>
-                  <span className="text-orange-300 font-mono">6000+</span>
-                </div>
-                <div className="data-row-elite text-sm">
-                  <span className="text-gray-400">Warranty:</span>
-                  <span className="text-orange-300 font-mono">10 years</span>
-                </div>
-              </div>
-            </div>
+                  {/* Animated shimmer */}
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background: 'linear-gradient(110deg, transparent 0%, transparent 40%, rgba(255, 255, 255, 0.6) 50%, transparent 60%, transparent 100%)',
+                      backgroundSize: '200% 100%',
+                      animation: `shimmer${idx + 1} ${3 + idx * 0.5}s infinite`,
+                      mixBlendMode: 'overlay'
+                    }}
+                  />
 
-            <div className="spec-card-elite glow-purple group">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="icon-container-elite bg-purple-500/20 group-hover:bg-purple-500/30">
-                  <Monitor className="h-6 w-6 text-purple-400" />
+                  <div className="relative z-10">
+                    {/* Icon with animation */}
+                    <div className="flex items-center gap-3 mb-4">
+                      <motion.div
+                        className={`p-3 ${card.iconBg} backdrop-blur-md rounded-xl shadow-lg`}
+                        whileHover={{ rotate: [0, -10, 10, -10, 0], scale: 1.1 }}
+                        transition={{ duration: 0.5 }}
+                        style={{
+                          boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 4px 12px rgba(0, 0, 0, 0.2)'
+                        }}
+                      >
+                        {card.icon}
+                      </motion.div>
+                      <h3 className="text-lg font-bold text-white drop-shadow-md">{card.title}</h3>
+                    </div>
+
+                    {/* Specs */}
+                    <div className="space-y-3">
+                      {card.specs.map((spec, specIdx) => (
+                        <div key={specIdx} className="flex justify-between items-center text-sm">
+                          <span className="text-gray-200 font-medium">{spec.label}</span>
+                          <span className={`${card.textColor} font-mono font-bold`}>{spec.value}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Bottom shine effect */}
+                  <div
+                    className="absolute bottom-0 left-0 right-0 h-1/4 pointer-events-none"
+                    style={{
+                      background: 'linear-gradient(to top, rgba(255, 255, 255, 0.15) 0%, transparent 100%)'
+                    }}
+                  />
                 </div>
-                <h3 className="text-lg font-bold text-white">Smart Control</h3>
-              </div>
-              <div className="space-y-3">
-                <div className="data-row-elite text-sm">
-                  <span className="text-gray-400">Monitor:</span>
-                  <span className="text-purple-300 font-mono">24/7 App</span>
-                </div>
-                <div className="data-row-elite text-sm">
-                  <span className="text-gray-400">Loads:</span>
-                  <span className="text-purple-300 font-mono">Priority</span>
-                </div>
-                <div className="data-row-elite text-sm">
-                  <span className="text-gray-400">TOU:</span>
-                  <span className="text-purple-300 font-mono">Optimized</span>
-                </div>
-                <div className="data-row-elite text-sm">
-                  <span className="text-gray-400">Remote:</span>
-                  <span className="text-purple-300 font-mono">Full Control</span>
-                </div>
-                <div className="data-row-elite text-sm">
-                  <span className="text-gray-400">Updates:</span>
-                  <span className="text-purple-300 font-mono">OTA</span>
-                </div>
-              </div>
-            </div>
+              </motion.div>
+            ))}
           </div>
 
           {/* Critical Application Matrix */}
@@ -383,51 +415,160 @@ const HybridSolar = () => {
               <MapPin className="mr-3 h-6 w-6 text-orange-400" />
               Perfect for California's Challenging Grid Conditions
             </h3>
-            <div className="grid md:grid-cols-4 gap-4 text-sm">
-              <div className="category-card-elite">
-                <div className="flex items-center gap-2 mb-2">
-                  <CloudOff className="h-5 w-5 text-red-400" />
-                  <h4 className="text-red-300 font-semibold">PSPS Zones</h4>
-                </div>
-                <ul className="space-y-1 text-gray-400">
-                  <li>• Tier 2/3 fire areas</li>
-                  <li>• 48-72hr outages</li>
-                  <li>• Automatic backup</li>
-                </ul>
-              </div>
-              <div className="category-card-elite">
-                <div className="flex items-center gap-2 mb-2">
-                  <Home className="h-5 w-5 text-blue-400" />
-                  <h4 className="text-blue-300 font-semibold">Rural Properties</h4>
-                </div>
-                <ul className="space-y-1 text-gray-400">
-                  <li>• Unreliable grid</li>
-                  <li>• Long outages</li>
-                  <li>• Well pump backup</li>
-                </ul>
-              </div>
-              <div className="category-card-elite">
-                <div className="flex items-center gap-2 mb-2">
-                  <Shield className="h-5 w-5 text-orange-400" />
-                  <h4 className="text-orange-300 font-semibold">Medical Needs</h4>
-                </div>
-                <ul className="space-y-1 text-gray-400">
-                  <li>• CPAP/oxygen</li>
-                  <li>• Refrigerated meds</li>
-                  <li>• Life support</li>
-                </ul>
-              </div>
-              <div className="category-card-elite">
-                <div className="flex items-center gap-2 mb-2">
-                  <Layers className="h-5 w-5 text-purple-400" />
-                  <h4 className="text-purple-300 font-semibold">Home Office</h4>
-                </div>
-                <ul className="space-y-1 text-gray-400">
-                  <li>• Internet/WiFi</li>
-                  <li>• Computer systems</li>
-                  <li>• Uninterrupted work</li>
-                </ul>
-              </div>
+            <div className="grid md:grid-cols-4 gap-6 text-sm">
+              {[
+                {
+                  icon: <CloudOff className="h-6 w-6" />,
+                  title: "PSPS Zones",
+                  items: [
+                    "Tier 2/3 fire areas",
+                    "48-72hr outages",
+                    "Automatic backup"
+                  ],
+                  gradient: "from-red-500 via-pink-500 to-rose-600",
+                  iconBg: "bg-red-900/40",
+                  iconColor: "text-red-300",
+                  titleColor: "text-red-200",
+                  glowColor: "rgba(239, 68, 68, 0.4)",
+                  borderColor: "border-red-500/30"
+                },
+                {
+                  icon: <Home className="h-6 w-6" />,
+                  title: "Rural Properties",
+                  items: [
+                    "Unreliable grid",
+                    "Long outages",
+                    "Well pump backup"
+                  ],
+                  gradient: "from-blue-500 via-cyan-500 to-blue-600",
+                  iconBg: "bg-blue-900/40",
+                  iconColor: "text-blue-300",
+                  titleColor: "text-blue-200",
+                  glowColor: "rgba(59, 130, 246, 0.4)",
+                  borderColor: "border-blue-500/30"
+                },
+                {
+                  icon: <Shield className="h-6 w-6" />,
+                  title: "Medical Needs",
+                  items: [
+                    "CPAP/oxygen",
+                    "Refrigerated meds",
+                    "Life support"
+                  ],
+                  gradient: "from-orange-500 via-amber-500 to-orange-600",
+                  iconBg: "bg-orange-900/40",
+                  iconColor: "text-orange-300",
+                  titleColor: "text-orange-200",
+                  glowColor: "rgba(249, 115, 22, 0.4)",
+                  borderColor: "border-orange-500/30"
+                },
+                {
+                  icon: <Layers className="h-6 w-6" />,
+                  title: "Home Office",
+                  items: [
+                    "Internet/WiFi",
+                    "Computer systems",
+                    "Uninterrupted work"
+                  ],
+                  gradient: "from-green-500 via-emerald-500 to-green-600",
+                  iconBg: "bg-green-900/40",
+                  iconColor: "text-green-300",
+                  titleColor: "text-green-200",
+                  glowColor: "rgba(34, 197, 94, 0.4)",
+                  borderColor: "border-green-500/30"
+                }
+              ].map((card, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  whileHover={{ scale: 1.03, y: -5 }}
+                  className="relative group"
+                >
+                  {/* Glow effect */}
+                  <div
+                    className="absolute inset-0 rounded-xl blur-lg opacity-50 group-hover:opacity-80 transition-all duration-500"
+                    style={{
+                      background: card.glowColor,
+                      animation: `pulse ${2.5 + idx * 0.3}s ease-in-out infinite`
+                    }}
+                  />
+
+                  {/* Card */}
+                  <div
+                    className={`relative bg-gradient-to-br ${card.gradient} rounded-xl p-5 border ${card.borderColor} overflow-hidden transition-all duration-300`}
+                    style={{
+                      backdropFilter: 'blur(10px)',
+                      boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+                    }}
+                  >
+                    {/* Glass overlay */}
+                    <div
+                      className="absolute inset-0 pointer-events-none opacity-60"
+                      style={{
+                        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 60%)'
+                      }}
+                    />
+
+                    {/* Shimmer */}
+                    <div
+                      className="absolute inset-0 pointer-events-none"
+                      style={{
+                        background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.5) 50%, transparent 80%)',
+                        backgroundSize: '200% 100%',
+                        animation: `shimmer${idx + 1} ${4 + idx * 0.5}s infinite`,
+                        mixBlendMode: 'overlay'
+                      }}
+                    />
+
+                    <div className="relative z-10">
+                      {/* Icon & Title */}
+                      <div className="flex items-center gap-3 mb-3">
+                        <motion.div
+                          className={`p-2.5 ${card.iconBg} backdrop-blur-md rounded-lg ${card.iconColor} shadow-lg`}
+                          whileHover={{ rotate: 360, scale: 1.1 }}
+                          transition={{ duration: 0.6 }}
+                          style={{
+                            boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 4px 12px rgba(0, 0, 0, 0.3)'
+                          }}
+                        >
+                          {card.icon}
+                        </motion.div>
+                        <h4 className={`${card.titleColor} font-bold text-base drop-shadow-md`}>
+                          {card.title}
+                        </h4>
+                      </div>
+
+                      {/* Content */}
+                      <ul className="space-y-2">
+                        {card.items.map((item, itemIdx) => (
+                          <motion.li
+                            key={itemIdx}
+                            initial={{ opacity: 0, x: -10 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.3, delay: idx * 0.1 + itemIdx * 0.05 }}
+                            className="text-white/90 text-sm flex items-start gap-2 drop-shadow-sm"
+                          >
+                            <span className={`${card.iconColor} mt-0.5`}>•</span>
+                            <span>{item}</span>
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Bottom accent */}
+                    <div
+                      className="absolute bottom-0 left-0 right-0 h-1 opacity-50"
+                      style={{
+                        background: `linear-gradient(90deg, transparent, ${card.glowColor}, transparent)`
+                      }}
+                    />
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
         </div>
@@ -815,60 +956,105 @@ const HybridSolar = () => {
         </div>
 
         {/* Whole Home vs Critical Loads Comparison */}
-        <div className="card-elite glow-purple p-8">
-          <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <BarChart3 className="mr-3 h-6 w-6 text-purple-400" />
+        <motion.div
+          className="card-elite glow-orange p-8 relative overflow-hidden"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          {/* Animated shimmer overlay */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: 'linear-gradient(110deg, transparent 20%, rgba(249, 115, 22, 0.15) 50%, transparent 80%)',
+              backgroundSize: '200% 100%',
+              animation: 'shimmer1 5s infinite',
+              mixBlendMode: 'overlay'
+            }}
+          />
+
+          <h3 className="text-2xl font-bold text-white mb-6 flex items-center relative z-10">
+            <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }}>
+              <BarChart3 className="mr-3 h-6 w-6 text-orange-400" />
+            </motion.div>
             Whole Home vs Critical Load Backup Comparison
           </h3>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-gray-700">
-                  <th className="text-left py-3 px-4 text-gray-400">Aspect</th>
-                  <th className="text-center py-3 px-4 text-blue-400">Critical Loads Panel</th>
-                  <th className="text-center py-3 px-4 text-orange-400">Whole Home Backup</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-700/50">
-                <tr>
-                  <td className="py-3 px-4 text-gray-300">Battery Size Required</td>
-                  <td className="text-center py-3 px-4 font-mono text-blue-300">10-20kWh</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">30-60kWh</td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 text-gray-300">System Cost</td>
-                  <td className="text-center py-3 px-4 font-mono text-blue-300">$25,000-35,000</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">$45,000-75,000</td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 text-gray-300">Installation Complexity</td>
-                  <td className="text-center py-3 px-4 text-blue-300">Moderate (sub-panel)</td>
-                  <td className="text-center py-3 px-4 text-orange-300">Simple (main panel)</td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 text-gray-300">Runtime (No Solar)</td>
-                  <td className="text-center py-3 px-4 font-mono text-blue-300">8-24 hours</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">4-12 hours</td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 text-gray-300">Load Management</td>
-                  <td className="text-center py-3 px-4 text-blue-300">Not needed</td>
-                  <td className="text-center py-3 px-4 text-orange-300">Critical</td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 text-gray-300">SGIP Incentive</td>
-                  <td className="text-center py-3 px-4 font-mono text-blue-300">$2,000-20,000</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">$6,000-60,000</td>
-                </tr>
-                <tr className="font-semibold">
-                  <td className="py-3 px-4 text-white">Best For</td>
-                  <td className="text-center py-3 px-4 text-blue-300">Most homes</td>
-                  <td className="text-center py-3 px-4 text-orange-300">Large/luxury homes</td>
-                </tr>
-              </tbody>
-            </table>
+          <div className="overflow-x-auto relative z-10">
+            <div className="relative rounded-2xl overflow-hidden border border-orange-500/20"
+              style={{
+                background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(59, 130, 246, 0.05) 50%, rgba(249, 115, 22, 0.1) 100%)',
+                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+              }}
+            >
+              <table className="w-full text-sm relative">
+                <thead>
+                  <tr
+                    className="border-b border-gray-700/50"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%)',
+                      backdropFilter: 'blur(10px)'
+                    }}
+                  >
+                    <th className="text-left py-4 px-4 text-gray-300 font-bold">Aspect</th>
+                    <th className="text-center py-4 px-4">
+                      <div className="flex items-center justify-center gap-2">
+                        <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
+                        <span className="text-blue-300 font-bold">Critical Loads Panel</span>
+                      </div>
+                    </th>
+                    <th className="text-center py-4 px-4">
+                      <div className="flex items-center justify-center gap-2">
+                        <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }} />
+                        <span className="text-orange-300 font-bold">Whole Home Backup</span>
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-700/30">
+                  {[
+                    { aspect: "Battery Size Required", critical: "10-20kWh", whole: "30-60kWh" },
+                    { aspect: "System Cost", critical: "$25,000-35,000", whole: "$45,000-75,000" },
+                    { aspect: "Installation Complexity", critical: "Moderate (sub-panel)", whole: "Simple (main panel)" },
+                    { aspect: "Runtime (No Solar)", critical: "8-24 hours", whole: "4-12 hours" },
+                    { aspect: "Load Management", critical: "Not needed", whole: "Critical" },
+                    { aspect: "SGIP Incentive", critical: "$2,000-20,000", whole: "$6,000-60,000" },
+                    { aspect: "Best For", critical: "Most homes", whole: "Large/luxury homes", bold: true }
+                  ].map((row, idx) => (
+                    <motion.tr
+                      key={idx}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: idx * 0.05 }}
+                      className="hover:bg-white/5 transition-all duration-300 group"
+                    >
+                      <td className={`py-3 px-4 ${row.bold ? 'text-white font-bold' : 'text-gray-200 font-semibold'} group-hover:text-white transition-colors`}>
+                        {row.aspect}
+                      </td>
+                      <motion.td
+                        className={`text-center py-3 px-4 font-mono ${row.bold ? 'text-blue-300 font-bold' : 'text-blue-300'} group-hover:text-blue-200 transition-colors`}
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <div className="relative inline-block px-3 py-1 rounded-lg bg-blue-500/10 group-hover:bg-blue-500/20 transition-colors">
+                          {row.critical}
+                        </div>
+                      </motion.td>
+                      <motion.td
+                        className={`text-center py-3 px-4 font-mono ${row.bold ? 'text-orange-300 font-bold' : 'text-orange-300'} group-hover:text-orange-200 transition-colors`}
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <div className="relative inline-block px-3 py-1 rounded-lg bg-orange-500/10 group-hover:bg-orange-500/20 transition-colors">
+                          {row.whole}
+                        </div>
+                      </motion.td>
+                    </motion.tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
+        </motion.div>
       </ContentSection>
 
       {/* Generator Integration Section */}
@@ -1007,63 +1193,175 @@ const HybridSolar = () => {
         </div>
 
         {/* Extended Outage Timeline */}
-        <div className="mt-8 card-elite glow-purple p-8">
-          <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <Clock className="mr-3 h-6 w-6 text-purple-400" />
+        <motion.div
+          className="mt-8 card-elite glow-blue p-8 relative overflow-hidden"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          {/* Animated background shimmer */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: 'linear-gradient(110deg, transparent 20%, rgba(59, 130, 246, 0.1) 50%, transparent 80%)',
+              backgroundSize: '200% 100%',
+              animation: 'shimmer2 6s infinite'
+            }}
+          />
+
+          <h3 className="text-2xl font-bold text-white mb-6 flex items-center relative z-10">
+            <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }}>
+              <Clock className="mr-3 h-6 w-6 text-blue-400" />
+            </motion.div>
             72-Hour PSPS Event Timeline
           </h3>
-          <div className="space-y-4">
-            <div className="flex gap-4">
-              <div className="flex-shrink-0 w-24 text-right">
-                <span className="text-purple-400 font-mono text-sm">Hour 0-8</span>
-              </div>
-              <div className="flex-1">
-                <h4 className="text-white font-semibold mb-1">Grid Outage Begins</h4>
-                <p className="text-gray-400 text-sm">Inverter detects grid loss in &lt;100ms, transfers to battery in &lt;10ms. Home continues normal operation on battery power.</p>
-              </div>
-            </div>
 
-            <div className="flex gap-4">
-              <div className="flex-shrink-0 w-24 text-right">
-                <span className="text-yellow-400 font-mono text-sm">Hour 8-16</span>
-              </div>
-              <div className="flex-1">
-                <h4 className="text-white font-semibold mb-1">Daytime Solar Recharge</h4>
-                <p className="text-gray-400 text-sm">Solar panels generate 40-60kWh, recharging batteries to 100% and powering loads. Excess energy available for heavy loads.</p>
-              </div>
-            </div>
+          <div className="space-y-6 relative">
+            {/* Vertical connecting line */}
+            <div className="absolute left-[7.5rem] top-0 bottom-0 w-0.5 bg-gradient-to-b from-red-500 via-yellow-500 via-orange-500 via-blue-500 to-green-500 opacity-30" />
 
-            <div className="flex gap-4">
-              <div className="flex-shrink-0 w-24 text-right">
-                <span className="text-orange-400 font-mono text-sm">Hour 16-24</span>
-              </div>
-              <div className="flex-1">
-                <h4 className="text-white font-semibold mb-1">Evening Battery Operation</h4>
-                <p className="text-gray-400 text-sm">Battery powers critical and essential loads through the night. SOC drops to 40-50% by morning.</p>
-              </div>
-            </div>
+            {[
+              {
+                time: "Hour 0-8",
+                title: "Grid Outage Begins",
+                description: "Inverter detects grid loss in <100ms, transfers to battery in <10ms. Home continues normal operation on battery power.",
+                gradient: "from-red-500 to-pink-600",
+                iconBg: "bg-red-900/40",
+                glowColor: "rgba(239, 68, 68, 0.4)",
+                borderColor: "border-red-500/40"
+              },
+              {
+                time: "Hour 8-16",
+                title: "Daytime Solar Recharge",
+                description: "Solar panels generate 40-60kWh, recharging batteries to 100% and powering loads. Excess energy available for heavy loads.",
+                gradient: "from-yellow-500 to-amber-600",
+                iconBg: "bg-yellow-900/40",
+                glowColor: "rgba(234, 179, 8, 0.4)",
+                borderColor: "border-yellow-500/40"
+              },
+              {
+                time: "Hour 16-24",
+                title: "Evening Battery Operation",
+                description: "Battery powers critical and essential loads through the night. SOC drops to 40-50% by morning.",
+                gradient: "from-orange-500 to-amber-600",
+                iconBg: "bg-orange-900/40",
+                glowColor: "rgba(249, 115, 22, 0.4)",
+                borderColor: "border-orange-500/40"
+              },
+              {
+                time: "Hour 24-48",
+                title: "Day 2-3 Cycling",
+                description: "Pattern repeats: solar charges during day, battery powers night. Generator starts only if weather limits solar production.",
+                gradient: "from-blue-500 to-cyan-600",
+                iconBg: "bg-blue-900/40",
+                glowColor: "rgba(59, 130, 246, 0.4)",
+                borderColor: "border-blue-500/40"
+              },
+              {
+                time: "Hour 72+",
+                title: "Grid Restoration",
+                description: "System detects grid return, synchronizes, and seamlessly transfers back. Battery maintains charge for next event.",
+                gradient: "from-green-500 to-emerald-600",
+                iconBg: "bg-green-900/40",
+                glowColor: "rgba(34, 197, 94, 0.4)",
+                borderColor: "border-green-500/40"
+              }
+            ].map((step, idx) => (
+              <motion.div
+                key={idx}
+                className="flex gap-4 relative"
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.15 }}
+              >
+                {/* Time badge */}
+                <div className="flex-shrink-0 w-32 text-right relative">
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    className={`inline-block px-4 py-2 rounded-lg bg-gradient-to-r ${step.gradient} font-mono text-sm text-white font-bold shadow-lg relative overflow-hidden`}
+                    style={{
+                      boxShadow: `0 4px 16px ${step.glowColor}`
+                    }}
+                  >
+                    {/* Glass overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-transparent opacity-50 pointer-events-none" />
+                    <span className="relative z-10">{step.time}</span>
+                  </motion.div>
 
-            <div className="flex gap-4">
-              <div className="flex-shrink-0 w-24 text-right">
-                <span className="text-blue-400 font-mono text-sm">Hour 24-48</span>
-              </div>
-              <div className="flex-1">
-                <h4 className="text-white font-semibold mb-1">Day 2-3 Cycling</h4>
-                <p className="text-gray-400 text-sm">Pattern repeats: solar charges during day, battery powers night. Generator starts only if weather limits solar production.</p>
-              </div>
-            </div>
+                  {/* Connection dot */}
+                  <div className={`absolute right-0 top-1/2 -translate-y-1/2 translate-x-[2.15rem] w-3 h-3 rounded-full bg-gradient-to-r ${step.gradient} shadow-lg z-10`}
+                    style={{
+                      boxShadow: `0 0 12px ${step.glowColor}`
+                    }}
+                  />
+                </div>
 
-            <div className="flex gap-4">
-              <div className="flex-shrink-0 w-24 text-right">
-                <span className="text-orange-400 font-mono text-sm">Hour 72+</span>
-              </div>
-              <div className="flex-1">
-                <h4 className="text-white font-semibold mb-1">Grid Restoration</h4>
-                <p className="text-gray-400 text-sm">System detects grid return, synchronizes, and seamlessly transfers back. Battery maintains charge for next event.</p>
-              </div>
-            </div>
+                {/* Content card */}
+                <motion.div
+                  className="flex-1 relative group"
+                  whileHover={{ y: -4, scale: 1.02 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  {/* Glow effect */}
+                  <div
+                    className="absolute inset-0 rounded-xl blur-lg opacity-0 group-hover:opacity-60 transition-all duration-500"
+                    style={{
+                      background: step.glowColor
+                    }}
+                  />
+
+                  {/* Card */}
+                  <div
+                    className={`relative bg-gradient-to-br ${step.gradient} border ${step.borderColor} rounded-xl p-4 overflow-hidden`}
+                    style={{
+                      backdropFilter: 'blur(10px)',
+                      boxShadow: '0 8px 24px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
+                    }}
+                  >
+                    {/* Glass overlay */}
+                    <div
+                      className="absolute inset-0 pointer-events-none"
+                      style={{
+                        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, transparent 60%)'
+                      }}
+                    />
+
+                    {/* Shimmer */}
+                    <div
+                      className="absolute inset-0 pointer-events-none"
+                      style={{
+                        background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.4) 50%, transparent 80%)',
+                        backgroundSize: '200% 100%',
+                        animation: `shimmer${idx + 1} ${4 + idx * 0.5}s infinite`,
+                        mixBlendMode: 'overlay'
+                      }}
+                    />
+
+                    <div className="relative z-10">
+                      <h4 className="text-white font-bold text-lg mb-2 drop-shadow-md flex items-center gap-2">
+                        <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
+                        {step.title}
+                      </h4>
+                      <p className="text-white/90 text-sm leading-relaxed drop-shadow-sm">
+                        {step.description}
+                      </p>
+                    </div>
+
+                    {/* Bottom accent */}
+                    <div
+                      className="absolute bottom-0 left-0 right-0 h-1"
+                      style={{
+                        background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent)'
+                      }}
+                    />
+                  </div>
+                </motion.div>
+              </motion.div>
+            ))}
           </div>
-        </div>
+        </motion.div>
       </ContentSection>
 
       {/* Professional Team Image 3 */}
@@ -1345,63 +1643,121 @@ const HybridSolar = () => {
         </div>
 
         {/* Value Comparison Table */}
-        <div className="card-elite glow-purple p-8">
-          <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <PieChart className="mr-3 h-6 w-6 text-orange-400" />
+        <motion.div
+          className="card-elite glow-green p-8 relative overflow-hidden"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          {/* Background shimmer */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: 'linear-gradient(110deg, transparent 20%, rgba(34, 197, 94, 0.1) 50%, transparent 80%)',
+              backgroundSize: '200% 100%',
+              animation: 'shimmer3 6s infinite'
+            }}
+          />
+
+          <h3 className="text-2xl font-bold text-white mb-6 flex items-center relative z-10">
+            <motion.div whileHover={{ rotate: 360, scale: 1.2 }} transition={{ duration: 0.6 }}>
+              <PieChart className="mr-3 h-6 w-6 text-orange-400" />
+            </motion.div>
             Backup Power Options Comparison
           </h3>
-          <div className="overflow-x-auto">
-            <table className="table-elite">
-              <thead>
-                <tr className="border-b border-gray-700">
-                  <th className="text-left py-3 px-4 text-gray-400">Solution</th>
-                  <th className="text-center py-3 px-4 text-gray-400">Upfront Cost</th>
-                  <th className="text-center py-3 px-4 text-gray-400">Runtime</th>
-                  <th className="text-center py-3 px-4 text-gray-400">Annual Fuel</th>
-                  <th className="text-center py-3 px-4 text-gray-400">Maintenance</th>
-                  <th className="text-center py-3 px-4 text-gray-400">10-Year TCO</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-700/50">
-                <tr>
-                  <td className="py-3 px-4 text-gray-300 font-semibold">Portable Generator</td>
-                  <td className="text-center py-3 px-4 font-mono text-gray-300">$800-2,000</td>
-                  <td className="text-center py-3 px-4 text-yellow-300">8-12 hrs/tank</td>
-                  <td className="text-center py-3 px-4 font-mono text-red-300">$2,400</td>
-                  <td className="text-center py-3 px-4 font-mono text-red-300">$300/yr</td>
-                  <td className="text-center py-3 px-4 font-mono text-red-400">$29,000</td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 text-gray-300 font-semibold">Standby Generator</td>
-                  <td className="text-center py-3 px-4 font-mono text-gray-300">$8,000-15,000</td>
-                  <td className="text-center py-3 px-4 text-orange-300">Unlimited</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">$3,600</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">$500/yr</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-400">$54,000</td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 text-gray-300 font-semibold">Battery Only</td>
-                  <td className="text-center py-3 px-4 font-mono text-gray-300">$15,000-25,000</td>
-                  <td className="text-center py-3 px-4 text-yellow-300">8-24 hrs</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">$0</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">$0</td>
-                  <td className="text-center py-3 px-4 font-mono text-yellow-400">$20,000</td>
-                </tr>
-                <tr className="bg-orange-900/10">
-                  <td className="py-3 px-4 text-orange-400 font-bold">Hybrid Solar + Battery</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">$13,600 (net)</td>
-                  <td className="text-center py-3 px-4 text-orange-300">Unlimited w/sun</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-400">-$2,200 (savings)</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-300">$100/yr</td>
-                  <td className="text-center py-3 px-4 font-mono text-orange-400">-$8,400 (profit)</td>
-                </tr>
-              </tbody>
-            </table>
+
+          <div className="overflow-x-auto relative z-10">
+            <div className="relative rounded-2xl overflow-hidden border border-green-500/20"
+              style={{
+                background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(249, 115, 22, 0.05) 50%, rgba(59, 130, 246, 0.1) 100%)',
+                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+              }}
+            >
+              <table className="w-full text-sm">
+                <thead>
+                  <tr
+                    className="border-b border-gray-700/50"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%)',
+                      backdropFilter: 'blur(10px)'
+                    }}
+                  >
+                    <th className="text-left py-4 px-4 text-gray-200 font-bold">Solution</th>
+                    <th className="text-center py-4 px-4 text-gray-200 font-bold">Upfront Cost</th>
+                    <th className="text-center py-4 px-4 text-gray-200 font-bold">Runtime</th>
+                    <th className="text-center py-4 px-4 text-gray-200 font-bold">Annual Fuel</th>
+                    <th className="text-center py-4 px-4 text-gray-200 font-bold">Maintenance</th>
+                    <th className="text-center py-4 px-4 text-gray-200 font-bold">10-Year TCO</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-700/30">
+                  {[
+                    { solution: "Portable Generator", cost: "$800-2,000", runtime: "8-12 hrs/tank", fuel: "$2,400", maint: "$300/yr", tco: "$29,000", color: "red", highlight: false },
+                    { solution: "Standby Generator", cost: "$8,000-15,000", runtime: "Unlimited", fuel: "$3,600", maint: "$500/yr", tco: "$54,000", color: "orange", highlight: false },
+                    { solution: "Battery Only", cost: "$15,000-25,000", runtime: "8-24 hrs", fuel: "$0", maint: "$0", tco: "$20,000", color: "yellow", highlight: false },
+                    { solution: "Hybrid Solar + Battery", cost: "$13,600 (net)", runtime: "Unlimited w/sun", fuel: "-$2,200 (savings)", maint: "$100/yr", tco: "-$8,400 (profit)", color: "orange", highlight: true }
+                  ].map((row, idx) => (
+                    <motion.tr
+                      key={idx}
+                      initial={{ opacity: 0, x: -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: idx * 0.1 }}
+                      className={`hover:bg-white/5 transition-all duration-300 group ${row.highlight ? 'bg-orange-900/10' : ''}`}
+                    >
+                      <td className={`py-4 px-4 ${row.highlight ? 'text-orange-400 font-bold' : 'text-gray-200 font-semibold'} group-hover:text-white transition-colors`}>
+                        <div className="flex items-center gap-2">
+                          {row.highlight && <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" />}
+                          {row.solution}
+                        </div>
+                      </td>
+                      <motion.td
+                        className={`text-center py-4 px-4 font-mono ${row.highlight ? 'text-orange-300' : 'text-gray-300'} group-hover:text-${row.color}-200 transition-colors`}
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <div className={`inline-block px-3 py-1.5 rounded-lg ${row.highlight ? 'bg-orange-500/20' : 'bg-gray-500/10'} group-hover:bg-${row.color}-500/20 transition-colors`}>
+                          {row.cost}
+                        </div>
+                      </motion.td>
+                      <motion.td
+                        className={`text-center py-4 px-4 ${row.highlight ? 'text-orange-300' : `text-${row.color}-300`} group-hover:text-${row.color}-200 transition-colors`}
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        {row.runtime}
+                      </motion.td>
+                      <motion.td
+                        className={`text-center py-4 px-4 font-mono ${row.highlight ? 'text-orange-400 font-bold' : `text-${row.color}-300`} group-hover:text-${row.color}-200 transition-colors`}
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <div className={`inline-block px-3 py-1.5 rounded-lg ${row.highlight ? 'bg-orange-500/20' : 'bg-gray-500/10'} group-hover:bg-${row.color}-500/20 transition-colors`}>
+                          {row.fuel}
+                        </div>
+                      </motion.td>
+                      <motion.td
+                        className={`text-center py-4 px-4 font-mono ${row.highlight ? 'text-orange-300' : `text-${row.color}-300`} group-hover:text-${row.color}-200 transition-colors`}
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        {row.maint}
+                      </motion.td>
+                      <motion.td
+                        className={`text-center py-4 px-4 font-mono ${row.highlight ? 'text-orange-400 font-bold' : `text-${row.color}-400`} transition-colors`}
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <div className={`inline-block px-3 py-1.5 rounded-lg ${row.highlight ? 'bg-orange-500/20' : 'bg-gray-500/10'} group-hover:bg-${row.color}-500/20 transition-colors`}>
+                          {row.tco}
+                        </div>
+                      </motion.td>
+                    </motion.tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
-          <div className="mt-4 text-sm text-gray-400">
+          <div className="mt-4 text-sm text-gray-400 relative z-10">
             * TCO includes equipment, fuel, maintenance, and energy savings over 10 years
           </div>
-        </div>
+        </motion.div>
       </ContentSection>
 
       {/* Professional Team Image 4 */}

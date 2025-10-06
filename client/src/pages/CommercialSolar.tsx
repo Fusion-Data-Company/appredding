@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import MainLayout from "@/components/layout/MainLayout";
-import CommercialSolarWaveHero from "@/components/CommercialSolarWaveHero";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { motion } from "framer-motion";
+import { Waves } from "@/components/ui/waves";
+import { MorphingText } from "@/components/ui/morphing-text";
 import {
   Form,
   FormControl,
@@ -61,7 +63,6 @@ import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 import SEOHead from "@/components/SEOHead";
 import SolarRescueTimelineSection from "@/sections/SolarRescueTimelineSection";
-import { motion } from "framer-motion";
 
 import PageHeroSection from "@/components/sections/PageHeroSection";
 import FeatureGrid from "@/components/sections/FeatureGrid";
@@ -182,7 +183,7 @@ const CommercialSolar = () => {
       title: 'Interconnection & Commissioning',
       description: 'PG&E Rule 21 application, utility NEM 3.0 enrollment, CANbus battery integration, three-phase switchgear installation, and final PTO activation.',
       status: 'upcoming' as const,
-      color: 'purple' as const,
+      color: 'orange' as const,
       icon: <Network className='h-6 w-6' />,
       metrics: [
         { label: 'Interconnect', value: '90-120d' },
@@ -330,38 +331,309 @@ const CommercialSolar = () => {
         description={pageDescription}
         structuredData={structuredData}
       />
-      
-      {/* Commercial Solar Wave Hero Section */}
-      <div className="relative">
-        <CommercialSolarWaveHero 
-          tagline="Next-Gen Energy Solutions"
-          title="Commercial Solar Installation"
-          subtitle="Transform your business with enterprise-grade solar solutions. Our advanced commercial systems deliver maximum ROI, reduce operational costs, and establish your company as a sustainability leader."
-          stats={[
-            { value: "500+", label: "Businesses Served" },
-            { value: "40-60%", label: "Peak Reduction" },
-            { value: "1.9yr", label: "Payback Period" }
-          ]}
-        />
-        
+
+      {/* Premium Hero Section with Interactive Waves */}
+      <section className="relative min-h-screen flex items-center bg-black">
+        {/* Interactive Wave Background */}
+        <div className="absolute inset-0 z-0">
+          <Waves
+            strokeColor="#fb923c"
+            backgroundColor="#000000"
+            pointerSize={0.8}
+          />
+        </div>
+
         {/* Excellence Award Badge - Top Right */}
         <div className="absolute top-4 right-4 md:top-8 md:right-8 z-20">
           <AwardBadge type="customer-service-excellence" />
         </div>
-      </div>
+
+        {/* Hero Content */}
+        <div className="relative z-10 w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="w-full"
+          >
+            {/* Content */}
+            <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-12 py-20 text-center">
+              {/* Title */}
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white mb-6"
+              >
+                Commercial Solar
+              </motion.h1>
+
+              {/* Morphing Text */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="mb-8"
+              >
+                <MorphingText
+                  texts={[
+                    "Enterprise Power",
+                    "Peak Reduction",
+                    "Cost Savings",
+                    "Clean Energy",
+                    "Sustainability",
+                  ]}
+                  className="text-orange-500"
+                />
+              </motion.div>
+
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="text-xl md:text-2xl lg:text-3xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed"
+              >
+                Transform your business with enterprise-grade solar solutions. Maximum ROI, reduced demand charges, and sustainability leadership.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
+              >
+                {/* Premium CTA Button */}
+                <button
+                  onClick={() => setShowConsultationForm(true)}
+                  className="relative overflow-hidden px-8 py-6 text-lg font-bold rounded-full transition-all hover:scale-105 text-white group"
+                  style={{
+                    background: 'linear-gradient(135deg, #f97316 0%, #fb923c 25%, #ea580c 50%, #f59e0b 75%, #3b82f6 100%)',
+                    boxShadow: '0 4px 20px rgba(249,115,22,0.5), 0 2px 10px rgba(59,130,246,0.4), inset 0 2px 0 rgba(255,255,255,0.4), inset 0 -2px 0 rgba(0,0,0,0.2)',
+                    border: '1px solid rgba(255,255,255,0.4)'
+                  }}
+                >
+                  <span className="relative z-10 flex items-center">
+                    <Calculator className="w-5 h-5 mr-2" />
+                    Request Energy Audit
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/10 to-transparent opacity-60 pointer-events-none rounded-full" />
+                  <div
+                    className="absolute inset-0 pointer-events-none rounded-full"
+                    style={{
+                      background: 'linear-gradient(125deg, transparent 45%, rgba(255, 255, 255, 0.9) 50%, transparent 55%)',
+                      backgroundSize: '200% 100%',
+                      animation: 'shimmer1 3s infinite',
+                      mixBlendMode: 'overlay'
+                    }}
+                  />
+                </button>
+
+                {/* Secondary Button */}
+                <button
+                  onClick={() => document.getElementById('inverters')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="relative overflow-hidden px-8 py-6 text-lg font-semibold rounded-full transition-all hover:scale-105 text-white group"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(249,115,22,0.2) 0%, rgba(251,146,60,0.15) 50%, rgba(59,130,246,0.2) 100%)',
+                    backdropFilter: 'blur(12px)',
+                    WebkitBackdropFilter: 'blur(12px)',
+                    boxShadow: '0 4px 20px rgba(249,115,22,0.3), 0 2px 10px rgba(59,130,246,0.2), inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0,0,0,0.1)',
+                    border: '2px solid rgba(251,146,60,0.5)'
+                  }}
+                >
+                  <span className="relative z-10 flex items-center">
+                    <Zap className="w-5 h-5 mr-2" />
+                    View Solutions
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-tl from-white/30 via-transparent to-white/10 opacity-50 pointer-events-none rounded-full" />
+                  <div
+                    className="absolute inset-0 pointer-events-none rounded-full"
+                    style={{
+                      background: 'linear-gradient(130deg, transparent 40%, rgba(255, 255, 255, 0.7) 50%, transparent 60%)',
+                      backgroundSize: '200% 100%',
+                      animation: 'shimmer2 3.5s infinite',
+                      mixBlendMode: 'overlay'
+                    }}
+                  />
+                </button>
+              </motion.div>
+            </div>
+
+            {/* Stats Cards */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+              className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 w-full px-6 sm:px-12 max-w-7xl mx-auto"
+            >
+            {[
+              {
+                title: "Businesses Served",
+                value: "500+",
+                description: "Commercial installations",
+                icon: <Building className="h-8 w-8" />,
+                gradient: "from-blue-500 via-cyan-500 to-blue-600",
+                glowColor: "rgba(59, 130, 246, 0.5)",
+                iconBg: "bg-blue-900/30",
+                textColor: "text-white",
+                pulseColor: "bg-cyan-400",
+                borderColor: "border-blue-400/30 hover:border-blue-300/60"
+              },
+              {
+                title: "Peak Reduction",
+                value: "40-60%",
+                description: "Demand charge savings",
+                icon: <TrendingDown className="h-8 w-8" />,
+                gradient: "from-orange-500 via-amber-500 to-orange-600",
+                glowColor: "rgba(249, 115, 22, 0.5)",
+                iconBg: "bg-orange-900/30",
+                textColor: "text-white",
+                pulseColor: "bg-orange-400",
+                borderColor: "border-orange-400/30 hover:border-orange-300/60"
+              },
+              {
+                title: "Payback Period",
+                value: "1.9yr",
+                description: "With ITC + Depreciation",
+                icon: <DollarSign className="h-8 w-8" />,
+                gradient: "from-green-500 via-emerald-500 to-green-600",
+                glowColor: "rgba(34, 197, 94, 0.5)",
+                iconBg: "bg-green-900/30",
+                textColor: "text-white",
+                pulseColor: "bg-emerald-400",
+                borderColor: "border-green-400/30 hover:border-green-300/60"
+              }
+            ].map((card, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.9, rotateY: -15 }}
+                animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.8 + idx * 0.15,
+                  type: "spring",
+                  stiffness: 100
+                }}
+                whileHover={{
+                  scale: 1.05,
+                  y: -8,
+                  transition: { duration: 0.2 }
+                }}
+                className="relative group perspective-1000"
+              >
+                {/* Animated glow background */}
+                <div
+                  className="absolute inset-0 rounded-2xl blur-xl opacity-60 group-hover:opacity-100 transition-all duration-500"
+                  style={{
+                    background: card.glowColor,
+                    animation: `pulse ${2 + idx * 0.3}s ease-in-out infinite`
+                  }}
+                />
+
+                {/* Card Content with glassmorphism */}
+                <div
+                  className={`relative bg-gradient-to-br ${card.gradient} rounded-2xl p-6 backdrop-blur-sm border ${card.borderColor} transition-all duration-300 overflow-hidden`}
+                  style={{
+                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
+                  }}
+                >
+                  {/* Glass overlay */}
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%)'
+                    }}
+                  />
+
+                  {/* Animated shimmer */}
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background: 'linear-gradient(110deg, transparent 0%, transparent 40%, rgba(255, 255, 255, 0.6) 50%, transparent 60%, transparent 100%)',
+                      backgroundSize: '200% 100%',
+                      animation: `shimmer${idx + 1} ${3 + idx * 0.5}s infinite`,
+                      mixBlendMode: 'overlay'
+                    }}
+                  />
+
+                  <div className="relative z-10">
+                    <div className="flex items-start justify-between mb-4">
+                      {/* Icon with animation */}
+                      <motion.div
+                        className={`p-3 ${card.iconBg} backdrop-blur-md rounded-xl ${card.textColor} shadow-lg`}
+                        whileHover={{ rotate: [0, -10, 10, -10, 0], scale: 1.1 }}
+                        transition={{ duration: 0.5 }}
+                        style={{
+                          boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 4px 12px rgba(0, 0, 0, 0.2)'
+                        }}
+                      >
+                        {card.icon}
+                      </motion.div>
+
+                      {/* Status indicator */}
+                      <div className="flex items-center gap-2">
+                        <div className={`w-2 h-2 ${card.pulseColor} rounded-full animate-pulse shadow-lg`}
+                          style={{
+                            boxShadow: `0 0 10px ${card.glowColor}`,
+                            animation: `pulse ${1.5 + idx * 0.2}s ease-in-out infinite`
+                          }}
+                        />
+                        <div className={`w-1.5 h-1.5 ${card.pulseColor} rounded-full opacity-60`} />
+                      </div>
+                    </div>
+
+                    <h3 className={`${card.textColor} font-bold text-sm mb-2 uppercase tracking-wide drop-shadow-md`}>
+                      {card.title}
+                    </h3>
+                    <motion.div
+                      className={`text-3xl font-black ${card.textColor} mb-1`}
+                      style={{
+                        textShadow: '0 2px 10px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.2)'
+                      }}
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ type: "spring", stiffness: 400 }}
+                    >
+                      {card.value}
+                    </motion.div>
+                    <p className={`${card.textColor} opacity-90 text-xs font-medium drop-shadow-sm`}>
+                      {card.description}
+                    </p>
+                  </div>
+
+                  {/* Bottom shine effect */}
+                  <div
+                    className="absolute bottom-0 left-0 right-0 h-1/4 pointer-events-none"
+                    style={{
+                      background: 'linear-gradient(to top, rgba(255, 255, 255, 0.15) 0%, transparent 100%)'
+                    }}
+                  />
+                </div>
+              </motion.div>
+            ))}
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
 
 
-      <div className="container mx-auto px-4 py-8">
-        <div className="rounded-xl overflow-hidden shadow-2xl">
-          <img 
+      {/* Professional Installation Image with Glassmorphism */}
+      <motion.div
+        className="container mx-auto px-4 py-8"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 via-transparent to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" />
+          <img
             src={teamPreparingEquipment}
             alt="Advance Power Redding commercial solar installation team preparing equipment"
-            className="w-full h-64 md:h-80 lg:h-96 object-cover"
+            className="w-full h-64 md:h-80 lg:h-96 object-cover transform group-hover:scale-105 transition-transform duration-500"
             loading="lazy"
             data-testid="img-commercial-solar-1"
           />
         </div>
-      </div>
+      </motion.div>
 
       {/* Color-Coded Commercial Solar Funnel (RED → YELLOW → GREEN → PURPLE) */}
       <SolarRescueTimelineSection
@@ -395,128 +667,235 @@ const CommercialSolar = () => {
             metrics: 'ITC 30% + Depreciation 60%',
           },
           {
-            id: 'action-purple',
+            id: 'action-orange',
             title: 'Fast Track Interconnection & Commissioning',
             description: 'CPUC Rule 21 Fast Track approval (systems <1MW), SOLARK 30K/60K deployment with UL 1741-SA certification, utility PTO coordination, commissioning with load management programming, and ongoing demand charge optimization.',
-            color: 'from-purple-500 to-purple-600',
-            glowColor: 'rgba(168, 85, 247, 0.5)',
+            color: 'from-orange-500 to-orange-600',
+            glowColor: 'rgba(249, 115, 22, 0.5)',
             icon: <CheckCircle className='h-8 w-8' />,
             metrics: 'Fast Track: <1MW Systems',
           },
         ]}
       />
 
-      <div className="container mx-auto px-4 py-8">
-        <div className="rounded-xl overflow-hidden shadow-2xl">
-          <img 
+      {/* Rooftop Installation Image with Glassmorphism */}
+      <motion.div
+        className="container mx-auto px-4 py-8"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-transparent to-orange-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" />
+          <img
             src={rooftopSolarInstallation}
             alt="Commercial rooftop solar installation on business facility in Northern California"
-            className="w-full h-64 md:h-80 lg:h-96 object-cover"
+            className="w-full h-64 md:h-80 lg:h-96 object-cover transform group-hover:scale-105 transition-transform duration-500"
             loading="lazy"
             data-testid="img-commercial-solar-2"
           />
         </div>
-      </div>
+      </motion.div>
 
-      <section id="inverters" className="py-20 bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+      {/* Sol-Ark Inverter Specifications with Premium Styling */}
+      <section id="inverters" className="py-20 bg-gradient-to-br from-gray-950 via-gray-900 to-black relative overflow-hidden">
+        {/* Ambient background glow */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Sol-Ark 30K/60K Commercial Inverter Specifications
             </h2>
             <p className="text-lg text-gray-300 max-w-3xl mx-auto">
               Three-phase commercial inverters designed for demand charge reduction and peak load management
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="card-elite glow-blue p-8">
-              <div className="flex items-center mb-6">
-                <div className="icon-container-elite bg-blue-500/20">
-                  <Zap className="h-8 w-8 text-blue-400" />
-                </div>
-                <div className="ml-4">
-                  <h3 className="text-2xl font-bold text-blue-400">Sol-Ark 30K</h3>
-                  <p className="text-gray-400">30kW Three-Phase Commercial</p>
-                </div>
-              </div>
+            <motion.div
+              className="relative group"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              whileHover={{ scale: 1.02, y: -5 }}
+            >
+              {/* Glow effect */}
+              <div
+                className="absolute inset-0 rounded-2xl blur-xl opacity-50 group-hover:opacity-80 transition-all duration-500"
+                style={{
+                  background: 'rgba(59, 130, 246, 0.4)',
+                  animation: 'pulse 2.5s ease-in-out infinite'
+                }}
+              />
 
-              <div className="space-y-4">
-                <div className="data-row-elite">
-                  <span className="text-gray-400">AC Output Power:</span>
-                  <span className="text-white font-semibold">30kW (208/240/277/480V)</span>
-                </div>
-                <div className="data-row-elite">
-                  <span className="text-gray-400">Max PV Input:</span>
-                  <span className="text-white font-semibold">45kW (150% DC/AC ratio)</span>
-                </div>
-                <div className="data-row-elite">
-                  <span className="text-gray-400">Battery Voltage:</span>
-                  <span className="text-white font-semibold">400-800VDC CANbus HV</span>
-                </div>
-                <div className="data-row-elite">
-                  <span className="text-gray-400">Efficiency:</span>
-                  <span className="text-white font-semibold">98.2% CEC Weighted</span>
-                </div>
-                <div className="data-row-elite">
-                  <span className="text-gray-400">Grid Code:</span>
-                  <span className="text-white font-semibold">UL 1741-SA Rule 21</span>
-                </div>
-                <div className="data-row-elite">
-                  <span className="text-gray-400">Warranty:</span>
-                  <span className="text-white font-semibold">12 years standard</span>
-                </div>
-              </div>
+              {/* Card */}
+              <div className="relative card-elite glow-blue p-8 overflow-hidden">
+                {/* Glass overlay */}
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 60%)'
+                  }}
+                />
 
-              <div className="badge-elite-metallic badge-electric mt-6">
-                <CheckCircle className="h-4 w-4 text-blue-400" />
-                <span>Ideal For: 100-200kW commercial systems, multi-inverter parallel configuration, B-10/E-19 rate schedules</span>
-              </div>
-            </div>
+                {/* Shimmer */}
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.2) 50%, transparent 80%)',
+                    backgroundSize: '200% 100%',
+                    animation: 'shimmer1 4s infinite',
+                    mixBlendMode: 'overlay'
+                  }}
+                />
+                <div className="relative z-10">
+                  <div className="flex items-center mb-6">
+                    <motion.div
+                      className="icon-container-elite bg-blue-500/20"
+                      whileHover={{ rotate: 360, scale: 1.1 }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      <Zap className="h-8 w-8 text-blue-400" />
+                    </motion.div>
+                    <div className="ml-4">
+                      <h3 className="text-2xl font-bold text-blue-400">Sol-Ark 30K</h3>
+                      <p className="text-gray-400">30kW Three-Phase Commercial</p>
+                    </div>
+                  </div>
 
-            <div className="card-elite glow-purple p-8">
-              <div className="flex items-center mb-6">
-                <div className="icon-container-elite bg-purple-500/20">
-                  <Zap className="h-8 w-8 text-purple-400" />
-                </div>
-                <div className="ml-4">
-                  <h3 className="text-2xl font-bold text-purple-400">Sol-Ark 60K</h3>
-                  <p className="text-gray-400">60kW Three-Phase Commercial</p>
-                </div>
-              </div>
+                  <div className="space-y-4">
+                    <div className="data-row-elite">
+                      <span className="text-gray-400">AC Output Power:</span>
+                      <span className="text-white font-semibold">30kW (208/240/277/480V)</span>
+                    </div>
+                    <div className="data-row-elite">
+                      <span className="text-gray-400">Max PV Input:</span>
+                      <span className="text-white font-semibold">45kW (150% DC/AC ratio)</span>
+                    </div>
+                    <div className="data-row-elite">
+                      <span className="text-gray-400">Battery Voltage:</span>
+                      <span className="text-white font-semibold">400-800VDC CANbus HV</span>
+                    </div>
+                    <div className="data-row-elite">
+                      <span className="text-gray-400">Efficiency:</span>
+                      <span className="text-white font-semibold">98.2% CEC Weighted</span>
+                    </div>
+                    <div className="data-row-elite">
+                      <span className="text-gray-400">Grid Code:</span>
+                      <span className="text-white font-semibold">UL 1741-SA Rule 21</span>
+                    </div>
+                    <div className="data-row-elite">
+                      <span className="text-gray-400">Warranty:</span>
+                      <span className="text-white font-semibold">12 years standard</span>
+                    </div>
+                  </div>
 
-              <div className="space-y-4">
-                <div className="data-row-elite">
-                  <span className="text-gray-400">AC Output Power:</span>
-                  <span className="text-white font-semibold">60kW (208/240/277/480V)</span>
-                </div>
-                <div className="data-row-elite">
-                  <span className="text-gray-400">Max PV Input:</span>
-                  <span className="text-white font-semibold">90kW (150% DC/AC ratio)</span>
-                </div>
-                <div className="data-row-elite">
-                  <span className="text-gray-400">Battery Voltage:</span>
-                  <span className="text-white font-semibold">400-800VDC CANbus HV</span>
-                </div>
-                <div className="data-row-elite">
-                  <span className="text-gray-400">Efficiency:</span>
-                  <span className="text-white font-semibold">98.5% CEC Weighted</span>
-                </div>
-                <div className="data-row-elite">
-                  <span className="text-gray-400">Grid Code:</span>
-                  <span className="text-white font-semibold">UL 1741-SA Rule 21</span>
-                </div>
-                <div className="data-row-elite">
-                  <span className="text-gray-400">Warranty:</span>
-                  <span className="text-white font-semibold">12 years standard</span>
+                  <div className="badge-elite-metallic badge-electric mt-6">
+                    <CheckCircle className="h-4 w-4 text-blue-400" />
+                    <span>Ideal For: 100-200kW commercial systems, multi-inverter parallel configuration, B-10/E-19 rate schedules</span>
+                  </div>
                 </div>
               </div>
+            </motion.div>
 
-              <div className="badge-elite-metallic badge-premium mt-6">
-                <CheckCircle className="h-4 w-4 text-purple-400" />
-                <span>Ideal For: 250kW-1MW systems, B-19/B-20 facilities, high-demand manufacturing/cold storage</span>
+            <motion.div
+              className="relative group"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              whileHover={{ scale: 1.02, y: -5 }}
+            >
+              {/* Glow effect */}
+              <div
+                className="absolute inset-0 rounded-2xl blur-xl opacity-50 group-hover:opacity-80 transition-all duration-500"
+                style={{
+                  background: 'rgba(249, 115, 22, 0.4)',
+                  animation: 'pulse 2.8s ease-in-out infinite'
+                }}
+              />
+
+              {/* Card */}
+              <div className="relative card-elite glow-orange p-8 overflow-hidden">
+                {/* Glass overlay */}
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 60%)'
+                  }}
+                />
+
+                {/* Shimmer */}
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.2) 50%, transparent 80%)',
+                    backgroundSize: '200% 100%',
+                    animation: 'shimmer2 4s infinite',
+                    mixBlendMode: 'overlay'
+                  }}
+                />
+                <div className="relative z-10">
+                  <div className="flex items-center mb-6">
+                    <motion.div
+                      className="icon-container-elite bg-orange-500/20"
+                      whileHover={{ rotate: 360, scale: 1.1 }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      <Zap className="h-8 w-8 text-orange-400" />
+                    </motion.div>
+                    <div className="ml-4">
+                      <h3 className="text-2xl font-bold text-orange-400">Sol-Ark 60K</h3>
+                      <p className="text-gray-400">60kW Three-Phase Commercial</p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-4">
+                    <div className="data-row-elite">
+                      <span className="text-gray-400">AC Output Power:</span>
+                      <span className="text-white font-semibold">60kW (208/240/277/480V)</span>
+                    </div>
+                    <div className="data-row-elite">
+                      <span className="text-gray-400">Max PV Input:</span>
+                      <span className="text-white font-semibold">90kW (150% DC/AC ratio)</span>
+                    </div>
+                    <div className="data-row-elite">
+                      <span className="text-gray-400">Battery Voltage:</span>
+                      <span className="text-white font-semibold">400-800VDC CANbus HV</span>
+                    </div>
+                    <div className="data-row-elite">
+                      <span className="text-gray-400">Efficiency:</span>
+                      <span className="text-white font-semibold">98.5% CEC Weighted</span>
+                    </div>
+                    <div className="data-row-elite">
+                      <span className="text-gray-400">Grid Code:</span>
+                      <span className="text-white font-semibold">UL 1741-SA Rule 21</span>
+                    </div>
+                    <div className="data-row-elite">
+                      <span className="text-gray-400">Warranty:</span>
+                      <span className="text-white font-semibold">12 years standard</span>
+                    </div>
+                  </div>
+
+                  <div className="badge-elite-metallic badge-premium mt-6">
+                    <CheckCircle className="h-4 w-4 text-orange-400" />
+                    <span>Ideal For: 250kW-1MW systems, B-19/B-20 facilities, high-demand manufacturing/cold storage</span>
+                  </div>
+                </div>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           <div className="mt-12 card-elite glow-orange p-8">
@@ -559,17 +938,25 @@ const CommercialSolar = () => {
         </div>
       </section>
 
-      <div className="container mx-auto px-4 py-8">
-        <div className="rounded-xl overflow-hidden shadow-2xl">
-          <img 
+      {/* Three-Phase Installation Image with Glassmorphism */}
+      <motion.div
+        className="container mx-auto px-4 py-8"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
+          <div className="absolute inset-0 bg-gradient-to-br from-green-500/20 via-transparent to-orange-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" />
+          <img
             src={threePhaseInstallation}
             alt="Professional team installing three-phase commercial solar system"
-            className="w-full h-64 md:h-80 lg:h-96 object-cover"
+            className="w-full h-64 md:h-80 lg:h-96 object-cover transform group-hover:scale-105 transition-transform duration-500"
             loading="lazy"
             data-testid="img-commercial-solar-3"
           />
         </div>
-      </div>
+      </motion.div>
 
       <section className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1021,62 +1408,106 @@ const CommercialSolar = () => {
             </div>
           </div>
 
-          <div className="card-elite glow-purple p-8">
-            <h3 className="text-2xl font-bold text-purple-400 mb-4">Important Tax Considerations</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <h4 className="text-white font-semibold mb-3">ITC Requirements</h4>
-                <ul className="space-y-2 text-gray-300 text-sm">
-                  <li className="flex items-start">
-                    <CheckCircle className="h-4 w-4 text-purple-500 mr-2 mt-0.5 flex-shrink-0" />
-                    <span>Must be placed in service by Dec 31, 2034 (30% rate)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="h-4 w-4 text-purple-500 mr-2 mt-0.5 flex-shrink-0" />
-                    <span>Property must be owned by taxpayer (not leased)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="h-4 w-4 text-purple-500 mr-2 mt-0.5 flex-shrink-0" />
-                    <span>Must have sufficient tax liability to use credit</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="h-4 w-4 text-purple-500 mr-2 mt-0.5 flex-shrink-0" />
-                    <span>5-year recapture period (can't sell system early)</span>
-                  </li>
-                </ul>
-              </div>
+          <motion.div
+            className="relative group"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            {/* Glow effect */}
+            <div
+              className="absolute inset-0 rounded-2xl blur-xl opacity-50 group-hover:opacity-70 transition-all duration-500"
+              style={{
+                background: 'rgba(249, 115, 22, 0.3)',
+                animation: 'pulse 3s ease-in-out infinite'
+              }}
+            />
 
-              <div>
-                <h4 className="text-white font-semibold mb-3">Depreciation Notes</h4>
-                <ul className="space-y-2 text-gray-300 text-sm">
-                  <li className="flex items-start">
-                    <AlertTriangle className="h-4 w-4 text-orange-500 mr-2 mt-0.5 flex-shrink-0" />
-                    <span>Bonus depreciation reduced to 60% in 2024, 40% in 2025</span>
-                  </li>
-                  <li className="flex items-start">
-                    <AlertTriangle className="h-4 w-4 text-orange-500 mr-2 mt-0.5 flex-shrink-0" />
-                    <span>Must reduce basis by 50% of ITC amount claimed</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="h-4 w-4 text-purple-500 mr-2 mt-0.5 flex-shrink-0" />
-                    <span>Fall back to MACRS 5-year if bonus expires</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="h-4 w-4 text-purple-500 mr-2 mt-0.5 flex-shrink-0" />
-                    <span>Consult CPA for specific tax situation guidance</span>
-                  </li>
-                </ul>
+            {/* Card */}
+            <div className="relative card-elite glow-orange p-8 overflow-hidden">
+              {/* Glass overlay */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 60%)'
+                }}
+              />
+
+              {/* Shimmer */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.2) 50%, transparent 80%)',
+                  backgroundSize: '200% 100%',
+                  animation: 'shimmer3 5s infinite',
+                  mixBlendMode: 'overlay'
+                }}
+              />
+
+              <div className="relative z-10">
+                <h3 className="text-2xl font-bold text-orange-400 mb-4 flex items-center gap-2">
+                  <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }}>
+                    <AlertTriangle className="h-6 w-6" />
+                  </motion.div>
+                  Important Tax Considerations
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="text-white font-semibold mb-3">ITC Requirements</h4>
+                    <ul className="space-y-2 text-gray-300 text-sm">
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-orange-500 mr-2 mt-0.5 flex-shrink-0" />
+                        <span>Must be placed in service by Dec 31, 2034 (30% rate)</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-orange-500 mr-2 mt-0.5 flex-shrink-0" />
+                        <span>Property must be owned by taxpayer (not leased)</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-orange-500 mr-2 mt-0.5 flex-shrink-0" />
+                        <span>Must have sufficient tax liability to use credit</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-orange-500 mr-2 mt-0.5 flex-shrink-0" />
+                        <span>5-year recapture period (can't sell system early)</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="text-white font-semibold mb-3">Depreciation Notes</h4>
+                    <ul className="space-y-2 text-gray-300 text-sm">
+                      <li className="flex items-start">
+                        <AlertTriangle className="h-4 w-4 text-red-500 mr-2 mt-0.5 flex-shrink-0" />
+                        <span>Bonus depreciation reduced to 60% in 2024, 40% in 2025</span>
+                      </li>
+                      <li className="flex items-start">
+                        <AlertTriangle className="h-4 w-4 text-red-500 mr-2 mt-0.5 flex-shrink-0" />
+                        <span>Must reduce basis by 50% of ITC amount claimed</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        <span>Fall back to MACRS 5-year if bonus expires</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        <span>Consult CPA for specific tax situation guidance</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="mt-6 bg-yellow-900/20 border border-yellow-700/30 rounded-lg p-4">
+                  <p className="text-yellow-300 text-sm">
+                    <strong>⚠️ Tax Disclaimer:</strong> This analysis is for illustrative purposes only. Actual tax benefits depend on your specific
+                    tax situation, entity structure, and tax liability. Consult with a qualified CPA or tax advisor to model your exact scenario.
+                    Advance Power does not provide tax advice.
+                  </p>
+                </div>
               </div>
             </div>
-
-            <div className="mt-6 bg-yellow-900/20 border border-yellow-700/30 rounded-lg p-4">
-              <p className="text-yellow-300 text-sm">
-                <strong>⚠️ Tax Disclaimer:</strong> This analysis is for illustrative purposes only. Actual tax benefits depend on your specific 
-                tax situation, entity structure, and tax liability. Consult with a qualified CPA or tax advisor to model your exact scenario. 
-                Advance Power does not provide tax advice.
-              </p>
-            </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -1098,17 +1529,25 @@ const CommercialSolar = () => {
         </div>
       </section>
 
-      <div className="container mx-auto px-4 py-8">
-        <div className="rounded-xl overflow-hidden shadow-2xl">
-          <img 
+      {/* Completed Installation Image with Glassmorphism */}
+      <motion.div
+        className="container mx-auto px-4 py-8"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 via-transparent to-green-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" />
+          <img
             src={completedSolarArray}
             alt="Completed commercial solar panel array installation by Advance Power Redding"
-            className="w-full h-64 md:h-80 lg:h-96 object-cover"
+            className="w-full h-64 md:h-80 lg:h-96 object-cover transform group-hover:scale-105 transition-transform duration-500"
             loading="lazy"
             data-testid="img-commercial-solar-4"
           />
         </div>
-      </div>
+      </motion.div>
 
       <CTASection
         title="Ready to Reduce Demand Charges and Energy Costs?"
@@ -1126,9 +1565,60 @@ const CommercialSolar = () => {
       />
 
       {showConsultationForm && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
-          <div className="bg-gray-900 rounded-xl p-8 max-w-md w-full border border-gray-700 max-h-[90vh] overflow-y-auto">
-            <h3 className="text-2xl font-bold text-white mb-6">Request Commercial Energy Audit</h3>
+        <motion.div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+          style={{
+            background: 'rgba(0, 0, 0, 0.8)',
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)'
+          }}
+          onClick={() => setShowConsultationForm(false)}
+        >
+          <motion.div
+            className="relative max-w-md w-full max-h-[90vh] overflow-y-auto rounded-2xl"
+            initial={{ scale: 0.9, y: 50 }}
+            animate={{ scale: 1, y: 0 }}
+            transition={{ duration: 0.3, type: "spring" }}
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              background: 'linear-gradient(135deg, rgba(31, 41, 55, 0.95) 0%, rgba(17, 24, 39, 0.98) 100%)',
+              boxShadow: '0 20px 60px rgba(0, 0, 0, 0.5), 0 0 100px rgba(249, 115, 22, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+              border: '1px solid rgba(249, 115, 22, 0.3)'
+            }}
+          >
+            {/* Glass overlay */}
+            <div
+              className="absolute inset-0 rounded-2xl pointer-events-none"
+              style={{
+                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 60%)'
+              }}
+            />
+
+            {/* Shimmer effect */}
+            <div
+              className="absolute inset-0 rounded-2xl pointer-events-none"
+              style={{
+                background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.1) 50%, transparent 80%)',
+                backgroundSize: '200% 100%',
+                animation: 'shimmer1 4s infinite',
+                mixBlendMode: 'overlay'
+              }}
+            />
+
+            <div className="relative z-10 p-8">
+              <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                <motion.div
+                  className="p-2 bg-orange-500/20 rounded-lg"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <Calculator className="h-6 w-6 text-orange-400" />
+                </motion.div>
+                Request Commercial Energy Audit
+              </h3>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                 <FormField
@@ -1247,28 +1737,43 @@ const CommercialSolar = () => {
                     </FormItem>
                   )}
                 />
-                
+
                 <div className="flex gap-4 pt-4">
                   <Button
                     type="submit"
                     disabled={consultationMutation.isPending}
-                    className="flex-1 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700"
+                    className="flex-1 relative overflow-hidden"
+                    style={{
+                      background: 'linear-gradient(135deg, #f97316 0%, #fb923c 50%, #ea580c 100%)',
+                      boxShadow: '0 4px 20px rgba(249,115,22,0.4), inset 0 1px 0 rgba(255,255,255,0.3)',
+                      border: '1px solid rgba(255,255,255,0.2)'
+                    }}
                   >
-                    {consultationMutation.isPending ? "Submitting..." : "Submit Request"}
+                    <span className="relative z-10">
+                      {consultationMutation.isPending ? "Submitting..." : "Submit Request"}
+                    </span>
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-50 pointer-events-none" />
                   </Button>
                   <Button
                     type="button"
                     variant="outline"
                     onClick={() => setShowConsultationForm(false)}
-                    className="flex-1 border-gray-600 text-gray-300 hover:bg-gray-800"
+                    className="flex-1 relative overflow-hidden"
+                    style={{
+                      background: 'rgba(31, 41, 55, 0.6)',
+                      backdropFilter: 'blur(8px)',
+                      border: '1px solid rgba(156, 163, 175, 0.3)',
+                      color: 'rgb(209, 213, 219)'
+                    }}
                   >
                     Cancel
                   </Button>
                 </div>
               </form>
             </Form>
-          </div>
-        </div>
+            </div>
+          </motion.div>
+        </motion.div>
       )}
     </MainLayout>
   );

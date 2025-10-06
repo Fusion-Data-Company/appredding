@@ -629,7 +629,8 @@ export default function AdminCRM() {
         </Card>
       </TabsContent>
     </Tabs>
-  </div>
-</div>
+        </div>
+      </div>
+    </div>
   );
 }
