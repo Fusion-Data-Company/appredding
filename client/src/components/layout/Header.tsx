@@ -88,21 +88,11 @@ const SolarCompanyHeader: React.FC = () => {
         position: 'absolute',
         pointerEvents: 'auto',
         zIndex: 10001,
-        background: 'linear-gradient(180deg, rgba(30,41,59,0.98) 0%, rgba(15,23,42,0.97) 50%, rgba(15,23,42,0.98) 100%)',
-        backdropFilter: 'blur(32px) saturate(200%)',
-        WebkitBackdropFilter: 'blur(32px) saturate(200%)',
-        border: '1px solid rgba(148, 163, 184, 0.3)',
-        boxShadow: '0 20px 60px rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1), inset 0 0 0 1px rgba(255,255,255,0.05)'
+        background: 'rgb(15, 23, 42)',
+        border: '2px solid rgb(71, 85, 105)',
+        boxShadow: '0 20px 60px rgba(0,0,0,0.6), 0 8px 24px rgba(0,0,0,0.4)'
       }}
     >
-      {/* Noise texture for dropdown */}
-      <div 
-        className="absolute inset-0 opacity-[0.02] pointer-events-none"
-        style={{
-          backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'3\' /%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\' /%3E%3C/svg%3E")'
-        }}
-      />
-      
       {items.map((item, index) => (
         <Link 
           key={item.href} 
@@ -111,13 +101,19 @@ const SolarCompanyHeader: React.FC = () => {
             "flex items-start px-4 py-3 mx-2 rounded-xl transition-all duration-200 cursor-pointer group relative",
             index !== items.length - 1 && "mb-1"
           )}
+          style={{
+            background: 'rgb(30, 41, 59)',
+            border: '1px solid rgb(51, 65, 85)'
+          }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.background = 'linear-gradient(135deg, rgba(249,115,22,0.25) 0%, rgba(59,130,246,0.20) 100%)';
+            e.currentTarget.style.background = 'linear-gradient(135deg, rgb(249,115,22) 0%, rgb(59,130,246) 100%)';
             e.currentTarget.style.transform = 'translateX(4px)';
+            e.currentTarget.style.borderColor = 'rgb(249,115,22)';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.background = 'transparent';
+            e.currentTarget.style.background = 'rgb(30, 41, 59)';
             e.currentTarget.style.transform = 'translateX(0)';
+            e.currentTarget.style.borderColor = 'rgb(51, 65, 85)';
           }}
           onClick={() => {
             setActiveDropdown(null);
@@ -127,15 +123,15 @@ const SolarCompanyHeader: React.FC = () => {
           <div 
             className="w-9 h-9 rounded-xl flex items-center justify-center text-orange-400 mr-3 flex-shrink-0 group-hover:scale-110 transition-transform duration-200 relative"
             style={{
-              background: 'linear-gradient(135deg, rgba(249,115,22,0.20) 0%, rgba(59,130,246,0.15) 100%)',
-              boxShadow: 'inset 0 1px 2px rgba(249,115,22,0.2), inset 0 -1px 2px rgba(59,130,246,0.2)'
+              background: 'rgb(51, 65, 85)',
+              border: '1px solid rgb(71, 85, 105)'
             }}
           >
             {item.icon}
           </div>
           <div className="flex-1 min-w-0">
-            <div className="font-semibold text-[15px] text-white leading-tight">{item.label}</div>
-            <div className="text-[13px] text-gray-300 mt-0.5 leading-tight">{item.description}</div>
+            <div className="font-semibold text-[16px] text-white leading-tight">{item.label}</div>
+            <div className="text-[13px] text-gray-400 mt-1 leading-tight">{item.description}</div>
           </div>
         </Link>
       ))}

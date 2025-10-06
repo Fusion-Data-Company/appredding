@@ -48,8 +48,9 @@ import { Button } from "@/components/ui/button";
 import SEOHead from "@/components/SEOHead";
 import SolarRescueTimelineSection from "@/sections/SolarRescueTimelineSection";
 import ContentSection from "@/components/sections/ContentSection";
-import ShaderBackground from "@/components/ui/shader-background";
 import { AwardBadge } from "@/components/ui/award-badge";
+import { MorphingText } from "@/components/ui/morphing-text";
+import { Waves } from "@/components/ui/waves";
 import batteryInstallImg from "@assets/Batt-3-300x400.jpg";
 import equipmentInstallImg from "@assets/13-500x500.jpg";
 import teamWorkImg from "@assets/456675C3-88B2-458A-9A1C-A4CDBA825653_4_5005_c.jpeg";
@@ -73,7 +74,7 @@ const BatteryStorage = () => {
   };
 
   return (
-    <MainLayout>
+    <MainLayout fullWidth={true}>
       <SEOHead
         title={pageTitle}
         description={pageDescription}
@@ -82,100 +83,104 @@ const BatteryStorage = () => {
         structuredData={structuredData}
       />
 
-      {/* NEW HERO SECTION WITH SHADER BACKGROUND */}
-      <section className="relative min-h-screen flex items-start overflow-hidden -mt-16 pt-16">
-        <ShaderBackground />
+      {/* WAVE BACKGROUND - Fixed to cover entire page */}
+      <div className="fixed inset-0 z-0">
+        <Waves
+          strokeColor="#fbbf24"
+          backgroundColor="transparent"
+          pointerSize={0.8}
+        />
+      </div>
 
+      {/* Gradient Overlay */}
+      <div className="fixed inset-0 z-[1] bg-gradient-to-b from-black/40 via-transparent to-black/80 pointer-events-none" />
+
+      {/* NEW HERO SECTION */}
+      <section className="relative min-h-screen flex items-center">
         <div className="relative z-10 w-full">
           {/* Glassomorphic Hero Card - Full Width Edge to Edge */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="w-screen relative left-[50%] right-[50%] -mx-[50vw]"
+            className="w-full"
           >
             {/* Glassomorphic Card */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative backdrop-blur-2xl bg-gradient-to-br from-white/10 via-white/5 to-white/10 border-y border-white/20 p-12 md:p-16 lg:p-20 shadow-2xl"
+              className="relative backdrop-blur-md bg-gradient-to-br from-white/5 via-white/3 to-white/5 border-y border-white/20 p-12 md:p-16 lg:p-20 shadow-2xl"
             >
               {/* Glass Reflection Effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-50" />
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-30" />
 
               {/* Content */}
-              <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-12">
+              <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-12 text-center">
+                {/* Static Title */}
                 <motion.h1
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                  className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black mb-8 leading-tight"
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-4"
                 >
-                  <span className="text-white drop-shadow-2xl">Advanced Battery</span>
-                  <br />
-                  <span className="bg-gradient-to-r from-yellow-300 via-amber-200 to-yellow-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(251,191,36,0.5)]">
-                    Storage Systems
-                  </span>
+                  Battery Storage
                 </motion.h1>
+
+                {/* Morphing Text Hero */}
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                  className="mb-8"
+                >
+                  <MorphingText
+                    texts={[
+                      "Solar Power",
+                      "Electric Energy",
+                      "Clean Future",
+                      "Sustainable",
+                      "Innovation",
+                    ]}
+                    className="text-amber-400"
+                  />
+                </motion.div>
 
                 <motion.p
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
-                  className="text-xl md:text-2xl lg:text-3xl text-white/90 mb-6 leading-relaxed drop-shadow-lg"
+                  className="text-xl md:text-2xl lg:text-3xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed"
                 >
-                  LiFePO4 battery technology with 95%+ round-trip efficiency, 10-year warranties, and SGIP incentives up to $1,000/kWh
-                </motion.p>
-
-                <motion.p
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                  className="text-lg md:text-xl text-yellow-200/80 mb-12 leading-relaxed"
-                >
-                  SimpliPhi • Fortress Power • EG4 • Sol-Ark Integration • Smart BMS • Thermal Management • Remote Monitoring
+                  Harness the power of the sun with cutting-edge solar technology.
+                  Transform your energy future today.
                 </motion.p>
 
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.6 }}
-                  className="flex flex-wrap gap-4"
+                  className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
                 >
                   {/* Premium CTA Button */}
                   <Button
                     onClick={() => setShowConsultationForm(true)}
-                    className="group relative bg-gradient-to-r from-yellow-400 via-amber-500 to-yellow-500 hover:from-yellow-500 hover:via-amber-600 hover:to-yellow-600 text-black font-bold px-12 py-8 text-lg shadow-2xl shadow-yellow-500/50 transform hover:scale-105 transition-all rounded-xl overflow-hidden"
+                    className="bg-amber-500 hover:bg-amber-600 text-black font-bold px-8 py-6 text-lg rounded-full shadow-2xl shadow-amber-500/50 transition-all hover:scale-105"
                     data-testid="button-calculate-battery"
                   >
-                    {/* Button Glow */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-yellow-300 to-amber-400 opacity-0 group-hover:opacity-30 blur-xl transition-opacity" />
-                    
-                    {/* Content */}
-                    <div className="relative flex items-center gap-3">
-                      <Calculator className="h-6 w-6" />
-                      <span>Calculate Battery Sizing & SGIP</span>
-                    </div>
-                    
-                    {/* Shine Effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700" />
+                    <Zap className="w-5 h-5 mr-2" />
+                    Calculate Battery Sizing & SGIP
                   </Button>
-                  
+
                   {/* Secondary Button */}
                   <Button
                     variant="outline"
-                    className="group relative border-2 border-white/30 bg-white/10 backdrop-blur-xl text-white hover:bg-white/20 hover:border-white/50 px-12 py-8 text-lg font-semibold rounded-xl overflow-hidden transition-all"
+                    className="border-2 border-amber-500 text-amber-400 hover:bg-amber-500/10 px-8 py-6 text-lg rounded-full backdrop-blur-sm"
                     onClick={() => document.getElementById('battery-comparison')?.scrollIntoView({ behavior: 'smooth' })}
                     data-testid="button-compare-batteries"
                   >
-                    {/* Button Glow */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    
-                    <div className="relative flex items-center gap-3">
-                      <Database className="h-6 w-6" />
-                      <span>Compare Battery Technologies</span>
-                    </div>
+                    <Battery className="w-5 h-5 mr-2" />
+                    Learn More
                   </Button>
                 </motion.div>
               </div>
