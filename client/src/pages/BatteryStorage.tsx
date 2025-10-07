@@ -78,8 +78,7 @@ const BatteryStorage = () => {
       <SEOHead
         title={pageTitle}
         description={pageDescription}
-        industry="solar"
-        slug="battery-storage"
+        url="/services/battery-storage"
         structuredData={structuredData}
       />
 
@@ -312,6 +311,8 @@ const BatteryStorage = () => {
                     </div>
                   ))}
                 </motion.div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>

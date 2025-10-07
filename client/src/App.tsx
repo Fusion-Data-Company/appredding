@@ -46,7 +46,7 @@ const CommercialSolar = lazy(() => import('./pages/CommercialSolar'));
 const HybridSolar = lazy(() => import('./pages/HybridSolar'));
 const LithiumBattery = lazy(() => import('./pages/LithiumBattery'));
 const EnergyConservation = lazy(() => import('./pages/EnergyConservation'));
-const BatteryStorage = lazy(() => import('./pages/BatteryStorage'));
+const BatteryStorage = lazy(() => import('./pages/BatteryStorage').then(m => ({ default: m.default })));
 const Maintenance = lazy(() => import('./pages/Maintenance'));
 const Repairs = lazy(() => import('./pages/Repairs'));
 
@@ -448,9 +448,9 @@ function App() {
         const lastEntry = entries[entries.length - 1];
         if (lastEntry && lastEntry.startTime > 0) {
           
-          // Only report extremely slow LCP (>10s) to reduce noise
+          // Only report extremely slow LCP (>15s) to reduce noise
           // Regular performance tracking is handled by usePerformance hook
-          if (lastEntry.startTime > 10000) {
+          if (lastEntry.startTime > 15000) {
             errorHandler.reportManualError(
               `Very slow LCP detected: ${Math.round(lastEntry.startTime)}ms`, 
               'js_error'

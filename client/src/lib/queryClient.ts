@@ -57,7 +57,7 @@ async function fetchWithTimeout(url: string, options: RequestInit = {}, timeout 
 }
 
 // Enhanced error handling with detailed error types
-async function throwIfResNotOk(res: Response) {
+async function throwIfResNotOk(res: Response, skipErrorLog = false) {
   if (!res.ok) {
     let errorMessage = res.statusText;
     let errorDetails = '';
@@ -82,11 +82,13 @@ async function throwIfResNotOk(res: Response) {
     (error as any).status = res.status;
     (error as any).statusText = res.statusText;
     
-    // Log API errors
-    errorHandler.reportManualError(
-      `API Error: ${res.status} ${res.url} - ${errorMessage}`,
-      'api_error'
-    );
+    // Log API errors unless explicitly skipped (e.g., for expected 401s)
+    if (!skipErrorLog) {
+      errorHandler.reportManualError(
+        `API Error: ${res.status} ${res.url} - ${errorMessage}`,
+        'api_error'
+      );
+    }
     
     throw error;
   }
@@ -177,15 +179,19 @@ export const getQueryFn: <T>(options: {
         return null;
       }
 
-      await throwIfResNotOk(res);
+      await throwIfResNotOk(res, res.status === 401 && unauthorizedBehavior === "returnNull");
       return await res.json();
     } catch (error) {
-      // Log query errors
-      if (error instanceof Error) {
-        errorHandler.reportManualError(
-          `Query Error: ${queryKey[0]} - ${error.message}`,
-          'api_error'
-        );
+      // Don't log expected 401 errors when returnNull is configured
+      const is401 = (error as any)?.status === 401;
+      if (!is401 || unauthorizedBehavior !== "returnNull") {
+        // Log query errors
+        if (error instanceof Error) {
+          errorHandler.reportManualError(
+            `Query Error: ${queryKey[0]} - ${error.message}`,
+            'api_error'
+          );
+        }
       }
       throw error;
     }
