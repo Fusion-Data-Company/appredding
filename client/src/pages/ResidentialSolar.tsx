@@ -237,7 +237,11 @@ const ResidentialSolar = () => {
       />
 
       {/* Solar Electric Hero Section */}
-      <SolarElectricHero>
+      <SolarElectricHero
+        title1="Your Path to"
+        title2="Energy Independence"
+        subtitle="Think your power bill is high now? Imagine what it will be in 10 years! Take control with our complete solar solutions. Become energy self-sufficient with 30% federal tax credits, NEM 3.0 optimization, and systems designed for California homeowners since 1978."
+      >
         {/* Excellence Award Badge - Top Right */}
         <div className="absolute top-4 right-4 md:top-8 md:right-8 z-20">
           <AwardBadge type="customer-service-excellence" />

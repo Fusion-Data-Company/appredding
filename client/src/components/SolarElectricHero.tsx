@@ -166,9 +166,17 @@ const StatCard: React.FC<StatCardProps> = ({ icon, value, label, delay }) => {
 
 interface SolarElectricHeroProps {
   children?: ReactNode;
+  title1?: string;
+  title2?: string;
+  subtitle?: string;
 }
 
-const SolarElectricHero: React.FC<SolarElectricHeroProps> = ({ children }) => {
+const SolarElectricHero: React.FC<SolarElectricHeroProps> = ({ 
+  children,
+  title1 = "Solar Energy",
+  title2 = "Meets Innovation",
+  subtitle = "Harness the power of the sun with cutting-edge electric wave technology. Experience sustainable energy like never before."
+}) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -275,7 +283,7 @@ const SolarElectricHero: React.FC<SolarElectricHeroProps> = ({ children }) => {
                   zIndex: 9999
                 }}
               >
-                Solar Energy
+                {title1}
               </span>
               <span 
                 className="block mt-2 relative z-[9999]"
@@ -290,7 +298,7 @@ const SolarElectricHero: React.FC<SolarElectricHeroProps> = ({ children }) => {
                   zIndex: 9999
                 }}
               >
-                Meets Innovation
+                {title2}
               </span>
             </h1>
           </motion.div>
@@ -303,8 +311,7 @@ const SolarElectricHero: React.FC<SolarElectricHeroProps> = ({ children }) => {
             className="text-center text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto mb-12 relative z-[9999]"
             style={{ color: '#f3f4f6', position: 'relative', zIndex: 9999 }}
           >
-            Harness the power of the sun with cutting-edge electric wave technology. 
-            Experience sustainable energy like never before.
+            {subtitle}
           </motion.p>
 
           {/* CTA Buttons */}

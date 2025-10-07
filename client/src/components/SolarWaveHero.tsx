@@ -243,11 +243,11 @@ const SolarWaveHero: React.FC<SolarWaveHeroProps> = ({ children }) => {
               className="text-5xl md:text-7xl lg:text-8xl font-bold text-center mb-6 leading-tight"
             >
               <span className="bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-500 bg-clip-text text-transparent">
-                Solar Energy
+                Premium Solar
               </span>
               <br />
               <span className="text-white">
-                Meets Innovation
+                Equipment & Systems
               </span>
             </motion.h1>
 
@@ -257,8 +257,8 @@ const SolarWaveHero: React.FC<SolarWaveHeroProps> = ({ children }) => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-xl md:text-2xl text-white/80 text-center mb-12 max-w-3xl mx-auto leading-relaxed"
             >
-              Harness the power of the sun with cutting-edge electric wave technology. 
-              Transform your energy future with sustainable, intelligent solutions.
+              Industry-leading Sol-Ark all-in-one hybrid inverters, API LiFePO4 battery systems with 6,000+ cycles, 
+              and Auxin high-efficiency solar panels. Complete solutions backed by unmatched technical support.
             </motion.p>
 
             <motion.div
