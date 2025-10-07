@@ -1,0 +1,92 @@
+Based on my analysis, here's your complete production-ready checklist:
+
+🎯 PRODUCTION-READY CHECKLIST
+1. CRITICAL: Form Type Errors (40 LSP Diagnostics)
+Pages affected: ResidentialSolar.tsx, CommercialSolar.tsx, HybridSolar.tsx, Repairs.tsx, Contact.tsx
+
+Problem: Forms are using wrong schema - insertFirePreventionHomeownerSchema expects different field names
+
+Schema wants: firstName, lastName (not name)
+Schema wants: specific fields, not generic message field
+API endpoint mismatch in mutations
+Fix Required:
+
+ Update form schemas to match actual form fields OR
+ Update form fields to match schema expectations
+ Fix default values in useForm() (lines 80-89 in ResidentialSolar.tsx)
+ Fix FormField names (line 1390: "name" should be "firstName"/"lastName")
+ Fix FormField names (line 1442: "message" field doesn't exist in schema)
+ Remove unused state: showConsultationForm, setShowConsultationForm (line 74)
+2. Social Media / OG Image (Graph Logo)
+Current: Default image is /meta-images/hero-image-social-preview-may-2025.jpg (doesn't exist)
+User wants: Graph image for social media sharing
+
+Fix Required:
+
+ Create or upload the graph image you want for social sharing (1200x630px optimal)
+ Save to: public/meta-images/graph-social-share.jpg
+ Update SEOHead.tsx default image (line 18): Change from hero-image-social-preview-may-2025.jpg to your graph image filename
+ Test with Facebook Sharing Debugger
+ Test with Twitter Card Validator
+3. Mobile Responsiveness
+A. Header/Navigation Issues
+ Add mobile padding to body - MainLayout needs pt-[80px] or similar to prevent header overlap
+ Test mobile menu at 320px, 375px, 414px, 768px widths
+ Ensure mobile menu has scroll locking when open
+ Verify dropdown menus work on touch devices
+B. Hero Sections
+All hero components need responsive text sizing:
+
+ Update large headings: text-3xl sm:text-5xl lg:text-6xl (instead of fixed text-6xl)
+ Convert multi-column grids to single column on mobile: grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
+ Test stats sections and feature grids on 320px screens
+ Reduce blur effects on mobile for performance (12px vs 24px desktop)
+C. Forms & CTAs
+ Ensure all buttons have minimum touch target (44px height)
+ Test all forms on mobile screens
+ Verify form inputs are properly sized and spaced
+ Check that CTAs aren't hidden by mobile navigation
+4. Performance & Console Errors
+A. Framer Motion Warnings
+Current: "Please ensure that the container has a non-static position..."
+
+ Add className="relative" to all hero section wrapper containers
+ Ensure scroll-linked components have position: relative parent
+B. Cross-Origin Script Errors
+Current: Multiple "Script error." messages
+
+ Add crossorigin="anonymous" to external scripts in client/index.html
+ Verify global error handler filters these (already implemented but double-check)
+5. Production Build & Testing
+ Run TypeScript check: npx tsc --noEmit (should show zero errors)
+ Test production build: npm run build
+ Run Lighthouse audit (mobile): Target LCP < 2.5s
+ Verify all 32 pages load without errors
+ Test all navigation links and dropdowns
+ Verify all images load correctly (including ProductComparison - ✅ already fixed)
+6. Final Pre-Launch Checklist
+ Verify security headers enabled (CSP, HSTS, etc.)
+ Confirm compression/caching middleware active
+ Test error boundaries catch and display errors gracefully
+ Verify sitemap.xml is up to date with all routes
+ Check robots.txt configuration
+ Test SEO meta tags on all major pages
+ Verify structured data (Schema.org) validates
+ Test social sharing on Facebook, Twitter, LinkedIn
+ Final cross-browser test (Chrome, Safari, Firefox, Edge)
+ Final mobile device test (iOS Safari, Android Chrome)
+📊 PRIORITY ORDER
+🔴 HIGH PRIORITY (Blocks Launch):
+
+Fix form type errors (40 LSP diagnostics)
+Add/update social media graph image
+Fix mobile header padding overlap
+🟡 MEDIUM PRIORITY (Important but not blocking):
+4. Responsive text and grid layouts
+
+Framer Motion container positioning
+🟢 LOW PRIORITY (Polish):
+6. Cross-origin script error filtering
+
+Final performance optimizations
+Ready to fix these? I can tackle them systematically if you switch me to Build mode. We'll start with the critical form errors, then handle the social media image, then mobile responsiveness.

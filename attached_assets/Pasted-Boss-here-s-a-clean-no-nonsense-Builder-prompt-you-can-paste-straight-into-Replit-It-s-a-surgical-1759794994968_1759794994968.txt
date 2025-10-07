@@ -1,0 +1,212 @@
+Boss, here’s a clean, no-nonsense Builder prompt you can paste straight into Replit. It’s a surgical to-do list with exact steps, selectors, copy, and acceptance checks so the agent doesn’t get cute and “reimagine” your site.
+
+⸻
+
+🔧 Replit Builder — Targeted Fix List (Advance Power Redding)
+
+Objective: Apply the following UI/content fixes without altering existing layout, spacing rhythm, or component structure. Maintain the current dark theme everywhere. Do not introduce light mode or responsive surprises.
+
+Phase 0 — Repo Scan & Safety Rails
+	1.	Detect tech & structure:
+	•	Identify framework (likely React/Vite/Next) and find components:
+	•	Hero / HeroMarquee / Badge / ThemeProvider
+	•	Any “Common Solar Panel Issues” section component (e.g., IssuesCard.tsx)
+	•	Locate global theming: CSS variables, Tailwind config, or ThemeProvider toggles.
+	2.	Create a branch fix/hero-badge-theme-issues-card.
+	3.	Guardrails:
+	•	Do not change grid/stack order.
+	•	Only update styling tokens, classNames, small offsets.
+	•	Keep all existing content except the explicit replacements below.
+
+⸻
+
+Phase 1 — Badge Icon: Replace Rotating Wrench with Sun
+
+Goal: In the hero badge, replace the wrench icon with a sun icon. No spin animation unless it already exists (keep or remove spin per current style consistency).
+	•	Where: The hero badge component (search for “wrench”, “fa-wrench”, “lucide Wrench”, or IconWrench).
+	•	Change: Swap to a sun icon from the existing icon set (Lucide/Font Awesome/Custom).
+	•	If Lucide: import { Sun } from "lucide-react"
+	•	Replace <Wrench .../> with <Sun className="h-4 w-4 opacity-90" aria-hidden />
+	•	Keep styling: Same size/opacity/margins as existing icon so layout doesn’t shift.
+
+Acceptance:
+	•	Hero badge renders a sun icon.
+	•	No layout shift or text wrap change.
+
+⸻
+
+Phase 2 — Global Copy Fix (“Advance Power Redding”)
+
+Goal: Replace all visible instances of “Advance Power of Redding” with “Advance Power Redding” (exactly this text), without touching code identifiers.
+	•	Do:
+	•	Content-level find & replace for display strings only:
+	•	"Advance Power of Redding" → "Advance Power Redding"
+	•	Skip variables, file names, routes, interfaces.
+	•	Run: Case-sensitive replace in UI copy files only (.tsx/.jsx/.md/.json content config).
+
+Acceptance:
+	•	No remaining “of” in visible site copy.
+	•	No broken imports/identifiers/routes.
+
+⸻
+
+Phase 3 — Force Dark Theme Everywhere
+
+Goal: Site must not flip to light on any device. Current dark styling should be the only mode.
+	•	Steps:
+	1.	If using a theme provider (e.g., next-themes):
+	•	Set defaultTheme="dark", enableSystem={false}, attribute="class".
+	•	Remove any theme toggle UI and any prefers-color-scheme logic.
+	2.	Ensure html or body always carries the dark class.
+	3.	Confirm CSS variables for dark are defined at root, not conditionally.
+	4.	Remove light-mode overrides or ensure they never apply.
+	•	Hardening: If any CSS depends on @media (prefers-color-scheme: light), neutralize or ensure dark tokens override them last.
+
+Acceptance (on Windows/macOS/iOS/Android, Chrome/Edge/Safari/Firefox):
+	•	No light palette anywhere.
+	•	Typography, buttons, cards look exactly like the current dark reference.
+
+⸻
+
+Phase 4 — Hero Photo Scroll (Marquee) Cut-off Fix
+
+Goal: Scrolling images aren’t clipped. Give the marquee breathing room so all images are fully visible during scroll.
+	•	Where: Hero marquee container (look for classes with overflow-hidden, fixed heights, or negative margins).
+	•	Changes:
+	•	Ensure container allows visibility:
+	•	If clipping occurs, change overflow: hidden to overflow: visible; on the container that clips images, not on the scroll track.
+	•	Add vertical space:
+	•	Increase padding-top and/or margin-top by 12–24px (start +12px; iterate until fully visible).
+	•	Set a stable height for the track if needed:
+	•	e.g., min-height: clamp(180px, 22vh, 320px);
+	•	Ensure image items have object-fit: cover; and no transform scale causing crop beyond container.
+	•	No layout changes: Keep horizontal flow and speed.
+
+Acceptance (deployed build):
+	•	Marquee images are never cut off at top or bottom.
+	•	No overlap with headings or CTAs.
+	•	Mobile and desktop both clean.
+
+⸻
+
+Phase 5 — Purple “Badge” Still Styled Like a Button
+
+Goal: Convert the remaining purple “badge” on the main page into a true badge using the badge decoration standard already used elsewhere (shape, border, glow, typographic scale).
+	•	Steps:
+	1.	Find the rogue purple element (search for “purple”, “btn”, or inline background class).
+	2.	Replace button classes with the standard badge class/style mixin already used in the hero badge.
+	•	Rounded-full or pill, thin border (1px) with subtle inner shadow, slight glow, small caps/label scale.
+	3.	Set correct color token to match badge standard (not brand button color).
+	•	Example Tailwind tokens (adjust to your design system):
+	•	bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#B71C1C]/70 via-[#7A0A0A]/60 to-[#340606]/60
+	•	border-white/10, backdrop-blur-[2px], shadow-[0_0_12px_rgba(255,255,255,0.06)]
+	4.	Keep text contrast AA+ (use off-white).
+
+Acceptance:
+	•	The purple element visually matches the badge standard, not a button.
+	•	Hover/active states are subtle (opacity shift only), no “button press” animation.
+
+⸻
+
+Phase 6 — “Common Solar Panel Issues” Card Upgrade
+
+Goal: Turn the existing blue right-side one-column list into a metallic red “pain” card with richer content and balanced layout (no skinny column). Fill the box visually without changing the global grid.
+	•	Where: Section titled “Common Solar Panel Issues”.
+	•	Style Update:
+	•	Background: metallic red panel with depth.
+	•	Example utility stack:
+	•	bg-[conic-gradient(from_210deg_at_50%_50%,#540808_0%,#7E0B0B_35%,#B51212_60%,#7E0B0B_82%,#540808_100%)]
+	•	before: sheen overlay (optional): absolute pseudo with subtle diagonal gradient at low opacity.
+	•	border border-white/10 rounded-2xl p-6 md:p-8
+	•	shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_6px_24px_rgba(181,18,18,0.25)]
+	•	Text: headings text-white, body text-white/80.
+	•	Layout: two-column on md+ to balance density (md:grid md:grid-cols-2 md:gap-6), stacked on mobile.
+	•	Content Expansion (use this copy verbatim):
+Reduced energy output & efficiency loss
+What it looks like: Gradual drop in daily kWh despite similar weather.
+Likely causes: Soiling (dust, pollen), heat derating, UV aging.
+Quick check: Compare panel temp and inverter logs vs. baseline week.
+Fix path: Schedule cleaning, verify airflow, assess module age vs. warranty.
+Physical damage from weather or debris
+What it looks like: Cracked glass, hot spots, shading from nearby branches.
+Likely causes: Hail, wind-borne debris, seasonal overgrowth.
+Quick check: Visual inspection at dawn/dusk; thermal scan if available.
+Fix path: Trim vegetation, replace compromised modules, add hail guards where appropriate.
+Inverter malfunctions & electrical issues
+What it looks like: Fault codes, nighttime draw, intermittent shutdowns.
+Likely causes: DC/AC faults, ground issues, failing caps.
+Quick check: Pull recent fault history; verify string voltages vs. spec.
+Fix path: Firmware update, tighten lugs, RMA inverter if out of spec.
+Wiring problems & connection failures
+What it looks like: One string underperforming, arc faults, nuisance trips.
+Likely causes: Loose MC4s, corroded lugs, rodent damage.
+Quick check: IR temp delta at connectors; continuity tests per string.
+Fix path: Re-terminate connectors, replace damaged runs, add conduit guards.
+Monitoring errors & communication loss
+What it looks like: Data gaps, offline portal, no alerts firing.
+Likely causes: Gateway power loss, Wi-Fi/LAN issues, API auth lapses.
+Quick check: Verify gateway LEDs, router logs, DHCP lease.
+Fix path: Re-provision gateway, pin a static IP, rotate API keys and re-auth.
+	•	HTML/JSX structure guidance:
+	•	Keep existing parent card container, add: md:grid md:grid-cols-2 md:gap-6
+	•	Wrap each issue in its own <div className="space-y-1"> with a mini title and body.
+	•	No accordions, no tabs—flat, readable, dense.
+
+Acceptance:
+	•	Card is metallic red, legible, balanced 2-column on desktop, stacked on mobile.
+	•	Content fills the card without a tall skinny column.
+	•	Contrast verified (no pink/low contrast reds).
+
+⸻
+
+Phase 7 — Build & Deploy Checks
+	1.	Local & Preview:
+	•	Run build, verify dark theme, hero marquee visibility, badge icon, purple badge styling, issues card layout/content.
+	2.	Deployed Verification:
+	•	Check the production build where problems occurred.
+	•	Confirm no device triggers light theme.
+	•	Confirm hero marquee isn’t clipped on common breakpoints: 360, 390, 414, 768, 1024, 1280, 1440.
+	3.	Regression Tests (manual OK):
+	•	Navbar/CTA spacing unchanged.
+	•	Forms unaffected.
+	•	Lighthouse contrast ≥ 4.5:1 for body text on the red card.
+
+⸻
+
+Implementation Hints (use only if needed, don’t overreach)
+	•	Theme lock:
+
+// _app.tsx or RootLayout
+<ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+  <html className="dark">...</html>
+</ThemeProvider>
+
+
+	•	Hero marquee breathing room:
+
+<div className="relative pt-6 md:pt-8">
+  <div className="marquee-container overflow-visible">
+    {/* keep existing scroll track */}
+  </div>
+</div>
+
+
+	•	Badge class baseline (reuse existing standard):
+
+<span className="inline-flex items-center gap-2 rounded-full border border-white/10 px-3 py-1 text-xs uppercase tracking-wide backdrop-blur-[2px] shadow-[0_0_12px_rgba(255,255,255,0.06)]/">
+  <Sun className="h-4 w-4 opacity-90" aria-hidden />
+  Advance Power Redding
+</span>
+
+
+
+⸻
+
+Deliverables
+	•	PR: fix/hero-badge-theme-issues-card
+	•	Screenshots: hero (desktop/mobile), red issues card (desktop/mobile), purple badge area.
+	•	Short changelog describing each phase and files touched.
+
+⸻
+
+If the Builder balks or tries to get “creative,” remind it: no layout changes, no light mode, no color experiments. We’re tightening the suit, not buying a new one. Capisce, Boss?

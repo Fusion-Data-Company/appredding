@@ -1,0 +1,102 @@
+eruda.js:2 No IDE windows found, please start an IDE with the stagewise extension installed! ❌
+
+eruda.js:2 Fetch API cannot load http://localhost:5746/ping/stagewise. Refused to connect because it violates the document's Content Security Policy.
+eruda.js:2 Fetch API cannot load http://localhost:5746/ping/stagewise. Refused to connect because it violates the document's Content Security Policy.
+eruda.js:2 Fetch API cannot load http://localhost:5747/ping/stagewise. Refused to connect because it violates the document's Content Security Policy.
+eruda.js:2 Fetch API cannot load http://localhost:5747/ping/stagewise. Refused to connect because it violates the document's Content Security Policy.
+eruda.js:2 ⬆️⬆️⬆️ Those two errors are expected! (Everything is fine, they are part of stagewise's discovery mechanism!) ✅
+eruda.js:2 No IDE windows found, please start an IDE with the stagewise extension installed! ❌
+(index):130 
+ GET https://dc44b720-d33c-4ccd-aad4-577661796228-00-17dqt1in2qg6a.riker.replit.dev/src/App.tsx net::ERR_ABORTED 502 (Bad Gateway)
+(index):131 
+ GET https://dc44b720-d33c-4ccd-aad4-577661796228-00-17dqt1in2qg6a.riker.replit.dev/src/pages/Home.tsx net::ERR_ABORTED 502 (Bad Gateway)
+(index):143 
+ GET https://dc44b720-d33c-4ccd-aad4-577661796228-00-17dqt1in2qg6a.riker.replit.dev/videos/fire-water-gen4-turbo-small.mp4 502 (Bad Gateway)
+(index):22 
+ GET https://dc44b720-d33c-4ccd-aad4-577661796228-00-17dqt1in2qg6a.riker.replit.dev/src/main.tsx?v=6bpqdRI_ExQdp9fU2nSn0 net::ERR_ABORTED 502 (Bad Gateway)
+(index):129 
+ GET https://dc44b720-d33c-4ccd-aad4-577661796228-00-17dqt1in2qg6a.riker.replit.dev/src/main.tsx net::ERR_ABORTED 502 (Bad Gateway)
+Console.js:61 A stagewise companion anchor already exists. Skipping initialization.
+Console.js:61 🚀 21st Extension Toolbar initialized successfully
+Console.js:61 💡 Connect to Cursor extension for enhanced AI development workflow
+injected.js:278 Fetch API cannot load http://localhost:5746/ping/stagewise. Refused to connect because it violates the document's Content Security Policy.
+injected.js:278 Fetch API cannot load http://localhost:5747/ping/stagewise. Refused to connect because it violates the document's Content Security Policy.
+Console.js:61 ⬆️⬆️⬆️ Those two errors are expected! (Everything is fine, they are part of stagewise's discovery mechanism!) ✅
+Console.js:61 No IDE windows found, please start an IDE with the stagewise extension installed! ❌
+injected.js:278 Fetch API cannot load http://localhost:5746/ping/stagewise. Refused to connect because it violates the document's Content Security Policy.
+injected.js:278 Fetch API cannot load http://localhost:5747/ping/stagewise. Refused to connect because it violates the document's Content Security Policy.
+Console.js:61 ⬆️⬆️⬆️ Those two errors are expected! (Everything is fine, they are part of stagewise's discovery mechanism!) ✅
+Console.js:61 No IDE windows found, please start an IDE with the stagewise extension installed! ❌
+Console.js:61 Warning: Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://reactjs.org/link/invalid-hook-call for tips about how to debug and fix this problem.
+Console.js:61 Warning: Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://reactjs.org/link/invalid-hook-call for tips about how to debug and fix this problem.
+chunk-ZMLY2J2T.js?v=37dc6824:1066 Uncaught TypeError: Cannot read properties of null (reading 'useState')
+    at LazySection (lazy-section.tsx:26:37)
+Console.js:61 Warning: Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://reactjs.org/link/invalid-hook-call for tips about how to debug and fix this problem.
+Console.js:61 Warning: Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://reactjs.org/link/invalid-hook-call for tips about how to debug and fix this problem.
+chunk-ZMLY2J2T.js?v=37dc6824:1066 Uncaught TypeError: Cannot read properties of null (reading 'useState')
+    at LazySection (lazy-section.tsx:26:37)
+Console.js:61 Warning: Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://reactjs.org/link/invalid-hook-call for tips about how to debug and fix this problem.
+Console.js:61 Warning: Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://reactjs.org/link/invalid-hook-call for tips about how to debug and fix this problem.
+chunk-ZMLY2J2T.js?v=37dc6824:1066 Uncaught TypeError: Cannot read properties of null (reading 'useState')
+    at LazySection (lazy-section.tsx:26:37)
+Console.js:61 Warning: Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://reactjs.org/link/invalid-hook-call for tips about how to debug and fix this problem.
+Console.js:61 Warning: Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://reactjs.org/link/invalid-hook-call for tips about how to debug and fix this problem.
+chunk-ZMLY2J2T.js?v=37dc6824:1066 Uncaught TypeError: Cannot read properties of null (reading 'useState')
+    at LazySection (lazy-section.tsx:26:37)
+2
+Console.js:61 The above error occurred in the <LazySection> component:
+
+    at LazySection (https://dc44b720-d33c-4ccd-aad4-577661796228-00-17dqt1in2qg6a.riker.replit.dev/src/components/ui/lazy-section.tsx:21:3)
+    at Suspense
+    at div
+    at main
+    at div
+    at MainLayout (https://dc44b720-d33c-4ccd-aad4-577661796228-00-17dqt1in2qg6a.riker.replit.dev/src/components/layout/MainLayout.tsx:22:38)
+    at Home
+    at Route (https://dc44b720-d33c-4ccd-aad4-577661796228-00-17dqt1in2qg6a.riker.replit.…/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=b167f8c4:323:16)
+    at Switch (https://dc44b720-d33c-4ccd-aad4-577661796228-00-17dqt1in2qg6a.riker.replit.…/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=b167f8c4:379:17)
+    at Router (https://dc44b720-d33c-4ccd-aad4-577661796228-00-17dqt1in2qg6a.riker.replit.dev/src/App.tsx?v=cF6AS1qpDMQSnoyUcF3pB:73:22)
+    at AuthProvider (https://dc44b720-d33c-4ccd-aad4-577661796228-00-17dqt1in2qg6a.riker.replit.dev/src/hooks/use-auth.tsx:26:32)
+    at Provider (https://dc44b720-d33c-4ccd-aad4-577661796228-00-17dqt1in2qg6a.riker.replit.…unner/workspace/node_modules/.vite/deps/chunk-W25XJCJA.js?v=b167f8c4:38:15)
+    at TooltipProvider (https://dc44b720-d33c-4ccd-aad4-577661796228-00-17dqt1in2qg6a.riker.replit.…rkspace/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=b167f8c4:63:5)
+    at QueryClientProvider (https://dc44b720-d33c-4ccd-aad4-577661796228-00-17dqt1in2qg6a.riker.replit.…rkspace/node_modules/.vite/deps/@tanstack_react-query.js?v=b167f8c4:3081:3)
+    at App (https://dc44b720-d33c-4ccd-aad4-577661796228-00-17dqt1in2qg6a.riker.replit.dev/src/App.tsx?v=cF6AS1qpDMQSnoyUcF3pB:624:23)
+    at V (https://dc44b720-d33c-4ccd-aad4-577661796228-00-17dqt1in2qg6a.riker.replit.…e/runner/workspace/node_modules/.vite/deps/next-themes.js?v=b167f8c4:44:25)
+    at J (https://dc44b720-d33c-4ccd-aad4-577661796228-00-17dqt1in2qg6a.riker.replit.…e/runner/workspace/node_modules/.vite/deps/next-themes.js?v=b167f8c4:42:18)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
+chunk-276SZO74.js?v=b167f8c4:19413 Uncaught TypeError: Cannot read properties of null (reading 'useState')
+    at LazySection (lazy-section.tsx:26:37)

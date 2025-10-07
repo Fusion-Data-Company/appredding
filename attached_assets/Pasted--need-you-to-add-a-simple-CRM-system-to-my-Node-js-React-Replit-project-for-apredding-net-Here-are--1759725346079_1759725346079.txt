@@ -1,0 +1,97 @@
+ need you to add a simple CRM system to my Node.js/React Replit project for apredding.net. Here are the exact requirements:
+
+PROJECT STRUCTURE:
+- Backend: Node.js/Express
+- Frontend: React
+- Database: PostgreSQL (use Replit's native PostgreSQL)
+- Email: Use Nodemailer with Gmail SMTP
+
+PART 1 - DATABASE SCHEMA:
+Create a PostgreSQL table called 'form_submissions' with these fields:
+- id (primary key, auto-increment)
+- submission_timestamp (timestamp with timezone, defaults to NOW())
+- customer_name (text)
+- email (text)
+- phone (text)
+- address (text)
+- property_type (text) - options: Residential, Commercial, Industrial
+- service_needed (text) - options: New Solar Installation, Solar Repair, System Maintenance, Consultation
+- current_electric_bill (text)
+- roof_type (text)
+- roof_age (text)
+- shading_issues (text) - Yes/No
+- system_size_preference (text)
+- timeline (text) - options: ASAP, 1-3 months, 3-6 months, Just exploring
+- additional_notes (text)
+- ip_address (text)
+- user_agent (text)
+
+PART 2 - PROFESSIONAL SOLAR FORM:
+Create a React component called 'SolarConsultationForm.jsx' that:
+- Has a modern, professional design with subtle solar/energy theme colors (blues, greens, gold accents)
+- Uses appropriate emojis throughout (☀️ ⚡ 🏠 📧 📱 💰 🔧 etc.)
+- Includes ALL the fields from the database schema above
+- Has proper form validation
+- Shows a beautiful success message after submission
+- Is fully responsive
+- Has smooth animations/transitions
+
+The form should have sections:
+1. Contact Information (with emojis)
+2. Property Details (with emojis)
+3. Service Requirements (with emojis)
+4. Additional Information (with emojis)
+
+PART 3 - MODAL/POPUP FUNCTIONALITY:
+- Create a reusable Modal component that displays the SolarConsultationForm
+- Add onClick handlers to ALL CTA buttons across the site to trigger the form modal
+- Modal should have smooth fade-in animation
+- Modal should close on overlay click or X button
+- Form should reset after successful submission
+
+PART 4 - BACKEND API:
+Create Express endpoints:
+1. POST /api/submit-form
+   - Validates all required fields
+   - Inserts data into PostgreSQL 'form_submissions' table
+   - Captures IP address and user agent
+   - Returns success/error response
+
+2. GET /api/crm/submissions
+   - Requires basic authentication (add simple password protection)
+   - Returns all submissions ordered by timestamp DESC
+   - Include pagination (20 per page)
+
+PART 5 - EMAIL NOTIFICATIONS:
+Configure Nodemailer to send emails via Gmail SMTP when a form is submitted:
+- Send to: gtomsik@apredding.net AND office@apredding.net
+- Subject: "🔔 New Solar Consultation Request - [Customer Name]"
+- Email body should include ALL form fields in a clean, formatted layout
+- Include submission timestamp
+- Make it HTML formatted and professional
+
+PART 6 - SIMPLE CRM ADMIN PAGE:
+Create a React component 'CRMDashboard.jsx' at route '/admin/crm' that:
+- Shows a clean, professional table of all form submissions
+- Displays: timestamp, name, email, phone, service needed, timeline
+- Has expandable rows to show ALL details for each submission
+- Has search/filter functionality by name, email, or service type
+- Has date range filter
+- Shows total submission count
+- Has export to CSV button
+- Requires password protection (use environment variable CRM_PASSWORD)
+
+PART 7 - ENVIRONMENT VARIABLES:
+Add to .env file:
+- DATABASE_URL (Replit PostgreSQL connection string)
+- GMAIL_USER (for sending emails)
+- GMAIL_APP_PASSWORD (Gmail app-specific password)
+- CRM_PASSWORD (for admin access)
+
+PART 8 - SECURITY:
+- Add rate limiting to form submission endpoint (max 3 submissions per IP per hour)
+- Sanitize all inputs to prevent SQL injection
+- Add CORS configuration
+- Hash CRM password for admin access
+
+Make this implementation clean, professional, and production-ready. The form should be visually stunning with smooth UX. The CRM should be simple but functional - no complex analytics or pipeline BS, just a clean table showing who filled out forms.

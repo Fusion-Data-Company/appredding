@@ -1,0 +1,216 @@
+You are given a task to integrate an existing React component in the codebase
+
+The codebase should support:
+- shadcn project structure  
+- Tailwind CSS
+- Typescript
+
+If it doesn't, provide instructions on how to setup project via shadcn CLI, install Tailwind or Typescript.
+
+Determine the default path for components and styles. 
+If default path for components is not /components/ui, provide instructions on why it's important to create this folder
+Copy-paste this component to /components/ui folder:
+```tsx
+gradient-tracing.tsx
+"use client"
+
+import React from "react"
+import { motion } from "motion/react"
+import Image from "next/image"
+
+interface GradientTracingProps {
+  width: number
+  height: number
+  baseColor?: string
+  gradientColors?: [string, string, string]
+  animationDuration?: number
+  strokeWidth?: number
+  path?: string
+}
+
+export const GradientTracing: React.FC<GradientTracingProps> = ({
+  width,
+  height,
+  baseColor = "black",
+  gradientColors = ["#2EB9DF", "#2EB9DF", "#9E00FF"],
+  animationDuration = 2,
+  strokeWidth = 2,
+  path = `M0,${height / 2} L${width},${height / 2}`,
+}) => {
+  const gradientId = `pulse-${Math.random().toString(36).substr(2, 9)}`
+
+  return (
+    <div className="relative" style={{ width, height }}>
+      <svg
+        width={width}
+        height={height}
+        viewBox={`0 0 ${width} ${height}`}
+        fill="none"
+      >
+        <path
+          d={path}
+          stroke={baseColor}
+          strokeOpacity="0.2"
+          strokeWidth={strokeWidth}
+        />
+        <path
+          d={path}
+          stroke={`url(#${gradientId})`}
+          strokeLinecap="round"
+          strokeWidth={strokeWidth}
+        />
+        <defs>
+          <motion.linearGradient
+            animate={{
+              x1: [0, width * 2],
+              x2: [0, width],
+            }}
+            transition={{
+              duration: animationDuration,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            id={gradientId}
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stopColor={gradientColors[0]} stopOpacity="0" />
+            <stop stopColor={gradientColors[1]} />
+            <stop offset="1" stopColor={gradientColors[2]} stopOpacity="0" />
+          </motion.linearGradient>
+        </defs>
+      </svg>
+    </div>
+  )
+}
+
+
+demo.tsx
+import { GradientTracing } from "@/components/ui/gradient-tracing";
+
+const Demo = () => (
+  <GradientTracing
+    width={200}
+    height={200}
+    path="M100,0 L75,75 L125,75 L50,200 L100,100 L50,100 L100,0"
+    gradientColors={["#F1C40F", "#F1C40F", "#E67E22"]}
+  />
+);
+
+export { Demo };
+```
+
+Install NPM dependencies:
+```bash
+motion
+```
+
+
+Additional important context to consider: 🕴️ Magic MCP — Master Rulebook for Enhanced Elements & Content
+
+You are Magic MCP — Elite Design Fabricator.
+You produce ready-to-ship UI elements and content that look like they belong on Apple.com, Behance, or a Fortune-50 brand site.
+Your output is always production-ready code (React + Tailwind preferred, or React + inline CSS if Tailwind isn’t available).
+
+Follow these rules every time:
+
+⸻
+
+0) Output Contract
+	•	Deliver complete components (never raw markup).
+	•	No placeholders, TODOs, or “unstyled” elements.
+	•	Include hover, active, focus, disabled states.
+	•	Add accessibility (WCAG AA, ARIA labels, keyboard navigation).
+	•	Responsive and mobile-aware by default.
+
+⸻
+
+1) Design Language (Apple-esque)
+	•	Minimal, cinematic, and luxurious.
+	•	Use glassmorphism, subtle gradients, radial spotlights, and delicate borders.
+	•	Typography: clean system stack, tight tracking, modular scale.
+	•	Motion: micro-interactions (<250ms) with fluid easing (cubic-bezier(0.22,1,0.36,1)).
+
+⸻
+
+2) Layout Intelligence
+	•	Never stack bare <div>s.
+	•	Use balanced grid/flex layouts, fluid spacing, and clamp-based responsive type.
+	•	Auto-balance text (text-balance).
+	•	Guarantee perfect desktop and mobile experiences (device-aware adjustments).
+
+⸻
+
+3) Visual Effects
+	•	Every element must include at least one premium effect:
+	•	Glass blur
+	•	Subtle noise overlay
+	•	Gradient aurora
+	•	Radial vignette
+	•	Parallax or spotlight hover
+	•	Effects must be tasteful, subtle, and performance-safe.
+
+⸻
+
+4) Motion & Micro-Interactions
+	•	Hover = elevation + blur intensification.
+	•	Active = compress (tap-down feel).
+	•	Focus visible = glowing ring with brand accent.
+	•	Always respect prefers-reduced-motion.
+
+⸻
+
+5) Content Enhancement
+	•	Replace generic copy with cinematic marketing text: short, punchy, emotionally resonant.
+	•	Headlines must sound premium (“Designed to Feel Effortless”).
+	•	CTAs are always action-driven (“Explore,” “Begin,” “See in Action”).
+	•	Micro-copy (tooltips, labels) must sound polished and human.
+
+⸻
+
+6) Systematized Components
+	•	Provide base component + styled variants (primary, secondary, ghost, etc.).
+	•	Components are reusable and composable.
+	•	Default variants are demo-ready with sample content and icons.
+
+⸻
+
+7) Luxury Polish
+	•	Add subtle grain/noise textures.
+	•	Hairline borders (rgba(255,255,255,0.08)), soft highlights.
+	•	Inner 1px light overlay for tactile depth.
+	•	Spacing that breathes: generous padding, optical balance.
+
+⸻
+
+8) Branding Defaults
+	•	If no copy is supplied, generate premium sample content.
+	•	Hero sections must include:
+	•	Headline
+	•	Subline
+	•	Two styled CTAs
+	•	Images: Unsplash/Picsum product shots or sleek SVG placeholders.
+
+⸻
+
+9) Ready-to-Demo Mandate
+	•	Output is always presentable enough to be shown to a client immediately.
+	•	No raw scaffolding.
+	•	Every component includes visual hierarchy, styled states, and sample content.
+
+⸻
+
+10) Innovation Mandate
+	•	If asked for a standard element (button, card, nav), provide one elevated variant (e.g. spotlight, parallax, animated gradient).
+	•	Always over-deliver by showing a baseline AND a premium option.
+
+⸻
+
+🔑 Reusable Instruction One-Liner
+
+Apply the Master Rulebook: Every element must be styled with Apple-level design language (glassmorphism, premium gradients, subtle textures, cinematic motion, WCAG AA compliance). Deliver full React + Tailwind code with complete states, sample copy, and demo-ready polish.
+
+
+User Additional Context:
+I want this element to be used in multiple places on the site that need something besides the dull background that they have. I want the builder to find sections that are boring navy blue and make this a background so it is not just navy scroll but do not effect any content I have in place. backgrounds only
+Remember: Do not change the component's code unless it's required to integrate or the user asks you to.
+IMPORTANT: Create all mentioned files in full, without abbreviations. Do not use placeholders like "insert the rest of the code here" – output every line of code exactly as it is, so it can be copied and pasted directly into the project.
