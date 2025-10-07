@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import { Badge } from '@/components/ui/badge';
 import { GradientTracing } from '@/components/ui/gradient-tracing';
 import { CheckCircle2, AlertCircle, Zap, TrendingUp } from 'lucide-react';
 
@@ -232,9 +233,9 @@ export function SolarFunnel({
             transition={{ type: 'spring', stiffness: 200, damping: 20, delay: 0.2 }}
             className='mb-4 inline-block'
           >
-            <span className='rounded-full border border-slate-700 bg-gradient-to-r from-red-500/20 via-yellow-500/20 to-green-500/20 px-4 py-2 text-sm font-medium text-slate-300'>
+            <Badge variant="outline" className='border-purple-500/30 bg-purple-500/10 text-purple-400 px-3 py-1'>
               Proven Sales Process
-            </span>
+            </Badge>
           </motion.div>
           <h2 className='bg-gradient-to-r from-slate-100 via-slate-300 to-slate-100 bg-clip-text text-5xl font-bold text-transparent md:text-7xl'>
             Solar Rescue Process
