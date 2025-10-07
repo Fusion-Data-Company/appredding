@@ -19,46 +19,60 @@ interface TeamMember {
 
 const teamMembers: TeamMember[] = [
   {
-    name: "Alex Reynolds",
-    title: "Chief Executive Officer",
-    bio: "With over 20 years of experience in industrial coatings, Alex leads our company with vision and strategic direction. Their background in chemical engineering and business administration has been instrumental in our growth and innovation.",
+    name: "Dennis Liscomb",
+    title: "Partner & Co-Founder",
+    bio: "With over 45 years of experience in solar and electrical contracting, Dennis leads Advance Power with expertise in both residential and commercial solar installations throughout Shasta County and Northern California.",
     gradient: "combined",
     icon: "fa-user-tie"
   },
   {
-    name: "Dr. Sarah Chen",
-    title: "Chief Technology Officer",
-    bio: "Leading our R&D division, Dr. Chen has pioneered many of our breakthrough coating formulations. With a Ph.D. in Materials Science and numerous patents, she drives our technological advancement and innovation strategy.",
+    name: "Greg Tomsik",
+    title: "Partner & Co-Founder",
+    bio: "Greg brings decades of experience in solar energy systems and battery storage solutions, specializing in NEM 3.0 optimization and helping homeowners maximize their solar investment with cutting-edge technology.",
     gradient: "blue",
-    icon: "fa-flask"
+    icon: "fa-solar-panel"
   },
   {
-    name: "Marcus Johnson",
-    title: "VP of Operations",
-    bio: "Marcus oversees all production facilities and ensures our manufacturing processes maintain the highest standards of quality and efficiency. His background in industrial engineering has helped optimize our production capabilities.",
+    name: "Casey",
+    title: "Solar Consultant",
+    bio: "Casey specializes in custom solar system design and energy efficiency assessments, helping homeowners understand their solar potential and navigate available incentives including the federal 30% tax credit.",
     gradient: "fire",
-    icon: "fa-industry"
-  },
-  {
-    name: "Lisa Hernandez",
-    title: "Director of Sales",
-    bio: "With extensive experience in B2B sales and distribution networks, Lisa leads our sales team in building strong relationships with clients across various industries and expanding our market presence.",
-    gradient: "blue",
     icon: "fa-chart-line"
   },
   {
-    name: "James Wilson",
-    title: "Environmental Compliance Officer",
-    bio: "James ensures all our products and processes meet or exceed regulatory requirements. His background in environmental science helps maintain our commitment to sustainability while delivering high-performance products.",
-    gradient: "fire",
-    icon: "fa-leaf"
+    name: "Shirley",
+    title: "Customer Success Manager",
+    bio: "Shirley ensures exceptional customer service throughout the solar installation process, from initial consultation through system commissioning, maintaining our commitment to customer satisfaction.",
+    gradient: "blue",
+    icon: "fa-headset"
   },
   {
-    name: "Michelle Park",
-    title: "Customer Success Manager",
-    bio: "Michelle leads our customer support team, ensuring clients receive exceptional service and technical assistance. Her expertise in project management helps clients achieve optimal results with our coating solutions.",
+    name: "Trevor",
+    title: "Installation Specialist",
+    bio: "Trevor leads our expert installation teams, ensuring every solar system is installed to the highest standards of quality and safety, with expertise in rooftop, ground mount, and carport installations.",
+    gradient: "fire",
+    icon: "fa-tools"
+  },
+  {
+    name: "James",
+    title: "Service Technician",
+    bio: "James provides expert maintenance and repair services for solar systems throughout Northern California, ensuring optimal performance and helping customers maximize their energy savings.",
     gradient: "combined",
-    icon: "fa-headset"
+    icon: "fa-wrench"
+  },
+  {
+    name: "John",
+    title: "Project Manager",
+    bio: "John coordinates all aspects of solar installations, from permits and utility interconnection to final inspection, ensuring projects are completed on time and exceed customer expectations.",
+    gradient: "blue",
+    icon: "fa-tasks"
+  },
+  {
+    name: "Lauren",
+    title: "Finance Specialist",
+    bio: "Lauren helps customers navigate financing options through GoGreen Home Energy and other solar loan programs, making solar accessible with competitive rates and flexible payment plans.",
+    gradient: "fire",
+    icon: "fa-calculator"
   }
 ];
 
@@ -81,8 +95,8 @@ const Team = () => {
                 Our Team
               </GradientHeading>
               <p className="text-lg  text-gray-700 max-w-3xl mx-auto">
-                Meet the experts behind Advance Power Solutions, dedicated to innovation and excellence in
-                protective coating technology.
+                Meet the experts behind Advance Power, with over 45 years of experience delivering solar energy solutions
+                throughout Shasta County and Northern California.
               </p>
             </div>
 

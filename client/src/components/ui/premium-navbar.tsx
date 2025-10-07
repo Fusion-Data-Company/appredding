@@ -350,7 +350,7 @@ export function PremiumNavbar() {
     </div>
   );
   
-  // Solar Solutions mega menu content  
+  // Solar Solutions mega menu content
   const solarSolutionsContent = (
     <div className="p-4">
       <div className="border-b border-gray-700 pb-2 mb-3">
@@ -358,7 +358,7 @@ export function PremiumNavbar() {
           Solar Resources
         </h3>
       </div>
-      
+
       <div className="grid grid-cols-2 gap-4">
         <div>
           <h4 className="font-bold text-white mb-2 text-sm">Resources</h4>
@@ -378,16 +378,21 @@ export function PremiumNavbar() {
                 Solar Technology
               </Link>
             </li>
+            <li>
+              <Link href="/financing" className="text-sm text-gray-300 hover:text-white transition-colors">
+                Financing Options
+              </Link>
+            </li>
           </ul>
         </div>
-        
+
         <div className="border-l border-gray-700 pl-4">
           <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-3 rounded-lg border border-gray-700">
             <h4 className="font-bold text-yellow-400 mb-1 text-sm">Featured Solution</h4>
             <h5 className="text-white font-bold mb-1 text-xs">Hybrid Solar Systems</h5>
             <p className="text-xs text-gray-300 mb-2">Solar panels with lithium battery storage for energy independence.</p>
-            <Link 
-              href="/hybrid-solar" 
+            <Link
+              href="/hybrid-solar"
               className="text-xs text-yellow-400 hover:text-yellow-300 font-medium"
             >
               Learn More →
@@ -432,6 +437,53 @@ export function PremiumNavbar() {
     </div>
   );
   
+  // Financing mega menu content
+  const financingContent = (
+    <div className="p-4">
+      <div className="border-b border-gray-700 pb-2 mb-3">
+        <h3 className="text-base font-bold text-center text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
+          Solar Financing Options
+        </h3>
+      </div>
+
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <h4 className="font-bold text-amber-400 mb-2 text-sm">GoGreen Home Energy</h4>
+          <p className="text-xs text-gray-300 mb-2">
+            Low-interest loans from California Coast, Matadors, Self-Help & Travis Credit Unions.
+          </p>
+          <ul className="space-y-1 text-xs">
+            <li className="text-gray-300">• 20-year terms</li>
+            <li className="text-gray-300">• APR from 3.98%</li>
+            <li className="text-gray-300">• No collateral required</li>
+            <li className="text-gray-300">• FICO starting at 580</li>
+          </ul>
+        </div>
+
+        <div className="border-l border-gray-700 pl-4">
+          <h4 className="font-bold text-amber-400 mb-2 text-sm">Other Options</h4>
+          <ul className="space-y-2">
+            <li className="text-xs text-gray-300">
+              <strong className="text-white">Cash Purchase:</strong> Maximum savings & ROI
+            </li>
+            <li className="text-xs text-gray-300">
+              <strong className="text-white">Solar Lease:</strong> No upfront costs
+            </li>
+            <li className="text-xs text-gray-300">
+              <strong className="text-white">Power Purchase Agreement:</strong> Pay per kWh
+            </li>
+          </ul>
+          <Link
+            href="/financing"
+            className="inline-block mt-3 text-xs text-amber-400 hover:text-amber-300 font-medium"
+          >
+            View All Options →
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <div className="flex-grow flex justify-end" ref={navRef}>
       <nav className="flex space-x-1">
@@ -441,14 +493,21 @@ export function PremiumNavbar() {
           onClick={() => toggleMenu('services')}
           content={servicesContent}
         />
-        
+
         <NavItem
           label="Energy Storage"
           isOpen={activeMenu === 'storage'}
           onClick={() => toggleMenu('storage')}
           content={solarSolutionsContent}
         />
-        
+
+        <NavItem
+          label="Financing"
+          isOpen={activeMenu === 'financing'}
+          onClick={() => toggleMenu('financing')}
+          content={financingContent}
+        />
+
         <NavItem
           label="About"
           isOpen={activeMenu === 'about'}

@@ -319,6 +319,266 @@ const productData: Product[] = [
     },
     rating: 4.7,
     imageUrl: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=600&q=80"
+  },
+  // Solar Panels from Sales Manual
+  {
+    id: "lg-neon-r-440",
+    name: "LG NeON R 440W",
+    description: "Premium high-efficiency monocrystalline solar panel with exceptional performance and 25-year warranty from LG Electronics.",
+    category: "solar-panel",
+    features: [
+      { name: "High Efficiency", description: "Up to 22.0% module efficiency with N-type cells" },
+      { name: "Bifacial Design", description: "Rear-side power generation for up to 30% more energy" },
+      { name: "Enhanced Durability", description: "Improved frame and cell design for extreme weather" },
+      { name: "Temperature Performance", description: "Excellent temperature coefficient -0.30%/°C" },
+      { name: "LG Warranty", description: "25-year product and performance warranty" },
+      { name: "Low Light Performance", description: "Superior performance in cloudy conditions" }
+    ],
+    specifications: {
+      "Power Output": "440W",
+      "Module Efficiency": "22.0%",
+      "Cell Type": "N-type Monocrystalline",
+      "Cell Configuration": "60 cells (6x10)",
+      "Operating Temperature": "-40°C to +85°C",
+      "Temperature Coefficient": "-0.30%/°C",
+      "Max System Voltage": "1000V DC",
+      "Dimensions": "2024 x 1024 x 40mm",
+      "Weight": "22 kg",
+      "Frame": "Anodized aluminum",
+      "Glass": "3.2mm tempered glass",
+      "Warranty": "25 years product, 25 years performance",
+      "Certifications": "UL 61730, IEC 61215",
+      "Wind Load": "5400 Pa",
+      "Snow Load": "5400 Pa"
+    },
+    applicationAreas: [
+      "Residential Solar Systems",
+      "Commercial Rooftops",
+      "Ground Mount Arrays",
+      "High-Efficiency Applications"
+    ],
+    price: {
+      value: 580,
+      unit: "panel"
+    },
+    rating: 4.9,
+    imageUrl: "https://images.unsplash.com/photo-1558449028-b53a39d100fc?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: "jinko-tiger-neo-420",
+    name: "JinkoSolar Tiger Neo 420W",
+    description: "Advanced N-type TOPCon solar panel with excellent performance and competitive pricing from the world's largest panel manufacturer.",
+    category: "solar-panel",
+    features: [
+      { name: "TOPCon Technology", description: "N-type tunnel oxide passivated contact cells" },
+      { name: "High Power Output", description: "Up to 420W with 21.5% efficiency" },
+      { name: "Low Degradation", description: "First year degradation ≤1%, annual ≤0.4%" },
+      { name: "Bifacial Factor", description: "Up to 80% bifaciality for increased yield" },
+      { name: "PID Resistant", description: "Anti-PID cell technology and materials" },
+      { name: "Hot Spot Protection", description: "Half-cell design reduces hot spot risk" }
+    ],
+    specifications: {
+      "Power Output": "420W",
+      "Module Efficiency": "21.5%",
+      "Cell Type": "N-type TOPCon",
+      "Cell Configuration": "108 half-cells",
+      "Operating Temperature": "-40°C to +85°C",
+      "Temperature Coefficient": "-0.30%/°C",
+      "Max System Voltage": "1500V DC",
+      "Dimensions": "1722 x 1134 x 30mm",
+      "Weight": "22.5 kg",
+      "Frame": "Anodized aluminum alloy",
+      "Glass": "3.2mm AR coated tempered glass",
+      "Warranty": "12 years product, 25 years performance",
+      "Certifications": "UL 61730, IEC 61215, IEC 61730",
+      "Wind Load": "2400 Pa",
+      "Snow Load": "5400 Pa"
+    },
+    applicationAreas: [
+      "Utility-Scale Solar",
+      "Commercial Projects",
+      "Residential Installations",
+      "Floating Solar Systems"
+    ],
+    price: {
+      value: 315,
+      unit: "panel"
+    },
+    rating: 4.7,
+    imageUrl: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: "mission-solar-415",
+    name: "Mission Solar MSE415SQ9S",
+    description: "American-made PERC solar panel with excellent reliability and performance, assembled in San Antonio, Texas.",
+    category: "solar-panel",
+    features: [
+      { name: "Made in USA", description: "Assembled in San Antonio, Texas facility" },
+      { name: "PERC Technology", description: "Passivated Emitter Rear Cell for higher efficiency" },
+      { name: "Heavy Snow Load", description: "Certified for 5400 Pa snow load" },
+      { name: "Buy American Compliant", description: "Meets Buy American Act requirements" },
+      { name: "Quality Assurance", description: "100% EL testing on every module" },
+      { name: "Low LID", description: "Light-induced degradation <2%" }
+    ],
+    specifications: {
+      "Power Output": "415W",
+      "Module Efficiency": "20.1%",
+      "Cell Type": "Monocrystalline PERC",
+      "Cell Configuration": "144 half-cells",
+      "Operating Temperature": "-40°C to +85°C",
+      "Temperature Coefficient": "-0.35%/°C",
+      "Max System Voltage": "1500V DC",
+      "Dimensions": "2094 x 1038 x 35mm",
+      "Weight": "25 kg",
+      "Frame": "Black anodized aluminum",
+      "Glass": "3.2mm tempered glass",
+      "Warranty": "12 years product, 25 years performance",
+      "Certifications": "UL 61730, Buy American Act",
+      "Wind Load": "2400 Pa",
+      "Snow Load": "5400 Pa"
+    },
+    applicationAreas: [
+      "Government Projects",
+      "Residential Solar",
+      "Commercial Rooftops",
+      "Buy American Projects"
+    ],
+    price: {
+      value: 385,
+      unit: "panel"
+    },
+    rating: 4.6,
+    imageUrl: "https://images.unsplash.com/photo-1413882353314-73389f63b6fd?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: "rec-alpha-430",
+    name: "REC Alpha Pure-R 430W",
+    description: "Premium European solar panel with heterojunction cell technology delivering industry-leading performance and reliability.",
+    category: "solar-panel",
+    features: [
+      { name: "HJT Technology", description: "Heterojunction cells for superior efficiency" },
+      { name: "Gapless Design", description: "No gaps between cells for maximum power" },
+      { name: "Lead-Free", description: "Environmentally friendly lead-free construction" },
+      { name: "Low Temperature Coefficient", description: "Best-in-class -0.24%/°C" },
+      { name: "Strong Warranty", description: "25-year product, 92% performance at 25 years" },
+      { name: "Twin Design", description: "Split junction box reduces power loss" }
+    ],
+    specifications: {
+      "Power Output": "430W",
+      "Module Efficiency": "22.3%",
+      "Cell Type": "Heterojunction (HJT)",
+      "Cell Configuration": "120 half-cells",
+      "Operating Temperature": "-40°C to +85°C",
+      "Temperature Coefficient": "-0.24%/°C",
+      "Max System Voltage": "1000V DC",
+      "Dimensions": "1821 x 1016 x 30mm",
+      "Weight": "19.5 kg",
+      "Frame": "Anodized aluminum",
+      "Glass": "3.2mm solar glass",
+      "Warranty": "25 years product, 25 years performance",
+      "Certifications": "UL 61730, IEC 61215",
+      "Wind Load": "2400 Pa",
+      "Snow Load": "7000 Pa"
+    },
+    applicationAreas: [
+      "Premium Residential",
+      "Limited Roof Space",
+      "High-Temperature Regions",
+      "Performance-Critical Applications"
+    ],
+    price: {
+      value: 495,
+      unit: "panel"
+    },
+    rating: 4.9,
+    imageUrl: "https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?auto=format&fit=crop&w=600&q=80"
+  },
+  // Battery Storage from Sales Manual
+  {
+    id: "simpliphi-phi-3.8",
+    name: "SimpliPhi PHI 3.8 kWh",
+    description: "Premium LiFePO4 battery with built-in BMS, no thermal runaway risk, and 10,000+ cycle life for residential storage.",
+    category: "battery",
+    features: [
+      { name: "LiFePO4 Chemistry", description: "Safest lithium chemistry with no thermal runaway" },
+      { name: "Deep Discharge", description: "100% depth of discharge without damage" },
+      { name: "No Ventilation Required", description: "Safe for indoor installation without special ventilation" },
+      { name: "Wide Temperature Range", description: "Operates from -4°F to 140°F" },
+      { name: "Maintenance Free", description: "No watering, equalization, or maintenance" },
+      { name: "Modular Design", description: "Scalable from 3.8 to 100+ kWh" }
+    ],
+    specifications: {
+      "Nominal Capacity": "3.8 kWh",
+      "Usable Capacity": "3.8 kWh (100% DOD)",
+      "Nominal Voltage": "51.2V",
+      "Operating Voltage": "44-58.1V",
+      "Max Charge Current": "74A",
+      "Max Discharge Current": "100A continuous, 150A surge",
+      "Roundtrip Efficiency": ">98%",
+      "Cycle Life": "10,000 cycles @ 80% DOD",
+      "Operating Temperature": "-4°F to 140°F",
+      "Dimensions": "13.5 x 12.9 x 9.7 in",
+      "Weight": "82 lbs",
+      "Warranty": "10 years",
+      "Certifications": "UL 1973, UL 9540",
+      "Chemistry": "LiFePO4",
+      "BMS": "Integrated"
+    },
+    applicationAreas: [
+      "Residential Solar Storage",
+      "Off-Grid Systems",
+      "Backup Power",
+      "Peak Shaving Applications"
+    ],
+    price: {
+      value: 2195,
+      unit: "battery"
+    },
+    rating: 4.8,
+    imageUrl: "https://images.unsplash.com/photo-1620288627223-53302f4e8c74?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: "fortress-eVault-max",
+    name: "Fortress eVault Max 18.5kWh",
+    description: "High-capacity LiFePO4 battery system with advanced BMS and seamless integration for whole-home backup.",
+    category: "battery",
+    features: [
+      { name: "Large Capacity", description: "18.5 kWh in a single cabinet" },
+      { name: "High Power Output", description: "10kW continuous, 15kW peak power" },
+      { name: "Stackable Design", description: "Up to 10 units for 185 kWh total" },
+      { name: "Smart BMS", description: "Cell-level monitoring and balancing" },
+      { name: "UL 9540A Tested", description: "Fire safety tested to UL standards" },
+      { name: "Remote Monitoring", description: "Cloud-based monitoring platform" }
+    ],
+    specifications: {
+      "Nominal Capacity": "18.5 kWh",
+      "Usable Capacity": "18.5 kWh (100% DOD)",
+      "Nominal Voltage": "51.2V",
+      "Operating Voltage": "42-58V",
+      "Max Charge Power": "9.2kW",
+      "Max Discharge Power": "10kW continuous, 15kW peak",
+      "Roundtrip Efficiency": ">96%",
+      "Cycle Life": "6,000 cycles @ 80% DOD",
+      "Operating Temperature": "32°F to 113°F",
+      "Dimensions": "29.3 x 25.3 x 10.6 in",
+      "Weight": "408 lbs",
+      "Warranty": "10 years",
+      "Certifications": "UL 1973, UL 9540, UL 9540A",
+      "Chemistry": "LiFePO4",
+      "Communication": "CAN, RS485, WiFi"
+    },
+    applicationAreas: [
+      "Whole Home Backup",
+      "Commercial Storage",
+      "Microgrid Applications",
+      "Demand Charge Management"
+    ],
+    price: {
+      value: 12500,
+      unit: "system"
+    },
+    rating: 4.7,
+    imageUrl: "https://images.unsplash.com/photo-1609348904326-66e32334a1e0?auto=format&fit=crop&w=600&q=80"
   }
 ];
 
@@ -401,10 +661,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, isSelected, onToggle
       <div className="relative z-10 flex gap-6">
         <div className="flex-shrink-0">
           <div className="relative w-32 h-32 rounded-xl overflow-hidden shadow-2xl shadow-amber-900/40 border-2 border-amber-500/20 group-hover:shadow-amber-900/60 group-hover:border-amber-500/40 transition-all duration-500">
-            <motion.div 
-              className="absolute inset-0 bg-gradient-to-br from-amber-500/30 via-transparent to-orange-500/30 z-10"
-              whileHover={{ opacity: [0.3, 0.6, 0.3] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
+            <div
+              className="absolute inset-0 bg-gradient-to-br from-amber-500/30 via-transparent to-orange-500/30 z-10 opacity-30 hover:opacity-60 transition-opacity duration-300"
             />
             <OptimizedImage 
               src={product.imageUrl} 
@@ -464,24 +722,16 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, isSelected, onToggle
             <div className="flex items-center gap-2">
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, starIndex) => (
-                  <motion.div
+                  <Star
                     key={starIndex}
-                    whileHover={{ 
-                      scale: 1.2,
-                      rotate: [0, -10, 10, 0]
-                    }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <Star
-                      className={`w-4 h-4 ${
-                        starIndex < Math.floor(product.rating)
-                          ? 'fill-amber-400 text-amber-400 drop-shadow-[0_0_6px_rgba(251,191,36,0.6)]'
-                          : starIndex < product.rating
-                          ? 'fill-amber-500/50 text-amber-500/50'
-                          : 'fill-gray-600 text-gray-600'
-                      } transition-all duration-300`}
-                    />
-                  </motion.div>
+                    className={`w-4 h-4 ${
+                      starIndex < Math.floor(product.rating)
+                        ? 'fill-amber-400 text-amber-400 drop-shadow-[0_0_6px_rgba(251,191,36,0.6)]'
+                        : starIndex < product.rating
+                        ? 'fill-amber-500/50 text-amber-500/50'
+                        : 'fill-gray-600 text-gray-600'
+                    } transition-all duration-300`}
+                  />
                 ))}
               </div>
               <motion.span 
@@ -714,15 +964,17 @@ const ProductComparison = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.6 }}
           >
-            <h2 className="text-2xl font-bold mb-6 bg-gradient-to-r from-blue-700 to-cyan-700 bg-clip-text text-transparent">Select Inverters to Compare</h2>
-            <p className="mb-6 text-gray-700 font-medium">Choose up to 3 inverters to compare their features, specifications, and pricing.</p>
+            <h2 className="text-2xl font-bold mb-6 bg-gradient-to-r from-blue-700 to-cyan-700 bg-clip-text text-transparent">Select Products to Compare</h2>
+            <p className="mb-6 text-gray-700 font-medium">Choose up to 3 products to compare their features, specifications, and pricing.</p>
             
             <PremiumTabs defaultValue="all" onValueChange={setActiveCategory} className="w-full">
               <PremiumTabsList>
-                <PremiumTabsTrigger value="all">All Inverters</PremiumTabsTrigger>
+                <PremiumTabsTrigger value="all">All Products</PremiumTabsTrigger>
                 <PremiumTabsTrigger value="hybrid-inverter">Hybrid Inverters</PremiumTabsTrigger>
                 <PremiumTabsTrigger value="microinverter">Microinverters</PremiumTabsTrigger>
                 <PremiumTabsTrigger value="string-inverter">String Inverters</PremiumTabsTrigger>
+                <PremiumTabsTrigger value="solar-panel">Solar Panels</PremiumTabsTrigger>
+                <PremiumTabsTrigger value="battery">Battery Storage</PremiumTabsTrigger>
               </PremiumTabsList>
               
               <PremiumTabsContent value="all">
@@ -784,6 +1036,36 @@ const ProductComparison = () => {
                   ))}
                 </div>
               </PremiumTabsContent>
+
+              <PremiumTabsContent value="solar-panel">
+                <div className="grid md:grid-cols-2 gap-8">
+                  {filteredProducts.map((product, index) => (
+                    <ProductCard
+                      key={product.id}
+                      product={product}
+                      isSelected={selectedProducts.includes(product.id)}
+                      onToggle={handleProductToggle}
+                      isDisabled={!selectedProducts.includes(product.id) && selectedProducts.length >= 3}
+                      index={index}
+                    />
+                  ))}
+                </div>
+              </PremiumTabsContent>
+
+              <PremiumTabsContent value="battery">
+                <div className="grid md:grid-cols-2 gap-8">
+                  {filteredProducts.map((product, index) => (
+                    <ProductCard
+                      key={product.id}
+                      product={product}
+                      isSelected={selectedProducts.includes(product.id)}
+                      onToggle={handleProductToggle}
+                      isDisabled={!selectedProducts.includes(product.id) && selectedProducts.length >= 3}
+                      index={index}
+                    />
+                  ))}
+                </div>
+              </PremiumTabsContent>
             </PremiumTabs>
           </motion.div>
           
@@ -797,20 +1079,10 @@ const ProductComparison = () => {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.4 }}
               >
-                <motion.div
+                <div
                   className="absolute inset-0 border-2 border-amber-500/40 rounded-3xl"
-                  animate={{
-                    opacity: [0.3, 0.6, 0.3],
-                    boxShadow: [
-                      "0 0 30px rgba(251, 191, 36, 0.3), inset 0 0 30px rgba(251, 191, 36, 0.1)",
-                      "0 0 50px rgba(251, 191, 36, 0.5), inset 0 0 50px rgba(251, 191, 36, 0.2)",
-                      "0 0 30px rgba(251, 191, 36, 0.3), inset 0 0 30px rgba(251, 191, 36, 0.1)"
-                    ]
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut"
+                  style={{
+                    boxShadow: "0 0 30px rgba(251, 191, 36, 0.3), inset 0 0 30px rgba(251, 191, 36, 0.1)"
                   }}
                 />
                 
@@ -826,57 +1098,27 @@ const ProductComparison = () => {
                   />
                 </div>
                 
-                <motion.div
+                <div
                   className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-400/5 to-transparent"
-                  animate={{
-                    x: ["-100%", "100%"]
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "linear"
-                  }}
                 />
                 
                 <div className="relative z-10 text-center max-w-2xl mx-auto">
-                  <motion.div
-                    className="relative"
-                    animate={{ 
-                      y: [0, -15, 0],
-                      rotate: [0, 5, -5, 0]
-                    }}
-                    transition={{ 
-                      duration: 4, 
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                  >
-                    <motion.div
-                      className="absolute inset-0 flex items-center justify-center"
-                      animate={{
-                        scale: [1, 1.3, 1],
-                        opacity: [0.3, 0.6, 0.3]
-                      }}
-                      transition={{
-                        duration: 2.5,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                      }}
-                    >
-                      <Sparkles 
-                        className="w-32 h-32 text-amber-400/40" 
+                  <div className="relative">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <Sparkles
+                        className="w-32 h-32 text-amber-400/40"
                         style={{
                           filter: 'blur(8px) drop-shadow(0 0 30px rgba(251, 191, 36, 0.8))'
                         }}
                       />
-                    </motion.div>
-                    <Sparkles 
-                      className="relative w-28 h-28 mx-auto mb-8 text-amber-400" 
+                    </div>
+                    <Sparkles
+                      className="relative w-28 h-28 mx-auto mb-8 text-amber-400"
                       style={{
                         filter: 'drop-shadow(0 0 20px rgba(251, 191, 36, 0.9)) drop-shadow(0 0 40px rgba(251, 191, 36, 0.5))'
                       }}
                     />
-                  </motion.div>
+                  </div>
                   <motion.h3 
                     className="text-4xl md:text-5xl font-bold mb-6 text-white"
                     style={{ 
@@ -888,13 +1130,13 @@ const ProductComparison = () => {
                   >
                     No Products Selected
                   </motion.h3>
-                  <motion.p 
+                  <motion.p
                     className="text-lg md:text-xl text-amber-100/80 leading-relaxed"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.3 }}
                   >
-                    Select up to 3 inverters from the list above to compare their features, specifications, and pricing side by side.
+                    Select up to 3 products from the list above to compare their features, specifications, and pricing side by side.
                   </motion.p>
                 </div>
               </motion.div>

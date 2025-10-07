@@ -25,6 +25,7 @@ const Contact = lazy(() => import('./pages/Contact'));
 const Portfolio = lazy(() => import('./pages/Portfolio'));
 const TechnicalData = lazy(() => import('./pages/TechnicalData'));
 const BookAppointment = lazy(() => import('./pages/BookAppointment'));
+const Financing = lazy(() => import('./pages/Financing'));
 
 const AdminDashboard = lazy(() => import('./pages/admin-dashboard'));
 const ClientDashboard = lazy(() => import('./pages/client-dashboard'));
@@ -164,7 +165,12 @@ function Router() {
           <Portfolio />
         </Suspense>
       </Route>
-      
+      <Route path="/financing">
+        <Suspense fallback={<SuspenseFallback message="Loading Financing..." operationName="financing-page" />}>
+          <Financing />
+        </Suspense>
+      </Route>
+
       {/* Services Pages */}
       <Route path="/services/residential-solar">
         <Suspense fallback={<SuspenseFallback message="Loading..." operationName="residential-solar" />}>

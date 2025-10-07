@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Calculator, TrendingUp, Sun, Battery } from 'lucide-react';
 
 interface ROICalculatorProps {
-  onCalculate: (roi: any) => void;
+  onCalculate?: (roi: any) => void;
 }
 
 const ROICalculator: React.FC<ROICalculatorProps> = ({ onCalculate }) => {
@@ -19,26 +19,44 @@ const ROICalculator: React.FC<ROICalculatorProps> = ({ onCalculate }) => {
 
     const bill = parseFloat(monthlyBill);
     const size = parseFloat(systemSize);
-    
-    // California-specific calculations
-    const costPerWatt = 3.50; // Average cost per watt in CA
+
+    // Advance Power Redding specific pricing
+    const costPerWatt = 3.25; // Competitive pricing in Shasta County
     const systemCost = size * 1000 * costPerWatt; // Convert kW to watts
-    const batteryCost = batteryStorage ? 15000 : 0;
-    const totalCost = systemCost + batteryCost;
-    
-    // NEM 3.0 calculations
-    const monthlySavings = bill * 0.85; // 85% reduction typical
+
+    // Battery costs based on API Lithium systems from sales manual
+    // 14.336 kWh API battery system typical for residential
+    const batteryCost = batteryStorage ? 18000 : 0;
+
+    // Federal tax credit (30% through 2032, then 26% in 2033)
+    const federalTaxCredit = (systemCost + batteryCost) * 0.30;
+    const totalCost = systemCost + batteryCost - federalTaxCredit;
+
+    // NEM 3.0 calculations with battery optimization
+    // With battery: 85-90% bill reduction
+    // Without battery: 70-75% bill reduction
+    const billReduction = batteryStorage ? 0.875 : 0.725;
+    const monthlySavings = bill * billReduction;
     const annualSavings = monthlySavings * 12;
+
+    // Account for utility rate increases (4% annual average)
+    const utilityInflation = 0.04;
+    let totalSavings25Year = 0;
+    let currentAnnualSavings = annualSavings;
+
+    for (let year = 1; year <= 25; year++) {
+      totalSavings25Year += currentAnnualSavings;
+      currentAnnualSavings = currentAnnualSavings * (1 + utilityInflation);
+    }
+
     const paybackPeriod = totalCost / annualSavings;
-    
-    // 25-year projections
-    const totalSavings25Year = annualSavings * 25;
     const netSavings = totalSavings25Year - totalCost;
     const roiPercentage = ((netSavings / totalCost) * 100);
     
     const result = {
       systemCost,
       batteryCost,
+      federalTaxCredit,
       totalCost,
       monthlySavings,
       annualSavings,
@@ -49,7 +67,9 @@ const ROICalculator: React.FC<ROICalculatorProps> = ({ onCalculate }) => {
     };
     
     setResults(result);
-    onCalculate(result);
+    if (onCalculate) {
+      onCalculate(result);
+    }
   };
 
   return (
@@ -104,20 +124,36 @@ const ROICalculator: React.FC<ROICalculatorProps> = ({ onCalculate }) => {
               <TrendingUp className="w-4 h-4" />
               <span className="font-semibold">ROI: {results.roiPercentage.toFixed(1)}%</span>
             </div>
-            
+
             <div className="grid grid-cols-2 gap-2 text-sm">
               <div>
-                <span className="text-orange-600 dark:text-orange-400">Payback:</span>
+                <span className="text-orange-600 dark:text-orange-400">System Cost:</span>
+                <div className="font-semibold">${(results.systemCost + results.batteryCost).toLocaleString()}</div>
+              </div>
+              <div>
+                <span className="text-orange-600 dark:text-orange-400">Federal Tax Credit:</span>
+                <div className="font-semibold text-green-600">-${results.federalTaxCredit.toLocaleString()}</div>
+              </div>
+              <div>
+                <span className="text-orange-600 dark:text-orange-400">Net Cost:</span>
+                <div className="font-semibold">${results.totalCost.toLocaleString()}</div>
+              </div>
+              <div>
+                <span className="text-orange-600 dark:text-orange-400">Payback Period:</span>
                 <div className="font-semibold">{results.paybackPeriod.toFixed(1)} years</div>
               </div>
               <div>
+                <span className="text-orange-600 dark:text-orange-400">Monthly Savings:</span>
+                <div className="font-semibold">${results.monthlySavings.toFixed(0)}</div>
+              </div>
+              <div>
                 <span className="text-orange-600 dark:text-orange-400">25-Year Savings:</span>
-                <div className="font-semibold">${results.netSavings.toLocaleString()}</div>
+                <div className="font-semibold text-green-600">${results.netSavings.toLocaleString()}</div>
               </div>
             </div>
-            
+
             <div className="text-xs text-orange-600 dark:text-orange-400">
-              Based on NEM 3.0 rates and California incentives
+              Based on NEM 3.0 rates, 30% federal tax credit, and 4% annual utility rate increases
             </div>
           </div>
         )}
