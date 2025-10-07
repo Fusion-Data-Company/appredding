@@ -44,6 +44,22 @@ Core Technologies:
 - ACCESSIBILITY_AUDIT_REPORT.md, PHASE_1_FINAL_REPORT.md
 
 ## Recent Changes
+- **AUTHENTIC PROJECT PHOTOS DEPLOYMENT (October 2025)**: Replaced all placeholder images with real Advance Power Redding project photos
+  - **Home Page Hero**: Updated to Rice Photo 1_1759814518987.jpg background with 8-image carousel of authentic installations
+  - **Products Carousel**: 6 Sol-Ark/battery system images from real projects (Batt-3, Schmidt Battery, Battery Sales Flyer, Wolynn, Rice Battery, Gitchell photos)
+  - **About Page Logo**: Fixed blurry logo with APR-Logo-New-300x113.png
+  - **Service Pages Updated**: 8 pages with content-matched imagery:
+    - Repairs: Rooftop solar installation and system monitoring images
+    - Energy Conservation: Solar panel arrays and off-grid installations
+    - Maintenance: Ground mount arrays and system installations
+    - Hybrid Solar: Solar arrays and battery system installations
+    - Commercial Solar: Commercial installations (Gitchell, Wright, Rice Battery, Rice Photo 1)
+    - Battery Storage: Battery installations (Batt-3, Schmidt Battery, Battery Sales Flyer, Wolynn)
+    - Technology: Panel arrays and installation tech (Landis, Gilmer photos)
+    - Portfolio: Project showcases (Radford, Wilson Array photos)
+  - **Images Preserved**: Greg with solar panel (9 pages), All Lithium Battery page images unchanged
+  - **Technical Fix**: Corrected SolarRepairHero to use proper @assets imports instead of string paths
+  - Files modified: SolarRepairHero.tsx, card-carousel-demo.tsx, About.tsx, Repairs.tsx, EnergyConservation.tsx, Maintenance.tsx, HybridSolar.tsx, CommercialSolar.tsx, BatteryStorage.tsx, Technology.tsx, Portfolio.tsx
 - **ACCESSIBLE NAVIGATION DROPDOWNS IMPLEMENTED (October 2025)**: Added professional, accessible dropdown menus to header navigation
   - **Three Dropdown Menus**: Services (8 items), Solutions (6 items), Shop (3 items)
   - **Full Accessibility Compliance**: WCAG 4.1.2 compliant with proper ARIA attributes
