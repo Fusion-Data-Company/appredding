@@ -79,6 +79,13 @@ import rooftopSolarInstallation from "@assets/Wright_1759799443706.jpg";
 import threePhaseInstallation from "@assets/Rice Battery Pic_1759799425946.jpg";
 import completedSolarArray from "@assets/Rice Photo 1_1759799425958.jpg";
 
+// Ultra-Premium Revenue System Components
+import DemandChargeCalculator from "@/components/commercial/DemandChargeCalculator";
+import QualificationEngine, { type QualificationResult, type LeadData } from "@/components/commercial/QualificationEngine";
+import IndustryVerticals from "@/components/commercial/IndustryVerticals";
+import UrgencyTriggers from "@/components/commercial/UrgencyTriggers";
+import AdvancedROICalculator from "@/components/commercial/AdvancedROICalculator";
+
 const commercialConsultationSchema = z.object({
   companyName: z.string().min(1, "Company name is required"),
   contactName: z.string().min(1, "Contact name is required"),
@@ -94,10 +101,21 @@ type CommercialSolarFormValues = z.infer<typeof commercialConsultationSchema>;
 
 const CommercialSolar = () => {
   const [showConsultationForm, setShowConsultationForm] = useState(false);
+  const [leadData, setLeadData] = useState<LeadData>({});
+  const [qualificationResult, setQualificationResult] = useState<QualificationResult | null>(null);
   const { toast } = useToast();
-  
+
   const pageTitle = "Commercial Solar + Storage | Sol-Ark 30K/60K Three-Phase Systems";
   const pageDescription = "Enterprise-grade 3-phase solar + battery systems for California businesses. Sol-Ark 30K/60K inverters, SGIP incentives, demand charge reduction, CPUC Rule 21 Fast Track interconnection. ITC + Bonus Depreciation ROI modeling.";
+
+  const handleLeadQualified = (data: LeadData) => {
+    setLeadData(data);
+    setShowConsultationForm(true);
+  };
+
+  const handleQualificationComplete = (result: QualificationResult) => {
+    setQualificationResult(result);
+  };
 
   const form = useForm<CommercialSolarFormValues>({
     resolver: zodResolver(commercialConsultationSchema),
@@ -359,6 +377,32 @@ const CommercialSolar = () => {
           />
         </div>
       </motion.div>
+
+      {/* Demand Charge Horror Calculator - Lead Generation Hero */}
+      <section className="py-20 bg-gradient-to-br from-black via-gray-950 to-black">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <DemandChargeCalculator onQualified={handleLeadQualified} />
+        </div>
+      </section>
+
+      {/* Qualification Engine - Displays after calculator use */}
+      {leadData && Object.keys(leadData).length > 0 && (
+        <section className="py-12 bg-black">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <QualificationEngine
+              leadData={leadData}
+              onQualified={handleQualificationComplete}
+            />
+          </div>
+        </section>
+      )}
+
+      {/* Urgency Triggers Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-950 via-black to-gray-950">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <UrgencyTriggers />
+        </div>
+      </section>
 
       {/* Color-Coded Commercial Solar Funnel (RED → YELLOW → GREEN → PURPLE) */}
       <SolarRescueTimelineSection
@@ -952,6 +996,12 @@ const CommercialSolar = () => {
         </div>
       </section>
 
+      {/* Industry Vertical Microsites */}
+      <IndustryVerticals onVerticalSelect={(verticalId) => {
+        setLeadData(prev => ({ ...prev, industry: verticalId }));
+        setShowConsultationForm(true);
+      }} />
+
       <StatsSection
         stats={commercialStats}
         title="Commercial Solar Performance Metrics"
@@ -961,6 +1011,21 @@ const CommercialSolar = () => {
         accentColor="orange"
         backgroundColor="bg-gray-900"
       />
+
+      {/* Advanced NPV/IRR ROI Calculator */}
+      <section className="py-20 bg-black">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Professional Financial Modeling
+            </h2>
+            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+              CFO-grade NPV, IRR, and 25-year cash flow analysis with dynamic utility rate modeling
+            </p>
+          </div>
+          <AdvancedROICalculator />
+        </div>
+      </section>
 
       <section className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

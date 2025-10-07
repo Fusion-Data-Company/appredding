@@ -94,19 +94,19 @@ const BatteryStorage = () => {
           />
         </div>
 
-        {/* Excellence Award Badge - Top Right */}
-        <div className="absolute top-4 right-4 md:top-8 md:right-8 z-20">
-          <AwardBadge type="customer-service-excellence" />
-        </div>
-
         {/* Hero Content */}
-        <div className="relative z-10 w-full">
+        <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
             className="w-full"
           >
+            {/* Badge Above Card */}
+            <div className="flex justify-center mb-6">
+              <AwardBadge type="customer-service-excellence" />
+            </div>
+
             {/* Premium Glassmorphism Card */}
             <div className="hero-glass-card max-w-6xl mx-auto">
               {/* Shimmer Overlay */}
@@ -262,175 +262,56 @@ const BatteryStorage = () => {
                   />
                 </button>
                 </motion.div>
-              </div>
-            </div>
-          </motion.div>
 
-            {/* Stats Cards Below Glassomorphic Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12 w-full px-6 sm:px-12 max-w-7xl mx-auto"
-            >
-            {[
-              {
-                title: "LiFePO4 Safety",
-                value: "270°C",
-                description: "Thermal runaway temp",
-                icon: <Flame className="h-8 w-8" />,
-                gradient: "from-red-500 via-orange-500 to-red-600",
-                glowColor: "rgba(239, 68, 68, 0.5)",
-                iconBg: "bg-red-900/30",
-                textColor: "text-white",
-                pulseColor: "bg-orange-400",
-                borderColor: "border-red-400/30 hover:border-red-300/60"
-              },
-              {
-                title: "Cycle Life",
-                value: "10,000+",
-                description: "@ 100% DOD cycles",
-                icon: <Activity className="h-8 w-8" />,
-                gradient: "from-orange-500 via-amber-500 to-orange-600",
-                glowColor: "rgba(249, 115, 22, 0.5)",
-                iconBg: "bg-orange-900/30",
-                textColor: "text-white",
-                pulseColor: "bg-orange-400",
-                borderColor: "border-orange-400/30 hover:border-orange-300/60"
-              },
-              {
-                title: "Round-Trip",
-                value: "95-98%",
-                description: "Energy efficiency",
-                icon: <Zap className="h-8 w-8" />,
-                gradient: "from-blue-500 via-cyan-500 to-blue-600",
-                glowColor: "rgba(59, 130, 246, 0.5)",
-                iconBg: "bg-blue-900/30",
-                textColor: "text-white",
-                pulseColor: "bg-cyan-400",
-                borderColor: "border-blue-400/30 hover:border-blue-300/60"
-              },
-              {
-                title: "SGIP Rebate",
-                value: "$1,000/kWh",
-                description: "Max incentive available",
-                icon: <DollarSign className="h-8 w-8" />,
-                gradient: "from-green-500 via-emerald-500 to-green-600",
-                glowColor: "rgba(34, 197, 94, 0.5)",
-                iconBg: "bg-green-900/30",
-                textColor: "text-white",
-                pulseColor: "bg-emerald-400",
-                borderColor: "border-green-400/30 hover:border-green-300/60"
-              }
-            ].map((card, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, scale: 0.9, rotateY: -15 }}
-                animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-                transition={{
-                  duration: 0.6,
-                  delay: 0.8 + idx * 0.15,
-                  type: "spring",
-                  stiffness: 100
-                }}
-                whileHover={{
-                  scale: 1.05,
-                  y: -8,
-                  transition: { duration: 0.2 }
-                }}
-                className="relative group perspective-1000"
-                data-testid={`card-feature-${idx}`}
-              >
-                {/* Animated glow background */}
-                <div
-                  className="absolute inset-0 rounded-2xl blur-xl opacity-60 group-hover:opacity-100 transition-all duration-500"
-                  style={{
-                    background: card.glowColor,
-                    animation: `pulse ${2 + idx * 0.3}s ease-in-out infinite`
-                  }}
-                />
-
-                {/* Card Content with glassmorphism */}
-                <div
-                  className={`relative bg-gradient-to-br ${card.gradient} rounded-2xl p-6 backdrop-blur-sm border ${card.borderColor} transition-all duration-300 overflow-hidden`}
-                  style={{
-                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
-                  }}
+                {/* Stats Grid Inside Card */}
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.8 }}
+                  className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-10"
                 >
-                  {/* Glass overlay */}
-                  <div
-                    className="absolute inset-0 pointer-events-none"
-                    style={{
-                      background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%)'
-                    }}
-                  />
-
-                  {/* Animated shimmer */}
-                  <div
-                    className="absolute inset-0 pointer-events-none"
-                    style={{
-                      background: 'linear-gradient(110deg, transparent 0%, transparent 40%, rgba(255, 255, 255, 0.6) 50%, transparent 60%, transparent 100%)',
-                      backgroundSize: '200% 100%',
-                      animation: `shimmer${idx + 1} ${3 + idx * 0.5}s infinite`,
-                      mixBlendMode: 'overlay'
-                    }}
-                  />
-
-                  <div className="relative z-10">
-                    <div className="flex items-start justify-between mb-4">
-                      {/* Icon with animation */}
-                      <motion.div
-                        className={`p-3 ${card.iconBg} backdrop-blur-md rounded-xl ${card.textColor} shadow-lg`}
-                        whileHover={{ rotate: [0, -10, 10, -10, 0], scale: 1.1 }}
-                        transition={{ duration: 0.5 }}
-                        style={{
-                          boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 4px 12px rgba(0, 0, 0, 0.2)'
-                        }}
-                      >
+                  {[
+                    {
+                      icon: <Battery className="h-6 w-6" />,
+                      value: "10,000+",
+                      label: "Cycle Life"
+                    },
+                    {
+                      icon: <Zap className="h-6 w-6" />,
+                      value: "95-98%",
+                      label: "Efficiency"
+                    },
+                    {
+                      icon: <DollarSign className="h-6 w-6" />,
+                      value: "$1,000/kWh",
+                      label: "SGIP Rebate"
+                    }
+                  ].map((card, idx) => (
+                    <div
+                      key={idx}
+                      className="p-6 text-center"
+                      style={{
+                        background: 'rgba(255, 255, 255, 0.05)',
+                        backdropFilter: 'blur(12px)',
+                        WebkitBackdropFilter: 'blur(12px)',
+                        border: '1px solid rgba(255, 255, 255, 0.1)',
+                        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
+                        borderRadius: '1rem'
+                      }}
+                      data-testid={`card-feature-${idx}`}
+                    >
+                      <div className="flex justify-center mb-4" style={{ color: '#f59e0b' }}>
                         {card.icon}
-                      </motion.div>
-
-                      {/* Status indicator */}
-                      <div className="flex items-center gap-2">
-                        <div className={`w-2 h-2 ${card.pulseColor} rounded-full animate-pulse shadow-lg`}
-                          style={{
-                            boxShadow: `0 0 10px ${card.glowColor}`,
-                            animation: `pulse ${1.5 + idx * 0.2}s ease-in-out infinite`
-                          }}
-                        />
-                        <div className={`w-1.5 h-1.5 ${card.pulseColor} rounded-full opacity-60`} />
+                      </div>
+                      <div className="text-3xl font-bold text-white mb-2">
+                        {card.value}
+                      </div>
+                      <div className="text-sm text-gray-400">
+                        {card.label}
                       </div>
                     </div>
-
-                    <h3 className={`${card.textColor} font-bold text-sm mb-2 uppercase tracking-wide drop-shadow-md`}>
-                      {card.title}
-                    </h3>
-                    <motion.div
-                      className={`text-3xl font-black ${card.textColor} mb-1`}
-                      style={{
-                        textShadow: '0 2px 10px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.2)'
-                      }}
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ type: "spring", stiffness: 400 }}
-                    >
-                      {card.value}
-                    </motion.div>
-                    <p className={`${card.textColor} opacity-90 text-xs font-medium drop-shadow-sm`}>
-                      {card.description}
-                    </p>
-                  </div>
-
-                  {/* Bottom shine effect */}
-                  <div
-                    className="absolute bottom-0 left-0 right-0 h-1/4 pointer-events-none"
-                    style={{
-                      background: 'linear-gradient(to top, rgba(255, 255, 255, 0.15) 0%, transparent 100%)'
-                    }}
-                  />
-                </div>
-              </motion.div>
-            ))}
-            </motion.div>
+                  ))}
+                </motion.div>
           </motion.div>
         </div>
       </section>

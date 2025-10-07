@@ -59,7 +59,7 @@ const Technology = () => {
               </h1>
               
               <p className="text-gray-300 md:text-lg max-w-3xl mb-8">
-                Sol-Ark 12K/15K all-in-one hybrid inverters with <10ms transfer time. API LiFePO4 batteries rated for 10,000+ cycles at 100% DOD. N-type TOPCon panels delivering 22%+ efficiency in high-heat conditions. UL 1741-SA certified for PSPS resilience and SGIP incentive qualification.
+                Sol-Ark 12K/15K all-in-one hybrid inverters with &lt;10ms transfer time. API LiFePO4 batteries rated for 10,000+ cycles at 100% DOD. N-type TOPCon panels delivering 22%+ efficiency in high-heat conditions. UL 1741-SA certified for PSPS resilience and SGIP incentive qualification.
               </p>
               
               <div className="flex flex-wrap gap-3 justify-center">
