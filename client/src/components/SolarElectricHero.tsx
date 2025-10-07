@@ -231,9 +231,9 @@ const SolarElectricHero: React.FC<SolarElectricHeroProps> = ({ children }) => {
       {/* Main Content */}
       <motion.div 
         style={{ y: ySpring, opacity, scale }}
-        className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8"
+        className="relative z-50 flex flex-col items-center justify-center min-h-screen w-full"
       >
-        <div className="max-w-7xl mx-auto w-full">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -259,27 +259,35 @@ const SolarElectricHero: React.FC<SolarElectricHeroProps> = ({ children }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-center mb-6"
+            className="text-center mb-6 relative z-[9999]"
           >
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight relative z-[9999]">
               <span 
-                className="block"
+                className="block relative z-[9999]"
                 style={{
+                  color: 'white',
                   background: 'linear-gradient(to right, #fbbf24, #f97316, #fbbf24)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
+                  backgroundClip: 'text',
+                  textShadow: '0 0 40px rgba(251, 191, 36, 0.8)',
+                  position: 'relative',
+                  zIndex: 9999
                 }}
               >
                 Solar Energy
               </span>
               <span 
-                className="block mt-2"
+                className="block mt-2 relative z-[9999]"
                 style={{
+                  color: 'white',
                   background: 'linear-gradient(to right, #60a5fa, #06b6d4, #60a5fa)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
+                  backgroundClip: 'text',
+                  textShadow: '0 0 40px rgba(96, 165, 250, 0.8)',
+                  position: 'relative',
+                  zIndex: 9999
                 }}
               >
                 Meets Innovation
@@ -292,8 +300,8 @@ const SolarElectricHero: React.FC<SolarElectricHeroProps> = ({ children }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-center text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto mb-12"
-            style={{ color: '#9ca3af' }}
+            className="text-center text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto mb-12 relative z-[9999]"
+            style={{ color: '#f3f4f6', position: 'relative', zIndex: 9999 }}
           >
             Harness the power of the sun with cutting-edge electric wave technology. 
             Experience sustainable energy like never before.
@@ -304,7 +312,8 @@ const SolarElectricHero: React.FC<SolarElectricHeroProps> = ({ children }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20 relative z-[9999]"
+            style={{ position: 'relative', zIndex: 9999 }}
           >
             <Button 
               size="lg" 
@@ -343,7 +352,7 @@ const SolarElectricHero: React.FC<SolarElectricHeroProps> = ({ children }) => {
           </motion.div>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto relative z-[9999]" style={{ position: 'relative', zIndex: 9999 }}>
             <StatCard
               icon={<Sun className="w-6 h-6" />}
               value="99.9%"

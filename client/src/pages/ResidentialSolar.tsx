@@ -229,7 +229,7 @@ const ResidentialSolar = () => {
   ];
 
   return (
-    <MainLayout>
+    <MainLayout fullWidth={true}>
       <SEOHead 
         title={pageTitle}
         description={pageDescription}
