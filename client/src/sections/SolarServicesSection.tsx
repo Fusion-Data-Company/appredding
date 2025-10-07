@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import { Sun, Home, Building2, Zap, Users, Clock } from "lucide-react";
+import { useFormModal } from "@/contexts/FormModalContext";
+import { useLocation } from "wouter";
 
 const SolarServicesSection = () => {
+  const { openSolarForm } = useFormModal();
+  const [, setLocation] = useLocation();
   const services = [
     {
       icon: <Home className="w-8 h-8" />,
@@ -164,6 +168,7 @@ const SolarServicesSection = () => {
 
                   {/* Premium CTA Button */}
                   <motion.button
+                    onClick={() => setLocation('/products')}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="button-primary mt-8 w-full px-8 py-4 rounded-xl text-lg"
@@ -225,6 +230,7 @@ const SolarServicesSection = () => {
 
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <motion.button
+                  onClick={openSolarForm}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="button-primary px-12 py-6 font-black rounded-xl text-xl"

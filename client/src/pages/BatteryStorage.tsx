@@ -233,7 +233,7 @@ const BatteryStorage = () => {
 
                 {/* Secondary Button */}
                 <button
-                  onClick={() => document.getElementById('battery-comparison')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => window.location.href = '/products'}
                   className="relative overflow-hidden px-8 py-6 text-lg font-semibold rounded-full transition-all hover:scale-105 text-white group"
                   style={{
                     background: 'linear-gradient(135deg, rgba(249,115,22,0.2) 0%, rgba(251,146,60,0.15) 50%, rgba(59,130,246,0.2) 100%)',

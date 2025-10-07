@@ -4,12 +4,14 @@ import PageTransition from "@/components/ui/page-transition";
 import { GradientButton } from "@/components/ui/gradient-button";
 import AboutAdvancePowerSection from "@/sections/AboutAdvancePowerSection";
 import SEOHead from "@/components/SEOHead";
+import { useFormModal } from "@/contexts/FormModalContext";
 import gregWithPanel from "@assets/Greg-with-panel.jpg";
 import teamPhoto from "@assets/400617335_882191187089939_3988264444007076062_n-500x375.jpg";
 import teamWorking from "@assets/491844865_1271014964874224_7004732250107002194_n.jpg";
 import aprLogo from "@assets/APR-Logo-New-300x113.png";
 
 const About = () => {
+  const { openSolarForm } = useFormModal();
   const aboutSchema = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
@@ -191,12 +193,12 @@ const About = () => {
                 Contact us today for a free consultation and custom quote.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <GradientButton 
-                  href="/contact" 
-                  className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700"
+                <button 
+                  onClick={openSolarForm}
+                  className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-semibold px-6 py-3 rounded-lg transition-all"
                 >
                   Get Free Quote
-                </GradientButton>
+                </button>
                 <GradientButton 
                   href="/roi-calculator" 
                   className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700"

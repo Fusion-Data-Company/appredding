@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import RepairsWaveHero from "@/components/RepairsWaveHero";
 import MainLayout from "@/components/layout/MainLayout";
 import SEOHead from "@/components/SEOHead";
+import { useFormModal } from "@/contexts/FormModalContext";
 import { AwardBadge } from "@/components/ui/award-badge";
 import teamRepairImage from "@assets/100 Yr Old Cabin Off Grid Gets Power 4_1759799414077.jpg";
 import troubleshootingImage from "@assets/400617335_882191187089939_3988264444007076062_n-500x375.jpg";
@@ -11,6 +12,7 @@ import technicianWorkingImage from "@assets/Greg-with-panel.jpg";
 import solarEquipmentImage from "@assets/Off Grid Power Shed_1759799401459.jpg";
 
 const Repairs = () => {
+  const { openSolarForm } = useFormModal();
   const repairsSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -266,10 +268,10 @@ const Repairs = () => {
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <button className="bg-white text-red-600 px-6 py-3 rounded-xl font-semibold hover:bg-red-50 transition flex items-center gap-2">
+              <button onClick={openSolarForm} className="bg-white text-red-600 px-6 py-3 rounded-xl font-semibold hover:bg-red-50 transition flex items-center gap-2">
                 Emergency Repair <Phone className="h-5 w-5" />
               </button>
-              <button className="bg-white/20 backdrop-blur text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/30 transition flex items-center gap-2">
+              <button onClick={openSolarForm} className="bg-white/20 backdrop-blur text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/30 transition flex items-center gap-2">
                 <Clock className="h-5 w-5" /> Schedule Service
               </button>
             </div>
@@ -1543,10 +1545,10 @@ const Repairs = () => {
             <button className="bg-white text-red-600 px-8 py-4 rounded-xl font-semibold hover:bg-red-50 transition flex items-center gap-2">
               <Phone className="h-5 w-5" /> Emergency: (530) 226-0701
             </button>
-            <button className="bg-white/20 backdrop-blur text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/30 transition flex items-center gap-2">
+            <button onClick={openSolarForm} className="bg-white/20 backdrop-blur text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/30 transition flex items-center gap-2">
               <Calendar className="h-5 w-5" /> Schedule Service
             </button>
-            <button className="bg-white/20 backdrop-blur text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/30 transition flex items-center gap-2">
+            <button onClick={openSolarForm} className="bg-white/20 backdrop-blur text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/30 transition flex items-center gap-2">
               <FileCheck className="h-5 w-5" /> Get Quote
             </button>
           </div>

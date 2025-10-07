@@ -8,9 +8,11 @@ import { AnimatedCounter, LargeNumberCounter, PercentageCounter } from "../compo
 import { AwardBadge } from "../components/ui/award-badge";
 import ShaderBackground from "../components/ui/shader-background";
 import { Button } from "../components/ui/button";
+import { useFormModal } from "@/contexts/FormModalContext";
 
 
 const LithiumBattery = () => {
+  const { openSolarForm } = useFormModal();
   const [activeTab, setActiveTab] = useState("overview");
   const [selectedChemistry, setSelectedChemistry] = useState("lifepo4");
   const [cycleCount, setCycleCount] = useState(0);
@@ -1948,6 +1950,7 @@ const LithiumBattery = () => {
                     </p>
                     <div className="flex flex-wrap gap-4 justify-center">
                       <MagneticButton
+                        onClick={openSolarForm}
                         className="relative bg-white/90 backdrop-blur-sm text-blue-600 px-10 py-5 rounded-xl font-bold overflow-hidden group transition-all duration-300 shadow-xl hover:shadow-2xl"
                         strength={0.5}
                         style={{
@@ -1960,6 +1963,7 @@ const LithiumBattery = () => {
                         </span>
                       </MagneticButton>
                       <MagneticButton
+                        onClick={openSolarForm}
                         className="bg-white/25 backdrop-blur-md text-white px-10 py-5 rounded-xl font-bold border border-white/40 flex items-center gap-2 transition-all duration-300 shadow-xl hover:shadow-2xl hover:bg-white/35"
                         strength={0.5}
                       >

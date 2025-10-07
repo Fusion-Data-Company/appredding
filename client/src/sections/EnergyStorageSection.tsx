@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { Battery, Shield, Zap, Clock, Home, TrendingUp } from "lucide-react";
+import { useFormModal } from "@/contexts/FormModalContext";
 
 const EnergyStorageSection = () => {
+  const { openSolarForm } = useFormModal();
   const storageFeatures = [
     {
       icon: <Battery className="w-10 h-10" />,
@@ -222,6 +224,7 @@ const EnergyStorageSection = () => {
 
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <motion.button
+                  onClick={openSolarForm}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="button-primary px-12 py-6 font-black rounded-xl text-xl"

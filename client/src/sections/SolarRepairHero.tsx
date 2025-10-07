@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Wrench, Phone, Calendar, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { OptimizedImage } from '@/components/ui/optimized-image';
+import { useFormModal } from '@/contexts/FormModalContext';
 import heroBackgroundImage from '@assets/Rice Photo 1_1759814518987.jpg';
 import ricePhoto1 from '@assets/Rice Photo 1_1759799425958.jpg';
 import gitchellPhoto from '@assets/Gitchell_1759799401459.jpg';
@@ -31,10 +32,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
   tagline = "25+ Years Serving Northern California",
   title,
   subtitle = "Rescuing orphaned solar systems in 7 days or less. Specializing in NEM 3.0 battery retrofits and load shifting to recover 25-40% of lost export value. Serving Shasta County, North State I-5 corridor, Trinity & Tehama counties.",
-  ctaButtons = {
-    primary: { label: "Get Free Quote", onClick: () => console.log("Schedule clicked") },
-    secondary: { label: "Call (530) 226-0701", onClick: () => console.log("Emergency clicked") }
-  },
+  ctaButtons,
   backgroundImage = heroBackgroundImage,
   solarImages = [
     ricePhoto1,
@@ -47,6 +45,14 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
     caseyPhoto,
   ]
 }) => {
+  const { openSolarForm } = useFormModal();
+  
+  const defaultCtaButtons = {
+    primary: { label: "Get Free Quote", onClick: openSolarForm },
+    secondary: { label: "Call (530) 226-0701", onClick: () => console.log("Emergency clicked") }
+  };
+  
+  const finalCtaButtons = ctaButtons || defaultCtaButtons;
   const featureRef = useRef<HTMLDivElement>(null);
   const [imageLoaded, setImageLoaded] = useState(false);
 
@@ -192,7 +198,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
               className="flex flex-col sm:flex-row gap-4"
             >
               <button
-                onClick={ctaButtons.primary.onClick}
+                onClick={finalCtaButtons.primary.onClick}
                 className="relative overflow-hidden px-8 py-4 text-lg font-bold rounded-full transition-all hover:scale-105 text-white group"
                 style={{
                   background: 'linear-gradient(135deg, #f97316 0%, #fb923c 25%, #ea580c 50%, #f59e0b 75%, #3b82f6 100%)',
@@ -202,7 +208,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
               >
                 <span className="relative z-10 flex items-center gap-2">
                   <Calendar className="w-4 h-4" />
-                  {ctaButtons.primary.label}
+                  {finalCtaButtons.primary.label}
                 </span>
                 {/* Glass overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/10 to-transparent opacity-60 pointer-events-none rounded-full" />
@@ -218,7 +224,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
                 />
               </button>
               <button
-                onClick={ctaButtons.secondary.onClick}
+                onClick={finalCtaButtons.secondary.onClick}
                 className="relative overflow-hidden px-8 py-4 text-lg font-semibold rounded-full transition-all hover:scale-105 text-white group"
                 style={{
                   background: 'linear-gradient(135deg, rgba(249,115,22,0.2) 0%, rgba(251,146,60,0.15) 50%, rgba(59,130,246,0.2) 100%)',
@@ -397,7 +403,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
-                  onClick={ctaButtons.primary.onClick}
+                  onClick={finalCtaButtons.primary.onClick}
                   className="relative overflow-hidden px-8 py-4 text-lg font-bold rounded-full transition-all hover:scale-105 text-white group"
                   style={{
                     background: 'linear-gradient(135deg, #f97316 0%, #fb923c 25%, #ea580c 50%, #f59e0b 75%, #3b82f6 100%)',
@@ -407,7 +413,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
                 >
                   <span className="relative z-10 flex items-center gap-2">
                     <Calendar className="w-4 h-4" />
-                    {ctaButtons.primary.label}
+                    {finalCtaButtons.primary.label}
                   </span>
                   {/* Glass overlay */}
                   <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/10 to-transparent opacity-60 pointer-events-none rounded-full" />
@@ -423,7 +429,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
                   />
                 </button>
                 <button
-                  onClick={ctaButtons.secondary.onClick}
+                  onClick={finalCtaButtons.secondary.onClick}
                   className="relative overflow-hidden px-8 py-4 text-lg font-semibold rounded-full transition-all hover:scale-105 text-white group"
                   style={{
                     background: 'linear-gradient(135deg, rgba(249,115,22,0.2) 0%, rgba(251,146,60,0.15) 50%, rgba(59,130,246,0.2) 100%)',
@@ -435,7 +441,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
                 >
                   <span className="relative z-10 flex items-center gap-2">
                     <Phone className="w-4 h-4" />
-                    {ctaButtons.secondary.label}
+                    {finalCtaButtons.secondary.label}
                   </span>
                   {/* Glass overlay */}
                   <div className="absolute inset-0 bg-gradient-to-tl from-white/30 via-transparent to-white/10 opacity-50 pointer-events-none rounded-full" />

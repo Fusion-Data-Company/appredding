@@ -399,6 +399,7 @@ const SolarElectricHero: React.FC<SolarElectricHeroProps> = ({
             </Button>
             <Button 
               size="lg" 
+              onClick={() => window.location.href = '/products'}
               className="px-8 py-6 text-lg rounded-full transition-all"
               style={{
                 border: '2px solid #374151',

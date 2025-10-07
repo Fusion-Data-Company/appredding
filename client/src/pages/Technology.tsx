@@ -8,12 +8,14 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { GradientTracing } from '@/components/ui/gradient-tracing';
+import { useFormModal } from "@/contexts/FormModalContext";
 import solarPanelImage from '@assets/Landis_1759799401459.jpg';
 import batteryTechImage from '@assets/Batt-3-300x400.jpg';
 import solArkEquipmentImage from '@assets/15K-new-1-e1719430674378-628x1024.webp';
 import installationTechImage from '@assets/Gilmer pic_1759799414077.jpg';
 
 const Technology = () => {
+  const { openSolarForm } = useFormModal();
   return (
     <MainLayout fullWidth>
       <Helmet>
@@ -380,13 +382,11 @@ const Technology = () => {
                 Contact Advance Power Redding today for a free consultation and custom solar system design. Our experts will analyze your energy needs and provide a detailed proposal with no obligation.
               </p>
               
-              <Link href="/contact">
-                <Button className="bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-amber-900/30">
-                  <Sun className="h-5 w-5 mr-2" />
-                  <span>Get Free Quote</span>
-                  <ChevronRight className="h-4 w-4 ml-2" />
-                </Button>
-              </Link>
+              <Button onClick={openSolarForm} className="bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-amber-900/30">
+                <Sun className="h-5 w-5 mr-2" />
+                <span>Get Free Quote</span>
+                <ChevronRight className="h-4 w-4 ml-2" />
+              </Button>
             </div>
           </div>
         </section>

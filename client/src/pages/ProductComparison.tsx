@@ -9,6 +9,7 @@ import { Zap, Sun, Battery, Sparkles, Star, TrendingUp, Shield, Gauge, Thermomet
 import SolarBackground from "@/components/SolarBackground";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 import { GradientTracing } from '@/components/ui/gradient-tracing';
+import { useFormModal } from "@/contexts/FormModalContext";
 
 interface ProductFeature {
   name: string;
@@ -812,6 +813,7 @@ const getValueColor = (specName: string, value: string | number): string => {
 };
 
 const ProductComparison = () => {
+  const { openSolarForm } = useFormModal();
   const [selectedProducts, setSelectedProducts] = useState<string[]>([]);
   const [activeCategory, setActiveCategory] = useState("all");
   
@@ -1328,6 +1330,7 @@ const ProductComparison = () => {
                     whileTap={{ scale: 0.95 }}
                   >
                     <Button 
+                      onClick={openSolarForm}
                       className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold px-8 py-6 text-lg shadow-xl hover:shadow-2xl transition-all duration-300"
                     >
                       Request Quote for Selected Products

@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import { Award, Users, Calendar, Shield, Zap, CheckCircle, Star, Badge, Settings, Battery, Wifi, Wrench, FileCheck } from "lucide-react";
 import { useFormModal } from "@/contexts/FormModalContext";
+import { useLocation } from "wouter";
 
 const AboutAdvancePowerSection = () => {
   const { openSolarForm } = useFormModal();
+  const [, setLocation] = useLocation();
   const achievements = [
     {
       icon: <Calendar className="w-8 h-8" />,
@@ -241,6 +243,7 @@ const AboutAdvancePowerSection = () => {
 
             <div className="mt-8">
               <motion.button
+                onClick={() => setLocation('/products')}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-400 hover:to-purple-400 text-white font-bold rounded-xl text-lg shadow-2xl transition-all duration-300 hover:shadow-3xl"

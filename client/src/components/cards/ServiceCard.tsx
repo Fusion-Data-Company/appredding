@@ -97,6 +97,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       
       <div className="mt-auto">
         <Button 
+          onClick={() => window.location.href = '/products'}
           className={`w-full bg-gradient-to-r ${accent.button} text-white font-semibold`}
         >
           Learn More

@@ -412,9 +412,7 @@ const AdvancePowerHero = () => {
               <Button
                 variant="outline"
                 className="border-2 border-white text-white hover:bg-white hover:text-blue-900 transition-all duration-300"
-                onClick={() => {
-                  document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })
-                }}
+                onClick={() => window.location.href = '/products'}
                 data-testid="button-learn-more"
               >
                 Learn More

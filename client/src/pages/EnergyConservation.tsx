@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import FluidEnergyHero from "@/components/FluidEnergyHero";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useFormModal } from "@/contexts/FormModalContext";
 import {
   Form,
   FormControl,
@@ -33,6 +34,7 @@ import solarEfficiencyEquipmentImg from "@assets/Power Trailer_1759799420383.jpg
 type EnergyConservationFormValues = z.infer<typeof insertFirePreventionHomeownerSchema>;
 
 const EnergyConservation = () => {
+  const { openSolarForm } = useFormModal();
   const [activeTab, setActiveTab] = useState("overview");
   const [selectedService, setSelectedService] = useState("audit");
   const [energyUsage, setEnergyUsage] = useState(3500);
@@ -457,6 +459,7 @@ const EnergyConservation = () => {
                 </div>
 
                 <button
+                  onClick={openSolarForm}
                   className="w-full relative overflow-hidden px-4 py-3 rounded-xl font-semibold transition-all hover:scale-105 text-white"
                   style={{
                     background: 'linear-gradient(135deg, #f97316 0%, #fb923c 50%, #ea580c 100%)',
@@ -1995,6 +1998,7 @@ const EnergyConservation = () => {
               </motion.button>
 
               <motion.button
+                onClick={openSolarForm}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="relative overflow-hidden px-8 py-4 rounded-xl font-semibold flex items-center gap-2 text-white"

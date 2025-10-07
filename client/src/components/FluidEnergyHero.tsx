@@ -220,6 +220,7 @@ export default function FluidEnergyHero() {
           <Button 
             size="lg"
             variant="outline"
+            onClick={() => window.location.href = '/products'}
             className="bg-white/10 backdrop-blur-md border-white/30 text-white hover:bg-white/20 px-8 py-6 text-lg rounded-full transition-all duration-300 hover:scale-105"
             data-testid="button-learn-more"
           >

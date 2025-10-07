@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { useFormModal } from "@/contexts/FormModalContext";
 import {
   Select,
   SelectContent,
@@ -46,6 +47,7 @@ interface BookingWidgetProps {
 }
 
 export default function BookingWidget({ className }: BookingWidgetProps) {
+  const { openSolarForm } = useFormModal();
   const { toast } = useToast();
   const [selectedDate, setSelectedDate] = useState<string>("");
   const [availableSlots, setAvailableSlots] = useState<TimeSlot[]>([]);
@@ -442,7 +444,8 @@ export default function BookingWidget({ className }: BookingWidgetProps) {
 
           {/* Submit Button */}
           <Button
-            type="submit"
+            type="button"
+            onClick={openSolarForm}
             disabled={isSubmitting}
             className="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-semibold py-6 text-lg"
             data-testid="button-submit"

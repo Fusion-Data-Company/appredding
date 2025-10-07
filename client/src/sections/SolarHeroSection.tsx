@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { SOLAR_HERO_IMAGE } from "@/assets_dir/imageExports";
+import { useFormModal } from "@/contexts/FormModalContext";
 
 const SolarHeroSection = () => {
+  const { openSolarForm } = useFormModal();
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50" style={{ minHeight: '100vh' }}>
       {/* Subtle Enterprise Background */}
@@ -187,12 +189,12 @@ const SolarHeroSection = () => {
           
           {/* Professional Call-to-Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Link href="/contact">
-              <motion.button
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="button-primary px-12 py-4 font-bold rounded-xl text-lg text-white"
-              >
+            <motion.button
+              onClick={openSolarForm}
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="button-primary px-12 py-4 font-bold rounded-xl text-lg text-white"
+            >
                 <div className="solar-panel-grid">
                   <div>
                     {[...Array(9)].map((_, i) => (
@@ -218,7 +220,6 @@ const SolarHeroSection = () => {
                 <span className="relative z-10 text-white">Get Free Solar Quote</span>
                 <div className="shine-effect"></div>
               </motion.button>
-            </Link>
             
             <Link href="/residential-solar">
               <motion.button

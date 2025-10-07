@@ -3,12 +3,14 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Check, Sun, DollarSign } from 'lucide-react';
 import { Link } from 'wouter';
 import { SOLAR_HERO_IMAGE } from "@/assets_dir/imageExports";
+import { useFormModal } from "@/contexts/FormModalContext";
 
 interface HeroAPRSolarProps {
   className?: string;
 }
 
 export const HeroAPRSolar: React.FC<HeroAPRSolarProps> = ({ className = "" }) => {
+  const { openSolarForm } = useFormModal();
   return (
     <section className={`relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 ${className}`}>
       {/* Subtle Enterprise Background */}
@@ -142,12 +144,12 @@ export const HeroAPRSolar: React.FC<HeroAPRSolarProps> = ({ className = "" }) =>
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
           >
-            <Link href="/contact" className="group">
-              <motion.button
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="button-primary px-12 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold rounded-xl text-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden"
-              >
+            <motion.button
+              onClick={openSolarForm}
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="button-primary px-12 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold rounded-xl text-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden"
+            >
                 <div className="solar-panel-grid">
                   {[...Array(9)].map((_, i) => (
                     <div
@@ -177,7 +179,6 @@ export const HeroAPRSolar: React.FC<HeroAPRSolarProps> = ({ className = "" }) =>
                 <span className="relative z-10 text-white">Get Free Solar Quote</span>
                 <div className="shine-effect"></div>
               </motion.button>
-            </Link>
             
             <Link href="/residential-solar">
               <motion.button

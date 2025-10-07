@@ -2,8 +2,10 @@ import MainLayout from '@/components/layout/MainLayout';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 import { ShoppingBag, Home } from 'lucide-react';
+import { useFormModal } from '@/contexts/FormModalContext';
 
 export default function Checkout() {
+  const { openSolarForm } = useFormModal();
   return (
     <MainLayout>
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
@@ -27,11 +29,9 @@ export default function Checkout() {
                   Go Home
                 </Button>
               </Link>
-              <Link href="/contact">
-                <Button className="bg-amber-600 hover:bg-amber-700 text-white">
-                  Request Quote
-                </Button>
-              </Link>
+              <Button onClick={openSolarForm} className="bg-amber-600 hover:bg-amber-700 text-white">
+                Request Quote
+              </Button>
             </div>
           </div>
         </div>
