@@ -233,15 +233,17 @@ const SolarElectricHero: React.FC<SolarElectricHeroProps> = ({
         <AnimatedWave className="absolute bottom-0 w-full h-full" />
       </div>
 
-      {/* Badge slot */}
-      {children}
-
       {/* Main Content */}
       <motion.div 
         style={{ y: ySpring, opacity, scale }}
         className="relative z-50 flex flex-col items-center justify-center min-h-screen w-full"
       >
         <div className="w-full px-4 sm:px-6 lg:px-8">
+          {/* Badge Above Card */}
+          <div className="flex justify-center mb-6">
+            {children}
+          </div>
+
           {/* Premium Glassmorphism Card */}
           <div className="hero-glass-card max-w-6xl mx-auto">
             {/* Shimmer Overlay */}
@@ -397,29 +399,34 @@ const SolarElectricHero: React.FC<SolarElectricHeroProps> = ({
               Learn More
             </Button>
               </motion.div>
-            </div>
-          </div>
 
-          {/* Stats Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto relative z-[9999]" style={{ position: 'relative', zIndex: 9999 }}>
-            <StatCard
-              icon={<Sun className="w-6 h-6" />}
-              value="99.9%"
-              label="Solar Efficiency"
-              delay={0.8}
-            />
-            <StatCard
-              icon={<Battery className="w-6 h-6" />}
-              value="24/7"
-              label="Energy Storage"
-              delay={1.0}
-            />
-            <StatCard
-              icon={<Zap className="w-6 h-6" />}
-              value="100K+"
-              label="Homes Powered"
-              delay={1.2}
-            />
+              {/* Stats Grid - Now Inside Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+                className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-10 relative z-10"
+              >
+                <StatCard
+                  icon={<Sun className="w-6 h-6" />}
+                  value="99.9%"
+                  label="Solar Efficiency"
+                  delay={0.8}
+                />
+                <StatCard
+                  icon={<Battery className="w-6 h-6" />}
+                  value="24/7"
+                  label="Energy Storage"
+                  delay={1.0}
+                />
+                <StatCard
+                  icon={<Zap className="w-6 h-6" />}
+                  value="100K+"
+                  label="Homes Powered"
+                  delay={1.2}
+                />
+              </motion.div>
+            </div>
           </div>
         </div>
       </motion.div>

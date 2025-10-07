@@ -336,10 +336,7 @@ const CommercialSolar = () => {
         title2="Operational Excellence"
         subtitle="Enterprise-grade Sol-Ark 30K/60K three-phase systems engineered for California businesses. Slash operational costs, maximize ITC + bonus depreciation, eliminate demand charges, and achieve energy resilience with our proven commercial solar solutions."
       >
-        {/* Excellence Award Badge - Top Right */}
-        <div className="absolute top-4 right-4 md:top-8 md:right-8 z-20">
-          <AwardBadge type="customer-service-excellence" />
-        </div>
+        <AwardBadge type="customer-service-excellence" />
       </SolarElectricHero>
 
 
