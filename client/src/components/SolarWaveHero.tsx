@@ -39,17 +39,17 @@ const SolarWaveBackground: React.FC<SolarWaveBackgroundProps> = ({ className = "
     }));
 
     const draw = () => {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.95)";
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       waveData.forEach((wave, index) => {
         ctx.beginPath();
         
-        for (let x = 0; x < canvas.width; x++) {
+        for (let x = 0; x < canvas.width; x += 2) {
           const normalizedX = x / canvas.width;
           const y =
             canvas.height / 2 +
-            Math.sin(normalizedX * wave.frequency * Math.PI * 2 + time * wave.speed + wave.offset) *
+            Math.sin(normalizedX * wave.frequency * Math.PI + time * wave.speed + wave.offset) *
               wave.amplitude *
               canvas.height *
               0.3;
@@ -61,17 +61,16 @@ const SolarWaveBackground: React.FC<SolarWaveBackgroundProps> = ({ className = "
           }
         }
 
-        const hue = 30 + index * 5;
+        const hue = 30 + index * 10;
         const saturation = 100;
         const lightness = 50 + index * 2;
-        const alpha = 0.15 + (index / waveData.length) * 0.3;
+        const alpha = 0.3 + (index / waveData.length) * 0.4;
 
         ctx.strokeStyle = `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha})`;
         ctx.lineWidth = 2 + index * 0.3;
-        ctx.shadowColor = `hsla(${hue}, ${saturation}%, ${lightness}%, 0.5)`;
+        ctx.shadowColor = `hsla(${hue}, ${saturation}%, ${lightness}%, 0.8)`;
         ctx.shadowBlur = 15;
         ctx.stroke();
-        ctx.shadowBlur = 0;
       });
 
       time += 0.5;
