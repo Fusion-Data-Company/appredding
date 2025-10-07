@@ -2,7 +2,8 @@ import MainLayout from '@/components/layout/MainLayout';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 import { Sun, Zap, Battery, ShieldCheck, Cpu } from 'lucide-react';
-import ProductsWaveHero from '@/components/ProductsWaveHero';
+import SolarWaveHero from '@/components/SolarWaveHero';
+import { AwardBadge } from '@/components/ui/award-badge';
 import CardCarouselDemo from '@/components/ui/card-carousel-demo';
 import SEOHead from '@/components/SEOHead';
 import { motion } from 'framer-motion';
@@ -48,17 +49,13 @@ export default function Products() {
         type="website"
         structuredData={productsSchema}
       />
-      {/* Products Wave Hero Section */}
-      <ProductsWaveHero 
-        tagline="Premium Solar Solutions & Energy Systems"
-        title="Solar Products"
-        subtitle="Discover our comprehensive range of cutting-edge solar products and energy solutions. From high-efficiency panels to advanced battery storage systems, we deliver the technology that powers your sustainable future."
-        stats={[
-          { value: "99.9%", label: "Product Efficiency" },
-          { value: "25yr", label: "Warranty Coverage" },
-          { value: "100%", label: "Quality Guaranteed" }
-        ]}
-      />
+      {/* Solar Wave Hero Section */}
+      <SolarWaveHero>
+        {/* Excellence Award Badge - Top Right */}
+        <div className="absolute top-4 right-4 md:top-8 md:right-8 z-20">
+          <AwardBadge type="customer-service-excellence" />
+        </div>
+      </SolarWaveHero>
 
       {/* Featured Solar Products Carousel */}
       <div className="py-16 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">

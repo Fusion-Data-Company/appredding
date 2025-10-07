@@ -1,9 +1,6 @@
-"use client";
-
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, ReactNode } from "react";
 import { motion, useMotionTemplate, useMotionValue, animate } from "framer-motion";
-import { Zap, Sun, Battery, Sparkles } from "lucide-react";
-import { AwardBadge } from '@/components/ui/award-badge';
+import { Zap, Sun, Battery } from "lucide-react";
 
 // ============================================================================
 // SOLAR WAVE BACKGROUND COMPONENT
@@ -15,13 +12,6 @@ interface SolarWaveBackgroundProps {
 
 const SolarWaveBackground: React.FC<SolarWaveBackgroundProps> = ({ className = "" }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-  const waveDataRef = useRef<Array<{
-    amplitude: number;
-    frequency: number;
-    speed: number;
-    offset: number;
-  }>>([]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -38,16 +28,10 @@ const SolarWaveBackground: React.FC<SolarWaveBackgroundProps> = ({ className = "
       canvas.height = window.innerHeight;
     };
 
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-      resizeCanvas();
-    };
-
     resizeCanvas();
-    window.addEventListener("resize", handleResize, { passive: true });
+    window.addEventListener("resize", resizeCanvas);
 
-    const waveCount = isMobile ? 6 : 12;
-    waveDataRef.current = Array.from({ length: waveCount }).map(() => ({
+    const waveData = Array.from({ length: 12 }).map(() => ({
       amplitude: Math.random() * 0.3 + 0.2,
       frequency: Math.random() * 3 + 2,
       speed: Math.random() * 0.02 + 0.01,
@@ -55,17 +39,17 @@ const SolarWaveBackground: React.FC<SolarWaveBackgroundProps> = ({ className = "
     }));
 
     const draw = () => {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillStyle = "rgba(0, 0, 0, 0.95)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      waveDataRef.current.forEach((wave, index) => {
+      waveData.forEach((wave, index) => {
         ctx.beginPath();
         
-        for (let x = 0; x < canvas.width; x += 2) {
+        for (let x = 0; x < canvas.width; x++) {
           const normalizedX = x / canvas.width;
           const y =
             canvas.height / 2 +
-            Math.sin(normalizedX * wave.frequency * Math.PI + time * wave.speed + wave.offset) *
+            Math.sin(normalizedX * wave.frequency * Math.PI * 2 + time * wave.speed + wave.offset) *
               wave.amplitude *
               canvas.height *
               0.3;
@@ -77,16 +61,17 @@ const SolarWaveBackground: React.FC<SolarWaveBackgroundProps> = ({ className = "
           }
         }
 
-        const hue = 30 + index * 10;
+        const hue = 30 + index * 5;
         const saturation = 100;
         const lightness = 50 + index * 2;
-        const alpha = 0.3 + (index / waveDataRef.current.length) * 0.4;
+        const alpha = 0.15 + (index / waveData.length) * 0.3;
 
         ctx.strokeStyle = `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha})`;
         ctx.lineWidth = 2 + index * 0.3;
-        ctx.shadowColor = `hsla(${hue}, ${saturation}%, ${lightness}%, 0.8)`;
+        ctx.shadowColor = `hsla(${hue}, ${saturation}%, ${lightness}%, 0.5)`;
         ctx.shadowBlur = 15;
         ctx.stroke();
+        ctx.shadowBlur = 0;
       });
 
       time += 0.5;
@@ -96,30 +81,30 @@ const SolarWaveBackground: React.FC<SolarWaveBackgroundProps> = ({ className = "
     draw();
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", resizeCanvas);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [isMobile]);
+  }, []);
 
   return <canvas ref={canvasRef} className={`fixed inset-0 ${className}`} />;
 };
 
 // ============================================================================
-// ELECTRIC PARTICLES COMPONENT
+// SPARKLES COMPONENT
 // ============================================================================
 
-const ElectricParticles: React.FC = () => {
+interface SparklesProps {
+  className?: string;
+  particleColor?: string;
+  particleDensity?: number;
+}
+
+const Sparkles: React.FC<SparklesProps> = ({
+  className = "",
+  particleColor = "#FFA500",
+  particleDensity = 50,
+}) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-  const particlesRef = useRef<Array<{
-    x: number;
-    y: number;
-    vx: number;
-    vy: number;
-    life: number;
-    maxLife: number;
-    hue: number;
-  }>>([]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -135,104 +120,66 @@ const ElectricParticles: React.FC = () => {
       canvas.height = window.innerHeight;
     };
 
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-      resizeCanvas();
-    };
-
     resizeCanvas();
-    window.addEventListener("resize", handleResize, { passive: true });
+    window.addEventListener("resize", resizeCanvas);
 
-    const maxParticles = isMobile ? 40 : 100;
-    particlesRef.current = [];
+    const particles: Array<{
+      x: number;
+      y: number;
+      size: number;
+      speedX: number;
+      speedY: number;
+      opacity: number;
+      fadeSpeed: number;
+    }> = [];
 
-    const createParticle = () => {
-      return {
+    for (let i = 0; i < particleDensity; i++) {
+      particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 2,
-        vy: (Math.random() - 0.5) * 2,
-        life: 0,
-        maxLife: Math.random() * 100 + 50,
-        hue: Math.random() * 60 + 30,
-      };
-    };
-
-    for (let i = 0; i < maxParticles; i++) {
-      particlesRef.current.push(createParticle());
+        size: Math.random() * 2 + 0.5,
+        speedX: (Math.random() - 0.5) * 0.5,
+        speedY: (Math.random() - 0.5) * 0.5,
+        opacity: Math.random(),
+        fadeSpeed: (Math.random() - 0.5) * 0.02,
+      });
     }
 
-    const animate = () => {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    const animateParticles = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      particlesRef.current.forEach((particle, index) => {
-        particle.x += particle.vx;
-        particle.y += particle.vy;
-        particle.life++;
+      particles.forEach((particle) => {
+        particle.x += particle.speedX;
+        particle.y += particle.speedY;
+        particle.opacity += particle.fadeSpeed;
 
-        if (
-          particle.life > particle.maxLife ||
-          particle.x < 0 ||
-          particle.x > canvas.width ||
-          particle.y < 0 ||
-          particle.y > canvas.height
-        ) {
-          particlesRef.current[index] = createParticle();
-          return;
+        if (particle.opacity <= 0 || particle.opacity >= 1) {
+          particle.fadeSpeed *= -1;
         }
 
-        const alpha = 1 - particle.life / particle.maxLife;
-        ctx.fillStyle = `hsla(${particle.hue}, 100%, 60%, ${alpha * 0.6})`;
-        ctx.shadowColor = `hsla(${particle.hue}, 100%, 60%, ${alpha})`;
-        ctx.shadowBlur = 10;
+        if (particle.x < 0 || particle.x > canvas.width) particle.speedX *= -1;
+        if (particle.y < 0 || particle.y > canvas.height) particle.speedY *= -1;
+
         ctx.beginPath();
-        ctx.arc(particle.x, particle.y, 2, 0, Math.PI * 2);
+        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+        ctx.fillStyle = particleColor;
+        ctx.globalAlpha = Math.max(0, Math.min(1, particle.opacity));
         ctx.fill();
+        ctx.globalAlpha = 1;
       });
 
-      animationFrameId = requestAnimationFrame(animate);
+      animationFrameId = requestAnimationFrame(animateParticles);
     };
 
-    animate();
+    animateParticles();
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", resizeCanvas);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [isMobile]);
+  }, [particleColor, particleDensity]);
 
-  return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none" />;
-};
-
-// ============================================================================
-// SHIMMER TEXT COMPONENT
-// ============================================================================
-
-interface ShimmerTextProps {
-  children: string;
-  className?: string;
-}
-
-const ShimmerText: React.FC<ShimmerTextProps> = ({ children, className = "" }) => {
-  return (
-    <motion.span
-      className={`relative inline-block bg-[length:250%_100%,auto] bg-clip-text text-transparent ${className}`}
-      initial={{ backgroundPosition: "100% center" }}
-      animate={{ backgroundPosition: "0% center" }}
-      transition={{
-        repeat: Infinity,
-        duration: 3,
-        ease: "linear",
-      }}
-      style={{
-        backgroundImage:
-          "linear-gradient(90deg, transparent 0%, transparent 40%, rgba(255, 200, 100, 0.8) 50%, transparent 60%, transparent 100%), linear-gradient(to right, #fbbf24, #f59e0b)",
-      }}
-    >
-      {children}
-    </motion.span>
-  );
+  return <canvas ref={canvasRef} className={`absolute inset-0 pointer-events-none ${className}`} />;
 };
 
 // ============================================================================
@@ -240,30 +187,14 @@ const ShimmerText: React.FC<ShimmerTextProps> = ({ children, className = "" }) =
 // ============================================================================
 
 interface SolarWaveHeroProps {
-  tagline?: string;
-  title?: string;
-  subtitle?: string;
-  stats?: Array<{
-    value: string;
-    label: string;
-  }>;
+  children?: ReactNode;
 }
 
-const SolarWaveHero: React.FC<SolarWaveHeroProps> = ({
-  tagline = "Powering the Future with Clean Energy",
-  title = "Residential Solar Installation",
-  subtitle = "Professional solar installations for Northern California homes. Our founder brings decades of expertise in renewable energy systems, helping Redding families achieve energy independence with premium solar solutions.",
-  stats = [
-    { value: "99.9%", label: "Efficiency Rate" },
-    { value: "50K+", label: "Installations" },
-    { value: "24/7", label: "Support" }
-  ]
-}) => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const color = useMotionValue("#f59e0b");
+const SolarWaveHero: React.FC<SolarWaveHeroProps> = ({ children }) => {
+  const color = useMotionValue("#FF6B00");
 
   useEffect(() => {
-    animate(color, ["#f59e0b", "#fbbf24", "#fb923c", "#f59e0b"], {
+    animate(color, ["#FF6B00", "#FFD700", "#FF8C00", "#FFA500", "#FF6B00"], {
       ease: "easeInOut",
       duration: 8,
       repeat: Infinity,
@@ -271,94 +202,121 @@ const SolarWaveHero: React.FC<SolarWaveHeroProps> = ({
     });
   }, [color]);
 
-  const backgroundGradient = useMotionTemplate`radial-gradient(circle at 50% 50%, ${color}15 0%, transparent 70%)`;
+  const backgroundGradient = useMotionTemplate`radial-gradient(circle at 50% 50%, ${color}15, transparent 70%)`;
   const borderGlow = useMotionTemplate`0 0 20px ${color}40`;
 
   return (
-    <div className="hero-section relative min-h-screen w-full overflow-hidden bg-black">
-      {/* Award Badge */}
-      <div className="absolute top-4 right-4 md:top-8 md:right-8 z-50">
-        <AwardBadge type="customer-service-excellence" data-testid="award-badge-residential-solar" />
-      </div>
-      {/* Animated Backgrounds */}
+    <div className="relative min-h-screen w-full overflow-hidden bg-black">
+      {/* Background Layers */}
       <SolarWaveBackground />
-      <ElectricParticles />
-
-      {/* Gradient Overlays */}
+      <Sparkles particleColor="#FFA500" particleDensity={60} />
+      
       <motion.div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: backgroundGradient }}
+        style={{
+          background: backgroundGradient,
+        }}
       />
 
+      {/* Badge slot - positioned absolutely with high z-index */}
+      {children}
+
       {/* Hero Content */}
-      <div className="relative z-[2] flex min-h-screen items-start pt-24 md:pt-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-4xl text-center">
+      <div className="relative z-10 flex min-h-screen items-center">
+        <div className="w-full px-6 lg:px-8">
+          <div className="mx-auto max-w-5xl">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="badge-elite-metallic badge-solar"
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-center mb-8"
             >
-              <motion.div
-                animate={{ rotate: [0, 360] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-              >
-                <Sun className="w-4 h-4 text-amber-400" />
-              </motion.div>
-              <span>{tagline}</span>
+              <div className="inline-flex items-center space-x-2 rounded-full bg-orange-500/10 backdrop-blur-sm border border-orange-500/20 px-4 py-2 mb-8">
+                <Zap className="h-4 w-4 text-orange-400" />
+                <span className="text-sm font-medium text-orange-300">Powering the Future</span>
+              </div>
             </motion.div>
 
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="mb-6 text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl"
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-5xl md:text-7xl lg:text-8xl font-bold text-center mb-6 leading-tight"
             >
-              <span 
-                className="text-5xl sm:text-6xl lg:text-7xl font-bold"
-                style={{ 
-                  color: '#ff9933',
-                  textShadow: '0 0 40px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 153, 51, 0.6), 0 2px 4px rgba(0,0,0,0.3)',
-                  filter: 'brightness(1.3)',
-                  WebkitTextFillColor: '#ff9933'
-                }}
-              >
-                {title}
+              <span className="bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-500 bg-clip-text text-transparent">
+                Solar Energy
               </span>
               <br />
-              <span className="font-extrabold tracking-wide text-white">
-                Advance Power Redding
+              <span className="text-white">
+                Meets Innovation
               </span>
             </motion.h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="mb-10 text-lg leading-8 text-white/80 sm:text-xl lg:text-2xl max-w-3xl mx-auto"
+              className="text-xl md:text-2xl text-white/80 text-center mb-12 max-w-3xl mx-auto leading-relaxed"
             >
-              {subtitle}
+              Harness the power of the sun with cutting-edge electric wave technology. 
+              Transform your energy future with sustainable, intelligent solutions.
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 max-w-3xl mx-auto px-4"
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
             >
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center p-4 sm:p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10">
-                  <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent mb-2">
-                    {stat.value}
-                  </div>
-                  <div className="text-white/60 text-xs sm:text-sm">{stat.label}</div>
-                </div>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                style={{ boxShadow: borderGlow }}
+                className="group rounded-full bg-gradient-to-r from-orange-500 to-yellow-500 px-8 py-4 text-lg font-semibold text-black transition-all flex items-center space-x-2"
+                data-testid="button-explore-solutions"
+              >
+                <span>Explore Solutions</span>
+                <Zap className="h-5 w-5 group-hover:rotate-12 transition-transform" />
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="rounded-full border border-white/20 bg-white/5 backdrop-blur-xl px-8 py-4 text-lg font-semibold text-white transition-all hover:bg-white/10 hover:border-white/30"
+                data-testid="button-watch-demo"
+              >
+                Watch Demo
+              </motion.button>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto"
+            >
+              {[
+                { icon: Sun, title: "100% Renewable", value: "Clean Energy" },
+                { icon: Zap, title: "99.9% Uptime", value: "Reliable Power" },
+                { icon: Battery, title: "50% Savings", value: "Cost Efficient" },
+              ].map((stat, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  className="rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 p-6 text-center transition-all hover:bg-white/10 hover:border-orange-500/30"
+                  data-testid={`stat-card-${index}`}
+                >
+                  <stat.icon className="h-8 w-8 text-orange-400 mx-auto mb-3" />
+                  <div className="text-2xl font-bold text-white mb-1">{stat.title}</div>
+                  <div className="text-sm text-white/60">{stat.value}</div>
+                </motion.div>
               ))}
             </motion.div>
           </div>
         </div>
       </div>
+
+      {/* Bottom Gradient Overlay */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent pointer-events-none z-10" />
     </div>
   );
 };
