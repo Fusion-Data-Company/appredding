@@ -448,8 +448,9 @@ function App() {
         const lastEntry = entries[entries.length - 1];
         if (lastEntry && lastEntry.startTime > 0) {
           
-          // Report very slow LCP as potential performance issue
-          if (lastEntry.startTime > 5000) {
+          // Only report extremely slow LCP (>10s) to reduce noise
+          // Regular performance tracking is handled by usePerformance hook
+          if (lastEntry.startTime > 10000) {
             errorHandler.reportManualError(
               `Very slow LCP detected: ${Math.round(lastEntry.startTime)}ms`, 
               'js_error'

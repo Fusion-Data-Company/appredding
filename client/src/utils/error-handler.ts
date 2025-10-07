@@ -77,13 +77,20 @@ class ErrorHandler {
         const response = await originalFetch(...args);
         
         if (!response.ok) {
-          this.reportError({
-            type: 'network_error',
-            message: `HTTP ${response.status}: ${response.statusText}`,
-            timestamp: Date.now(),
-            userAgent: navigator.userAgent,
-            url: args[0]?.toString() || 'unknown'
-          });
+          const url = args[0]?.toString() || 'unknown';
+          
+          // Don't report expected 401 errors on auth endpoints
+          const isExpected401 = response.status === 401 && url.includes('/api/user');
+          
+          if (!isExpected401) {
+            this.reportError({
+              type: 'network_error',
+              message: `HTTP ${response.status}: ${response.statusText}`,
+              timestamp: Date.now(),
+              userAgent: navigator.userAgent,
+              url
+            });
+          }
         }
         
         return response;
