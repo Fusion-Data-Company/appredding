@@ -164,18 +164,30 @@ const StatCard: React.FC<StatCardProps> = ({ icon, value, label, delay }) => {
   );
 };
 
+interface Stat {
+  icon: React.ReactNode;
+  value: string;
+  label: string;
+}
+
 interface SolarElectricHeroProps {
   children?: ReactNode;
   title1?: string;
   title2?: string;
   subtitle?: string;
+  stats?: Stat[];
 }
 
 const SolarElectricHero: React.FC<SolarElectricHeroProps> = ({ 
   children,
   title1 = "Solar Energy",
   title2 = "Meets Innovation",
-  subtitle = "Harness the power of the sun with cutting-edge electric wave technology. Experience sustainable energy like never before."
+  subtitle = "Harness the power of the sun with cutting-edge electric wave technology. Experience sustainable energy like never before.",
+  stats = [
+    { icon: <Sun className="w-6 h-6" />, value: "500+", label: "Installations" },
+    { icon: <Battery className="w-6 h-6" />, value: "25-Year", label: "Warranty" },
+    { icon: <Zap className="w-6 h-6" />, value: "30%", label: "Avg. Savings" }
+  ]
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -407,24 +419,15 @@ const SolarElectricHero: React.FC<SolarElectricHeroProps> = ({
                 transition={{ duration: 0.8, delay: 0.8 }}
                 className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-10 relative z-10"
               >
-                <StatCard
-                  icon={<Sun className="w-6 h-6" />}
-                  value="99.9%"
-                  label="Solar Efficiency"
-                  delay={0.8}
-                />
-                <StatCard
-                  icon={<Battery className="w-6 h-6" />}
-                  value="24/7"
-                  label="Energy Storage"
-                  delay={1.0}
-                />
-                <StatCard
-                  icon={<Zap className="w-6 h-6" />}
-                  value="100K+"
-                  label="Homes Powered"
-                  delay={1.2}
-                />
+                {stats.map((stat, idx) => (
+                  <StatCard
+                    key={idx}
+                    icon={stat.icon}
+                    value={stat.value}
+                    label={stat.label}
+                    delay={0.8 + idx * 0.2}
+                  />
+                ))}
               </motion.div>
             </div>
           </div>
