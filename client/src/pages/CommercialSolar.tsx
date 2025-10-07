@@ -353,6 +353,11 @@ const CommercialSolar = () => {
         title1="Transform Your Business"
         title2="Operational Excellence"
         subtitle="Enterprise-grade Sol-Ark 30K/60K three-phase systems engineered for California businesses. Slash operational costs, maximize ITC + bonus depreciation, eliminate demand charges, and achieve energy resilience with our proven commercial solar solutions."
+        stats={[
+          { icon: <Building2 className="w-6 h-6" />, value: "60kW", label: "Max System" },
+          { icon: <CircleDollarSign className="w-6 h-6" />, value: "26%", label: "ITC Credit" },
+          { icon: <Award className="w-6 h-6" />, value: "47 Years", label: "In Business" }
+        ]}
       >
         <AwardBadge type="customer-service-excellence" />
       </SolarElectricHero>
