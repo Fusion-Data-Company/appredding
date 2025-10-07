@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
+import { createContext, useContext, useState, ReactNode, useEffect, useRef } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import SolarConsultationForm from '@/components/SolarConsultationForm';
 import { X } from 'lucide-react';
@@ -12,16 +12,22 @@ const FormModalContext = createContext<FormModalContextType | undefined>(undefin
 
 export function FormModalProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
+  const triggerRef = useRef<HTMLElement | null>(null);
 
   const openSolarForm = () => {
+    // Store the currently focused element (the button that opened the modal)
+    triggerRef.current = document.activeElement as HTMLElement;
     setIsOpen(true);
-    // Scroll to top when opening
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 100);
   };
   
-  const closeSolarForm = () => setIsOpen(false);
+  const closeSolarForm = () => {
+    setIsOpen(false);
+    // Restore focus to the trigger element after closing
+    setTimeout(() => {
+      triggerRef.current?.focus();
+      triggerRef.current = null;
+    }, 100);
+  };
 
   // Prevent body scroll when modal is open
   useEffect(() => {
@@ -38,7 +44,11 @@ export function FormModalProvider({ children }: { children: ReactNode }) {
   return (
     <FormModalContext.Provider value={{ openSolarForm, closeSolarForm }}>
       {children}
-      <Dialog open={isOpen} onOpenChange={setIsOpen}>
+      <Dialog open={isOpen} onOpenChange={(open) => {
+        if (!open) {
+          closeSolarForm();
+        }
+      }}>
         <DialogContent 
           className="max-w-5xl w-[95vw] max-h-[95vh] h-auto p-0 gap-0 flex flex-col overflow-hidden"
           style={{
@@ -51,10 +61,14 @@ export function FormModalProvider({ children }: { children: ReactNode }) {
               0 0 100px rgba(59, 130, 246, 0.15)
             `
           }}
+          onEscapeKeyDown={(e) => {
+            e.preventDefault();
+            closeSolarForm();
+          }}
         >
           {/* Premium Close Button */}
           <button
-            onClick={() => setIsOpen(false)}
+            onClick={closeSolarForm}
             className="absolute right-6 top-6 z-50 p-2 rounded-full transition-all duration-300 hover:scale-110"
             style={{
               background: 'rgba(255, 255, 255, 0.1)',
@@ -62,6 +76,7 @@ export function FormModalProvider({ children }: { children: ReactNode }) {
               border: '1px solid rgba(255, 255, 255, 0.2)'
             }}
             data-testid="button-close-form"
+            aria-label="Close form"
           >
             <X className="w-5 h-5 text-white" />
           </button>
