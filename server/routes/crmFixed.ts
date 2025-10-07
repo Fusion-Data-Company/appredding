@@ -615,7 +615,7 @@ router.post("/search-and-chat", async (req, res) => {
           max_tokens: 2048,
           messages: [{
             role: 'user',
-            content: `You are helping with Advance Power of Redding's document archive. Based on these search results, answer the user's question: "${query}"
+            content: `You are helping with Advance Power Redding's document archive. Based on these search results, answer the user's question: "${query}"
 
 Found Documents:
 ${documentSummaries}
@@ -699,7 +699,7 @@ router.post("/document-chat", async (req, res) => {
         messages: [
           {
             role: 'user',
-            content: `You are analyzing a document for Advance Power of Redding, a solar installation company.
+            content: `You are analyzing a document for Advance Power Redding, a solar installation company.
 
 Document: ${document.fileName}
 Category: ${document.documentCategory}

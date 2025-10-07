@@ -88,7 +88,7 @@ export class AdvancedPDFProcessor {
    */
   private async classifyDocument(base64PDF: string, filename: string): Promise<any> {
     const prompt = `
-    You are an expert solar industry document classifier for Advance Power of Redding, a 25+ year solar company.
+    You are an expert solar industry document classifier for Advance Power Redding, a 25+ year solar company.
     
     Analyze this PDF document and classify it with maximum precision. Return JSON with this exact structure:
     

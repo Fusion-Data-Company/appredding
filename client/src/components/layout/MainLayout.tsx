@@ -10,7 +10,7 @@ interface MainLayoutProps {
 }
 
 /**
- * Main layout component for Advance Power of Redding solar company
+ * Main layout component for Advance Power Redding solar company
  */
 export default function MainLayout({ children, className, fullWidth = false }: MainLayoutProps) {
   useEffect(() => {

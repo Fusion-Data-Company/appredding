@@ -45,7 +45,7 @@ const About = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <GradientHeading level={1} className="text-4xl md:text-5xl mb-4" variant="mixed">
-                About Advance Power of Redding
+                About Advance Power Redding
               </GradientHeading>
               <p className="text-lg  text-gray-700 max-w-3xl mx-auto">
                 Excellence in solar energy solutions since 1999, delivering innovative renewable energy systems for Northern California
@@ -81,7 +81,7 @@ const About = () => {
                 </div>
                 <h2 className="text-white font-semibold text-2xl mb-4 font-heading">Our Mission</h2>
                 <p className="text-gray-200 mb-4">
-                  At Advance Power of Redding, our mission is to revolutionize Northern California's energy landscape through 
+                  At Advance Power Redding, our mission is to revolutionize Northern California's energy landscape through 
                   cutting-edge solar technology, exceptional service, and environmental stewardship. We are committed to providing 
                   reliable, cost-effective renewable energy solutions that reduce carbon footprints and energy costs.
                 </p>

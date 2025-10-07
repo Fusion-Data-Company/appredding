@@ -365,7 +365,7 @@ const EnterpriseCARM = () => {
                 </div>
                 <div>
                   <h1 className="text-4xl font-bold text-gray-900 tracking-tight">
-                    Advance Power of Redding CRM
+                    Advance Power Redding CRM
                   </h1>
                   <p className="text-gray-500 mt-1 text-lg">Solar Installation & Repair Company • Customer Relationship Management</p>
                 </div>

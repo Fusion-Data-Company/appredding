@@ -154,7 +154,7 @@ const Footer = () => {
 
             <div className="flex items-center justify-center md:justify-end gap-4">
               <span className="text-white font-medium text-sm">
-                ©2025 Advance Power of Redding
+                ©2025 Advance Power Redding
               </span>
               <Button
                 variant="ghost"

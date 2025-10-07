@@ -117,7 +117,7 @@ router.post("/generate-quote", async (req, res) => {
       },
       validUntil: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000), // 30 days
       generatedAt: new Date(),
-      generatedBy: "Advance Power of Redding"
+      generatedBy: "Advance Power Redding"
     };
 
     res.json({

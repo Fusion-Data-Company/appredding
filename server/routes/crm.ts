@@ -1396,7 +1396,7 @@ router.post("/document-chat", async (req, res) => {
       messages: [
         {
           role: "system",
-          content: `You are an AI assistant helping users understand documents for Advance Power of Redding, a solar installation company. You have access to a document's analysis and content. Answer questions based ONLY on the document content provided. If information isn't in the document, say so clearly.
+          content: `You are an AI assistant helping users understand documents for Advance Power Redding, a solar installation company. You have access to a document's analysis and content. Answer questions based ONLY on the document content provided. If information isn't in the document, say so clearly.
 
 Always provide specific quotes or references when possible, and mention the document location if the user asks about finding the complete document.`
         },
@@ -1476,7 +1476,7 @@ router.post("/search-and-chat", async (req, res) => {
         model: "anthropic/claude-3.5-sonnet:beta",
         messages: [{
           role: "user",
-          content: `Based on these Advance Power of Redding documents, answer the user's question: "${query}"
+          content: `Based on these Advance Power Redding documents, answer the user's question: "${query}"
 
 Documents Found:
 ${relevantDocs.map(doc => `
@@ -1590,7 +1590,7 @@ router.post("/bulk-document-chat", async (req, res) => {
       model: "anthropic/claude-3.5-sonnet:beta",
       messages: [{
         role: "user",
-        content: `Analyze these ${documents.length} Advance Power of Redding documents to answer: "${question}"
+        content: `Analyze these ${documents.length} Advance Power Redding documents to answer: "${question}"
 
 Analysis Type: ${analysisType || 'general'}
 

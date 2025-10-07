@@ -4,7 +4,7 @@ import { eq, like, or, and, desc, asc } from "drizzle-orm";
 import fs from "fs/promises";
 import path from "path";
 
-// Document processing service for Advance Power of Redding
+// Document processing service for Advance Power Redding
 export class DocumentProcessor {
   
   constructor() {

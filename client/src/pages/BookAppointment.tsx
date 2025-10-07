@@ -7,10 +7,10 @@ export default function BookAppointment() {
   return (
     <MainLayout>
       <Helmet>
-        <title>Book Appointment - Free Solar Consultation | Advance Power of Redding</title>
+        <title>Book Appointment - Free Solar Consultation | Advance Power Redding</title>
         <meta 
           name="description" 
-          content="Schedule your free solar consultation with Advance Power of Redding. 25+ years of experience, licensed professionals, and comprehensive solar solutions for Northern California." 
+          content="Schedule your free solar consultation with Advance Power Redding. 25+ years of experience, licensed professionals, and comprehensive solar solutions for Northern California." 
         />
       </Helmet>
 

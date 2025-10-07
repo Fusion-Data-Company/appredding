@@ -134,7 +134,7 @@ export default function AnalyticsDashboard() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-4xl font-bold text-white mb-2">
-              Advance Power of Redding Analytics
+              Advance Power Redding Analytics
             </h1>
             <p className="text-blue-200 text-lg">
               25+ Years of Solar Excellence - Business Intelligence Dashboard

@@ -75,7 +75,7 @@ router.post("/generate-contract", async (req, res) => {
       
       // Company Information
       contractor: {
-        name: "Advance Power of Redding",
+        name: "Advance Power Redding",
         license: "CA Contractor License #XXXXXX",
         address: "Redding, California",
         phone: "(530) XXX-XXXX",

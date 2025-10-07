@@ -126,7 +126,7 @@ const SolarHeroSection = () => {
                 {/* Elite Typography */}
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-6 sm:mb-8 leading-tight tracking-tight">
                   <span className="block text-gray-900 mb-4 drop-shadow-sm">
-                    Advance Power of Redding
+                    Advance Power Redding
                   </span>
                   <span className="block bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 bg-clip-text text-transparent drop-shadow-sm">
                     Solar Solutions
