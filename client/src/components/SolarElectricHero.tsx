@@ -312,9 +312,11 @@ const SolarElectricHero: React.FC<SolarElectricHeroProps> = ({
                       WebkitBackgroundClip: 'text',
                       WebkitTextFillColor: 'transparent',
                       backgroundClip: 'text',
-                      textShadow: '0 0 40px rgba(251, 191, 36, 0.8)',
+                      textShadow: '0 0 60px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.9), 0 4px 8px rgba(255, 255, 255, 0.8), 0 0 80px rgba(251, 191, 36, 0.6)',
+                      WebkitTextStroke: '1px rgba(255, 255, 255, 0.3)',
                       position: 'relative',
-                      zIndex: 9999
+                      zIndex: 9999,
+                      filter: 'drop-shadow(0 0 20px rgba(255, 255, 255, 0.9)) drop-shadow(0 2px 4px rgba(255, 255, 255, 0.8))'
                     }}
                   >
                     {title1}
@@ -327,9 +329,11 @@ const SolarElectricHero: React.FC<SolarElectricHeroProps> = ({
                       WebkitBackgroundClip: 'text',
                       WebkitTextFillColor: 'transparent',
                       backgroundClip: 'text',
-                      textShadow: '0 0 40px rgba(96, 165, 250, 0.8)',
+                      textShadow: '0 0 60px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.9), 0 4px 8px rgba(255, 255, 255, 0.8), 0 0 80px rgba(96, 165, 250, 0.6)',
+                      WebkitTextStroke: '1px rgba(255, 255, 255, 0.3)',
                       position: 'relative',
-                      zIndex: 9999
+                      zIndex: 9999,
+                      filter: 'drop-shadow(0 0 20px rgba(255, 255, 255, 0.9)) drop-shadow(0 2px 4px rgba(255, 255, 255, 0.8))'
                     }}
                   >
                     {title2}
@@ -343,21 +347,25 @@ const SolarElectricHero: React.FC<SolarElectricHeroProps> = ({
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-center text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto mb-12 relative z-[9999]"
-                style={{ color: '#ffffff', position: 'relative', zIndex: 9999 }}
+                style={{ 
+                  color: '#ffffff', 
+                  position: 'relative', 
+                  zIndex: 9999,
+                  textShadow: '0 0 40px rgba(255, 255, 255, 0.8), 0 2px 4px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.5)',
+                  filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.7))'
+                }}
               >
                 {subtitle}
               </motion.p>
-            </div>
-          </div>
 
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20 relative z-[9999]"
-            style={{ position: 'relative', zIndex: 9999 }}
-          >
+              {/* CTA Buttons */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-[9999]"
+                style={{ position: 'relative', zIndex: 9999 }}
+              >
             <Button 
               size="lg" 
               className="group relative overflow-hidden border-0 px-8 py-6 text-lg rounded-full"
@@ -392,7 +400,9 @@ const SolarElectricHero: React.FC<SolarElectricHeroProps> = ({
             >
               Learn More
             </Button>
-          </motion.div>
+              </motion.div>
+            </div>
+          </div>
 
           {/* Stats Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto relative z-[9999]" style={{ position: 'relative', zIndex: 9999 }}>
