@@ -116,7 +116,7 @@ const BatteryStorage = () => {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white mb-6"
               >
-                Battery Storage
+                Energy Independence
               </motion.h1>
 
               {/* Morphing Text Hero */}
@@ -128,11 +128,11 @@ const BatteryStorage = () => {
               >
                 <MorphingText
                   texts={[
-                    "Solar Power",
-                    "Electric Energy",
-                    "Clean Future",
-                    "Sustainable",
-                    "Innovation",
+                    "SGIP Certified",
+                    "SimpliPhi Power",
+                    "LiFePO4 10K Cycles",
+                    "NEM 3.0 Ready",
+                    "Grid Resilience",
                   ]}
                   className="text-orange-500"
                 />
@@ -144,8 +144,7 @@ const BatteryStorage = () => {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-xl md:text-2xl lg:text-3xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed"
               >
-                Harness the power of the sun with cutting-edge solar technology.
-                Transform your energy future today.
+                Premium LiFePO4 battery storage with SGIP rebates up to $1,000/kWh. SimpliPhi, Fortress, and EG4 systems engineered for 10,000+ cycle life and NEM 3.0 optimization. Transform surplus daytime solar into profitable peak-shift arbitrage.
               </motion.p>
 
               <motion.div

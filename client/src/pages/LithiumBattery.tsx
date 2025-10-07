@@ -264,7 +264,7 @@ const LithiumBattery = () => {
                     transition={{ duration: 0.8, delay: 0.4 }}
                     className="text-xl md:text-2xl lg:text-3xl text-white/90 mb-6 leading-relaxed drop-shadow-lg"
                   >
-                    Comprehensive analysis of lithium battery chemistries, applications, and technical specifications for optimal energy storage selection
+                    LiFePO4 chemistry delivers 10,000+ cycles at 100% DOD vs. 3,000 cycles for NMC. API batteries with active BMS balancing ensure 95-98% round-trip efficiency and 270°C thermal runaway protection. UL 9540A certified for residential safety. Chemistry selection impacts 20-year TCO by $15,000-25,000.
                   </motion.p>
 
                   <motion.p
@@ -273,7 +273,7 @@ const LithiumBattery = () => {
                     transition={{ duration: 0.8, delay: 0.5 }}
                     className="text-lg md:text-xl text-yellow-200/80 mb-12 leading-relaxed"
                   >
-                    LiFePO4 • NMC • NCA • LTO Chemistries • BMS Technology • Safety Standards • Manufacturing • Recycling
+                    SimpliPhi PHI 3.5 • Fortress eVault • EG4 PowerPro • Battle Born GC3 • SOC/SOH Telemetry • SGIP Qualification
                   </motion.p>
 
                   <motion.div

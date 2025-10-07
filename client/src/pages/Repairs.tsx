@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Wrench, AlertTriangle, Shield, CheckCircle, Clock, Phone, Zap, Battery, Sun, Settings, Activity, Gauge, ThermometerSun, Cpu, Component, AlertCircle, TrendingDown, DollarSign, FileCheck, Calendar, MapPin, Timer, Search, Tool, Package, Truck, Heart, Users, Award, Star, ChevronRight, ArrowRight, Info, Database, Lock, Eye, Filter, Layers, Grid, Box, Hexagon, Circle, Square, Triangle, Bell, Mail, MessageSquare, Building2, Home, Car, Smartphone, Laptop, Server, HardDrive, Wifi, Radio, Microscope, TestTube, Scale, BookOpen, GraduationCap, Globe, Navigation, Compass, Target, Crosshair, Flame, Droplets, Wind, Cloud, CloudRain, Power, Leaf } from "lucide-react";
+import { Wrench, AlertTriangle, Shield, CheckCircle, Clock, Phone, Zap, Battery, Sun, Settings, Activity, Gauge, ThermometerSun, Cpu, Component, AlertCircle, TrendingDown, DollarSign, FileCheck, Calendar, MapPin, Timer, Search, Package, Truck, Heart, Users, Award, Star, ChevronRight, ArrowRight, Info, Database, Lock, Eye, Filter, Layers, Grid, Box, Hexagon, Circle, Square, Triangle, Bell, Mail, MessageSquare, Building2, Home, Car, Smartphone, Laptop, Server, HardDrive, Wifi, Radio, Microscope, TestTube, Scale, BookOpen, GraduationCap, Globe, Navigation, Compass, Target, Crosshair, Flame, Droplets, Wind, Cloud, CloudRain, Power, Leaf } from "lucide-react";
 import { motion } from "framer-motion";
 import RepairsWaveHero from "@/components/RepairsWaveHero";
 import MainLayout from "@/components/layout/MainLayout";
@@ -23,8 +23,27 @@ const Repairs = () => {
     "areaServed": "Northern California",
     "serviceType": "Solar System Repair"
   };
+  
+  type RepairCategory = {
+    name: string;
+    urgency: string;
+    frequency: string;
+    symptoms: string[];
+    solutions: string[];
+    timeframe: string;
+    cost: string;
+  };
+
+  type RepairCategories = {
+    inverter: RepairCategory;
+    panel: RepairCategory;
+    electrical: RepairCategory;
+    monitoring: RepairCategory;
+    mechanical: RepairCategory;
+  };
+
   const [activeTab, setActiveTab] = useState("diagnostics");
-  const [selectedIssue, setSelectedIssue] = useState("inverter");
+  const [selectedIssue, setSelectedIssue] = useState<keyof RepairCategories>("inverter");
   const [systemHealth, setSystemHealth] = useState(65);
   const [productionLevel, setProductionLevel] = useState(72);
   const [errorCount, setErrorCount] = useState(3);
@@ -51,7 +70,7 @@ const Repairs = () => {
     return () => cancelAnimationFrame(animationFrameId);
   }, []);
 
-  const repairCategories = {
+  const repairCategories: RepairCategories = {
     inverter: {
       name: "Inverter Failures",
       urgency: "Critical",
@@ -173,9 +192,9 @@ const Repairs = () => {
       {/* Repairs Wave Hero Section */}
       <div className="relative">
         <RepairsWaveHero 
-          tagline="Emergency Solar & Electric Repair Services"
+          tagline="Orphaned System Rescue & Emergency Response"
           title="Solar System Repairs"
-          subtitle="Expert repair services for all solar and electrical systems. Our certified technicians provide fast, reliable solutions to get your system back online quickly."
+          subtitle="Rescuing failed solar systems across Shasta County in 7 days or less. Specializing in NEM 3.0 battery retrofits, inverter replacement (Sol-Ark, Enphase, SolarEdge), and micro-inverter diagnostics. We fix what others abandoned."
           stats={[
             { value: "24hr", label: "Emergency Response" },
             { value: "100%", label: "Repair Success Rate" },
@@ -273,7 +292,7 @@ const Repairs = () => {
           </div>
 
           <div className="flex flex-wrap gap-3 mb-6">
-            {Object.keys(repairCategories).map((category, idx) => (
+            {(Object.keys(repairCategories) as Array<keyof RepairCategories>).map((category, idx) => (
               <motion.button
                 key={category}
                 onClick={() => setSelectedIssue(category)}

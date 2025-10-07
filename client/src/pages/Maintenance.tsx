@@ -408,9 +408,9 @@ const Maintenance = () => {
       {/* Maintenance Wave Hero Section */}
       <div className="relative">
         <MaintenanceWaveHero 
-          tagline="Powered by Solar & Electric Innovation"
+          tagline="Preventive Care Maximizes System ROI"
           title="Solar System Maintenance"
-          subtitle="Professional maintenance services to keep your solar system operating at peak performance. Our certified technicians ensure maximum efficiency and longevity for your investment."
+          subtitle="Precision thermal imaging detects hot spots before failure. NABCEP-certified diagnostics identify 15-25% efficiency losses from soiling, shading, and micro-inverter drift. Annual service contracts prevent $3,000-8,000 emergency repairs and protect manufacturer warranties."
           stats={[
             { value: "99.9%", label: "System Uptime" },
             { value: "24/7", label: "Emergency Support" },

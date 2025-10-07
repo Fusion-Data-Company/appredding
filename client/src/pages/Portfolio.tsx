@@ -83,10 +83,10 @@ export default function Portfolio() {
               className="text-center max-w-4xl mx-auto"
             >
               <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/80 to-primary bg-clip-text text-transparent">
-                Our Solar Success Stories
+                Proven Track Record: 1,000+ Systems
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground mb-8">
-                1,000+ Systems Installed Across Northern California
+                From Shasta County rooftops to Trinity Alps commercial arrays. 25+ years delivering Sol-Ark hybrid systems, SGIP battery retrofits, and NEM 3.0 optimization across the North State I-5 corridor. Real installations, measurable ROI, verifiable results.
               </p>
               
               {/* Trust Badges */}

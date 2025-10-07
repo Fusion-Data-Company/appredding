@@ -51,15 +51,15 @@ const Technology = () => {
             <div className="flex flex-col items-center justify-center text-center mb-16">
               <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-900/30 via-blue-900/30 to-amber-900/30 px-4 py-2 rounded-full border border-amber-500/30 text-amber-300 text-sm mb-4">
                 <Sun className="h-4 w-4" />
-                <span>ADVANCED SOLAR TECHNOLOGY</span>
+                <span>ENGINEERED FOR NORTHERN CALIFORNIA EXTREMES</span>
               </div>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-amber-300 via-white to-blue-300 bg-clip-text text-transparent mb-6 leading-tight max-w-4xl">
-                Premium Solar Energy Solutions
+                Enterprise-Grade Solar Technology
               </h1>
               
               <p className="text-gray-300 md:text-lg max-w-3xl mb-8">
-                Advance Power Redding delivers cutting-edge solar technology optimized for Northern California. Our systems feature high-efficiency photovoltaic panels, advanced energy storage, and smart monitoring for maximum performance and savings.
+                Sol-Ark 12K/15K all-in-one hybrid inverters with <10ms transfer time. API LiFePO4 batteries rated for 10,000+ cycles at 100% DOD. N-type TOPCon panels delivering 22%+ efficiency in high-heat conditions. UL 1741-SA certified for PSPS resilience and SGIP incentive qualification.
               </p>
               
               <div className="flex flex-wrap gap-3 justify-center">

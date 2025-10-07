@@ -182,7 +182,7 @@ export default function FluidEnergyHero() {
           >
             <Leaf className="w-4 h-4 text-orange-400" />
           </motion.div>
-          <span>Professional Energy Efficiency Solutions</span>
+          <span>ROI-Driven Energy Efficiency & Load Reduction</span>
         </motion.div>
 
         <motion.h1
@@ -190,10 +190,10 @@ export default function FluidEnergyHero() {
           variants={itemVariants}
           data-testid="hero-title"
         >
-          Harness the Power of
+          Cut Energy Costs
           <br />
           <span className="bg-gradient-to-r from-green-400 via-emerald-500 to-green-400 bg-clip-text text-transparent">
-            Energy Conservation
+            Before Going Solar
           </span>
         </motion.h1>
 
@@ -202,7 +202,7 @@ export default function FluidEnergyHero() {
           variants={itemVariants}
           data-testid="hero-subtitle"
         >
-          Comprehensive energy conservation services to reduce your consumption by 30-50%. Our certified professionals provide energy audits, HVAC optimization, and smart home integration for maximum efficiency.
+          Strategic load reduction maximizes solar ROI by right-sizing your system. BPI-certified energy audits identify 30-50% consumption reductions through attic insulation (R-38+), HVAC upgrades (16+ SEER), and smart thermostat automation. Reduce first, then electrify.
         </motion.p>
 
         <motion.div 
