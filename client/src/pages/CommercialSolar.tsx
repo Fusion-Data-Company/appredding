@@ -115,10 +115,7 @@ const CommercialSolar = () => {
 
   const consultationMutation = useMutation({
     mutationFn: async (data: CommercialSolarFormValues) => {
-      return await apiRequest("/api/commercial-solar/consultation", {
-        method: "POST",
-        data,
-      });
+      return await apiRequest("POST", "/api/commercial-solar/consultation", data);
     },
     onSuccess: () => {
       setShowConsultationForm(false);
