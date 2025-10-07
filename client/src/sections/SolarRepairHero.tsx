@@ -5,7 +5,15 @@ import { motion } from 'framer-motion';
 import { Wrench, Phone, Calendar, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { OptimizedImage } from '@/components/ui/optimized-image';
-import heroBackgroundImage from '@assets/generated_images/4K_solar_panels_hero_background_87aa32c0.png';
+import heroBackgroundImage from '@assets/Rice Photo 1_1759814518987.jpg';
+import ricePhoto1 from '@assets/Rice Photo 1_1759799425958.jpg';
+import gitchellPhoto from '@assets/Gitchell_1759799401459.jpg';
+import radfordPhoto from '@assets/Radford_1759799425938.jpg';
+import landisPhoto from '@assets/Landis_1759799401459.jpg';
+import wilsonArrayPhoto from '@assets/Wilson Array_1759799440933.jpg';
+import gilmerPhoto from '@assets/Gilmer pic_1759799414077.jpg';
+import wrightPhoto from '@assets/Wright_1759799443706.jpg';
+import caseyPhoto from '@assets/Casey 4_1759799408663.jpg';
 
 interface SolarRepairHeroProps {
   tagline?: string;
@@ -29,14 +37,14 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
   },
   backgroundImage = heroBackgroundImage,
   solarImages = [
-    "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400&h=600&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=400&h=600&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1558449028-b53a39d100fc?w=400&h=600&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?w=400&h=600&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1613665813446-82a78c468a1d?w=400&h=600&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1595437193398-f24279553f4f?w=400&h=600&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1545209463-e2825498edbf?w=400&h=600&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=400&h=600&fit=crop&q=80",
+    ricePhoto1,
+    gitchellPhoto,
+    radfordPhoto,
+    landisPhoto,
+    wilsonArrayPhoto,
+    gilmerPhoto,
+    wrightPhoto,
+    caseyPhoto,
   ]
 }) => {
   const featureRef = useRef<HTMLDivElement>(null);

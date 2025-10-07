@@ -25,10 +25,10 @@ import SEOHead from "@/components/SEOHead";
 import SolarRescueTimelineSection from "@/sections/SolarRescueTimelineSection";
 import ContentSection from "@/components/sections/ContentSection";
 import { AwardBadge } from "@/components/ui/award-badge";
-import energyConservationTechniquesImg from "@assets/Advance-Power-Redding-Energy-Conservation-Techniques.jpg";
+import energyConservationTechniquesImg from "@assets/Pump House Off Grid_1759799425938.jpg";
 import gregWithPanelImg from "@assets/Greg-with-panel.jpg";
 import teamEnergyAuditImg from "@assets/400617335_882191187089939_3988264444007076062_n-500x375.jpg";
-import solarEfficiencyEquipmentImg from "@assets/guillherme-schneider-ecIS-bfYSG8-unsplash-300x400.jpg";
+import solarEfficiencyEquipmentImg from "@assets/Power Trailer_1759799420383.jpg";
 
 type EnergyConservationFormValues = z.infer<typeof insertFirePreventionHomeownerSchema>;
 

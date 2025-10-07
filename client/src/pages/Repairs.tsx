@@ -5,10 +5,10 @@ import RepairsWaveHero from "@/components/RepairsWaveHero";
 import MainLayout from "@/components/layout/MainLayout";
 import SEOHead from "@/components/SEOHead";
 import { AwardBadge } from "@/components/ui/award-badge";
-import teamRepairImage from "@assets/98453708_3165453150160953_3940467511501258752_n-298x400.jpg";
+import teamRepairImage from "@assets/100 Yr Old Cabin Off Grid Gets Power 4_1759799414077.jpg";
 import troubleshootingImage from "@assets/400617335_882191187089939_3988264444007076062_n-500x375.jpg";
 import technicianWorkingImage from "@assets/Greg-with-panel.jpg";
-import solarEquipmentImage from "@assets/andreas-gucklhorn-Ilpf2eUPpUE-unsplash-500x375.jpg";
+import solarEquipmentImage from "@assets/Off Grid Power Shed_1759799401459.jpg";
 
 const Repairs = () => {
   const repairsSchema = {

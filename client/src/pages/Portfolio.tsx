@@ -8,9 +8,9 @@ import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import type { PortfolioProject } from "@shared/schema";
 import SEOHead from "@/components/SEOHead";
-import rooftopInstallation from '@assets/360-rooftop-pool-im-sommer.jpg';
+import rooftopInstallation from '@assets/Radford_1759799425938.jpg';
 import projectInstallation from '@assets/491844865_1271014964874224_7004732250107002194_n.jpg';
-import solarArrayImage from '@assets/andreas-gucklhorn-Ilpf2eUPpUE-unsplash-500x375.jpg';
+import solarArrayImage from '@assets/Wilson Array_1759799440933.jpg';
 import teamWithPanel from '@assets/Greg-with-panel.jpg';
 
 type CategoryFilter = "all" | "residential" | "commercial" | "maintenance";

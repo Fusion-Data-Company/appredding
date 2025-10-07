@@ -52,9 +52,9 @@ import { AwardBadge } from "@/components/ui/award-badge";
 import { MorphingText } from "@/components/ui/morphing-text";
 import { Waves } from "@/components/ui/waves";
 import batteryInstallImg from "@assets/Batt-3-300x400.jpg";
-import equipmentInstallImg from "@assets/13-500x500.jpg";
-import teamWorkImg from "@assets/456675C3-88B2-458A-9A1C-A4CDBA825653_4_5005_c.jpeg";
-import solarBatterySystemImg from "@assets/moritz-kindler-gD8IO0E4OZM-unsplash-267x400.jpg";
+import equipmentInstallImg from "@assets/Schmidt Battery page_1759799436499.jpg";
+import teamWorkImg from "@assets/Battery Sales Flyer pic_1759799408663.jpg";
+import solarBatterySystemImg from "@assets/Wolynn_1759799440933.jpg";
 
 const BatteryStorage = () => {
   const [showConsultationForm, setShowConsultationForm] = useState(false);

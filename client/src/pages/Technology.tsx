@@ -8,10 +8,10 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { GradientTracing } from '@/components/ui/gradient-tracing';
-import solarPanelImage from '@assets/guillherme-schneider-ecIS-bfYSG8-unsplash-300x400.jpg';
+import solarPanelImage from '@assets/Landis_1759799401459.jpg';
 import batteryTechImage from '@assets/Batt-3-300x400.jpg';
 import solArkEquipmentImage from '@assets/15K-new-1-e1719430674378-628x1024.webp';
-import installationTechImage from '@assets/Frame-5-500x282.webp';
+import installationTechImage from '@assets/Gilmer pic_1759799414077.jpg';
 
 const Technology = () => {
   return (

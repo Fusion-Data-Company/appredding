@@ -7,6 +7,7 @@ import SEOHead from "@/components/SEOHead";
 import gregWithPanel from "@assets/Greg-with-panel.jpg";
 import teamPhoto from "@assets/400617335_882191187089939_3988264444007076062_n-500x375.jpg";
 import teamWorking from "@assets/491844865_1271014964874224_7004732250107002194_n.jpg";
+import aprLogo from "@assets/APR-Logo-New-300x113.png";
 
 const About = () => {
   const aboutSchema = {
@@ -70,7 +71,7 @@ const About = () => {
                 {/* Company Image */}
                 <div className="flex justify-center mb-6">
                   <img 
-                    src="/images/APR-Logo-White-New-300x222.png" 
+                    src={aprLogo} 
                     alt="Advance Power Redding Company Logo" 
                     className="h-24 w-auto object-contain bg-white p-3 rounded-lg shadow-md"
                     onError={(e) => {

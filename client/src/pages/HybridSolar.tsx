@@ -70,8 +70,8 @@ import ContentSection from "@/components/sections/ContentSection";
 import { GradientTracing } from '@/components/ui/gradient-tracing';
 import { AwardBadge } from "@/components/ui/award-badge";
 import gregWithPanel from '@assets/Greg-with-panel.jpg';
-import solarPanelsImage from '@assets/guillherme-schneider-ecIS-bfYSG8-unsplash-300x400.jpg';
-import installationWork from '@assets/Frame-5-500x282.webp';
+import solarPanelsImage from '@assets/Radford_1759799425938.jpg';
+import installationWork from '@assets/100 Yr Old Cabin Off Grid Gets Power 4_1759799414077.jpg';
 import solArkEquipment from '@assets/15K-new-1-e1719430674378-628x1024.webp';
 
 type HybridSolarFormValues = z.infer<typeof insertFirePreventionHomeownerSchema>;

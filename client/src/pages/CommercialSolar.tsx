@@ -73,10 +73,10 @@ import ServiceCard from "@/components/cards/ServiceCard";
 import TestimonialCard from "@/components/cards/TestimonialCard";
 import { AwardBadge } from "@/components/ui/award-badge";
 
-import teamPreparingEquipment from "@assets/20210121_103322-400x400.jpg";
-import rooftopSolarInstallation from "@assets/360-rooftop-pool-im-sommer.jpg";
-import threePhaseInstallation from "@assets/98453708_3165453150160953_3940467511501258752_n-298x400.jpg";
-import completedSolarArray from "@assets/andreas-gucklhorn-Ilpf2eUPpUE-unsplash-500x375.jpg";
+import teamPreparingEquipment from "@assets/Gitchell 1_1759799401458.jpg";
+import rooftopSolarInstallation from "@assets/Wright_1759799443706.jpg";
+import threePhaseInstallation from "@assets/Rice Battery Pic_1759799425946.jpg";
+import completedSolarArray from "@assets/Rice Photo 1_1759799425958.jpg";
 
 const commercialConsultationSchema = z.object({
   companyName: z.string().min(1, "Company name is required"),

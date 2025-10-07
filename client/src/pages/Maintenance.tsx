@@ -8,7 +8,7 @@ import { AwardBadge } from "@/components/ui/award-badge";
 import gregWithPanelImg from "@assets/Greg-with-panel.jpg";
 import teamMaintenanceImg from "@assets/400617335_882191187089939_3988264444007076062_n-500x375.jpg";
 import onSiteServiceImg from "@assets/491844865_1271014964874224_7004732250107002194_n.jpg";
-import equipmentServicingImg from "@assets/20210121_103322-400x400.jpg";
+import equipmentServicingImg from "@assets/Wilson Battery pic_1759799440933.jpg";
 
 const Maintenance = () => {
   const maintenanceSchema = {

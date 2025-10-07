@@ -1,15 +1,20 @@
 import React from "react"
-
 import { CardCarousel } from "@/components/ui/card-carousel"
+import gitchell1 from "@assets/Gitchell 1_1759799401458.jpg"
+import batterySalesFlyer from "@assets/Battery Sales Flyer pic_1759799408663.jpg"
+import gitchell2 from "@assets/Gitchell 2_1759799401459.jpg"
+import riceBattery from "@assets/Rice Battery Pic_1759799425946.jpg"
+import schmidtBattery from "@assets/Schmidt Battery page_1759799436499.jpg"
+import wolynn from "@assets/Wolynn_1759799440933.jpg"
 
 const CardCarouselDemo = () => {
   const images = [
-    { src: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=500&h=750&fit=crop", alt: "Solar Panel Installation" },
-    { src: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=500&h=750&fit=crop", alt: "Solar Inverter System" },
-    { src: "https://images.unsplash.com/photo-1592210454359-9043f8e06bfb?w=500&h=750&fit=crop", alt: "Battery Storage System" },
-    { src: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=750&fit=crop", alt: "Smart Energy Monitor" },
-    { src: "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=500&h=750&fit=crop", alt: "Solar Roof Installation" },
-    { src: "https://images.unsplash.com/photo-1594736797933-d0d6b0d0d4b0?w=500&h=750&fit=crop", alt: "Electric Vehicle Charging Station" }
+    { src: gitchell1, alt: "Sol-Ark Inverter Installation" },
+    { src: batterySalesFlyer, alt: "Sol-Ark with Battery Storage System" },
+    { src: gitchell2, alt: "Advance Power Battery Installation" },
+    { src: riceBattery, alt: "Sol-Ark Inverter Setup" },
+    { src: schmidtBattery, alt: "Sol-Ark Battery Backup System" },
+    { src: wolynn, alt: "Sol-Ark Hybrid System with Batteries" }
   ]
 
   return (
