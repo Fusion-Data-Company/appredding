@@ -116,7 +116,9 @@ const BatteryStorage = () => {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white mb-6"
               >
-                Energy Independence
+                Premium LiFePO4
+                <br />
+                Battery Storage
               </motion.h1>
 
               {/* Morphing Text Hero */}
