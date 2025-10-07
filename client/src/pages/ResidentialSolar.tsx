@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import MainLayout from "@/components/layout/MainLayout";
-import SolarWaveHero from "@/components/SolarWaveHero";
+import SolarElectricHero from "@/components/SolarElectricHero";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -236,24 +236,13 @@ const ResidentialSolar = () => {
         structuredData={structuredData}
       />
 
-      {/* Solar Wave Hero Section */}
-      <div className="relative">
-        <SolarWaveHero 
-          tagline="Powering the Future with Clean Energy"
-          title="Residential Solar Installation"
-          subtitle="Professional solar installations for Northern California homes. Our founder brings decades of expertise in renewable energy systems, helping Redding families achieve energy independence with premium solar solutions."
-          stats={[
-            { value: "25+", label: "Years Experience" },
-            { value: "1000+", label: "Homes Powered" },
-            { value: "25yr", label: "Warranty" }
-          ]}
-        />
-        
+      {/* Solar Electric Hero Section */}
+      <SolarElectricHero>
         {/* Excellence Award Badge - Top Right */}
         <div className="absolute top-4 right-4 md:top-8 md:right-8 z-20">
           <AwardBadge type="customer-service-excellence" />
         </div>
-      </div>
+      </SolarElectricHero>
 
       {/* Enhanced Solar Engineering Funnel with Expanded Technical Details */}
       <SolarRescueTimelineSection
