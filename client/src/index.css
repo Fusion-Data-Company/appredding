@@ -4448,3 +4448,8 @@ section + section {
     opacity: 0.8;
   }
 }
+
+@keyframes heroGlassShimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}

@@ -147,6 +147,11 @@ const BatteryStorage = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
                   className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white mb-6"
+                  style={{
+                    textShadow: '0 0 60px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.9), 0 4px 8px rgba(255, 255, 255, 0.8)',
+                    WebkitTextStroke: '1px rgba(255, 255, 255, 0.3)',
+                    filter: 'drop-shadow(0 0 20px rgba(255, 255, 255, 0.9)) drop-shadow(0 2px 4px rgba(255, 255, 255, 0.8))'
+                  }}
                 >
                   Premium LiFePO4
                   <br />
@@ -160,16 +165,22 @@ const BatteryStorage = () => {
                   transition={{ duration: 0.8, delay: 0.3 }}
                   className="mb-8"
                 >
-                  <MorphingText
-                    texts={[
-                      "SGIP Certified",
-                      "SimpliPhi Power",
-                      "LiFePO4 10K Cycles",
-                      "NEM 3.0 Ready",
-                      "Grid Resilience",
-                    ]}
-                    className="text-orange-500"
-                  />
+                  <div style={{
+                    textShadow: '0 0 60px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.9), 0 4px 8px rgba(255, 255, 255, 0.8), 0 0 80px rgba(249, 115, 22, 0.6)',
+                    WebkitTextStroke: '1px rgba(255, 255, 255, 0.3)',
+                    filter: 'drop-shadow(0 0 20px rgba(255, 255, 255, 0.9)) drop-shadow(0 2px 4px rgba(255, 255, 255, 0.8))'
+                  }}>
+                    <MorphingText
+                      texts={[
+                        "SGIP Certified",
+                        "SimpliPhi Power",
+                        "LiFePO4 10K Cycles",
+                        "NEM 3.0 Ready",
+                        "Grid Resilience",
+                      ]}
+                      className="text-orange-500"
+                    />
+                  </div>
                 </motion.div>
 
                 <motion.p
@@ -177,18 +188,20 @@ const BatteryStorage = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                   className="text-xl md:text-2xl lg:text-3xl text-white mb-12 max-w-3xl mx-auto leading-relaxed"
+                  style={{
+                    textShadow: '0 0 40px rgba(255, 255, 255, 0.8), 0 2px 4px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.5)',
+                    filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.7))'
+                  }}
                 >
                   Premium LiFePO4 battery storage with SGIP rebates up to $1,000/kWh. SimpliPhi, Fortress, and EG4 systems engineered for 10,000+ cycle life and NEM 3.0 optimization. Transform surplus daytime solar into profitable peak-shift arbitrage.
                 </motion.p>
-              </div>
-            </div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-                className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
-              >
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
+                  className="flex flex-col sm:flex-row items-center justify-center gap-4"
+                >
                 {/* Premium CTA Button */}
                 <button
                   onClick={() => setShowConsultationForm(true)}
@@ -248,8 +261,10 @@ const BatteryStorage = () => {
                     }}
                   />
                 </button>
-              </motion.div>
+                </motion.div>
+              </div>
             </div>
+          </motion.div>
 
             {/* Stats Cards Below Glassomorphic Card */}
             <motion.div
