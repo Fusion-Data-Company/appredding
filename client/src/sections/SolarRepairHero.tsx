@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Wrench, Phone, Calendar } from 'lucide-react';
+import { Wrench, Phone, Calendar, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { OptimizedImage } from '@/components/ui/optimized-image';
 import heroBackgroundImage from '@assets/generated_images/4K_solar_panels_hero_background_87aa32c0.png';
@@ -139,7 +139,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
                   animate={{ rotate: [0, 360] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
                 >
-                  <Wrench className="h-4 w-4 fill-orange-600 text-orange-600" />
+                  <Sun className="h-4 w-4 opacity-90" aria-hidden />
                 </motion.div>
                 {tagline}
               </motion.div>
@@ -161,7 +161,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
                 textShadow: '0 2px 4px rgba(0,0,0,0.3)'
               }}
             >
-              Advance Power of Redding
+              Advance Power Redding
               <br />
               <span className="text-primary">Solar Solutions Experts</span>
             </motion.h1>
@@ -241,7 +241,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
           </div>
         </div>
 
-        <div className="w-full h-48 sm:h-64 md:h-80 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)] mt-24 sm:mt-32 md:mt-40">
+        <div className="w-full h-48 sm:h-64 md:h-80 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)] mt-24 sm:mt-32 md:mt-40 pt-6 md:pt-8">
           <motion.div
             className="flex gap-3 sm:gap-4"
             animate={{
@@ -336,34 +336,48 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
             <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-primary via-orange-500 to-amber-500 bg-clip-text text-transparent">
               Common Solar Panel Issues
             </h2>
-            <div className="relative overflow-hidden rounded-xl p-8 backdrop-blur-sm bg-gradient-to-br from-blue-50 to-cyan-100 dark:from-blue-900/90 dark:to-cyan-800/90 ring-2 ring-cyan-300/80 dark:ring-cyan-600/80 shadow-lg shadow-cyan-200/50 dark:shadow-cyan-900/50 mb-12">
-              <span className="pointer-events-none absolute -right-6 -top-6 inline-flex h-16 w-16 rounded-full bg-white/30 dark:bg-white/10" />
-              <span className="pointer-events-none absolute -right-2 -top-2 inline-flex h-8 w-8 rounded-full bg-white/40 dark:bg-white/15" />
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 pointer-events-none" />
-              
-              <ul className="space-y-4 relative z-10">
-                <li className="flex items-start gap-3 text-blue-900 dark:text-cyan-100">
-                  <span className="text-cyan-700 dark:text-cyan-300 font-bold text-xl leading-none">•</span>
-                  <span className="font-medium">Reduced energy output and efficiency loss</span>
-                </li>
-                <li className="flex items-start gap-3 text-blue-900 dark:text-cyan-100">
-                  <span className="text-cyan-700 dark:text-cyan-300 font-bold text-xl leading-none">•</span>
-                  <span className="font-medium">Physical damage from weather or debris</span>
-                </li>
-                <li className="flex items-start gap-3 text-blue-900 dark:text-cyan-100">
-                  <span className="text-cyan-700 dark:text-cyan-300 font-bold text-xl leading-none">•</span>
-                  <span className="font-medium">Inverter malfunctions and electrical issues</span>
-                </li>
-                <li className="flex items-start gap-3 text-blue-900 dark:text-cyan-100">
-                  <span className="text-cyan-700 dark:text-cyan-300 font-bold text-xl leading-none">•</span>
-                  <span className="font-medium">Wiring problems and connection failures</span>
-                </li>
-                <li className="flex items-start gap-3 text-blue-900 dark:text-cyan-100">
-                  <span className="text-cyan-700 dark:text-cyan-300 font-bold text-xl leading-none">•</span>
-                  <span className="font-medium">Monitoring system errors and communication loss</span>
-                </li>
-              </ul>
-              <div className="bg-cyan-700/40 dark:bg-cyan-300/40 mt-6 h-0.5 w-24 rounded opacity-60" />
+            <div className="relative overflow-hidden rounded-2xl p-6 md:p-8 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_6px_24px_rgba(181,18,18,0.25)] mb-12" style={{ background: 'conic-gradient(from 210deg at 50% 50%, #540808 0%, #7E0B0B 35%, #B51212 60%, #7E0B0B 82%, #540808 100%)' }}>
+              <div className="md:grid md:grid-cols-2 md:gap-6 space-y-6 md:space-y-0">
+                <div className="space-y-1">
+                  <h3 className="font-bold text-white">Reduced energy output & efficiency loss</h3>
+                  <p className="text-white/80 text-sm"><strong>What it looks like:</strong> Gradual drop in daily kWh despite similar weather.</p>
+                  <p className="text-white/80 text-sm"><strong>Likely causes:</strong> Soiling (dust, pollen), heat derating, UV aging.</p>
+                  <p className="text-white/80 text-sm"><strong>Quick check:</strong> Compare panel temp and inverter logs vs. baseline week.</p>
+                  <p className="text-white/80 text-sm"><strong>Fix path:</strong> Schedule cleaning, verify airflow, assess module age vs. warranty.</p>
+                </div>
+
+                <div className="space-y-1">
+                  <h3 className="font-bold text-white">Physical damage from weather or debris</h3>
+                  <p className="text-white/80 text-sm"><strong>What it looks like:</strong> Cracked glass, hot spots, shading from nearby branches.</p>
+                  <p className="text-white/80 text-sm"><strong>Likely causes:</strong> Hail, wind-borne debris, seasonal overgrowth.</p>
+                  <p className="text-white/80 text-sm"><strong>Quick check:</strong> Visual inspection at dawn/dusk; thermal scan if available.</p>
+                  <p className="text-white/80 text-sm"><strong>Fix path:</strong> Trim vegetation, replace compromised modules, add hail guards where appropriate.</p>
+                </div>
+
+                <div className="space-y-1">
+                  <h3 className="font-bold text-white">Inverter malfunctions & electrical issues</h3>
+                  <p className="text-white/80 text-sm"><strong>What it looks like:</strong> Fault codes, nighttime draw, intermittent shutdowns.</p>
+                  <p className="text-white/80 text-sm"><strong>Likely causes:</strong> DC/AC faults, ground issues, failing caps.</p>
+                  <p className="text-white/80 text-sm"><strong>Quick check:</strong> Pull recent fault history; verify string voltages vs. spec.</p>
+                  <p className="text-white/80 text-sm"><strong>Fix path:</strong> Firmware update, tighten lugs, RMA inverter if out of spec.</p>
+                </div>
+
+                <div className="space-y-1">
+                  <h3 className="font-bold text-white">Wiring problems & connection failures</h3>
+                  <p className="text-white/80 text-sm"><strong>What it looks like:</strong> One string underperforming, arc faults, nuisance trips.</p>
+                  <p className="text-white/80 text-sm"><strong>Likely causes:</strong> Loose MC4s, corroded lugs, rodent damage.</p>
+                  <p className="text-white/80 text-sm"><strong>Quick check:</strong> IR temp delta at connectors; continuity tests per string.</p>
+                  <p className="text-white/80 text-sm"><strong>Fix path:</strong> Re-terminate connectors, replace damaged runs, add conduit guards.</p>
+                </div>
+
+                <div className="space-y-1 md:col-span-2">
+                  <h3 className="font-bold text-white">Monitoring errors & communication loss</h3>
+                  <p className="text-white/80 text-sm"><strong>What it looks like:</strong> Data gaps, offline portal, no alerts firing.</p>
+                  <p className="text-white/80 text-sm"><strong>Likely causes:</strong> Gateway power loss, Wi-Fi/LAN issues, API auth lapses.</p>
+                  <p className="text-white/80 text-sm"><strong>Quick check:</strong> Verify gateway LEDs, router logs, DHCP lease.</p>
+                  <p className="text-white/80 text-sm"><strong>Fix path:</strong> Re-provision gateway, pin a static IP, rotate API keys and re-auth.</p>
+                </div>
+              </div>
             </div>
 
             <div className="text-center">
