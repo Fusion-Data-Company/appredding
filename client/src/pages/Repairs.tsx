@@ -190,23 +190,16 @@ const Repairs = () => {
         structuredData={repairsSchema}
       />
       {/* Repairs Wave Hero Section */}
-      <div className="relative">
-        <RepairsWaveHero 
-          tagline="Orphaned System Rescue & Emergency Response"
-          title="Solar System Repairs"
-          subtitle="Rescuing failed solar systems across Shasta County in 7 days or less. Specializing in NEM 3.0 battery retrofits, inverter replacement (Sol-Ark, Enphase, SolarEdge), and micro-inverter diagnostics. We fix what others abandoned."
-          stats={[
-            { value: "24hr", label: "Emergency Response" },
-            { value: "100%", label: "Repair Success Rate" },
-            { value: "25+", label: "Years Experience" }
-          ]}
-        />
-        
-        {/* Excellence Award Badge - Top Right */}
-        <div className="absolute top-4 right-4 md:top-8 md:right-8 z-20">
-          <AwardBadge type="customer-service-excellence" />
-        </div>
-      </div>
+      <RepairsWaveHero 
+        tagline="Orphaned System Rescue & Emergency Response"
+        title="Solar System Repairs"
+        subtitle="Rescuing failed solar systems across Shasta County in 7 days or less. Specializing in NEM 3.0 battery retrofits, inverter replacement (Sol-Ark, Enphase, SolarEdge), and micro-inverter diagnostics. We fix what others abandoned."
+        stats={[
+          { value: "24hr", label: "Emergency Response" },
+          { value: "100%", label: "Repair Success Rate" },
+          { value: "25+", label: "Years Experience" }
+        ]}
+      />
 
 
       <div className="py-16 sm:py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
