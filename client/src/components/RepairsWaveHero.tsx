@@ -349,10 +349,6 @@ const RepairsWaveHero: React.FC<RepairsWaveHeroProps> = ({
 
     return (
         <div className="hero-section relative min-h-screen w-full bg-black overflow-hidden" style={{ position: 'relative', zIndex: 1 }}>
-            {/* Award Badge */}
-            <div className="absolute top-4 right-4 md:top-8 md:right-8 z-50">
-                <AwardBadge type="customer-service-excellence" data-testid="award-badge-repairs" />
-            </div>
             {/* Wave Background */}
             <div className="absolute inset-0 z-0">
                 <Waves
@@ -370,6 +366,16 @@ const RepairsWaveHero: React.FC<RepairsWaveHeroProps> = ({
                 {/* Hero Content */}
                 <div className="flex-1 flex items-start justify-center px-4 pt-24 md:pt-32 pb-16">
                     <div className="container mx-auto max-w-6xl">
+                        {/* Award Badge Centered Above Card */}
+                        <motion.div
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.2 }}
+                            className="flex justify-center mb-6"
+                        >
+                            <AwardBadge type="customer-service-excellence" data-testid="award-badge-repairs" />
+                        </motion.div>
+
                         {/* Premium Glassmorphism Card */}
                         <div className="hero-glass-card">
                             {/* Shimmer Overlay */}
@@ -486,25 +492,23 @@ const RepairsWaveHero: React.FC<RepairsWaveHeroProps> = ({
                                 >
                                     {subtitle}
                                 </motion.p>
+
+                                {/* Stats Inside Card */}
+                                <motion.div 
+                                    className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-10"
+                                    initial={{ opacity: 0, y: 30 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.9, duration: 0.8 }}
+                                >
+                                    {stats.map((stat, index) => (
+                                        <div key={index} className="text-center p-4 sm:p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-yellow-500/20">
+                                            <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-yellow-400 mb-2">{stat.value}</div>
+                                            <div className="text-xs sm:text-sm md:text-base text-gray-400">{stat.label}</div>
+                                        </div>
+                                    ))}
+                                </motion.div>
                             </motion.div>
                         </div>
-
-
-                            {/* Stats */}
-                            <motion.div 
-                                className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 max-w-4xl mx-auto px-4"
-                                initial={{ opacity: 0, y: 30 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.9, duration: 0.8 }}
-                            >
-                                {stats.map((stat, index) => (
-                                    <div key={index} className="text-center p-4 sm:p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-yellow-500/20">
-                                        <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-yellow-400 mb-2">{stat.value}</div>
-                                        <div className="text-xs sm:text-sm md:text-base text-gray-400">{stat.label}</div>
-                                    </div>
-                                ))}
-                            </motion.div>
-                        </motion.div>
                     </div>
                 </div>
 
