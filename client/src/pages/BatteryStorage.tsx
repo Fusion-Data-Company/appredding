@@ -99,7 +99,7 @@ const BatteryStorage = () => {
           <AwardBadge type="customer-service-excellence" />
         </div>
 
-        {/* Hero Content - No Card, Just Text Over Waves */}
+        {/* Hero Content */}
         <div className="relative z-10 w-full">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -107,47 +107,81 @@ const BatteryStorage = () => {
             transition={{ duration: 1 }}
             className="w-full"
           >
-            {/* Content - No Card Background */}
-            <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-12 py-20 text-center">
-              {/* Static Title */}
-              <motion.h1
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white mb-6"
-              >
-                Premium LiFePO4
-                <br />
-                Battery Storage
-              </motion.h1>
+            {/* Premium Glassmorphism Card */}
+            <div className="hero-glass-card max-w-6xl mx-auto">
+              {/* Shimmer Overlay */}
+              <div className="hero-glass-shimmer" />
+              
+              {/* Textured Pattern */}
+              <div className="hero-glass-texture" />
+              
+              {/* Corner Accents */}
+              <div className="hero-glass-corners" />
+              
+              {/* Edge Highlights */}
+              <div className="hero-glass-edge-top" />
+              <div className="hero-glass-edge-bottom" />
+              
+              {/* Floating Particles */}
+              <div className="hero-glass-particles">
+                {[...Array(6)].map((_, i) => (
+                  <div 
+                    key={i}
+                    className="hero-glass-particle"
+                    style={{
+                      left: `${20 + i * 15}%`,
+                      top: `${30 + (i % 2) * 40}%`,
+                      animationDelay: `${i * 0.5}s`,
+                      '--particle-x': `${Math.random() * 100 - 50}px`,
+                      '--particle-y': `${-80 - Math.random() * 40}px`
+                    } as React.CSSProperties}
+                  />
+                ))}
+              </div>
 
-              {/* Morphing Text Hero */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                className="mb-8"
-              >
-                <MorphingText
-                  texts={[
-                    "SGIP Certified",
-                    "SimpliPhi Power",
-                    "LiFePO4 10K Cycles",
-                    "NEM 3.0 Ready",
-                    "Grid Resilience",
-                  ]}
-                  className="text-orange-500"
-                />
-              </motion.div>
+              {/* Card Content */}
+              <div className="relative z-10 text-center">
+                {/* Static Title */}
+                <motion.h1
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white mb-6"
+                >
+                  Premium LiFePO4
+                  <br />
+                  Battery Storage
+                </motion.h1>
 
-              <motion.p
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-xl md:text-2xl lg:text-3xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed"
-              >
-                Premium LiFePO4 battery storage with SGIP rebates up to $1,000/kWh. SimpliPhi, Fortress, and EG4 systems engineered for 10,000+ cycle life and NEM 3.0 optimization. Transform surplus daytime solar into profitable peak-shift arbitrage.
-              </motion.p>
+                {/* Morphing Text Hero */}
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                  className="mb-8"
+                >
+                  <MorphingText
+                    texts={[
+                      "SGIP Certified",
+                      "SimpliPhi Power",
+                      "LiFePO4 10K Cycles",
+                      "NEM 3.0 Ready",
+                      "Grid Resilience",
+                    ]}
+                    className="text-orange-500"
+                  />
+                </motion.div>
+
+                <motion.p
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                  className="text-xl md:text-2xl lg:text-3xl text-white mb-12 max-w-3xl mx-auto leading-relaxed"
+                >
+                  Premium LiFePO4 battery storage with SGIP rebates up to $1,000/kWh. SimpliPhi, Fortress, and EG4 systems engineered for 10,000+ cycle life and NEM 3.0 optimization. Transform surplus daytime solar into profitable peak-shift arbitrage.
+                </motion.p>
+              </div>
+            </div>
 
               <motion.div
                 initial={{ opacity: 0, y: 30 }}

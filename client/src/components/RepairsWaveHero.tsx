@@ -370,74 +370,109 @@ const RepairsWaveHero: React.FC<RepairsWaveHeroProps> = ({
                 {/* Hero Content */}
                 <div className="flex-1 flex items-start justify-center px-4 pt-24 md:pt-32 pb-16">
                     <div className="container mx-auto max-w-6xl">
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8 }}
-                            className="text-center"
-                            style={{
-                                opacity: Math.max(0, 1 - scrollY / 400)
-                            }}
-                        >
-                            {/* Icon Badge */}
+                        {/* Premium Glassmorphism Card */}
+                        <div className="hero-glass-card">
+                            {/* Shimmer Overlay */}
+                            <div className="hero-glass-shimmer" />
+                            
+                            {/* Textured Pattern */}
+                            <div className="hero-glass-texture" />
+                            
+                            {/* Corner Accents */}
+                            <div className="hero-glass-corners" />
+                            
+                            {/* Edge Highlights */}
+                            <div className="hero-glass-edge-top" />
+                            <div className="hero-glass-edge-bottom" />
+                            
+                            {/* Floating Particles */}
+                            <div className="hero-glass-particles">
+                                {[...Array(6)].map((_, i) => (
+                                    <div 
+                                        key={i}
+                                        className="hero-glass-particle"
+                                        style={{
+                                            left: `${20 + i * 15}%`,
+                                            top: `${30 + (i % 2) * 40}%`,
+                                            animationDelay: `${i * 0.5}s`,
+                                            '--particle-x': `${Math.random() * 100 - 50}px`,
+                                            '--particle-y': `${-80 - Math.random() * 40}px`
+                                        } as React.CSSProperties}
+                                    />
+                                ))}
+                            </div>
+
+                            {/* Card Content */}
                             <motion.div
-                                initial={{ opacity: 0, y: 20 }}
+                                initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.8, delay: 0.2 }}
-                                className="badge-elite-metallic badge-solar mx-auto"
+                                transition={{ duration: 0.8 }}
+                                className="text-center relative z-10"
+                                style={{
+                                    opacity: Math.max(0, 1 - scrollY / 400)
+                                }}
                             >
+                                {/* Icon Badge */}
                                 <motion.div
-                                    animate={{ rotate: [0, 360] }}
-                                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.8, delay: 0.2 }}
+                                    className="badge-elite-metallic badge-solar mx-auto"
                                 >
-                                    <Wrench className="h-5 w-5 text-yellow-400" />
+                                    <motion.div
+                                        animate={{ rotate: [0, 360] }}
+                                        transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                                    >
+                                        <Wrench className="h-5 w-5 text-yellow-400" />
+                                    </motion.div>
+                                    <span>{tagline}</span>
+                                    <motion.div
+                                        animate={{ rotate: [0, 360] }}
+                                        transition={{ duration: 3, repeat: Infinity, ease: "linear", delay: 1.5 }}
+                                    >
+                                        <AlertTriangle className="h-5 w-5 text-orange-400" />
+                                    </motion.div>
                                 </motion.div>
-                                <span>{tagline}</span>
+
+                                {/* Icon Group */}
                                 <motion.div
-                                    animate={{ rotate: [0, 360] }}
-                                    transition={{ duration: 3, repeat: Infinity, ease: "linear", delay: 1.5 }}
+                                    className="flex items-center justify-center space-x-4 mb-8"
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{ delay: 0.2, duration: 0.6 }}
                                 >
-                                    <AlertTriangle className="h-5 w-5 text-orange-400" />
+                                    <Sun className="w-12 h-12 text-yellow-400 animate-pulse" />
+                                    <Zap className="w-16 h-16 text-yellow-500" />
+                                    <Battery className="w-12 h-12 text-orange-400 animate-pulse" />
                                 </motion.div>
+
+                                {/* Main Heading */}
+                                <motion.h1
+                                    className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.3, duration: 0.8 }}
+                                >
+                                    <span className="font-extrabold bg-gradient-to-r from-white via-amber-300 to-orange-400 bg-clip-text text-transparent preserve-text-color">
+                                        Solar System Repairs
+                                    </span>
+                                    <br />
+                                    <span className="font-extrabold tracking-wide text-white">
+                                        Advance Power Redding
+                                    </span>
+                                </motion.h1>
+
+                                {/* Subtitle */}
+                                <motion.p 
+                                    className="text-lg sm:text-xl md:text-2xl text-white mb-12 max-w-3xl mx-auto leading-relaxed"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ delay: 0.5, duration: 0.8 }}
+                                >
+                                    {subtitle}
+                                </motion.p>
                             </motion.div>
-
-                            {/* Icon Group */}
-                            <motion.div
-                                className="flex items-center justify-center space-x-4 mb-8"
-                                initial={{ opacity: 0, scale: 0.8 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ delay: 0.2, duration: 0.6 }}
-                            >
-                                <Sun className="w-12 h-12 text-yellow-400 animate-pulse" />
-                                <Zap className="w-16 h-16 text-yellow-500" />
-                                <Battery className="w-12 h-12 text-orange-400 animate-pulse" />
-                            </motion.div>
-
-                            {/* Main Heading */}
-                            <motion.h1
-                                className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.3, duration: 0.8 }}
-                            >
-                                <span className="font-extrabold bg-gradient-to-r from-white via-amber-300 to-orange-400 bg-clip-text text-transparent preserve-text-color">
-                                    Solar System Repairs
-                                </span>
-                                <br />
-                                <span className="font-extrabold tracking-wide text-white">
-                                    Advance Power Redding
-                                </span>
-                            </motion.h1>
-
-                            {/* Subtitle */}
-                            <motion.p 
-                                className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ delay: 0.5, duration: 0.8 }}
-                            >
-                                {subtitle}
-                            </motion.p>
+                        </div>
 
 
                             {/* Stats */}
