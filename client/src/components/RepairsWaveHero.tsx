@@ -325,9 +325,9 @@ const RepairsWaveHero: React.FC<RepairsWaveHeroProps> = ({
   title = "Solar System Repairs",
   subtitle = "Expert repair services for all solar and electrical systems. Our certified technicians provide fast, reliable solutions to get your system back online quickly.",
   stats = [
-    { value: "24hr", label: "Emergency Response" },
-    { value: "100%", label: "Repair Success Rate" },
-    { value: "25+", label: "Years Experience" },
+    { value: "24hr", label: "Response Time" },
+    { value: "47", label: "Years Experience" },
+    { value: "95%", label: "Success Rate" },
   ]
 }) => {
     const [scrollY, setScrollY] = useState(0)
