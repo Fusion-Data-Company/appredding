@@ -242,77 +242,113 @@ const SolarElectricHero: React.FC<SolarElectricHeroProps> = ({
         className="relative z-50 flex flex-col items-center justify-center min-h-screen w-full"
       >
         <div className="w-full px-4 sm:px-6 lg:px-8">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="flex justify-center mb-8"
-          >
-            <div 
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full"
-              style={{
-                background: 'linear-gradient(to right, rgba(245, 158, 11, 0.1), rgba(59, 130, 246, 0.1))',
-                border: '1px solid rgba(245, 158, 11, 0.2)',
-                backdropFilter: 'blur(4px)'
-              }}
-            >
-              <Zap className="w-4 h-4" style={{ color: '#f59e0b' }} />
-              <span className="text-sm font-medium" style={{ color: '#f3f4f6' }}>Powering the Future</span>
+          {/* Premium Glassmorphism Card */}
+          <div className="hero-glass-card max-w-6xl mx-auto">
+            {/* Shimmer Overlay */}
+            <div className="hero-glass-shimmer" />
+            
+            {/* Textured Pattern */}
+            <div className="hero-glass-texture" />
+            
+            {/* Corner Accents */}
+            <div className="hero-glass-corners" />
+            
+            {/* Edge Highlights */}
+            <div className="hero-glass-edge-top" />
+            <div className="hero-glass-edge-bottom" />
+            
+            {/* Floating Particles */}
+            <div className="hero-glass-particles">
+              {[...Array(6)].map((_, i) => (
+                <div 
+                  key={i}
+                  className="hero-glass-particle"
+                  style={{
+                    left: `${20 + i * 15}%`,
+                    top: `${30 + (i % 2) * 40}%`,
+                    animationDelay: `${i * 0.5}s`,
+                    '--particle-x': `${Math.random() * 100 - 50}px`,
+                    '--particle-y': `${-80 - Math.random() * 40}px`
+                  } as React.CSSProperties}
+                />
+              ))}
             </div>
-          </motion.div>
 
-          {/* Main Heading */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-center mb-6 relative z-[9999]"
-          >
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight relative z-[9999]">
-              <span 
-                className="block relative z-[9999]"
-                style={{
-                  color: 'white',
-                  background: 'linear-gradient(to right, #fbbf24, #f97316, #fbbf24)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                  textShadow: '0 0 40px rgba(251, 191, 36, 0.8)',
-                  position: 'relative',
-                  zIndex: 9999
-                }}
+            {/* Card Content */}
+            <div className="relative z-10">
+              {/* Badge */}
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="flex justify-center mb-8"
               >
-                {title1}
-              </span>
-              <span 
-                className="block mt-2 relative z-[9999]"
-                style={{
-                  color: 'white',
-                  background: 'linear-gradient(to right, #60a5fa, #06b6d4, #60a5fa)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                  textShadow: '0 0 40px rgba(96, 165, 250, 0.8)',
-                  position: 'relative',
-                  zIndex: 9999
-                }}
-              >
-                {title2}
-              </span>
-            </h1>
-          </motion.div>
+                <div 
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full"
+                  style={{
+                    background: 'linear-gradient(to right, rgba(245, 158, 11, 0.15), rgba(59, 130, 246, 0.15))',
+                    border: '1px solid rgba(245, 158, 11, 0.3)',
+                    backdropFilter: 'blur(4px)'
+                  }}
+                >
+                  <Zap className="w-4 h-4" style={{ color: '#f59e0b' }} />
+                  <span className="text-sm font-medium" style={{ color: '#ffffff' }}>Powering the Future</span>
+                </div>
+              </motion.div>
 
-          {/* Subheading */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-center text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto mb-12 relative z-[9999]"
-            style={{ color: '#f3f4f6', position: 'relative', zIndex: 9999 }}
-          >
-            {subtitle}
-          </motion.p>
+              {/* Main Heading */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="text-center mb-6 relative z-[9999]"
+              >
+                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight relative z-[9999]">
+                  <span 
+                    className="block relative z-[9999]"
+                    style={{
+                      color: 'white',
+                      background: 'linear-gradient(to right, #fbbf24, #f97316, #fbbf24)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                      textShadow: '0 0 40px rgba(251, 191, 36, 0.8)',
+                      position: 'relative',
+                      zIndex: 9999
+                    }}
+                  >
+                    {title1}
+                  </span>
+                  <span 
+                    className="block mt-2 relative z-[9999]"
+                    style={{
+                      color: 'white',
+                      background: 'linear-gradient(to right, #60a5fa, #06b6d4, #60a5fa)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                      textShadow: '0 0 40px rgba(96, 165, 250, 0.8)',
+                      position: 'relative',
+                      zIndex: 9999
+                    }}
+                  >
+                    {title2}
+                  </span>
+                </h1>
+              </motion.div>
+
+              {/* Subheading */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="text-center text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto mb-12 relative z-[9999]"
+                style={{ color: '#ffffff', position: 'relative', zIndex: 9999 }}
+              >
+                {subtitle}
+              </motion.p>
+            </div>
+          </div>
 
           {/* CTA Buttons */}
           <motion.div
